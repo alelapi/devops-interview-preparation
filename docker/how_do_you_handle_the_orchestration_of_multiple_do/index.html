@@ -937,39 +937,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#answer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-containers-vs-virtual-machines" class="md-nav__link">
-    <span class="md-ellipsis">
-      Docker Containers vs. Virtual Machines
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2030,39 +1997,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#answer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-containers-vs-virtual-machines" class="md-nav__link">
-    <span class="md-ellipsis">
-      Docker Containers vs. Virtual Machines
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2083,31 +2017,172 @@
 
 <h1 id="how-do-you-handle-the-orchestration-of-multiple-docker-containers-to-ensure-smooth-operation-and-coordination">How do you handle the orchestration of multiple Docker containers to ensure smooth operation and coordination?<a class="headerlink" href="#how-do-you-handle-the-orchestration-of-multiple-docker-containers-to-ensure-smooth-operation-and-coordination" title="Permanent link">&para;</a></h1>
 <h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h2 id="answer_1">Answer<a class="headerlink" href="#answer_1" title="Permanent link">&para;</a></h2>
-<h3 id="docker-containers-vs-virtual-machines">Docker Containers vs. Virtual Machines<a class="headerlink" href="#docker-containers-vs-virtual-machines" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Architecture</strong>:</li>
-<li>Docker containers share the host OS kernel, while VMs include a full guest OS.</li>
-<li>
-<p>Containers use lightweight runtimes (e.g., <code>containerd</code>), while VMs require a hypervisor.</p>
-</li>
-<li>
-<p><strong>Resource Utilization</strong>:</p>
-</li>
-<li>Containers are lightweight, starting in seconds, with minimal overhead.</li>
-<li>
-<p>VMs consume more resources as they emulate hardware and run a full OS.</p>
-</li>
-<li>
-<p><strong>Use Cases</strong>:</p>
-</li>
-<li>Containers excel in microservices, ephemeral workloads, and CI/CD.</li>
-<li>VMs are better for running monolithic applications requiring full OS isolation.</li>
-</ol>
-<h3 id="tools">Tools:<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
+<h1 id="handling-orchestration-of-multiple-docker-containers-for-smooth-operation">Handling Orchestration of Multiple Docker Containers for Smooth Operation<a class="headerlink" href="#handling-orchestration-of-multiple-docker-containers-for-smooth-operation" title="Permanent link">&para;</a></h1>
+<p>Orchestrating multiple Docker containers is essential for managing complex applications that consist of many services. Whether you&rsquo;re running microservices, multi-tier applications, or distributed systems, efficient orchestration ensures that containers can communicate, scale, and recover automatically. Docker orchestration tools like Docker Swarm and Kubernetes provide a way to manage, deploy, and scale multiple containers seamlessly.</p>
+<p>This guide covers the key techniques for handling the orchestration of multiple Docker containers to ensure smooth operation and coordination.</p>
+<hr />
+<h2 id="1-using-docker-compose-for-local-orchestration">1. <strong>Using Docker Compose for Local Orchestration</strong><a class="headerlink" href="#1-using-docker-compose-for-local-orchestration" title="Permanent link">&para;</a></h2>
+<h3 id="description">Description:<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
+<p>Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define services, networks, and volumes for an entire application in a single YAML configuration file.</p>
+<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Docker CLI, Docker Compose, Kubernetes for orchestration.</li>
+<li><strong>Declarative Configuration</strong>: You can define the desired state of your application, including services and their dependencies, using a single <code>docker-compose.yml</code> file.</li>
+<li><strong>Service Communication</strong>: Docker Compose automatically creates a network for all containers, allowing them to communicate with each other.</li>
+<li><strong>Easy Management</strong>: With one command (<code>docker-compose up</code>), you can start, stop, and manage all the containers in your application.</li>
 </ul>
+<h3 id="example-docker-composeyml">Example <code>docker-compose.yml</code>:<a class="headerlink" href="#example-docker-composeyml" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">front-end</span>
+<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=db</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">front-end</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">back-end</span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">back-end</span>
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">front-end</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">back-end</span><span class="p">:</span>
+</code></pre></div>
+<p>In this example, three services (<code>web</code>, <code>app</code>, and <code>db</code>) are defined. The <code>web</code> service communicates with the <code>app</code>, and the <code>app</code> communicates with the <code>db</code>. Networks ensure that communication is properly isolated.</p>
+<hr />
+<h2 id="2-scaling-containers-with-docker-swarm">2. <strong>Scaling Containers with Docker Swarm</strong><a class="headerlink" href="#2-scaling-containers-with-docker-swarm" title="Permanent link">&para;</a></h2>
+<h3 id="description_1">Description:<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h3>
+<p>Docker Swarm is Docker&rsquo;s native orchestration tool that allows you to scale and manage a cluster of Docker nodes. It provides high availability and load balancing for your applications by distributing containers across multiple nodes.</p>
+<h3 id="key-features_1">Key Features:<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Cluster Management</strong>: Docker Swarm turns a group of Docker hosts into a single virtual host, managing multiple containers running across different machines.</li>
+<li><strong>Scaling</strong>: You can scale services in Docker Swarm by specifying the number of replicas. Docker Swarm will automatically distribute these replicas across the available nodes.</li>
+<li><strong>High Availability</strong>: If a container fails, Docker Swarm automatically reschedules the container to another healthy node to ensure service availability.</li>
+</ul>
+<h3 id="example-of-scaling-with-docker-swarm">Example of Scaling with Docker Swarm:<a class="headerlink" href="#example-of-scaling-with-docker-swarm" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>service<span class="w"> </span>scale<span class="w"> </span>my-service<span class="o">=</span><span class="m">5</span>
+</code></pre></div>
+<p>This command will scale the <code>my-service</code> service to 5 replicas across the Docker Swarm cluster.</p>
+<hr />
+<h2 id="3-using-kubernetes-for-advanced-orchestration">3. <strong>Using Kubernetes for Advanced Orchestration</strong><a class="headerlink" href="#3-using-kubernetes-for-advanced-orchestration" title="Permanent link">&para;</a></h2>
+<h3 id="description_2">Description:<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h3>
+<p>Kubernetes is an open-source container orchestration platform that provides automated deployment, scaling, and management of containerized applications. It is suitable for managing complex, distributed systems with hundreds or thousands of containers.</p>
+<h3 id="key-features_2">Key Features:<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Pod Management</strong>: Kubernetes groups containers into &ldquo;pods&rdquo; and manages them together. Each pod contains one or more containers, and Kubernetes ensures they run together on the same node.</li>
+<li><strong>Auto-scaling</strong>: Kubernetes automatically scales containers based on resource utilization (e.g., CPU, memory) or custom metrics, ensuring the application can handle increased load without manual intervention.</li>
+<li><strong>Self-healing</strong>: Kubernetes automatically replaces containers that fail or become unresponsive, ensuring continuous availability.</li>
+<li><strong>Load Balancing</strong>: Kubernetes automatically distributes traffic across containers using services, ensuring efficient load balancing.</li>
+</ul>
+<h3 id="example-of-kubernetes-deployment">Example of Kubernetes Deployment:<a class="headerlink" href="#example-of-kubernetes-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-image</span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+</code></pre></div>
+<p>In this example, Kubernetes will deploy 3 replicas of the <code>my-app</code> container, automatically handling traffic distribution and container health.</p>
+<hr />
+<h2 id="4-service-discovery-and-networking">4. <strong>Service Discovery and Networking</strong><a class="headerlink" href="#4-service-discovery-and-networking" title="Permanent link">&para;</a></h2>
+<h3 id="description_3">Description:<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h3>
+<p>When orchestrating multiple containers, service discovery and networking are essential for ensuring that containers can locate and communicate with each other reliably.</p>
+<h3 id="key-features_3">Key Features:<a class="headerlink" href="#key-features_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>DNS-based Service Discovery</strong>: Both Docker Swarm and Kubernetes provide built-in service discovery. Services can be accessed by their name (e.g., <code>db</code>) and Docker or Kubernetes will resolve that name to the correct IP address.</li>
+<li><strong>Internal and External Networking</strong>: You can define both internal and external networks for your containers, controlling how they communicate with each other and the outside world.</li>
+<li><strong>Load Balancing</strong>: Load balancing is automatically managed by both Docker Swarm and Kubernetes, ensuring that traffic is evenly distributed across replicas of a service.</li>
+</ul>
+<h3 id="example-in-kubernetes">Example in Kubernetes:<a class="headerlink" href="#example-in-kubernetes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+</code></pre></div>
+<p>This service exposes the <code>my-app</code> application on port 80, and Kubernetes will load balance traffic between the available replicas of the app.</p>
+<hr />
+<h2 id="5-persistent-storage-in-orchestration">5. <strong>Persistent Storage in Orchestration</strong><a class="headerlink" href="#5-persistent-storage-in-orchestration" title="Permanent link">&para;</a></h2>
+<h3 id="description_4">Description:<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h3>
+<p>Stateful applications (e.g., databases) need persistent storage to retain data across container restarts. Both Docker Swarm and Kubernetes offer mechanisms for attaching persistent storage to containers.</p>
+<h3 id="key-features_4">Key Features:<a class="headerlink" href="#key-features_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Docker Volumes</strong>: Docker supports persistent storage via volumes, which are used to persist data beyond the container lifecycle.</li>
+<li><strong>Kubernetes Persistent Volumes (PV)</strong>: Kubernetes provides a more advanced storage mechanism through Persistent Volumes (PVs) and Persistent Volume Claims (PVCs), allowing storage to be decoupled from the container lifecycle.</li>
+</ul>
+<h3 id="example-of-persistent-volume-in-kubernetes">Example of Persistent Volume in Kubernetes:<a class="headerlink" href="#example-of-persistent-volume-in-kubernetes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolume</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-pv</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">capacity</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+<span class="w">  </span><span class="nt">accessModes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+<span class="w">  </span><span class="nt">hostPath</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-pvc</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+</code></pre></div>
+<p>This configuration defines a Persistent Volume that can be used by containers in the Kubernetes cluster to store data persistently.</p>
+<hr />
+<h2 id="6-monitoring-and-logging">6. <strong>Monitoring and Logging</strong><a class="headerlink" href="#6-monitoring-and-logging" title="Permanent link">&para;</a></h2>
+<h3 id="description_5">Description:<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h3>
+<p>Effective orchestration requires robust monitoring and logging solutions to ensure smooth operation and to identify issues early.</p>
+<h3 id="key-features_5">Key Features:<a class="headerlink" href="#key-features_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Centralized Logging</strong>: Tools like <strong>ELK Stack</strong> (Elasticsearch, Logstash, and Kibana) or <strong>Fluentd</strong> can be used to aggregate logs from multiple containers for easier troubleshooting.</li>
+<li><strong>Metrics and Alerts</strong>: Tools like <strong>Prometheus</strong> and <strong>Grafana</strong> can be integrated into Docker Swarm and Kubernetes to collect performance metrics and set up alerts based on predefined thresholds.</li>
+<li><strong>Health Checks</strong>: Docker Swarm and Kubernetes both support container health checks. These checks ensure that containers are healthy and automatically replace unhealthy containers.</li>
+</ul>
+<hr />
+<h2 id="7-handling-failures-and-recovery">7. <strong>Handling Failures and Recovery</strong><a class="headerlink" href="#7-handling-failures-and-recovery" title="Permanent link">&para;</a></h2>
+<h3 id="description_6">Description:<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h3>
+<p>Orchestrating multiple containers includes ensuring high availability and automatic recovery when failures occur. Docker Swarm and Kubernetes are designed to handle container failures and reschedule them as needed.</p>
+<h3 id="key-features_6">Key Features:<a class="headerlink" href="#key-features_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Automatic Rescheduling</strong>: If a container fails, Docker Swarm and Kubernetes automatically restart the container or reschedule it to a healthy node.</li>
+<li><strong>High Availability</strong>: By running multiple replicas of a service and spreading them across different nodes, Docker Swarm and Kubernetes ensure that applications remain available even if a node fails.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Orchestrating multiple Docker containers is critical for managing complex applications, ensuring scalability, availability, and fault tolerance. Docker Swarm and Kubernetes provide powerful tools for automating container deployment, scaling, networking, and storage. By using these orchestration platforms, you can ensure that containers are efficiently managed, resilient to failures, and able to handle high-demand workloads while maintaining smooth coordination across services.</p>
 
 
 
@@ -2138,6 +2213,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../how_would_you_secure_docker_containers_in_a_produc/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you secure Docker containers in a production environment?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                How would you secure Docker containers in a production environment?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-footer__link md-footer__link--next" aria-label="Next: Can you describe how you&amp;rsquo;d implement CI/CD using Docker?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Can you describe how you&rsquo;d implement CI/CD using Docker?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -2160,7 +2275,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>

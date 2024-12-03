@@ -811,39 +811,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#answer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-containers-vs-virtual-machines" class="md-nav__link">
-    <span class="md-ellipsis">
-      Docker Containers vs. Virtual Machines
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2030,39 +1997,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#answer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-containers-vs-virtual-machines" class="md-nav__link">
-    <span class="md-ellipsis">
-      Docker Containers vs. Virtual Machines
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tools:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2083,31 +2017,167 @@
 
 <h1 id="how-would-you-design-and-implement-a-docker-based-microservices-architecture-for-scalability-and-fault-tolerance">How would you design and implement a Docker-based microservices architecture for scalability and fault tolerance?<a class="headerlink" href="#how-would-you-design-and-implement-a-docker-based-microservices-architecture-for-scalability-and-fault-tolerance" title="Permanent link">&para;</a></h1>
 <h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h2 id="answer_1">Answer<a class="headerlink" href="#answer_1" title="Permanent link">&para;</a></h2>
-<h3 id="docker-containers-vs-virtual-machines">Docker Containers vs. Virtual Machines<a class="headerlink" href="#docker-containers-vs-virtual-machines" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Architecture</strong>:</li>
-<li>Docker containers share the host OS kernel, while VMs include a full guest OS.</li>
-<li>
-<p>Containers use lightweight runtimes (e.g., <code>containerd</code>), while VMs require a hypervisor.</p>
-</li>
-<li>
-<p><strong>Resource Utilization</strong>:</p>
-</li>
-<li>Containers are lightweight, starting in seconds, with minimal overhead.</li>
-<li>
-<p>VMs consume more resources as they emulate hardware and run a full OS.</p>
-</li>
-<li>
-<p><strong>Use Cases</strong>:</p>
-</li>
-<li>Containers excel in microservices, ephemeral workloads, and CI/CD.</li>
-<li>VMs are better for running monolithic applications requiring full OS isolation.</li>
-</ol>
-<h3 id="tools">Tools:<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
+<h1 id="designing-and-implementing-a-docker-based-microservices-architecture-for-scalability-and-fault-tolerance">Designing and Implementing a Docker-Based Microservices Architecture for Scalability and Fault Tolerance<a class="headerlink" href="#designing-and-implementing-a-docker-based-microservices-architecture-for-scalability-and-fault-tolerance" title="Permanent link">&para;</a></h1>
+<p>Microservices architecture enables the development of distributed, loosely coupled applications that can scale independently. Docker is a perfect fit for deploying microservices, as it provides lightweight, isolated containers that are easy to deploy, manage, and scale. By leveraging Docker, we can design a microservices architecture that ensures scalability, fault tolerance, and high availability.</p>
+<p>This guide outlines how to design and implement a Docker-based microservices architecture for scalability and fault tolerance.</p>
+<hr />
+<h2 id="1-key-principles-of-a-docker-based-microservices-architecture">1. <strong>Key Principles of a Docker-Based Microservices Architecture</strong><a class="headerlink" href="#1-key-principles-of-a-docker-based-microservices-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="description">Description:<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
+<p>A microservices architecture is built on the principles of small, independent services that interact with each other via APIs. Each service is responsible for a specific functionality and can be developed, deployed, and scaled independently.</p>
+<h3 id="key-principles">Key Principles:<a class="headerlink" href="#key-principles" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Docker CLI, Docker Compose, Kubernetes for orchestration.</li>
+<li><strong>Decoupling</strong>: Each microservice is decoupled from the others, making it possible to scale and deploy services independently.</li>
+<li><strong>Containerization</strong>: Docker containers encapsulate each microservice along with its dependencies, ensuring that each service can be deployed in any environment without compatibility issues.</li>
+<li><strong>Stateless Services</strong>: Microservices are typically designed to be stateless, ensuring that they can be easily scaled up or down without losing data.</li>
+<li><strong>Service Communication</strong>: Microservices communicate via lightweight protocols such as HTTP/REST, gRPC, or messaging queues like Kafka or RabbitMQ.</li>
 </ul>
+<hr />
+<h2 id="2-designing-the-microservices-architecture-with-docker">2. <strong>Designing the Microservices Architecture with Docker</strong><a class="headerlink" href="#2-designing-the-microservices-architecture-with-docker" title="Permanent link">&para;</a></h2>
+<h3 id="description_1">Description:<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h3>
+<p>To implement a Docker-based microservices architecture, we need to design multiple containers, each hosting a microservice. These containers should be able to communicate with each other and scale independently based on demand.</p>
+<h3 id="key-components">Key Components:<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Services</strong>: Each microservice is packaged into a Docker container and is responsible for specific business functionality.</li>
+<li><strong>API Gateway</strong>: An API gateway acts as a reverse proxy to route requests to the appropriate microservices.</li>
+<li><strong>Service Discovery</strong>: Service discovery tools such as Consul, Eureka, or Kubernetes can be used to allow services to find each other dynamically.</li>
+<li><strong>Databases</strong>: Microservices often need to interact with databases. Each service may have its own database, or databases can be shared, depending on the architecture choice.</li>
+</ul>
+<h3 id="example-docker-compose-for-multi-service-microservices-architecture">Example: Docker Compose for Multi-Service Microservices Architecture<a class="headerlink" href="#example-docker-compose-for-multi-service-microservices-architecture" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api-gateway</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-gateway:latest</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microservices-network</span>
+<span class="w">  </span><span class="nt">auth-service</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auth-service:latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=auth-db</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microservices-network</span>
+<span class="w">  </span><span class="nt">user-service</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service:latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=user-db</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microservices-network</span>
+<span class="w">  </span><span class="nt">auth-db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD=secret</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microservices-network</span>
+<span class="w">  </span><span class="nt">user-db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:latest</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=rootpassword</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microservices-network</span>
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">microservices-network</span><span class="p">:</span>
+</code></pre></div>
+<p>In this example:</p>
+<ul>
+<li><strong>API Gateway</strong> handles incoming requests and forwards them to the appropriate service (<code>auth-service</code>, <code>user-service</code>).</li>
+<li><strong>Microservices</strong> are packaged as Docker containers, and each service has its own database.</li>
+<li>The <strong><code>microservices-network</code></strong> network allows containers to communicate with each other.</li>
+</ul>
+<hr />
+<h2 id="3-scaling-microservices-with-docker">3. <strong>Scaling Microservices with Docker</strong><a class="headerlink" href="#3-scaling-microservices-with-docker" title="Permanent link">&para;</a></h2>
+<h3 id="description_2">Description:<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h3>
+<p>Docker provides the ability to scale microservices horizontally by adding more instances (containers) as needed. The goal is to handle increased traffic by spinning up additional containers for specific microservices.</p>
+<h3 id="key-practices">Key Practices:<a class="headerlink" href="#key-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Horizontal Scaling</strong>: By running multiple replicas of a service, Docker can distribute the traffic among the replicas to ensure high availability.</li>
+<li><strong>Load Balancing</strong>: Load balancers like <strong>NGINX</strong>, <strong>HAProxy</strong>, or built-in load balancing in orchestration platforms like <strong>Docker Swarm</strong> and <strong>Kubernetes</strong> can be used to distribute requests to multiple instances of a microservice.</li>
+<li><strong>Auto-Scaling</strong>: In container orchestration platforms like Kubernetes, auto-scaling can be configured based on resource utilization (CPU, memory) or custom metrics.</li>
+</ul>
+<h3 id="example-scaling-services-with-docker-compose">Example: Scaling Services with Docker Compose<a class="headerlink" href="#example-scaling-services-with-docker-compose" title="Permanent link">&para;</a></h3>
+<p>You can scale a service by using the <code>docker-compose up --scale</code> command:</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>--scale<span class="w"> </span>user-service<span class="o">=</span><span class="m">3</span>
+</code></pre></div>
+<p>This command scales the <code>user-service</code> to 3 replicas, ensuring it can handle more traffic.</p>
+<hr />
+<h2 id="4-implementing-fault-tolerance-in-docker-microservices">4. <strong>Implementing Fault Tolerance in Docker Microservices</strong><a class="headerlink" href="#4-implementing-fault-tolerance-in-docker-microservices" title="Permanent link">&para;</a></h2>
+<h3 id="description_3">Description:<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h3>
+<p>Fault tolerance ensures that your system remains operational even in the event of failures. Docker microservices architecture can be designed for fault tolerance by using mechanisms such as redundancy, retries, and circuit breakers.</p>
+<h3 id="key-techniques">Key Techniques:<a class="headerlink" href="#key-techniques" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Redundancy</strong>: By running multiple replicas of each microservice, you ensure that if one replica fails, the other replicas can continue to handle traffic.</li>
+<li><strong>Health Checks</strong>: Docker supports health checks, which can be used to detect failed containers and automatically restart them.</li>
+<li><strong>Retries and Circuit Breakers</strong>: Implement retry logic and circuit breakers in your microservices to handle transient errors and prevent cascading failures.</li>
+<li><strong>Distributed Tracing and Logging</strong>: Tools like <strong>Jaeger</strong> and <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) can be used for monitoring and tracing service failures in a distributed environment.</li>
+</ul>
+<h3 id="example-docker-health-checks">Example: Docker Health Checks<a class="headerlink" href="#example-docker-health-checks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:alpine</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>install
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;npm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+
+<span class="k">HEALTHCHECK</span><span class="w"> </span>--interval<span class="o">=</span>30s<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w">   </span><span class="k">CMD</span><span class="w"> </span>curl<span class="w"> </span>--fail<span class="w"> </span>http://localhost:8080/health<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p>This health check will ensure that the container is healthy by checking the <code>/health</code> endpoint of the application. If the container is unhealthy, Docker will automatically restart it.</p>
+<hr />
+<h2 id="5-using-docker-orchestration-for-management-and-fault-tolerance">5. <strong>Using Docker Orchestration for Management and Fault Tolerance</strong><a class="headerlink" href="#5-using-docker-orchestration-for-management-and-fault-tolerance" title="Permanent link">&para;</a></h2>
+<h3 id="description_4">Description:<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h3>
+<p>Docker orchestration tools such as <strong>Docker Swarm</strong> and <strong>Kubernetes</strong> provide advanced capabilities for managing, scaling, and ensuring high availability of microservices in production.</p>
+<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Self-Healing</strong>: Both Docker Swarm and Kubernetes can detect container failures and restart them automatically, ensuring high availability.</li>
+<li><strong>Service Discovery</strong>: These platforms offer built-in service discovery, so services can find and communicate with each other dynamically without needing static IPs.</li>
+<li><strong>Rolling Updates</strong>: Orchestration tools allow for rolling updates, which deploy new versions of services incrementally, reducing downtime.</li>
+</ul>
+<h3 id="example-kubernetes-deployment-with-self-healing">Example: Kubernetes Deployment with Self-Healing<a class="headerlink" href="#example-kubernetes-deployment-with-self-healing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service</span>
+<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user-service:latest</span>
+<span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">          </span><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/health</span>
+<span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">            </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">            </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</code></pre></div>
+<p>In this example:</p>
+<ul>
+<li>Kubernetes automatically manages 3 replicas of <code>user-service</code>, ensuring high availability.</li>
+<li>The <strong>liveness probe</strong> checks the health of each replica and restarts it if necessary.</li>
+</ul>
+<hr />
+<h2 id="6-monitoring-and-logging-for-microservices">6. <strong>Monitoring and Logging for Microservices</strong><a class="headerlink" href="#6-monitoring-and-logging-for-microservices" title="Permanent link">&para;</a></h2>
+<h3 id="description_5">Description:<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h3>
+<p>Monitoring and logging are essential for tracking the health and performance of your microservices. By collecting metrics and logs, you can quickly detect issues and improve fault tolerance.</p>
+<h3 id="key-tools">Key Tools:<a class="headerlink" href="#key-tools" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Prometheus</strong>: A monitoring and alerting toolkit that can collect metrics from running containers.</li>
+<li><strong>Grafana</strong>: A visualization tool that integrates with Prometheus to display performance metrics in real-time.</li>
+<li><strong>ELK Stack</strong>: Elasticsearch, Logstash, and Kibana (ELK) is a popular toolset for collecting, storing, and visualizing logs from all containers in your microservices architecture.</li>
+<li><strong>Jaeger</strong>: Distributed tracing tool to track requests as they traverse different microservices.</li>
+</ul>
+<h3 id="example-prometheus-metrics-in-kubernetes">Example: Prometheus Metrics in Kubernetes<a class="headerlink" href="#example-prometheus-metrics-in-kubernetes" title="Permanent link">&para;</a></h3>
+<p>You can deploy Prometheus in Kubernetes to scrape metrics from your containers and monitor their performance.</p>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Designing and implementing a Docker-based microservices architecture involves creating scalable, fault-tolerant systems that can handle growing traffic and ensure high availability. By leveraging Docker’s containerization, Docker Compose for local orchestration, and Docker Swarm or Kubernetes for production-level orchestration, you can create an efficient and resilient microservices architecture. Additionally, using redundancy, health checks, and monitoring tools helps maintain the health and availability of your microservices.</p>
 
 
 
@@ -2138,6 +2208,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../can_you_explain_how_docker_containers_differ_from_/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Can you explain how Docker containers differ from virtual machines in terms of architecture and resource utilization?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Can you explain how Docker containers differ from virtual machines in terms of architecture and resource utilization?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-footer__link md-footer__link--next" aria-label="Next: How do you optimize Docker images to reduce size and improve efficiency?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                How do you optimize Docker images to reduce size and improve efficiency?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -2160,7 +2270,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
