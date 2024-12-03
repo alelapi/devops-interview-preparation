@@ -6,15 +6,15 @@ Below is an index linking to the various topics and questions addressed in this 
 
 ## CI/CD
 
-- [How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?](ci/cd/how_would_you_handle_a_complex_rollback_scenario_i.md)
-- [Can you discuss potential challenges in implementing CI/CD pipelines and how you'd address them?](ci/cd/can_you_discuss_potential_challenges_in_implementi.md)
-- [How do you handle version control in CI/CD pipelines to ensure smooth collaboration and integration?](ci/cd/how_do_you_handle_version_control_in_ci_cd_pipelin.md)
-- [How would you ensure security and compliance throughout the CI/CD pipeline?](ci/cd/how_would_you_ensure_security_and_compliance_throu.md)
-- [How can you monitor and maintain the performance of your CI/CD pipelines over time?](ci/cd/how_can_you_monitor_and_maintain_the_performance_o.md)
-- [How do you manage dependencies in CI/CD pipelines to ensure reliable and consistent builds?](ci/cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_.md)
-- [How can you handle continuous testing in a CI/CD pipeline to ensure quality at every stage?](ci/cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p.md)
-- [How would you integrate automated security checks within a CI/CD pipeline?](ci/cd/how_would_you_integrate_automated_security_checks_.md)
-- [What techniques would you use to ensure zero-downtime deployments in a CI/CD pipeline?](ci/cd/what_techniques_would_you_use_to_ensure_zero-downt.md)
+- [How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?](ci-cd/how_would_you_handle_a_complex_rollback_scenario_i.md)
+- [Can you discuss potential challenges in implementing CI/CD pipelines and how you'd address them?](ci-cd/can_you_discuss_potential_challenges_in_implementi.md)
+- [How do you handle version control in CI/CD pipelines to ensure smooth collaboration and integration?](ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin.md)
+- [How would you ensure security and compliance throughout the CI/CD pipeline?](ci-cd/how_would_you_ensure_security_and_compliance_throu.md)
+- [How can you monitor and maintain the performance of your CI/CD pipelines over time?](ci-cd/how_can_you_monitor_and_maintain_the_performance_o.md)
+- [How do you manage dependencies in CI/CD pipelines to ensure reliable and consistent builds?](ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_.md)
+- [How can you handle continuous testing in a CI/CD pipeline to ensure quality at every stage?](ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p.md)
+- [How would you integrate automated security checks within a CI/CD pipeline?](ci-cd/how_would_you_integrate_automated_security_checks_.md)
+- [What techniques would you use to ensure zero-downtime deployments in a CI/CD pipeline?](ci-cd/what_techniques_would_you_use_to_ensure_zero-downt.md)
 
 ## Docker
 
