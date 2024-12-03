@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../how_would_you_use_nagios_for_monitoring_to_ensure_/">
+        <link rel="prev" href="../how_would_you_leverage_prometheus_for_alerting_to_/">
       
       
         <link rel="next" href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/">
@@ -1398,8 +1398,6 @@
       
         
       
-        
-      
     
     
       
@@ -1447,7 +1445,7 @@
         
   
   <span class="md-ellipsis">
-    How would you ensure high availability and reliability using monitoring tools like Prometheus, Grafana, or Nagios?
+    How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?
   </span>
   
 
@@ -1468,7 +1466,7 @@
         
   
   <span class="md-ellipsis">
-    How would you design a system for real-time monitoring and alerting using tools like Prometheus, Grafana, or Nagios?
+    How would you design a system for real-time monitoring and alerting using tools like Prometheus or Grafana?
   </span>
   
 
@@ -1566,27 +1564,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_use_nagios_for_monitoring_to_ensure_/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How would you use Nagios for monitoring to ensure the uptime and performance of critical infrastructure?
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1641,39 +1618,6 @@
       Answer
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#answer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#monitoring-and-alerting-for-high-availability" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Alerting for High Availability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2030,39 +1974,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#answer_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#monitoring-and-alerting-for-high-availability" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Alerting for High Availability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2083,31 +1994,187 @@
 
 <h1 id="how-would-you-incorporate-monitoring-frameworks-in-a-distributed-system-to-detect-and-resolve-issues-proactively">How would you incorporate monitoring frameworks in a distributed system to detect and resolve issues proactively?<a class="headerlink" href="#how-would-you-incorporate-monitoring-frameworks-in-a-distributed-system-to-detect-and-resolve-issues-proactively" title="Permanent link">&para;</a></h1>
 <h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h2 id="answer_1">Answer<a class="headerlink" href="#answer_1" title="Permanent link">&para;</a></h2>
-<h3 id="monitoring-and-alerting-for-high-availability">Monitoring and Alerting for High Availability<a class="headerlink" href="#monitoring-and-alerting-for-high-availability" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Key Metrics</strong>:</li>
-<li>
-<p>Monitor CPU, memory, disk usage, latency, and error rates.</p>
-</li>
-<li>
-<p><strong>Tools</strong>:</p>
-</li>
-<li><strong>Prometheus</strong>: Collects and queries time-series data.</li>
-<li><strong>Grafana</strong>: Visualizes metrics on customizable dashboards.</li>
-<li>
-<p><strong>Nagios</strong>: Monitors uptime and critical infrastructure.</p>
-</li>
-<li>
-<p><strong>Alerting Strategies</strong>:</p>
-</li>
-<li>Set thresholds for critical metrics.</li>
-<li>Use tools like PagerDuty for escalations.</li>
-</ol>
-<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<h1 id="incorporating-monitoring-frameworks-in-a-distributed-system-to-detect-and-resolve-issues-proactively">Incorporating Monitoring Frameworks in a Distributed System to Detect and Resolve Issues Proactively<a class="headerlink" href="#incorporating-monitoring-frameworks-in-a-distributed-system-to-detect-and-resolve-issues-proactively" title="Permanent link">&para;</a></h1>
+<p>In a <strong>distributed system</strong>, monitoring is crucial for ensuring system health, performance, and reliability. Given the complexity and scale of distributed systems, it&rsquo;s essential to incorporate robust <strong>monitoring frameworks</strong> to detect issues early and respond proactively. The following strategies outline how to incorporate monitoring in distributed systems using various tools and frameworks.</p>
+<h2 id="1-key-monitoring-components-for-distributed-systems">1. <strong>Key Monitoring Components for Distributed Systems</strong><a class="headerlink" href="#1-key-monitoring-components-for-distributed-systems" title="Permanent link">&para;</a></h2>
+<p>To effectively monitor a distributed system, the monitoring framework should include the following key components:</p>
+<h3 id="11-distributed-tracing"><strong>1.1 Distributed Tracing</strong><a class="headerlink" href="#11-distributed-tracing" title="Permanent link">&para;</a></h3>
+<p>Distributed tracing enables you to track requests as they traverse multiple services in a distributed system. It allows you to identify performance bottlenecks and failures, providing insight into how individual services interact.</p>
+<p><strong>Tools:</strong></p>
 <ul>
-<li>Set up Prometheus to monitor Kubernetes pods and Grafana for dashboards.</li>
+<li><strong>Jaeger</strong>: Open-source, highly scalable distributed tracing system.</li>
+<li><strong>Zipkin</strong>: A distributed tracing system for gathering performance data.</li>
+<li><strong>OpenTelemetry</strong>: An open-source observability framework that supports distributed tracing and integrates with multiple backends.</li>
 </ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Use <strong>tracing libraries</strong> in each service to capture request metadata and correlate traces across microservices.</li>
+<li>Implement <strong>context propagation</strong> to ensure tracing data flows seamlessly across service boundaries.</li>
+</ul>
+<p><strong>Example Integration (Jaeger with Spring Boot)</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">spring</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">zipkin</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">base-url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://jaeger:5775</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">sleuth</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">sampler</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">probability</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
+</code></pre></div>
+<h3 id="12-metrics-collection-and-visualization"><strong>1.2 Metrics Collection and Visualization</strong><a class="headerlink" href="#12-metrics-collection-and-visualization" title="Permanent link">&para;</a></h3>
+<p>Metrics provide quantitative data that describes the behavior of a system. By collecting and visualizing metrics, you can detect trends, anomalies, and bottlenecks before they become issues.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Prometheus</strong>: Open-source monitoring and alerting toolkit designed for reliability and scalability.</li>
+<li><strong>Grafana</strong>: Visualization tool that integrates with Prometheus and other data sources to create interactive dashboards.</li>
+<li><strong>StatsD</strong>: A simple, powerful network daemon for collecting and sending metrics to different storage backends.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Collect <strong>key performance metrics</strong> (e.g., latency, throughput, error rates) for each service.</li>
+<li>Use <strong>aggregated dashboards</strong> to visualize metrics from multiple services in real-time.</li>
+</ul>
+<p><strong>Example Prometheus Metric Collection</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">scrape_configs</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;distributed-system&quot;</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;service1:8080&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;service2:8080&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<h3 id="13-log-aggregation-and-analysis"><strong>1.3 Log Aggregation and Analysis</strong><a class="headerlink" href="#13-log-aggregation-and-analysis" title="Permanent link">&para;</a></h3>
+<p>Log data helps in diagnosing issues, tracing errors, and understanding system behavior over time. A centralized log aggregation system makes it easier to analyze logs from all services in a distributed system.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>ELK Stack (Elasticsearch, Logstash, Kibana)</strong>: Widely used stack for log aggregation, search, and analysis.</li>
+<li><strong>Fluentd</strong>: Open-source data collector for unified logging.</li>
+<li><strong>Graylog</strong>: A log management platform for centralizing log data.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Use structured logging (JSON, key-value pairs) for consistency.</li>
+<li>Implement <strong>log forwarding</strong> from all services to a central log management system.</li>
+</ul>
+<p><strong>Example Fluentd Configuration</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">&lt;source&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">@type forward</span>
+<span class="l l-Scalar l-Scalar-Plain">port 24224</span>
+<span class="l l-Scalar l-Scalar-Plain">&lt;/source&gt;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">&lt;match **&gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">@type elasticsearch</span>
+<span class="l l-Scalar l-Scalar-Plain">host elasticsearch.local</span>
+<span class="l l-Scalar l-Scalar-Plain">port 9200</span>
+<span class="l l-Scalar l-Scalar-Plain">logstash_format true</span>
+<span class="l l-Scalar l-Scalar-Plain">&lt;/match&gt;</span>
+</code></pre></div>
+<h2 id="2-alerting-and-automated-incident-response">2. <strong>Alerting and Automated Incident Response</strong><a class="headerlink" href="#2-alerting-and-automated-incident-response" title="Permanent link">&para;</a></h2>
+<h3 id="21-threshold-based-alerting"><strong>2.1 Threshold-Based Alerting</strong><a class="headerlink" href="#21-threshold-based-alerting" title="Permanent link">&para;</a></h3>
+<p>Alerts notify operators when predefined thresholds for metrics are breached. These thresholds can be set based on <strong>historical data</strong>, <strong>SLAs</strong>, or <strong>performance baselines</strong>.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Prometheus Alertmanager</strong>: Sends alerts based on predefined conditions.</li>
+<li><strong>Grafana Alerts</strong>: Set up alerts based on dashboards or specific metrics.</li>
+<li><strong>PagerDuty / Opsgenie</strong>: Integrates with monitoring systems to notify teams in case of incidents.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Define <strong>service-level objectives (SLOs)</strong> and alert based on these objectives.</li>
+<li>Set up <strong>multi-tier alerting</strong> to differentiate between critical, warning, and informational alerts.</li>
+</ul>
+<p><strong>Example Prometheus Alerting Rule</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">groups</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service-alerts</span>
+<span class="w">    </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HighErrorRate</span>
+<span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate(http_requests_total{status=&quot;500&quot;}[5m]) &gt; 0.1</span>
+<span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2m</span>
+<span class="w">        </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">critical</span>
+<span class="w">        </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;High</span><span class="nv"> </span><span class="s">error</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">detected</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">$labels.instance</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</code></pre></div>
+<h3 id="22-anomaly-detection"><strong>2.2 Anomaly Detection</strong><a class="headerlink" href="#22-anomaly-detection" title="Permanent link">&para;</a></h3>
+<p>Anomaly detection involves using machine learning or statistical methods to automatically detect patterns that deviate from normal behavior.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Prometheus Anomaly Detection</strong>: Uses algorithms like <strong>Holt-Winters</strong> or <strong>Z-Score</strong> to detect anomalous patterns.</li>
+<li><strong>Datadog</strong>: A platform that provides out-of-the-box anomaly detection for system metrics.</li>
+<li><strong>Elasticsearch</strong>: Can be used with machine learning to detect anomalies in log data.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Implement <strong>baseline metrics</strong> to establish normal behavior and use anomaly detection to flag deviations.</li>
+<li>Use <strong>histograms</strong> or <strong>percentiles</strong> to understand performance variability and set more intelligent thresholds.</li>
+</ul>
+<h2 id="3-automated-remediation-and-self-healing-systems">3. <strong>Automated Remediation and Self-Healing Systems</strong><a class="headerlink" href="#3-automated-remediation-and-self-healing-systems" title="Permanent link">&para;</a></h2>
+<h3 id="31-auto-scaling-and-failover-mechanisms"><strong>3.1 Auto-Scaling and Failover Mechanisms</strong><a class="headerlink" href="#31-auto-scaling-and-failover-mechanisms" title="Permanent link">&para;</a></h3>
+<p>To ensure high availability and reliability, implement <strong>auto-scaling</strong> and <strong>failover mechanisms</strong> based on the alerts and metrics collected.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Kubernetes Horizontal Pod Autoscaler</strong>: Automatically adjusts the number of pods based on resource usage or custom metrics.</li>
+<li><strong>AWS Auto Scaling</strong>: Scales EC2 instances based on traffic or performance metrics.</li>
+<li><strong>Consul</strong>: Provides service discovery and failover capabilities.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li><strong>Scale services</strong> based on demand using metrics like CPU, memory, or request rates.</li>
+<li>Ensure that <strong>replication and failover</strong> mechanisms are in place to ensure services remain available in the event of failure.</li>
+</ul>
+<p><strong>Example Kubernetes Horizontal Pod Autoscaler</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">autoscaling/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HorizontalPodAutoscaler</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp-hpa</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">scaleTargetRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp</span>
+<span class="w">  </span><span class="nt">minReplicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">maxReplicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">  </span><span class="nt">metrics</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Resource</span>
+<span class="w">      </span><span class="nt">resource</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpu</span>
+<span class="w">        </span><span class="nt">targetAverageUtilization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</code></pre></div>
+<h3 id="32-automated-incident-resolution"><strong>3.2 Automated Incident Resolution</strong><a class="headerlink" href="#32-automated-incident-resolution" title="Permanent link">&para;</a></h3>
+<p>Integrating <strong>runbooks</strong> and <strong>playbooks</strong> into your monitoring framework allows automated incident resolution based on predefined conditions.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Ansible</strong>: Automates remediation tasks like restarting failed services or scaling services.</li>
+<li><strong>PagerDuty</strong>: Integrates with monitoring tools and can trigger workflows for automatic issue resolution.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Develop <strong>playbooks</strong> for common incidents (e.g., database failure, service crash) to automate remediation.</li>
+<li>Integrate <strong>monitoring and alerting systems</strong> with incident management tools for quicker resolution.</li>
+</ul>
+<h2 id="4-proactive-system-maintenance">4. <strong>Proactive System Maintenance</strong><a class="headerlink" href="#4-proactive-system-maintenance" title="Permanent link">&para;</a></h2>
+<h3 id="41-health-checks-and-self-monitoring"><strong>4.1 Health Checks and Self-Monitoring</strong><a class="headerlink" href="#41-health-checks-and-self-monitoring" title="Permanent link">&para;</a></h3>
+<p>Health checks and self-monitoring mechanisms ensure that components of the distributed system are functioning as expected.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Kubernetes Liveness and Readiness Probes</strong>: Automatically restart pods that are unhealthy.</li>
+<li><strong>Nagios / Icinga</strong>: Legacy tools that monitor system availability and performance.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Implement <strong>health checks</strong> at various levels (e.g., service, container, infrastructure) to ensure that services remain available.</li>
+<li>Use <strong>circuit breakers</strong> and <strong>timeouts</strong> to detect and isolate failing services before they cause system-wide outages.</li>
+</ul>
+<h3 id="42-predictive-monitoring"><strong>4.2 Predictive Monitoring</strong><a class="headerlink" href="#42-predictive-monitoring" title="Permanent link">&para;</a></h3>
+<p>Leverage predictive analytics to forecast potential issues before they occur.</p>
+<p><strong>Tools:</strong></p>
+<ul>
+<li><strong>Datadog Machine Learning</strong>: Automatically detects trends and predicts resource utilization patterns.</li>
+<li><strong>Prometheus with custom scripts</strong>: Use statistical methods to predict the growth of metrics like CPU, memory, or storage.</li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul>
+<li>Use predictive analytics to identify <strong>capacity planning issues</strong> (e.g., disk space running out or CPU limits being hit).</li>
+<li>Perform <strong>stress tests</strong> during non-peak hours to identify potential weaknesses in the system.</li>
+</ul>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Incorporating a monitoring framework in a distributed system involves leveraging tools like <strong>Prometheus</strong>, <strong>Grafana</strong>, <strong>Jaeger</strong>, and <strong>Alertmanager</strong> to collect, analyze, and alert on system metrics, logs, and traces. By combining <strong>distributed tracing</strong>, <strong>metrics collection</strong>, <strong>log aggregation</strong>, <strong>alerting</strong>, and <strong>automated remediation</strong>, you can detect and resolve issues proactively. The result is a highly available and resilient system that can detect problems before they impact users and recover autonomously when issues occur.</p>
 
 
 
@@ -2143,7 +2210,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../how_would_you_use_nagios_for_monitoring_to_ensure_/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you use Nagios for monitoring to ensure the uptime and performance of critical infrastructure?">
+          <a href="../how_would_you_leverage_prometheus_for_alerting_to_/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you leverage Prometheus for alerting to respond to system anomalies effectively?">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2153,7 +2220,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                How would you use Nagios for monitoring to ensure the uptime and performance of critical infrastructure?
+                How would you leverage Prometheus for alerting to respond to system anomalies effectively?
               </div>
             </div>
           </a>
