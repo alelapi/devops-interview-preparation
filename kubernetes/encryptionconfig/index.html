@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../how_would_you_implement_a_strategy_for_managing_ku/">
+        <link rel="prev" href="../aggregation_layer/">
       
       
-        <link rel="next" href="../pod_security_admission/">
+        <link rel="next" href="../kubernetes_components/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>What Are Kubernetes Serverless Platforms? - My DevOps Interview Preparation</title>
+        <title>EncryptionConfig in Kubernetes - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-are-kubernetes-serverless-platforms" class="md-skip">
+        <a href="#encryptionconfig-in-kubernetes" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              What Are Kubernetes Serverless Platforms?
+              EncryptionConfig in Kubernetes
             
           </span>
         </div>
@@ -280,7 +280,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../how_would_you_manage_and_optimize_kubernetes_resou/" class="md-tabs__link">
+        <a href="../kubernetes_serverless_platforms/" class="md-tabs__link">
           
   
     
@@ -1072,24 +1072,6 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
       
@@ -1123,6 +1105,393 @@
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes_serverless_platforms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Serverless Platforms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod_security_admission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pod Security Admission (PSA)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admission_controller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admission Controller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pod_priority_and_preemption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementing Pod Priority and Preemption in Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aggregation_layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Aggregation Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    EncryptionConfig in Kubernetes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    EncryptionConfig in Kubernetes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-use-encryptionconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use EncryptionConfig?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-encryptionconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example EncryptionConfig
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example EncryptionConfig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps-to-configure-encryptionconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to Configure EncryptionConfig
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps to Configure EncryptionConfig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-the-encryptionconfig-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create the EncryptionConfig File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-encryption-in-the-api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Enable Encryption in the API Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-restart-the-api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Restart the API Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-migrate-existing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Migrate Existing Data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes_components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components of Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Questions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Questions
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1399,389 +1768,9 @@
 
               
             
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
+          </ul>
+        </nav>
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    What Are Kubernetes Serverless Platforms?
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    What Are Kubernetes Serverless Platforms?
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Answer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features-of-kubernetes-serverless-platforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features of Kubernetes Serverless Platforms:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-knative" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Knative
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Knative">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-openfaas" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. OpenFaaS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. OpenFaaS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-kubeless" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Kubeless
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Kubeless">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-fission" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Fission
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Fission">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-red-hat-openshift-serverless" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Red Hat OpenShift Serverless
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Red Hat OpenShift Serverless">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-apache-openwhisk-self-hosted" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Apache OpenWhisk (Self-Hosted)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Apache OpenWhisk (Self-Hosted)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-google-cloud-run-for-anthos" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Google Cloud Run for Anthos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Google Cloud Run for Anthos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pod_security_admission/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Pod Security Admission (PSA)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../admission_controller/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Admission Controller
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pod_priority_and_preemption/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Implementing Pod Priority and Preemption in Kubernetes
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2428,19 +2417,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
+  <a href="#why-use-encryptionconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      Answer
+      Why Use EncryptionConfig?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Answer">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-encryptionconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example EncryptionConfig
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example EncryptionConfig">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features-of-kubernetes-serverless-platforms" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features of Kubernetes Serverless Platforms:
+      Explanation:
     </span>
   </a>
   
@@ -2452,28 +2459,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-knative" class="md-nav__link">
+  <a href="#steps-to-configure-encryptionconfig" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Knative
+      Steps to Configure EncryptionConfig
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Knative">
+    <nav class="md-nav" aria-label="Steps to Configure EncryptionConfig">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pros" class="md-nav__link">
+  <a href="#1-create-the-encryptionconfig-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Pros:
+      1. Create the EncryptionConfig File
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cons" class="md-nav__link">
+  <a href="#2-enable-encryption-in-the-api-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Cons:
+      2. Enable Encryption in the API Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-restart-the-api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Restart the API Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-migrate-existing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Migrate Existing Data
     </span>
   </a>
   
@@ -2485,200 +2510,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-openfaas" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
-      2. OpenFaaS
+      Verification
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="2. OpenFaaS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-kubeless" class="md-nav__link">
+  <a href="#considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Kubeless
+      Considerations
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="3. Kubeless">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-fission" class="md-nav__link">
+  <a href="#common-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Fission
+      Common Use Cases
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="4. Fission">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-red-hat-openshift-serverless" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Red Hat OpenShift Serverless
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Red Hat OpenShift Serverless">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-apache-openwhisk-self-hosted" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Apache OpenWhisk (Self-Hosted)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Apache OpenWhisk (Self-Hosted)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-google-cloud-run-for-anthos" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Google Cloud Run for Anthos
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Google Cloud Run for Anthos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pros_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pros:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cons_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cons:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2709,134 +2563,156 @@
   
 
 
-<h1 id="what-are-kubernetes-serverless-platforms">What Are Kubernetes Serverless Platforms?<a class="headerlink" href="#what-are-kubernetes-serverless-platforms" title="Permanent link">&para;</a></h1>
-<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<p>Kubernetes serverless platforms are frameworks or tools that extend Kubernetes’ capabilities to support serverless computing. These platforms enable developers to deploy and manage functions or applications that scale automatically based on demand, including scaling to zero when idle. The platforms abstract many of Kubernetes&rsquo; complexities, allowing developers to focus on writing code instead of managing infrastructure.</p>
-<h3 id="key-features-of-kubernetes-serverless-platforms">Key Features of Kubernetes Serverless Platforms:<a class="headerlink" href="#key-features-of-kubernetes-serverless-platforms" title="Permanent link">&para;</a></h3>
+<h1 id="encryptionconfig-in-kubernetes">EncryptionConfig in Kubernetes<a class="headerlink" href="#encryptionconfig-in-kubernetes" title="Permanent link">&para;</a></h1>
+<p><strong>EncryptionConfig</strong> is a Kubernetes feature that allows you to encrypt sensitive data stored in etcd. Kubernetes uses etcd as its backend storage for cluster data, and while etcd supports encryption at the disk level, EncryptionConfig provides additional protection by encrypting specific Kubernetes resources at the application layer.</p>
+<hr />
+<h2 id="why-use-encryptionconfig">Why Use EncryptionConfig?<a class="headerlink" href="#why-use-encryptionconfig" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Auto-Scaling</strong>: Automatically scales workloads based on demand.</li>
-<li><strong>Event-Driven</strong>: Supports triggering workloads based on events like HTTP requests, Kafka messages, or scheduled tasks.</li>
-<li><strong>Scale-to-Zero</strong>: Reduces costs by shutting down workloads when they’re not in use.</li>
-<li><strong>Portability</strong>: Most platforms work across different Kubernetes distributions, making them highly portable.</li>
+<li>
+<p><strong>Enhanced Security</strong>:</p>
+</li>
+<li>
+<p>Protect sensitive data such as Secrets, ConfigMaps, and other resources stored in etcd.</p>
+</li>
+<li>
+<p>Prevent unauthorized access to sensitive information in case etcd backups or snapshots are compromised.</p>
+</li>
+<li>
+<p><strong>Compliance</strong>:</p>
+</li>
+<li>
+<p>Helps meet regulatory requirements by encrypting data at rest in etcd.</p>
+</li>
+<li>
+<p><strong>Granular Control</strong>:</p>
+</li>
+<li>Allows encryption of specific resources or resource types.</li>
 </ol>
-<p>Some of the popular Kubernetes serverless platforms:</p>
 <hr />
-<h2 id="1-knative">1. Knative<a class="headerlink" href="#1-knative" title="Permanent link">&para;</a></h2>
-<p>Knative is an open-source Kubernetes-based platform designed for building, deploying, and managing serverless applications. It provides two core components: <strong>Knative Serving</strong> for deploying stateless services and <strong>Knative Eventing</strong> for building event-driven architectures.</p>
-<h3 id="pros"><strong>Pros</strong>:<a class="headerlink" href="#pros" title="Permanent link">&para;</a></h3>
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Encryption Providers</strong>:</p>
+</li>
+<li>
+<p>Kubernetes uses encryption providers to specify the type of encryption used.</p>
+</li>
+<li>
+<p>Supported providers include:</p>
 <ul>
-<li>Fully integrates with Kubernetes, leveraging its native features.</li>
-<li>Supports advanced auto-scaling, including scale-to-zero.</li>
-<li>Flexible eventing model for complex workflows.</li>
-<li>Works with containerized workloads, not limited to functions.</li>
+<li><strong>AES-CBC</strong>: Encrypts data using the AES algorithm in Cipher Block Chaining mode.</li>
+<li><strong>SecretBox</strong>: Uses the NaCl SecretBox algorithm for encryption.</li>
+<li><strong>Identity</strong>: No encryption; the data is stored as plaintext.</li>
 </ul>
-<h3 id="cons"><strong>Cons</strong>:<a class="headerlink" href="#cons" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Can be complex to set up and manage.</li>
-<li>Requires a strong understanding of Kubernetes to use effectively.</li>
-<li>Resource-intensive for small-scale deployments.</li>
-</ul>
+</li>
+<li>
+<p><strong>EncryptionConfig File</strong>:</p>
+</li>
+<li>
+<p>An <code>EncryptionConfig</code> file specifies which resources should be encrypted and the encryption method.</p>
+</li>
+<li>
+<p><strong>Decryption on Access</strong>:</p>
+</li>
+<li>Encrypted data is decrypted automatically when accessed via the Kubernetes API server.</li>
+</ol>
 <hr />
-<h2 id="2-openfaas">2. OpenFaaS<a class="headerlink" href="#2-openfaas" title="Permanent link">&para;</a></h2>
-<p>OpenFaaS (Open Function as a Service) is a lightweight and developer-friendly serverless framework that runs on Kubernetes and Docker Swarm. It focuses on simplicity and portability, allowing developers to deploy functions in any language using templates.</p>
-<h3 id="pros_1"><strong>Pros</strong>:<a class="headerlink" href="#pros_1" title="Permanent link">&para;</a></h3>
+<h2 id="example-encryptionconfig">Example EncryptionConfig<a class="headerlink" href="#example-encryptionconfig" title="Permanent link">&para;</a></h2>
+<p>The following example encrypts Secrets using the AES-CBC encryption provider:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apiserver.config.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EncryptionConfiguration</span>
+<span class="nt">resources</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets</span>
+<span class="w">    </span><span class="nt">providers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">aescbc</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">keys</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">key1</span>
+<span class="w">              </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;base64-encoded-encryption-key&gt;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">identity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</code></pre></div>
+<h3 id="explanation">Explanation:<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Easy to use with intuitive CLI tools and templates.</li>
-<li>Language-agnostic, supporting any runtime.</li>
-<li>Supports Kubernetes and Docker Swarm, making it versatile.</li>
-<li>Built-in Prometheus integration for monitoring.</li>
-</ul>
-<h3 id="cons_1"><strong>Cons</strong>:<a class="headerlink" href="#cons_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Limited eventing capabilities compared to Knative.</li>
-<li>Lacks native scale-to-zero support (requires external tools).</li>
-<li>Less suited for large-scale enterprise environments.</li>
-</ul>
-<hr />
-<h2 id="3-kubeless">3. Kubeless<a class="headerlink" href="#3-kubeless" title="Permanent link">&para;</a></h2>
-<p>Kubeless is a Kubernetes-native serverless framework that uses Custom Resource Definitions (CRDs) to deploy and manage functions. It is lightweight and integrates closely with Kubernetes’ architecture.</p>
-<h3 id="pros_2"><strong>Pros</strong>:<a class="headerlink" href="#pros_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Simple and lightweight; uses Kubernetes-native resources.</li>
-<li>Event triggers via Kafka, HTTP, or cron jobs.</li>
-<li>Minimal configuration required for basic use cases.</li>
-</ul>
-<h3 id="cons_2"><strong>Cons</strong>:<a class="headerlink" href="#cons_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Limited community support and slower development compared to other platforms.</li>
-<li>Lacks advanced features like scale-to-zero.</li>
-<li>Less extensible for complex workflows.</li>
-</ul>
-<hr />
-<h2 id="4-fission">4. Fission<a class="headerlink" href="#4-fission" title="Permanent link">&para;</a></h2>
-<p>Fission is a fast, Kubernetes-native serverless framework optimized for low-latency function execution. It pre-warms environments to eliminate cold starts and supports multiple languages out of the box.</p>
-<h3 id="pros_3"><strong>Pros</strong>:<a class="headerlink" href="#pros_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Extremely fast execution with pre-warmed environments.</li>
-<li>Simple YAML-based configuration for functions.</li>
-<li>Supports event-driven triggers like HTTP, Kafka, and cron.</li>
-<li>Lightweight and easy to install.</li>
-</ul>
-<h3 id="cons_3"><strong>Cons</strong>:<a class="headerlink" href="#cons_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Limited scalability for large-scale, complex systems.</li>
-<li>Fewer integrations compared to Knative.</li>
-<li>Not as feature-rich for workflows and advanced eventing.</li>
+<li><code>resources</code>: Specifies the resource types to encrypt (e.g., Secrets).</li>
+<li><code>aescbc</code>: Indicates the AES-CBC encryption provider.</li>
+<li><code>keys</code>: Contains the encryption keys, with the <code>secret</code> field containing a base64-encoded key.</li>
+<li><code>identity</code>: Falls back to plaintext storage for resources not encrypted by <code>aescbc</code>.</li>
 </ul>
 <hr />
-<h2 id="5-red-hat-openshift-serverless">5. Red Hat OpenShift Serverless<a class="headerlink" href="#5-red-hat-openshift-serverless" title="Permanent link">&para;</a></h2>
-<p>Red Hat OpenShift Serverless is based on Knative and tailored for Red Hat’s OpenShift Kubernetes platform. It offers enterprise-grade serverless capabilities with enhanced security and compliance features.</p>
-<h3 id="pros_4"><strong>Pros</strong>:<a class="headerlink" href="#pros_4" title="Permanent link">&para;</a></h3>
+<h2 id="steps-to-configure-encryptionconfig">Steps to Configure EncryptionConfig<a class="headerlink" href="#steps-to-configure-encryptionconfig" title="Permanent link">&para;</a></h2>
+<h3 id="1-create-the-encryptionconfig-file">1. Create the EncryptionConfig File<a class="headerlink" href="#1-create-the-encryptionconfig-file" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Enterprise-ready with strong security and compliance.</li>
-<li>Seamless integration with Red Hat OpenShift.</li>
-<li>Full support for Knative features (Serving and Eventing).</li>
+<li>Write the <code>EncryptionConfig</code> file as shown above, specifying the resources to encrypt and the encryption providers.</li>
 </ul>
-<h3 id="cons_4"><strong>Cons</strong>:<a class="headerlink" href="#cons_4" title="Permanent link">&para;</a></h3>
+<h3 id="2-enable-encryption-in-the-api-server">2. Enable Encryption in the API Server<a class="headerlink" href="#2-enable-encryption-in-the-api-server" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Requires OpenShift, limiting portability to non-OpenShift Kubernetes clusters.</li>
-<li>Higher cost due to the OpenShift licensing model.</li>
-<li>More complex setup compared to simpler frameworks like OpenFaaS.</li>
+<li>Update the API server manifest (e.g., <code>/etc/kubernetes/manifests/kube-apiserver.yaml</code>) to include the <code>--encryption-provider-config</code> flag:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--encryption-provider-config=/path/to/encryption-config.yaml</span>
+</code></pre></div>
+<h3 id="3-restart-the-api-server">3. Restart the API Server<a class="headerlink" href="#3-restart-the-api-server" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restart the API server for the changes to take effect:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>kube-apiserver
+</code></pre></div>
+<h3 id="4-migrate-existing-data">4. Migrate Existing Data<a class="headerlink" href="#4-migrate-existing-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Run the <code>kubectl get</code> and <code>kubectl apply</code> commands to re-encrypt existing resources:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>secrets<span class="w"> </span>--all-namespaces<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-
+</code></pre></div>
+<hr />
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
+<p>To confirm that encryption is working:</p>
+<ol>
+<li>Inspect the etcd data and verify that encrypted resources are not in plaintext.</li>
+<li>Use <code>etcdctl</code> to view raw etcd contents:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>etcdctl<span class="w"> </span>get<span class="w"> </span>/registry/secrets/default/my-secret
+</code></pre></div>
+<ul>
+<li>Encrypted data will appear as a ciphered string instead of plaintext values.</li>
 </ul>
 <hr />
-<h2 id="6-apache-openwhisk-self-hosted">6. Apache OpenWhisk (Self-Hosted)<a class="headerlink" href="#6-apache-openwhisk-self-hosted" title="Permanent link">&para;</a></h2>
-<p>Apache OpenWhisk is an open-source, distributed serverless platform that can run on Kubernetes. It supports event-driven workloads and provides a flexible runtime for functions.</p>
-<h3 id="pros_5"><strong>Pros</strong>:<a class="headerlink" href="#pros_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Highly extensible and customizable.</li>
-<li>Supports multiple event triggers, including HTTP and Kafka.</li>
-<li>Language-agnostic, supporting various runtimes.</li>
-</ul>
-<h3 id="cons_5"><strong>Cons</strong>:<a class="headerlink" href="#cons_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Complex setup and management.</li>
-<li>Resource-intensive for smaller environments.</li>
-<li>Limited built-in Kubernetes integrations compared to other platforms.</li>
-</ul>
+<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Key Management</strong>:</p>
+</li>
+<li>
+<p>Rotate encryption keys regularly for security.</p>
+</li>
+<li>
+<p>Backup keys securely, as loss of encryption keys may result in data inaccessibility.</p>
+</li>
+<li>
+<p><strong>Resource Overhead</strong>:</p>
+</li>
+<li>
+<p>Encryption and decryption introduce additional CPU and memory usage on the API server.</p>
+</li>
+<li>
+<p><strong>Backup Compatibility</strong>:</p>
+</li>
+<li>
+<p>Ensure etcd backups include encryption keys to allow data recovery.</p>
+</li>
+<li>
+<p><strong>Fallback to Identity</strong>:</p>
+</li>
+<li>If decryption fails or a key is lost, resources with <code>identity</code> provider remain accessible as plaintext.</li>
+</ol>
 <hr />
-<h2 id="7-google-cloud-run-for-anthos">7. Google Cloud Run for Anthos<a class="headerlink" href="#7-google-cloud-run-for-anthos" title="Permanent link">&para;</a></h2>
-<p>Google Cloud Run for Anthos extends Knative’s capabilities to hybrid Kubernetes environments. It enables serverless containers to run on Anthos, Google’s hybrid and multi-cloud platform.</p>
-<h3 id="pros_6"><strong>Pros</strong>:<a class="headerlink" href="#pros_6" title="Permanent link">&para;</a></h3>
+<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Based on Knative, providing robust auto-scaling and event-driven capabilities.</li>
-<li>Seamless integration with Google Cloud services.</li>
-<li>Ideal for hybrid cloud environments.</li>
-</ul>
-<h3 id="cons_6"><strong>Cons</strong>:<a class="headerlink" href="#cons_6" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Requires Anthos, which adds complexity and cost.</li>
-<li>Less suitable for non-Google Cloud Kubernetes environments.</li>
-<li>Limited to containerized workloads.</li>
+<li>Encrypting <strong>Secrets</strong> to secure sensitive information such as API keys, passwords, and certificates.</li>
+<li>Encrypting <strong>ConfigMaps</strong> or other sensitive application configurations.</li>
+<li>Ensuring compliance with data security regulations.</li>
 </ul>
 <hr />
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Kubernetes serverless platforms provide powerful tools for running scalable, event-driven workloads. Choosing the right platform depends on your use case, environment, and skill level. For example:</p>
-<ul>
-<li>Use <strong>Knative</strong> if you need a feature-rich, Kubernetes-native solution with advanced eventing.</li>
-<li>Choose <strong>OpenFaaS</strong> or <strong>Fission</strong> for simplicity and fast deployments.</li>
-<li>Opt for <strong>Red Hat OpenShift Serverless</strong> or <strong>Google Cloud Run for Anthos</strong> for enterprise-grade hybrid cloud solutions.</li>
-</ul>
-<p>Understanding the strengths and weaknesses of each platform ensures you select the one that best aligns with your application’s requirements and organizational goals.</p>
+<p>EncryptionConfig is an essential feature for securing sensitive data in Kubernetes clusters. By encrypting data at the application layer, it adds a robust layer of protection against unauthorized access and meets compliance standards. Proper key management and regular testing are critical to maintaining a secure and reliable encryption setup.</p>
 
 
 
@@ -2872,7 +2748,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../how_would_you_implement_a_strategy_for_managing_ku/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you implement a strategy for managing Kubernetes pods to handle varying workloads efficiently?">
+          <a href="../aggregation_layer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kubernetes Aggregation Layer">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2882,20 +2758,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                How would you implement a strategy for managing Kubernetes pods to handle varying workloads efficiently?
+                Kubernetes Aggregation Layer
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pod_security_admission/" class="md-footer__link md-footer__link--next" aria-label="Next: Pod Security Admission (PSA)">
+          <a href="../kubernetes_components/" class="md-footer__link md-footer__link--next" aria-label="Next: Components of Kubernetes">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Pod Security Admission (PSA)
+                Components of Kubernetes
               </div>
             </div>
             <div class="md-footer__button md-icon">
