@@ -1,4 +1,4 @@
-# What Are Kubernetes Serverless Platforms?
+# Kubernetes Serverless Platforms
 
 ## Answer
 
