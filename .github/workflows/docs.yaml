@@ -6,6 +6,9 @@
 name: Build docs site (& deploy if on master to gh-pages)
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 permissions:
