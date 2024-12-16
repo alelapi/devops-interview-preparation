@@ -13,21 +13,25 @@
       
       
       
+        <link rel="prev" href="../what_is_a_service_mesh/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
+        <link rel="next" href="../linkerd/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>Linkerd: An Overview - My DevOps Interview Preparation</title>
+        <title>Istio: A Service Mesh for Kubernetes - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linkerd-an-overview" class="md-skip">
+        <a href="#istio-a-service-mesh-for-kubernetes" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linkerd: An Overview
+              Istio: A Service Mesh for Kubernetes
             
           </span>
         </div>
@@ -215,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -234,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
     
@@ -254,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
     
@@ -270,11 +274,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../kubernetes_serverless_platforms/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../kubernetes_serverless_platforms/" class="md-tabs__link">
           
   
     
@@ -294,7 +300,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
     
@@ -314,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
     
@@ -334,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
     
@@ -369,7 +375,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -399,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -500,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -521,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -542,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -563,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -584,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -605,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -626,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -745,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -766,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -787,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -808,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -850,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -871,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -892,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -913,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -934,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -955,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -976,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -997,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1043,8 +1049,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1072,22 +1080,31 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1098,7 +1115,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -1112,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1133,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pod_security_admission/" class="md-nav__link">
+      <a href="../../pod_security_admission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1154,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../admission_controller/" class="md-nav__link">
+      <a href="../../admission_controller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1175,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1196,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aggregation_layer/" class="md-nav__link">
+      <a href="../../aggregation_layer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1217,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../encryptionconfig/" class="md-nav__link">
+      <a href="../../encryptionconfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1238,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kubernetes_components/" class="md-nav__link">
+      <a href="../../kubernetes_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../submariner/" class="md-nav__link">
+      <a href="../../submariner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1280,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kubefed/" class="md-nav__link">
+      <a href="../../kubefed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1301,28 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../istio/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Istio: A Service Mesh for Kubernetes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pod_disruption_budget/" class="md-nav__link">
+      <a href="../../pod_disruption_budget/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1342,6 +1338,71 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../network_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Networking Tools in Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../observability_tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Observability Tools in Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../endpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes Endpoint Resource
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
     
     
       
@@ -1351,42 +1412,312 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_12" >
         
           
-          <label class="md-nav__link" for="__nav_4_12" id="__nav_4_12_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_14" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_14" id="__nav_4_14_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Service Mesh
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_14">
+            <span class="md-nav__icon md-icon"></span>
+            Service Mesh
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what_is_a_service_mesh/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is a Service Mesh?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Istio: A Service Mesh for Kubernetes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Istio: A Service Mesh for Kubernetes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features-of-istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features of Istio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#istio-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Istio Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Istio Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-envoy-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Envoy Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-istiod-control-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Istiod (Control Plane)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Gateway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Pilot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-mixer-deprecated-in-istio-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mixer (Deprecated in Istio 1.5+)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-citadel" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Citadel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Telemetry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-istio-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Istio Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linkerd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linkerd: An Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_15" id="__nav_4_15_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1397,8 +1728,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_12">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_15">
             <span class="md-nav__icon md-icon"></span>
             Questions
           </label>
@@ -1411,7 +1742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,7 +1763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1453,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1474,7 +1805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1495,7 +1826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1516,7 +1847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1537,7 +1868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1558,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1579,7 +1910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1600,7 +1931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1621,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1642,7 +1973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1663,7 +1994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1757,7 +2088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1778,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1799,7 +2130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1820,7 +2151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1841,7 +2172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1862,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1883,7 +2214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1904,7 +2235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1996,7 +2327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2017,7 +2348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2038,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2059,7 +2390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2080,7 +2411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2101,7 +2432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2122,7 +2453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2143,7 +2474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2164,7 +2495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2185,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2206,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2278,7 +2609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2326,63 +2657,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-service-mesh" class="md-nav__link">
+  <a href="#key-features-of-istio" class="md-nav__link">
     <span class="md-ellipsis">
-      What Is a Service Mesh?
+      Key Features of Istio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features-of-linkerd" class="md-nav__link">
+  <a href="#istio-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features of Linkerd
+      Istio Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Istio Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-envoy-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Envoy Proxy
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#how-linkerd-works" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-istiod-control-plane" class="md-nav__link">
     <span class="md-ellipsis">
-      How Linkerd Works
+      2. Istiod (Control Plane)
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#benefits-of-linkerd" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-gateway" class="md-nav__link">
     <span class="md-ellipsis">
-      Benefits of Linkerd
+      3. Gateway
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#use-cases-for-linkerd" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#4-pilot" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Cases for Linkerd
+      4. Pilot
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-linkerd-vs-istio" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#5-mixer-deprecated-in-istio-15" class="md-nav__link">
     <span class="md-ellipsis">
-      Comparison: Linkerd vs. Istio
+      5. Mixer (Deprecated in Istio 1.5+)
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#6-citadel" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Citadel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Telemetry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#installation-example" class="md-nav__link">
+  <a href="#how-istio-works" class="md-nav__link">
     <span class="md-ellipsis">
-      Installation Example
+      How Istio Works
     </span>
   </a>
   
@@ -2415,226 +2779,127 @@
   
 
 
-<h1 id="linkerd-an-overview">Linkerd: An Overview<a class="headerlink" href="#linkerd-an-overview" title="Permanent link">&para;</a></h1>
-<p><strong>Linkerd</strong> is an open-source service mesh for Kubernetes and other containerized environments. It provides a lightweight, secure, and reliable platform for managing communication between microservices in a distributed system.</p>
+<h1 id="istio-a-service-mesh-for-kubernetes">Istio: A Service Mesh for Kubernetes<a class="headerlink" href="#istio-a-service-mesh-for-kubernetes" title="Permanent link">&para;</a></h1>
+<p><strong>Istio</strong> is an open-source service mesh that provides a way to control and secure service-to-service communication in modern application architectures, such as microservices. It adds observability, traffic management, and security features to applications without requiring changes to the application code.</p>
 <hr />
-<h2 id="what-is-a-service-mesh">What Is a Service Mesh?<a class="headerlink" href="#what-is-a-service-mesh" title="Permanent link">&para;</a></h2>
-<p>A service mesh is a dedicated infrastructure layer that manages service-to-service communication in a microservices architecture. It typically handles:</p>
-<ul>
-<li><strong>Service discovery</strong></li>
-<li><strong>Load balancing</strong></li>
-<li><strong>Encryption</strong></li>
-<li><strong>Authentication and authorization</strong></li>
-<li><strong>Retries and failovers</strong></li>
-<li><strong>Observability</strong></li>
-</ul>
-<p>Linkerd is one such service mesh, specifically designed to be simple, performant, and Kubernetes-native.</p>
-<hr />
-<h2 id="key-features-of-linkerd">Key Features of Linkerd<a class="headerlink" href="#key-features-of-linkerd" title="Permanent link">&para;</a></h2>
+<h2 id="key-features-of-istio"><strong>Key Features of Istio</strong><a class="headerlink" href="#key-features-of-istio" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Traffic Management</strong>:</p>
 </li>
 <li>
-<p>Handles routing, load balancing, retries, and failovers.</p>
+<p>Provides fine-grained control over traffic routing and load balancing.</p>
 </li>
 <li>
-<p>Ensures reliable communication between microservices.</p>
+<p>Supports blue-green and canary deployments.</p>
 </li>
 <li>
 <p><strong>Security</strong>:</p>
 </li>
 <li>
-<p>Provides <strong>mutual TLS (mTLS)</strong> for encrypting service-to-service communication.</p>
+<p>Implements strong identity-based authentication and authorization using mutual TLS (mTLS).</p>
 </li>
 <li>
-<p>Automates certificate management and rotation.</p>
+<p>Encrypts service-to-service communication.</p>
 </li>
 <li>
 <p><strong>Observability</strong>:</p>
 </li>
 <li>
-<p>Offers fine-grained telemetry, including metrics, logs, and distributed tracing.</p>
+<p>Offers telemetry, distributed tracing, and monitoring for all services in the mesh.</p>
 </li>
 <li>
-<p>Integrates with tools like Prometheus and Grafana for visualization.</p>
+<p><strong>Fault Tolerance</strong>:</p>
 </li>
-<li>
-<p><strong>Lightweight Design</strong>:</p>
-</li>
-<li>
-<p>Designed to be minimal and performant, with a focus on operational simplicity.</p>
-</li>
-<li>
-<p>Uses a sidecar proxy model but maintains a small resource footprint compared to other service meshes.</p>
-</li>
-<li>
-<p><strong>Kubernetes-Native</strong>:</p>
-</li>
-<li>Integrates seamlessly with Kubernetes, using native constructs like Custom Resource Definitions (CRDs).</li>
-<li>Automatically injects sidecars into Pods for service mesh functionality.</li>
+<li>Provides retries, timeouts, and circuit breakers to make applications more resilient.</li>
 </ol>
 <hr />
-<h2 id="how-linkerd-works">How Linkerd Works<a class="headerlink" href="#how-linkerd-works" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Sidecar Proxy</strong>:</p>
-</li>
-<li>
-<p>A lightweight proxy is injected as a sidecar container alongside application containers in each Pod.</p>
-</li>
-<li>
-<p>The proxy intercepts and manages all inbound and outbound traffic for the application.</p>
-</li>
-<li>
-<p><strong>Control Plane</strong>:</p>
-</li>
-<li>
-<p>Manages the configuration, policy enforcement, and telemetry collection for the mesh.</p>
-</li>
-<li>
-<p>Components include:</p>
+<h2 id="istio-components"><strong>Istio Components</strong><a class="headerlink" href="#istio-components" title="Permanent link">&para;</a></h2>
+<h3 id="1-envoy-proxy"><strong>1. Envoy Proxy</strong><a class="headerlink" href="#1-envoy-proxy" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Proxy Injector</strong>: Injects the Linkerd sidecar proxy into Pods.</li>
-<li><strong>Destination Controller</strong>: Manages service discovery and routing.</li>
-<li><strong>Identity Service</strong>: Issues and validates mTLS certificates.</li>
+<li><strong>Description</strong>: A lightweight proxy deployed as a sidecar alongside each service.</li>
+<li><strong>Responsibilities</strong>:</li>
+<li>Intercepts and manages all inbound and outbound traffic for the service.</li>
+<li>Handles traffic routing, telemetry, and enforcing security policies.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Protocol support for HTTP, gRPC, WebSocket, and TCP.</li>
+<li>Built-in observability and traffic control.</li>
 </ul>
+<h3 id="2-istiod-control-plane"><strong>2. Istiod (Control Plane)</strong><a class="headerlink" href="#2-istiod-control-plane" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: The central control plane component that manages the service mesh configuration.</li>
+<li><strong>Responsibilities</strong>:</li>
+<li>Configures and manages the Envoy proxies.</li>
+<li>Maintains the service registry and tracks service discovery.</li>
+<li>Manages authentication, authorization, and telemetry configuration.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Centralized control for all traffic and security policies.</li>
+</ul>
+<h3 id="3-gateway"><strong>3. Gateway</strong><a class="headerlink" href="#3-gateway" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Manages ingress and egress traffic for services inside the mesh.</li>
+<li><strong>Ingress Gateway</strong>:</li>
+<li>Routes external traffic into the mesh.</li>
+<li>Acts as a reverse proxy for services in the mesh.</li>
+<li><strong>Egress Gateway</strong>:</li>
+<li>Routes traffic from services in the mesh to external services.</li>
+<li>Provides control over outbound traffic policies.</li>
+</ul>
+<h3 id="4-pilot"><strong>4. Pilot</strong><a class="headerlink" href="#4-pilot" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: A component of the control plane that provides service discovery and traffic management.</li>
+<li><strong>Responsibilities</strong>:</li>
+<li>Configures Envoy proxies for routing, retries, and load balancing.</li>
+<li>Supports advanced traffic management strategies like canary and blue-green deployments.</li>
+</ul>
+<h3 id="5-mixer-deprecated-in-istio-15"><strong>5. Mixer (Deprecated in Istio 1.5+)</strong><a class="headerlink" href="#5-mixer-deprecated-in-istio-15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Previously responsible for telemetry and policy enforcement.</li>
+<li><strong>Replacement</strong>: Functionality moved to Envoy and Istiod for better performance and integration.</li>
+</ul>
+<h3 id="6-citadel"><strong>6. Citadel</strong><a class="headerlink" href="#6-citadel" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Manages service identities and certificates in the mesh.</li>
+<li><strong>Responsibilities</strong>:</li>
+<li>Issues and rotates certificates for secure mTLS communication.</li>
+<li>Ensures secure service-to-service authentication.</li>
+</ul>
+<h3 id="7-telemetry"><strong>7. Telemetry</strong><a class="headerlink" href="#7-telemetry" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Collects metrics, logs, and traces for services in the mesh.</li>
+<li><strong>Responsibilities</strong>:</li>
+<li>Enables observability through integration with tools like Prometheus, Grafana, and Jaeger.</li>
+<li>Provides detailed insights into service behavior and performance.</li>
+</ul>
+<hr />
+<h2 id="how-istio-works"><strong>How Istio Works</strong><a class="headerlink" href="#how-istio-works" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Traffic Interception</strong>:</p>
 </li>
 <li>
-<p><strong>Data Plane</strong>:</p>
+<p>Envoy sidecars intercept all traffic between services and apply traffic management and security policies.</p>
 </li>
-<li>Comprises the sidecar proxies that handle the actual service-to-service traffic.</li>
+<li>
+<p><strong>Control Plane Management</strong>:</p>
+</li>
+<li>
+<p>Istiod configures Envoy proxies based on the desired state defined by operators.</p>
+</li>
+<li>
+<p><strong>Telemetry Collection</strong>:</p>
+</li>
+<li>
+<p>Envoy collects metrics and traces, sending them to monitoring systems like Prometheus or Jaeger.</p>
+</li>
+<li>
+<p><strong>Authentication and Authorization</strong>:</p>
+</li>
+<li>Citadel and Envoy enforce mTLS and role-based access control (RBAC) policies.</li>
 </ol>
 <hr />
-<h2 id="benefits-of-linkerd">Benefits of Linkerd<a class="headerlink" href="#benefits-of-linkerd" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Improved Reliability</strong>:</p>
-</li>
-<li>
-<p>Automatically retries failed requests and implements failover mechanisms.</p>
-</li>
-<li>
-<p><strong>Enhanced Security</strong>:</p>
-</li>
-<li>
-<p>Ensures all traffic between services is encrypted and authenticated using mTLS.</p>
-</li>
-<li>
-<p><strong>Better Observability</strong>:</p>
-</li>
-<li>
-<p>Provides detailed metrics such as request success rates, latencies, and throughput.</p>
-</li>
-<li>
-<p><strong>Simplicity</strong>:</p>
-</li>
-<li>
-<p>Easy to install and operate, with minimal configuration compared to other service meshes.</p>
-</li>
-<li>
-<p><strong>Resource Efficiency</strong>:</p>
-</li>
-<li>Lightweight and performant, making it suitable for resource-constrained environments.</li>
-</ol>
-<hr />
-<h2 id="use-cases-for-linkerd">Use Cases for Linkerd<a class="headerlink" href="#use-cases-for-linkerd" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Microservices Observability</strong>:</p>
-</li>
-<li>
-<p>Gain visibility into service communication, performance, and failures.</p>
-</li>
-<li>
-<p><strong>Zero-Trust Security</strong>:</p>
-</li>
-<li>
-<p>Encrypt all service-to-service communication and enforce strict authentication.</p>
-</li>
-<li>
-<p><strong>Traffic Control</strong>:</p>
-</li>
-<li>
-<p>Implement fine-grained routing, retries, and failovers for resilient applications.</p>
-</li>
-<li>
-<p><strong>Kubernetes-Native Applications</strong>:</p>
-</li>
-<li>Manage communication between microservices running in a Kubernetes cluster.</li>
-</ol>
-<hr />
-<h2 id="comparison-linkerd-vs-istio">Comparison: Linkerd vs. Istio<a class="headerlink" href="#comparison-linkerd-vs-istio" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th><strong>Linkerd</strong></th>
-<th><strong>Istio</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Complexity</strong></td>
-<td>Simple and lightweight</td>
-<td>Feature-rich but more complex</td>
-</tr>
-<tr>
-<td><strong>Performance</strong></td>
-<td>High, with minimal resource usage</td>
-<td>Moderate, requires more resources</td>
-</tr>
-<tr>
-<td><strong>Ease of Use</strong></td>
-<td>Quick setup and minimal configuration</td>
-<td>Requires extensive configuration</td>
-</tr>
-<tr>
-<td><strong>Observability</strong></td>
-<td>Focuses on metrics and simplicity</td>
-<td>Advanced telemetry and tracing</td>
-</tr>
-<tr>
-<td><strong>Security</strong></td>
-<td>Built-in mTLS</td>
-<td>Built-in mTLS and more policies</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="installation-example">Installation Example<a class="headerlink" href="#installation-example" title="Permanent link">&para;</a></h2>
-<p>Install Linkerd using the CLI:</p>
-<ol>
-<li><strong>Install the CLI</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-sL<span class="w"> </span>https://run.linkerd.io/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.linkerd2/bin
-</code></pre></div>
-<ol>
-<li><strong>Validate the Cluster</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>linkerd<span class="w"> </span>check<span class="w"> </span>--pre
-</code></pre></div>
-<ol>
-<li><strong>Install Linkerd</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>linkerd<span class="w"> </span>install<span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-
-</code></pre></div>
-<ol>
-<li><strong>Inject Sidecars</strong>:
-   Inject Linkerd into your application Pods:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>deploy<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>linkerd<span class="w"> </span>inject<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-
-</code></pre></div>
-<ol>
-<li><strong>Access the Dashboard</strong>:
-   Launch the Linkerd dashboard to monitor your services:
-   <div class="highlight"><pre><span></span><code>linkerd<span class="w"> </span>dashboard
-</code></pre></div></li>
-</ol>
-<hr />
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Linkerd is a lightweight and Kubernetes-native service mesh that simplifies the management of service-to-service communication. Its focus on simplicity, security, and observability makes it an excellent choice for organizations looking to enhance their microservices architecture with minimal overhead.</p>
+<h2 id="conclusion"><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Istio is a powerful service mesh that simplifies traffic management, enhances observability, and strengthens security for microservices. By abstracting complex networking tasks and automating policies, Istio enables developers to focus on building applications while ensuring reliability and security across the entire system.</p>
 
 
 
@@ -2666,6 +2931,44 @@
         <footer class="md-footer">
   
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../what_is_a_service_mesh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: What is a Service Mesh?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                What is a Service Mesh?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../linkerd/" class="md-footer__link md-footer__link--next" aria-label="Next: Linkerd: An Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Linkerd: An Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2689,10 +2992,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
