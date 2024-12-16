@@ -4,21 +4,6 @@
 
 ---
 
-## What Is a Service Mesh?
-
-A service mesh is a dedicated infrastructure layer that manages service-to-service communication in a microservices architecture. It typically handles:
-
-- **Service discovery**
-- **Load balancing**
-- **Encryption**
-- **Authentication and authorization**
-- **Retries and failovers**
-- **Observability**
-
-Linkerd is one such service mesh, specifically designed to be simple, performant, and Kubernetes-native.
-
----
-
 ## Key Features of Linkerd
 
 1. **Traffic Management**:
