@@ -1,5 +1,7 @@
 # Networking Tools in Kubernetes
 
+# Container Network Interface (CNI)
+
 ## Use Case: Networking
 
 Networking tools in Kubernetes play a critical role in ensuring seamless communication within the cluster and with external systems. They provide the backbone for pod-to-pod connectivity, service discovery, load balancing, and traffic routing. Beyond connectivity, these tools enforce security policies, optimize traffic flow, and maintain the reliability and scalability of modern distributed applications.
