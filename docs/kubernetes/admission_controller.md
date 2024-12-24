@@ -24,6 +24,7 @@ An **Admission Controller** is a component in Kubernetes that intercepts API req
    - Example: Adding default resource limits to Pods.
 
 2. **Validating Admission Controllers**:
+
    - Validate the request and either approve or reject it.
    - Example: Ensuring that Pods do not use privileged containers.
 
