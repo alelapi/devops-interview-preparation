@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../how_would_you_manage_and_optimize_resource_allocat/">
+        <link rel="prev" href="../api_gateway/">
       
       
-        <link rel="next" href="../how_would_you_secure_docker_containers_in_a_produc/">
+        <link rel="next" href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>How can you ensure data persistence and manage stateful applications in Docker? - Prima Tech Challenge</title>
+        <title>AWS Identity and Access Management (IAM) - Prima Tech Challenge</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-can-you-ensure-data-persistence-and-manage-stateful-applications-in-docker" class="md-skip">
+        <a href="#aws-identity-and-access-management-iam" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How can you ensure data persistence and manage stateful applications in Docker?
+              AWS Identity and Access Management (IAM)
             
           </span>
         </div>
@@ -234,11 +234,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../aws/dynamodb/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../dynamodb/" class="md-tabs__link">
           
   
     
@@ -274,13 +276,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
     
@@ -462,8 +462,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -476,19 +478,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -499,7 +504,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             AWS
@@ -513,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/dynamodb/" class="md-nav__link">
+      <a href="../dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -534,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/api_gateway/" class="md-nav__link">
+      <a href="../api_gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -552,10 +557,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../aws/iam/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AWS Identity and Access Management (IAM)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -564,6 +589,176 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-characteristics-of-iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics of IAM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Characteristics of IAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-user-and-group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. User and Group Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fine-grained-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fine-Grained Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-role-based-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Role-Based Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-temporary-security-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Temporary Security Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-multi-factor-authentication-mfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Multi-Factor Authentication (MFA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-integration-with-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Integration with AWS Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-policy-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Policy Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Permission Boundaries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-resource-tags-for-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Resource Tags for Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-identity-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Identity Federation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-trust-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Trust Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-acl-access-control-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. ACL (Access Control List)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-scp-service-control-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. SCP (Service Control Policy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-audit-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Audit and Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-free-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Free Tier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -836,10 +1031,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -874,22 +1067,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -900,7 +1090,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Docker
@@ -914,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -935,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -956,7 +1146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -977,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -998,7 +1188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1016,30 +1206,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    How can you ensure data persistence and manage stateful applications in Docker?
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,35 +1218,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1089,7 +1230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1131,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1152,7 +1293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1173,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1194,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1215,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1236,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3042,11 +3183,152 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
+  <a href="#key-characteristics-of-iam" class="md-nav__link">
     <span class="md-ellipsis">
-      Answer
+      Key Characteristics of IAM
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Key Characteristics of IAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-user-and-group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. User and Group Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fine-grained-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Fine-Grained Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-role-based-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Role-Based Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-temporary-security-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Temporary Security Credentials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-multi-factor-authentication-mfa" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Multi-Factor Authentication (MFA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-integration-with-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Integration with AWS Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-policy-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Policy Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-permission-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Permission Boundaries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-resource-tags-for-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Resource Tags for Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-identity-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Identity Federation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-trust-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Trust Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-acl-access-control-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. ACL (Access Control List)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-scp-service-control-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. SCP (Service Control Policy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-audit-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Audit and Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-free-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Free Tier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3068,149 +3350,93 @@
   
 
 
-<h1 id="how-can-you-ensure-data-persistence-and-manage-stateful-applications-in-docker">How can you ensure data persistence and manage stateful applications in Docker?<a class="headerlink" href="#how-can-you-ensure-data-persistence-and-manage-stateful-applications-in-docker" title="Permanent link">&para;</a></h1>
-<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h1 id="ensuring-data-persistence-and-managing-stateful-applications-in-docker">Ensuring Data Persistence and Managing Stateful Applications in Docker<a class="headerlink" href="#ensuring-data-persistence-and-managing-stateful-applications-in-docker" title="Permanent link">&para;</a></h1>
-<p>Docker is primarily designed to run stateless applications, but many real-world applications, such as databases and file systems, require persistent storage. Docker provides several mechanisms to handle data persistence and manage stateful applications effectively. Below are key techniques to ensure data persistence and manage stateful applications in Docker.</p>
-<hr />
-<h2 id="1-using-docker-volumes-for-data-persistence">1. <strong>Using Docker Volumes for Data Persistence</strong><a class="headerlink" href="#1-using-docker-volumes-for-data-persistence" title="Permanent link">&para;</a></h2>
-<h3 id="description">Description:<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
-<p>Docker volumes are the preferred way to persist data in Docker containers. Volumes provide an abstraction layer between the container and the host file system, ensuring that data is not lost when containers are stopped or deleted.</p>
-<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<h1 id="aws-identity-and-access-management-iam">AWS Identity and Access Management (IAM)<a class="headerlink" href="#aws-identity-and-access-management-iam" title="Permanent link">&para;</a></h1>
+<p>AWS Identity and Access Management (IAM) is a service provided by AWS that allows you to manage access to AWS services and resources securely. IAM enables fine-grained control over permissions, ensuring that users, groups, and services have the appropriate level of access.</p>
+<h2 id="key-characteristics-of-iam">Key Characteristics of IAM<a class="headerlink" href="#key-characteristics-of-iam" title="Permanent link">&para;</a></h2>
+<h3 id="1-user-and-group-management"><strong>1. User and Group Management</strong><a class="headerlink" href="#1-user-and-group-management" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Data Persistence</strong>: Volumes store data outside of containers, ensuring that data persists even if containers are removed.</li>
-<li><strong>Isolation</strong>: Volumes are managed by Docker, and containers can read and write to them.</li>
-<li><strong>Backup and Restore</strong>: Volumes can be backed up, restored, and shared between containers.</li>
+<li>Create and manage individual user accounts.</li>
+<li>Organize users into groups for easier permission management.</li>
+<li>Assign permissions to groups instead of individual users.</li>
 </ul>
-<h3 id="creating-a-volume">Creating a Volume:<a class="headerlink" href="#creating-a-volume" title="Permanent link">&para;</a></h3>
-<p>To create a Docker volume, you can use the following command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>my_volume
-</code></pre></div>
-<h3 id="example-docker-composeyml-with-volumes">Example <code>docker-compose.yml</code> with Volumes:<a class="headerlink" href="#example-docker-composeyml-with-volumes" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/postgresql/data</span>
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
-</code></pre></div>
-<p>In this example, the <code>db_data</code> volume is mounted to the PostgreSQL database container, ensuring that database data persists between container restarts.</p>
-<hr />
-<h2 id="2-using-host-mounts-for-data-persistence">2. <strong>Using Host Mounts for Data Persistence</strong><a class="headerlink" href="#2-using-host-mounts-for-data-persistence" title="Permanent link">&para;</a></h2>
-<h3 id="description_1">Description:<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h3>
-<p>Host mounts (or bind mounts) allow containers to access and modify files on the host system. This approach is useful for persistent storage when you want to store data directly on the host machine.</p>
-<h3 id="key-features_1">Key Features:<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
+<h3 id="2-fine-grained-permissions"><strong>2. Fine-Grained Permissions</strong><a class="headerlink" href="#2-fine-grained-permissions" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Direct Access</strong>: Containers can read and write to files located on the host system, making it easier to manage and backup data.</li>
-<li><strong>Flexibility</strong>: Bind mounts can point to any directory on the host machine, offering flexibility in terms of storage location.</li>
+<li>Define permissions at a granular level using IAM policies.</li>
+<li>Policies use JSON format to specify which actions are allowed or denied on which resources.</li>
+<li>Support for resource-level permissions.</li>
 </ul>
-<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span>my_app
-</code></pre></div>
-<h3 id="example-docker-composeyml-with-host-mounts">Example <code>docker-compose.yml</code> with Host Mounts:<a class="headerlink" href="#example-docker-composeyml-with-host-mounts" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./app_data:/app/data</span>
-</code></pre></div>
-<p>In this example, the <code>app_data</code> directory on the host machine is mounted to the <code>/app/data</code> directory inside the container, ensuring that data persists even when the container is removed.</p>
-<hr />
-<h2 id="3-managing-stateful-applications-with-docker-compose">3. <strong>Managing Stateful Applications with Docker Compose</strong><a class="headerlink" href="#3-managing-stateful-applications-with-docker-compose" title="Permanent link">&para;</a></h2>
-<h3 id="description_2">Description:<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h3>
-<p>Docker Compose makes it easy to manage stateful applications that require multiple containers with shared volumes. For example, a stateful application may require a database container, an application container, and a container to store logs. Docker Compose allows you to define these containers and manage their relationships, including how they persist and share data.</p>
-<h3 id="example-docker-composeyml-for-stateful-application">Example <code>docker-compose.yml</code> for Stateful Application:<a class="headerlink" href="#example-docker-composeyml-for-stateful-application" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=db</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_data:/app/data</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/postgresql/data</span>
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">app_data</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
-</code></pre></div>
-<p>In this example:</p>
+<h3 id="3-role-based-access-control"><strong>3. Role-Based Access Control</strong><a class="headerlink" href="#3-role-based-access-control" title="Permanent link">&para;</a></h3>
 <ul>
-<li>The <code>app</code> service and <code>db</code> service use volumes (<code>app_data</code> and <code>db_data</code>) to persist data.</li>
-<li>The application container connects to the database container using the service name <code>db</code> as the database host.</li>
+<li>Create IAM roles to delegate access without sharing credentials.</li>
+<li>Assign roles to AWS services (e.g., EC2 instances, Lambda functions) to grant them permissions.</li>
+<li>Supports cross-account access by defining trust relationships.</li>
 </ul>
-<hr />
-<h2 id="4-using-stateful-containers-with-docker-swarm">4. <strong>Using Stateful Containers with Docker Swarm</strong><a class="headerlink" href="#4-using-stateful-containers-with-docker-swarm" title="Permanent link">&para;</a></h2>
-<h3 id="description_3">Description:<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h3>
-<p>Docker Swarm allows you to manage multi-container applications across a cluster of Docker hosts. Swarm can handle the scaling of containers and ensures that data is persistent across container restarts by using volumes and persistent storage options.</p>
-<h3 id="key-features_2">Key Features:<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
+<h3 id="4-temporary-security-credentials"><strong>4. Temporary Security Credentials</strong><a class="headerlink" href="#4-temporary-security-credentials" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Service Replication</strong>: Docker Swarm can replicate stateful services (e.g., databases) across nodes.</li>
-<li><strong>Volume Sharing</strong>: Volumes in Swarm are shared between nodes, allowing stateful services to persist even if containers are rescheduled across different hosts.</li>
+<li>Generate temporary credentials for users or applications to access AWS resources.</li>
+<li>Ideal for scenarios requiring short-term access, such as federated users or applications.</li>
 </ul>
-<h3 id="example-of-stateful-service-in-docker-swarm">Example of Stateful Service in Docker Swarm:<a class="headerlink" href="#example-of-stateful-service-in-docker-swarm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>service<span class="w"> </span>create<span class="w">   </span>--name<span class="w"> </span>my_db_service<span class="w">   </span>--replicas<span class="w"> </span><span class="m">3</span><span class="w">   </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>volume,source<span class="o">=</span>db_data,target<span class="o">=</span>/var/lib/postgresql/data<span class="w">   </span>postgres
-</code></pre></div>
-<p>This example creates a stateful service with PostgreSQL that can be replicated across multiple nodes in a Swarm cluster. The <code>db_data</code> volume ensures that the data is persistent even if containers are moved across different hosts.</p>
-<hr />
-<h2 id="5-using-dockers-named-and-anonymous-volumes">5. <strong>Using Docker&rsquo;s Named and Anonymous Volumes</strong><a class="headerlink" href="#5-using-dockers-named-and-anonymous-volumes" title="Permanent link">&para;</a></h2>
-<h3 id="description_4">Description:<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h3>
-<p>Docker supports both <strong>named volumes</strong> and <strong>anonymous volumes</strong>. Named volumes are explicitly defined and can be shared among multiple containers. Anonymous volumes are automatically created by Docker when no volume is specified but are not easily shared across containers.</p>
-<h3 id="named-volumes">Named Volumes:<a class="headerlink" href="#named-volumes" title="Permanent link">&para;</a></h3>
+<h3 id="5-multi-factor-authentication-mfa"><strong>5. Multi-Factor Authentication (MFA)</strong><a class="headerlink" href="#5-multi-factor-authentication-mfa" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Use Cases</strong>: Ideal for persistent data that needs to be shared between containers or reused across different container lifecycles.</li>
-<li><strong>Management</strong>: Named volumes are stored in Docker&rsquo;s default volume location, and you can manage them using <code>docker volume</code> commands.</li>
+<li>Enhance security by requiring users to authenticate with an additional factor (e.g., a one-time code).</li>
+<li>Supports both hardware and virtual MFA devices.</li>
 </ul>
-<h3 id="example-of-named-volume">Example of Named Volume:<a class="headerlink" href="#example-of-named-volume" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-web-app</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_named_volume:/data</span>
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">my_named_volume</span><span class="p">:</span>
-</code></pre></div>
-<h3 id="anonymous-volumes">Anonymous Volumes:<a class="headerlink" href="#anonymous-volumes" title="Permanent link">&para;</a></h3>
+<h3 id="6-integration-with-aws-services"><strong>6. Integration with AWS Services</strong><a class="headerlink" href="#6-integration-with-aws-services" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Use Cases</strong>: Useful for temporary data storage that does not need to be shared or retained across container restarts.</li>
-<li><strong>Management</strong>: Anonymous volumes are automatically created when the <code>docker run</code> command is executed with the <code>-v</code> flag without specifying a volume name.</li>
+<li>Integrated with all AWS services for access control.</li>
+<li>Provides a consistent mechanism for granting and revoking permissions across AWS.</li>
 </ul>
-<h3 id="example-of-anonymous-volume">Example of Anonymous Volume:<a class="headerlink" href="#example-of-anonymous-volume" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/data<span class="w"> </span>my-container
-</code></pre></div>
-<hr />
-<h2 id="6-stateful-applications-and-data-backuprestore">6. <strong>Stateful Applications and Data Backup/Restore</strong><a class="headerlink" href="#6-stateful-applications-and-data-backuprestore" title="Permanent link">&para;</a></h2>
-<h3 id="description_5">Description:<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h3>
-<p>Stateful applications like databases often require backup and restore capabilities. Docker volumes and bind mounts facilitate backup operations by allowing you to back up the persistent data stored in volumes.</p>
-<h3 id="backup-example">Backup Example:<a class="headerlink" href="#backup-example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>db_data:/db_data<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/backup<span class="w"> </span>busybox<span class="w"> </span>tar<span class="w"> </span>czf<span class="w"> </span>/backup/db_data_backup.tar.gz<span class="w"> </span>/db_data
-</code></pre></div>
-<p>This command uses a <code>busybox</code> container to back up the contents of the <code>db_data</code> volume into a <code>db_data_backup.tar.gz</code> file.</p>
-<h3 id="restore-example">Restore Example:<a class="headerlink" href="#restore-example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>db_data:/db_data<span class="w"> </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/backup<span class="w"> </span>busybox<span class="w"> </span>tar<span class="w"> </span>xzf<span class="w"> </span>/backup/db_data_backup.tar.gz<span class="w"> </span>-C<span class="w"> </span>/db_data
-</code></pre></div>
-<p>This command restores the backup from the tarball into the <code>db_data</code> volume.</p>
-<hr />
-<h2 id="7-using-external-storage-for-data-persistence">7. <strong>Using External Storage for Data Persistence</strong><a class="headerlink" href="#7-using-external-storage-for-data-persistence" title="Permanent link">&para;</a></h2>
-<h3 id="description_6">Description:<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h3>
-<p>For large-scale or highly available applications, you may want to store data in external storage systems (e.g., network-attached storage or cloud storage). Docker supports external volume drivers, allowing you to integrate with third-party storage systems.</p>
-<h3 id="key-features_3">Key Features:<a class="headerlink" href="#key-features_3" title="Permanent link">&para;</a></h3>
+<h3 id="7-policy-types"><strong>7. Policy Types</strong><a class="headerlink" href="#7-policy-types" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Cloud Storage</strong>: Docker can integrate with cloud providers like AWS EBS, Google Cloud Persistent Disks, or Azure Managed Disks using volume plugins.</li>
-<li><strong>Network Storage</strong>: Docker can be configured to use network-attached storage (NAS) solutions to provide persistent storage across containers.</li>
+<li><strong>Managed Policies</strong>: Predefined policies by AWS or custom policies created by users.</li>
+<li><strong>Inline Policies</strong>: Policies embedded directly in a user, group, or role.</li>
+<li><strong>Service Control Policies (SCPs)</strong>: Used with AWS Organizations to set permission boundaries at the organizational level.</li>
 </ul>
-<h3 id="example-of-using-cloud-storage">Example of Using Cloud Storage:<a class="headerlink" href="#example-of-using-cloud-storage" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>--driver<span class="o">=</span>cloud_storage_driver<span class="w"> </span>--name<span class="w"> </span>cloud_volume
-</code></pre></div>
-<p>This creates a volume that uses an external cloud storage provider to persist data.</p>
+<h3 id="8-permission-boundaries"><strong>8. Permission Boundaries</strong><a class="headerlink" href="#8-permission-boundaries" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Define the maximum permissions a user or role can have.</li>
+<li>Prevent users from escalating privileges or performing unauthorized actions.</li>
+<li>Used to ensure roles or users do not exceed predefined permissions.</li>
+</ul>
+<h3 id="9-resource-tags-for-access-control"><strong>9. Resource Tags for Access Control</strong><a class="headerlink" href="#9-resource-tags-for-access-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use resource tags to define permissions based on resource metadata.</li>
+<li>Simplifies permission management for large-scale environments.</li>
+</ul>
+<h3 id="10-identity-federation"><strong>10. Identity Federation</strong><a class="headerlink" href="#10-identity-federation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support for Single Sign-On (SSO) using external identity providers (e.g., Microsoft Active Directory, SAML, or OIDC).</li>
+<li>Enables users to log in with corporate credentials.</li>
+</ul>
+<h3 id="11-trust-policy"><strong>11. Trust Policy</strong><a class="headerlink" href="#11-trust-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A JSON document that defines which entities (e.g., users, roles, accounts) can assume a role.</li>
+<li>Key for cross-account or external access delegation.</li>
+<li>Specifies the principal, conditions, and actions allowed for assuming the role.</li>
+</ul>
+<h3 id="12-acl-access-control-list"><strong>12. ACL (Access Control List)</strong><a class="headerlink" href="#12-acl-access-control-list" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Used to manage access to specific AWS resources, primarily Amazon S3 buckets and objects.</li>
+<li>Specifies which AWS accounts or users are granted access and the type of operations allowed (e.g., read, write).</li>
+<li>Less granular and flexible compared to IAM policies.</li>
+</ul>
+<h3 id="13-scp-service-control-policy"><strong>13. SCP (Service Control Policy)</strong><a class="headerlink" href="#13-scp-service-control-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Policies applied at the organizational level in AWS Organizations.</li>
+<li>Control what services and actions can be used by accounts within an organization or organizational unit (OU).</li>
+<li>Does not grant permissions but sets limits on the maximum permissions available.</li>
+</ul>
+<h3 id="14-audit-and-compliance"><strong>14. Audit and Compliance</strong><a class="headerlink" href="#14-audit-and-compliance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Provides detailed logs of IAM-related activities via AWS CloudTrail.</li>
+<li>Simplifies auditing and compliance with built-in monitoring and reporting.</li>
+</ul>
+<h3 id="15-free-tier"><strong>15. Free Tier</strong><a class="headerlink" href="#15-free-tier" title="Permanent link">&para;</a></h3>
+<ul>
+<li>IAM is free of charge; you only pay for the resources accessed using IAM policies.</li>
+</ul>
 <hr />
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Managing data persistence and stateful applications in Docker requires careful planning and appropriate use of Docker volumes, bind mounts, and external storage. Docker&rsquo;s support for volumes and container orchestration systems like Docker Swarm and Kubernetes ensures that stateful services can be managed efficiently. By using the right combination of tools, you can ensure that your stateful applications maintain data integrity and are highly available, even when containers are stopped, restarted, or rescheduled.</p>
+<p>IAM is a foundational service that ensures secure and controlled access to AWS resources. With its fine-grained permissions, role-based access, and integration capabilities, IAM helps organizations manage their AWS environment securely and efficiently.</p>
 
 
 
@@ -3246,7 +3472,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../how_would_you_manage_and_optimize_resource_allocat/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you manage and optimize resource allocation in a Dockerized environment to ensure efficiency?">
+          <a href="../api_gateway/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Amazon API Gateway">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3256,20 +3482,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                How would you manage and optimize resource allocation in a Dockerized environment to ensure efficiency?
+                Amazon API Gateway
               </div>
             </div>
           </a>
         
         
           
-          <a href="../how_would_you_secure_docker_containers_in_a_produc/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you secure Docker containers in a production environment?">
+          <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                How would you secure Docker containers in a production environment?
+                How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?
               </div>
             </div>
             <div class="md-footer__button md-icon">
