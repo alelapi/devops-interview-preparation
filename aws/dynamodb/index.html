@@ -713,6 +713,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#17-calculating-estimated-rcu-and-wcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Calculating Estimated RCU and WCU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Calculating Estimated RCU and WCU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3299,6 +3323,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#17-calculating-estimated-rcu-and-wcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Calculating Estimated RCU and WCU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Calculating Estimated RCU and WCU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3412,6 +3460,36 @@
 <li>Fully serverless with no infrastructure management.</li>
 <li>Automatically scales based on usage.</li>
 </ul>
+<h3 id="17-calculating-estimated-rcu-and-wcu"><strong>17. Calculating Estimated RCU and WCU</strong><a class="headerlink" href="#17-calculating-estimated-rcu-and-wcu" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Read Capacity Units (RCU)</strong>: One RCU provides:</li>
+<li><strong>1 strongly consistent read</strong> per second for an item up to 4 KB in size.</li>
+<li><strong>2 eventually consistent reads</strong> per second for an item up to 4 KB in size.</li>
+<li><strong>Write Capacity Units (WCU)</strong>: One WCU provides:</li>
+<li><strong>1 write</strong> per second for an item up to 1 KB in size.</li>
+</ul>
+<h4 id="examples"><strong>Examples</strong>:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>Read Example</strong>:</p>
+</li>
+<li>
+<p>If you need to read 100 items per second, and each item is 8 KB, calculate RCUs as:</p>
+<ul>
+<li>Item size = 8 KB (rounded up to nearest 4 KB = 2 units)</li>
+<li>Strongly consistent reads: 100 items × 2 units = 200 RCUs</li>
+<li>Eventually consistent reads: 100 items × 1 unit = 100 RCUs</li>
+</ul>
+</li>
+<li>
+<p><strong>Write Example</strong>:</p>
+</li>
+<li>If you need to write 50 items per second, and each item is 2 KB, calculate WCUs as:<ul>
+<li>Item size = 2 KB (rounded up to nearest 1 KB = 2 units)</li>
+<li>Total WCUs: 50 items × 2 units = 100 WCUs</li>
+</ul>
+</li>
+</ol>
 <hr />
 <p>DynamoDB is highly suitable for applications requiring high availability, scalability, and low-latency data access. With its rich set of features, it supports a wide range of use cases, from real-time analytics to mobile backends and gaming applications.</p>
 
