@@ -91,6 +91,28 @@ Amazon DynamoDB is a fully managed NoSQL database service provided by AWS, desig
 - Fully serverless with no infrastructure management.
 - Automatically scales based on usage.
 
+### **17. Calculating Estimated RCU and WCU**
+
+- **Read Capacity Units (RCU)**: One RCU provides:
+  - **1 strongly consistent read** per second for an item up to 4 KB in size.
+  - **2 eventually consistent reads** per second for an item up to 4 KB in size.
+- **Write Capacity Units (WCU)**: One WCU provides:
+  - **1 write** per second for an item up to 1 KB in size.
+
+#### **Examples**:
+
+1. **Read Example**:
+
+   - If you need to read 100 items per second, and each item is 8 KB, calculate RCUs as:
+     - Item size = 8 KB (rounded up to nearest 4 KB = 2 units)
+     - Strongly consistent reads: 100 items × 2 units = 200 RCUs
+     - Eventually consistent reads: 100 items × 1 unit = 100 RCUs
+
+2. **Write Example**:
+   - If you need to write 50 items per second, and each item is 2 KB, calculate WCUs as:
+     - Item size = 2 KB (rounded up to nearest 1 KB = 2 units)
+     - Total WCUs: 50 items × 2 units = 100 WCUs
+
 ---
 
 DynamoDB is highly suitable for applications requiring high availability, scalability, and low-latency data access. With its rich set of features, it supports a wide range of use cases, from real-time analytics to mobile backends and gaming applications.
