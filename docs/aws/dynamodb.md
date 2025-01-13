@@ -48,9 +48,26 @@ Amazon DynamoDB is a fully managed NoSQL database service provided by AWS, desig
 ### **9. Secondary Indexes**
 
 - DynamoDB supports indexes for flexible querying:
-  - **Global Secondary Indexes (GSI)**: Can be queried across partitions and have a different partition and sort key than the base table.
-  - **Local Secondary Indexes (LSI)**: Share the same partition key as the base table but allow for a different sort key.
-- Secondary indexes enable efficient queries on attributes other than the primary key.
+
+#### **Global Secondary Index (GSI)**
+
+- **Definition**: An index with a partition key and an optional sort key that can be different from the base table's primary key.
+- **Purpose**: Enables queries on attributes other than the base table's primary key.
+- **Key Features**:
+  - Can query across all partitions in the table.
+  - Suitable for workloads needing different access patterns.
+  - Does not share the same partition key as the base table, allowing for diverse queries.
+- **Example**: A base table with a partition key `UserID` might use a GSI with a partition key `Email` to allow querying users by their email addresses.
+
+#### **Local Secondary Index (LSI)**
+
+- **Definition**: An index with the same partition key as the base table but a different sort key.
+- **Purpose**: Enables querying additional attributes within the same partition.
+- **Key Features**:
+  - Limited to querying data within a single partition.
+  - Must be defined at table creation time.
+  - Useful for applications requiring multiple sort keys for the same partition.
+- **Example**: A table with partition key `OrderID` and sort key `Timestamp` might use an LSI with a sort key `Status` to query orders by their status within the same `OrderID`.
 
 ### **10. Data Types**
 
