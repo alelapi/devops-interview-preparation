@@ -648,6 +648,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="9. Secondary Indexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-secondary-index-gsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Secondary Index (GSI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-secondary-index-lsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Secondary Index (LSI)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3258,6 +3282,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="9. Secondary Indexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-secondary-index-gsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Secondary Index (GSI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-secondary-index-lsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Secondary Index (LSI)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3417,9 +3465,26 @@
 <h3 id="9-secondary-indexes"><strong>9. Secondary Indexes</strong><a class="headerlink" href="#9-secondary-indexes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>DynamoDB supports indexes for flexible querying:</li>
-<li><strong>Global Secondary Indexes (GSI)</strong>: Can be queried across partitions and have a different partition and sort key than the base table.</li>
-<li><strong>Local Secondary Indexes (LSI)</strong>: Share the same partition key as the base table but allow for a different sort key.</li>
-<li>Secondary indexes enable efficient queries on attributes other than the primary key.</li>
+</ul>
+<h4 id="global-secondary-index-gsi"><strong>Global Secondary Index (GSI)</strong><a class="headerlink" href="#global-secondary-index-gsi" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Definition</strong>: An index with a partition key and an optional sort key that can be different from the base table&rsquo;s primary key.</li>
+<li><strong>Purpose</strong>: Enables queries on attributes other than the base table&rsquo;s primary key.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Can query across all partitions in the table.</li>
+<li>Suitable for workloads needing different access patterns.</li>
+<li>Does not share the same partition key as the base table, allowing for diverse queries.</li>
+<li><strong>Example</strong>: A base table with a partition key <code>UserID</code> might use a GSI with a partition key <code>Email</code> to allow querying users by their email addresses.</li>
+</ul>
+<h4 id="local-secondary-index-lsi"><strong>Local Secondary Index (LSI)</strong><a class="headerlink" href="#local-secondary-index-lsi" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Definition</strong>: An index with the same partition key as the base table but a different sort key.</li>
+<li><strong>Purpose</strong>: Enables querying additional attributes within the same partition.</li>
+<li><strong>Key Features</strong>:</li>
+<li>Limited to querying data within a single partition.</li>
+<li>Must be defined at table creation time.</li>
+<li>Useful for applications requiring multiple sort keys for the same partition.</li>
+<li><strong>Example</strong>: A table with partition key <code>OrderID</code> and sort key <code>Timestamp</code> might use an LSI with a sort key <code>Status</code> to query orders by their status within the same <code>OrderID</code>.</li>
 </ul>
 <h3 id="10-data-types"><strong>10. Data Types</strong><a class="headerlink" href="#10-data-types" title="Permanent link">&para;</a></h3>
 <ul>
