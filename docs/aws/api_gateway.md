@@ -12,7 +12,6 @@ Amazon API Gateway is a fully managed service provided by AWS for creating, depl
 ### **2. Multi-Protocol Support**
 
 - Supports both RESTful APIs and WebSocket APIs.
-- Ideal for building real-time communication services like chat apps and live updates.
 
 ### **3. Scalability**
 
