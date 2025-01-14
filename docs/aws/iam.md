@@ -34,6 +34,14 @@ AWS Identity and Access Management (IAM) secures AWS resources by managing acces
 - **Resource-Based Policies**: Grant permissions to access specific resources.
 - **Cross-Account Access**: Use resource-based policies to allow access from other accounts.
 
+## Tools
+
+- **IAM Access Analyzer**: AWS IAM Access Analyzer helps you identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, that are shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.
+
+You can set the scope for the analyzer to an organization or an AWS account. This is your zone of trust. The analyzer scans all of the supported resources within your zone of trust. When Access Analyzer finds a policy that allows access to a resource from outside of your zone of trust, it generates an active finding.
+
+- **Access Advisor**: To help identify the unused roles, IAM reports the last-used timestamp that represents when a role was last used to make an AWS request. Your security team can use this information to identify, analyze, and then confidently remove unused roles. This helps improve the security posture of your AWS environments. This does not provide information about non-IAM entities such as S3, hence it's not a correct choice here.
+
 ## Best Practices
 
 - Use the AWS Management Console's visual editor to create policies without needing to write JSON.
