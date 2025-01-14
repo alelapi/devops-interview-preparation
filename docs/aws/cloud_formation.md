@@ -45,6 +45,10 @@ AWS CloudFormation is an Infrastructure-as-Code (IaC) service provided by AWS th
 
 - Provides output values from stacks, such as resource IDs or endpoints.
 - Useful for sharing data between stacks.
+- Exported Output Values in CloudFormation must have unique names within a single Region
+  Using CloudFormation, you can create a template that describes all the AWS resources that you want (like Amazon EC2 instances or Amazon RDS DB instances), and AWS CloudFormation takes care of provisioning and configuring those resources for you.
+  A CloudFormation template has an optional Outputs section which declares output values that you can import into other stacks (to create cross-stack references), return in response (to describe stack calls), or view on the AWS CloudFormation console. For example, you can output the S3 bucket name for a stack to make the bucket easier to find.
+  You can use the Export Output Values to export the name of the resource output for a cross-stack reference. For each AWS account, export names must be unique within a region.
 
 ### **9. Integration with Other Services**
 
