@@ -1,135 +1,274 @@
-# Amazon DynamoDB
+# Amazon DynamoDB Documentation
 
-Amazon DynamoDB is a fully managed NoSQL database service provided by AWS, designed for applications requiring consistent, single-digit millisecond latency at any scale. DynamoDB is widely used for building scalable, high-performance, and serverless applications.
+## Overview
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It offers encryption at rest, automated backup and restore, and in-memory caching.
 
-## Key Characteristics of DynamoDB
+## Core Concepts
 
-### **1. Fully Managed Service**
+### Tables, Items, and Attributes
+- **Tables**: Container for all items
+- **Items**: Group of attributes (similar to rows)
+- **Attributes**: Fundamental data elements (similar to columns)
+- **Primary Key**: Unique identifier for each item
+  - Simple Primary Key (Partition Key only)
+  - Composite Primary Key (Partition Key + Sort Key)
 
-- AWS manages all administrative tasks like provisioning, scaling, backups, and updates.
-- No server management required.
+### Data Types
+1. **Scalar Types**
+   - Number
+   - String
+   - Binary
+   - Boolean
+   - Null
 
-### **2. NoSQL Database**
+2. **Document Types**
+   - List
+   - Map
 
-- DynamoDB is a NoSQL database, meaning it stores data in a key-value and document-based format.
-- Ideal for use cases like session management, gaming leaderboards, or IoT applications.
+3. **Set Types**
+   - Number Set
+   - String Set
+   - Binary Set
 
-### **3. High Performance**
+## Key Features
 
-- Provides consistent, single-digit millisecond latency at any scale.
-- Supports applications with high read and write throughput demands.
+### Performance
+- Single-digit millisecond latency
+- Auto-scaling capabilities
+- Provisioned or On-demand capacity modes
+- Global tables for multi-region deployment
 
-### **4. Scalability**
+### Durability and Availability
+- Data replicated across multiple AZs
+- Point-in-time recovery
+- On-demand backup and restore
+- Automated continuous backups
 
-- Automatically scales up or down based on traffic patterns.
-- Supports both provisioned capacity and on-demand capacity modes.
+### Security
+- Encryption at rest using AWS KMS
+- Encryption in transit using TLS
+- Fine-grained access control with IAM
+- VPC endpoints support
 
-### **5. Global Tables**
+## Implementation Examples
 
-- Allows you to replicate tables across multiple AWS regions for low-latency access and disaster recovery.
+### Table Creation (AWS SDK - Python)
+```python
+import boto3
 
-### **6. Flexible Schema**
+dynamodb = boto3.resource('dynamodb')
 
-- Does not enforce a fixed schema, making it adaptable for applications with evolving data models.
-- Each item can have different attributes.
+table = dynamodb.create_table(
+    TableName='Users',
+    KeySchema=[
+        {
+            'AttributeName': 'user_id',
+            'KeyType': 'HASH'  # Partition key
+        },
+        {
+            'AttributeName': 'timestamp',
+            'KeyType': 'RANGE'  # Sort key
+        }
+    ],
+    AttributeDefinitions=[
+        {
+            'AttributeName': 'user_id',
+            'AttributeType': 'S'
+        },
+        {
+            'AttributeName': 'timestamp',
+            'AttributeType': 'N'
+        },
+    ],
+    ProvisionedThroughput={
+        'ReadCapacityUnits': 5,
+        'WriteCapacityUnits': 5
+    }
+)
 
-### **7. Strong and Eventual Consistency**
+table.wait_until_exists()
+```
 
-- Offers two read consistency models:
-  - **Strongly Consistent Reads**: Ensure the most recent write is read.
-  - **Eventually Consistent Reads**: May return stale data but with lower latency.
+### Basic CRUD Operations (Python)
+```python
+# Create/Update Item
+def put_item(table_name, item):
+    table = dynamodb.Table(table_name)
+    response = table.put_item(Item=item)
+    return response
 
-### **8. Partition Key and Sort Key**
+# Read Item
+def get_item(table_name, key):
+    table = dynamodb.Table(table_name)
+    response = table.get_item(Key=key)
+    return response.get('Item')
 
-- **Partition Key**: A unique identifier for each item. Determines the partition where the data is stored.
-- **Sort Key**: Optional secondary key that allows for range-based queries within a partition.
-- Together, the partition key and sort key form a composite primary key, enabling efficient organization and retrieval of data.
+# Update Item
+def update_item(table_name, key, update_expression, expression_values):
+    table = dynamodb.Table(table_name)
+    response = table.update_item(
+        Key=key,
+        UpdateExpression=update_expression,
+        ExpressionAttributeValues=expression_values,
+        ReturnValues="UPDATED_NEW"
+    )
+    return response
 
-### **9. Secondary Indexes**
+# Delete Item
+def delete_item(table_name, key):
+    table = dynamodb.Table(table_name)
+    response = table.delete_item(Key=key)
+    return response
+```
 
-- DynamoDB supports indexes for flexible querying:
+### Query and Scan Operations
+```python
+# Query Example
+def query_user_items(table_name, user_id):
+    table = dynamodb.Table(table_name)
+    response = table.query(
+        KeyConditionExpression='user_id = :uid',
+        ExpressionAttributeValues={
+            ':uid': user_id
+        }
+    )
+    return response['Items']
 
-#### **Global Secondary Index (GSI)**
+# Scan Example with Filter
+def scan_with_filter(table_name, filter_expression):
+    table = dynamodb.Table(table_name)
+    response = table.scan(
+        FilterExpression=filter_expression
+    )
+    return response['Items']
+```
 
-- **Definition**: An index with a partition key and an optional sort key that can be different from the base table's primary key.
-- **Purpose**: Enables queries on attributes other than the base table's primary key.
-- **Key Features**:
-  - Can query across all partitions in the table.
-  - Suitable for workloads needing different access patterns.
-  - Does not share the same partition key as the base table, allowing for diverse queries.
-- **Example**: A base table with a partition key `UserID` might use a GSI with a partition key `Email` to allow querying users by their email addresses.
+## Best Practices
 
-#### **Local Secondary Index (LSI)**
+### Table Design
+1. **Choose Appropriate Primary Keys**
+   - Ensure even distribution of data
+   - Avoid hot partitions
+   - Consider access patterns
 
-- **Definition**: An index with the same partition key as the base table but a different sort key.
-- **Purpose**: Enables querying additional attributes within the same partition.
-- **Key Features**:
-  - Limited to querying data within a single partition.
-  - Must be defined at table creation time.
-  - Useful for applications requiring multiple sort keys for the same partition.
-- **Example**: A table with partition key `OrderID` and sort key `Timestamp` might use an LSI with a sort key `Status` to query orders by their status within the same `OrderID`.
+2. **Use Secondary Indexes Wisely**
+   - Global Secondary Indexes (GSI)
+   - Local Secondary Indexes (LSI)
+   - Limit number of indexes to minimize costs
 
-### **10. Data Types**
+3. **Data Modeling**
+   - Denormalize data for query efficiency
+   - Use composite sort keys for hierarchical data
+   - Consider item collections
 
-- Supports three primary data types:
-  - **Scalar Types**: String, Number, Binary, Boolean, Null.
-  - **Document Types**: List, Map.
-  - **Set Types**: String Set, Number Set, Binary Set.
+### Performance Optimization
+1. **Capacity Planning**
+   - Choose appropriate capacity mode
+   - Use auto-scaling
+   - Monitor capacity metrics
 
-### **11. Integration with AWS Services**
+2. **Query Optimization**
+   - Use query over scan
+   - Implement pagination
+   - Use parallel scans when appropriate
 
-- Seamlessly integrates with other AWS services like Lambda, S3, IAM, CloudWatch, and Kinesis.
+3. **Caching Strategy**
+   - Implement DAX for caching
+   - Use appropriate TTL settings
+   - Monitor cache hit ratios
 
-### **12. Security**
+## Common Design Patterns
 
-- Encryption at rest using AWS Key Management Service (KMS).
-- Fine-grained access control with IAM policies.
-- Secure communication with SSL/TLS.
+### One-to-Many Relationships
+```json
+{
+    "OrderID": "12345",
+    "CustomerID": "C101",
+    "OrderItems": [
+        {
+            "ProductID": "P1",
+            "Quantity": 2
+        },
+        {
+            "ProductID": "P2",
+            "Quantity": 1
+        }
+    ]
+}
+```
 
-### **13. Stream Processing**
+### Many-to-Many Relationships
+```json
+{
+    "GSI1PK": "USER#123",
+    "GSI1SK": "GROUP#456",
+    "Type": "UserGroup",
+    "UserID": "123",
+    "GroupID": "456",
+    "JoinDate": "2023-01-01"
+}
+```
 
-- DynamoDB Streams capture real-time data changes for downstream processing.
-- Can integrate with AWS Lambda for event-driven architectures.
+## Monitoring and Operations
 
-### **14. Backup and Restore**
+### CloudWatch Metrics to Monitor
+- ConsumedReadCapacityUnits
+- ConsumedWriteCapacityUnits
+- ThrottledRequests
+- SystemErrors
+- UserErrors
 
-- Offers point-in-time recovery (PITR) for accidental data deletion or corruption.
-- Supports on-demand and continuous backups.
+### Common Operations Tasks
+1. **Backup and Restore**
+   - On-demand backups
+   - Point-in-time recovery
+   - Cross-region backup
 
-### **15. Pricing Model**
+2. **Scaling**
+   - Update capacity
+   - Enable auto-scaling
+   - Monitor throttling
 
-- Pay-as-you-go pricing based on:
-  - Read and write capacity units (RCUs/WCUs).
-  - Storage used.
-  - Optional features like backups and streams.
+3. **Maintenance**
+   - Update indexes
+   - Cleanup expired items
+   - Optimize tables
 
-### **16. Serverless**
+## Cost Optimization
 
-- Fully serverless with no infrastructure management.
-- Automatically scales based on usage.
+### Cost Factors
+1. **Storage**
+   - Charged per GB stored
+   - Consider data lifecycle
 
-### **17. Calculating Estimated RCU and WCU**
+2. **Throughput**
+   - Read/Write Capacity Units
+   - On-demand vs Provisioned
 
-- **Read Capacity Units (RCU)**: One RCU provides:
-  - **1 strongly consistent read** per second for an item up to 4 KB in size.
-  - **2 eventually consistent reads** per second for an item up to 4 KB in size.
-- **Write Capacity Units (WCU)**: One WCU provides:
-  - **1 write** per second for an item up to 1 KB in size.
+3. **Features**
+   - Backup storage
+   - Global Tables replication
+   - DAX nodes
 
-#### **Examples**:
+### Optimization Strategies
+1. Use appropriate capacity mode
+2. Implement TTL for data expiration
+3. Compress large attributes
+4. Use batch operations
+5. Monitor and adjust capacity
 
-1. **Read Example**:
+## Limits and Quotas
+- Item size: 400KB
+- Partition key length: 2048 bytes
+- Sort key length: 1024 bytes
+- Tables per account: 256 (default)
+- Secondary indexes per table: 20 (5 LSI, 15 GSI)
+- Projected attributes per index: 100
 
-   - If you need to read 100 items per second, and each item is 8 KB, calculate RCUs as:
-     - Item size = 8 KB (rounded up to nearest 4 KB = 2 units)
-     - Strongly consistent reads: 100 items × 2 units = 200 RCUs
-     - Eventually consistent reads: 100 items × 1 unit = 100 RCUs
+## Error Handling and Troubleshooting
 
-2. **Write Example**:
-   - If you need to write 50 items per second, and each item is 2 KB, calculate WCUs as:
-     - Item size = 2 KB (rounded up to nearest 1 KB = 2 units)
-     - Total WCUs: 50 items × 2 units = 100 WCUs
-
----
-
-DynamoDB is highly suitable for applications requiring high availability, scalability, and low-latency data access. With its rich set of features, it supports a wide range of use cases, from real-time analytics to mobile backends and gaming applications.
+### Common Errors
+1. ProvisionedThroughputExceededException
+2. ResourceNotFoundException
+3. ConditionalCheckFailedException
+4. ValidationException
