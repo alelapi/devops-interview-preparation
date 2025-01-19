@@ -3,6 +3,8 @@
 ## Introduction
 
 AWS X-Ray is a distributed tracing service that helps developers analyze and debug production, distributed applications. It provides an end-to-end view of requests as they travel through your application, showing a map of your application's underlying components and detailed information about requests and responses.
+AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors. X-Ray provides an end-to-end view of requests as they travel through your application, and shows a map of your application’s underlying components.
+You can use X-Ray to collect data across AWS Accounts. The X-Ray agent can assume a role to publish data into an account different from the one in which it is running. This enables you to publish data from various components of your application into a central account.
 
 ### Architecture
 ```
