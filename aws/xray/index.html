@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="../s3/">
       
       
-        <link rel="next" href="../api_gateway/">
+        <link rel="next" href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Amazon DynamoDB - My DevOps Interview Preparation</title>
+        <title>AWS X-Ray Guide - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amazon-dynamodb" class="md-skip">
+        <a href="#aws-x-ray-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Amazon DynamoDB
+              AWS X-Ray Guide
             
           </span>
         </div>
@@ -240,7 +240,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../dynamodb/" class="md-tabs__link">
           
   
     
@@ -539,30 +539,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Amazon DynamoDB
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -571,233 +551,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-characteristics-of-dynamodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Characteristics of DynamoDB
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Characteristics of DynamoDB">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-fully-managed-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Fully Managed Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-nosql-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. NoSQL Database
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-high-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. High Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-scalability" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Scalability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-global-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Global Tables
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-flexible-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Flexible Schema
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-strong-and-eventual-consistency" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Strong and Eventual Consistency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-partition-key-and-sort-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Partition Key and Sort Key
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-secondary-indexes" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Secondary Indexes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Secondary Indexes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#global-secondary-index-gsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global Secondary Index (GSI)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-secondary-index-lsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Local Secondary Index (LSI)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-data-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Data Types
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-stream-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Stream Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-backup-and-restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      14. Backup and Restore
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-pricing-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      15. Pricing Model
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#16-serverless" class="md-nav__link">
-    <span class="md-ellipsis">
-      16. Serverless
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#17-calculating-estimated-rcu-and-wcu" class="md-nav__link">
-    <span class="md-ellipsis">
-      17. Calculating Estimated RCU and WCU
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="17. Calculating Estimated RCU and WCU">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1080,10 +833,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../xray/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AWS X-Ray Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1092,6 +865,464 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsegments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsegments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Graph
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x-ray-daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      X-Ray Daemon
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="X-Ray Daemon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-deployment-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemon Deployment Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemon Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemon Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sampling Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rules-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Rules Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rule-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Rule Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rule-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Rule Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Sampling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-service-map-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Service Map Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trace-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Trace Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Analytics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sampling-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Sampling Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instrumentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-error-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Error Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dependency-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dependency Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sampling-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Sampling Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-storage-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Storage Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-resource-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Resource Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-iam-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. IAM Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3516,110 +3747,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-characteristics-of-dynamodb" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Characteristics of DynamoDB
+      Introduction
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Characteristics of DynamoDB">
+    <nav class="md-nav" aria-label="Introduction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-fully-managed-service" class="md-nav__link">
+  <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Fully Managed Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-nosql-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. NoSQL Database
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-high-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. High Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-scalability" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Scalability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-global-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Global Tables
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-flexible-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Flexible Schema
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-strong-and-eventual-consistency" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Strong and Eventual Consistency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-partition-key-and-sort-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Partition Key and Sort Key
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-secondary-indexes" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Secondary Indexes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Secondary Indexes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#global-secondary-index-gsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Global Secondary Index (GSI)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-secondary-index-lsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Local Secondary Index (LSI)
+      Architecture
     </span>
   </a>
   
@@ -3629,84 +3769,48 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#10-data-types" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      10. Data Types
+      Core Concepts
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-stream-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Stream Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-backup-and-restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      14. Backup and Restore
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-pricing-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      15. Pricing Model
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#16-serverless" class="md-nav__link">
-    <span class="md-ellipsis">
-      16. Serverless
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#17-calculating-estimated-rcu-and-wcu" class="md-nav__link">
-    <span class="md-ellipsis">
-      17. Calculating Estimated RCU and WCU
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="17. Calculating Estimated RCU and WCU">
+    <nav class="md-nav" aria-label="Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#segments" class="md-nav__link">
     <span class="md-ellipsis">
-      Examples:
+      Segments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsegments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsegments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Graph
     </span>
   </a>
   
@@ -3716,9 +3820,367 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#x-ray-daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      X-Ray Daemon
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="X-Ray Daemon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-deployment-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemon Deployment Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemon Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Daemon Monitoring
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampling-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sampling Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sampling-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rules-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Rules Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rule-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Rule Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling-rule-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sampling Rule Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Sampling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-service-map-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Service Map Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trace-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Trace Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Analytics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sampling-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Sampling Strategy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instrumentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-error-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Error Detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dependency-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dependency Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sampling-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Sampling Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-storage-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Storage Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-resource-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Resource Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-iam-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. IAM Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
   
 </li>
       
@@ -3740,145 +4202,477 @@
   
 
 
-<h1 id="amazon-dynamodb">Amazon DynamoDB<a class="headerlink" href="#amazon-dynamodb" title="Permanent link">&para;</a></h1>
-<p>Amazon DynamoDB is a fully managed NoSQL database service provided by AWS, designed for applications requiring consistent, single-digit millisecond latency at any scale. DynamoDB is widely used for building scalable, high-performance, and serverless applications.</p>
-<h2 id="key-characteristics-of-dynamodb">Key Characteristics of DynamoDB<a class="headerlink" href="#key-characteristics-of-dynamodb" title="Permanent link">&para;</a></h2>
-<h3 id="1-fully-managed-service"><strong>1. Fully Managed Service</strong><a class="headerlink" href="#1-fully-managed-service" title="Permanent link">&para;</a></h3>
+<h1 id="aws-x-ray-guide">AWS X-Ray Guide<a class="headerlink" href="#aws-x-ray-guide" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>AWS X-Ray is a distributed tracing service that helps developers analyze and debug production, distributed applications. It provides an end-to-end view of requests as they travel through your application, showing a map of your application&rsquo;s underlying components and detailed information about requests and responses.</p>
+<h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Application → X-Ray SDK → X-Ray Daemon → X-Ray API
+    (2000/UDP)         (443/HTTPS)
+</code></pre></div>
+<p><img alt="X-Ray Overview:" src="../../assets/img/xray.png" /></p>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="segments">Segments<a class="headerlink" href="#segments" title="Permanent link">&para;</a></h3>
 <ul>
-<li>AWS manages all administrative tasks like provisioning, scaling, backups, and updates.</li>
-<li>No server management required.</li>
+<li>Represent the work done by individual services and resources</li>
+<li>Contain timing and other data</li>
+<li>Include:</li>
+<li>Host information</li>
+<li>Request information</li>
+<li>Response information</li>
+<li>Work done</li>
+<li>Issues that occur</li>
 </ul>
-<h3 id="2-nosql-database"><strong>2. NoSQL Database</strong><a class="headerlink" href="#2-nosql-database" title="Permanent link">&para;</a></h3>
+<h3 id="subsegments">Subsegments<a class="headerlink" href="#subsegments" title="Permanent link">&para;</a></h3>
 <ul>
-<li>DynamoDB is a NoSQL database, meaning it stores data in a key-value and document-based format.</li>
-<li>Ideal for use cases like session management, gaming leaderboards, or IoT applications.</li>
+<li>Provide more granular timing information</li>
+<li>Can represent:</li>
+<li>Downstream calls</li>
+<li>SQL queries</li>
+<li>Internal functions</li>
+<li>Custom operations</li>
 </ul>
-<h3 id="3-high-performance"><strong>3. High Performance</strong><a class="headerlink" href="#3-high-performance" title="Permanent link">&para;</a></h3>
+<h3 id="traces">Traces<a class="headerlink" href="#traces" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Provides consistent, single-digit millisecond latency at any scale.</li>
-<li>Supports applications with high read and write throughput demands.</li>
+<li>Collection of segments generated by a single request</li>
+<li>End-to-end path through your application</li>
+<li>Include:</li>
+<li>Timing data</li>
+<li>Dependencies</li>
+<li>Errors and faults</li>
 </ul>
-<h3 id="4-scalability"><strong>4. Scalability</strong><a class="headerlink" href="#4-scalability" title="Permanent link">&para;</a></h3>
+<h3 id="service-graph">Service Graph<a class="headerlink" href="#service-graph" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Automatically scales up or down based on traffic patterns.</li>
-<li>Supports both provisioned capacity and on-demand capacity modes.</li>
+<li>Visual representation of your application</li>
+<li>Shows connections between services</li>
+<li>Highlights:</li>
+<li>Latency</li>
+<li>Error rates</li>
+<li>Request rates</li>
 </ul>
-<h3 id="5-global-tables"><strong>5. Global Tables</strong><a class="headerlink" href="#5-global-tables" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Allows you to replicate tables across multiple AWS regions for low-latency access and disaster recovery.</li>
-</ul>
-<h3 id="6-flexible-schema"><strong>6. Flexible Schema</strong><a class="headerlink" href="#6-flexible-schema" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Does not enforce a fixed schema, making it adaptable for applications with evolving data models.</li>
-<li>Each item can have different attributes.</li>
-</ul>
-<h3 id="7-strong-and-eventual-consistency"><strong>7. Strong and Eventual Consistency</strong><a class="headerlink" href="#7-strong-and-eventual-consistency" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Offers two read consistency models:</li>
-<li><strong>Strongly Consistent Reads</strong>: Ensure the most recent write is read.</li>
-<li><strong>Eventually Consistent Reads</strong>: May return stale data but with lower latency.</li>
-</ul>
-<h3 id="8-partition-key-and-sort-key"><strong>8. Partition Key and Sort Key</strong><a class="headerlink" href="#8-partition-key-and-sort-key" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Partition Key</strong>: A unique identifier for each item. Determines the partition where the data is stored.</li>
-<li><strong>Sort Key</strong>: Optional secondary key that allows for range-based queries within a partition.</li>
-<li>Together, the partition key and sort key form a composite primary key, enabling efficient organization and retrieval of data.</li>
-</ul>
-<h3 id="9-secondary-indexes"><strong>9. Secondary Indexes</strong><a class="headerlink" href="#9-secondary-indexes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>DynamoDB supports indexes for flexible querying:</li>
-</ul>
-<h4 id="global-secondary-index-gsi"><strong>Global Secondary Index (GSI)</strong><a class="headerlink" href="#global-secondary-index-gsi" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Definition</strong>: An index with a partition key and an optional sort key that can be different from the base table&rsquo;s primary key.</li>
-<li><strong>Purpose</strong>: Enables queries on attributes other than the base table&rsquo;s primary key.</li>
-<li><strong>Key Features</strong>:</li>
-<li>Can query across all partitions in the table.</li>
-<li>Suitable for workloads needing different access patterns.</li>
-<li>Does not share the same partition key as the base table, allowing for diverse queries.</li>
-<li><strong>Example</strong>: A base table with a partition key <code>UserID</code> might use a GSI with a partition key <code>Email</code> to allow querying users by their email addresses.</li>
-</ul>
-<h4 id="local-secondary-index-lsi"><strong>Local Secondary Index (LSI)</strong><a class="headerlink" href="#local-secondary-index-lsi" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Definition</strong>: An index with the same partition key as the base table but a different sort key.</li>
-<li><strong>Purpose</strong>: Enables querying additional attributes within the same partition.</li>
-<li><strong>Key Features</strong>:</li>
-<li>Limited to querying data within a single partition.</li>
-<li>Must be defined at table creation time.</li>
-<li>Useful for applications requiring multiple sort keys for the same partition.</li>
-<li><strong>Example</strong>: A table with partition key <code>OrderID</code> and sort key <code>Timestamp</code> might use an LSI with a sort key <code>Status</code> to query orders by their status within the same <code>OrderID</code>.</li>
-</ul>
-<h3 id="10-data-types"><strong>10. Data Types</strong><a class="headerlink" href="#10-data-types" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Supports three primary data types:</li>
-<li><strong>Scalar Types</strong>: String, Number, Binary, Boolean, Null.</li>
-<li><strong>Document Types</strong>: List, Map.</li>
-<li><strong>Set Types</strong>: String Set, Number Set, Binary Set.</li>
-</ul>
-<h3 id="11-integration-with-aws-services"><strong>11. Integration with AWS Services</strong><a class="headerlink" href="#11-integration-with-aws-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Seamlessly integrates with other AWS services like Lambda, S3, IAM, CloudWatch, and Kinesis.</li>
-</ul>
-<h3 id="12-security"><strong>12. Security</strong><a class="headerlink" href="#12-security" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Encryption at rest using AWS Key Management Service (KMS).</li>
-<li>Fine-grained access control with IAM policies.</li>
-<li>Secure communication with SSL/TLS.</li>
-</ul>
-<h3 id="13-stream-processing"><strong>13. Stream Processing</strong><a class="headerlink" href="#13-stream-processing" title="Permanent link">&para;</a></h3>
-<ul>
-<li>DynamoDB Streams capture real-time data changes for downstream processing.</li>
-<li>Can integrate with AWS Lambda for event-driven architectures.</li>
-</ul>
-<h3 id="14-backup-and-restore"><strong>14. Backup and Restore</strong><a class="headerlink" href="#14-backup-and-restore" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Offers point-in-time recovery (PITR) for accidental data deletion or corruption.</li>
-<li>Supports on-demand and continuous backups.</li>
-</ul>
-<h3 id="15-pricing-model"><strong>15. Pricing Model</strong><a class="headerlink" href="#15-pricing-model" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Pay-as-you-go pricing based on:</li>
-<li>Read and write capacity units (RCUs/WCUs).</li>
-<li>Storage used.</li>
-<li>Optional features like backups and streams.</li>
-</ul>
-<h3 id="16-serverless"><strong>16. Serverless</strong><a class="headerlink" href="#16-serverless" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Fully serverless with no infrastructure management.</li>
-<li>Automatically scales based on usage.</li>
-</ul>
-<h3 id="17-calculating-estimated-rcu-and-wcu"><strong>17. Calculating Estimated RCU and WCU</strong><a class="headerlink" href="#17-calculating-estimated-rcu-and-wcu" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Read Capacity Units (RCU)</strong>: One RCU provides:</li>
-<li><strong>1 strongly consistent read</strong> per second for an item up to 4 KB in size.</li>
-<li><strong>2 eventually consistent reads</strong> per second for an item up to 4 KB in size.</li>
-<li><strong>Write Capacity Units (WCU)</strong>: One WCU provides:</li>
-<li><strong>1 write</strong> per second for an item up to 1 KB in size.</li>
-</ul>
-<h4 id="examples"><strong>Examples</strong>:<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<h2 id="x-ray-daemon">X-Ray Daemon<a class="headerlink" href="#x-ray-daemon" title="Permanent link">&para;</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>The X-Ray daemon is a software application that listens for traffic on UDP port 2000, collects raw segment data, and relays it to the AWS X-Ray API. It serves as a local buffer and intermediary between your application and the X-Ray service.</p>
+<h3 id="daemon-deployment-models">Daemon Deployment Models<a class="headerlink" href="#daemon-deployment-models" title="Permanent link">&para;</a></h3>
 <ol>
+<li><strong>EC2 Instance Deployment</strong></li>
+<li>Installed directly on EC2 instances</li>
+<li>Runs as a background service</li>
 <li>
-<p><strong>Read Example</strong>:</p>
+<p>One daemon per instance
+   <div class="highlight"><pre><span></span><code><span class="c1"># Installation on Amazon Linux</span>
+sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>aws-xray-daemon
+
+<span class="c1"># Start daemon</span>
+sudo<span class="w"> </span>/etc/init.d/xray<span class="w"> </span>start
+</code></pre></div></p>
 </li>
 <li>
-<p>If you need to read 100 items per second, and each item is 8 KB, calculate RCUs as:</p>
-<ul>
-<li>Item size = 8 KB (rounded up to nearest 4 KB = 2 units)</li>
-<li>Strongly consistent reads: 100 items × 2 units = 200 RCUs</li>
-<li>Eventually consistent reads: 100 items × 1 unit = 100 RCUs</li>
-</ul>
+<p><strong>Container Deployment</strong></p>
+</li>
+<li>Runs as a sidecar container</li>
+<li>
+<p>One daemon per pod/task
+   <div class="highlight"><pre><span></span><code><span class="c1"># ECS Task Definition example</span>
+<span class="p p-Indicator">{</span>
+<span class="w">  </span><span class="s">&quot;name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;xray-daemon&quot;</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&quot;image&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;amazon/aws-xray-daemon&quot;</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&quot;cpu&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">32</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&quot;memoryReservation&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">256</span><span class="p p-Indicator">,</span>
+<span class="w">  </span><span class="s">&quot;portMappings&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[{</span>
+<span class="w">    </span><span class="s">&quot;hostPort&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">2000</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&quot;containerPort&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="nv">2000</span><span class="p p-Indicator">,</span>
+<span class="w">    </span><span class="s">&quot;protocol&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;udp&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">}]</span>
+<span class="p p-Indicator">}</span>
+</code></pre></div></p>
 </li>
 <li>
-<p><strong>Write Example</strong>:</p>
-</li>
-<li>If you need to write 50 items per second, and each item is 2 KB, calculate WCUs as:<ul>
-<li>Item size = 2 KB (rounded up to nearest 1 KB = 2 units)</li>
-<li>Total WCUs: 50 items × 2 units = 100 WCUs</li>
-</ul>
+<p><strong>Kubernetes Deployment</strong>
+   <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DaemonSet</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xray-daemon</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xray-daemon</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xray-daemon</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xray-daemon</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">amazon/aws-xray-daemon</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+<span class="w">            </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UDP</span>
+</code></pre></div></p>
 </li>
 </ol>
-<hr />
-<p>DynamoDB is highly suitable for applications requiring high availability, scalability, and low-latency data access. With its rich set of features, it supports a wide range of use cases, from real-time analytics to mobile backends and gaming applications.</p>
+<h3 id="daemon-configuration">Daemon Configuration<a class="headerlink" href="#daemon-configuration" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Buffer Settings</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;TotalBufferSizeMB&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Concurrency&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-west-2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Socket&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;UDPAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:2000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;TCPAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:2000&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Local Mode</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;LocalMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;LocalEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8000&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Proxy Configuration</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;ProxyAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://proxy.example.com:3128&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;NoProxyAddresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;169.254.169.254,169.254.170.2&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="daemon-monitoring">Daemon Monitoring<a class="headerlink" href="#daemon-monitoring" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Telemetry</strong></li>
+<li>Segments received</li>
+<li>Segments rejected</li>
+<li>Segments sent</li>
+<li>
+<p>Segments pending</p>
+</li>
+<li>
+<p><strong>CloudWatch Metrics</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Python example of custom daemon monitoring</span>
+<span class="n">xray_recorder</span><span class="o">.</span><span class="n">begin_segment</span><span class="p">(</span><span class="s1">&#39;daemon_monitor&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://localhost:2000/GetDaemonStats&#39;</span><span class="p">)</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="c1"># Process metrics</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">xray_recorder</span><span class="o">.</span><span class="n">end_segment</span><span class="p">()</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="sampling-architecture">Sampling Architecture<a class="headerlink" href="#sampling-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="sampling-concepts">Sampling Concepts<a class="headerlink" href="#sampling-concepts" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Reservoir</strong></li>
+<li>Guaranteed trace count per second</li>
+<li>Ensures minimum sampling coverage</li>
+<li>
+<p>Fixed number of traces per second</p>
+</li>
+<li>
+<p><strong>Fixed Rate</strong></p>
+</li>
+<li>Percentage of additional traces</li>
+<li>Applied after reservoir is filled</li>
+<li>Scales with traffic volume</li>
+</ol>
+<h3 id="sampling-rules-structure">Sampling Rules Structure<a class="headerlink" href="#sampling-rules-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;SamplingRule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RuleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api-calls&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;FixedRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ReservoirSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ServiceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api-service&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ServiceType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AWS::EC2::Instance&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;HTTPMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;URLPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sampling-rule-components">Sampling Rule Components<a class="headerlink" href="#sampling-rule-components" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Matching Criteria</strong></li>
+<li>ServiceName</li>
+<li>ServiceType</li>
+<li>Host</li>
+<li>HTTPMethod</li>
+<li>
+<p>URLPath</p>
+</li>
+<li>
+<p><strong>Sampling Parameters</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;FixedRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w">      </span><span class="c1">// Sample 5% of matching requests</span>
+<span class="w">  </span><span class="nt">&quot;ReservoirSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">    </span><span class="c1">// Guarantee 10 traces per second</span>
+<span class="w">  </span><span class="nt">&quot;Priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">          </span><span class="c1">// Lower number = higher priority</span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="sampling-rule-examples">Sampling Rule Examples<a class="headerlink" href="#sampling-rule-examples" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Debug Mode Rule</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;SamplingRule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RuleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;FixedRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ReservoirSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;HTTPMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;URLPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/debug/*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Low Traffic Service Rule</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;SamplingRule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RuleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LowTraffic&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;FixedRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ReservoirSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ServiceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;background-service&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="dynamic-sampling">Dynamic Sampling<a class="headerlink" href="#dynamic-sampling" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Sampling Rule Manifest</strong></li>
+<li>Downloaded by X-Ray daemon</li>
+<li>Updated every few minutes</li>
+<li>
+<p>Centralized configuration</p>
+</li>
+<li>
+<p><strong>Sampling Rule Statistics</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;RuleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;api-calls&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Sampled&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;BorrowCount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Quota Management</strong></p>
+</li>
+<li>Distributed across all daemons</li>
+<li>Automatically adjusted based on load</li>
+<li>Ensures fair distribution</li>
+</ol>
+<h3 id="best-practices-for-sampling">Best Practices for Sampling<a class="headerlink" href="#best-practices-for-sampling" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Rule Priority</strong></li>
+<li>Critical paths: Higher priority</li>
+<li>Debug endpoints: Higher priority</li>
+<li>
+<p>Default rule: Lowest priority</p>
+</li>
+<li>
+<p><strong>Resource Optimization</strong>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;SamplingRule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;RuleName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OptimizedDefault&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Priority&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;FixedRate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ReservoirSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;HTTPMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;URLPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Sampling Strategy</strong></p>
+</li>
+<li>High-value transactions: Higher sampling rates</li>
+<li>Error paths: Higher sampling rates</li>
+<li>
+<p>Background jobs: Lower sampling rates</p>
+</li>
+<li>
+<p><strong>Monitoring and Adjustment</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Python example of sampling monitoring</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aws_xray_sdk.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">xray_recorder</span>
+
+<span class="nd">@xray_recorder</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s1">&#39;sampling_monitor&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">monitor_sampling</span><span class="p">():</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;xray&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_sampling_rules</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;SamplingRuleRecords&#39;</span><span class="p">]:</span>
+        <span class="c1"># Analyze rule effectiveness</span>
+        <span class="k">pass</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="monitoring-and-analysis">Monitoring and Analysis<a class="headerlink" href="#monitoring-and-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="1-service-map-analysis">1. Service Map Analysis<a class="headerlink" href="#1-service-map-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Visualize application topology</li>
+<li>Identify bottlenecks</li>
+<li>Track error rates</li>
+<li>Monitor latency</li>
+</ul>
+<h3 id="2-trace-analysis">2. Trace Analysis<a class="headerlink" href="#2-trace-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Debug individual requests</li>
+<li>Analyze error causes</li>
+<li>Track timing issues</li>
+<li>Identify slow components</li>
+</ul>
+<h3 id="3-analytics">3. Analytics<a class="headerlink" href="#3-analytics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Filter traces by:</li>
+<li>Response time</li>
+<li>Error types</li>
+<li>User attributes</li>
+<li>Custom annotations</li>
+</ul>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-sampling-strategy">1. Sampling Strategy<a class="headerlink" href="#1-sampling-strategy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Configure appropriate sampling rates</li>
+<li>Use dynamic sampling</li>
+<li>Adjust based on traffic patterns</li>
+<li>Consider cost implications</li>
+</ul>
+<h3 id="2-instrumentation">2. Instrumentation<a class="headerlink" href="#2-instrumentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use automatic instrumentation where possible</li>
+<li>Add custom instrumentation for business logic</li>
+<li>Include relevant annotations</li>
+<li>Add helpful metadata</li>
+</ul>
+<h3 id="3-error-handling">3. Error Handling<a class="headerlink" href="#3-error-handling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Capture exceptions properly</li>
+<li>Add error context</li>
+<li>Use fault and error flags appropriately</li>
+<li>Include stack traces</li>
+</ul>
+<h3 id="4-performance">4. Performance<a class="headerlink" href="#4-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Monitor daemon performance</li>
+<li>Configure appropriate buffer sizes</li>
+<li>Use sampling effectively</li>
+<li>Monitor trace quota usage</li>
+</ul>
+<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="1-performance-monitoring">1. Performance Monitoring<a class="headerlink" href="#1-performance-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Track service latencies</li>
+<li>Identify bottlenecks</li>
+<li>Monitor SLA compliance</li>
+<li>Analyze performance patterns</li>
+</ul>
+<h3 id="2-error-detection">2. Error Detection<a class="headerlink" href="#2-error-detection" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Track error rates</li>
+<li>Debug production issues</li>
+<li>Monitor fault rates</li>
+<li>Analyze error patterns</li>
+</ul>
+<h3 id="3-dependency-analysis">3. Dependency Analysis<a class="headerlink" href="#3-dependency-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Map service dependencies</li>
+<li>Track downstream impacts</li>
+<li>Monitor integration points</li>
+<li>Analyze connection patterns</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Missing Traces</strong></li>
+<li>Check sampling rules</li>
+<li>Verify daemon configuration</li>
+<li>Check IAM permissions</li>
+<li>
+<p>Verify SDK integration</p>
+</li>
+<li>
+<p><strong>Incomplete Traces</strong></p>
+</li>
+<li>Check service integration</li>
+<li>Verify networking</li>
+<li>Check timeout settings</li>
+<li>
+<p>Review segment configuration</p>
+</li>
+<li>
+<p><strong>Performance Issues</strong></p>
+</li>
+<li>Monitor daemon resources</li>
+<li>Check buffer configuration</li>
+<li>Verify sampling rates</li>
+<li>Review trace sizes</li>
+</ol>
+<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="1-sampling-strategies">1. Sampling Strategies<a class="headerlink" href="#1-sampling-strategies" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement appropriate sampling rates</li>
+<li>Use dynamic sampling</li>
+<li>Configure by endpoint importance</li>
+<li>Monitor trace volume</li>
+</ul>
+<h3 id="2-storage-optimization">2. Storage Optimization<a class="headerlink" href="#2-storage-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Configure retention periods</li>
+<li>Use appropriate trace sizes</li>
+<li>Monitor storage usage</li>
+<li>Clean up unused traces</li>
+</ul>
+<h3 id="3-resource-usage">3. Resource Usage<a class="headerlink" href="#3-resource-usage" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Monitor daemon performance</li>
+<li>Optimize buffer sizes</li>
+<li>Configure appropriate resources</li>
+<li>Monitor API usage</li>
+</ul>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<h3 id="1-iam-configuration">1. IAM Configuration<a class="headerlink" href="#1-iam-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;xray:PutTraceSegments&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;xray:PutTelemetryRecords&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-encryption">2. Encryption<a class="headerlink" href="#2-encryption" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Data encryption at rest</li>
+<li>Data encryption in transit</li>
+<li>Key management</li>
+<li>Access controls</li>
+</ul>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/xray/">Official AWS X-Ray Documentation</a></li>
+<li><a href="https://docs.aws.amazon.com/xray-sdk-for-java/">AWS X-Ray SDK Documentation</a></li>
+<li><a href="https://github.com/aws-samples/aws-xray-sdk-node-sample">AWS X-Ray Sample Applications</a></li>
+<li><a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-best-practices.html">AWS X-Ray Best Practices</a></li>
+</ul>
 
 
 
@@ -3914,7 +4708,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+          <a href="../s3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Amazon Simple Storage Service (S3)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3924,20 +4718,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Home
+                Amazon Simple Storage Service (S3)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../api_gateway/" class="md-footer__link md-footer__link--next" aria-label="Next: Amazon API Gateway">
+          <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Amazon API Gateway
+                How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?
               </div>
             </div>
             <div class="md-footer__button md-icon">
