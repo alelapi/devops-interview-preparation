@@ -24,7 +24,7 @@
     
     
       
-        <title>AWS Simple Queue Service (SQS) - My DevOps Interview Preparation</title>
+        <title>Amazon Simple Queue Service (SQS) - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-simple-queue-service-sqs" class="md-skip">
+        <a href="#amazon-simple-queue-service-sqs" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS Simple Queue Service (SQS)
+              Amazon Simple Queue Service (SQS)
             
           </span>
         </div>
@@ -501,6 +501,8 @@
       
         
       
+        
+      
     
     
       
@@ -548,7 +550,7 @@
         
   
   <span class="md-ellipsis">
-    Amazon DynamoDB
+    Amazon DynamoDB Documentation
   </span>
   
 
@@ -683,7 +685,7 @@
           
   
   <span class="md-ellipsis">
-    AWS Simple Queue Service (SQS)
+    Amazon Simple Queue Service (SQS)
   </span>
   
 
@@ -694,7 +696,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Simple Queue Service (SQS)
+    Amazon Simple Queue Service (SQS)
   </span>
   
 
@@ -716,142 +718,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features and Characteristics
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-types-of-queues" class="md-nav__link">
+  <a href="#queue-types" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Types of Queues
+      Queue Types
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-scalability" class="md-nav__link">
+  <a href="#message-properties" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Scalability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Scalability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backlog-per-instance-metric-with-target-tracking-scaling-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backlog per Instance Metric with Target Tracking Scaling Policy
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-message-durability" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Message Durability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-dead-letter-queues-dlqs" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Dead-Letter Queues (DLQs)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-visibility-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Visibility Timeout
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-long-polling" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Long Polling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-message-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Message Attributes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-message-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Message Size
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-cost-effectiveness" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Cost-Effectiveness
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-message-delays" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Message Delays
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-monitoring-and-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Monitoring and Logging
+      Message Properties
     </span>
   </a>
   
@@ -863,9 +760,201 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visibility Timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dead-letter-queues-dlq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dead Letter Queues (DLQ)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#common-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudwatch-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudWatch Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limits-and-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limits and Quotas
     </span>
   </a>
   
@@ -1054,6 +1143,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../kinesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amazon Kinesis Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
@@ -1074,10 +1184,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_17" >
         
           
-          <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1088,8 +1198,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_17">
             <span class="md-nav__icon md-icon"></span>
             EC2
           </label>
@@ -3543,142 +3653,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features and Characteristics
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-types-of-queues" class="md-nav__link">
+  <a href="#queue-types" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Types of Queues
+      Queue Types
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-scalability" class="md-nav__link">
+  <a href="#message-properties" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Scalability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Scalability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backlog-per-instance-metric-with-target-tracking-scaling-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backlog per Instance Metric with Target Tracking Scaling Policy
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-message-durability" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Message Durability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-dead-letter-queues-dlqs" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Dead-Letter Queues (DLQs)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-visibility-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Visibility Timeout
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-long-polling" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Long Polling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-message-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Message Attributes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-message-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Message Size
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-cost-effectiveness" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Cost-Effectiveness
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-message-delays" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Message Delays
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-monitoring-and-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Monitoring and Logging
+      Message Properties
     </span>
   </a>
   
@@ -3690,9 +3695,201 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visibility-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visibility Timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dead-letter-queues-dlq" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dead Letter Queues (DLQ)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#common-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudwatch-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudWatch Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limits-and-quotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limits and Quotas
     </span>
   </a>
   
@@ -3716,111 +3913,144 @@
   
 
 
-<h1 id="aws-simple-queue-service-sqs">AWS Simple Queue Service (SQS)<a class="headerlink" href="#aws-simple-queue-service-sqs" title="Permanent link">&para;</a></h1>
-<p>Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. It allows applications to communicate by exchanging messages in a secure and reliable way.</p>
-<hr />
-<h2 id="key-features-and-characteristics">Key Features and Characteristics<a class="headerlink" href="#key-features-and-characteristics" title="Permanent link">&para;</a></h2>
-<h3 id="1-types-of-queues"><strong>1. Types of Queues</strong><a class="headerlink" href="#1-types-of-queues" title="Permanent link">&para;</a></h3>
-<ul>
+<h1 id="amazon-simple-queue-service-sqs">Amazon Simple Queue Service (SQS)<a class="headerlink" href="#amazon-simple-queue-service-sqs" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables decoupling and scaling of distributed systems and applications. It provides a secure, durable, and available hosted queue for storing messages while they travel between applications or microservices.</p>
+<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h3 id="queue-types">Queue Types<a class="headerlink" href="#queue-types" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Standard Queues</li>
+<li>Unlimited throughput</li>
+<li>At-least-once delivery</li>
+<li>Best-effort ordering</li>
 <li>
-<p><strong>Standard Queue</strong>:</p>
+<p>Ideal for high-throughput applications where order is not critical</p>
 </li>
 <li>
-<p>High throughput with unlimited transactions per second.</p>
+<p>FIFO Queues</p>
 </li>
-<li>At-least-once delivery with best-effort ordering.</li>
-<li>
-<p>Suitable for tasks where exact ordering isn&rsquo;t critical.</p>
-</li>
-<li>
-<p><strong>FIFO Queue (First-In-First-Out)</strong>:</p>
-</li>
-<li>Preserves exact message ordering.</li>
-<li>Processes each message exactly once (exactly-once processing).</li>
-<li>Limited throughput (up to 300 transactions per second with batching).</li>
-<li>Ideal for applications requiring strict message ordering.</li>
-</ul>
-<h3 id="2-scalability"><strong>2. Scalability</strong><a class="headerlink" href="#2-scalability" title="Permanent link">&para;</a></h3>
+<li>First-In-First-Out delivery guarantee</li>
+<li>Exactly-once processing</li>
+<li>Limited to 300 transactions per second (TPS)</li>
+<li>Perfect for applications requiring strict ordering</li>
+</ol>
+<h3 id="message-properties">Message Properties<a class="headerlink" href="#message-properties" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Automatically scales to handle virtually any volume of messages.</li>
-<li>Allows parallel processing by multiple consumers.</li>
-<li>Supports <strong>scaling policies</strong> to dynamically adjust the number of consumers based on the queue length or other CloudWatch metrics.</li>
+<li>Size: Up to 256KB of text in any format</li>
+<li>Retention Period: 1 minute to 14 days (default 4 days)</li>
+<li>Short Polling vs Long Polling options</li>
+<li>Visibility Timeout: 0 seconds to 12 hours</li>
 </ul>
-<h4 id="backlog-per-instance-metric-with-target-tracking-scaling-policy">Backlog per Instance Metric with Target Tracking Scaling Policy<a class="headerlink" href="#backlog-per-instance-metric-with-target-tracking-scaling-policy" title="Permanent link">&para;</a></h4>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="message-lifecycle">Message Lifecycle<a class="headerlink" href="#message-lifecycle" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Producer sends message to SQS queue</li>
+<li>Message is redundantly distributed across SQS servers</li>
+<li>Consumer receives and processes the message</li>
+<li>Message is deleted from the queue by the consumer</li>
+</ol>
+<h3 id="visibility-timeout">Visibility Timeout<a class="headerlink" href="#visibility-timeout" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Backlog per instance metric</strong> represents the ratio of the number of messages in the queue to the number of instances (or consumers) processing messages.</li>
-<li><strong>Target tracking scaling policy</strong> adjusts the number of instances to maintain a specific target backlog per instance.</li>
-<li>Example: If there are 1000 messages in the queue and the target backlog per instance is 50, SQS scales the number of instances to 20 (1000 / 50 = 20).</li>
-<li>Automatically scales out when the backlog exceeds the target and scales in when the backlog decreases.</li>
-<li>Ensures efficient resource utilization and cost optimization by dynamically adjusting capacity.</li>
+<li>Period during which SQS prevents other consumers from receiving and processing the same message</li>
+<li>Default: 30 seconds</li>
+<li>Maximum: 12 hours</li>
+<li>Can be changed via ChangeMessageVisibility API</li>
 </ul>
-<h3 id="3-message-durability"><strong>3. Message Durability</strong><a class="headerlink" href="#3-message-durability" title="Permanent link">&para;</a></h3>
+<h3 id="dead-letter-queues-dlq">Dead Letter Queues (DLQ)<a class="headerlink" href="#dead-letter-queues-dlq" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Messages are stored redundantly across multiple Availability Zones (AZs).</li>
-<li>Configurable retention period (from 1 minute to 14 days; default is 4 days).</li>
+<li>Isolate messages that can&rsquo;t be processed successfully</li>
+<li>Useful for debugging and monitoring</li>
+<li>Messages moved to DLQ after exceeding MaxReceiveCount</li>
+<li>Separate queue that must be configured manually</li>
 </ul>
-<h3 id="4-dead-letter-queues-dlqs"><strong>4. Dead-Letter Queues (DLQs)</strong><a class="headerlink" href="#4-dead-letter-queues-dlqs" title="Permanent link">&para;</a></h3>
+<h2 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
+<h3 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Helps isolate and debug messages that fail to be processed.</li>
-<li>Can be configured for both Standard and FIFO queues.</li>
+<li>IAM policies for queue-level permissions</li>
+<li>SQS Access Policy for cross-account access</li>
+<li>Temporary security credentials via AWS STS</li>
 </ul>
-<h3 id="5-visibility-timeout"><strong>5. Visibility Timeout</strong><a class="headerlink" href="#5-visibility-timeout" title="Permanent link">&para;</a></h3>
+<h3 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Prevents multiple consumers from processing the same message simultaneously.</li>
-<li>Configurable timeout period (default is 30 seconds; maximum is 12 hours).</li>
+<li>Server-Side Encryption (SSE) using AWS KMS</li>
+<li>Transport layer security (TLS) for in-transit encryption</li>
+<li>Optional client-side encryption</li>
 </ul>
-<h3 id="6-long-polling"><strong>6. Long Polling</strong><a class="headerlink" href="#6-long-polling" title="Permanent link">&para;</a></h3>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="message-processing">Message Processing<a class="headerlink" href="#message-processing" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Implement idempotent processing</li>
+<li>Handle message deduplication in FIFO queues</li>
+<li>Set appropriate visibility timeout</li>
+<li>Implement proper error handling</li>
+<li>Use batch operations when possible</li>
+</ol>
+<h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use long polling to reduce API calls</li>
+<li>Implement concurrent processing</li>
+<li>Handle partial batch failures</li>
+<li>Monitor queue metrics</li>
+<li>Scale consumers based on queue depth</li>
+</ol>
+<h3 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use batch operations (SendMessageBatch, DeleteMessageBatch)</li>
+<li>Delete messages promptly after processing</li>
+<li>Consider message size impact</li>
+<li>Monitor API usage</li>
+</ol>
+<h2 id="integration-patterns">Integration Patterns<a class="headerlink" href="#integration-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Application decoupling</li>
+<li>Workload buffering</li>
+<li>Request batching</li>
+<li>Fan-out architecture</li>
+<li>Auto-scaling trigger</li>
+<li>Load leveling</li>
+</ol>
+<h3 id="service-integration">Service Integration<a class="headerlink" href="#service-integration" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Reduces costs by eliminating frequent polling for new messages.</li>
-<li>Waits for messages to become available before responding.</li>
+<li>AWS Lambda</li>
+<li>Amazon EC2</li>
+<li>Amazon ECS</li>
+<li>AWS Step Functions</li>
+<li>Amazon EventBridge</li>
 </ul>
-<h3 id="7-message-attributes"><strong>7. Message Attributes</strong><a class="headerlink" href="#7-message-attributes" title="Permanent link">&para;</a></h3>
+<h2 id="monitoring-and-troubleshooting">Monitoring and Troubleshooting<a class="headerlink" href="#monitoring-and-troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="cloudwatch-metrics">CloudWatch Metrics<a class="headerlink" href="#cloudwatch-metrics" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Custom key-value pairs attached to messages for easier filtering and processing.</li>
-<li>Examples: <code>SenderID</code>, <code>Priority</code>, <code>Timestamp</code>.</li>
+<li>ApproximateNumberOfMessages</li>
+<li>ApproximateAgeOfOldestMessage</li>
+<li>NumberOfMessagesDeleted</li>
+<li>NumberOfMessagesReceived</li>
+<li>SentMessageSize</li>
 </ul>
-<h3 id="8-message-size"><strong>8. Message Size</strong><a class="headerlink" href="#8-message-size" title="Permanent link">&para;</a></h3>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Messages not being deleted</li>
+<li>Visibility timeout too short/long</li>
+<li>Dead letter queue configuration</li>
+<li>IAM permission issues</li>
+<li>Queue depth management</li>
+</ol>
+<h2 id="pricing-considerations">Pricing Considerations<a class="headerlink" href="#pricing-considerations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Maximum message size is 256 KB.</li>
-<li>Supports large payloads by storing message contents in Amazon S3 and sending S3 pointers in the queue.</li>
+<li>Pay for use with no minimum fees</li>
+<li>Charged per 1 million requests</li>
+<li>Data transfer charges apply</li>
+<li>Additional charges for FIFO queues</li>
+<li>Free tier available for new AWS accounts</li>
 </ul>
-<h3 id="9-security"><strong>9. Security</strong><a class="headerlink" href="#9-security" title="Permanent link">&para;</a></h3>
+<h2 id="limits-and-quotas">Limits and Quotas<a class="headerlink" href="#limits-and-quotas" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Integrated with AWS Identity and Access Management (IAM) for fine-grained access control.</li>
-<li>Supports encryption for messages in transit (HTTPS) and at rest (AWS KMS).</li>
-<li>Offers VPC endpoints for private connectivity.</li>
+<li>Message size: 256KB maximum</li>
+<li>Message retention: 14 days maximum</li>
+<li>Queue names: 80 characters maximum</li>
+<li>Queues per account: 1,000 (default)</li>
+<li>In-flight messages: 120,000 (standard) or 20,000 (FIFO)</li>
 </ul>
-<h3 id="10-cost-effectiveness"><strong>10. Cost-Effectiveness</strong><a class="headerlink" href="#10-cost-effectiveness" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Pay-as-you-go pricing model based on the number of requests and data transfer.</li>
-<li>Free tier includes 1 million requests per month.</li>
-</ul>
-<h3 id="11-integration-with-aws-services"><strong>11. Integration with AWS Services</strong><a class="headerlink" href="#11-integration-with-aws-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Works seamlessly with other AWS services like Lambda, EC2, SNS, CloudWatch, and Step Functions.</li>
-<li>Allows creating event-driven architectures.</li>
-</ul>
-<h3 id="12-message-delays"><strong>12. Message Delays</strong><a class="headerlink" href="#12-message-delays" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Configurable delay for new messages (up to 15 minutes).</li>
-<li>Useful for deferring processing tasks.</li>
-</ul>
-<h3 id="13-monitoring-and-logging"><strong>13. Monitoring and Logging</strong><a class="headerlink" href="#13-monitoring-and-logging" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Integrated with Amazon CloudWatch for monitoring metrics like message volume, age, and visibility timeout.</li>
-<li>CloudTrail integration for auditing API calls.</li>
-</ul>
-<hr />
-<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Decoupling Microservices</strong>: Enables asynchronous communication between services.</li>
-<li><strong>Job Queues</strong>: Distributes background tasks to workers.</li>
-<li><strong>Batch Processing</strong>: Handles large-scale data processing tasks.</li>
-<li><strong>Event-Driven Architectures</strong>: Triggers actions based on incoming messages.</li>
-<li><strong>Order Processing</strong>: Maintains order integrity in e-commerce or financial systems (using FIFO).</li>
-</ul>
-<hr />
-<p>AWS SQS is a robust and versatile service designed to simplify the communication between distributed components, ensuring high availability, scalability, and fault tolerance.</p>
 
 
 
