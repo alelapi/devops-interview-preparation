@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../billing/">
+        <link rel="prev" href="../autoscaling_groups/">
       
       
-        <link rel="next" href="../elb/">
+        <link rel="next" href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>AWS Simple Queue Service (SQS) - Prima Tech Challenge</title>
+        <title>AWS SAM (Serverless Application Model) Documentation - Prima Tech Challenge</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-simple-queue-service-sqs" class="md-skip">
+        <a href="#aws-sam-serverless-application-model-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS Simple Queue Service (SQS)
+              AWS SAM (Serverless Application Model) Documentation
             
           </span>
         </div>
@@ -657,30 +657,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    AWS Simple Queue Service (SQS)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -689,182 +669,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features and Characteristics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-types-of-queues" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Types of Queues
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-scalability" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Scalability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Scalability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backlog-per-instance-metric-with-target-tracking-scaling-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backlog per Instance Metric with Target Tracking Scaling Policy
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-message-durability" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Message Durability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-dead-letter-queues-dlqs" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Dead-Letter Queues (DLQs)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-visibility-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Visibility Timeout
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-long-polling" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Long Polling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-message-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Message Attributes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-message-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Message Size
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-cost-effectiveness" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Cost-Effectiveness
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-message-delays" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Message Delays
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-monitoring-and-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Monitoring and Logging
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Use Cases
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -937,10 +741,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../sam/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AWS SAM (Serverless Application Model) Documentation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -949,6 +773,434 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sam-template-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. SAM Template Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-main-resource-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Main Resource Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Main Resource Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awsserverlessfunction" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS::Serverless::Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awsserverlessapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS::Serverless::Api
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awsserverlesslayerversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS::Serverless::LayerVersion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-api-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local API Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-source-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Source Mappings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Source Mappings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Gateway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamodb-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      DynamoDB Events
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cost Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing and Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sam-local-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAM Local Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codepipeline-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodePipeline Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-functions-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step Functions Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Deployment Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-monitoring-and-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Monitoring and Alerting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scaling-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Scaling and Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3373,38 +3625,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features and Characteristics
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-types-of-queues" class="md-nav__link">
+  <a href="#1-sam-template-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Types of Queues
+      1. SAM Template Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-scalability" class="md-nav__link">
+  <a href="#2-main-resource-types" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Scalability
+      2. Main Resource Types
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Scalability">
+    <nav class="md-nav" aria-label="2. Main Resource Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#backlog-per-instance-metric-with-target-tracking-scaling-policy" class="md-nav__link">
+  <a href="#awsserverlessfunction" class="md-nav__link">
     <span class="md-ellipsis">
-      Backlog per Instance Metric with Target Tracking Scaling Policy
+      AWS::Serverless::Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awsserverlessapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS::Serverless::Api
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#awsserverlesslayerversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS::Serverless::LayerVersion
     </span>
   </a>
   
@@ -3415,100 +3694,34 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#3-message-durability" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-commands" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Message Durability
+      Common Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-dead-letter-queues-dlqs" class="md-nav__link">
+  <a href="#project-management" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Dead-Letter Queues (DLQs)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-visibility-timeout" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Visibility Timeout
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-long-polling" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Long Polling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-message-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Message Attributes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-message-size" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Message Size
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-cost-effectiveness" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Cost-Effectiveness
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-message-delays" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Message Delays
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-monitoring-and-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Monitoring and Logging
+      Project Management
     </span>
   </a>
   
@@ -3520,11 +3733,302 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
+  <a href="#local-development" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Use Cases
+      Local Development
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Local Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-api-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local API Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-source-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Source Mappings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Event Source Mappings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Gateway
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Events
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamodb-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      DynamoDB Events
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cost Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing and Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sam-local-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAM Local Debugging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI/CD Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CI/CD Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-actions-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub Actions Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-codepipeline-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS CodePipeline Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpc-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-functions-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step Functions Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Deployment Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-monitoring-and-alerting" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Monitoring and Alerting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scaling-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Scaling and Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3546,111 +4050,289 @@
   
 
 
-<h1 id="aws-simple-queue-service-sqs">AWS Simple Queue Service (SQS)<a class="headerlink" href="#aws-simple-queue-service-sqs" title="Permanent link">&para;</a></h1>
-<p>Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. It allows applications to communicate by exchanging messages in a secure and reliable way.</p>
-<hr />
-<h2 id="key-features-and-characteristics">Key Features and Characteristics<a class="headerlink" href="#key-features-and-characteristics" title="Permanent link">&para;</a></h2>
-<h3 id="1-types-of-queues"><strong>1. Types of Queues</strong><a class="headerlink" href="#1-types-of-queues" title="Permanent link">&para;</a></h3>
+<h1 id="aws-sam-serverless-application-model-documentation">AWS SAM (Serverless Application Model) Documentation<a class="headerlink" href="#aws-sam-serverless-application-model-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>AWS SAM is an open-source framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way to define serverless applications.</p>
+<h2 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
+<h3 id="1-sam-template-structure">1. SAM Template Structure<a class="headerlink" href="#1-sam-template-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2010-09-09&#39;</span>
+<span class="nt">Transform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless-2016-10-31</span>
+<span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAM Template Example</span>
+
+<span class="nt">Resources</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">MyFunction</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Handler</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.handler</span>
+<span class="w">      </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nodejs14.x</span>
+<span class="w">      </span><span class="nt">CodeUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./src/</span>
+</code></pre></div>
+<h3 id="2-main-resource-types">2. Main Resource Types<a class="headerlink" href="#2-main-resource-types" title="Permanent link">&para;</a></h3>
+<h4 id="awsserverlessfunction">AWS::Serverless::Function<a class="headerlink" href="#awsserverlessfunction" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">MyFunction</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Handler</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.handler</span>
+<span class="w">    </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3.9</span>
+<span class="w">    </span><span class="nt">CodeUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./</span>
+<span class="w">    </span><span class="nt">MemorySize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span>
+<span class="w">    </span><span class="nt">Timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">    </span><span class="nt">Environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Variables</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">TABLE_NAME</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyTable</span>
+<span class="w">    </span><span class="nt">Events</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">ApiEvent</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Api</span>
+<span class="w">        </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">Path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/hello</span>
+<span class="w">          </span><span class="nt">Method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get</span>
+</code></pre></div>
+<h4 id="awsserverlessapi">AWS::Serverless::Api<a class="headerlink" href="#awsserverlessapi" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">MyApi</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Api</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">StageName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prod</span>
+<span class="w">    </span><span class="nt">Cors</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">AllowMethods</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;GET,POST,OPTIONS&#39;&quot;</span>
+<span class="w">      </span><span class="nt">AllowHeaders</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;content-type&#39;&quot;</span>
+<span class="w">      </span><span class="nt">AllowOrigin</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&#39;*&#39;&quot;</span>
+</code></pre></div>
+<h4 id="awsserverlesslayerversion">AWS::Serverless::LayerVersion<a class="headerlink" href="#awsserverlesslayerversion" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">MyLayer</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::LayerVersion</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">LayerName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-layer</span>
+<span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">My layer description</span>
+<span class="w">    </span><span class="nt">ContentUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./layer/</span>
+<span class="w">    </span><span class="nt">CompatibleRuntimes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3.9</span>
+</code></pre></div>
+<h2 id="common-commands">Common Commands<a class="headerlink" href="#common-commands" title="Permanent link">&para;</a></h2>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install AWS SAM CLI</span>
+pip<span class="w"> </span>install<span class="w"> </span>aws-sam-cli
+
+<span class="c1"># Verify installation</span>
+sam<span class="w"> </span>--version
+</code></pre></div>
+<h3 id="project-management">Project Management<a class="headerlink" href="#project-management" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create new project</span>
+sam<span class="w"> </span>init
+
+<span class="c1"># Build project</span>
+sam<span class="w"> </span>build
+
+<span class="c1"># Deploy application</span>
+sam<span class="w"> </span>deploy<span class="w"> </span>--guided
+
+<span class="c1"># Local testing</span>
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>start-api
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>invoke<span class="w"> </span><span class="s2">&quot;FunctionName&quot;</span>
+
+<span class="c1"># Package application</span>
+sam<span class="w"> </span>package<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--template-file<span class="w"> </span>template.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-template-file<span class="w"> </span>packaged.yaml<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--s3-bucket<span class="w"> </span>my-bucket
+</code></pre></div>
+<h2 id="local-development">Local Development<a class="headerlink" href="#local-development" title="Permanent link">&para;</a></h2>
+<h3 id="local-api-testing">Local API Testing<a class="headerlink" href="#local-api-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start local API</span>
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>start-api
+
+<span class="c1"># Invoke single function</span>
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>invoke<span class="w"> </span>-e<span class="w"> </span>events/event.json
+
+<span class="c1"># Generate sample event</span>
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>generate-event<span class="w"> </span>apigateway<span class="w"> </span>aws-proxy
+</code></pre></div>
+<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">Resources</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">MyFunction</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Environment</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">Variables</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-database</span>
+<span class="w">          </span><span class="nt">API_KEY</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ApiKey</span>
+</code></pre></div>
+<h2 id="event-source-mappings">Event Source Mappings<a class="headerlink" href="#event-source-mappings" title="Permanent link">&para;</a></h2>
+<h3 id="api-gateway">API Gateway<a class="headerlink" href="#api-gateway" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">Events</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ApiEvent</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Api</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/hello</span>
+<span class="w">      </span><span class="nt">Method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get</span>
+</code></pre></div>
+<h3 id="s3-events">S3 Events<a class="headerlink" href="#s3-events" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">Events</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">S3Event</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">S3</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Bucket</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyBucket</span>
+<span class="w">      </span><span class="nt">Events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s3:ObjectCreated:*</span>
+</code></pre></div>
+<h3 id="dynamodb-events">DynamoDB Events<a class="headerlink" href="#dynamodb-events" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">Events</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">StreamEvent</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DynamoDB</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Stream</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyTable.StreamArn</span>
+<span class="w">      </span><span class="nt">StartingPosition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LATEST</span>
+<span class="w">      </span><span class="nt">BatchSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+</code></pre></div>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-security">1. Security<a class="headerlink" href="#1-security" title="Permanent link">&para;</a></h3>
 <ul>
+<li>Use IAM roles with least privilege</li>
+<li>Enable X-Ray for tracing</li>
+<li>Implement proper error handling</li>
+<li>Use Secrets Manager for sensitive data</li>
+</ul>
+<h3 id="2-performance">2. Performance<a class="headerlink" href="#2-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Optimize function memory allocation</li>
+<li>Use layers for common dependencies</li>
+<li>Implement caching where appropriate</li>
+<li>Consider cold start impact</li>
+</ul>
+<h3 id="3-monitoring">3. Monitoring<a class="headerlink" href="#3-monitoring" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">MyFunction</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Tracing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Active</span>
+<span class="w">    </span><span class="nt">AutoPublishAlias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">live</span>
+<span class="w">    </span><span class="nt">DeploymentPreference</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Canary10Percent5Minutes</span>
+</code></pre></div>
+<h3 id="4-cost-optimization">4. Cost Optimization<a class="headerlink" href="#4-cost-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use appropriate memory settings</li>
+<li>Implement proper timeouts</li>
+<li>Use provisioned concurrency when needed</li>
+<li>Monitor and adjust based on usage</li>
+</ul>
+<h2 id="testing-and-debugging">Testing and Debugging<a class="headerlink" href="#testing-and-debugging" title="Permanent link">&para;</a></h2>
+<h3 id="unit-testing">Unit Testing<a class="headerlink" href="#unit-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example test using pytest</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_handler</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;statusCode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span>
+</code></pre></div>
+<h3 id="sam-local-debugging">SAM Local Debugging<a class="headerlink" href="#sam-local-debugging" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Debug with VS Code</span>
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>invoke<span class="w"> </span>-d<span class="w"> </span><span class="m">5858</span><span class="w"> </span>MyFunction
+
+<span class="c1"># Generate sample events</span>
+sam<span class="w"> </span><span class="nb">local</span><span class="w"> </span>generate-event<span class="w"> </span>s3<span class="w"> </span>put
+</code></pre></div>
+<h2 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h2>
+<h3 id="github-actions-example">GitHub Actions Example<a class="headerlink" href="#github-actions-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SAM Deploy</span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-actions/setup-sam@v1</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aws-actions/configure-aws-credentials@v1</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sam build</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sam deploy --no-confirm-changeset</span>
+</code></pre></div>
+<h3 id="aws-codepipeline-integration">AWS CodePipeline Integration<a class="headerlink" href="#aws-codepipeline-integration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">Pipeline</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::CodePipeline::Pipeline</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Stages</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Source</span>
+<span class="w">        </span><span class="nt">Actions</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Source</span>
+<span class="w">            </span><span class="nt">ActionTypeId</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">Category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Source</span>
+<span class="w">              </span><span class="nt">Provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GitHub</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
+<span class="w">        </span><span class="nt">Actions</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
+<span class="w">            </span><span class="nt">ActionTypeId</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">Category</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
+<span class="w">              </span><span class="nt">Provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CodeBuild</span>
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Deployment Failures</strong></li>
+<li>Check IAM permissions</li>
+<li>Verify S3 bucket accessibility</li>
 <li>
-<p><strong>Standard Queue</strong>:</p>
+<p>Review CloudFormation errors</p>
 </li>
 <li>
-<p>High throughput with unlimited transactions per second.</p>
+<p><strong>Function Execution Issues</strong></p>
 </li>
-<li>At-least-once delivery with best-effort ordering.</li>
+<li>Check CloudWatch Logs</li>
+<li>Verify environment variables</li>
 <li>
-<p>Suitable for tasks where exact ordering isn&rsquo;t critical.</p>
+<p>Test locally with SAM CLI</p>
 </li>
 <li>
-<p><strong>FIFO Queue (First-In-First-Out)</strong>:</p>
+<p><strong>API Gateway Issues</strong></p>
 </li>
-<li>Preserves exact message ordering.</li>
-<li>Processes each message exactly once (exactly-once processing).</li>
-<li>Limited throughput (up to 300 transactions per second with batching).</li>
-<li>Ideal for applications requiring strict message ordering.</li>
-</ul>
-<h3 id="2-scalability"><strong>2. Scalability</strong><a class="headerlink" href="#2-scalability" title="Permanent link">&para;</a></h3>
+<li>Verify CORS settings</li>
+<li>Check API Gateway logs</li>
+<li>Test endpoints locally</li>
+</ol>
+<h2 id="advanced-features">Advanced Features<a class="headerlink" href="#advanced-features" title="Permanent link">&para;</a></h2>
+<h3 id="custom-runtime">Custom Runtime<a class="headerlink" href="#custom-runtime" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">MyFunction</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Runtime</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provided</span>
+<span class="w">    </span><span class="nt">Handler</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bootstrap</span>
+<span class="w">    </span><span class="nt">CodeUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./custom-runtime/</span>
+</code></pre></div>
+<h3 id="vpc-configuration">VPC Configuration<a class="headerlink" href="#vpc-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">MyFunction</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::Function</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">VpcConfig</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">SecurityGroupIds</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sg-123456</span>
+<span class="w">      </span><span class="nt">SubnetIds</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subnet-123456</span>
+</code></pre></div>
+<h3 id="step-functions-integration">Step Functions Integration<a class="headerlink" href="#step-functions-integration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">StateMachine</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Serverless::StateMachine</span>
+<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">DefinitionUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statemachine/definition.asl.json</span>
+<span class="w">    </span><span class="nt">Policies</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">LambdaInvokePolicy</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">FunctionName</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyFunction</span>
+</code></pre></div>
+<h2 id="production-considerations">Production Considerations<a class="headerlink" href="#production-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="1-deployment-strategies">1. Deployment Strategies<a class="headerlink" href="#1-deployment-strategies" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Automatically scales to handle virtually any volume of messages.</li>
-<li>Allows parallel processing by multiple consumers.</li>
-<li>Supports <strong>scaling policies</strong> to dynamically adjust the number of consumers based on the queue length or other CloudWatch metrics.</li>
+<li>Use staged deployments</li>
+<li>Implement rollback mechanisms</li>
+<li>Consider traffic shifting</li>
+<li>Use aliases for version management</li>
 </ul>
-<h4 id="backlog-per-instance-metric-with-target-tracking-scaling-policy">Backlog per Instance Metric with Target Tracking Scaling Policy<a class="headerlink" href="#backlog-per-instance-metric-with-target-tracking-scaling-policy" title="Permanent link">&para;</a></h4>
+<h3 id="2-monitoring-and-alerting">2. Monitoring and Alerting<a class="headerlink" href="#2-monitoring-and-alerting" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Backlog per instance metric</strong> represents the ratio of the number of messages in the queue to the number of instances (or consumers) processing messages.</li>
-<li><strong>Target tracking scaling policy</strong> adjusts the number of instances to maintain a specific target backlog per instance.</li>
-<li>Example: If there are 1000 messages in the queue and the target backlog per instance is 50, SQS scales the number of instances to 20 (1000 / 50 = 20).</li>
-<li>Automatically scales out when the backlog exceeds the target and scales in when the backlog decreases.</li>
-<li>Ensures efficient resource utilization and cost optimization by dynamically adjusting capacity.</li>
+<li>Set up CloudWatch Alarms</li>
+<li>Configure X-Ray tracing</li>
+<li>Implement custom metrics</li>
+<li>Set up logging standards</li>
 </ul>
-<h3 id="3-message-durability"><strong>3. Message Durability</strong><a class="headerlink" href="#3-message-durability" title="Permanent link">&para;</a></h3>
+<h3 id="3-scaling-and-performance">3. Scaling and Performance<a class="headerlink" href="#3-scaling-and-performance" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Messages are stored redundantly across multiple Availability Zones (AZs).</li>
-<li>Configurable retention period (from 1 minute to 14 days; default is 4 days).</li>
+<li>Configure concurrency limits</li>
+<li>Use provisioned concurrency</li>
+<li>Implement caching strategies</li>
+<li>Optimize cold starts</li>
 </ul>
-<h3 id="4-dead-letter-queues-dlqs"><strong>4. Dead-Letter Queues (DLQs)</strong><a class="headerlink" href="#4-dead-letter-queues-dlqs" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Helps isolate and debug messages that fail to be processed.</li>
-<li>Can be configured for both Standard and FIFO queues.</li>
-</ul>
-<h3 id="5-visibility-timeout"><strong>5. Visibility Timeout</strong><a class="headerlink" href="#5-visibility-timeout" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Prevents multiple consumers from processing the same message simultaneously.</li>
-<li>Configurable timeout period (default is 30 seconds; maximum is 12 hours).</li>
-</ul>
-<h3 id="6-long-polling"><strong>6. Long Polling</strong><a class="headerlink" href="#6-long-polling" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Reduces costs by eliminating frequent polling for new messages.</li>
-<li>Waits for messages to become available before responding.</li>
-</ul>
-<h3 id="7-message-attributes"><strong>7. Message Attributes</strong><a class="headerlink" href="#7-message-attributes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Custom key-value pairs attached to messages for easier filtering and processing.</li>
-<li>Examples: <code>SenderID</code>, <code>Priority</code>, <code>Timestamp</code>.</li>
-</ul>
-<h3 id="8-message-size"><strong>8. Message Size</strong><a class="headerlink" href="#8-message-size" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Maximum message size is 256 KB.</li>
-<li>Supports large payloads by storing message contents in Amazon S3 and sending S3 pointers in the queue.</li>
-</ul>
-<h3 id="9-security"><strong>9. Security</strong><a class="headerlink" href="#9-security" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Integrated with AWS Identity and Access Management (IAM) for fine-grained access control.</li>
-<li>Supports encryption for messages in transit (HTTPS) and at rest (AWS KMS).</li>
-<li>Offers VPC endpoints for private connectivity.</li>
-</ul>
-<h3 id="10-cost-effectiveness"><strong>10. Cost-Effectiveness</strong><a class="headerlink" href="#10-cost-effectiveness" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Pay-as-you-go pricing model based on the number of requests and data transfer.</li>
-<li>Free tier includes 1 million requests per month.</li>
-</ul>
-<h3 id="11-integration-with-aws-services"><strong>11. Integration with AWS Services</strong><a class="headerlink" href="#11-integration-with-aws-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Works seamlessly with other AWS services like Lambda, EC2, SNS, CloudWatch, and Step Functions.</li>
-<li>Allows creating event-driven architectures.</li>
-</ul>
-<h3 id="12-message-delays"><strong>12. Message Delays</strong><a class="headerlink" href="#12-message-delays" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Configurable delay for new messages (up to 15 minutes).</li>
-<li>Useful for deferring processing tasks.</li>
-</ul>
-<h3 id="13-monitoring-and-logging"><strong>13. Monitoring and Logging</strong><a class="headerlink" href="#13-monitoring-and-logging" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Integrated with Amazon CloudWatch for monitoring metrics like message volume, age, and visibility timeout.</li>
-<li>CloudTrail integration for auditing API calls.</li>
-</ul>
-<hr />
-<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Decoupling Microservices</strong>: Enables asynchronous communication between services.</li>
-<li><strong>Job Queues</strong>: Distributes background tasks to workers.</li>
-<li><strong>Batch Processing</strong>: Handles large-scale data processing tasks.</li>
-<li><strong>Event-Driven Architectures</strong>: Triggers actions based on incoming messages.</li>
-<li><strong>Order Processing</strong>: Maintains order integrity in e-commerce or financial systems (using FIFO).</li>
-</ul>
-<hr />
-<p>AWS SQS is a robust and versatile service designed to simplify the communication between distributed components, ensuring high availability, scalability, and fault tolerance.</p>
 
 
 
@@ -3686,7 +4368,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../billing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Billing and Cost Management">
+          <a href="../autoscaling_groups/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Auto Scaling Group (ASG) Documentation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3696,20 +4378,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                AWS Billing and Cost Management
+                AWS Auto Scaling Group (ASG) Documentation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../elb/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS Elastic Load Balancer (ELB)">
+          <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                AWS Elastic Load Balancer (ELB)
+                How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?
               </div>
             </div>
             <div class="md-footer__button md-icon">
