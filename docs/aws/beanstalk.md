@@ -10,14 +10,14 @@ AWS Elastic Beanstalk is a Platform as a Service (PaaS) offering that facilitate
 Elastic Beanstalk provides two environment tiers:
 
 1. **Web Server Environment Tier**
-   - Handles HTTP(S) requests
-   - Suitable for web applications
-   - Uses services like ELB, Auto Scaling, EC2
+- Handles HTTP(S) requests
+- Suitable for web applications
+- Uses services like ELB, Auto Scaling, EC2
 
 2. **Worker Environment Tier**
-   - Processes background tasks
-   - Handles Amazon SQS queues
-   - Long-running processes
+- Processes background tasks
+- Handles Amazon SQS queues
+- Long-running processes
 
 ### Supported Platforms
 
