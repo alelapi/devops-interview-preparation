@@ -4052,7 +4052,17 @@
 
 <h1 id="aws-sam-serverless-application-model-documentation">AWS SAM (Serverless Application Model) Documentation<a class="headerlink" href="#aws-sam-serverless-application-model-documentation" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>AWS SAM is an open-source framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way to define serverless applications.</p>
+<p>The AWS Serverless Application Model (SAM) is an open-source framework for building serverless applications. It extends AWS CloudFormation to provide a simplified way to define serverless applications. It provides shorthand syntax to express functions, APIs, databases, and event source mappings. With just a few lines per resource, you can define the application you want and model it using YAML.</p>
+<p>SAM supports the following resource types:</p>
+<ul>
+<li>AWS::Serverless::Api</li>
+<li>AWS::Serverless::Application</li>
+<li>AWS::Serverless::Function</li>
+<li>AWS::Serverless::HttpApi</li>
+<li>AWS::Serverless::LayerVersion</li>
+<li>AWS::Serverless::SimpleTable</li>
+<li>AWS::Serverless::StateMachine</li>
+</ul>
 <h2 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
 <h3 id="1-sam-template-structure">1. SAM Template Structure<a class="headerlink" href="#1-sam-template-structure" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2010-09-09&#39;</span>
