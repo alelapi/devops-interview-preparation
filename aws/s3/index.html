@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../cloud_formation/">
+        <link rel="prev" href="../cdk/">
       
       
-        <link rel="next" href="../sqs/">
+        <link rel="next" href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>AWS Billing and Cost Management - My DevOps Interview Preparation</title>
+        <title>Amazon Simple Storage Service (S3) - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-billing-and-cost-management" class="md-skip">
+        <a href="#amazon-simple-storage-service-s3" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS Billing and Cost Management
+              Amazon Simple Storage Service (S3)
             
           </span>
         </div>
@@ -642,30 +642,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    AWS Billing and Cost Management
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../billing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -674,185 +654,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features and Characteristics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-billing-dashboard" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Billing Dashboard
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-cost-allocation-tags" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Cost Allocation Tags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-cost-and-usage-reports-cur" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Cost and Usage Reports (CUR)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-aws-budgets" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. AWS Budgets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-cost-explorer" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Cost Explorer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-savings-plans-and-reserved-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Savings Plans and Reserved Instances
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-free-tier-usage-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Free Tier Usage Tracking
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-consolidated-billing" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Consolidated Billing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-service-quotas-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Service Quotas Integration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-tax-settings-and-invoicing" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Tax Settings and Invoicing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-currency-conversion" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Currency Conversion
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-anomaly-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Anomaly Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-integration-with-aws-organizations" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Integration with AWS Organizations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-reports-and-notifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      14. Reports and Notifications
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-third-party-tool-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      15. Third-Party Tool Compatibility
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iam-access-to-billing-and-cost-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      IAM Access to Billing and Cost Management
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1009,10 +810,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../s3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Amazon Simple Storage Service (S3)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1021,6 +842,560 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buckets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buckets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s3-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Standard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-intelligent-tiering" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Intelligent-Tiering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-standard-ia-infrequent-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Standard-IA (Infrequent Access)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-one-zone-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 One Zone-IA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Glacier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-glacier-deep-archive" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Glacier Deep Archive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Lock
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encryption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-server-side-encryption-sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Server-Side Encryption (SSE)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Server-Side Encryption (SSE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-sse-with-amazon-s3-managed-keys-sse-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. SSE with Amazon S3-Managed Keys (SSE-S3)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sse-with-aws-kms-keys-sse-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. SSE with AWS KMS Keys (SSE-KMS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-sse-with-customer-provided-keys-sse-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. SSE with Customer-Provided Keys (SSE-C)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-client-side-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Client-Side Encryption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Client-Side Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-using-aws-kms-managed-customer-master-key-cmk" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Using AWS KMS-Managed Customer Master Key (CMK)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-using-client-side-master-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Using Client-Side Master Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-encryption-in-transit-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Encryption in Transit (TLS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Notifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudwatch-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudWatch Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-lens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Lens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucket-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bucket Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-reduction-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Reduction Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Other AWS Services
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#durability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3445,154 +3820,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features and Characteristics
+      Introduction
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-billing-dashboard" class="md-nav__link">
+  <a href="#buckets" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Billing Dashboard
+      Buckets
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-cost-allocation-tags" class="md-nav__link">
+  <a href="#objects" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Cost Allocation Tags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-cost-and-usage-reports-cur" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Cost and Usage Reports (CUR)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-aws-budgets" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. AWS Budgets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-cost-explorer" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Cost Explorer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-savings-plans-and-reserved-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Savings Plans and Reserved Instances
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-free-tier-usage-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Free Tier Usage Tracking
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-consolidated-billing" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Consolidated Billing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-service-quotas-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Service Quotas Integration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-tax-settings-and-invoicing" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Tax Settings and Invoicing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-currency-conversion" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. Currency Conversion
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-anomaly-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      12. Anomaly Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-integration-with-aws-organizations" class="md-nav__link">
-    <span class="md-ellipsis">
-      13. Integration with AWS Organizations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#14-reports-and-notifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      14. Reports and Notifications
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#15-third-party-tool-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      15. Third-Party Tool Compatibility
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iam-access-to-billing-and-cost-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      IAM Access to Billing and Cost Management
+      Objects
     </span>
   </a>
   
@@ -3600,6 +3858,498 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s3-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Standard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-intelligent-tiering" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Intelligent-Tiering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-standard-ia-infrequent-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Standard-IA (Infrequent Access)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-one-zone-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 One Zone-IA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-glacier" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Glacier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-glacier-deep-archive" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Glacier Deep Archive
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Protection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Lock
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encryption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-server-side-encryption-sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Server-Side Encryption (SSE)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Server-Side Encryption (SSE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-sse-with-amazon-s3-managed-keys-sse-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. SSE with Amazon S3-Managed Keys (SSE-S3)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-sse-with-aws-kms-keys-sse-kms" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. SSE with AWS KMS Keys (SSE-KMS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-sse-with-customer-provided-keys-sse-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. SSE with Customer-Provided Keys (SSE-C)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-client-side-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Client-Side Encryption
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Client-Side Encryption">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-using-aws-kms-managed-customer-master-key-cmk" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Using AWS KMS-Managed Customer Master Key (CMK)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-using-client-side-master-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Using Client-Side Master Key
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-encryption-in-transit-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Encryption in Transit (TLS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices-for-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifecycle-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Notifications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Analytics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudwatch-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudWatch Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3 Analytics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-lens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Lens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucket-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bucket Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-reduction-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Reduction Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with Other AWS Services
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#durability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Durability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
   
 </li>
       
@@ -3621,118 +4371,551 @@
   
 
 
-<h1 id="aws-billing-and-cost-management">AWS Billing and Cost Management<a class="headerlink" href="#aws-billing-and-cost-management" title="Permanent link">&para;</a></h1>
-<p>AWS Billing and Cost Management is a suite of tools that helps you monitor, manage, and optimize your AWS usage and costs. It provides features for budgeting, analyzing usage patterns, and forecasting future expenses to ensure cost-effective resource management.</p>
-<hr />
-<h2 id="key-features-and-characteristics">Key Features and Characteristics<a class="headerlink" href="#key-features-and-characteristics" title="Permanent link">&para;</a></h2>
-<h3 id="1-billing-dashboard"><strong>1. Billing Dashboard</strong><a class="headerlink" href="#1-billing-dashboard" title="Permanent link">&para;</a></h3>
+<h1 id="amazon-simple-storage-service-s3">Amazon Simple Storage Service (S3)<a class="headerlink" href="#amazon-simple-storage-service-s3" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Amazon S3 (Simple Storage Service) is an object storage service offering industry-leading scalability, data availability, security, and performance. It can store and retrieve any amount of data from anywhere on the web, making it a versatile solution for backup, archiving, content distribution, and data lakes.</p>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="buckets">Buckets<a class="headerlink" href="#buckets" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Provides a high-level overview of your AWS usage and charges.</li>
-<li>Displays current and forecasted month-to-date costs.</li>
-<li>Offers insights into service-specific expenditures.</li>
+<li>Containers for objects stored in S3</li>
+<li>Must have a globally unique name</li>
+<li>Region-specific</li>
+<li>No limit to objects in a bucket</li>
+<li>Flat structure (no real hierarchy)</li>
 </ul>
-<h3 id="2-cost-allocation-tags"><strong>2. Cost Allocation Tags</strong><a class="headerlink" href="#2-cost-allocation-tags" title="Permanent link">&para;</a></h3>
+<h3 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>User-Defined Tags</strong>: Tags you define and apply to categorize AWS resources (e.g., <code>Department: Finance</code>).</li>
-<li><strong>AWS-Generated Tags</strong>: Automatically generated by AWS for certain resources.</li>
-<li><strong>Use Case</strong>: Track costs by projects, departments, or teams.</li>
+<li>Basic storage unit in S3</li>
+<li>Consists of:</li>
+<li>Data (the file)</li>
+<li>Key (the file name)</li>
+<li>Metadata (data about the data)</li>
+<li>Version ID (if versioning enabled)</li>
+<li>Size limits:</li>
+<li>Single object: 5TB</li>
+<li>Single PUT: 5GB</li>
 </ul>
-<h3 id="3-cost-and-usage-reports-cur"><strong>3. Cost and Usage Reports (CUR)</strong><a class="headerlink" href="#3-cost-and-usage-reports-cur" title="Permanent link">&para;</a></h3>
+<h2 id="storage-classes">Storage Classes<a class="headerlink" href="#storage-classes" title="Permanent link">&para;</a></h2>
+<h3 id="s3-standard">S3 Standard<a class="headerlink" href="#s3-standard" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Comprehensive reports detailing AWS resource usage and costs.</li>
-<li>Delivered to an Amazon S3 bucket in CSV or Parquet format.</li>
-<li>Can be integrated with analytics tools like Amazon Athena or Amazon QuickSight for further analysis.</li>
+<li>Default storage class</li>
+<li>99.99% availability</li>
+<li>11 9&rsquo;s durability</li>
+<li>Multiple AZ replication</li>
+<li>Best for: Frequently accessed data</li>
 </ul>
-<h3 id="4-aws-budgets"><strong>4. AWS Budgets</strong><a class="headerlink" href="#4-aws-budgets" title="Permanent link">&para;</a></h3>
+<h3 id="s3-intelligent-tiering">S3 Intelligent-Tiering<a class="headerlink" href="#s3-intelligent-tiering" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Set spending thresholds for your account or specific services.</li>
-<li>Types of budgets:</li>
-<li><strong>Cost Budgets</strong>: Track total spending.</li>
-<li><strong>Usage Budgets</strong>: Monitor service usage (e.g., EC2 instance hours).</li>
-<li><strong>Savings Plans Budgets</strong>: Track Savings Plans utilization.</li>
-<li><strong>Reservation Budgets</strong>: Monitor Reserved Instances (RIs).</li>
-<li>Configurable alerts via email or SNS notifications.</li>
+<li>Automatic cost optimization</li>
+<li>Moves objects between access tiers</li>
+<li>No retrieval fees</li>
+<li>Small monthly monitoring fee</li>
+<li>Best for: Unknown or changing access patterns</li>
 </ul>
-<h3 id="5-cost-explorer"><strong>5. Cost Explorer</strong><a class="headerlink" href="#5-cost-explorer" title="Permanent link">&para;</a></h3>
+<h3 id="s3-standard-ia-infrequent-access">S3 Standard-IA (Infrequent Access)<a class="headerlink" href="#s3-standard-ia-infrequent-access" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Interactive tool for visualizing and analyzing AWS costs and usage.</li>
-<li>Features include:</li>
-<li>Custom filtering by service, tag, or linked account.</li>
-<li>Granular breakdowns by hourly, daily, or monthly usage.</li>
-<li>Forecasting based on historical trends.</li>
+<li>Lower storage cost than Standard</li>
+<li>Higher retrieval cost</li>
+<li>99.9% availability</li>
+<li>Best for: Less frequently accessed data</li>
 </ul>
-<h3 id="6-savings-plans-and-reserved-instances"><strong>6. Savings Plans and Reserved Instances</strong><a class="headerlink" href="#6-savings-plans-and-reserved-instances" title="Permanent link">&para;</a></h3>
+<h3 id="s3-one-zone-ia">S3 One Zone-IA<a class="headerlink" href="#s3-one-zone-ia" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Savings Plans</strong>: Flexible pricing models offering cost savings in exchange for a usage commitment (e.g., compute hours).</li>
-<li><strong>Reserved Instances (RIs)</strong>: Upfront or partial upfront payment options for EC2 instances with significant savings over On-Demand pricing.</li>
+<li>Single AZ storage</li>
+<li>Lower cost than Standard-IA</li>
+<li>99.5% availability</li>
+<li>Best for: Reproducible, infrequently accessed data</li>
 </ul>
-<h3 id="7-free-tier-usage-tracking"><strong>7. Free Tier Usage Tracking</strong><a class="headerlink" href="#7-free-tier-usage-tracking" title="Permanent link">&para;</a></h3>
+<h3 id="s3-glacier">S3 Glacier<a class="headerlink" href="#s3-glacier" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Monitors free tier usage limits to avoid unexpected charges.</li>
-<li>Notifications when usage approaches or exceeds free tier limits.</li>
+<li>Long-term archival storage</li>
+<li>Retrieval times: minutes to hours</li>
+<li>Significantly lower storage cost</li>
+<li>Best for: Long-term backups and archives</li>
 </ul>
-<h3 id="8-consolidated-billing"><strong>8. Consolidated Billing</strong><a class="headerlink" href="#8-consolidated-billing" title="Permanent link">&para;</a></h3>
+<h3 id="s3-glacier-deep-archive">S3 Glacier Deep Archive<a class="headerlink" href="#s3-glacier-deep-archive" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Allows organizations to consolidate billing across multiple AWS accounts under a management account.</li>
-<li>Benefits:</li>
-<li>Single bill for all accounts.</li>
-<li>Cost-sharing and pooling of usage discounts (e.g., volume discounts).</li>
+<li>Lowest cost storage option</li>
+<li>Retrieval time: 12 hours</li>
+<li>Best for: Long-term data retention (7-10 years)</li>
 </ul>
-<h3 id="9-service-quotas-integration"><strong>9. Service Quotas Integration</strong><a class="headerlink" href="#9-service-quotas-integration" title="Permanent link">&para;</a></h3>
+<h2 id="data-protection">Data Protection<a class="headerlink" href="#data-protection" title="Permanent link">&para;</a></h2>
+<h3 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;VersioningConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+- Maintains multiple versions of objects
+- Protects against accidental deletions
+- Can be suspended but not disabled
+- Increases storage costs</p>
+<h3 id="replication">Replication<a class="headerlink" href="#replication" title="Permanent link">&para;</a></h3>
+<p>Types:
+1. Cross-Region Replication (CRR)
+2. Same-Region Replication (SRR)</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ReplicationConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:iam::account-id:role/role-name&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;Destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;Bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::destination-bucket&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="object-lock">Object Lock<a class="headerlink" href="#object-lock" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Monitors service usage against AWS quotas.</li>
-<li>Helps prevent unexpected charges due to exceeding usage limits.</li>
+<li>Write-once-read-many (WORM)</li>
+<li>Retention periods</li>
+<li>Legal holds</li>
+<li>Compliance mode</li>
 </ul>
-<h3 id="10-tax-settings-and-invoicing"><strong>10. Tax Settings and Invoicing</strong><a class="headerlink" href="#10-tax-settings-and-invoicing" title="Permanent link">&para;</a></h3>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<h3 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>IAM Policies</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;s3:PutObject&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::bucket-name/*&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Bucket Policies</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PublicRead&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:s3:::bucket-name/*&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Access Control Lists (ACLs)</strong></p>
+</li>
+<li>Legacy access control mechanism</li>
+<li>Granular permissions at object level</li>
+</ol>
+<h3 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h3>
+<h4 id="1-server-side-encryption-sse">1. Server-Side Encryption (SSE)<a class="headerlink" href="#1-server-side-encryption-sse" title="Permanent link">&para;</a></h4>
+<h5 id="a-sse-with-amazon-s3-managed-keys-sse-s3">a. SSE with Amazon S3-Managed Keys (SSE-S3)<a class="headerlink" href="#a-sse-with-amazon-s3-managed-keys-sse-s3" title="Permanent link">&para;</a></h5>
 <ul>
-<li><strong>Tax Settings</strong>: Configure tax information specific to your region (e.g., VAT/GST).</li>
-<li><strong>Invoicing</strong>: Access detailed, downloadable invoices for each billing period.</li>
+<li>Default encryption option</li>
+<li>AWS manages all keys</li>
+<li>AES-256 encryption</li>
 </ul>
-<h3 id="11-currency-conversion"><strong>11. Currency Conversion</strong><a class="headerlink" href="#11-currency-conversion" title="Permanent link">&para;</a></h3>
+<p>Implementation:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ServerSideEncryptionConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;ApplyServerSideEncryptionByDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;SSEAlgorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AES256&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Using AWS CLI:
+<div class="highlight"><pre><span></span><code><span class="c1"># Upload with SSE-S3</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>file.txt<span class="w"> </span>s3://bucket-name/<span class="w"> </span>--server-side-encryption<span class="w"> </span>AES256
+
+<span class="c1"># Set bucket default encryption</span>
+aws<span class="w"> </span>s3api<span class="w"> </span>put-bucket-encryption<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--bucket<span class="w"> </span>my-bucket<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--server-side-encryption-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;Rules&quot;: [</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;ApplyServerSideEncryptionByDefault&quot;: {</span>
+<span class="s1">                    &quot;SSEAlgorithm&quot;: &quot;AES256&quot;</span>
+<span class="s1">                }</span>
+<span class="s1">            }</span>
+<span class="s1">        ]</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div></p>
+<h5 id="b-sse-with-aws-kms-keys-sse-kms">b. SSE with AWS KMS Keys (SSE-KMS)<a class="headerlink" href="#b-sse-with-aws-kms-keys-sse-kms" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Supports viewing charges in your preferred currency.</li>
-<li>AWS bills are always generated in USD, with conversions provided for reference.</li>
+<li>Uses AWS Key Management Service</li>
+<li>Additional control and audit capability</li>
+<li>Separate permissions for key usage</li>
 </ul>
-<h3 id="12-anomaly-detection"><strong>12. Anomaly Detection</strong><a class="headerlink" href="#12-anomaly-detection" title="Permanent link">&para;</a></h3>
+<p>Implementation:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ServerSideEncryptionConfiguration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;ApplyServerSideEncryptionByDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;SSEAlgorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aws:kms&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;KMSMasterKeyID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:kms:region:account-id:key/key-id&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Using AWS CLI:
+<div class="highlight"><pre><span></span><code><span class="c1"># Upload with SSE-KMS</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>file.txt<span class="w"> </span>s3://bucket-name/<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--server-side-encryption<span class="w"> </span>aws:kms<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ssekms-key-id<span class="w"> </span>arn:aws:kms:region:account-id:key/key-id
+
+<span class="c1"># Set bucket default encryption with KMS</span>
+aws<span class="w"> </span>s3api<span class="w"> </span>put-bucket-encryption<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--bucket<span class="w"> </span>my-bucket<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--server-side-encryption-configuration<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;Rules&quot;: [</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;ApplyServerSideEncryptionByDefault&quot;: {</span>
+<span class="s1">                    &quot;SSEAlgorithm&quot;: &quot;aws:kms&quot;,</span>
+<span class="s1">                    &quot;KMSMasterKeyID&quot;: &quot;arn:aws:kms:region:account-id:key/key-id&quot;</span>
+<span class="s1">                }</span>
+<span class="s1">            }</span>
+<span class="s1">        ]</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div></p>
+<p>Required IAM Permissions:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;kms:Decrypt&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;kms:GenerateDataKey&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:kms:region:account-id:key/key-id&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h5 id="c-sse-with-customer-provided-keys-sse-c">c. SSE with Customer-Provided Keys (SSE-C)<a class="headerlink" href="#c-sse-with-customer-provided-keys-sse-c" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Automatically identifies unusual spending patterns.</li>
-<li>Provides actionable insights to investigate cost anomalies.</li>
+<li>Customer manages encryption keys</li>
+<li>Keys must be provided with each request</li>
+<li>AWS doesn&rsquo;t store the encryption keys</li>
 </ul>
-<h3 id="13-integration-with-aws-organizations"><strong>13. Integration with AWS Organizations</strong><a class="headerlink" href="#13-integration-with-aws-organizations" title="Permanent link">&para;</a></h3>
+<p>Implementation using AWS SDK (Python example):
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botocore.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+
+<span class="c1"># Create S3 client with specific config</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">signature_version</span><span class="o">=</span><span class="s1">&#39;s3v4&#39;</span><span class="p">))</span>
+
+<span class="c1"># Upload with SSE-C</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">s3</span><span class="o">.</span><span class="n">put_object</span><span class="p">(</span>
+        <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span>
+        <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;encrypted-file.txt&#39;</span><span class="p">,</span>
+        <span class="n">Body</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">SSECustomerAlgorithm</span><span class="o">=</span><span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
+        <span class="n">SSECustomerKey</span><span class="o">=</span><span class="s1">&#39;your-secret-key-base64&#39;</span><span class="p">,</span>
+        <span class="n">SSECustomerKeyMD5</span><span class="o">=</span><span class="s1">&#39;base64-encoded-md5-of-key&#39;</span>
+    <span class="p">)</span>
+
+<span class="c1"># Download with SSE-C</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span>
+    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;encrypted-file.txt&#39;</span><span class="p">,</span>
+    <span class="n">SSECustomerAlgorithm</span><span class="o">=</span><span class="s1">&#39;AES256&#39;</span><span class="p">,</span>
+    <span class="n">SSECustomerKey</span><span class="o">=</span><span class="s1">&#39;your-secret-key-base64&#39;</span><span class="p">,</span>
+    <span class="n">SSECustomerKeyMD5</span><span class="o">=</span><span class="s1">&#39;base64-encoded-md5-of-key&#39;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h4 id="2-client-side-encryption">2. Client-Side Encryption<a class="headerlink" href="#2-client-side-encryption" title="Permanent link">&para;</a></h4>
+<h5 id="a-using-aws-kms-managed-customer-master-key-cmk">a. Using AWS KMS-Managed Customer Master Key (CMK)<a class="headerlink" href="#a-using-aws-kms-managed-customer-master-key-cmk" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">boto3.s3.transfer</span><span class="w"> </span><span class="kn">import</span> <span class="n">S3Transfer</span>
+
+<span class="c1"># Create KMS client</span>
+<span class="n">kms</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;kms&#39;</span><span class="p">)</span>
+
+<span class="c1"># Generate data key</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">kms</span><span class="o">.</span><span class="n">generate_data_key</span><span class="p">(</span>
+    <span class="n">KeyId</span><span class="o">=</span><span class="s1">&#39;arn:aws:kms:region:account-id:key/key-id&#39;</span><span class="p">,</span>
+    <span class="n">KeySpec</span><span class="o">=</span><span class="s1">&#39;AES_256&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the data key for encryption</span>
+<span class="c1"># Implementation depends on your encryption library</span>
+</code></pre></div>
+<h5 id="b-using-client-side-master-key">b. Using Client-Side Master Key<a class="headerlink" href="#b-using-client-side-master-key" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">boto3.s3.transfer</span><span class="w"> </span><span class="kn">import</span> <span class="n">S3Transfer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cryptography.fernet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fernet</span>
+
+<span class="c1"># Generate key</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">Fernet</span><span class="o">.</span><span class="n">generate_key</span><span class="p">()</span>
+
+<span class="c1"># Create cipher suite</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="c1"># Encrypt data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">encrypted_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="c1"># Upload encrypted data</span>
+<span class="n">s3</span><span class="o">.</span><span class="n">put_object</span><span class="p">(</span>
+    <span class="n">Bucket</span><span class="o">=</span><span class="s1">&#39;my-bucket&#39;</span><span class="p">,</span>
+    <span class="n">Key</span><span class="o">=</span><span class="s1">&#39;encrypted-file.txt&#39;</span><span class="p">,</span>
+    <span class="n">Body</span><span class="o">=</span><span class="n">encrypted_data</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="3-encryption-in-transit-tls">3. Encryption in Transit (TLS)<a class="headerlink" href="#3-encryption-in-transit-tls" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Enables centralized billing and cost management for multiple accounts.</li>
-<li>Linked accounts share discounts and usage data with the management account.</li>
+<li>S3 endpoints support HTTPS</li>
+<li>Configure bucket policy to enforce HTTPS:</li>
 </ul>
-<h3 id="14-reports-and-notifications"><strong>14. Reports and Notifications</strong><a class="headerlink" href="#14-reports-and-notifications" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Sid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RequireSSLTransport&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Deny&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3:*&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;arn:aws:s3:::my-bucket&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;arn:aws:s3:::my-bucket/*&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;Condition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;Bool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;aws:SecureTransport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="best-practices-for-encryption">Best Practices for Encryption<a class="headerlink" href="#best-practices-for-encryption" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Key Management</strong></li>
+<li>Regularly rotate encryption keys</li>
+<li>Use different keys for different environments</li>
+<li>Implement key backup and recovery procedures</li>
+<li>
+<p>Monitor key usage with CloudTrail</p>
+</li>
+<li>
+<p><strong>Policy Enforcement</strong></p>
+</li>
+<li>Use bucket policies to enforce encryption</li>
+<li>Implement default encryption at bucket level</li>
+<li>Regular audit of encryption settings</li>
+<li>
+<p>Monitor for encryption-related events</p>
+</li>
+<li>
+<p><strong>Compliance</strong></p>
+</li>
+<li>Document encryption procedures</li>
+<li>Regular compliance audits</li>
+<li>Maintain encryption configuration inventory</li>
+<li>Test key rotation procedures</li>
+</ol>
+<h2 id="data-management">Data Management<a class="headerlink" href="#data-management" title="Permanent link">&para;</a></h2>
+<h3 id="lifecycle-rules">Lifecycle Rules<a class="headerlink" href="#lifecycle-rules" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Rules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Enabled&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Transition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;Days&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;StorageClass&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STANDARD_IA&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="event-notifications">Event Notifications<a class="headerlink" href="#event-notifications" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Cost Reports</strong>: Auto-generated reports summarizing costs by service or account.</li>
-<li><strong>Alerts and Notifications</strong>:</li>
-<li>Triggered when budgets or thresholds are exceeded.</li>
-<li>Configurable for email and SNS delivery.</li>
+<li>Triggers on object operations</li>
+<li>Destinations:</li>
+<li>SNS</li>
+<li>SQS</li>
+<li>Lambda</li>
 </ul>
-<h3 id="15-third-party-tool-compatibility"><strong>15. Third-Party Tool Compatibility</strong><a class="headerlink" href="#15-third-party-tool-compatibility" title="Permanent link">&para;</a></h3>
+<h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Prefix Naming</strong></li>
+<li>Use random prefixes for high throughput</li>
+<li>
+<p>Example: <code>hex-hash/filename</code> instead of <code>date/filename</code></p>
+</li>
+<li>
+<p><strong>Multipart Upload</strong></p>
+</li>
+<li>Recommended for files &gt; 100MB</li>
+<li>Required for files &gt; 5GB</li>
+<li>
+<p>Parallel upload capability</p>
+</li>
+<li>
+<p><strong>Transfer Acceleration</strong></p>
+</li>
+<li>Uses CloudFront edge locations</li>
+<li>Faster long-distance transfers</li>
+<li>Additional cost per GB</li>
+</ol>
+<h2 id="monitoring-and-analytics">Monitoring and Analytics<a class="headerlink" href="#monitoring-and-analytics" title="Permanent link">&para;</a></h2>
+<h3 id="cloudwatch-metrics">CloudWatch Metrics<a class="headerlink" href="#cloudwatch-metrics" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Compatible with external cost management tools via APIs.</li>
-<li>Examples include tools for advanced cost analytics or enterprise reporting.</li>
+<li>Request metrics</li>
+<li>Replication metrics</li>
+<li>Storage metrics</li>
 </ul>
-<hr />
-<h3 id="iam-access-to-billing-and-cost-management"><strong>IAM Access to Billing and Cost Management</strong><a class="headerlink" href="#iam-access-to-billing-and-cost-management" title="Permanent link">&para;</a></h3>
+<h3 id="s3-analytics">S3 Analytics<a class="headerlink" href="#s3-analytics" title="Permanent link">&para;</a></h3>
 <ul>
-<li>By default, the root user has full access to all billing and cost management tools.</li>
-<li><strong>IAM User Access Activation</strong>:</li>
-<li>By default, IAM user access to the Billing and Cost Management console is disabled.</li>
-<li>The root user or an authorized IAM user must enable this access in the Billing and Cost Management preferences.</li>
-<li>Once activated, IAM users with appropriate permissions can access the Billing and Cost Management console.</li>
-<li><strong>Common Permissions</strong>:</li>
-<li><code>aws-portal:*</code>: Grants full access to the Billing and Cost Management console.</li>
-<li><code>ce:*</code>: Provides access to Cost Explorer API and related tools.</li>
-<li><code>cur:*</code>: Grants access to Cost and Usage Reports.</li>
-<li><code>budgets:*</code>: Allows management of AWS Budgets.</li>
-<li><strong>Best Practices</strong>:</li>
-<li>Use IAM policies to grant least privilege.</li>
-<li>Restrict access to sensitive billing data to authorized users only.</li>
+<li>Storage class analysis</li>
+<li>Access pattern insights</li>
+<li>Lifecycle optimization recommendations</li>
 </ul>
-<p>AWS Billing and Cost Management tools are essential for ensuring efficient resource utilization and cost control, making them integral to managing AWS accounts effectively.</p>
+<h3 id="storage-lens">Storage Lens<a class="headerlink" href="#storage-lens" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Organization-wide visibility</li>
+<li>Usage and activity metrics</li>
+<li>Recommendations for optimization</li>
+</ul>
+<h2 id="common-operations">Common Operations<a class="headerlink" href="#common-operations" title="Permanent link">&para;</a></h2>
+<h3 id="basic-operations">Basic Operations<a class="headerlink" href="#basic-operations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Upload file</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>file.txt<span class="w"> </span>s3://bucket-name/
+
+<span class="c1"># Download file</span>
+aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>s3://bucket-name/file.txt<span class="w"> </span>.
+
+<span class="c1"># List objects</span>
+aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>s3://bucket-name/
+
+<span class="c1"># Delete object</span>
+aws<span class="w"> </span>s3<span class="w"> </span>rm<span class="w"> </span>s3://bucket-name/file.txt
+</code></pre></div>
+<h3 id="bucket-operations">Bucket Operations<a class="headerlink" href="#bucket-operations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create bucket</span>
+aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://bucket-name
+
+<span class="c1"># Delete bucket</span>
+aws<span class="w"> </span>s3<span class="w"> </span>rb<span class="w"> </span>s3://bucket-name
+
+<span class="c1"># Sync directories</span>
+aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>local-dir<span class="w"> </span>s3://bucket-name/remote-dir
+</code></pre></div>
+<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="cost-components">Cost Components<a class="headerlink" href="#cost-components" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Storage pricing</li>
+<li>Per GB-month rates</li>
+<li>
+<p>Varies by storage class</p>
+</li>
+<li>
+<p>Request pricing</p>
+</li>
+<li>PUT, COPY, POST, LIST</li>
+<li>
+<p>GET, SELECT, and retrieval</p>
+</li>
+<li>
+<p>Data transfer</p>
+</li>
+<li>Inbound: usually free</li>
+<li>Outbound: charged per GB</li>
+</ol>
+<h3 id="cost-reduction-strategies">Cost Reduction Strategies<a class="headerlink" href="#cost-reduction-strategies" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use appropriate storage classes</li>
+<li>Implement lifecycle policies</li>
+<li>Enable compression</li>
+<li>Monitor usage with Cost Explorer</li>
+<li>Use S3 Analytics for optimization</li>
+</ol>
+<h2 id="integration-with-other-aws-services">Integration with Other AWS Services<a class="headerlink" href="#integration-with-other-aws-services" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudFront (Content Distribution)</li>
+<li>Lambda (Serverless Computing)</li>
+<li>Athena (SQL Queries)</li>
+<li>EMR (Big Data Processing)</li>
+<li>Redshift (Data Warehousing)</li>
+<li>CloudTrail (Audit Logging)</li>
+</ul>
+<h2 id="best-practices_1">Best Practices<a class="headerlink" href="#best-practices_1" title="Permanent link">&para;</a></h2>
+<h3 id="security_1">Security<a class="headerlink" href="#security_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Enable encryption at rest</li>
+<li>Use VPC endpoints</li>
+<li>Implement least privilege access</li>
+<li>Enable access logging</li>
+<li>Regular security audits</li>
+</ol>
+<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use multipart upload</li>
+<li>Implement retry mechanism</li>
+<li>Use appropriate prefix strategy</li>
+<li>Enable transfer acceleration</li>
+<li>Implement caching where appropriate</li>
+</ol>
+<h3 id="durability">Durability<a class="headerlink" href="#durability" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Enable versioning</li>
+<li>Implement cross-region replication</li>
+<li>Regular backup validation</li>
+<li>Monitor data integrity</li>
+<li>Test restore procedures</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Access Denied</strong></li>
+<li>Check IAM permissions</li>
+<li>Verify bucket policy</li>
+<li>
+<p>Check object ACLs</p>
+</li>
+<li>
+<p><strong>Slow Performance</strong></p>
+</li>
+<li>Review prefix strategy</li>
+<li>Check multipart upload usage</li>
+<li>
+<p>Verify network configuration</p>
+</li>
+<li>
+<p><strong>Error Responses</strong></p>
+</li>
+<li>403: Permission issues</li>
+<li>404: Object not found</li>
+<li>503: Service unavailable</li>
+</ol>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/s3/">Official S3 Documentation</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/best-practices.html">S3 Best Practices</a></li>
+<li><a href="https://aws.amazon.com/s3/pricing/">S3 Pricing</a></li>
+<li><a href="https://aws.amazon.com/s3/faqs/">S3 FAQ</a></li>
+</ul>
 
 
 
@@ -3768,7 +4951,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../cloud_formation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS CloudFormation">
+          <a href="../cdk/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Cloud Development Kit (CDK)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3778,20 +4961,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                AWS CloudFormation
+                AWS Cloud Development Kit (CDK)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../sqs/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS Simple Queue Service (SQS)">
+          <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                AWS Simple Queue Service (SQS)
+                How would you handle a complex rollback scenario in a CI/CD pipeline while ensuring minimal downtime and data integrity?
               </div>
             </div>
             <div class="md-footer__button md-icon">
