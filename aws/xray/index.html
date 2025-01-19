@@ -4204,7 +4204,9 @@
 
 <h1 id="aws-x-ray-guide">AWS X-Ray Guide<a class="headerlink" href="#aws-x-ray-guide" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>AWS X-Ray is a distributed tracing service that helps developers analyze and debug production, distributed applications. It provides an end-to-end view of requests as they travel through your application, showing a map of your application&rsquo;s underlying components and detailed information about requests and responses.</p>
+<p>AWS X-Ray is a distributed tracing service that helps developers analyze and debug production, distributed applications. It provides an end-to-end view of requests as they travel through your application, showing a map of your application&rsquo;s underlying components and detailed information about requests and responses.
+AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors. X-Ray provides an end-to-end view of requests as they travel through your application, and shows a map of your application’s underlying components.
+You can use X-Ray to collect data across AWS Accounts. The X-Ray agent can assume a role to publish data into an account different from the one in which it is running. This enables you to publish data from various components of your application into a central account.</p>
 <h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>Application → X-Ray SDK → X-Ray Daemon → X-Ray API
     (2000/UDP)         (443/HTTPS)
