@@ -24,7 +24,7 @@
     
     
       
-        <title>AWS Cognito - My DevOps Interview Preparation</title>
+        <title>AWS Cognito Documentation - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-cognito" class="md-skip">
+        <a href="#aws-cognito-documentation" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS Cognito
+              AWS Cognito Documentation
             
           </span>
         </div>
@@ -509,6 +509,8 @@
       
         
       
+        
+      
     
     
       
@@ -691,7 +693,7 @@
           
   
   <span class="md-ellipsis">
-    AWS Cognito
+    AWS Cognito Documentation
   </span>
   
 
@@ -702,7 +704,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Cognito
+    AWS Cognito Documentation
   </span>
   
 
@@ -724,13 +726,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features and Characteristics
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -739,6 +750,30 @@
       1. User Pools
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. User Pools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -749,48 +784,60 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="2. Identity Pools (Federated Identities)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-security-features" class="md-nav__link">
+  <a href="#key-features_1" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Security Features
+      Key Features
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-customization-and-extensibility" class="md-nav__link">
+  <a href="#common-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Customization and Extensibility
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Methods
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-integration-with-aws-services" class="md-nav__link">
+  <a href="#advanced-security-features" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-scalability" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Scalability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-multi-platform-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Multi-Platform Support
+      Advanced Security Features
     </span>
   </a>
   
@@ -802,11 +849,410 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
+  <a href="#integration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdks-and-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDKs and Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-management-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Management Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Management Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groups-and-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groups and Roles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Integration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Integration Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pricing Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-and-data-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance and Data Privacy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance and Data Privacy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compliance-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance Standards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-other-authentication-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Other Authentication Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Updates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cognito-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cognito Sync
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cognito Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases_1" class="md-nav__link">
     <span class="md-ellipsis">
       Common Use Cases
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations and Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-cognito-sync-to-appsyncdatastore" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Cognito Sync to AppSync/DataStore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1057,6 +1503,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../trusted_advisor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AWS Trusted Advisor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../xray/" class="md-nav__link">
         
   
@@ -1097,10 +1564,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_20" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_21" >
         
           
-          <label class="md-nav__link" for="__nav_2_20" id="__nav_2_20_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_21" id="__nav_2_21_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1111,8 +1578,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_20">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_21">
             <span class="md-nav__icon md-icon"></span>
             EC2
           </label>
@@ -3566,13 +4033,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-and-characteristics" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features and Characteristics
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features and Characteristics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3581,6 +4057,30 @@
       1. User Pools
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. User Pools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3591,48 +4091,60 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="2. Identity Pools (Federated Identities)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-security-features" class="md-nav__link">
+  <a href="#key-features_1" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Security Features
+      Key Features
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-customization-and-extensibility" class="md-nav__link">
+  <a href="#common-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Customization and Extensibility
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication Methods
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-integration-with-aws-services" class="md-nav__link">
+  <a href="#advanced-security-features" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-scalability" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Scalability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-multi-platform-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Multi-Platform Support
+      Advanced Security Features
     </span>
   </a>
   
@@ -3644,11 +4156,410 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
+  <a href="#integration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdks-and-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      SDKs and Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Token Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#token-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-management-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Management Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Management Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groups-and-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Groups and Roles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Integration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Integration Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#web-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pricing Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-and-data-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance and Data Privacy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance and Data Privacy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compliance-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compliance Standards
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-other-authentication-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Other Authentication Systems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Updates
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cognito-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cognito Sync
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cognito Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-use-cases_1" class="md-nav__link">
     <span class="md-ellipsis">
       Common Use Cases
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations and Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-cognito-sync-to-appsyncdatastore" class="md-nav__link">
+    <span class="md-ellipsis">
+      From Cognito Sync to AppSync/DataStore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3670,102 +4581,422 @@
   
 
 
-<h1 id="aws-cognito">AWS Cognito<a class="headerlink" href="#aws-cognito" title="Permanent link">&para;</a></h1>
-<p>Amazon Cognito is a fully managed authentication, authorization, and user management service that enables you to securely manage user sign-up, sign-in, and access control for web and mobile applications.</p>
-<hr />
-<h2 id="key-features-and-characteristics">Key Features and Characteristics<a class="headerlink" href="#key-features-and-characteristics" title="Permanent link">&para;</a></h2>
-<h3 id="1-user-pools"><strong>1. User Pools</strong><a class="headerlink" href="#1-user-pools" title="Permanent link">&para;</a></h3>
+<h1 id="aws-cognito-documentation">AWS Cognito Documentation<a class="headerlink" href="#aws-cognito-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Amazon Cognito is a managed service that provides authentication, authorization, and user management for web and mobile applications. It enables you to add user sign-up, sign-in, and access control features to your applications quickly and easily.</p>
+<h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
+<h3 id="1-user-pools">1. User Pools<a class="headerlink" href="#1-user-pools" title="Permanent link">&para;</a></h3>
+<p>User pools are user directories in Amazon Cognito that provide sign-up and sign-in options for your application users.</p>
+<h4 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Provides a user directory for user registration and authentication.</li>
-<li>Supports features such as:</li>
-<li><strong>Sign-up and sign-in:</strong> Allows users to create accounts and log in.</li>
-<li><strong>Social identity providers:</strong> Integration with Google, Facebook, Apple, and Amazon for federated authentication.</li>
-<li><strong>Multi-factor authentication (MFA):</strong> Adds an extra layer of security.</li>
-<li><strong>Custom attributes:</strong> Supports defining custom user attributes.</li>
-<li><strong>Account recovery:</strong> Includes password recovery via email or SMS.</li>
-<li>Enables OAuth 2.0 authorization flows for securing APIs.</li>
+<li>User registration and sign-in</li>
+<li>Built-in customizable UI for authentication</li>
+<li>Password policies and recovery</li>
+<li>Multi-factor authentication (MFA)</li>
+<li>Email and phone number verification</li>
+<li>Integration with social identity providers</li>
+<li>Integration with enterprise identity providers via SAML 2.0</li>
+<li>Advanced security features like adaptive authentication</li>
+<li>Custom attributes for user profiles</li>
 </ul>
-<h3 id="2-identity-pools-federated-identities"><strong>2. Identity Pools</strong> (Federated Identities)<a class="headerlink" href="#2-identity-pools-federated-identities" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Provides temporary AWS credentials to users for direct access to AWS services.</li>
-<li>Supports identity federation with:</li>
-<li>Social identity providers (e.g., Google, Facebook).</li>
-<li>OpenID Connect (OIDC) providers.</li>
-<li>SAML-based identity providers.</li>
-<li>Custom authentication solutions.</li>
-<li>Automatically maps users to specific IAM roles based on their identity.</li>
-</ul>
-<h3 id="3-security-features"><strong>3. Security Features</strong><a class="headerlink" href="#3-security-features" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Advanced Security:</strong></li>
-<li>Detects and responds to unusual sign-in activities, such as compromised credentials or sign-ins from unfamiliar locations.</li>
-<li>Provides risk-based adaptive authentication.</li>
-<li><strong>Encryption:</strong></li>
-<li>Encrypts user data at rest using AWS Key Management Service (KMS).</li>
-<li>Supports TLS for data in transit.</li>
-</ul>
-<h3 id="4-customization-and-extensibility"><strong>4. Customization and Extensibility</strong><a class="headerlink" href="#4-customization-and-extensibility" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Custom Authentication Flows:</strong></li>
-<li>Allows implementing custom authentication logic using AWS Lambda triggers.</li>
-<li><strong>Hosted UI:</strong></li>
-<li>Provides a pre-built and customizable user interface for sign-up and sign-in.</li>
-<li><strong>Lambda Triggers:</strong></li>
-<li>Supports customization of workflows, such as pre-sign-up, post-confirmation, and pre-token generation.</li>
-</ul>
-<h3 id="5-integration-with-aws-services"><strong>5. Integration with AWS Services</strong><a class="headerlink" href="#5-integration-with-aws-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Seamlessly integrates with AWS services like:</li>
-<li>API Gateway for securing REST APIs.</li>
-<li>Lambda for executing serverless functions.</li>
-<li>S3 for secure storage.</li>
-<li>DynamoDB for storing additional user data.</li>
-<li>Enables event-driven workflows through integration with Amazon EventBridge.</li>
-</ul>
-<h3 id="6-scalability"><strong>6. Scalability</strong><a class="headerlink" href="#6-scalability" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Automatically scales to handle millions of users.</li>
-<li>Globally distributed infrastructure ensures low latency and high availability.</li>
-</ul>
-<h3 id="7-multi-platform-support"><strong>7. Multi-Platform Support</strong><a class="headerlink" href="#7-multi-platform-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Provides SDKs for multiple platforms, including iOS, Android, JavaScript, and more.</li>
-<li>Enables cross-platform authentication for mobile and web applications.</li>
-</ul>
-<hr />
-<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
+<h4 id="authentication-flow">Authentication Flow<a class="headerlink" href="#authentication-flow" title="Permanent link">&para;</a></h4>
 <ol>
-<li>
-<p><strong>Authentication and Authorization for Applications:</strong></p>
-</li>
-<li>
-<p>Securely manage user access for web and mobile applications.</p>
-</li>
-<li>
-<p><strong>Secure API Access:</strong></p>
-</li>
-<li>
-<p>Provide token-based access control for APIs using OAuth 2.0.</p>
-</li>
-<li>
-<p><strong>User Federation:</strong></p>
-</li>
-<li>
-<p>Simplify user sign-in with social identity providers or enterprise SAML providers.</p>
-</li>
-<li>
-<p><strong>Multi-Tenant Applications:</strong></p>
-</li>
-<li>
-<p>Isolate user data and roles for multi-tenant solutions.</p>
-</li>
-<li>
-<p><strong>Event-Driven Workflows:</strong></p>
-</li>
-<li>Trigger actions such as sending welcome emails or logging user activities via Lambda.</li>
+<li>User signs up with email/phone and password</li>
+<li>Verification code is sent</li>
+<li>User verifies account</li>
+<li>User can sign in</li>
+<li>Cognito returns JWT tokens (ID, Access, and Refresh tokens)</li>
 </ol>
-<hr />
-<p>AWS Cognito provides a robust and scalable solution for identity management, enabling secure and seamless authentication and access control for modern applications.</p>
+<h3 id="2-identity-pools-federated-identities">2. Identity Pools (Federated Identities)<a class="headerlink" href="#2-identity-pools-federated-identities" title="Permanent link">&para;</a></h3>
+<p>Identity pools enable you to grant users temporary AWS credentials to access AWS services directly.</p>
+<h4 id="key-features_1">Key Features<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Temporary AWS credentials generation</li>
+<li>Support for authenticated and unauthenticated identities</li>
+<li>Fine-grained AWS IAM roles and permissions</li>
+<li>Integration with User Pools</li>
+<li>Support for third-party identity providers</li>
+</ul>
+<h4 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Accessing AWS services directly from client applications</li>
+<li>Providing different permissions based on user identity</li>
+<li>Allowing guest access to certain features</li>
+</ul>
+<h2 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
+<h3 id="authentication-methods">Authentication Methods<a class="headerlink" href="#authentication-methods" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Username and password</li>
+<li>Email and password</li>
+<li>Phone number and password</li>
+<li>Social identity providers (Facebook, Google, Apple)</li>
+<li>SAML-based identity providers</li>
+<li>OpenID Connect providers</li>
+<li>Custom authentication flows</li>
+</ul>
+<h3 id="advanced-security-features">Advanced Security Features<a class="headerlink" href="#advanced-security-features" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Adaptive Authentication</strong></li>
+<li>Risk-based authentication</li>
+<li>User behavior analysis</li>
+<li>Device fingerprinting</li>
+<li>
+<p>IP-based detection</p>
+</li>
+<li>
+<p><strong>Password Policies</strong></p>
+</li>
+<li>Minimum length requirements</li>
+<li>Character type requirements</li>
+<li>Password expiration</li>
+<li>
+<p>Previous password prevention</p>
+</li>
+<li>
+<p><strong>MFA Options</strong></p>
+</li>
+<li>SMS-based MFA</li>
+<li>Time-based One-Time Password (TOTP)</li>
+<li>Custom MFA challenges</li>
+</ol>
+<h2 id="integration-options">Integration Options<a class="headerlink" href="#integration-options" title="Permanent link">&para;</a></h2>
+<h3 id="sdks-and-libraries">SDKs and Libraries<a class="headerlink" href="#sdks-and-libraries" title="Permanent link">&para;</a></h3>
+<ul>
+<li>AWS Amplify</li>
+<li>Amazon Cognito Identity SDK</li>
+<li>AWS SDK for various programming languages</li>
+<li>JWT Token handling libraries</li>
+</ul>
+<h3 id="api-support">API Support<a class="headerlink" href="#api-support" title="Permanent link">&para;</a></h3>
+<ul>
+<li>REST APIs</li>
+<li>GraphQL APIs via AWS AppSync</li>
+<li>AWS SDK APIs</li>
+<li>OAuth 2.0 endpoints</li>
+</ul>
+<h2 id="token-management">Token Management<a class="headerlink" href="#token-management" title="Permanent link">&para;</a></h2>
+<h3 id="token-types">Token Types<a class="headerlink" href="#token-types" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>ID Token</strong></li>
+<li>Contains user identity information</li>
+<li>JWT format</li>
+<li>
+<p>Used for authentication</p>
+</li>
+<li>
+<p><strong>Access Token</strong></p>
+</li>
+<li>Contains scopes and permissions</li>
+<li>Used for API authorization</li>
+<li>
+<p>JWT format</p>
+</li>
+<li>
+<p><strong>Refresh Token</strong></p>
+</li>
+<li>Used to obtain new ID and access tokens</li>
+<li>Longer expiration time</li>
+<li>Not a JWT</li>
+</ol>
+<h3 id="token-lifecycle">Token Lifecycle<a class="headerlink" href="#token-lifecycle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Token generation upon authentication</li>
+<li>Token refresh process</li>
+<li>Token revocation</li>
+<li>Token expiration handling</li>
+</ul>
+<h2 id="user-management-features">User Management Features<a class="headerlink" href="#user-management-features" title="Permanent link">&para;</a></h2>
+<h3 id="user-operations">User Operations<a class="headerlink" href="#user-operations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create user</li>
+<li>Delete user</li>
+<li>Update user attributes</li>
+<li>Reset password</li>
+<li>Confirm user signup</li>
+<li>Resend confirmation code</li>
+<li>Global sign-out</li>
+</ul>
+<h3 id="groups-and-roles">Groups and Roles<a class="headerlink" href="#groups-and-roles" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create and manage user groups</li>
+<li>Assign users to groups</li>
+<li>Map groups to IAM roles</li>
+<li>Role-based access control</li>
+</ul>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Always use HTTPS</li>
+<li>Implement MFA for sensitive operations</li>
+<li>Use secure password policies</li>
+<li>Regularly rotate credentials</li>
+<li>Implement least privilege access</li>
+</ol>
+<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use connection pooling</li>
+<li>Implement token caching</li>
+<li>Handle token refresh efficiently</li>
+<li>Use appropriate SDK methods</li>
+</ol>
+<h3 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Monitor MAU usage</li>
+<li>Optimize API calls</li>
+<li>Use appropriate pricing tier</li>
+<li>Implement proper cleanup procedures</li>
+</ol>
+<h2 id="common-integration-patterns">Common Integration Patterns<a class="headerlink" href="#common-integration-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="web-applications">Web Applications<a class="headerlink" href="#web-applications" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example using Amplify</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Auth</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;aws-amplify&#39;</span><span class="p">;</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">signIn</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">Auth</span><span class="p">.</span><span class="nx">signIn</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">user</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error signing in:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="mobile-applications">Mobile Applications<a class="headerlink" href="#mobile-applications" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example using iOS SDK</span>
+<span class="n">AWSMobileClient</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">signIn</span><span class="p">(</span><span class="n">username</span><span class="p">:</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">:</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">(</span><span class="n">signInResult</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">error</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Error signing in: </span><span class="si">\(</span><span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// Handle successful sign-in</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Token expiration handling</li>
+<li>MFA configuration</li>
+<li>Social identity provider integration</li>
+<li>Custom authentication flows</li>
+<li>API throttling</li>
+</ol>
+<h3 id="logging-and-monitoring">Logging and Monitoring<a class="headerlink" href="#logging-and-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CloudWatch Logs integration</li>
+<li>CloudWatch Metrics</li>
+<li>AWS X-Ray tracing</li>
+<li>Custom logging solutions</li>
+</ul>
+<h2 id="pricing-considerations">Pricing Considerations<a class="headerlink" href="#pricing-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="cost-components">Cost Components<a class="headerlink" href="#cost-components" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Monthly Active Users (MAU)</li>
+<li>Additional security features</li>
+<li>SMS/Email message delivery</li>
+<li>Identity Pool usage</li>
+</ol>
+<h3 id="cost-optimization-strategies">Cost Optimization Strategies<a class="headerlink" href="#cost-optimization-strategies" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Choose appropriate pricing tier</li>
+<li>Monitor usage patterns</li>
+<li>Implement caching strategies</li>
+<li>Optimize API calls</li>
+</ol>
+<h2 id="compliance-and-data-privacy">Compliance and Data Privacy<a class="headerlink" href="#compliance-and-data-privacy" title="Permanent link">&para;</a></h2>
+<h3 id="compliance-standards">Compliance Standards<a class="headerlink" href="#compliance-standards" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SOC 1, 2, and 3</li>
+<li>PCI DSS</li>
+<li>ISO 27001</li>
+<li>HIPAA eligible</li>
+<li>GDPR compliant</li>
+</ul>
+<h3 id="data-protection">Data Protection<a class="headerlink" href="#data-protection" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Encryption at rest</li>
+<li>Encryption in transit</li>
+<li>Key management</li>
+<li>Data residency options</li>
+</ol>
+<h2 id="migration-strategies">Migration Strategies<a class="headerlink" href="#migration-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="from-other-authentication-systems">From Other Authentication Systems<a class="headerlink" href="#from-other-authentication-systems" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Plan user data migration</li>
+<li>Set up parallel systems</li>
+<li>Implement gradual transition</li>
+<li>Validate user data</li>
+<li>Handle edge cases</li>
+</ol>
+<h3 id="version-updates">Version Updates<a class="headerlink" href="#version-updates" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Review breaking changes</li>
+<li>Plan update strategy</li>
+<li>Test thoroughly</li>
+<li>Monitor for issues</li>
+<li>Have rollback plan</li>
+</ol>
+<h2 id="cognito-sync">Cognito Sync<a class="headerlink" href="#cognito-sync" title="Permanent link">&para;</a></h2>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
+<p>Amazon Cognito Sync is a service and client library that enables cross-device syncing of application-related user data. It provides a simple way to sync user profile data across devices and push updates of user data to multiple devices in real-time.</p>
+<h3 id="key-features_2">Key Features<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Cross-Device Synchronization</strong></li>
+<li>Sync user preferences</li>
+<li>Sync game state</li>
+<li>Sync application settings</li>
+<li>
+<p>Sync user data across multiple devices</p>
+</li>
+<li>
+<p><strong>Offline Data Synchronization</strong></p>
+</li>
+<li>Local data storage</li>
+<li>Automatic conflict resolution</li>
+<li>Delta synchronization</li>
+<li>
+<p>Background synchronization</p>
+</li>
+<li>
+<p><strong>Push Sync</strong></p>
+</li>
+<li>Real-time notifications for data changes</li>
+<li>Silent push notifications</li>
+<li>Integration with Amazon SNS</li>
+<li>Automatic conflict detection</li>
+</ol>
+<h3 id="data-organization">Data Organization<a class="headerlink" href="#data-organization" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Datasets</strong></li>
+<li>Collections of key-value pairs</li>
+<li>Up to 20 datasets per identity</li>
+<li>Maximum size of 1MB per dataset</li>
+<li>
+<p>Dataset metadata tracking</p>
+</li>
+<li>
+<p><strong>Records</strong></p>
+</li>
+<li>Key-value pairs within datasets</li>
+<li>Versioning support</li>
+<li>Last-writer-wins conflict resolution</li>
+<li>Custom conflict resolution handlers</li>
+</ol>
+<h3 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example using AWS SDK</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">AWS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">cognitoSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AWS</span><span class="p">.</span><span class="nx">CognitoSync</span><span class="p">();</span>
+
+<span class="c1">// Listing datasets</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">listDatasets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">identityId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">IdentityId</span><span class="o">:</span><span class="w"> </span><span class="nx">identityId</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">IdentityPoolId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;your-identity-pool-id&#39;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">cognitoSync</span><span class="p">.</span><span class="nx">listDatasets</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">Datasets</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error listing datasets:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Updating records</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">updateRecords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">identityId</span><span class="p">,</span><span class="w"> </span><span class="nx">datasetName</span><span class="p">,</span><span class="w"> </span><span class="nx">records</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">DatasetName</span><span class="o">:</span><span class="w"> </span><span class="nx">datasetName</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">IdentityId</span><span class="o">:</span><span class="w"> </span><span class="nx">identityId</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">IdentityPoolId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;your-identity-pool-id&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">SyncSessionToken</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;current-sync-session-token&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">RecordPatches</span><span class="o">:</span><span class="w"> </span><span class="nx">records</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">cognitoSync</span><span class="p">.</span><span class="nx">updateRecords</span><span class="p">(</span><span class="nx">params</span><span class="p">).</span><span class="nx">promise</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">Records</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error updating records:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="nx">error</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="best-practices_1">Best Practices<a class="headerlink" href="#best-practices_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Data Management</strong></li>
+<li>Keep datasets small and focused</li>
+<li>Implement proper error handling</li>
+<li>Handle merge conflicts appropriately</li>
+<li>
+<p>Regular cleanup of unused datasets</p>
+</li>
+<li>
+<p><strong>Performance Optimization</strong></p>
+</li>
+<li>Use delta synchronization</li>
+<li>Implement proper caching</li>
+<li>Batch updates when possible</li>
+<li>
+<p>Monitor sync frequency</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong></p>
+</li>
+<li>Implement proper authentication</li>
+<li>Use encryption for sensitive data</li>
+<li>Follow least privilege principle</li>
+<li>Regular security audits</li>
+</ol>
+<h3 id="common-use-cases_1">Common Use Cases<a class="headerlink" href="#common-use-cases_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>User Preferences</strong></li>
+<li>Application settings</li>
+<li>UI customization</li>
+<li>Language preferences</li>
+<li>
+<p>Theme settings</p>
+</li>
+<li>
+<p><strong>Game State</strong></p>
+</li>
+<li>Player progress</li>
+<li>Achievement tracking</li>
+<li>Game settings</li>
+<li>
+<p>Player statistics</p>
+</li>
+<li>
+<p><strong>Application State</strong></p>
+</li>
+<li>Form data</li>
+<li>Shopping carts</li>
+<li>Offline data</li>
+<li>User activity history</li>
+</ol>
+<h3 id="limitations-and-considerations">Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Dataset Limitations</strong></li>
+<li>Maximum 20 datasets per identity</li>
+<li>1MB size limit per dataset</li>
+<li>1KB size limit per record</li>
+<li>
+<p>128 characters maximum key length</p>
+</li>
+<li>
+<p><strong>Sync Limitations</strong></p>
+</li>
+<li>Push notification size limits</li>
+<li>API throttling limits</li>
+<li>Conflict resolution constraints</li>
+<li>Real-time sync limitations</li>
+</ol>
+<h3 id="migration-notes">Migration Notes<a class="headerlink" href="#migration-notes" title="Permanent link">&para;</a></h3>
+<h4 id="from-cognito-sync-to-appsyncdatastore">From Cognito Sync to AppSync/DataStore<a class="headerlink" href="#from-cognito-sync-to-appsyncdatastore" title="Permanent link">&para;</a></h4>
+<p>As Amazon Cognito Sync is now considered legacy, consider migrating to:
+1. AWS AppSync for real-time data synchronization
+2. Amplify DataStore for offline data access
+3. Amazon DynamoDB for data storage
+4. AWS Lambda for custom synchronization logic</p>
 
 
 
