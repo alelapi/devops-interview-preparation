@@ -13,8 +13,10 @@
       
       
       
-        <link rel="prev" href="../../architectural-patterns/strangler/">
+        <link rel="prev" href="../cdk/">
       
+      
+        <link rel="next" href="../cloud_formation/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Different Types of Scaling in IT Systems - My DevOps Interview Preparation</title>
+        <title>AWS CloudFront - My DevOps Interview Preparation</title>
       
     
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#different-types-of-scaling-in-it-systems" class="md-skip">
+        <a href="#aws-cloudfront" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Different Types of Scaling in IT Systems
+              AWS CloudFront
             
           </span>
         </div>
@@ -232,11 +234,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../aws/api_gateway/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../api_gateway/" class="md-tabs__link">
           
   
     
@@ -372,13 +376,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
     
@@ -460,8 +462,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -512,19 +516,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -535,7 +542,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             AWS
@@ -549,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/api_gateway/" class="md-nav__link">
+      <a href="../api_gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -570,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/autoscaling_groups/" class="md-nav__link">
+      <a href="../autoscaling_groups/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -591,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/beanstalk/" class="md-nav__link">
+      <a href="../beanstalk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -612,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/billing/" class="md-nav__link">
+      <a href="../billing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cdk/" class="md-nav__link">
+      <a href="../cdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -651,10 +658,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../aws/cloudfront/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AWS CloudFront
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -663,6 +690,602 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-distributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Distributions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distribution-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-origins" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Origins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Origins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-origin-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Origin Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cache-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cache Behaviors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Cache Behaviors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-and-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features and Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features and Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLS Support
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Locations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-function-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Function Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Function Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudfront-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFront Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambdaedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda@Edge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signers-and-private-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signers and Private Content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signers and Private Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trusted-key-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Trusted Key Groups
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Trusted Key Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Group Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cloudfront-key-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. CloudFront Key Pairs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CloudFront Key Pairs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#legacy-key-pairs-aws-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy Key Pairs (AWS Account)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-signed-url-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Signed URL Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Signed URL Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-aws-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using AWS SDK
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-signed-cookies-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Signed Cookies Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Signed Cookies Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Cookies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cache-behavior-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Cache Behavior Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cache-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Cache Keys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cache Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cloudwatch-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CloudWatch Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CloudWatch Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alarms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-access-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Access Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Access Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reliability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resolution-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resolution Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-s3-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. S3 Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-custom-origin-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Custom Origin Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -675,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cloud_formation/" class="md-nav__link">
+      <a href="../cloud_formation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -696,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cognito/" class="md-nav__link">
+      <a href="../cognito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -717,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/dynamodb/" class="md-nav__link">
+      <a href="../dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -738,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/ebs/" class="md-nav__link">
+      <a href="../ebs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/elb/" class="md-nav__link">
+      <a href="../elb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -780,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/iam/" class="md-nav__link">
+      <a href="../iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +1424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/kinesis/" class="md-nav__link">
+      <a href="../kinesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -822,7 +1445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/lambda/" class="md-nav__link">
+      <a href="../lambda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -843,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/s3/" class="md-nav__link">
+      <a href="../s3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -864,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sam/" class="md-nav__link">
+      <a href="../sam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -885,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sar/" class="md-nav__link">
+      <a href="../sar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,7 +1529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sqs/" class="md-nav__link">
+      <a href="../sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,7 +1550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/step_function/" class="md-nav__link">
+      <a href="../step_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -948,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../trusted_advisor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +1592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -999,17 +1622,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_22" >
         
           
-          <label class="md-nav__link" for="__nav_2_22" id="__nav_2_22_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_22" id="__nav_2_22_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1034,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/ec2_instance_types/" class="md-nav__link">
+      <a href="../ec2_instance_types/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3380,10 +4006,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -3392,22 +4016,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -3418,7 +4039,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             General
@@ -3429,30 +4050,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Different Types of Scaling in IT Systems
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3461,104 +4062,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#reactive-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reactive Scaling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#proactive-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Proactive Scaling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#predictive-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Predictive Scaling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Manual Scaling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#horizontal-vs-vertical-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Horizontal vs. Vertical Scaling
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Horizontal vs. Vertical Scaling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#horizontal-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Horizontal Scaling:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vertical-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Vertical Scaling:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-the-right-scaling-strategy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choosing the Right Scaling Strategy
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3598,64 +4101,505 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reactive-scaling" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Reactive Scaling
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#proactive-scaling" class="md-nav__link">
+  <a href="#core-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Proactive Scaling
+      Core Components
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#predictive-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Predictive Scaling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Manual Scaling
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#horizontal-vs-vertical-scaling" class="md-nav__link">
-    <span class="md-ellipsis">
-      Horizontal vs. Vertical Scaling
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Horizontal vs. Vertical Scaling">
+    <nav class="md-nav" aria-label="Core Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#horizontal-scaling" class="md-nav__link">
+  <a href="#1-distributions" class="md-nav__link">
     <span class="md-ellipsis">
-      Horizontal Scaling:
+      1. Distributions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Distributions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distribution-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-origins" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Origins
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Origins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-origin-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Origin Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cache-behaviors" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cache Behaviors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Cache Behaviors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-and-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features and Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features and Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Security Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLS Support
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vertical-scaling" class="md-nav__link">
+  <a href="#access-control" class="md-nav__link">
     <span class="md-ellipsis">
-      Vertical Scaling:
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Performance Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Locations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-function-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Function Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Function Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloudfront-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFront Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambdaedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda@Edge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signers-and-private-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signers and Private Content
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Signers and Private Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trusted-key-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Trusted Key Groups
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Trusted Key Groups">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-group-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Group Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cloudfront-key-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. CloudFront Key Pairs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. CloudFront Key Pairs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#legacy-key-pairs-aws-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legacy Key Pairs (AWS Account)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-signed-url-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Signed URL Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Signed URL Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-aws-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using AWS SDK
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-signed-cookies-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Signed Cookies Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Signed Cookies Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Cookies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cache Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cache-behavior-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Cache Behavior Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cache-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Cache Keys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cache Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cloudwatch-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CloudWatch Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CloudWatch Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alarms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-access-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Access Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Access Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reliability
     </span>
   </a>
   
@@ -3667,11 +4611,68 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#choosing-the-right-scaling-strategy" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Choosing the Right Scaling Strategy
+      Troubleshooting
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resolution-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Resolution Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-s3-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. S3 Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-custom-origin-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Custom Origin Integration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3693,47 +4694,422 @@
   
 
 
-<h1 id="different-types-of-scaling-in-it-systems">Different Types of Scaling in IT Systems<a class="headerlink" href="#different-types-of-scaling-in-it-systems" title="Permanent link">&para;</a></h1>
-<p>Scaling is a critical aspect of managing IT systems and applications. As workloads fluctuate, organizations need to ensure that resources are scaled effectively to maintain performance and optimize costs. Scaling strategies can be categorized into various types, each suited to specific use cases. In this article, we’ll explore different types of scaling, including reactive scaling, proactive scaling, predictive scaling, and others.</p>
-<hr />
-<h2 id="reactive-scaling">Reactive Scaling<a class="headerlink" href="#reactive-scaling" title="Permanent link">&para;</a></h2>
-<p>Reactive scaling, also known as <strong>on-demand scaling</strong>, adjusts resources in response to observed changes in workload or performance metrics. It is typically triggered by predefined thresholds or alerts.</p>
-<p>This approach monitors real-time metrics such as CPU usage, memory utilization, or request latency. When these metrics cross predefined thresholds, additional resources are automatically added or removed. While it’s an efficient way to address sudden workload changes, there may be slight delays as the system adjusts.</p>
-<p>Reactive scaling is commonly used for applications with variable traffic, such as web services, or batch processing systems where workloads are predictable but vary in size.</p>
-<hr />
-<h2 id="proactive-scaling">Proactive Scaling<a class="headerlink" href="#proactive-scaling" title="Permanent link">&para;</a></h2>
-<p>Proactive scaling involves scheduling resource adjustments based on anticipated workload patterns. This method works well when workloads follow predictable cycles, such as business hours or seasonal traffic.</p>
-<p>By analyzing historical data or known patterns, proactive scaling schedules resource changes in advance. This ensures resources are provisioned before workload increases occur, reducing the risk of performance bottlenecks. However, it requires a thorough understanding of workload behavior and may result in resource inefficiency if patterns change unexpectedly.</p>
-<p>Proactive scaling is ideal for scenarios like e-commerce sites during holiday seasons or corporate applications primarily used during business hours.</p>
-<hr />
-<h2 id="predictive-scaling">Predictive Scaling<a class="headerlink" href="#predictive-scaling" title="Permanent link">&para;</a></h2>
-<p>Predictive scaling leverages machine learning or advanced analytics to forecast future resource needs and adjust resources accordingly. It combines elements of both proactive and reactive scaling to provide a more sophisticated approach.</p>
-<p>This method analyzes historical data and trends to predict workload fluctuations, enabling the system to provision resources in advance. Predictive scaling minimizes latency while maintaining cost-efficiency. However, its effectiveness relies on accurate predictions, which can be challenging in highly volatile environments.</p>
-<p>Predictive scaling is well-suited for dynamic environments such as streaming services with varying demand or financial systems experiencing periodic transaction spikes.</p>
-<hr />
-<h2 id="manual-scaling">Manual Scaling<a class="headerlink" href="#manual-scaling" title="Permanent link">&para;</a></h2>
-<p>Manual scaling relies on human intervention to adjust resources based on observed or anticipated workload changes. This approach is often used in smaller or less dynamic environments where changes are infrequent.</p>
-<p>In this method, administrators monitor system performance and manually allocate or deallocate resources as needed. While it provides full control over resource allocation, manual scaling can be time-consuming and is less effective for handling rapid workload fluctuations.</p>
-<p>Manual scaling is typically employed in development or staging environments and by small businesses with predictable workloads.</p>
-<hr />
-<h2 id="horizontal-vs-vertical-scaling">Horizontal vs. Vertical Scaling<a class="headerlink" href="#horizontal-vs-vertical-scaling" title="Permanent link">&para;</a></h2>
-<p>Scaling strategies can also be categorized as <strong>horizontal</strong> or <strong>vertical</strong>, depending on how resources are adjusted.</p>
-<h3 id="horizontal-scaling"><strong>Horizontal Scaling</strong>:<a class="headerlink" href="#horizontal-scaling" title="Permanent link">&para;</a></h3>
-<p>Horizontal scaling involves adding or removing instances of a resource, such as servers or containers. This approach is commonly used in distributed systems and cloud environments, offering high fault tolerance and scalability. Applications need to be designed to support distribution, typically requiring a stateless architecture.</p>
-<h3 id="vertical-scaling"><strong>Vertical Scaling</strong>:<a class="headerlink" href="#vertical-scaling" title="Permanent link">&para;</a></h3>
-<p>Vertical scaling increases or decreases the capacity of existing resources, such as adding more CPU or memory to a server. It is simpler to implement for monolithic applications and does not require changes to application architecture. However, it is limited by hardware constraints and can create a single point of failure.</p>
-<hr />
-<h2 id="choosing-the-right-scaling-strategy">Choosing the Right Scaling Strategy<a class="headerlink" href="#choosing-the-right-scaling-strategy" title="Permanent link">&para;</a></h2>
-<p>The choice of scaling strategy depends on several factors, including workload predictability, application architecture, and cost considerations:</p>
+<h1 id="aws-cloudfront">AWS CloudFront<a class="headerlink" href="#aws-cloudfront" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally. It integrates with other AWS services and provides an easy way to distribute content to end users with low latency and high data transfer speeds.</p>
+<h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
+<h3 id="1-distributions">1. Distributions<a class="headerlink" href="#1-distributions" title="Permanent link">&para;</a></h3>
+<p>A distribution is the basic unit of CloudFront configuration that defines how content should be delivered.</p>
+<h4 id="distribution-types">Distribution Types<a class="headerlink" href="#distribution-types" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Use <strong>reactive scaling</strong> for unpredictable workloads with real-time monitoring needs.</li>
-<li>Opt for <strong>proactive scaling</strong> when workloads follow consistent patterns.</li>
-<li>Implement <strong>predictive scaling</strong> for dynamic environments where forecasting can improve efficiency.</li>
-<li>Rely on <strong>manual scaling</strong> for environments where changes are infrequent and manageable.</li>
-<li>Combine <strong>horizontal and vertical scaling</strong> based on your system’s architecture and constraints.</li>
+<li><strong>Web Distribution</strong></li>
+<li>For static and dynamic web content</li>
+<li>HTTP/HTTPS delivery</li>
+<li>Multiple origin support</li>
+<li>
+<p>Advanced cache behaviors</p>
+</li>
+<li>
+<p><strong>RTMP Distribution (Legacy)</strong></p>
+</li>
+<li>For streaming media files</li>
+<li>Adobe Flash multimedia content</li>
+<li>Note: Being phased out in favor of modern streaming options</li>
 </ol>
-<hr />
-<p>Scaling is a fundamental aspect of modern IT systems. By understanding and applying the right scaling strategies, organizations can ensure optimal performance, cost efficiency, and reliability.</p>
+<h3 id="2-origins">2. Origins<a class="headerlink" href="#2-origins" title="Permanent link">&para;</a></h3>
+<p>Origins are the source locations of your content.</p>
+<h4 id="supported-origin-types">Supported Origin Types<a class="headerlink" href="#supported-origin-types" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>S3 Buckets</strong></li>
+<li>Direct integration</li>
+<li>Optional Origin Access Identity (OAI)</li>
+<li>
+<p>Origin Access Control (OAC)</p>
+</li>
+<li>
+<p><strong>Custom Origins</strong></p>
+</li>
+<li>Application Load Balancers</li>
+<li>EC2 instances</li>
+<li>External web servers</li>
+<li>
+<p>Other HTTP endpoints</p>
+</li>
+<li>
+<p><strong>Origin Groups</strong></p>
+</li>
+<li>Primary and secondary origins</li>
+<li>Automatic failover</li>
+<li>High availability</li>
+</ol>
+<h3 id="3-cache-behaviors">3. Cache Behaviors<a class="headerlink" href="#3-cache-behaviors" title="Permanent link">&para;</a></h3>
+<p>Define how CloudFront handles requests for different URL patterns.</p>
+<h4 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Path patterns</li>
+<li>Viewer protocol policy</li>
+<li>Allowed HTTP methods</li>
+<li>Cache and origin request settings</li>
+<li>Function associations</li>
+<li>Compression settings</li>
+</ul>
+<h2 id="features-and-capabilities">Features and Capabilities<a class="headerlink" href="#features-and-capabilities" title="Permanent link">&para;</a></h2>
+<h3 id="1-security-features">1. Security Features<a class="headerlink" href="#1-security-features" title="Permanent link">&para;</a></h3>
+<h4 id="ssltls-support">SSL/TLS Support<a class="headerlink" href="#ssltls-support" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Default CloudFront certificates</li>
+<li>Custom SSL certificates</li>
+<li>SNI support</li>
+<li>Dedicated IP custom SSL (additional cost)</li>
+</ul>
+<h4 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Signed URLs</strong></li>
+<li>Time-based expiration</li>
+<li>IP address restrictions</li>
+<li>
+<p>Custom policy support</p>
+</li>
+<li>
+<p><strong>Signed Cookies</strong></p>
+</li>
+<li>Multiple file access</li>
+<li>Website access control</li>
+<li>
+<p>Session-based authentication</p>
+</li>
+<li>
+<p><strong>Origin Access Identity (OAI)</strong></p>
+</li>
+<li>S3 bucket protection</li>
+<li>Private content access</li>
+<li>
+<p>IAM integration</p>
+</li>
+<li>
+<p><strong>Web Application Firewall (WAF)</strong></p>
+</li>
+<li>Rule-based filtering</li>
+<li>DDoS protection</li>
+<li>IP blocking</li>
+</ol>
+<h3 id="2-performance-optimization">2. Performance Optimization<a class="headerlink" href="#2-performance-optimization" title="Permanent link">&para;</a></h3>
+<h4 id="caching-strategies">Caching Strategies<a class="headerlink" href="#caching-strategies" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Cache Control</strong></li>
+<li>TTL settings</li>
+<li>Cache invalidation</li>
+<li>Cache behaviors</li>
+<li>
+<p>Query string parameters</p>
+</li>
+<li>
+<p><strong>Origin Shield</strong></p>
+</li>
+<li>Additional caching layer</li>
+<li>Reduced origin load</li>
+<li>
+<p>Improved cache hit ratio</p>
+</li>
+<li>
+<p><strong>Compression</strong></p>
+</li>
+<li>Automatic compression</li>
+<li>Supported formats</li>
+<li>Compression thresholds</li>
+</ol>
+<h4 id="edge-locations">Edge Locations<a class="headerlink" href="#edge-locations" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Global network presence</li>
+<li>Regional edge caches</li>
+<li>Automatic routing</li>
+<li>Load balancing</li>
+</ul>
+<h3 id="3-function-integration">3. Function Integration<a class="headerlink" href="#3-function-integration" title="Permanent link">&para;</a></h3>
+<h4 id="cloudfront-functions">CloudFront Functions<a class="headerlink" href="#cloudfront-functions" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Request manipulation</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Add custom header</span>
+<span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-custom-header&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-value&#39;</span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">request</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="lambdaedge">Lambda@Edge<a class="headerlink" href="#lambdaedge" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">Records</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">cf</span><span class="p">.</span><span class="nx">request</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Modify request or generate response</span>
+<span class="w">    </span><span class="nx">request</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-custom-header&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span>
+<span class="w">        </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;X-Custom-Header&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;custom-value&#39;</span>
+<span class="w">    </span><span class="p">}];</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">request</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="signers-and-private-content">Signers and Private Content<a class="headerlink" href="#signers-and-private-content" title="Permanent link">&para;</a></h2>
+<h3 id="1-trusted-key-groups">1. Trusted Key Groups<a class="headerlink" href="#1-trusted-key-groups" title="Permanent link">&para;</a></h3>
+<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;TrustedKeyGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;key-group-id&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="key-group-management">Key Group Management<a class="headerlink" href="#key-group-management" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Creating Key Groups</strong></li>
+<li>Generate public/private key pairs</li>
+<li>Add public keys to CloudFront</li>
+<li>Create key groups</li>
+<li>
+<p>Associate key groups with distributions</p>
+</li>
+<li>
+<p><strong>Key Rotation</strong></p>
+</li>
+<li>Regular key rotation schedule</li>
+<li>Multiple active keys support</li>
+<li>Graceful transition period</li>
+</ol>
+<h3 id="2-cloudfront-key-pairs">2. CloudFront Key Pairs<a class="headerlink" href="#2-cloudfront-key-pairs" title="Permanent link">&para;</a></h3>
+<h4 id="legacy-key-pairs-aws-account">Legacy Key Pairs (AWS Account)<a class="headerlink" href="#legacy-key-pairs-aws-account" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Created in AWS root account</li>
+<li>Maximum of two active key pairs</li>
+<li>Being phased out in favor of key groups</li>
+<li>Limited to account-wide usage</li>
+</ul>
+<h4 id="key-management">Key Management<a class="headerlink" href="#key-management" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate RSA key pair</span>
+openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>private_key.pem<span class="w"> </span><span class="m">2048</span>
+openssl<span class="w"> </span>rsa<span class="w"> </span>-pubout<span class="w"> </span>-in<span class="w"> </span>private_key.pem<span class="w"> </span>-out<span class="w"> </span>public_key.pem
+</code></pre></div>
+<h3 id="3-signed-url-implementation">3. Signed URL Implementation<a class="headerlink" href="#3-signed-url-implementation" title="Permanent link">&para;</a></h3>
+<h4 id="using-aws-sdk">Using AWS SDK<a class="headerlink" href="#using-aws-sdk" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">AWS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">createSignedUrl</span><span class="p">(</span><span class="nx">privateKeyPath</span><span class="p">,</span><span class="w"> </span><span class="nx">keyPairId</span><span class="p">,</span><span class="w"> </span><span class="nx">resourceUrl</span><span class="p">,</span><span class="w"> </span><span class="nx">expiresIn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cloudfront</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AWS</span><span class="p">.</span><span class="nx">CloudFront</span><span class="p">.</span><span class="nx">Signer</span><span class="p">(</span><span class="nx">keyPairId</span><span class="p">,</span><span class="w"> </span><span class="nx">privateKeyPath</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">signedUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cloudfront</span><span class="p">.</span><span class="nx">getSignedUrl</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">url</span><span class="o">:</span><span class="w"> </span><span class="nx">resourceUrl</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">expires</span><span class="o">:</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">expiresIn</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">signedUrl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-signed-cookies-implementation">4. Signed Cookies Implementation<a class="headerlink" href="#4-signed-cookies-implementation" title="Permanent link">&para;</a></h3>
+<h4 id="setting-cookies">Setting Cookies<a class="headerlink" href="#setting-cookies" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">setSignedCookies</span><span class="p">(</span><span class="nx">policy</span><span class="p">,</span><span class="w"> </span><span class="nx">signature</span><span class="p">,</span><span class="w"> </span><span class="nx">keyPairId</span><span class="p">,</span><span class="w"> </span><span class="nx">domain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">cookies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s1">&#39;CloudFront-Policy&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">policy</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;CloudFront-Signature&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">signature</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;CloudFront-Key-Pair-Id&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">keyPairId</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">cookies</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(([</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setCookie</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">domain</span><span class="o">:</span><span class="w"> </span><span class="nx">domain</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">secure</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">httpOnly</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="cache-configuration">Cache Configuration<a class="headerlink" href="#cache-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="1-cache-behavior-settings">1. Cache Behavior Settings<a class="headerlink" href="#1-cache-behavior-settings" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;PathPattern&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*.jpg&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;TargetOriginId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyS3Origin&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ViewerProtocolPolicy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redirect-to-https&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;AllowedMethods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;HEAD&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;DefaultTTL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;MinTTL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;MaxTTL&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31536000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Compress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-cache-keys">2. Cache Keys<a class="headerlink" href="#2-cache-keys" title="Permanent link">&para;</a></h3>
+<h4 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h4>
+<ul>
+<li>URL path</li>
+<li>Query strings</li>
+<li>Headers</li>
+<li>Cookies</li>
+<li>Custom parameters</li>
+</ul>
+<h4 id="optimization-strategies">Optimization Strategies<a class="headerlink" href="#optimization-strategies" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Query String Handling</strong></li>
+<li>Forward all</li>
+<li>Forward selected</li>
+<li>
+<p>None</p>
+</li>
+<li>
+<p><strong>Header Forwarding</strong></p>
+</li>
+<li>Whitelist headers</li>
+<li>Default headers</li>
+<li>
+<p>None</p>
+</li>
+<li>
+<p><strong>Cookie Management</strong></p>
+</li>
+<li>Forward all</li>
+<li>Forward selected</li>
+<li>None</li>
+</ol>
+<h2 id="monitoring-and-optimization">Monitoring and Optimization<a class="headerlink" href="#monitoring-and-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="1-cloudwatch-integration">1. CloudWatch Integration<a class="headerlink" href="#1-cloudwatch-integration" title="Permanent link">&para;</a></h3>
+<h4 id="metrics">Metrics<a class="headerlink" href="#metrics" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Request count</li>
+<li>Bytes transferred</li>
+<li>Error rates</li>
+<li>Cache statistics</li>
+<li>Origin latency</li>
+</ul>
+<h4 id="alarms">Alarms<a class="headerlink" href="#alarms" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Performance thresholds</li>
+<li>Error thresholds</li>
+<li>Cost thresholds</li>
+</ul>
+<h3 id="2-access-logs">2. Access Logs<a class="headerlink" href="#2-access-logs" title="Permanent link">&para;</a></h3>
+<h4 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-logs-bucket&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cloudfront-logs/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;IncludeCookies&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-performance">1. Performance<a class="headerlink" href="#1-performance" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Always enable compression</li>
+<li>Use Origin Shield for multi-region deployments</li>
+<li>Optimize cache key settings</li>
+<li>Configure appropriate TTLs</li>
+</ol>
+<h3 id="2-security">2. Security<a class="headerlink" href="#2-security" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use HTTPS for all content</li>
+<li>Implement WAF rules</li>
+<li>Use Origin Access Identity</li>
+<li>Regular security updates</li>
+<li>Implement proper signer key rotation</li>
+<li>Secure storage of private keys</li>
+<li>Monitor key usage</li>
+</ol>
+<h3 id="3-reliability">3. Reliability<a class="headerlink" href="#3-reliability" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use origin failover</li>
+<li>Monitor performance metrics</li>
+<li>Set up alerting</li>
+<li>Regular testing</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="1-common-issues">1. Common Issues<a class="headerlink" href="#1-common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Cache misses</li>
+<li>Origin errors</li>
+<li>SSL/TLS issues</li>
+<li>Access denied errors</li>
+<li>Signature validation failures</li>
+<li>Invalid key pairs</li>
+<li>Policy violations</li>
+</ol>
+<h3 id="2-resolution-steps">2. Resolution Steps<a class="headerlink" href="#2-resolution-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check configuration</li>
+<li>Verify origin health</li>
+<li>Review error logs</li>
+<li>Test with curl</li>
+<li>Verify signature validity</li>
+<li>Check policy expiration</li>
+<li>Validate key pair status</li>
+</ol>
+<h2 id="integration-examples">Integration Examples<a class="headerlink" href="#integration-examples" title="Permanent link">&para;</a></h2>
+<h3 id="1-s3-integration">1. S3 Integration<a class="headerlink" href="#1-s3-integration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_cloudfront_distribution&quot;</span><span class="w"> </span><span class="nv">&quot;s3_distribution&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">origin</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">domain_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_s3_bucket.website.bucket_regional_domain_name</span>
+<span class="w">    </span><span class="na">origin_id</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;S3Origin&quot;</span>
+
+<span class="w">    </span><span class="nb">s3_origin_config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">origin_access_identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_cloudfront_origin_access_identity.oai.cloudfront_access_identity_path</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="w">  </span><span class="na">default_root_object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;index.html&quot;</span>
+
+<span class="w">  </span><span class="nb">default_cache_behavior</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">target_origin_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;S3Origin&quot;</span>
+<span class="w">    </span><span class="na">allowed_methods</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GET&quot;, &quot;HEAD&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="na">cached_methods</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GET&quot;, &quot;HEAD&quot;</span><span class="p">]</span>
+
+<span class="w">    </span><span class="nb">forwarded_values</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">query_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+<span class="w">      </span><span class="nb">cookies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="na">forward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">viewer_protocol_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;redirect-to-https&quot;</span>
+<span class="w">    </span><span class="na">min_ttl</span><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="na">default_ttl</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="m">3600</span>
+<span class="w">    </span><span class="na">max_ttl</span><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="m">86400</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="2-custom-origin-integration">2. Custom Origin Integration<a class="headerlink" href="#2-custom-origin-integration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;aws_cloudfront_distribution&quot;</span><span class="w"> </span><span class="nv">&quot;custom_distribution&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">origin</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">domain_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;api.example.com&quot;</span>
+<span class="w">    </span><span class="na">origin_id</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CustomOrigin&quot;</span>
+
+<span class="w">    </span><span class="nb">custom_origin_config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">http_port</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+<span class="w">      </span><span class="na">https_port</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="m">443</span>
+<span class="w">      </span><span class="na">origin_protocol_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https-only&quot;</span>
+<span class="w">      </span><span class="na">origin_ssl_protocols</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;TLSv1.2&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+
+<span class="w">  </span><span class="nb">default_cache_behavior</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">target_origin_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;CustomOrigin&quot;</span>
+<span class="w">    </span><span class="na">allowed_methods</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;DELETE&quot;, &quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;, &quot;PATCH&quot;, &quot;POST&quot;, &quot;PUT&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="na">cached_methods</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;GET&quot;, &quot;HEAD&quot;</span><span class="p">]</span>
+
+<span class="w">    </span><span class="nb">forwarded_values</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">query_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="w">      </span><span class="nb">cookies</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="na">forward</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;all&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">viewer_protocol_policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;redirect-to-https&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -3769,7 +5145,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../architectural-patterns/strangler/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Strangler Pattern">
+          <a href="../cdk/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Cloud Development Kit (CDK)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3779,11 +5155,27 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Strangler Pattern
+                AWS Cloud Development Kit (CDK)
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../cloud_formation/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS CloudFormation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                AWS CloudFormation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
