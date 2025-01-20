@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../autoscaling_groups/">
+        <link rel="prev" href="../sqs/">
       
       
-        <link rel="next" href="../billing/">
+        <link rel="next" href="../xray/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>AWS Elastic Beanstalk - My DevOps Interview Preparation</title>
+        <title>AWS Step Functions - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-elastic-beanstalk" class="md-skip">
+        <a href="#aws-step-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS Elastic Beanstalk
+              AWS Step Functions
             
           </span>
         </div>
@@ -591,30 +591,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    AWS Elastic Beanstalk
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../beanstalk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -623,362 +603,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-tiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Tiers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-platforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Platforms
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Components
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#application" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment Strategies
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment Strategies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-all-at-once-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. All at Once Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-rolling-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Rolling Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-rolling-with-additional-batch" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Rolling with Additional Batch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-immutable-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Immutable Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-bluegreen-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Blue/Green Deployment
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Variables
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-health-checking" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Health Checking
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring and Health Checking">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-health-reporting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Health Reporting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enhanced-health-reporting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enhanced Health Reporting
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#application-development" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application Development
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-with-other-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with Other AWS Services
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-configurations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Configurations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Configurations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-web-application" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Web Application
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#worker-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Worker Environment
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      CLI Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1282,10 +906,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../step_function/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AWS Step Functions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1294,6 +938,221 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-visual-workflow-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Visual Workflow Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-service-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Service Orchestration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-error-handling-and-retry" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Error Handling and Retry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-step-execution-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Step Execution Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-serverless-and-fully-managed" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Serverless and Fully Managed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-standard-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Standard Workflows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-express-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Express Workflows
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-states-language-asl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon States Language (ASL)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon States Language (ASL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-elements-of-asl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Elements of ASL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-state-machine-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example State Machine Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-aws-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration with AWS Services
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pricing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Workflows:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#express-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Express Workflows:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3815,37 +3674,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Key Features
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Concepts">
+    <nav class="md-nav" aria-label="Key Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environment-tiers" class="md-nav__link">
+  <a href="#1-visual-workflow-design" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment Tiers
+      1. Visual Workflow Design
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#supported-platforms" class="md-nav__link">
+  <a href="#2-service-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
-      Supported Platforms
+      2. Service Orchestration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-error-handling-and-retry" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Error Handling and Retry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-step-execution-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Step Execution Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-serverless-and-fully-managed" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Serverless and Fully Managed
     </span>
   </a>
   
@@ -3857,28 +3734,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
+  <a href="#workflow-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Components
+      Workflow Types
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Components">
+    <nav class="md-nav" aria-label="Workflow Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#application" class="md-nav__link">
+  <a href="#1-standard-workflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Application
+      1. Standard Workflows
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#environment" class="md-nav__link">
+  <a href="#2-express-workflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment
+      2. Express Workflows
     </span>
   </a>
   
@@ -3890,55 +3767,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-strategies" class="md-nav__link">
+  <a href="#common-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment Strategies
+      Common Use Cases
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deployment Strategies">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-states-language-asl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon States Language (ASL)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon States Language (ASL)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-all-at-once-deployment" class="md-nav__link">
+  <a href="#key-elements-of-asl" class="md-nav__link">
     <span class="md-ellipsis">
-      1. All at Once Deployment
+      Key Elements of ASL
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-rolling-deployment" class="md-nav__link">
+  <a href="#example-state-machine-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Rolling Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-rolling-with-additional-batch" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Rolling with Additional Batch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-immutable-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Immutable Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-bluegreen-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Blue/Green Deployment
+      Example State Machine Definition
     </span>
   </a>
   
@@ -3950,61 +3809,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#integration-with-aws-services" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration
+      Integration with AWS Services
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Variables
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-and-health-checking" class="md-nav__link">
+  <a href="#benefits" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring and Health Checking
+      Benefits
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Monitoring and Health Checking">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pricing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-health-reporting" class="md-nav__link">
+  <a href="#standard-workflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Health Reporting
+      Standard Workflows:
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#enhanced-health-reporting" class="md-nav__link">
+  <a href="#express-workflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Enhanced Health Reporting
+      Express Workflows:
     </span>
   </a>
   
@@ -4019,132 +3863,6 @@
   <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       Best Practices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#application-development" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application Development
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-with-other-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with Other AWS Services
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-configurations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Configurations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Configurations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-web-application" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Web Application
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#worker-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Worker Environment
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cli-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      CLI Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
     </span>
   </a>
   
@@ -4168,276 +3886,155 @@
   
 
 
-<h1 id="aws-elastic-beanstalk">AWS Elastic Beanstalk<a class="headerlink" href="#aws-elastic-beanstalk" title="Permanent link">&para;</a></h1>
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>AWS Elastic Beanstalk is a Platform as a Service (PaaS) offering that facilitates quick deployment and management of web applications. It automatically handles infrastructure details like capacity provisioning, load balancing, auto-scaling, and application health monitoring while giving you full control over the AWS resources powering your application.</p>
-<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="environment-tiers">Environment Tiers<a class="headerlink" href="#environment-tiers" title="Permanent link">&para;</a></h3>
-<p>Elastic Beanstalk provides two environment tiers:</p>
+<h1 id="aws-step-functions">AWS Step Functions<a class="headerlink" href="#aws-step-functions" title="Permanent link">&para;</a></h1>
+<p>AWS Step Functions is a serverless orchestration service that allows you to coordinate multiple AWS services into scalable workflows. It provides a visual interface for designing and executing workflows, making it easier to build and maintain applications.</p>
+<hr />
+<h2 id="key-features"><strong>Key Features</strong><a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h3 id="1-visual-workflow-design">1. <strong>Visual Workflow Design</strong><a class="headerlink" href="#1-visual-workflow-design" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Provides a graphical user interface to design and visualize workflows.</li>
+<li>Workflows are defined using Amazon States Language (ASL), a JSON-based language.</li>
+</ul>
+<h3 id="2-service-orchestration">2. <strong>Service Orchestration</strong><a class="headerlink" href="#2-service-orchestration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Integrates seamlessly with AWS services like Lambda, DynamoDB, S3, ECS, SNS, and more.</li>
+<li>Supports both <strong>standard</strong> and <strong>express</strong> workflows, allowing flexibility based on use case.</li>
+</ul>
+<h3 id="3-error-handling-and-retry">3. <strong>Error Handling and Retry</strong><a class="headerlink" href="#3-error-handling-and-retry" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Built-in error handling and retry logic to manage failures gracefully.</li>
+<li>Allows branching and fallback strategies to handle errors.</li>
+</ul>
+<h3 id="4-step-execution-monitoring">4. <strong>Step Execution Monitoring</strong><a class="headerlink" href="#4-step-execution-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Provides detailed logs and metrics through Amazon CloudWatch.</li>
+<li>Supports step-by-step debugging and monitoring.</li>
+</ul>
+<h3 id="5-serverless-and-fully-managed">5. <strong>Serverless and Fully Managed</strong><a class="headerlink" href="#5-serverless-and-fully-managed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No need to manage infrastructure or scaling.</li>
+<li>Automatically scales based on workflow execution demand.</li>
+</ul>
+<hr />
+<h2 id="workflow-types"><strong>Workflow Types</strong><a class="headerlink" href="#workflow-types" title="Permanent link">&para;</a></h2>
+<h3 id="1-standard-workflows">1. <strong>Standard Workflows</strong><a class="headerlink" href="#1-standard-workflows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Designed for long-running, durable workflows.</li>
+<li>Features: </li>
+<li>Execution duration up to <strong>1 year</strong>.</li>
+<li>Exactly-once execution semantics.</li>
+<li>High durability and resilience.</li>
+</ul>
+<h3 id="2-express-workflows">2. <strong>Express Workflows</strong><a class="headerlink" href="#2-express-workflows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Optimized for high-volume, short-duration workflows.</li>
+<li>Features:</li>
+<li>Execution duration up to <strong>5 minutes</strong>.</li>
+<li>At-least-once execution semantics.</li>
+<li>Lower cost, designed for high-throughput applications.</li>
+</ul>
+<hr />
+<h2 id="common-use-cases"><strong>Common Use Cases</strong><a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Web Server Environment Tier</strong></li>
-<li>Handles HTTP(S) requests</li>
-<li>Suitable for web applications</li>
+<li><strong>Data Processing Pipelines</strong></li>
 <li>
-<p>Uses services like ELB, Auto Scaling, EC2</p>
+<p>Automate ETL jobs, orchestrate machine learning model training, or coordinate big data workflows.</p>
 </li>
 <li>
-<p><strong>Worker Environment Tier</strong></p>
+<p><strong>Microservices Orchestration</strong></p>
 </li>
-<li>Processes background tasks</li>
-<li>Handles Amazon SQS queues</li>
-<li>Long-running processes</li>
+<li>
+<p>Coordinate interactions between microservices in distributed systems.</p>
+</li>
+<li>
+<p><strong>IoT Applications</strong></p>
+</li>
+<li>
+<p>Process and analyze data from IoT devices, triggering workflows based on incoming data.</p>
+</li>
+<li>
+<p><strong>Application Backends</strong></p>
+</li>
+<li>
+<p>Automate approval workflows, payment processing, or user registration flows.</p>
+</li>
+<li>
+<p><strong>Disaster Recovery</strong></p>
+</li>
+<li>Implement failover mechanisms and ensure system resilience.</li>
 </ol>
-<h3 id="supported-platforms">Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">&para;</a></h3>
-<p>Elastic Beanstalk supports multiple platforms:
-- Java (with Tomcat or without)
-- .NET (on Windows Server)
-- PHP
-- Node.js
-- Python
-- Ruby
-- Go
-- Docker
-- Custom Platforms</p>
-<h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
-<h3 id="application">Application<a class="headerlink" href="#application" title="Permanent link">&para;</a></h3>
-<p>An application is a collection of Elastic Beanstalk components:
-- Environments
-- Versions
-- Environment configurations
-- Platform versions</p>
-<h3 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h3>
-<p>An environment is a collection of AWS resources running an application version:
-- EC2 instances
-- Auto Scaling group
-- Elastic Load Balancer
-- Security groups
-- CloudWatch alarms</p>
-<h2 id="deployment-strategies">Deployment Strategies<a class="headerlink" href="#deployment-strategies" title="Permanent link">&para;</a></h2>
-<h3 id="1-all-at-once-deployment">1. All at Once Deployment<a class="headerlink" href="#1-all-at-once-deployment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">DeploymentPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AllAtOnce</span>
-</code></pre></div>
-<p><strong>Characteristics:</strong>
-- Deploys to all instances simultaneously
-- Fastest deployment method
-- Results in total application downtime
-- No additional cost
-- Fastest rollback</p>
-<p><strong>Best for:</strong>
-- Development environments
-- Quick iterations
-- Non-critical applications</p>
-<h3 id="2-rolling-deployment">2. Rolling Deployment<a class="headerlink" href="#2-rolling-deployment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">DeploymentPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Rolling</span>
-<span class="nt">RollingUpdateType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Health</span>
-<span class="nt">MaxBatchSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="nt">MinInstancesInService</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-</code></pre></div>
-<p><strong>Characteristics:</strong>
-- Updates a few instances at a time
-- Maintains service availability
-- No additional cost
-- Longer deployment time
-- Runs both versions simultaneously during deployment</p>
-<p><strong>Best for:</strong>
-- Production environments
-- Applications requiring high availability
-- Services with stateless architecture</p>
-<h3 id="3-rolling-with-additional-batch">3. Rolling with Additional Batch<a class="headerlink" href="#3-rolling-with-additional-batch" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">DeploymentPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RollingWithAdditionalBatch</span>
-<span class="nt">MaxBatchSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="nt">MinInstancesInService</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-</code></pre></div>
-<p><strong>Characteristics:</strong>
-- Launches new instances before removing old ones
-- Maintains full capacity during deployment
-- Incurs additional costs during deployment
-- Better performance during deployment
-- Longer deployment time</p>
-<p><strong>Best for:</strong>
-- Production environments requiring consistent capacity
-- Applications with high traffic requirements
-- Critical business applications</p>
-<h3 id="4-immutable-deployment">4. Immutable Deployment<a class="headerlink" href="#4-immutable-deployment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">DeploymentPolicy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Immutable</span>
-</code></pre></div>
-<p><strong>Characteristics:</strong>
-- Creates new Auto Scaling group with new instances
-- Zero downtime
-- Safest deployment method
-- Highest cost
-- Longest deployment time
-- Best rollback process</p>
-<p><strong>Best for:</strong>
-- Mission-critical production applications
-- Applications requiring zero downtime
-- Systems requiring guaranteed rollback capability</p>
-<h3 id="5-bluegreen-deployment">5. Blue/Green Deployment<a class="headerlink" href="#5-bluegreen-deployment" title="Permanent link">&para;</a></h3>
-<p><strong>Characteristics:</strong>
-- Creates entirely new environment
-- Zero downtime
-- Easy rollback
-- Requires DNS update
-- Highest cost
-- Testing in production-like environment</p>
-<p><strong>Best for:</strong>
-- Production environments requiring zero downtime
-- Applications with critical uptime requirements
-- Systems requiring thorough testing before switch</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">option_settings</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">aws:autoscaling:launchconfiguration</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t2.micro</span>
-<span class="w">    </span><span class="nt">SecurityGroups</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-security-group</span>
-<span class="w">  </span><span class="nt">aws:autoscaling:asg</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">MinSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">    </span><span class="nt">MaxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="w">  </span><span class="nt">aws:elasticbeanstalk:environment</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">EnvironmentType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalanced</span>
-</code></pre></div>
-<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">option_settings</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">aws:elasticbeanstalk:application:environment</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">DB_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mydb.123456789012.us-west-2.rds.amazonaws.com</span>
-<span class="w">    </span><span class="nt">DB_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span>
-<span class="w">    </span><span class="nt">API_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PARAM_STORE_API_KEY}</span>
-</code></pre></div>
-<h2 id="monitoring-and-health-checking">Monitoring and Health Checking<a class="headerlink" href="#monitoring-and-health-checking" title="Permanent link">&para;</a></h2>
-<h3 id="basic-health-reporting">Basic Health Reporting<a class="headerlink" href="#basic-health-reporting" title="Permanent link">&para;</a></h3>
-<ul>
-<li>System status checks</li>
-<li>Instance health</li>
-<li>Environment health status</li>
-</ul>
-<h3 id="enhanced-health-reporting">Enhanced Health Reporting<a class="headerlink" href="#enhanced-health-reporting" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">option_settings</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">aws:elasticbeanstalk:healthreporting:system</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">SystemType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enhanced</span>
-</code></pre></div>
-<p>Features:
-- Operating system metrics
-- Application metrics
-- Server logs analysis
-- Request metrics</p>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="application-development">Application Development<a class="headerlink" href="#application-development" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Use <code>.ebextensions</code> for configuration</li>
-<li>Implement proper logging</li>
-<li>Use environment variables</li>
-<li>Implement health checks</li>
-<li>Handle application state properly</li>
-</ul>
-<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Use immutable deployments for production</li>
-<li>Implement proper rollback procedures</li>
-<li>Use environment cloning for testing</li>
-<li>Maintain version labels</li>
-<li>Use deployment manifest</li>
-</ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Use security groups effectively</li>
-<li>Implement proper IAM roles</li>
-<li>Use SSL/TLS for communication</li>
-<li>Secure environment variables</li>
-<li>Regular security updates</li>
-</ul>
-<h3 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Right-size instances</li>
-<li>Use Auto Scaling effectively</li>
-<li>Clean up unused environments</li>
-<li>Monitor resource usage</li>
-<li>Use spot instances where appropriate</li>
-</ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="amazon-states-language-asl"><strong>Amazon States Language (ASL)</strong><a class="headerlink" href="#amazon-states-language-asl" title="Permanent link">&para;</a></h2>
+<h3 id="key-elements-of-asl"><strong>Key Elements of ASL</strong><a class="headerlink" href="#key-elements-of-asl" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Deployment Failures</strong></li>
-<li>Check application logs</li>
-<li>Verify environment configuration</li>
-<li>Review instance logs</li>
+<li><strong>States</strong></li>
 <li>
-<p>Check permissions</p>
+<p>Define individual steps in the workflow, such as tasks, choices, or parallel steps.</p>
 </li>
 <li>
-<p><strong>Health Check Failures</strong></p>
-</li>
-<li>Verify application health check path</li>
-<li>Check instance resources</li>
-<li>Review application logs</li>
-<li>
-<p>Monitor response times</p>
+<p><strong>Transitions</strong></p>
 </li>
 <li>
-<p><strong>Configuration Issues</strong></p>
+<p>Specify how the workflow progresses from one state to another.</p>
 </li>
-<li>Validate <code>.ebextensions</code></li>
-<li>Check environment variables</li>
-<li>Review platform version</li>
-<li>Verify resource limits</li>
+<li>
+<p><strong>Error Handling</strong></p>
+</li>
+<li>Define retry policies, catch blocks, and fallback mechanisms for errors.</li>
 </ol>
-<h2 id="integration-with-other-aws-services">Integration with Other AWS Services<a class="headerlink" href="#integration-with-other-aws-services" title="Permanent link">&para;</a></h2>
+<h3 id="example-state-machine-definition"><strong>Example State Machine Definition</strong><a class="headerlink" href="#example-state-machine-definition" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An example of a simple Step Function workflow&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;StartAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HelloWorld&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;States&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;HelloWorld&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Task&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:us-east-1:123456789012:function:HelloWorldFunction&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;End&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="integration-with-aws-services"><strong>Integration with AWS Services</strong><a class="headerlink" href="#integration-with-aws-services" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Amazon RDS</li>
-<li>Amazon S3</li>
-<li>Amazon CloudWatch</li>
-<li>AWS X-Ray</li>
-<li>Amazon VPC</li>
-<li>AWS CodePipeline</li>
-<li>AWS CodeBuild</li>
-<li>AWS Certificate Manager</li>
+<li><strong>AWS Lambda:</strong> Execute serverless functions for tasks within workflows.</li>
+<li><strong>Amazon DynamoDB:</strong> Store and retrieve data as part of the workflow.</li>
+<li><strong>Amazon S3:</strong> Trigger workflows based on events like object creation.</li>
+<li><strong>Amazon ECS:</strong> Manage containerized tasks and services.</li>
+<li><strong>SNS/SQS:</strong> Send notifications or queue messages during workflows.</li>
 </ul>
-<h2 id="sample-configurations">Sample Configurations<a class="headerlink" href="#sample-configurations" title="Permanent link">&para;</a></h2>
-<h3 id="basic-web-application">Basic Web Application<a class="headerlink" href="#basic-web-application" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">option_settings</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">aws:autoscaling:launchconfiguration</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t2.micro</span>
-<span class="w">  </span><span class="nt">aws:autoscaling:asg</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">MinSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">MaxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">  </span><span class="nt">aws:elasticbeanstalk:environment</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">EnvironmentType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalanced</span>
-<span class="w">  </span><span class="nt">aws:elasticbeanstalk:application:environment</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">ENVIRONMENT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
-</code></pre></div>
-<h3 id="worker-environment">Worker Environment<a class="headerlink" href="#worker-environment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">option_settings</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">aws:autoscaling:launchconfiguration</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t2.micro</span>
-<span class="w">  </span><span class="nt">aws:elasticbeanstalk:sqsd</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">WorkerQueueURL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://sqs.region.amazonaws.com/account-id/queue-name</span>
-<span class="w">    </span><span class="nt">HttpPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/process-task</span>
-</code></pre></div>
-<h2 id="cli-commands">CLI Commands<a class="headerlink" href="#cli-commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create new application</span>
-eb<span class="w"> </span>init
-
-<span class="c1"># Create new environment</span>
-eb<span class="w"> </span>create<span class="w"> </span>production-env
-
-<span class="c1"># Deploy new version</span>
-eb<span class="w"> </span>deploy
-
-<span class="c1"># View environment status</span>
-eb<span class="w"> </span>status
-
-<span class="c1"># View logs</span>
-eb<span class="w"> </span>logs
-
-<span class="c1"># Terminate environment</span>
-eb<span class="w"> </span>terminate
-</code></pre></div>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="benefits"><strong>Benefits</strong><a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Improved Resilience:</strong> Built-in error handling and retries ensure reliable execution.</li>
+<li><strong>Faster Development:</strong> Visual interface and easy integration with AWS services reduce development effort.</li>
+<li><strong>Cost-Effective:</strong> Pay-as-you-go pricing with no upfront costs.</li>
+<li><strong>Scalable and Secure:</strong> Automatically scales with demand and integrates with IAM for fine-grained access control.</li>
+</ol>
+<hr />
+<h2 id="pricing"><strong>Pricing</strong><a class="headerlink" href="#pricing" title="Permanent link">&para;</a></h2>
+<h3 id="standard-workflows">Standard Workflows:<a class="headerlink" href="#standard-workflows" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://docs.aws.amazon.com/elastic-beanstalk/">Official AWS Elastic Beanstalk Documentation</a></li>
-<li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/">AWS Elastic Beanstalk Developer Guide</a></li>
-<li><a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/cli/">Elastic Beanstalk CLI Documentation</a></li>
-<li><a href="https://docs.aws.amazon.com/elastic-beanstalk/latest/dg/tutorials.html">Sample Applications</a></li>
+<li>Charged per state transition: <strong>$0.025 per 1,000 transitions</strong>.</li>
 </ul>
+<h3 id="express-workflows">Express Workflows:<a class="headerlink" href="#express-workflows" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Charged based on <strong>requests</strong> and <strong>runtime</strong>.</li>
+<li>Example: <strong>$1.00 per 1 million requests</strong> and <strong>$0.00000456 per GB-second runtime</strong>.</li>
+</ul>
+<p>Refer to the <a href="https://aws.amazon.com/step-functions/pricing/">AWS Step Functions Pricing Page</a> for detailed information.</p>
+<hr />
+<h2 id="best-practices"><strong>Best Practices</strong><a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Optimize State Transitions:</strong> Minimize the number of state transitions to reduce costs.</li>
+<li><strong>Use Express Workflows for High-Volume Tasks:</strong> Choose express workflows for short-duration, high-volume tasks.</li>
+<li><strong>Implement Robust Error Handling:</strong> Define retries, catch blocks, and fallback states.</li>
+<li><strong>Monitor and Debug:</strong> Use CloudWatch logs and metrics for monitoring and troubleshooting.</li>
+<li><strong>Test Thoroughly:</strong> Use the AWS Step Functions console to simulate and test workflows before production.</li>
+</ol>
+<hr />
+<p>For more details, refer to the <a href="https://docs.aws.amazon.com/step-functions/">AWS Step Functions Documentation</a>.</p>
 
 
 
@@ -4473,7 +4070,7 @@ eb<span class="w"> </span>terminate
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../autoscaling_groups/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Auto Scaling Group (ASG)">
+          <a href="../sqs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Amazon Simple Queue Service (SQS)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4483,20 +4080,20 @@ eb<span class="w"> </span>terminate
                 Previous
               </span>
               <div class="md-ellipsis">
-                AWS Auto Scaling Group (ASG)
+                Amazon Simple Queue Service (SQS)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../billing/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS Billing and Cost Management">
+          <a href="../xray/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS X-Ray">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                AWS Billing and Cost Management
+                AWS X-Ray
               </div>
             </div>
             <div class="md-footer__button md-icon">
