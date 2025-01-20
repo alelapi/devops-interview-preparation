@@ -1,4 +1,4 @@
-# AWS Lambda Documentation
+# AWS Lambda
 
 ## Overview
 AWS Lambda is a serverless compute service that enables you to run code without provisioning or managing servers. It executes your code only when needed and scales automatically to handle any number of requests simultaneously. This service is particularly useful for microservices architecture, data processing, and backend applications.

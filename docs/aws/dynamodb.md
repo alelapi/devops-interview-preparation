@@ -1,4 +1,4 @@
-# Amazon DynamoDB Documentation
+# Amazon DynamoDB
 
 ## Overview
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It offers encryption at rest, automated backup and restore, and in-memory caching.
