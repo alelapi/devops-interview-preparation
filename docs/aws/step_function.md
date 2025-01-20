@@ -46,6 +46,49 @@ AWS Step Functions is a serverless orchestration service that allows you to coor
 
 ---
 
+## **Task Types**
+
+AWS Step Functions supports various task types that allow you to perform different operations in a workflow. Below are the key task types:
+
+### **1. Task**
+- Executes a unit of work, such as invoking an AWS Lambda function or running a job on AWS Batch.
+- Defined using the `Resource` field to specify the AWS service or API action.
+
+### **2. Parallel**
+- Executes multiple branches of a workflow simultaneously.
+- Useful for scenarios requiring parallel processing.
+
+### **3. Map**
+- Processes a collection of items iteratively.
+- Similar to a "for loop" and can run iterations in parallel.
+
+### **4. Choice**
+- Adds conditional logic to workflows.
+- Routes execution based on the evaluation of input data.
+
+### **5. Wait**
+- Delays execution for a specified time or until a specific timestamp.
+
+### **6. Pass**
+- Passes input to the next state without performing any work.
+- Useful for testing and placeholder states.
+
+### **7. Succeed**
+- Marks the workflow as successfully completed.
+
+### **8. Fail**
+- Stops the workflow and marks it as failed.
+- Can include error details for debugging.
+
+### **9. Activity**
+- Represents a task performed by a worker program outside of Step Functions.
+- Requires integration with an external worker.
+
+### **10. Service Integration**
+- Directly integrates with AWS services such as S3, DynamoDB, ECS, and more, without needing AWS Lambda.
+
+---
+
 ## **Common Use Cases**
 
 1. **Data Processing Pipelines**
