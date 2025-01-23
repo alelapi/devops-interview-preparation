@@ -1013,6 +1013,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#types-of-encryption-in-aws-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Encryption in AWS S3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Encryption in AWS S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse-s3-server-side-encryption-with-amazon-s3-managed-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSE-S3 (Server-Side Encryption with Amazon S3-Managed Keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sse-c-server-side-encryption-with-customer-provided-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSE-C (Server-Side Encryption with Customer-Provided Keys)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#access-control-and-governance" class="md-nav__link">
     <span class="md-ellipsis">
       Access Control and Governance
@@ -3918,6 +3951,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#types-of-encryption-in-aws-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Encryption in AWS S3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Encryption in AWS S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse-s3-server-side-encryption-with-amazon-s3-managed-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSE-S3 (Server-Side Encryption with Amazon S3-Managed Keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sse-c-server-side-encryption-with-customer-provided-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSE-C (Server-Side Encryption with Customer-Provided Keys)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#access-control-and-governance" class="md-nav__link">
     <span class="md-ellipsis">
       Access Control and Governance
@@ -4109,6 +4175,11 @@ These keys offer the highest degree of customization and control. Customers can 
 - Improved performance for large-scale encryption
 - Reduced computational complexity
 - Enhanced key rotation and management flexibility</p>
+<h2 id="types-of-encryption-in-aws-s3">Types of Encryption in AWS S3<a class="headerlink" href="#types-of-encryption-in-aws-s3" title="Permanent link">&para;</a></h2>
+<h3 id="sse-s3-server-side-encryption-with-amazon-s3-managed-keys">SSE-S3 (Server-Side Encryption with Amazon S3-Managed Keys)<a class="headerlink" href="#sse-s3-server-side-encryption-with-amazon-s3-managed-keys" title="Permanent link">&para;</a></h3>
+<p>SSE-S3 represents a straightforward encryption method managed entirely by Amazon S3. It uses 256-bit Advanced Encryption Standard (AES-256), with encryption keys automatically generated and managed by AWS. Each object receives a unique data key, encrypted with a master key controlled by Amazon.</p>
+<h3 id="sse-c-server-side-encryption-with-customer-provided-keys">SSE-C (Server-Side Encryption with Customer-Provided Keys)<a class="headerlink" href="#sse-c-server-side-encryption-with-customer-provided-keys" title="Permanent link">&para;</a></h3>
+<p>SSE-C provides maximum encryption control to customers. Users must provide their own 32-byte encryption keys for each API request. Unlike SSE-S3, AWS does not store these keys, placing complete key management responsibility on the customer. This approach supports AES-256 encryption and requires key transmission over HTTPS.</p>
 <h2 id="access-control-and-governance">Access Control and Governance<a class="headerlink" href="#access-control-and-governance" title="Permanent link">&para;</a></h2>
 <h3 id="iam-integration">IAM Integration<a class="headerlink" href="#iam-integration" title="Permanent link">&para;</a></h3>
 <p>AWS Identity and Access Management (IAM) provides granular control over KMS key usage. Administrators can define precise policies determining which users, roles, and services can perform specific cryptographic operations.</p>
