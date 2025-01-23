@@ -1,4 +1,4 @@
-# AWS ElastiCache Documentation
+# AWS ElastiCache
 
 ## Overview
 
