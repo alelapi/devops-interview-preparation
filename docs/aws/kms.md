@@ -39,6 +39,15 @@ This strategy offers multiple advantages:
 - Reduced computational complexity
 - Enhanced key rotation and management flexibility
 
+## Types of Encryption in AWS S3
+
+### SSE-S3 (Server-Side Encryption with Amazon S3-Managed Keys)
+SSE-S3 represents a straightforward encryption method managed entirely by Amazon S3. It uses 256-bit Advanced Encryption Standard (AES-256), with encryption keys automatically generated and managed by AWS. Each object receives a unique data key, encrypted with a master key controlled by Amazon.
+
+### SSE-C (Server-Side Encryption with Customer-Provided Keys)
+SSE-C provides maximum encryption control to customers. Users must provide their own 32-byte encryption keys for each API request. Unlike SSE-S3, AWS does not store these keys, placing complete key management responsibility on the customer. This approach supports AES-256 encryption and requires key transmission over HTTPS.
+
+
 ## Access Control and Governance
 
 ### IAM Integration
