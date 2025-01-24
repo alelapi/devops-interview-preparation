@@ -24,7 +24,7 @@
     
     
       
-        <title>Amazon DynamoDB - My DevOps Interview Preparation</title>
+        <title>AWS DynamoDB - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amazon-dynamodb" class="md-skip">
+        <a href="#aws-dynamodb" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Amazon DynamoDB
+              AWS DynamoDB
             
           </span>
         </div>
@@ -787,7 +787,7 @@
           
   
   <span class="md-ellipsis">
-    Amazon DynamoDB
+    AWS DynamoDB
   </span>
   
 
@@ -798,7 +798,7 @@
         
   
   <span class="md-ellipsis">
-    Amazon DynamoDB
+    AWS DynamoDB
   </span>
   
 
@@ -820,37 +820,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#introduction-to-dynamodb" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Introduction to DynamoDB
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
+  <a href="#core-architectural-concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Concepts
+      Core Architectural Concepts
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Concepts">
+    <nav class="md-nav" aria-label="Core Architectural Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tables-items-and-attributes" class="md-nav__link">
+  <a href="#table-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables, Items, and Attributes
+      Table Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-types" class="md-nav__link">
+  <a href="#primary-key-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Types
+      Primary Key Types
     </span>
   </a>
   
@@ -862,37 +862,85 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#data-model-and-attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      Data Model and Attributes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance and Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance and Scaling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
+  <a href="#readwrite-capacity-modes" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance
+      Read/Write Capacity Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read/Write Capacity Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#provisioned-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provisioned Mode
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#durability-and-availability" class="md-nav__link">
+  <a href="#on-demand-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Durability and Availability
+      On-Demand Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secondary-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secondary Indexes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secondary Indexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-secondary-indexes-gsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Secondary Indexes (GSI)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
+  <a href="#local-secondary-indexes-lsi" class="md-nav__link">
     <span class="md-ellipsis">
-      Security
+      Local Secondary Indexes (LSI)
     </span>
   </a>
   
@@ -904,37 +952,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-examples" class="md-nav__link">
+  <a href="#data-consistency-and-replication" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation Examples
+      Data Consistency and Replication
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementation Examples">
+    <nav class="md-nav" aria-label="Data Consistency and Replication">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#table-creation-aws-sdk-python" class="md-nav__link">
+  <a href="#consistency-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Table Creation (AWS SDK - Python)
+      Consistency Models
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-crud-operations-python" class="md-nav__link">
+  <a href="#global-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic CRUD Operations (Python)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#query-and-scan-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query and Scan Operations
+      Global Tables
     </span>
   </a>
   
@@ -942,6 +981,57 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Access Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security and Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication and Authorization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations and Considerations
+    </span>
+  </a>
   
 </li>
       
@@ -952,161 +1042,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#table-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      Table Design
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Optimization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-design-patterns" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Design Patterns
+      Conclusion
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Common Design Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#one-to-many-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      One-to-Many Relationships
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#many-to-many-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      Many-to-Many Relationships
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Operations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring and Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloudwatch-metrics-to-monitor" class="md-nav__link">
-    <span class="md-ellipsis">
-      CloudWatch Metrics to Monitor
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-operations-tasks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Operations Tasks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cost Optimization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cost-factors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Factors
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optimization-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optimization Strategies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limits-and-quotas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Limits and Quotas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-handling-and-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Handling and Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Error Handling and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Errors
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3908,37 +3851,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#introduction-to-dynamodb" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Introduction to DynamoDB
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-concepts" class="md-nav__link">
+  <a href="#core-architectural-concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Concepts
+      Core Architectural Concepts
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Concepts">
+    <nav class="md-nav" aria-label="Core Architectural Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tables-items-and-attributes" class="md-nav__link">
+  <a href="#table-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables, Items, and Attributes
+      Table Structure
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#data-types" class="md-nav__link">
+  <a href="#primary-key-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Types
+      Primary Key Types
     </span>
   </a>
   
@@ -3950,37 +3893,85 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#data-model-and-attributes" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      Data Model and Attributes
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance and Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance and Scaling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
+  <a href="#readwrite-capacity-modes" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance
+      Read/Write Capacity Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read/Write Capacity Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#provisioned-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provisioned Mode
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#durability-and-availability" class="md-nav__link">
+  <a href="#on-demand-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Durability and Availability
+      On-Demand Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secondary-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secondary Indexes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secondary Indexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-secondary-indexes-gsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Secondary Indexes (GSI)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
+  <a href="#local-secondary-indexes-lsi" class="md-nav__link">
     <span class="md-ellipsis">
-      Security
+      Local Secondary Indexes (LSI)
     </span>
   </a>
   
@@ -3992,37 +3983,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-examples" class="md-nav__link">
+  <a href="#data-consistency-and-replication" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation Examples
+      Data Consistency and Replication
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementation Examples">
+    <nav class="md-nav" aria-label="Data Consistency and Replication">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#table-creation-aws-sdk-python" class="md-nav__link">
+  <a href="#consistency-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Table Creation (AWS SDK - Python)
+      Consistency Models
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#basic-crud-operations-python" class="md-nav__link">
+  <a href="#global-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic CRUD Operations (Python)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#query-and-scan-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query and Scan Operations
+      Global Tables
     </span>
   </a>
   
@@ -4030,6 +4012,57 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Access Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security and Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication and Authorization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations-and-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations and Considerations
+    </span>
+  </a>
   
 </li>
       
@@ -4040,161 +4073,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#table-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      Table Design
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Optimization
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-design-patterns" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Design Patterns
+      Conclusion
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Common Design Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#one-to-many-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      One-to-Many Relationships
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#many-to-many-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      Many-to-Many Relationships
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Operations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring and Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloudwatch-metrics-to-monitor" class="md-nav__link">
-    <span class="md-ellipsis">
-      CloudWatch Metrics to Monitor
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-operations-tasks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Operations Tasks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cost Optimization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cost-factors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Factors
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optimization-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optimization Strategies
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#limits-and-quotas" class="md-nav__link">
-    <span class="md-ellipsis">
-      Limits and Quotas
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-handling-and-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Error Handling and Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Error Handling and Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-errors" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Errors
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4216,304 +4102,99 @@
   
 
 
-<h1 id="amazon-dynamodb">Amazon DynamoDB<a class="headerlink" href="#amazon-dynamodb" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. It offers encryption at rest, automated backup and restore, and in-memory caching.</p>
-<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="tables-items-and-attributes">Tables, Items, and Attributes<a class="headerlink" href="#tables-items-and-attributes" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Tables</strong>: Container for all items</li>
-<li><strong>Items</strong>: Group of attributes (similar to rows)</li>
-<li><strong>Attributes</strong>: Fundamental data elements (similar to columns)</li>
-<li><strong>Primary Key</strong>: Unique identifier for each item</li>
-<li>Simple Primary Key (Partition Key only)</li>
-<li>Composite Primary Key (Partition Key + Sort Key)</li>
-</ul>
-<h3 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">&para;</a></h3>
+<h1 id="aws-dynamodb">AWS DynamoDB<a class="headerlink" href="#aws-dynamodb" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-dynamodb">Introduction to DynamoDB<a class="headerlink" href="#introduction-to-dynamodb" title="Permanent link">&para;</a></h2>
+<p>Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed for high-performance, scalable applications. Developed by Amazon Web Services, it provides seamless and consistent single-digit millisecond latency at any scale, making it an ideal choice for modern cloud-native and distributed applications.</p>
+<h2 id="core-architectural-concepts">Core Architectural Concepts<a class="headerlink" href="#core-architectural-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="table-structure">Table Structure<a class="headerlink" href="#table-structure" title="Permanent link">&para;</a></h3>
+<p>DynamoDB organizes data in tables, which are collections of items sharing a similar structure. Each item in a table is identified by a primary key, which can be simple (partition key) or composite (partition key and sort key). This design enables efficient data retrieval and supports complex querying strategies.</p>
+<h3 id="primary-key-types">Primary Key Types<a class="headerlink" href="#primary-key-types" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Scalar Types</strong></li>
-<li>Number</li>
-<li>String</li>
-<li>Binary</li>
-<li>Boolean</li>
-<li>
-<p>Null</p>
-</li>
-<li>
-<p><strong>Document Types</strong></p>
-</li>
-<li>List</li>
-<li>
-<p>Map</p>
-</li>
-<li>
-<p><strong>Set Types</strong></p>
-</li>
-<li>Number Set</li>
-<li>String Set</li>
-<li>Binary Set</li>
+<li><strong>Simple Primary Key</strong>: Consists of only a partition key, ensuring unique identification of items within the table.</li>
+<li><strong>Composite Primary Key</strong>: Combines a partition key with a sort key, allowing multiple items to share the same partition key while maintaining unique identification through the sort key combination.</li>
 </ol>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
+<h2 id="data-model-and-attributes">Data Model and Attributes<a class="headerlink" href="#data-model-and-attributes" title="Permanent link">&para;</a></h2>
+<p>Items in DynamoDB can contain attributes of various types, including:
+- String
+- Number
+- Binary
+- Boolean
+- List
+- Map
+- String Set
+- Number Set
+- Binary Set</p>
+<p>Each attribute supports flexible schema design, enabling developers to adapt data structures without extensive migrations.</p>
+<h2 id="performance-and-scaling">Performance and Scaling<a class="headerlink" href="#performance-and-scaling" title="Permanent link">&para;</a></h2>
+<h3 id="readwrite-capacity-modes">Read/Write Capacity Modes<a class="headerlink" href="#readwrite-capacity-modes" title="Permanent link">&para;</a></h3>
+<p>DynamoDB offers two capacity modes to manage performance and cost:</p>
+<h4 id="provisioned-mode">Provisioned Mode<a class="headerlink" href="#provisioned-mode" title="Permanent link">&para;</a></h4>
+<p>Developers specify expected read and write capacity units in advance. The system allocates dedicated resources to maintain performance, with options for manual or auto-scaling adjustments.</p>
+<h4 id="on-demand-mode">On-Demand Mode<a class="headerlink" href="#on-demand-mode" title="Permanent link">&para;</a></h4>
+<p>Automatically scales to accommodate varying workloads without pre-planning capacity. Ideal for unpredictable traffic patterns and applications with sporadic access patterns.</p>
+<h2 id="secondary-indexes">Secondary Indexes<a class="headerlink" href="#secondary-indexes" title="Permanent link">&para;</a></h2>
+<h3 id="global-secondary-indexes-gsi">Global Secondary Indexes (GSI)<a class="headerlink" href="#global-secondary-indexes-gsi" title="Permanent link">&para;</a></h3>
+<p>GSIs provide alternative query paths across the entire table, independent of the primary key. Key characteristics include:
+- Can be created on any table attribute
+- Support different partition and sort keys from the base table
+- Consume additional read capacity units
+- Enable complex querying strategies beyond the primary key</p>
+<h3 id="local-secondary-indexes-lsi">Local Secondary Indexes (LSI)<a class="headerlink" href="#local-secondary-indexes-lsi" title="Permanent link">&para;</a></h3>
+<p>LSIs share the table&rsquo;s partition key but offer alternative sort key configurations. Distinguishing features:
+- Created during table creation
+- Limited to five per table
+- Use the same partition key as the base table
+- Consume storage from the base table&rsquo;s provisioned capacity</p>
+<h2 id="data-consistency-and-replication">Data Consistency and Replication<a class="headerlink" href="#data-consistency-and-replication" title="Permanent link">&para;</a></h2>
+<h3 id="consistency-models">Consistency Models<a class="headerlink" href="#consistency-models" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Single-digit millisecond latency</li>
-<li>Auto-scaling capabilities</li>
-<li>Provisioned or On-demand capacity modes</li>
-<li>Global tables for multi-region deployment</li>
+<li><strong>Eventually Consistent Reads</strong>: Default mode with lower latency</li>
+<li><strong>Strong Consistent Reads</strong>: Guarantees retrieval of the most recent write, with slightly higher latency</li>
 </ul>
-<h3 id="durability-and-availability">Durability and Availability<a class="headerlink" href="#durability-and-availability" title="Permanent link">&para;</a></h3>
+<h3 id="global-tables">Global Tables<a class="headerlink" href="#global-tables" title="Permanent link">&para;</a></h3>
+<p>Supports multi-region, multi-master replication, enabling:
+- Active-active database configurations
+- Low-latency global access
+- Automatic conflict resolution</p>
+<h2 id="security-and-access-control">Security and Access Control<a class="headerlink" href="#security-and-access-control" title="Permanent link">&para;</a></h2>
+<h3 id="authentication-and-authorization">Authentication and Authorization<a class="headerlink" href="#authentication-and-authorization" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Data replicated across multiple AZs</li>
-<li>Point-in-time recovery</li>
-<li>On-demand backup and restore</li>
-<li>Automated continuous backups</li>
+<li>Integrates with AWS Identity and Access Management (IAM)</li>
+<li>Granular access controls at table and item levels</li>
+<li>Support for encryption at rest using AWS Key Management Service</li>
 </ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<p>DynamoDB excels in scenarios requiring:
+- High-velocity web and mobile applications
+- Real-time bidding platforms
+- Gaming leaderboards
+- IoT data storage
+- Session management
+- Metadata caching</p>
+<h2 id="cost-optimization-strategies">Cost Optimization Strategies<a class="headerlink" href="#cost-optimization-strategies" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Encryption at rest using AWS KMS</li>
-<li>Encryption in transit using TLS</li>
-<li>Fine-grained access control with IAM</li>
-<li>VPC endpoints support</li>
+<li>Utilize on-demand capacity for unpredictable workloads</li>
+<li>Implement Time-to-Live (TTL) for automatic data expiration</li>
+<li>Use compression and efficient indexing</li>
+<li>Monitor and adjust capacity settings regularly</li>
 </ul>
-<h2 id="implementation-examples">Implementation Examples<a class="headerlink" href="#implementation-examples" title="Permanent link">&para;</a></h2>
-<h3 id="table-creation-aws-sdk-python">Table Creation (AWS SDK - Python)<a class="headerlink" href="#table-creation-aws-sdk-python" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
-
-<span class="n">dynamodb</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;dynamodb&#39;</span><span class="p">)</span>
-
-<span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span>
-    <span class="n">TableName</span><span class="o">=</span><span class="s1">&#39;Users&#39;</span><span class="p">,</span>
-    <span class="n">KeySchema</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s1">&#39;AttributeName&#39;</span><span class="p">:</span> <span class="s1">&#39;user_id&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;KeyType&#39;</span><span class="p">:</span> <span class="s1">&#39;HASH&#39;</span>  <span class="c1"># Partition key</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s1">&#39;AttributeName&#39;</span><span class="p">:</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;KeyType&#39;</span><span class="p">:</span> <span class="s1">&#39;RANGE&#39;</span>  <span class="c1"># Sort key</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="n">AttributeDefinitions</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s1">&#39;AttributeName&#39;</span><span class="p">:</span> <span class="s1">&#39;user_id&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;AttributeType&#39;</span><span class="p">:</span> <span class="s1">&#39;S&#39;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s1">&#39;AttributeName&#39;</span><span class="p">:</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;AttributeType&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span>
-        <span class="p">},</span>
-    <span class="p">],</span>
-    <span class="n">ProvisionedThroughput</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;ReadCapacityUnits&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="s1">&#39;WriteCapacityUnits&#39;</span><span class="p">:</span> <span class="mi">5</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-
-<span class="n">table</span><span class="o">.</span><span class="n">wait_until_exists</span><span class="p">()</span>
-</code></pre></div>
-<h3 id="basic-crud-operations-python">Basic CRUD Operations (Python)<a class="headerlink" href="#basic-crud-operations-python" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create/Update Item</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">put_item</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">put_item</span><span class="p">(</span><span class="n">Item</span><span class="o">=</span><span class="n">item</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span>
-
-<span class="c1"># Read Item</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_item</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="n">Key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Item&#39;</span><span class="p">)</span>
-
-<span class="c1"># Update Item</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">update_item</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">update_expression</span><span class="p">,</span> <span class="n">expression_values</span><span class="p">):</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">update_item</span><span class="p">(</span>
-        <span class="n">Key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
-        <span class="n">UpdateExpression</span><span class="o">=</span><span class="n">update_expression</span><span class="p">,</span>
-        <span class="n">ExpressionAttributeValues</span><span class="o">=</span><span class="n">expression_values</span><span class="p">,</span>
-        <span class="n">ReturnValues</span><span class="o">=</span><span class="s2">&quot;UPDATED_NEW&quot;</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span>
-
-<span class="c1"># Delete Item</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">delete_item</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">delete_item</span><span class="p">(</span><span class="n">Key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span>
-</code></pre></div>
-<h3 id="query-and-scan-operations">Query and Scan Operations<a class="headerlink" href="#query-and-scan-operations" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Query Example</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">query_user_items</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
-        <span class="n">KeyConditionExpression</span><span class="o">=</span><span class="s1">&#39;user_id = :uid&#39;</span><span class="p">,</span>
-        <span class="n">ExpressionAttributeValues</span><span class="o">=</span><span class="p">{</span>
-            <span class="s1">&#39;:uid&#39;</span><span class="p">:</span> <span class="n">user_id</span>
-        <span class="p">}</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;Items&#39;</span><span class="p">]</span>
-
-<span class="c1"># Scan Example with Filter</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">scan_with_filter</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">filter_expression</span><span class="p">):</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">dynamodb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span>
-        <span class="n">FilterExpression</span><span class="o">=</span><span class="n">filter_expression</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;Items&#39;</span><span class="p">]</span>
-</code></pre></div>
+<h2 id="limitations-and-considerations">Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Maximum item size: 400 KB</li>
+<li>Maximum attribute name length: 64 KB</li>
+<li>Complex joins not natively supported</li>
+<li>Scan operations can be costly for large datasets</li>
+</ul>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="table-design">Table Design<a class="headerlink" href="#table-design" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Choose Appropriate Primary Keys</strong></li>
-<li>Ensure even distribution of data</li>
-<li>Avoid hot partitions</li>
-<li>
-<p>Consider access patterns</p>
-</li>
-<li>
-<p><strong>Use Secondary Indexes Wisely</strong></p>
-</li>
-<li>Global Secondary Indexes (GSI)</li>
-<li>Local Secondary Indexes (LSI)</li>
-<li>
-<p>Limit number of indexes to minimize costs</p>
-</li>
-<li>
-<p><strong>Data Modeling</strong></p>
-</li>
-<li>Denormalize data for query efficiency</li>
-<li>Use composite sort keys for hierarchical data</li>
-<li>Consider item collections</li>
-</ol>
-<h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Capacity Planning</strong></li>
-<li>Choose appropriate capacity mode</li>
-<li>Use auto-scaling</li>
-<li>
-<p>Monitor capacity metrics</p>
-</li>
-<li>
-<p><strong>Query Optimization</strong></p>
-</li>
-<li>Use query over scan</li>
-<li>Implement pagination</li>
-<li>
-<p>Use parallel scans when appropriate</p>
-</li>
-<li>
-<p><strong>Caching Strategy</strong></p>
-</li>
-<li>Implement DAX for caching</li>
-<li>Use appropriate TTL settings</li>
-<li>Monitor cache hit ratios</li>
-</ol>
-<h2 id="common-design-patterns">Common Design Patterns<a class="headerlink" href="#common-design-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="one-to-many-relationships">One-to-Many Relationships<a class="headerlink" href="#one-to-many-relationships" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;OrderID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;CustomerID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C101&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;OrderItems&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;ProductID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;ProductID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;P2&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;Quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="many-to-many-relationships">Many-to-Many Relationships<a class="headerlink" href="#many-to-many-relationships" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;GSI1PK&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;USER#123&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;GSI1SK&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GROUP#456&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserGroup&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;UserID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;GroupID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;456&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;JoinDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-01-01&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="monitoring-and-operations">Monitoring and Operations<a class="headerlink" href="#monitoring-and-operations" title="Permanent link">&para;</a></h2>
-<h3 id="cloudwatch-metrics-to-monitor">CloudWatch Metrics to Monitor<a class="headerlink" href="#cloudwatch-metrics-to-monitor" title="Permanent link">&para;</a></h3>
 <ul>
-<li>ConsumedReadCapacityUnits</li>
-<li>ConsumedWriteCapacityUnits</li>
-<li>ThrottledRequests</li>
-<li>SystemErrors</li>
-<li>UserErrors</li>
+<li>Design with access patterns in mind</li>
+<li>Minimize the number of secondary indexes</li>
+<li>Distribute partition key values evenly</li>
+<li>Use compression for large attributes</li>
+<li>Implement caching layers for read-heavy workloads</li>
 </ul>
-<h3 id="common-operations-tasks">Common Operations Tasks<a class="headerlink" href="#common-operations-tasks" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Backup and Restore</strong></li>
-<li>On-demand backups</li>
-<li>Point-in-time recovery</li>
-<li>
-<p>Cross-region backup</p>
-</li>
-<li>
-<p><strong>Scaling</strong></p>
-</li>
-<li>Update capacity</li>
-<li>Enable auto-scaling</li>
-<li>
-<p>Monitor throttling</p>
-</li>
-<li>
-<p><strong>Maintenance</strong></p>
-</li>
-<li>Update indexes</li>
-<li>Cleanup expired items</li>
-<li>Optimize tables</li>
-</ol>
-<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
-<h3 id="cost-factors">Cost Factors<a class="headerlink" href="#cost-factors" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Storage</strong></li>
-<li>Charged per GB stored</li>
-<li>
-<p>Consider data lifecycle</p>
-</li>
-<li>
-<p><strong>Throughput</strong></p>
-</li>
-<li>Read/Write Capacity Units</li>
-<li>
-<p>On-demand vs Provisioned</p>
-</li>
-<li>
-<p><strong>Features</strong></p>
-</li>
-<li>Backup storage</li>
-<li>Global Tables replication</li>
-<li>DAX nodes</li>
-</ol>
-<h3 id="optimization-strategies">Optimization Strategies<a class="headerlink" href="#optimization-strategies" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Use appropriate capacity mode</li>
-<li>Implement TTL for data expiration</li>
-<li>Compress large attributes</li>
-<li>Use batch operations</li>
-<li>Monitor and adjust capacity</li>
-</ol>
-<h2 id="limits-and-quotas">Limits and Quotas<a class="headerlink" href="#limits-and-quotas" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Item size: 400KB</li>
-<li>Partition key length: 2048 bytes</li>
-<li>Sort key length: 1024 bytes</li>
-<li>Tables per account: 256 (default)</li>
-<li>Secondary indexes per table: 20 (5 LSI, 15 GSI)</li>
-<li>Projected attributes per index: 100</li>
-</ul>
-<h2 id="error-handling-and-troubleshooting">Error Handling and Troubleshooting<a class="headerlink" href="#error-handling-and-troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="common-errors">Common Errors<a class="headerlink" href="#common-errors" title="Permanent link">&para;</a></h3>
-<ol>
-<li>ProvisionedThroughputExceededException</li>
-<li>ResourceNotFoundException</li>
-<li>ConditionalCheckFailedException</li>
-<li>ValidationException</li>
-</ol>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>AWS DynamoDB represents a powerful, flexible NoSQL database solution that combines scalability, performance, and ease of management. By understanding its architectural principles and leveraging its advanced features, developers can build robust, high-performance distributed applications.</p>
 
 
 
