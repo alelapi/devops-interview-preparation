@@ -1,4 +1,4 @@
-# AWS DynamoDB: A Comprehensive Overview
+# AWS DynamoDB
 
 ## Introduction to DynamoDB
 
