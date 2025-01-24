@@ -1,4 +1,4 @@
-# AWS DynamoDB
+# AWS DynamoDB: A Comprehensive Overview
 
 ## Introduction to DynamoDB
 
@@ -12,6 +12,78 @@ DynamoDB organizes data in tables, which are collections of items sharing a simi
 ### Primary Key Types
 1. **Simple Primary Key**: Consists of only a partition key, ensuring unique identification of items within the table.
 2. **Composite Primary Key**: Combines a partition key with a sort key, allowing multiple items to share the same partition key while maintaining unique identification through the sort key combination.
+
+## Capacity Unit Calculations
+
+### Read Capacity Units (RCUs)
+RCUs represent the number of reads per second for items up to 4 KB in size.
+
+Calculation Formula:
+```
+Strongly Consistent RCUs = (Size of Item / 4 KB) × Number of Reads per Second
+Eventual Consistent RCUs = (Size of Item / 4 KB) × Number of Reads per Second × 0.5
+```
+
+#### Read Capacity Examples:
+- 4 KB item, 1 strongly consistent read/second: 1 RCU
+- 4 KB item, 1 eventual consistent read/second: 0.5 RCU
+- 8 KB item, 1 strongly consistent read/second: 2 RCUs
+- 8 KB item, 1 eventual consistent read/second: 1 RCU
+- 4 KB item, 10 strongly consistent reads/second: 10 RCUs
+- 4 KB item, 10 eventual consistent reads/second: 5 RCUs
+
+### Write Capacity Units (WCUs)
+WCUs represent the number of writes per second for items up to 1 KB in size.
+
+Calculation Formula:
+```
+WCUs = (Size of Item / 1 KB) × Number of Writes per Second
+```
+
+#### Write Capacity Examples:
+- 1 KB item, 1 write/second: 1 WCU
+- 2 KB item, 1 write/second: 2 WCUs
+- 1 KB item, 10 writes/second: 10 WCUs
+
+### Practical Capacity Planning
+1. Estimate average item size
+2. Determine peak read/write requirements
+3. Calculate base RCUs and WCUs
+4. Add buffer for unexpected traffic
+5. Consider using auto-scaling
+
+## Data Consistency and Pricing
+
+### Consistency Models
+
+#### Eventual Consistent Reads
+- Default read model in DynamoDB
+- Consumes 0.5 Read Capacity Units (RCUs) per 4 KB
+- Typical cost: Approximately 50% cheaper than strong consistent reads
+- Reflects changes within 1 second across database replicas
+
+#### Strong Consistent Reads
+- Guarantees most recent write
+- Consumes 1 Read Capacity Unit (RCU) per 4 KB
+- Provides immediate data consistency
+- Approximately double the cost of eventual consistent reads
+
+### Detailed Cost Breakdown
+
+#### Read Capacity Unit Pricing
+- Eventual Consistent Reads: $0.25 per million read request units
+- Strong Consistent Reads: $0.50 per million read request units
+- On-Demand Mode: Pricing varies by region and request volume
+- Provisioned Mode: Predictable pricing based on pre-allocated capacity
+
+#### Write Capacity Pricing
+- Standard Write Units: $0.47 per million write request units
+- Pricing varies by region and specific AWS configuration
+
+#### Storage Costs
+- First 25 TB per month: $0.25 per GB
+- Over 25 TB: Reduced rates apply
+- Incremental storage charges for backups and global tables
 
 ## Data Model and Attributes
 
