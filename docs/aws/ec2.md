@@ -1,4 +1,4 @@
-# AWS Elastic Compute Cloud (EC2)
+# Elastic Compute Cloud (EC2)
 
 ## Introduction
 
