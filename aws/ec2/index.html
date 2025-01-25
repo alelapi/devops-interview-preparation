@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../autoscaling_groups/">
+        <link rel="prev" href="../ebs/">
       
       
-        <link rel="next" href="../billing/">
+        <link rel="next" href="../elasticache/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>AWS Elastic Beanstalk - My DevOps Interview Preparation</title>
+        <title>AWS Elastic Compute Cloud (EC2) - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aws-elastic-beanstalk" class="md-skip">
+        <a href="#aws-elastic-compute-cloud-ec2" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AWS Elastic Beanstalk
+              AWS Elastic Compute Cloud (EC2)
             
           </span>
         </div>
@@ -568,7 +568,7 @@
         
   
   <span class="md-ellipsis">
-    Amazon API Gateway
+    API Gateway
   </span>
   
 
@@ -589,7 +589,196 @@
         
   
   <span class="md-ellipsis">
-    AWS Auto Scaling Group (ASG)
+    Auto Scaling Group (ASG)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Billing and Cost
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Development Kit (CDK)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codedeploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeDeploy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudfront/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CloudFront
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudtrail/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CloudTrail
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_formation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CloudFormation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cognito/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cognito
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DynamoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ebs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elastic Block Store (EBS)
   </span>
   
 
@@ -619,7 +808,7 @@
           
   
   <span class="md-ellipsis">
-    AWS Elastic Beanstalk
+    AWS Elastic Compute Cloud (EC2)
   </span>
   
 
@@ -630,7 +819,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Elastic Beanstalk
+    AWS Elastic Compute Cloud (EC2)
   </span>
   
 
@@ -652,113 +841,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview-of-aws-elastic-beanstalk" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview of AWS Elastic Beanstalk
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-architectural-philosophy" class="md-nav__link">
+  <a href="#core-architectural-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Architectural Philosophy
+      Core Architectural Components
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Architectural Philosophy">
+    <nav class="md-nav" aria-label="Core Architectural Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deployment-environment-mechanics" class="md-nav__link">
+  <a href="#instance-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment Environment Mechanics
+      Instance Types
     </span>
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-platforms-and-runtime-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Platforms and Runtime Environments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment Strategies
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment Strategies">
+    <nav class="md-nav" aria-label="Instance Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#standard-application-deployment" class="md-nav__link">
+  <a href="#general-purpose-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Standard Application Deployment
+      General Purpose Instances
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#container-based-deployments" class="md-nav__link">
+  <a href="#compute-optimized-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Container-Based Deployments
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-tiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Tiers
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Tiers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#web-server-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Web Server Environment
+      Compute Optimized Instances
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#worker-environment" class="md-nav__link">
+  <a href="#memory-optimized-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Worker Environment
+      Memory Optimized Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-optimized-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Optimized Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accelerated-computing-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accelerated Computing Instances
     </span>
   </a>
   
@@ -775,28 +925,94 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-configuration-management" class="md-nav__link">
+  <a href="#launch-and-management-strategies" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced Configuration Management
+      Launch and Management Strategies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Advanced Configuration Management">
+    <nav class="md-nav" aria-label="Launch and Management Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration-files" class="md-nav__link">
+  <a href="#instance-purchasing-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Files
+      Instance Purchasing Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instance Purchasing Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Demand Instances
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#reserved-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment Variables
+      Reserved Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spot Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dedicated Hosts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-groups-and-network-access-control-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Groups and Network Access Control Lists
     </span>
   </a>
   
@@ -808,28 +1024,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-and-observability" class="md-nav__link">
+  <a href="#storage-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring and Observability
+      Storage Options
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Monitoring and Observability">
+    <nav class="md-nav" aria-label="Storage Options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#health-monitoring" class="md-nav__link">
+  <a href="#amazon-ebs-elastic-block-store" class="md-nav__link">
     <span class="md-ellipsis">
-      Health Monitoring
+      Amazon EBS (Elastic Block Store)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#logging-mechanisms" class="md-nav__link">
+  <a href="#instance-store" class="md-nav__link">
     <span class="md-ellipsis">
-      Logging Mechanisms
+      Instance Store
     </span>
   </a>
   
@@ -841,28 +1057,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-and-compliance" class="md-nav__link">
+  <a href="#monitoring-and-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Security and Compliance
+      Monitoring and Management
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security and Compliance">
+    <nav class="md-nav" aria-label="Monitoring and Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#iam-integration" class="md-nav__link">
+  <a href="#amazon-cloudwatch" class="md-nav__link">
     <span class="md-ellipsis">
-      IAM Integration
+      Amazon CloudWatch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#network-isolation" class="md-nav__link">
+  <a href="#aws-systems-manager" class="md-nav__link">
     <span class="md-ellipsis">
-      Network Isolation
+      AWS Systems Manager
     </span>
   </a>
   
@@ -874,28 +1090,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scaling-and-performance" class="md-nav__link">
+  <a href="#pricing-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Scaling and Performance
+      Pricing Model
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Scaling and Performance">
+    <nav class="md-nav" aria-label="Pricing Model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#auto-scaling" class="md-nav__link">
+  <a href="#factors-influencing-cost" class="md-nav__link">
     <span class="md-ellipsis">
-      Auto Scaling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#load-balancing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Load Balancing
+      Factors Influencing Cost
     </span>
   </a>
   
@@ -907,18 +1114,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pricing-considerations" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Pricing Considerations
+      Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enterprise Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scientific-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#media-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-case-scenarios" class="md-nav__link">
+  <a href="#limitations-and-considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Case Scenarios
+      Limitations and Considerations
     </span>
   </a>
   
@@ -949,179 +1198,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../billing/" class="md-nav__link">
+      <a href="../elastic_beanstalk.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    AWS Billing and Cost Management
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cdk/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS Cloud Development Kit (CDK)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../codedeploy/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS CodeDeploy
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cloudfront/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS CloudFront
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cloudtrail/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS CloudTrail
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cloud_formation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS CloudFormation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cognito/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS Cognito Documentation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dynamodb/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS DynamoDB
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ebs/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Amazon Elastic Block Store (EBS)
+    None
   </span>
   
 
@@ -1142,7 +1223,7 @@
         
   
   <span class="md-ellipsis">
-    AWS ElastiCache
+    ElastiCache
   </span>
   
 
@@ -1163,7 +1244,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Elastic Load Balancer (ELB)
+    Elastic Load Balancer (ELB)
   </span>
   
 
@@ -1184,7 +1265,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Identity and Access Management (IAM)
+    Identity and Access Management (IAM)
   </span>
   
 
@@ -1205,7 +1286,7 @@
         
   
   <span class="md-ellipsis">
-    Amazon Kinesis
+    Kinesis
   </span>
   
 
@@ -1226,7 +1307,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Key Management Service (KMS)
+    Key Management Service (KMS)
   </span>
   
 
@@ -1247,7 +1328,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Lambda
+    Lambda
   </span>
   
 
@@ -1268,7 +1349,7 @@
         
   
   <span class="md-ellipsis">
-    Amazon Simple Storage Service (S3)
+    Simple Storage Service (S3)
   </span>
   
 
@@ -1289,7 +1370,7 @@
         
   
   <span class="md-ellipsis">
-    AWS SAM (Serverless Application Model)
+    Serverless Application Model (SAM)
   </span>
   
 
@@ -1310,7 +1391,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Serverless Application Repository (SAR)
+    Serverless Application Repository (SAR)
   </span>
   
 
@@ -1331,7 +1412,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Simple Queue Service (SQS)
+    Simple Queue Service (SQS)
   </span>
   
 
@@ -1352,7 +1433,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Step Functions
+    Step Functions
   </span>
   
 
@@ -1373,7 +1454,7 @@
         
   
   <span class="md-ellipsis">
-    AWS Trusted Advisor
+    Trusted Advisor
   </span>
   
 
@@ -1394,87 +1475,11 @@
         
   
   <span class="md-ellipsis">
-    AWS X-Ray
+    X-Ray
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_26" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_26" id="__nav_2_26_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    EC2
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_26_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_26">
-            <span class="md-nav__icon md-icon"></span>
-            EC2
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ec2_instance_types/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS EC2 Instance types
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -3899,113 +3904,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview-of-aws-elastic-beanstalk" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview of AWS Elastic Beanstalk
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-architectural-philosophy" class="md-nav__link">
+  <a href="#core-architectural-components" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Architectural Philosophy
+      Core Architectural Components
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Architectural Philosophy">
+    <nav class="md-nav" aria-label="Core Architectural Components">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deployment-environment-mechanics" class="md-nav__link">
+  <a href="#instance-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Deployment Environment Mechanics
+      Instance Types
     </span>
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-platforms-and-runtime-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Platforms and Runtime Environments
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment Strategies
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment Strategies">
+    <nav class="md-nav" aria-label="Instance Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#standard-application-deployment" class="md-nav__link">
+  <a href="#general-purpose-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Standard Application Deployment
+      General Purpose Instances
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#container-based-deployments" class="md-nav__link">
+  <a href="#compute-optimized-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Container-Based Deployments
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#environment-tiers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment Tiers
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment Tiers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#web-server-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Web Server Environment
+      Compute Optimized Instances
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#worker-environment" class="md-nav__link">
+  <a href="#memory-optimized-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Worker Environment
+      Memory Optimized Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-optimized-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Optimized Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accelerated-computing-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accelerated Computing Instances
     </span>
   </a>
   
@@ -4022,28 +3988,94 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-configuration-management" class="md-nav__link">
+  <a href="#launch-and-management-strategies" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced Configuration Management
+      Launch and Management Strategies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Advanced Configuration Management">
+    <nav class="md-nav" aria-label="Launch and Management Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration-files" class="md-nav__link">
+  <a href="#instance-purchasing-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuration Files
+      Instance Purchasing Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instance Purchasing Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-demand-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      On-Demand Instances
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#reserved-instances" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment Variables
+      Reserved Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spot Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dedicated-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dedicated Hosts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networking-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Networking Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-groups-and-network-access-control-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Groups and Network Access Control Lists
     </span>
   </a>
   
@@ -4055,28 +4087,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-and-observability" class="md-nav__link">
+  <a href="#storage-options" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring and Observability
+      Storage Options
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Monitoring and Observability">
+    <nav class="md-nav" aria-label="Storage Options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#health-monitoring" class="md-nav__link">
+  <a href="#amazon-ebs-elastic-block-store" class="md-nav__link">
     <span class="md-ellipsis">
-      Health Monitoring
+      Amazon EBS (Elastic Block Store)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#logging-mechanisms" class="md-nav__link">
+  <a href="#instance-store" class="md-nav__link">
     <span class="md-ellipsis">
-      Logging Mechanisms
+      Instance Store
     </span>
   </a>
   
@@ -4088,28 +4120,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-and-compliance" class="md-nav__link">
+  <a href="#monitoring-and-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Security and Compliance
+      Monitoring and Management
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security and Compliance">
+    <nav class="md-nav" aria-label="Monitoring and Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#iam-integration" class="md-nav__link">
+  <a href="#amazon-cloudwatch" class="md-nav__link">
     <span class="md-ellipsis">
-      IAM Integration
+      Amazon CloudWatch
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#network-isolation" class="md-nav__link">
+  <a href="#aws-systems-manager" class="md-nav__link">
     <span class="md-ellipsis">
-      Network Isolation
+      AWS Systems Manager
     </span>
   </a>
   
@@ -4121,28 +4153,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scaling-and-performance" class="md-nav__link">
+  <a href="#pricing-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Scaling and Performance
+      Pricing Model
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Scaling and Performance">
+    <nav class="md-nav" aria-label="Pricing Model">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#auto-scaling" class="md-nav__link">
+  <a href="#factors-influencing-cost" class="md-nav__link">
     <span class="md-ellipsis">
-      Auto Scaling
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#load-balancing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Load Balancing
+      Factors Influencing Cost
     </span>
   </a>
   
@@ -4154,18 +4177,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pricing-considerations" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Pricing Considerations
+      Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enterprise Applications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scientific-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scientific Computing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#media-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Media Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-case-scenarios" class="md-nav__link">
+  <a href="#limitations-and-considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Case Scenarios
+      Limitations and Considerations
     </span>
   </a>
   
@@ -4198,70 +4263,109 @@
   
 
 
-<h1 id="aws-elastic-beanstalk">AWS Elastic Beanstalk<a class="headerlink" href="#aws-elastic-beanstalk" title="Permanent link">&para;</a></h1>
-<h2 id="overview-of-aws-elastic-beanstalk">Overview of AWS Elastic Beanstalk<a class="headerlink" href="#overview-of-aws-elastic-beanstalk" title="Permanent link">&para;</a></h2>
-<p>AWS Elastic Beanstalk represents a sophisticated platform-as-a-service solution designed to simplify application deployment and management across multiple programming languages and web frameworks. By abstracting the underlying infrastructure complexities, Beanstalk enables developers to focus on writing code rather than managing complex cloud environments.</p>
-<h2 id="core-architectural-philosophy">Core Architectural Philosophy<a class="headerlink" href="#core-architectural-philosophy" title="Permanent link">&para;</a></h2>
-<p>Elastic Beanstalk provides a comprehensive deployment ecosystem that automatically handles infrastructure provisioning, load balancing, auto-scaling, and application health monitoring. The service bridges the gap between manual infrastructure management and full platform abstraction, offering developers granular control while maintaining operational simplicity.</p>
-<h3 id="deployment-environment-mechanics">Deployment Environment Mechanics<a class="headerlink" href="#deployment-environment-mechanics" title="Permanent link">&para;</a></h3>
-<p>When an application is deployed through Elastic Beanstalk, the service creates a comprehensive infrastructure stack tailored to the specific application requirements. This includes selecting appropriate compute resources, configuring network settings, and establishing necessary communication pathways between different architectural components.</p>
-<h2 id="supported-platforms-and-runtime-environments">Supported Platforms and Runtime Environments<a class="headerlink" href="#supported-platforms-and-runtime-environments" title="Permanent link">&para;</a></h2>
-<p>Elastic Beanstalk supports a diverse range of programming languages and frameworks, providing native integration for:</p>
+<h1 id="aws-elastic-compute-cloud-ec2">AWS Elastic Compute Cloud (EC2)<a class="headerlink" href="#aws-elastic-compute-cloud-ec2" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Amazon Elastic Compute Cloud (EC2) is a fundamental web service providing scalable, flexible computing capacity in the AWS cloud. It enables users to launch, manage, and scale virtual server instances with complete control over computing resources, supporting a wide range of workloads from simple web hosting to complex enterprise applications.</p>
+<h2 id="core-architectural-components">Core Architectural Components<a class="headerlink" href="#core-architectural-components" title="Permanent link">&para;</a></h2>
+<h3 id="instance-types">Instance Types<a class="headerlink" href="#instance-types" title="Permanent link">&para;</a></h3>
+<p>EC2 offers diverse instance categories optimized for specific use cases:</p>
+<h4 id="general-purpose-instances">General Purpose Instances<a class="headerlink" href="#general-purpose-instances" title="Permanent link">&para;</a></h4>
+<p>Balanced compute, memory, and networking resources suitable for a broad range of workloads. These instances provide an equilibrium between different computational resources, making them versatile for web servers, small databases, and development environments.</p>
+<h4 id="compute-optimized-instances">Compute Optimized Instances<a class="headerlink" href="#compute-optimized-instances" title="Permanent link">&para;</a></h4>
+<p>Designed for compute-intensive applications requiring high-performance processors. Ideal for batch processing, media transcoding, high-performance web servers, machine learning inference, and scientific modeling.</p>
+<h4 id="memory-optimized-instances">Memory Optimized Instances<a class="headerlink" href="#memory-optimized-instances" title="Permanent link">&para;</a></h4>
+<p>Engineered to deliver fast performance for workloads processing large datasets in memory. Critical for high-performance databases, distributed web scale cache, in-memory analytics, and real-time big data processing.</p>
+<h4 id="storage-optimized-instances">Storage Optimized Instances<a class="headerlink" href="#storage-optimized-instances" title="Permanent link">&para;</a></h4>
+<p>Provide high, sequential read/write access to large datasets. Optimal for distributed file systems, data warehousing, and high-frequency online transaction processing (OLTP) systems.</p>
+<h4 id="accelerated-computing-instances">Accelerated Computing Instances<a class="headerlink" href="#accelerated-computing-instances" title="Permanent link">&para;</a></h4>
+<p>Incorporate hardware accelerators or co-processors for specialized computational tasks. Leveraged extensively in machine learning, graphics rendering, and cryptocurrency mining.</p>
+<h2 id="launch-and-management-strategies">Launch and Management Strategies<a class="headerlink" href="#launch-and-management-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="instance-purchasing-options">Instance Purchasing Options<a class="headerlink" href="#instance-purchasing-options" title="Permanent link">&para;</a></h3>
+<h4 id="on-demand-instances">On-Demand Instances<a class="headerlink" href="#on-demand-instances" title="Permanent link">&para;</a></h4>
+<p>Pay for compute capacity by the hour or second with no long-term commitments. Provides maximum flexibility for unpredictable workloads and short-term applications.</p>
+<h4 id="reserved-instances">Reserved Instances<a class="headerlink" href="#reserved-instances" title="Permanent link">&para;</a></h4>
+<p>Offer significant cost savings by committing to specific instance configurations for 1-3 year terms. Ideal for predictable, steady-state workloads with consistent computational requirements.</p>
+<h4 id="spot-instances">Spot Instances<a class="headerlink" href="#spot-instances" title="Permanent link">&para;</a></h4>
+<p>Enable purchasing unused EC2 capacity at steep discounts, potentially up to 90% off on-demand pricing. Suitable for fault-tolerant, flexible workloads like batch processing and scientific computing.</p>
+<h4 id="dedicated-hosts">Dedicated Hosts<a class="headerlink" href="#dedicated-hosts" title="Permanent link">&para;</a></h4>
+<p>Provide physical servers dedicated exclusively to a single customer, addressing complex licensing and compliance requirements.</p>
+<h2 id="networking-capabilities">Networking Capabilities<a class="headerlink" href="#networking-capabilities" title="Permanent link">&para;</a></h2>
+<h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
+<p>EC2 instances operate within Virtual Private Clouds (VPCs), offering granular control over network environments. Users can configure:
+- IP address ranges
+- Subnet creation
+- Route table management
+- Network gateway configurations</p>
+<h3 id="security-groups-and-network-access-control-lists">Security Groups and Network Access Control Lists<a class="headerlink" href="#security-groups-and-network-access-control-lists" title="Permanent link">&para;</a></h3>
+<p>Robust security mechanisms controlling inbound and outbound traffic at instance and subnet levels, enabling precise access management and network segmentation.</p>
+<h2 id="storage-options">Storage Options<a class="headerlink" href="#storage-options" title="Permanent link">&para;</a></h2>
+<h3 id="amazon-ebs-elastic-block-store">Amazon EBS (Elastic Block Store)<a class="headerlink" href="#amazon-ebs-elastic-block-store" title="Permanent link">&para;</a></h3>
+<p>Persistent block-level storage volumes attachable to EC2 instances. Supports various volume types:
+- General Purpose SSD
+- Provisioned IOPS SSD
+- Throughput Optimized HDD
+- Cold HDD</p>
+<h3 id="instance-store">Instance Store<a class="headerlink" href="#instance-store" title="Permanent link">&para;</a></h3>
+<p>Temporary block-level storage directly attached to the host computer, providing high I/O performance for temporary data.</p>
+<h2 id="monitoring-and-management">Monitoring and Management<a class="headerlink" href="#monitoring-and-management" title="Permanent link">&para;</a></h2>
+<h3 id="amazon-cloudwatch">Amazon CloudWatch<a class="headerlink" href="#amazon-cloudwatch" title="Permanent link">&para;</a></h3>
+<p>Provides comprehensive monitoring capabilities:
+- Performance metrics
+- Resource utilization tracking
+- Automated scaling
+- Custom metric creation</p>
+<h3 id="aws-systems-manager">AWS Systems Manager<a class="headerlink" href="#aws-systems-manager" title="Permanent link">&para;</a></h3>
+<p>Enables centralized operational management across AWS resources, facilitating:
+- Configuration management
+- Patch management
+- Automated tasks
+- Compliance tracking</p>
+<h2 id="pricing-model">Pricing Model<a class="headerlink" href="#pricing-model" title="Permanent link">&para;</a></h2>
+<h3 id="factors-influencing-cost">Factors Influencing Cost<a class="headerlink" href="#factors-influencing-cost" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Java with Apache Tomcat</li>
-<li>.NET on Windows Server platform</li>
-<li>PHP applications</li>
-<li>Node.js web services</li>
-<li>Python with Django and Flask</li>
-<li>Ruby on Rails</li>
-<li>Go language web applications</li>
-<li>Docker containerized deployments</li>
+<li>Instance type</li>
+<li>Region</li>
+<li>Operating system</li>
+<li>Purchasing option</li>
+<li>Additional services and data transfer</li>
 </ul>
-<h2 id="deployment-strategies">Deployment Strategies<a class="headerlink" href="#deployment-strategies" title="Permanent link">&para;</a></h2>
-<h3 id="standard-application-deployment">Standard Application Deployment<a class="headerlink" href="#standard-application-deployment" title="Permanent link">&para;</a></h3>
-<p>Developers can upload application code directly through the AWS Management Console, CLI, or SDK. Beanstalk automatically provisions the necessary infrastructure, configures environment variables, and manages application lifecycle.</p>
-<h3 id="container-based-deployments">Container-Based Deployments<a class="headerlink" href="#container-based-deployments" title="Permanent link">&para;</a></h3>
-<p>For more complex architectural requirements, Beanstalk supports Docker containerization. This approach allows developers to package applications with their dependencies, ensuring consistent behavior across different deployment environments.</p>
-<h2 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="environment-tiers">Environment Tiers<a class="headerlink" href="#environment-tiers" title="Permanent link">&para;</a></h3>
-<p>Beanstalk offers two primary environment configurations:</p>
-<h4 id="web-server-environment">Web Server Environment<a class="headerlink" href="#web-server-environment" title="Permanent link">&para;</a></h4>
-<p>Designed for hosting web applications and services with direct internet accessibility. These environments automatically configure load balancers and auto-scaling groups to manage incoming web traffic.</p>
-<h4 id="worker-environment">Worker Environment<a class="headerlink" href="#worker-environment" title="Permanent link">&para;</a></h4>
-<p>Optimized for background processing and asynchronous task execution. Worker environments integrate seamlessly with Amazon SQS for managing distributed computational workloads.</p>
-<h2 id="advanced-configuration-management">Advanced Configuration Management<a class="headerlink" href="#advanced-configuration-management" title="Permanent link">&para;</a></h2>
-<p>Elastic Beanstalk provides multiple mechanisms for customizing deployment environments:</p>
-<h3 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h3>
-<p>Developers can include <code>.ebextensions</code> configuration files within their application package, enabling intricate environment customization without manual infrastructure modification.</p>
-<h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
-<p>Comprehensive support for dynamic configuration through environment-specific variables, allowing seamless transition between development, staging, and production environments.</p>
-<h2 id="monitoring-and-observability">Monitoring and Observability<a class="headerlink" href="#monitoring-and-observability" title="Permanent link">&para;</a></h2>
-<h3 id="health-monitoring">Health Monitoring<a class="headerlink" href="#health-monitoring" title="Permanent link">&para;</a></h3>
-<p>Beanstalk continuously monitors application and infrastructure health, automatically replacing failed instances and providing detailed diagnostic information through integrated CloudWatch metrics.</p>
-<h3 id="logging-mechanisms">Logging Mechanisms<a class="headerlink" href="#logging-mechanisms" title="Permanent link">&para;</a></h3>
-<p>Comprehensive logging capabilities capture application and system-level events, facilitating efficient troubleshooting and performance optimization.</p>
-<h2 id="security-and-compliance">Security and Compliance<a class="headerlink" href="#security-and-compliance" title="Permanent link">&para;</a></h2>
-<h3 id="iam-integration">IAM Integration<a class="headerlink" href="#iam-integration" title="Permanent link">&para;</a></h3>
-<p>Deep integration with AWS Identity and Access Management allows granular access control and role-based permissions for environment management.</p>
-<h3 id="network-isolation">Network Isolation<a class="headerlink" href="#network-isolation" title="Permanent link">&para;</a></h3>
-<p>Support for Amazon Virtual Private Cloud (VPC) enables secure, isolated network environments with customizable security group configurations.</p>
-<h2 id="scaling-and-performance">Scaling and Performance<a class="headerlink" href="#scaling-and-performance" title="Permanent link">&para;</a></h2>
-<h3 id="auto-scaling">Auto Scaling<a class="headerlink" href="#auto-scaling" title="Permanent link">&para;</a></h3>
-<p>Intelligent auto-scaling mechanisms automatically adjust computational resources based on predefined performance metrics, ensuring optimal application responsiveness during variable traffic conditions.</p>
-<h3 id="load-balancing">Load Balancing<a class="headerlink" href="#load-balancing" title="Permanent link">&para;</a></h3>
-<p>Integrated elastic load balancing distributes incoming traffic across multiple instances, providing enhanced reliability and performance.</p>
-<h2 id="pricing-considerations">Pricing Considerations<a class="headerlink" href="#pricing-considerations" title="Permanent link">&para;</a></h2>
-<p>Elastic Beanstalk itself is a free service. Customers are charged only for the underlying AWS resources provisioned during application deployment, such as EC2 instances, load balancers, and data transfer.</p>
-<h2 id="use-case-scenarios">Use Case Scenarios<a class="headerlink" href="#use-case-scenarios" title="Permanent link">&para;</a></h2>
+<h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="enterprise-applications">Enterprise Applications<a class="headerlink" href="#enterprise-applications" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Rapid web application deployment</li>
-<li>Microservices architecture</li>
-<li>Continuous integration and deployment pipelines</li>
-<li>Scalable enterprise applications</li>
-<li>Prototype and development environment management</li>
+<li>Web hosting</li>
+<li>Enterprise application servers</li>
+<li>Development and testing environments</li>
+</ul>
+<h3 id="scientific-computing">Scientific Computing<a class="headerlink" href="#scientific-computing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>High-performance computing</li>
+<li>Genomic research</li>
+<li>Climate modeling</li>
+</ul>
+<h3 id="media-processing">Media Processing<a class="headerlink" href="#media-processing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Video rendering</li>
+<li>Transcoding</li>
+<li>Content delivery</li>
+</ul>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Right-size instances based on workload</li>
+<li>Implement auto-scaling</li>
+<li>Utilize multiple availability zones</li>
+<li>Leverage appropriate purchasing models</li>
+<li>Implement robust security configurations</li>
+<li>Continuously monitor performance metrics</li>
+</ul>
+<h2 id="limitations-and-considerations">Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Maximum of 20 On-Demand instances per region</li>
+<li>Specific service quotas and limits</li>
+<li>Regional availability variations</li>
+<li>Potential data transfer costs</li>
 </ul>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>AWS Elastic Beanstalk offers a powerful, flexible platform for application deployment, removing infrastructure complexity while providing developers comprehensive control over their computational environments.</p>
+<p>AWS EC2 represents a powerful, flexible computing platform enabling organizations to scale computational resources dynamically, efficiently, and cost-effectively. By understanding its comprehensive capabilities, users can design robust, scalable cloud architectures tailored to diverse computational requirements.</p>
 
 
 
@@ -4297,7 +4401,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../autoscaling_groups/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Auto Scaling Group (ASG)">
+          <a href="../ebs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elastic Block Store (EBS)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4307,20 +4411,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                AWS Auto Scaling Group (ASG)
+                Elastic Block Store (EBS)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../billing/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS Billing and Cost Management">
+          <a href="../elasticache/" class="md-footer__link md-footer__link--next" aria-label="Next: ElastiCache">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                AWS Billing and Cost Management
+                ElastiCache
               </div>
             </div>
             <div class="md-footer__button md-icon">
