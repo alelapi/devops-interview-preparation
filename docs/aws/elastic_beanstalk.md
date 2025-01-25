@@ -1,4 +1,4 @@
-# AWS Elastic Beanstalk
+# Elastic Beanstalk
 
 ## Overview of AWS Elastic Beanstalk
 
