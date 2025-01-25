@@ -10,7 +10,11 @@ AWS CodeCommit is a fully managed source control service provided by Amazon Web 
 CodeCommit provides a comprehensive platform for creating, managing, and interacting with Git repositories. Developers can seamlessly store and version their source code, documentation, and binary files within a secure, highly available cloud environment. The service supports standard Git commands and integrates natively with existing development workflows.
 
 ### Security and Access Control
-Security represents a fundamental design principle of CodeCommit. The service leverages AWS Identity and Access Management (IAM) to implement granular access controls. Organizations can define precise repository permissions, controlling who can view, modify, or delete repository contents. Multi-factor authentication and encryption at rest and in transit ensure comprehensive data protection.
+Security represents a fundamental design principle of CodeCommit. The service leverages AWS Identity and Access Management (IAM) to implement granular access controls. Organizations can define precise repository permissions, controlling who can view, modify, or delete repository contents. 
+Multi-factor authentication and encryption at rest and in transit ensure comprehensive data protection.
+- Repositories are automatically encrypted at rest using AWS KMS.
+- Encryption in transit is guaranteed by using HTTPS or SSH.
+For cross-account access sharing use a IAM Role and STS AssumeRole
 
 ## Integration Capabilities
 
@@ -23,7 +27,11 @@ The service supports standard Git client tools, including command-line interface
 ## Authentication Mechanisms
 
 ### IAM User Authentication
-AWS provides multiple authentication methods for accessing CodeCommit repositories. IAM users can generate secure HTTPS or SSH credentials, enabling secure repository access. The credential management system allows for easy rotation and revocation of access keys.
+AWS provides multiple authentication methods for accessing CodeCommit repositories. IAM users can generate:
+- SSH Keys: User can generate SSH Keys in the IAM console
+- HTTPS: with AWS CLI Credentials helper or Git Credentials for IAM User
+The credential management system allows for easy rotation and revocation of access keys.
+
 
 ### Federated Access
 Organizations using corporate directory services can implement federated access through AWS Single Sign-On (SSO) or third-party identity providers. This approach simplifies authentication while maintaining robust security standards.
