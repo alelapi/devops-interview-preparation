@@ -1,4 +1,4 @@
-# AWS X-Ray
+# X-Ray
 
 ## Introduction
 

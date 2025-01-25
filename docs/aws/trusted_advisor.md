@@ -1,4 +1,4 @@
-# AWS Trusted Advisor
+# Trusted Advisor
 
 AWS Trusted Advisor is a tool designed to help AWS customers optimize their cloud environments. It provides real-time guidance on improving the performance, security, cost efficiency, fault tolerance, and service limits of AWS resources.
 

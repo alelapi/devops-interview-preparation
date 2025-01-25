@@ -1,4 +1,4 @@
-# AWS Key Management Service (KMS)
+# Key Management Service (KMS)
 
 ## Overview
 

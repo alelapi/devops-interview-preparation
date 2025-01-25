@@ -1,4 +1,4 @@
-# AWS CloudFormation
+# CloudFormation
 
 ## Introduction
 

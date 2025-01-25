@@ -1,4 +1,4 @@
-# AWS ElastiCache
+# ElastiCache
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# AWS Auto Scaling Group (ASG)
+# Auto Scaling Group (ASG)
 
 ## Overview
 An Auto Scaling Group (ASG) in AWS is a service that automatically scales EC2 instances based on defined conditions. It helps maintain application availability by ensuring you're running the desired number of instances.

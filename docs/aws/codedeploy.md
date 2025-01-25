@@ -1,4 +1,4 @@
-# AWS CodeDeploy
+# CodeDeploy
 
 ## Overview
 

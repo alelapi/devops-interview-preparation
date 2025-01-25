@@ -1,4 +1,4 @@
-# Amazon Kinesis
+# Kinesis
 
 ## Overview
 Amazon Kinesis is a platform for streaming data on AWS, making it easy to collect, process, and analyze real-time streaming data. It enables you to process and analyze data as it arrives and respond instantly instead of having to wait until all your data is collected before processing can begin.

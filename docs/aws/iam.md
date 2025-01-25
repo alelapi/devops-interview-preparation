@@ -1,4 +1,4 @@
-# AWS Identity and Access Management (IAM)
+# Identity and Access Management (IAM)
 
 AWS Identity and Access Management (IAM) secures AWS resources by managing access through policies. Policies are JSON documents that define permissions, ensuring only authorized entities can perform actions. By default, all requests are denied unless explicitly allowed by a policy.
 

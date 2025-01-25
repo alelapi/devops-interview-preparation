@@ -1,4 +1,4 @@
-# AWS CloudTrail
+# CloudTrail
 
 ## Overview of Cloud Governance and Audit Logging
 

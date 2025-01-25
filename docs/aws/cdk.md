@@ -1,4 +1,4 @@
-# AWS Cloud Development Kit (CDK)
+# Cloud Development Kit (CDK)
 
 ## Introduction
 

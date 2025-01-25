@@ -1,4 +1,4 @@
-# Amazon Elastic Block Store (EBS)
+# Elastic Block Store (EBS)
 
 Amazon Elastic Block Store (EBS) is a scalable, high-performance block storage service designed for Amazon Elastic Compute Cloud (EC2) instances. It provides persistent storage that can be attached to EC2 instances to store data in a highly available and durable manner.
 

@@ -1,4 +1,4 @@
-# AWS DynamoDB
+# DynamoDB
 
 ## Introduction to DynamoDB
 

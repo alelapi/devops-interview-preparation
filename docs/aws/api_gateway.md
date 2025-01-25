@@ -1,4 +1,4 @@
-# Amazon API Gateway
+# API Gateway
 
 Amazon API Gateway is a fully managed service provided by AWS for creating, deploying, and managing APIs at any scale. It supports both RESTful APIs and WebSocket APIs, enabling real-time two-way communication between applications.
 

@@ -1,4 +1,4 @@
-# AWS Elastic Load Balancer (ELB)
+# Elastic Load Balancer (ELB)
 
 Amazon Elastic Load Balancer (ELB) is a fully managed load-balancing service that automatically distributes incoming application traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses. It helps ensure high availability, fault tolerance, and scalability of applications.
 

@@ -1,4 +1,4 @@
-# AWS Simple Queue Service (SQS)
+# Simple Queue Service (SQS)
 
 ## Overview of Messaging Architecture
 

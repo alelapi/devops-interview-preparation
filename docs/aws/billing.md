@@ -1,4 +1,4 @@
-# AWS Billing and Cost Management
+# Billing and Cost
 
 AWS Billing and Cost Management is a suite of tools that helps you monitor, manage, and optimize your AWS usage and costs. It provides features for budgeting, analyzing usage patterns, and forecasting future expenses to ensure cost-effective resource management.
 

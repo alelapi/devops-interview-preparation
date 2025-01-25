@@ -1,4 +1,4 @@
-# AWS CloudFront
+# CloudFront
 
 ## Overview
 

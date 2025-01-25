@@ -1,4 +1,4 @@
-# AWS Cognito Documentation
+# Cognito
 
 ## Overview
 
