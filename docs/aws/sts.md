@@ -34,6 +34,18 @@ STS provides robust MFA capabilities through the `GetSessionToken` method:
     - Session Token
     - Expiration date
 
+## Troubleshooting
+
+When an autherization error is raised like this one:
+```
+Encoded authorization failure message: 6h34GtpmGjJJUm946eDVBfzWQJk6z5GePbbGDs9Z2T8xZj9EZtEduSnTbmrR7pMqpJrVYJCew2m8YBZQf4HRWEtrpncANrZMsnzk
+```
+
+It's possilble to decode the message using:
+```
+aws sts decode-authorization-message
+```
+
 ## Important Note
 
 For web identity authentication, AWS recommends using Cognito Identity Pools instead of direct STS web identity credential generation.
