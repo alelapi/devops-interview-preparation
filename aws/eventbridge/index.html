@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../cni_components/">
+        <link rel="prev" href="../elb/">
       
       
-        <link rel="next" href="../SMI/what_is_a_service_mesh/">
+        <link rel="next" href="../iam/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
-        <title>Cloud Provider Interface (CPI) - My DevOps Interview Preparation</title>
+        <title>EventBridge - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/app.css">
+      <link rel="stylesheet" href="../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cloud-provider-interface-cpi" class="md-skip">
+        <a href="#eventbridge" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cloud Provider Interface (CPI)
+              EventBridge
             
           </span>
         </div>
@@ -219,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -234,11 +234,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../aws/api_gateway/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../api_gateway/" class="md-tabs__link">
           
   
     
@@ -258,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
     
@@ -278,7 +280,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
     
@@ -294,13 +296,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../envoy/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../kubernetes/envoy/" class="md-tabs__link">
           
   
     
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
     
@@ -340,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
     
@@ -360,7 +360,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
     
@@ -380,7 +380,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
     
@@ -415,7 +415,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -462,8 +462,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -528,19 +530,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -551,7 +556,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             AWS
@@ -565,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/api_gateway/" class="md-nav__link">
+      <a href="../api_gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -586,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/autoscaling_groups/" class="md-nav__link">
+      <a href="../autoscaling_groups/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -607,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/billing/" class="md-nav__link">
+      <a href="../billing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -628,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cdk/" class="md-nav__link">
+      <a href="../cdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/codecommit/" class="md-nav__link">
+      <a href="../codecommit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/codedeploy/" class="md-nav__link">
+      <a href="../codedeploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudformation/" class="md-nav__link">
+      <a href="../cloudformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -712,7 +717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudfront/" class="md-nav__link">
+      <a href="../cloudfront/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudtrail/" class="md-nav__link">
+      <a href="../cloudtrail/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudwatch/" class="md-nav__link">
+      <a href="../cloudwatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -775,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cognito/" class="md-nav__link">
+      <a href="../cognito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/dynamodb/" class="md-nav__link">
+      <a href="../dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -817,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/ebs/" class="md-nav__link">
+      <a href="../ebs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -838,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/ec2/" class="md-nav__link">
+      <a href="../ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -859,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/elastic_beanstalk/" class="md-nav__link">
+      <a href="../elastic_beanstalk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/elasticache/" class="md-nav__link">
+      <a href="../elasticache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -901,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/elb/" class="md-nav__link">
+      <a href="../elb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -919,10 +924,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../aws/eventbridge/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    EventBridge
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -931,6 +956,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Functionality
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Functionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-and-event-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling and Event Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-event-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Event Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Event Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-bus-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Bus Capabilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-archiving-and-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Archiving and Replay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-registry-intelligent-event-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema Registry: Intelligent Event Understanding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-based-policy-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource-Based Policy Management
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -943,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/iam/" class="md-nav__link">
+      <a href="../iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +1084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/kinesis/" class="md-nav__link">
+      <a href="../kinesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +1105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/kms/" class="md-nav__link">
+      <a href="../kms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/lambda/" class="md-nav__link">
+      <a href="../lambda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/s3/" class="md-nav__link">
+      <a href="../s3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sam/" class="md-nav__link">
+      <a href="../sam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1069,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sar/" class="md-nav__link">
+      <a href="../sar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sqs/" class="md-nav__link">
+      <a href="../sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1111,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/step_function/" class="md-nav__link">
+      <a href="../step_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1132,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../trusted_advisor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1153,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1241,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1262,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1283,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1304,7 +1424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1325,7 +1445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1367,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1388,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1409,7 +1529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1507,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1528,7 +1648,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1549,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1570,7 +1690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1591,7 +1711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1612,7 +1732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1633,7 +1753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1654,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1675,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1696,7 +1816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1717,7 +1837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1738,7 +1858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1759,7 +1879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1780,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1805,10 +1925,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1845,22 +1963,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1871,7 +1986,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -1885,7 +2000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../envoy/" class="md-nav__link">
+      <a href="../../kubernetes/envoy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1906,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1927,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_security_admission/" class="md-nav__link">
+      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1948,7 +2063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../admission_controller/" class="md-nav__link">
+      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1969,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1990,7 +2105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aggregation_layer/" class="md-nav__link">
+      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2011,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../encryptionconfig/" class="md-nav__link">
+      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2032,7 +2147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../submariner/" class="md-nav__link">
+      <a href="../../kubernetes/submariner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2053,7 +2168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubefed/" class="md-nav__link">
+      <a href="../../kubernetes/kubefed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2074,7 +2189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_disruption_budget/" class="md-nav__link">
+      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2095,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network_tools.md" class="md-nav__link">
+      <a href="../../kubernetes/network_tools.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2116,7 +2231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability_tools/" class="md-nav__link">
+      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2137,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../endpoint/" class="md-nav__link">
+      <a href="../../kubernetes/endpoint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2155,10 +2270,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2174,21 +2287,18 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2199,7 +2309,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_14">
             <span class="md-nav__icon md-icon"></span>
             Open Standards
@@ -2213,7 +2323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../open_standards/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2234,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cni_components/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2252,30 +2362,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Cloud Provider Interface (CPI)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2284,128 +2374,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#example-use-case-exposing-a-service-using-cloud-load-balancer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example Use Case: Exposing a Service Using Cloud Load Balancer
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Example Use Case: Exposing a Service Using Cloud Load Balancer">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Prerequisites
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-deployment-and-service-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Deployment and Service Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Deployment and Service Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-with-load-balancer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Service with Load Balancer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Explanation:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-how-it-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. How It Works
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-verifying-the-load-balancer" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Verifying the Load Balancer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-cloud-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Cloud Providers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2468,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2489,7 +2457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SMI/istio/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2510,7 +2478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SMI/linkerd/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2531,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SMI/description/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2601,20 +2569,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
         
           
-          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2639,7 +2604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2660,7 +2625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2681,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2702,7 +2667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2723,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2744,7 +2709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2765,7 +2730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2786,7 +2751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2807,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2828,7 +2793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2849,7 +2814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2870,7 +2835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2891,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2985,7 +2950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3006,7 +2971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3027,7 +2992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3048,7 +3013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3069,7 +3034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3090,7 +3055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3111,7 +3076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3132,7 +3097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3224,7 +3189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3245,7 +3210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3266,7 +3231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3287,7 +3252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3308,7 +3273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3329,7 +3294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3350,7 +3315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3371,7 +3336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3392,7 +3357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3413,7 +3378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3434,7 +3399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3516,7 +3481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3537,7 +3502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3558,7 +3523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3579,7 +3544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3600,7 +3565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3621,7 +3586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3693,7 +3658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3741,61 +3706,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-use-case-exposing-a-service-using-cloud-load-balancer" class="md-nav__link">
+  <a href="#core-functionality" class="md-nav__link">
     <span class="md-ellipsis">
-      Example Use Case: Exposing a Service Using Cloud Load Balancer
+      Core Functionality
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Example Use Case: Exposing a Service Using Cloud Load Balancer">
+    <nav class="md-nav" aria-label="Core Functionality">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prerequisites" class="md-nav__link">
+  <a href="#scheduling-and-event-patterns" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Prerequisites
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-deployment-and-service-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Deployment and Service Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Deployment and Service Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Deployment
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-with-load-balancer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Service with Load Balancer
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#explanation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Explanation:
+      Scheduling and Event Patterns
     </span>
   </a>
   
@@ -3807,36 +3730,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-how-it-works" class="md-nav__link">
+  <a href="#advanced-event-management" class="md-nav__link">
     <span class="md-ellipsis">
-      3. How It Works
+      Advanced Event Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Event Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-bus-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Bus Capabilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-archiving-and-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event Archiving and Replay
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-registry-intelligent-event-understanding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema Registry: Intelligent Event Understanding
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-verifying-the-load-balancer" class="md-nav__link">
+  <a href="#resource-based-policy-management" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Verifying the Load Balancer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-cloud-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Cloud Providers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
+      Resource-Based Policy Management
     </span>
   </a>
   
@@ -3860,115 +3798,31 @@
   
 
 
-<h1 id="cloud-provider-interface-cpi">Cloud Provider Interface (CPI)<a class="headerlink" href="#cloud-provider-interface-cpi" title="Permanent link">&para;</a></h1>
-<p>The <strong>Cloud Provider Interface (CPI)</strong> is a Kubernetes standard that allows Kubernetes clusters to integrate with cloud providers for managing cloud-specific infrastructure. It enables provisioning of resources like nodes, load balancers, and persistent storage by abstracting cloud platform details.</p>
-<p>Below is an example of integrating a Kubernetes cluster with a <strong>Cloud Provider Interface (CPI)</strong> for managing a <strong>Load Balancer</strong> on a cloud provider.</p>
-<hr />
-<h2 id="example-use-case-exposing-a-service-using-cloud-load-balancer"><strong>Example Use Case</strong>: Exposing a Service Using Cloud Load Balancer<a class="headerlink" href="#example-use-case-exposing-a-service-using-cloud-load-balancer" title="Permanent link">&para;</a></h2>
-<p>This example demonstrates how the <strong>Cloud Provider Interface</strong> enables Kubernetes to provision a cloud-based load balancer to expose a service.</p>
-<hr />
-<h3 id="1-prerequisites"><strong>1. Prerequisites</strong><a class="headerlink" href="#1-prerequisites" title="Permanent link">&para;</a></h3>
+<h1 id="eventbridge">EventBridge<a class="headerlink" href="#eventbridge" title="Permanent link">&para;</a></h1>
+<h2 id="core-functionality">Core Functionality<a class="headerlink" href="#core-functionality" title="Permanent link">&para;</a></h2>
+<p>Amazon EventBridge serves as a powerful serverless event bus that enables seamless integration and automation across AWS services and applications. It provides three primary mechanisms for event handling: scheduled jobs, event pattern matching, and cross-account event routing.</p>
+<h3 id="scheduling-and-event-patterns">Scheduling and Event Patterns<a class="headerlink" href="#scheduling-and-event-patterns" title="Permanent link">&para;</a></h3>
+<p>EventBridge supports sophisticated scheduling through cron jobs, allowing precise timing of script executions. Beyond scheduling, it excels at event pattern recognition, enabling real-time reactions to service-level activities. Organizations can trigger diverse actions like invoking Lambda functions, dispatching messages to SQS or SNS, and orchestrating complex workflows based on specific event conditions.</p>
+<h2 id="advanced-event-management">Advanced Event Management<a class="headerlink" href="#advanced-event-management" title="Permanent link">&para;</a></h2>
+<h3 id="event-bus-capabilities">Event Bus Capabilities<a class="headerlink" href="#event-bus-capabilities" title="Permanent link">&para;</a></h3>
+<p>Event buses in EventBridge offer remarkable flexibility. They can be configured with resource-based policies, permitting access from external AWS accounts. This feature enables centralized event aggregation and cross-account event sharing with granular permission controls.</p>
+<h3 id="event-archiving-and-replay">Event Archiving and Replay<a class="headerlink" href="#event-archiving-and-replay" title="Permanent link">&para;</a></h3>
+<p>A standout feature of EventBridge is its comprehensive event archiving mechanism. Users can archive events comprehensively or apply sophisticated filtering, storing event data either indefinitely or for specified durations. The ability to replay archived events provides powerful debugging and recovery capabilities.</p>
+<h2 id="schema-registry-intelligent-event-understanding">Schema Registry: Intelligent Event Understanding<a class="headerlink" href="#schema-registry-intelligent-event-understanding" title="Permanent link">&para;</a></h2>
+<p>EventBridge introduces an intelligent Schema Registry that automatically analyzes and infers schemas from events traversing the event bus. This capability allows applications to:</p>
 <ul>
-<li>A Kubernetes cluster running on a supported cloud provider (AWS, GCP, Azure).</li>
-<li>The <strong>Cloud Controller Manager</strong> for the cloud provider must be deployed and configured.</li>
+<li>Automatically generate code reflecting event structures</li>
+<li>Maintain versioned schema definitions</li>
+<li>Enhance predictability and type safety in event-driven architectures</li>
 </ul>
-<hr />
-<h3 id="2-deployment-and-service-configuration"><strong>2. Deployment and Service Configuration</strong><a class="headerlink" href="#2-deployment-and-service-configuration" title="Permanent link">&para;</a></h3>
-<h4 id="sample-deployment"><strong>Sample Deployment</strong><a class="headerlink" href="#sample-deployment" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-deployment</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">          </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
-<span class="w">          </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
-</code></pre></div>
-<h4 id="service-with-load-balancer"><strong>Service with Load Balancer</strong><a class="headerlink" href="#service-with-load-balancer" title="Permanent link">&para;</a></h4>
-<p>The following service definition provisions a cloud load balancer using the <strong>CPI</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-service</span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">service.beta.kubernetes.io/aws-load-balancer-type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nlb&quot;</span><span class="w"> </span><span class="c1"># AWS-specific annotation (optional)</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
-<span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
-</code></pre></div>
-<h3 id="explanation"><strong>Explanation</strong>:<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<h2 id="resource-based-policy-management">Resource-Based Policy Management<a class="headerlink" href="#resource-based-policy-management" title="Permanent link">&para;</a></h2>
+<p>EventBridge&rsquo;s resource-based policies enable precise control over event bus permissions. Organizations can:</p>
 <ul>
-<li><strong>Type: LoadBalancer</strong>: Tells Kubernetes to provision an external cloud load balancer.</li>
-<li><strong>Annotations</strong>: Optional cloud-specific configurations (e.g., specifying the load balancer type in AWS).</li>
-<li><strong>Selector</strong>: Targets pods labeled with <code>app: nginx</code>.</li>
+<li>Define granular access controls for specific event buses</li>
+<li>Manage cross-account and cross-region event interactions</li>
+<li>Implement complex event aggregation strategies</li>
 </ul>
-<hr />
-<h2 id="3-how-it-works"><strong>3. How It Works</strong><a class="headerlink" href="#3-how-it-works" title="Permanent link">&para;</a></h2>
-<ol>
-<li>When the service is created with <code>type: LoadBalancer</code>, the <strong>CPI Cloud Controller Manager</strong> interacts with the cloud provider&rsquo;s API.</li>
-<li>A cloud load balancer (e.g., AWS Elastic Load Balancer, Azure Load Balancer, or GCP Load Balancer) is provisioned automatically.</li>
-<li>The load balancer routes external traffic to the Kubernetes service, which forwards requests to the backend pods.</li>
-</ol>
-<hr />
-<h2 id="4-verifying-the-load-balancer"><strong>4. Verifying the Load Balancer</strong><a class="headerlink" href="#4-verifying-the-load-balancer" title="Permanent link">&para;</a></h2>
-<p>After creating the service, run the following command to verify the provisioned load balancer:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>services
-</code></pre></div>
-<p><strong>Output Example</strong>:</p>
-<div class="highlight"><pre><span></span><code>NAME            TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
-nginx-service   LoadBalancer   10.0.0.1       a1b2c3d4e5.elb.amazonaws.com   80:30080/TCP   5m
-</code></pre></div>
-<ul>
-<li><strong>EXTERNAL-IP</strong>: Shows the address of the provisioned cloud load balancer.</li>
-<li>Traffic sent to this external IP will be forwarded to the service and its backend pods.</li>
-</ul>
-<hr />
-<h2 id="supported-cloud-providers"><strong>Supported Cloud Providers</strong><a class="headerlink" href="#supported-cloud-providers" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th><strong>Cloud Provider</strong></th>
-<th><strong>CPI Implementation</strong></th>
-<th><strong>Features</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>AWS</strong></td>
-<td>AWS Cloud Controller Manager</td>
-<td>Load balancers, EBS storage, node management</td>
-</tr>
-<tr>
-<td><strong>GCP</strong></td>
-<td>GCE Cloud Controller Manager</td>
-<td>Load balancers, PD storage, node scaling</td>
-</tr>
-<tr>
-<td><strong>Azure</strong></td>
-<td>Azure Cloud Controller Manager</td>
-<td>Load balancers, Disk storage, scaling</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="conclusion"><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>The <strong>Cloud Provider Interface (CPI)</strong> allows Kubernetes to integrate seamlessly with cloud providers for provisioning cloud infrastructure like load balancers, persistent volumes, and nodes. By defining a <strong>Service</strong> with <code>type: LoadBalancer</code>, Kubernetes leverages the CPI to interact with the cloud provider&rsquo;s API and automatically provision a load balancer for external traffic.</p>
+<p>By consolidating events from entire AWS Organizations into centralized accounts or regions, EventBridge simplifies complex event management and monitoring processes.</p>
 
 
 
@@ -4004,7 +3858,7 @@ nginx-service   LoadBalancer   10.0.0.1       a1b2c3d4e5.elb.amazonaws.com   80:
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../cni_components/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Networking Tools in Kubernetes">
+          <a href="../elb/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elastic Load Balancer (ELB)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4014,20 +3868,20 @@ nginx-service   LoadBalancer   10.0.0.1       a1b2c3d4e5.elb.amazonaws.com   80:
                 Previous
               </span>
               <div class="md-ellipsis">
-                Networking Tools in Kubernetes
+                Elastic Load Balancer (ELB)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../SMI/what_is_a_service_mesh/" class="md-footer__link md-footer__link--next" aria-label="Next: What is a Service Mesh?">
+          <a href="../iam/" class="md-footer__link md-footer__link--next" aria-label="Next: Identity and Access Management (IAM)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                What is a Service Mesh?
+                Identity and Access Management (IAM)
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4061,10 +3915,10 @@ nginx-service   LoadBalancer   10.0.0.1       a1b2c3d4e5.elb.amazonaws.com   80:
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
   </body>
