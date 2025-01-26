@@ -4694,6 +4694,10 @@
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
 <span class="w">    </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/www/html/</span>
 <span class="nt">hooks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ApplicationStop</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts/application_stop.sh</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+<span class="w">      </span><span class="nt">runas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 <span class="w">  </span><span class="nt">BeforeInstall</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scripts/before_install.sh</span>
 <span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
@@ -4764,6 +4768,7 @@
 <li>Test functionality</li>
 <li>Verify deployment</li>
 </ol>
+<p><img alt="Lifecycle events:" src="../../assets/img/codedeploy.jpg" /></p>
 <h2 id="deployment-types">Deployment Types<a class="headerlink" href="#deployment-types" title="Permanent link">&para;</a></h2>
 <h3 id="1-in-place-deployment">1. In-Place Deployment<a class="headerlink" href="#1-in-place-deployment" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">deployment_style</span><span class="p">:</span>
