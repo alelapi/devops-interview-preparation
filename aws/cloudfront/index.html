@@ -802,9 +802,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-origins" class="md-nav__link">
+  <a href="#custom-origins-http" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom Origins
+      Custom Origins (HTTP)
     </span>
   </a>
   
@@ -816,13 +816,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caching-mechanism" class="md-nav__link">
+  <a href="#cloudfront-vs-s3-cross-region-replication" class="md-nav__link">
     <span class="md-ellipsis">
-      Caching Mechanism
+      CloudFront vs S3 Cross Region Replication
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Caching Mechanism">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -845,24 +854,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#http-headers" class="md-nav__link">
-    <span class="md-ellipsis">
-      HTTP Headers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#query-strings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query Strings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#origin-request-policy" class="md-nav__link">
     <span class="md-ellipsis">
       Origin Request Policy
@@ -875,21 +866,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced Features
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Features">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cache-invalidation" class="md-nav__link">
@@ -919,9 +895,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signed-url-and-cookies" class="md-nav__link">
+  <a href="#cloudfront-signed-url-signed-cookies" class="md-nav__link">
     <span class="md-ellipsis">
-      Signed URL and Cookies
+      CloudFront Signed URL / Signed Cookies
     </span>
   </a>
   
@@ -3895,9 +3871,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-origins" class="md-nav__link">
+  <a href="#custom-origins-http" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom Origins
+      Custom Origins (HTTP)
     </span>
   </a>
   
@@ -3909,13 +3885,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caching-mechanism" class="md-nav__link">
+  <a href="#cloudfront-vs-s3-cross-region-replication" class="md-nav__link">
     <span class="md-ellipsis">
-      Caching Mechanism
+      CloudFront vs S3 Cross Region Replication
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Caching Mechanism">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3938,24 +3923,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#http-headers" class="md-nav__link">
-    <span class="md-ellipsis">
-      HTTP Headers
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#query-strings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query Strings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#origin-request-policy" class="md-nav__link">
     <span class="md-ellipsis">
       Origin Request Policy
@@ -3968,21 +3935,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced Features
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Features">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#cache-invalidation" class="md-nav__link">
@@ -4012,9 +3964,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signed-url-and-cookies" class="md-nav__link">
+  <a href="#cloudfront-signed-url-signed-cookies" class="md-nav__link">
     <span class="md-ellipsis">
-      Signed URL and Cookies
+      CloudFront Signed URL / Signed Cookies
     </span>
   </a>
   
@@ -4086,22 +4038,43 @@
 <p>CloudFront provides robust DDoS protection through integration with AWS Shield and Web Application Firewall. Its global infrastructure ensures content is cached close to end-users, significantly improving access speeds and user experience.</p>
 <h2 id="origin-types">Origin Types<a class="headerlink" href="#origin-types" title="Permanent link">&para;</a></h2>
 <p>CloudFront supports multiple origin types for content delivery:</p>
+<ol>
+<li>
 <h3 id="s3-bucket-origins">S3 Bucket Origins<a class="headerlink" href="#s3-bucket-origins" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Enables file distribution and edge caching</li>
-<li>Implements enhanced security through Origin Access Control (OAC)</li>
-<li>Replaces older Origin Access Identity (OAI) mechanism</li>
-<li>Can be used as an ingress point for S3 uploads</li>
-</ul>
-<h3 id="custom-origins">Custom Origins<a class="headerlink" href="#custom-origins" title="Permanent link">&para;</a></h3>
-<ul>
+</li>
+<li>Enables file distribution and edge caching them. </li>
+<li>Implements enhanced security through Origin Access Control (OAC), guaranteeing that only Cloudfront can access them. </li>
+<li>
+<p>Can be used as an ingress point for S3 uploads</p>
+</li>
+<li>
+<h3 id="custom-origins-http">Custom Origins (HTTP)<a class="headerlink" href="#custom-origins-http" title="Permanent link">&para;</a></h3>
+</li>
 <li>Supports HTTP-based origins including:</li>
 <li>Application Load Balancers</li>
 <li>EC2 instances</li>
 <li>Static S3 websites</li>
 <li>Any HTTP backend system</li>
+</ol>
+<h2 id="cloudfront-vs-s3-cross-region-replication">CloudFront vs S3 Cross Region Replication<a class="headerlink" href="#cloudfront-vs-s3-cross-region-replication" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CloudFront:</li>
+<li>Global Edge network</li>
+<li>Files are cached for a TTL (maybe a day)</li>
+<li>Great for static content that must be available everywhere</li>
+<li>S3 Cross Region Replication:</li>
+<li>Must be setup for each region you want replication to happen</li>
+<li>Files are updated in near real-time</li>
+<li>Read only</li>
+<li>Great for dynamic content that needs to be available at low-latency in few regions</li>
 </ul>
-<h2 id="caching-mechanism">Caching Mechanism<a class="headerlink" href="#caching-mechanism" title="Permanent link">&para;</a></h2>
+<h2 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The cache lives at each CloudFront Edge Location</li>
+<li>CloudFront identifies each object in the cache using the Cache Key</li>
+<li>To maximize the Cache Hit ratio you need to minimize requests to the origin</li>
+<li>It&rsquo;s possible to invalidate part of the cache using the <code>CreateInvalidation</code> API</li>
+</ul>
 <h3 id="cache-key">Cache Key<a class="headerlink" href="#cache-key" title="Permanent link">&para;</a></h3>
 <p>The cache key is a unique identifier for each cached object, typically comprising the hostname and URL&rsquo;s resource portion. CloudFront allows sophisticated cache key customization by incorporating:
 - HTTP headers
@@ -4111,25 +4084,38 @@
 - User location</p>
 <h3 id="cache-policies">Cache Policies<a class="headerlink" href="#cache-policies" title="Permanent link">&para;</a></h3>
 <p>CloudFront offers extensive cache policy configurations:</p>
-<h4 id="http-headers">HTTP Headers<a class="headerlink" href="#http-headers" title="Permanent link">&para;</a></h4>
 <ul>
+<li>HTTP Headers</li>
 <li>None: Excludes headers from cache key</li>
-<li>Whitelist: Includes specific headers in cache key</li>
-</ul>
-<h4 id="query-strings">Query Strings<a class="headerlink" href="#query-strings" title="Permanent link">&para;</a></h4>
-<ul>
+<li>
+<p>Whitelist: Includes specific headers in cache key</p>
+</li>
+<li>
+<p>Cookies</p>
+</li>
+<li>None: Excludes cookie from cache key</li>
+<li>Whitelist: Includes specific cookie</li>
+<li>Include All-Except: Includes all cookie except specified ones</li>
+<li>
+<p>All: Includes all cookie (lowest caching performance)</p>
+</li>
+<li>
+<p>Query Strings</p>
+</li>
 <li>None: Excludes query strings from cache key</li>
 <li>Whitelist: Includes specific query strings</li>
 <li>Include All-Except: Includes all query strings except specified ones</li>
 <li>All: Includes all query strings (lowest caching performance)</li>
 </ul>
+<p>It&rsquo;s possible to control the TTL (0 seconds to 1 year), can be set by the origin using the <code>Cache-Control</code> header, <code>Expires</code> header or others.</p>
+<p>All HTTP headers, cookies, and query strings that you include in the Cache Key are automatically included in origin requests.</p>
 <h4 id="origin-request-policy">Origin Request Policy<a class="headerlink" href="#origin-request-policy" title="Permanent link">&para;</a></h4>
 <p>Enables including values in origin requests without duplicating cached content, supporting:
 - HTTP headers configuration
 - Cookie management
 - Query string handling
-- Custom header addition</p>
-<h2 id="advanced-features">Advanced Features<a class="headerlink" href="#advanced-features" title="Permanent link">&para;</a></h2>
+- Custom header addition
+It&rsquo;s possible to create custom ORP or use Predefined Managed Policies.</p>
 <h3 id="cache-invalidation">Cache Invalidation<a class="headerlink" href="#cache-invalidation" title="Permanent link">&para;</a></h3>
 <p>When backend origins update, CloudFront allows forced cache refresh through:
 - Full cache invalidation
@@ -4140,18 +4126,18 @@
 - Customized caching for specific file types
 - Prioritized processing of cache behaviors</p>
 <h3 id="geographical-restrictions">Geographical Restrictions<a class="headerlink" href="#geographical-restrictions" title="Permanent link">&para;</a></h3>
-<p>Implements content access control through:
+<p>Implements content access control based on the region users are trying to access through:
 - Allowlist: Permit access from specific countries
 - Blocklist: Prevent access from specified countries
 - Uses third-party Geo-IP database for determination</p>
-<h3 id="signed-url-and-cookies">Signed URL and Cookies<a class="headerlink" href="#signed-url-and-cookies" title="Permanent link">&para;</a></h3>
-<p>Provides secure content distribution mechanisms:
+<h3 id="cloudfront-signed-url-signed-cookies">CloudFront Signed URL / Signed Cookies<a class="headerlink" href="#cloudfront-signed-url-signed-cookies" title="Permanent link">&para;</a></h3>
+<p>IN case you want to distribute paid shared content to premium users over the world, Cloudfront provides secure content distribution mechanisms:
 - URL/cookie expiration control
 - IP range access restrictions
 - Trusted signer management
 - Supports individual file (Signed URL) and multiple file (Signed Cookies) access</p>
 <h3 id="field-level-encryption">Field-Level Encryption<a class="headerlink" href="#field-level-encryption" title="Permanent link">&para;</a></h3>
-<p>Offers additional security layer by:
+<p>Offers additional security layer using HTTPS by:
 - Encrypting sensitive information at edge locations
 - Supporting up to 10 encrypted fields in POST requests
 - Utilizing asymmetric encryption</p>
