@@ -6,6 +6,123 @@ AWS CodeDeploy is a robust deployment automation service designed to streamline 
 ## Core Deployment Capabilities
 The service enables automated application deployments with built-in rollback capabilities, triggered either by deployment failures or CloudWatch Alarm conditions. Deployments are orchestrated through an `appspec.yml` configuration file, which defines precise deployment procedures.
 
+## Core Concepts
+
+### 1. Deployment Components
+
+#### Application
+- Container for deployment rules, configurations, and files
+- Groups related deployment resources
+- Can contain multiple deployment groups
+
+#### Deployment Group
+- Set of tagged instances
+- Deployment rules and success conditions
+- Deployment configuration
+- Rollback configuration
+- Triggers and alarms
+
+#### Deployment Configuration
+- Rules for deployment success/failure
+- Traffic shifting rules
+- Instance health evaluation
+
+#### Revision
+- Source content to deploy
+- AppSpec file
+- Application files
+- Scripts
+- Configuration files
+
+### 2. AppSpec File
+
+The AppSpec file (application specification file) is the core of CodeDeploy deployment.
+
+#### Structure
+```yaml
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/
+hooks:
+  ApplicationStop:
+    - location: scripts/application_stop.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_application.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 300
+      runas: root
+```
+
+#### Lifecycle Events
+1. **Application Stop**
+   - Stop running version
+   - Prepare for deployment
+
+2. **Download Bundle**
+   - Download revision files
+   - Validate checksums
+
+3. **Before Install**
+   - Pre-installation tasks
+   - Backup existing files
+   - Decrypt files
+
+4. **Install**
+   - Copy revision files
+   - Set permissions
+   - Create directories
+
+5. **After Install**
+   - Configuration tasks
+   - Set environment variables
+   - File modifications
+
+6. **Application Start**
+   - Start application
+   - Enable services
+   - Start servers
+
+7. **Validate Service**
+   - Health checks
+   - Test functionality
+   - Verify deployment
+
+![Lifecycle events:](../assets/img/codedeploy.jpg)
+
+## Deployment Types
+
+### 1. In-Place Deployment
+- Updates existing instances
+- Sequential deployment
+- Possible downtime
+- Rollback replaces files
+
+#### Use Cases
+- Small applications
+- Development environments
+- Quick updates
+
+### 2. Blue/Green Deployment
+- New instance group
+- Zero downtime
+- Easy rollback
+- Higher resource usage
+
 ## Deployment Platforms and Strategies
 
 ### EC2 and On-Premises Deployments
