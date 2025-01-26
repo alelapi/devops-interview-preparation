@@ -44,6 +44,10 @@ files:
   - source: /
     destination: /var/www/html/
 hooks:
+  ApplicationStop:
+    - location: scripts/application_stop.sh
+      timeout: 300
+      runas: root
   BeforeInstall:
     - location: scripts/before_install.sh
       timeout: 300
@@ -95,6 +99,8 @@ hooks:
    - Health checks
    - Test functionality
    - Verify deployment
+
+![Lifecycle events:](../assets/img/codedeploy.jpg)
 
 ## Deployment Types
 
