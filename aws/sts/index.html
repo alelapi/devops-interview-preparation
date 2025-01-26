@@ -1236,6 +1236,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-note" class="md-nav__link">
     <span class="md-ellipsis">
       Important Note
@@ -3765,6 +3774,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-note" class="md-nav__link">
     <span class="md-ellipsis">
       Important Note
@@ -3820,6 +3838,13 @@
     - Secret Key
     - Session Token
     - Expiration date</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>When an autherization error is raised like this one:
+<div class="highlight"><pre><span></span><code>Encoded authorization failure message: 6h34GtpmGjJJUm946eDVBfzWQJk6z5GePbbGDs9Z2T8xZj9EZtEduSnTbmrR7pMqpJrVYJCew2m8YBZQf4HRWEtrpncANrZMsnzk
+</code></pre></div></p>
+<p>It&rsquo;s possilble to decode the message using:
+<div class="highlight"><pre><span></span><code>aws sts decode-authorization-message
+</code></pre></div></p>
 <h2 id="important-note">Important Note<a class="headerlink" href="#important-note" title="Permanent link">&para;</a></h2>
 <p>For web identity authentication, AWS recommends using Cognito Identity Pools instead of direct STS web identity credential generation.</p>
 
