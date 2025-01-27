@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../elb/">
+        <link rel="prev" href="../sqs/">
       
       
-        <link rel="next" href="../iam/">
+        <link rel="next" href="../step_function/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>EventBridge - My DevOps Interview Preparation</title>
+        <title>Systems Manager Parameter Store (SSM) - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eventbridge" class="md-skip">
+        <a href="#systems-manager-parameter-store-ssm" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              EventBridge
+              Systems Manager Parameter Store (SSM)
             
           </span>
         </div>
@@ -953,30 +953,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    EventBridge
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../eventbridge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,101 +965,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#core-functionality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Functionality
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Functionality">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scheduling-and-event-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scheduling and Event Patterns
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-event-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced Event Management
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Event Management">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#event-bus-capabilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Event Bus Capabilities
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#event-archiving-and-replay" class="md-nav__link">
-    <span class="md-ellipsis">
-      Event Archiving and Replay
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schema-registry-intelligent-event-understanding" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schema Registry: Intelligent Event Understanding
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resource-based-policy-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resource-Based Policy Management
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1278,10 +1163,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ssm/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Systems Manager Parameter Store (SSM)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1290,6 +1195,179 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secure-storage-and-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secure Storage and Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-and-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture and Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Capabilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Tiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service Tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Tier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Tier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameter-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameter Policies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-to-live-ttl-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time-to-Live (TTL) Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-flexibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Flexibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3798,19 +3876,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-functionality" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Functionality
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Functionality">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scheduling-and-event-patterns" class="md-nav__link">
+  <a href="#secure-storage-and-encryption" class="md-nav__link">
     <span class="md-ellipsis">
-      Scheduling and Event Patterns
+      Secure Storage and Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-and-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture and Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Capabilities
     </span>
   </a>
   
@@ -3822,28 +3945,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-event-management" class="md-nav__link">
+  <a href="#service-tiers" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced Event Management
+      Service Tiers
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Advanced Event Management">
+    <nav class="md-nav" aria-label="Service Tiers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#event-bus-capabilities" class="md-nav__link">
+  <a href="#standard-tier" class="md-nav__link">
     <span class="md-ellipsis">
-      Event Bus Capabilities
+      Standard Tier
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#event-archiving-and-replay" class="md-nav__link">
+  <a href="#advanced-tier" class="md-nav__link">
     <span class="md-ellipsis">
-      Event Archiving and Replay
+      Advanced Tier
     </span>
   </a>
   
@@ -3855,18 +3978,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#schema-registry-intelligent-event-understanding" class="md-nav__link">
+  <a href="#parameter-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Schema Registry: Intelligent Event Understanding
+      Parameter Policies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameter Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-to-live-ttl-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time-to-Live (TTL) Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-flexibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Policy Flexibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#resource-based-policy-management" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
-      Resource-Based Policy Management
+      Conclusion
     </span>
   </a>
   
@@ -3890,31 +4046,43 @@
   
 
 
-<h1 id="eventbridge">EventBridge<a class="headerlink" href="#eventbridge" title="Permanent link">&para;</a></h1>
-<h2 id="core-functionality">Core Functionality<a class="headerlink" href="#core-functionality" title="Permanent link">&para;</a></h2>
-<p>Amazon EventBridge serves as a powerful serverless event bus that enables seamless integration and automation across AWS services and applications. It provides three primary mechanisms for event handling: scheduled jobs, event pattern matching, and cross-account event routing.</p>
-<h3 id="scheduling-and-event-patterns">Scheduling and Event Patterns<a class="headerlink" href="#scheduling-and-event-patterns" title="Permanent link">&para;</a></h3>
-<p>EventBridge supports sophisticated scheduling through cron jobs, allowing precise timing of script executions. Beyond scheduling, it excels at event pattern recognition, enabling real-time reactions to service-level activities. Organizations can trigger diverse actions like invoking Lambda functions, dispatching messages to SQS or SNS, and orchestrating complex workflows based on specific event conditions.</p>
-<h2 id="advanced-event-management">Advanced Event Management<a class="headerlink" href="#advanced-event-management" title="Permanent link">&para;</a></h2>
-<h3 id="event-bus-capabilities">Event Bus Capabilities<a class="headerlink" href="#event-bus-capabilities" title="Permanent link">&para;</a></h3>
-<p>Event buses in EventBridge offer remarkable flexibility. They can be configured with resource-based policies, permitting access from external AWS accounts. This feature enables centralized event aggregation and cross-account event sharing with granular permission controls.</p>
-<h3 id="event-archiving-and-replay">Event Archiving and Replay<a class="headerlink" href="#event-archiving-and-replay" title="Permanent link">&para;</a></h3>
-<p>A standout feature of EventBridge is its comprehensive event archiving mechanism. Users can archive events comprehensively or apply sophisticated filtering, storing event data either indefinitely or for specified durations. The ability to replay archived events provides powerful debugging and recovery capabilities.</p>
-<h2 id="schema-registry-intelligent-event-understanding">Schema Registry: Intelligent Event Understanding<a class="headerlink" href="#schema-registry-intelligent-event-understanding" title="Permanent link">&para;</a></h2>
-<p>EventBridge introduces an intelligent Schema Registry that automatically analyzes and infers schemas from events traversing the event bus. This capability allows applications to:</p>
-<ul>
-<li>Automatically generate code reflecting event structures</li>
-<li>Maintain versioned schema definitions</li>
-<li>Enhance predictability and type safety in event-driven architectures</li>
-</ul>
-<h2 id="resource-based-policy-management">Resource-Based Policy Management<a class="headerlink" href="#resource-based-policy-management" title="Permanent link">&para;</a></h2>
-<p>EventBridge&rsquo;s resource-based policies enable precise control over event bus permissions. Organizations can:</p>
-<ul>
-<li>Define granular access controls for specific event buses</li>
-<li>Manage cross-account and cross-region event interactions</li>
-<li>Implement complex event aggregation strategies</li>
-</ul>
-<p>By consolidating events from entire AWS Organizations into centralized accounts or regions, EventBridge simplifies complex event management and monitoring processes.</p>
+<h1 id="systems-manager-parameter-store-ssm">Systems Manager Parameter Store (SSM)<a class="headerlink" href="#systems-manager-parameter-store-ssm" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>AWS Systems Manager Parameter Store offers a robust and secure service for configuration and secrets management. This centralized service provides a comprehensive solution for storing and managing configuration data, secrets, and other operational parameters within your AWS infrastructure.</p>
+<h2 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h2>
+<h3 id="secure-storage-and-encryption">Secure Storage and Encryption<a class="headerlink" href="#secure-storage-and-encryption" title="Permanent link">&para;</a></h3>
+<p>Parameter Store provides secure storage capabilities for both configuration data and sensitive information. The service seamlessly integrates with AWS Key Management Service (KMS), offering optional encryption capabilities to ensure the security of your stored parameters. This encryption integration allows organizations to maintain strict security standards while managing their configuration data.</p>
+<h3 id="architecture-and-implementation">Architecture and Implementation<a class="headerlink" href="#architecture-and-implementation" title="Permanent link">&para;</a></h3>
+<p>The service is built on a serverless architecture, eliminating the need for infrastructure management. It offers excellent scalability to accommodate growing parameter storage needs and ensures durability through AWS&rsquo;s reliable infrastructure. Developers can easily interact with Parameter Store through a well-designed SDK, making implementation straightforward across various applications and services.</p>
+<h3 id="version-control">Version Control<a class="headerlink" href="#version-control" title="Permanent link">&para;</a></h3>
+<p>Parameter Store maintains version tracking for all stored configurations and secrets. This versioning capability enables organizations to maintain a history of parameter changes, roll back to previous versions when needed, and audit configuration modifications over time.</p>
+<h3 id="security-framework">Security Framework<a class="headerlink" href="#security-framework" title="Permanent link">&para;</a></h3>
+<p>Security in Parameter Store is managed through AWS Identity and Access Management (IAM). This integration allows organizations to implement fine-grained access controls, ensuring that only authorized users and applications can access specific parameters. The IAM integration provides a robust security framework for managing access to sensitive configuration data.</p>
+<h3 id="integration-capabilities">Integration Capabilities<a class="headerlink" href="#integration-capabilities" title="Permanent link">&para;</a></h3>
+<p>The service features comprehensive integration with Amazon EventBridge, enabling automated notifications based on parameter changes or specific events. This integration allows organizations to build event-driven architectures and automated workflows around their configuration management processes.</p>
+<p>Parameter Store also integrates seamlessly with AWS CloudFormation, enabling infrastructure as code practices and automated resource management. This integration allows organizations to include parameter management as part of their infrastructure deployment and management processes.</p>
+<h2 id="service-tiers">Service Tiers<a class="headerlink" href="#service-tiers" title="Permanent link">&para;</a></h2>
+<p>Parameter Store offers two distinct service tiers to accommodate different organizational needs:</p>
+<h3 id="standard-tier">Standard Tier<a class="headerlink" href="#standard-tier" title="Permanent link">&para;</a></h3>
+<p>The standard tier provides essential parameter management capabilities suitable for many applications and use cases.</p>
+<h3 id="advanced-tier">Advanced Tier<a class="headerlink" href="#advanced-tier" title="Permanent link">&para;</a></h3>
+<p>The advanced tier offers enhanced features and capabilities, including support for parameter policies and larger parameter values.</p>
+<p><img alt="SSM Tiers:" src="../../assets/img/ssm.png" /></p>
+<h2 id="parameter-policies">Parameter Policies<a class="headerlink" href="#parameter-policies" title="Permanent link">&para;</a></h2>
+<p>Advanced parameters in Parameter Store can leverage parameter policies, which provide additional control and automation capabilities. These policies enable organizations to manage their parameters more effectively:</p>
+<h3 id="time-to-live-ttl-management">Time-to-Live (TTL) Management<a class="headerlink" href="#time-to-live-ttl-management" title="Permanent link">&para;</a></h3>
+<p>Parameter policies allow the assignment of expiration dates (TTL) to parameters. This capability is particularly valuable for managing sensitive data such as passwords, ensuring that such information is regularly updated or removed. The TTL functionality helps organizations maintain security compliance by forcing the update or deletion of sensitive parameters after a specified period.</p>
+<h3 id="policy-flexibility">Policy Flexibility<a class="headerlink" href="#policy-flexibility" title="Permanent link">&para;</a></h3>
+<p>Parameter Store supports the concurrent assignment of multiple policies to a single parameter. This flexibility allows organizations to implement complex parameter management strategies that combine different policy types to meet specific security and operational requirements.</p>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<p>When implementing Parameter Store, consider these recommended practices:
+- Implement appropriate encryption for sensitive parameters using KMS
+- Establish clear naming conventions for parameters to maintain organization
+- Utilize parameter policies for sensitive data management
+- Configure EventBridge rules for critical parameter changes
+- Implement proper IAM policies following the principle of least privilege</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>AWS Systems Manager Parameter Store provides a comprehensive solution for configuration and secrets management, combining secure storage, version control, and integration capabilities with other AWS services. Its flexible tier structure and policy management features make it suitable for organizations of all sizes seeking to implement robust configuration management practices.</p>
 
 
 
@@ -3950,7 +4118,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../elb/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elastic Load Balancer (ELB)">
+          <a href="../sqs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simple Queue Service (SQS)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3960,20 +4128,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Elastic Load Balancer (ELB)
+                Simple Queue Service (SQS)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../iam/" class="md-footer__link md-footer__link--next" aria-label="Next: Identity and Access Management (IAM)">
+          <a href="../step_function/" class="md-footer__link md-footer__link--next" aria-label="Next: Step Functions">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Identity and Access Management (IAM)
+                Step Functions
               </div>
             </div>
             <div class="md-footer__button md-icon">
