@@ -50,8 +50,105 @@ EC2 instances operate within Virtual Private Clouds (VPCs), offering granular co
 - Route table management
 - Network gateway configurations
 
-### Security Groups and Network Access Control Lists
-Robust security mechanisms controlling inbound and outbound traffic at instance and subnet levels, enabling precise access management and network segmentation.
+# Security Groups and Network Access Control Lists (NACLs)
+
+Both Security Groups and Network Access Control Lists (NACLs) are integral components of AWS networking, providing security at different levels within a Virtual Private Cloud (VPC). Here's a detailed explanation of both:
+
+---
+
+## **Security Groups**
+
+### **What are Security Groups?**
+- **Stateful** firewalls that operate at the instance level.
+- Act as virtual firewalls to control inbound and outbound traffic to and from Amazon EC2 instances.
+- Rules can allow or deny traffic based on IP ranges, protocols, and ports.
+
+### **Key Characteristics:**
+1. **Instance-Level**: Security Groups are attached directly to EC2 instances.
+2. **Stateful**:
+   - If you allow inbound traffic, the corresponding outbound traffic is automatically allowed, and vice versa.
+3. **Implicit Deny**:
+   - By default, all inbound traffic is denied, and all outbound traffic is allowed unless explicitly specified otherwise.
+4. **Rule-Based Configuration**:
+   - You define rules to allow traffic. Deny rules cannot be explicitly created.
+5. **Supports Allow Only**: 
+   - Rules define what traffic is permitted, with no option to explicitly block traffic.
+6. **Dynamic Updates**:
+   - Modifications to a Security Group are automatically applied to all associated resources.
+
+### **Common Use Cases:**
+- Control access to EC2 instances based on port (e.g., 22 for SSH, 80/443 for HTTP/HTTPS).
+- Restrict traffic to specific IP ranges or other resources within the same VPC.
+
+### **Example Rules:**
+| **Type**      | **Protocol** | **Port Range** | **Source**       |
+|---------------|--------------|----------------|------------------|
+| SSH           | TCP          | 22             | 198.51.100.1/32  |
+| HTTP          | TCP          | 80             | 0.0.0.0/0        |
+| HTTPS         | TCP          | 443            | 0.0.0.0/0        |
+
+---
+
+## **Network Access Control Lists (NACLs)**
+
+### **What are NACLs?**
+- **Stateless** firewalls that operate at the subnet level within a VPC.
+- Used to control traffic entering and leaving subnets.
+
+### **Key Characteristics:**
+1. **Subnet-Level**: NACLs apply to all resources within the associated subnet(s).
+2. **Stateless**:
+   - Both inbound and outbound rules must be defined explicitly. Return traffic is not automatically allowed.
+3. **Explicit Rules for Allow and Deny**:
+   - Unlike Security Groups, NACLs support both `allow` and `deny` rules.
+4. **Rules are Evaluated in Order**:
+   - Each rule is evaluated in numerical order, starting from the lowest rule number.
+   - Traffic is allowed or denied based on the first matching rule.
+5. **Default Behavior**:
+   - Default NACL allows all inbound and outbound traffic.
+   - Custom NACLs deny all traffic unless rules are explicitly added.
+
+### **Common Use Cases:**
+- Apply coarse-grained security controls at the subnet level.
+- Use as an additional layer of security alongside Security Groups.
+- Block specific IP addresses or ranges.
+
+### **Example Rules:**
+| **Rule #** | **Type** | **Protocol** | **Port Range** | **Source**        | **Allow/Deny** |
+|------------|----------|--------------|----------------|-------------------|----------------|
+| 100        | HTTP     | TCP          | 80             | 0.0.0.0/0         | Allow          |
+| 200        | SSH      | TCP          | 22             | 203.0.113.0/24    | Allow          |
+| 300        | All Traffic | All       | All            | 0.0.0.0/0         | Deny           |
+
+---
+
+## **Comparison Between Security Groups and NACLs**
+
+| **Aspect**                  | **Security Groups**            | **NACLs**                       |
+|-----------------------------|--------------------------------|----------------------------------|
+| **Level of Operation**       | Instance Level                | Subnet Level                    |
+| **Statefulness**             | Stateful                      | Stateless                       |
+| **Allow/Deny Rules**         | Allow only                    | Allow and Deny                  |
+| **Evaluation of Rules**      | All rules evaluated equally   | Rules evaluated in order        |
+| **Direction of Traffic**     | Separate inbound and outbound | Separate inbound and outbound   |
+| **Default Behavior**         | Inbound: Deny, Outbound: Allow | Inbound & Outbound: Allow all (default NACL) |
+
+---
+
+## **Best Practices**
+
+1. **Use Both**: Combine Security Groups and NACLs for a layered defense approach.
+2. **Least Privilege**: Only allow traffic that is necessary for your application.
+3. **Organize Rule Sets**:
+   - Use Security Groups for instance-level control.
+   - Use NACLs to block/allow traffic at the subnet level.
+4. **Monitor and Audit**:
+   - Regularly review and update rules to ensure compliance and avoid unnecessary exposure.
+5. **Default Rules**:
+   - Ensure custom NACLs deny all traffic by default until rules are explicitly added.
+
+By leveraging Security Groups and NACLs together, you can implement a robust and secure network architecture in AWS.
+
 
 ## Storage Options
 
