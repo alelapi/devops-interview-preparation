@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../what_is_a_service_mesh/">
+        <link rel="prev" href="../lambda/">
       
       
-        <link rel="next" href="../linkerd/">
+        <link rel="next" href="../s3/">
       
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
-        <title>Istio: A Service Mesh for Kubernetes - My DevOps Interview Preparation</title>
+        <title>Relational Database Service (RDS) - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/css/app.css">
+      <link rel="stylesheet" href="../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#istio-a-service-mesh-for-kubernetes" class="md-skip">
+        <a href="#relational-database-service-rds" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Istio: A Service Mesh for Kubernetes
+              Relational Database Service (RDS)
             
           </span>
         </div>
@@ -219,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -234,11 +234,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../aws/api_gateway/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../api_gateway/" class="md-tabs__link">
           
   
     
@@ -258,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
     
@@ -278,7 +280,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
     
@@ -294,13 +296,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../envoy/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../kubernetes/envoy/" class="md-tabs__link">
           
   
     
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
     
@@ -340,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
     
@@ -360,7 +360,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
     
@@ -380,7 +380,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
     
@@ -415,7 +415,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -462,8 +462,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -534,19 +536,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -557,7 +562,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             AWS
@@ -571,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/api_gateway/" class="md-nav__link">
+      <a href="../api_gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -592,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/aurora/" class="md-nav__link">
+      <a href="../aurora/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -613,7 +618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/autoscaling_groups/" class="md-nav__link">
+      <a href="../autoscaling_groups/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -634,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/billing/" class="md-nav__link">
+      <a href="../billing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/cdk/" class="md-nav__link">
+      <a href="../cdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/codecommit/" class="md-nav__link">
+      <a href="../codecommit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/codedeploy/" class="md-nav__link">
+      <a href="../codedeploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -718,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/cloudformation/" class="md-nav__link">
+      <a href="../cloudformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -739,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/cloudfront/" class="md-nav__link">
+      <a href="../cloudfront/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/cloudtrail/" class="md-nav__link">
+      <a href="../cloudtrail/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/cloudwatch/" class="md-nav__link">
+      <a href="../cloudwatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -802,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/cognito/" class="md-nav__link">
+      <a href="../cognito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/dynamodb/" class="md-nav__link">
+      <a href="../dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/ebs/" class="md-nav__link">
+      <a href="../ebs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/ec2/" class="md-nav__link">
+      <a href="../ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/elastic_beanstalk/" class="md-nav__link">
+      <a href="../elastic_beanstalk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/elasticache/" class="md-nav__link">
+      <a href="../elasticache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -928,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/elb/" class="md-nav__link">
+      <a href="../elb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/eventbridge/" class="md-nav__link">
+      <a href="../eventbridge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -970,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/iam/" class="md-nav__link">
+      <a href="../iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -991,7 +996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/kinesis/" class="md-nav__link">
+      <a href="../kinesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1012,7 +1017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/kms/" class="md-nav__link">
+      <a href="../kms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1033,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/lambda/" class="md-nav__link">
+      <a href="../lambda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1051,10 +1056,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../aws/rds/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Relational Database Service (RDS)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1063,6 +1088,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-benefits-over-ec2-hosted-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Benefits Over EC2-Hosted Databases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-scaling-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Scaling Capabilities
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-and-replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      High Availability and Replication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Availability and Replication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-replicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Replicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-cost-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Cost Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-az-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-AZ Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-flexibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Flexibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operational Flexibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-az-to-multi-az-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single-AZ to Multi-AZ Migration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance and Scaling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-and-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup and Recovery
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1075,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/s3/" class="md-nav__link">
+      <a href="../s3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1096,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/sam/" class="md-nav__link">
+      <a href="../sam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1117,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/sar/" class="md-nav__link">
+      <a href="../sar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1138,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/sqs/" class="md-nav__link">
+      <a href="../sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1159,7 +1330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/step_function/" class="md-nav__link">
+      <a href="../step_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1180,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/sts/" class="md-nav__link">
+      <a href="../sts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../trusted_advisor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1222,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../aws/xray/" class="md-nav__link">
+      <a href="../xray/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1310,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1331,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1352,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1436,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1457,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1478,7 +1649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1576,7 +1747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1597,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1618,7 +1789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1639,7 +1810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1660,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1681,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1702,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1723,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1744,7 +1915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1765,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1786,7 +1957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1807,7 +1978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1828,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1849,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1874,10 +2045,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1914,22 +2083,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1940,7 +2106,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -1954,7 +2120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../envoy/" class="md-nav__link">
+      <a href="../../kubernetes/envoy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1975,7 +2141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1996,7 +2162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pod_security_admission/" class="md-nav__link">
+      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2017,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../admission_controller/" class="md-nav__link">
+      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2038,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2059,7 +2225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aggregation_layer/" class="md-nav__link">
+      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2080,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../encryptionconfig/" class="md-nav__link">
+      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2101,7 +2267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../submariner/" class="md-nav__link">
+      <a href="../../kubernetes/submariner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2122,7 +2288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../kubefed/" class="md-nav__link">
+      <a href="../../kubernetes/kubefed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2143,7 +2309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pod_disruption_budget/" class="md-nav__link">
+      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2164,7 +2330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../network_tools.md" class="md-nav__link">
+      <a href="../../kubernetes/network_tools.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2185,7 +2351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../observability_tools/" class="md-nav__link">
+      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2206,7 +2372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../endpoint/" class="md-nav__link">
+      <a href="../../kubernetes/endpoint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2224,10 +2390,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2243,21 +2407,18 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2268,7 +2429,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_14">
             <span class="md-nav__icon md-icon"></span>
             Open Standards
@@ -2282,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2303,7 +2464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cni_components/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2324,7 +2485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cpi_components/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2342,10 +2503,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2365,11 +2524,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14_4" >
         
           
           <label class="md-nav__link" for="__nav_5_14_4" id="__nav_5_14_4_label" tabindex="0">
@@ -2383,7 +2542,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_14_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_14_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_14_4">
             <span class="md-nav__icon md-icon"></span>
             SMI
@@ -2397,7 +2556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2415,30 +2574,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Istio: A Service Mesh for Kubernetes
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2447,131 +2586,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features-of-istio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features of Istio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#istio-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Istio Components
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Istio Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-envoy-proxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Envoy Proxy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-istiod-control-plane" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Istiod (Control Plane)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Gateway
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-pilot" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Pilot
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-mixer-deprecated-in-istio-15" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Mixer (Deprecated in Istio 1.5+)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-citadel" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Citadel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-telemetry" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Telemetry
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-istio-works" class="md-nav__link">
-    <span class="md-ellipsis">
-      How Istio Works
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2584,7 +2598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linkerd/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2605,7 +2619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../description/" class="md-nav__link">
+      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2675,20 +2689,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
         
           
-          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2713,7 +2724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2734,7 +2745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2755,7 +2766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2776,7 +2787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2797,7 +2808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2818,7 +2829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2839,7 +2850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2860,7 +2871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2881,7 +2892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2902,7 +2913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2923,7 +2934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2944,7 +2955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2965,7 +2976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3059,7 +3070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3080,7 +3091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3101,7 +3112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3122,7 +3133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3143,7 +3154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3164,7 +3175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3185,7 +3196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3206,7 +3217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3298,7 +3309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3319,7 +3330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3340,7 +3351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3361,7 +3372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3382,7 +3393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3403,7 +3414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3424,7 +3435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3445,7 +3456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3466,7 +3477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3487,7 +3498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3508,7 +3519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3590,7 +3601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3611,7 +3622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3632,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3653,7 +3664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3674,7 +3685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3695,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3767,7 +3778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3815,82 +3826,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-of-istio" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features of Istio
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#istio-components" class="md-nav__link">
+  <a href="#core-benefits-over-ec2-hosted-databases" class="md-nav__link">
     <span class="md-ellipsis">
-      Istio Components
+      Core Benefits Over EC2-Hosted Databases
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Istio Components">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-envoy-proxy" class="md-nav__link">
+  <a href="#auto-scaling-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Envoy Proxy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-istiod-control-plane" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Istiod (Control Plane)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-gateway" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Gateway
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-pilot" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Pilot
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-mixer-deprecated-in-istio-15" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Mixer (Deprecated in Istio 1.5+)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-citadel" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Citadel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-telemetry" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Telemetry
+      Auto Scaling Capabilities
     </span>
   </a>
   
@@ -3902,18 +3868,84 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-istio-works" class="md-nav__link">
+  <a href="#high-availability-and-replication" class="md-nav__link">
     <span class="md-ellipsis">
-      How Istio Works
+      High Availability and Replication
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Availability and Replication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-replicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Replicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-cost-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Cost Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-az-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-AZ Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-flexibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Flexibility
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operational Flexibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-az-to-multi-az-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single-AZ to Multi-AZ Migration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance and Scaling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#backup-and-recovery" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Backup and Recovery
     </span>
   </a>
   
@@ -3937,127 +3969,65 @@
   
 
 
-<h1 id="istio-a-service-mesh-for-kubernetes">Istio: A Service Mesh for Kubernetes<a class="headerlink" href="#istio-a-service-mesh-for-kubernetes" title="Permanent link">&para;</a></h1>
-<p><strong>Istio</strong> is an open-source service mesh that provides a way to control and secure service-to-service communication in modern application architectures, such as microservices. It adds observability, traffic management, and security features to applications without requiring changes to the application code.</p>
-<hr />
-<h2 id="key-features-of-istio"><strong>Key Features of Istio</strong><a class="headerlink" href="#key-features-of-istio" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Traffic Management</strong>:</p>
-</li>
-<li>
-<p>Provides fine-grained control over traffic routing and load balancing.</p>
-</li>
-<li>
-<p>Supports blue-green and canary deployments.</p>
-</li>
-<li>
-<p><strong>Security</strong>:</p>
-</li>
-<li>
-<p>Implements strong identity-based authentication and authorization using mutual TLS (mTLS).</p>
-</li>
-<li>
-<p>Encrypts service-to-service communication.</p>
-</li>
-<li>
-<p><strong>Observability</strong>:</p>
-</li>
-<li>
-<p>Offers telemetry, distributed tracing, and monitoring for all services in the mesh.</p>
-</li>
-<li>
-<p><strong>Fault Tolerance</strong>:</p>
-</li>
-<li>Provides retries, timeouts, and circuit breakers to make applications more resilient.</li>
-</ol>
-<hr />
-<h2 id="istio-components"><strong>Istio Components</strong><a class="headerlink" href="#istio-components" title="Permanent link">&para;</a></h2>
-<h3 id="1-envoy-proxy"><strong>1. Envoy Proxy</strong><a class="headerlink" href="#1-envoy-proxy" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: A lightweight proxy deployed as a sidecar alongside each service.</li>
-<li><strong>Responsibilities</strong>:</li>
-<li>Intercepts and manages all inbound and outbound traffic for the service.</li>
-<li>Handles traffic routing, telemetry, and enforcing security policies.</li>
-<li><strong>Key Features</strong>:</li>
-<li>Protocol support for HTTP, gRPC, WebSocket, and TCP.</li>
-<li>Built-in observability and traffic control.</li>
-</ul>
-<h3 id="2-istiod-control-plane"><strong>2. Istiod (Control Plane)</strong><a class="headerlink" href="#2-istiod-control-plane" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: The central control plane component that manages the service mesh configuration.</li>
-<li><strong>Responsibilities</strong>:</li>
-<li>Configures and manages the Envoy proxies.</li>
-<li>Maintains the service registry and tracks service discovery.</li>
-<li>Manages authentication, authorization, and telemetry configuration.</li>
-<li><strong>Key Features</strong>:</li>
-<li>Centralized control for all traffic and security policies.</li>
-</ul>
-<h3 id="3-gateway"><strong>3. Gateway</strong><a class="headerlink" href="#3-gateway" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: Manages ingress and egress traffic for services inside the mesh.</li>
-<li><strong>Ingress Gateway</strong>:</li>
-<li>Routes external traffic into the mesh.</li>
-<li>Acts as a reverse proxy for services in the mesh.</li>
-<li><strong>Egress Gateway</strong>:</li>
-<li>Routes traffic from services in the mesh to external services.</li>
-<li>Provides control over outbound traffic policies.</li>
-</ul>
-<h3 id="4-pilot"><strong>4. Pilot</strong><a class="headerlink" href="#4-pilot" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: A component of the control plane that provides service discovery and traffic management.</li>
-<li><strong>Responsibilities</strong>:</li>
-<li>Configures Envoy proxies for routing, retries, and load balancing.</li>
-<li>Supports advanced traffic management strategies like canary and blue-green deployments.</li>
-</ul>
-<h3 id="5-mixer-deprecated-in-istio-15"><strong>5. Mixer (Deprecated in Istio 1.5+)</strong><a class="headerlink" href="#5-mixer-deprecated-in-istio-15" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: Previously responsible for telemetry and policy enforcement.</li>
-<li><strong>Replacement</strong>: Functionality moved to Envoy and Istiod for better performance and integration.</li>
-</ul>
-<h3 id="6-citadel"><strong>6. Citadel</strong><a class="headerlink" href="#6-citadel" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: Manages service identities and certificates in the mesh.</li>
-<li><strong>Responsibilities</strong>:</li>
-<li>Issues and rotates certificates for secure mTLS communication.</li>
-<li>Ensures secure service-to-service authentication.</li>
-</ul>
-<h3 id="7-telemetry"><strong>7. Telemetry</strong><a class="headerlink" href="#7-telemetry" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Description</strong>: Collects metrics, logs, and traces for services in the mesh.</li>
-<li><strong>Responsibilities</strong>:</li>
-<li>Enables observability through integration with tools like Prometheus, Grafana, and Jaeger.</li>
-<li>Provides detailed insights into service behavior and performance.</li>
-</ul>
-<hr />
-<h2 id="how-istio-works"><strong>How Istio Works</strong><a class="headerlink" href="#how-istio-works" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Traffic Interception</strong>:</p>
-</li>
-<li>
-<p>Envoy sidecars intercept all traffic between services and apply traffic management and security policies.</p>
-</li>
-<li>
-<p><strong>Control Plane Management</strong>:</p>
-</li>
-<li>
-<p>Istiod configures Envoy proxies based on the desired state defined by operators.</p>
-</li>
-<li>
-<p><strong>Telemetry Collection</strong>:</p>
-</li>
-<li>
-<p>Envoy collects metrics and traces, sending them to monitoring systems like Prometheus or Jaeger.</p>
-</li>
-<li>
-<p><strong>Authentication and Authorization</strong>:</p>
-</li>
-<li>Citadel and Envoy enforce mTLS and role-based access control (RBAC) policies.</li>
-</ol>
-<hr />
-<h2 id="conclusion"><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>Istio is a powerful service mesh that simplifies traffic management, enhances observability, and strengthens security for microservices. By abstracting complex networking tasks and automating policies, Istio enables developers to focus on building applications while ensuring reliability and security across the entire system.</p>
+<h1 id="relational-database-service-rds">Relational Database Service (RDS)<a class="headerlink" href="#relational-database-service-rds" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Amazon RDS (Relational Database Service) provides managed SQL databases in the cloud. It supports multiple database engines including PostgreSQL, MySQL, MariaDB, Oracle, Microsoft SQL Server, IBM DB2, and Amazon&rsquo;s proprietary Aurora database. This service enables organizations to operate and scale relational databases without managing the underlying infrastructure.</p>
+<h2 id="core-benefits-over-ec2-hosted-databases">Core Benefits Over EC2-Hosted Databases<a class="headerlink" href="#core-benefits-over-ec2-hosted-databases" title="Permanent link">&para;</a></h2>
+<p>RDS provides significant advantages through its managed service model. AWS handles routine database administration tasks including automated provisioning, operating system patching, and continuous backups with point-in-time restore capabilities. The service includes comprehensive monitoring dashboards and supports both vertical and horizontal scaling options. Storage is provided through Amazon EBS, ensuring reliable persistence. While direct SSH access to database instances isn&rsquo;t available, this limitation supports enhanced security and consistent management.</p>
+<h2 id="storage-management">Storage Management<a class="headerlink" href="#storage-management" title="Permanent link">&para;</a></h2>
+<h3 id="auto-scaling-capabilities">Auto Scaling Capabilities<a class="headerlink" href="#auto-scaling-capabilities" title="Permanent link">&para;</a></h3>
+<p>RDS features dynamic storage scaling, automatically increasing storage capacity when free space becomes limited. This automation requires setting a maximum storage threshold and triggers when free storage drops below 10% for at least 5 minutes, with a minimum 6-hour interval between modifications. This feature particularly benefits applications with unpredictable storage requirements and supports all RDS database engines.</p>
+<h2 id="high-availability-and-replication">High Availability and Replication<a class="headerlink" href="#high-availability-and-replication" title="Permanent link">&para;</a></h2>
+<h3 id="read-replicas">Read Replicas<a class="headerlink" href="#read-replicas" title="Permanent link">&para;</a></h3>
+<p>RDS supports up to 15 read replicas, which can be deployed within the same Availability Zone, across different AZs, or even across regions. These replicas use asynchronous replication, resulting in eventually consistent reads. While replicas can be promoted to standalone databases, applications must explicitly manage connection strings to utilize them effectively. Read replicas excel at handling read-heavy workloads, particularly for analytical queries and reporting functions that might otherwise impact production database performance.</p>
+<h3 id="network-cost-considerations">Network Cost Considerations<a class="headerlink" href="#network-cost-considerations" title="Permanent link">&para;</a></h3>
+<p>AWS typically charges for data transfer between Availability Zones. However, RDS read replicas within the same region are exempt from these transfer fees, making them cost-effective for scaling read operations.</p>
+<h3 id="multi-az-deployment">Multi-AZ Deployment<a class="headerlink" href="#multi-az-deployment" title="Permanent link">&para;</a></h3>
+<p>Multi-AZ deployments provide enhanced availability through synchronous replication to a standby instance in a different Availability Zone. This configuration uses a single DNS name, enabling automatic application failover. The setup protects against various failure scenarios including AZ outages, network issues, and instance or storage failures, all while requiring no application changes. Notably, Multi-AZ deployments focus on availability rather than scaling, though read replicas can be configured with Multi-AZ for comprehensive disaster recovery.</p>
+<h2 id="operational-flexibility">Operational Flexibility<a class="headerlink" href="#operational-flexibility" title="Permanent link">&para;</a></h2>
+<h3 id="single-az-to-multi-az-migration">Single-AZ to Multi-AZ Migration<a class="headerlink" href="#single-az-to-multi-az-migration" title="Permanent link">&para;</a></h3>
+<p>Converting from Single-AZ to Multi-AZ deployment is a zero-downtime operation requiring no database shutdown. The process involves creating a snapshot, restoring it in a new Availability Zone, and establishing synchronization between instances. This seamless transition maintains database availability throughout the migration process.</p>
+<h2 id="performance-and-scaling">Performance and Scaling<a class="headerlink" href="#performance-and-scaling" title="Permanent link">&para;</a></h2>
+<p>RDS provides both vertical and horizontal scaling options. Vertical scaling allows adjusting compute and memory resources, while horizontal scaling through read replicas distributes read workloads. The service automatically manages the underlying storage, supporting applications as they grow and their requirements evolve.</p>
+<h2 id="backup-and-recovery">Backup and Recovery<a class="headerlink" href="#backup-and-recovery" title="Permanent link">&para;</a></h2>
+<p>The service includes automated backup capabilities with point-in-time recovery options. This feature enables restoration to any moment within the retention period, providing protection against data loss and corruption while maintaining business continuity.</p>
+<h1 id="amazon-rds-proxy">Amazon RDS Proxy<a class="headerlink" href="#amazon-rds-proxy" title="Permanent link">&para;</a></h1>
+<p>Amazon RDS Proxy is a fully managed, highly available database proxy service that makes applications more scalable, more resilient to database failures, and more secure.</p>
+<h2 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h2>
+<p>Amazon RDS Proxy acts as an intermediary layer between your applications and relational databases, enabling efficient connection management and improved database performance. This managed service helps applications maintain database connections, handle failovers more gracefully, and enhance security through IAM authentication and credentials management.</p>
+<h2 id="key-features-and-benefits">Key Features and Benefits<a class="headerlink" href="#key-features-and-benefits" title="Permanent link">&para;</a></h2>
+<h3 id="connection-management">Connection Management<a class="headerlink" href="#connection-management" title="Permanent link">&para;</a></h3>
+<p>RDS Proxy enables applications to pool and share database connections established with the database instance. Instead of each application instance maintaining its own database connections, the proxy manages a shared pool of connections, significantly reducing the connection management overhead.</p>
+<h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
+<p>By efficiently managing database connections, RDS Proxy substantially reduces the stress on database resources, including CPU and RAM utilization. The service minimizes the number of open connections and helps prevent connection timeouts, leading to better overall database performance and resource utilization.</p>
+<h3 id="high-availability-and-scalability">High Availability and Scalability<a class="headerlink" href="#high-availability-and-scalability" title="Permanent link">&para;</a></h3>
+<p>The service is built with serverless architecture, automatically scaling to accommodate your application&rsquo;s needs without requiring manual intervention. RDS Proxy is designed for high availability with multi-AZ deployment support, ensuring continuous operation even during infrastructure failures.</p>
+<h3 id="enhanced-failover-support">Enhanced Failover Support<a class="headerlink" href="#enhanced-failover-support" title="Permanent link">&para;</a></h3>
+<p>One of the most significant advantages of RDS Proxy is its ability to reduce RDS and Aurora failover times by up to 66%. During failover events, the proxy manages connection handling, making the failover process more seamless for applications and reducing downtime.</p>
+<h3 id="database-compatibility">Database Compatibility<a class="headerlink" href="#database-compatibility" title="Permanent link">&para;</a></h3>
+<p>RDS Proxy supports a wide range of popular database engines:
+Amazon RDS Databases:
+- MySQL
+- PostgreSQL
+- MariaDB
+- Microsoft SQL Server</p>
+<p>Amazon Aurora Databases:
+- Aurora MySQL
+- Aurora PostgreSQL</p>
+<h3 id="implementation-simplicity">Implementation Simplicity<a class="headerlink" href="#implementation-simplicity" title="Permanent link">&para;</a></h3>
+<p>Most applications can implement RDS Proxy without requiring any code modifications. This seamless integration allows organizations to improve their database infrastructure without investing in application rewrites or extensive development efforts.</p>
+<h3 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h3>
+<p>RDS Proxy incorporates robust security features to protect your database infrastructure. It enforces IAM Authentication for database access and integrates with AWS Secrets Manager for secure credential storage and management. This integration ensures that database credentials are securely stored and rotated according to your security policies.</p>
+<h3 id="network-security">Network Security<a class="headerlink" href="#network-security" title="Permanent link">&para;</a></h3>
+<p>RDS Proxy is designed with security in mind and is never publicly accessible. All access to the proxy must occur within your Amazon VPC, ensuring that your database connections remain secure and isolated within your private network infrastructure.</p>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<p>When implementing RDS Proxy, consider the following recommendations:
+- Configure appropriate IAM roles and permissions for secure access
+- Implement connection pooling strategies that align with your application&rsquo;s needs
+- Monitor proxy metrics to optimize performance and resource utilization
+- Review and adjust proxy settings based on your application&rsquo;s connection patterns</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Amazon RDS Proxy provides a robust solution for managing database connections, improving application scalability, and enhancing database security. Its fully managed nature, combined with advanced features for connection pooling and security management, makes it an invaluable tool for organizations looking to optimize their database infrastructure while maintaining high availability and performance.</p>
 
 
 
@@ -4093,7 +4063,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../what_is_a_service_mesh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: What is a Service Mesh?">
+          <a href="../lambda/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lambda">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4103,20 +4073,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                What is a Service Mesh?
+                Lambda
               </div>
             </div>
           </a>
         
         
           
-          <a href="../linkerd/" class="md-footer__link md-footer__link--next" aria-label="Next: Linkerd: An Overview">
+          <a href="../s3/" class="md-footer__link md-footer__link--next" aria-label="Next: Simple Storage Service (S3)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Linkerd: An Overview
+                Simple Storage Service (S3)
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4150,10 +4120,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
   </body>
