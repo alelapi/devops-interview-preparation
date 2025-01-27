@@ -5017,12 +5017,18 @@ Must set header <code>"x-amz-server-side-encryption": "AES256"</code></p>
 </li>
 <li>
 <h4 id="sse-kms-aws-key-management-service">SSE-KMS (AWS Key Management Service)<a class="headerlink" href="#sse-kms-aws-key-management-service" title="Permanent link">&para;</a></h4>
-<p>This encryption method leverages AWS Key Management Service for enhanced control and auditability. Users can manage encryption keys through KMS, enabling granular control and the ability to track key usage via CloudTrail. However, users should be aware of KMS request quotas, which vary by region and may require service quota increases for high-volume operations.</p>
+<p>This encryption method leverages AWS Key Management Service for enhanced control and auditability. Users can manage encryption keys through KMS, enabling granular control and the ability to track key usage via CloudTrail. However, users should be aware of KMS request quotas, which vary by region and may require service quota increases for high-volume operations.
+Must set header <code>"x-amz-server-side-encryption": "aws:kms"</code></p>
 </li>
+</ol>
+<p>Limitation:
+- If you use SSE-KMS, you may be impacted by the KMS limits: when you upload, it calls the <code>GenerateDataKey</code> KMS API, when you download, it calls the <code>Decrypt</code> KMS API
+- Count towards the KMS quota per second (5500, 10000, 30000 req/s based on region)
+- You can request a quota increase using the Service Quotas Console</p>
+<ol>
 <li>
 <h4 id="sse-c-customer-provided-keys">SSE-C (Customer-Provided Keys)<a class="headerlink" href="#sse-c-customer-provided-keys" title="Permanent link">&para;</a></h4>
-<p>For organizations requiring complete key management control, SSE-C allows customers to manage their encryption keys externally from AWS. Critical requirements include using HTTPS and providing encryption keys with every HTTP request. Importantly, Amazon S3 does not store the provided encryption keys, maintaining maximum customer control.</p>
-</li>
+For organizations requiring complete key management control, SSE-C allows customers to manage their encryption keys externally from AWS. Critical requirements include using HTTPS and providing encryption keys with every HTTP request. Importantly, Amazon S3 does not store the provided encryption keys, maintaining maximum customer control.</li>
 </ol>
 <h3 id="client-side-encryption">Client-Side Encryption<a class="headerlink" href="#client-side-encryption" title="Permanent link">&para;</a></h3>
 <p>In client-side encryption, data is encrypted by the client before transmission to Amazon S3. Clients use specialized libraries like the Amazon S3 Client-Side Encryption Library, managing the entire encryption lifecycle independently. This approach provides maximum control but requires more complex implementation.</p>
