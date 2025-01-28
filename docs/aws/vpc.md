@@ -1,4 +1,4 @@
-# Amazon Virtual Private Cloud (VPC)
+# Virtual Private Cloud (VPC)
 
 ## Overview
 
