@@ -4197,28 +4197,38 @@
 <h2 id="platform-support">Platform Support<a class="headerlink" href="#platform-support" title="Permanent link">&para;</a></h2>
 <h3 id="ec2-and-on-premises-platform">EC2 and On-premises Platform<a class="headerlink" href="#ec2-and-on-premises-platform" title="Permanent link">&para;</a></h3>
 <p>CodeDeploy provides comprehensive support for deploying applications to EC2 instances and on-premises servers. The service supports both in-place and blue/green deployment strategies, with the requirement that target instances run the CodeDeploy Agent.</p>
-<p>Deployment speeds can be customized through various options:
-- AllAtOnce: Fastest deployment with maximum downtime
-- HalfAtATime: Balanced approach with 50% capacity reduction
-- OneAtATime: Minimal availability impact with longest deployment time
-- Custom: User-defined percentage-based deployment</p>
+<p>Deployment speeds can be customized through various options:</p>
+<ul>
+<li>AllAtOnce: Fastest deployment with maximum downtime</li>
+<li>HalfAtATime: Balanced approach with 50% capacity reduction</li>
+<li>OneAtATime: Minimal availability impact with longest deployment time</li>
+<li>Custom: User-defined percentage-based deployment</li>
+</ul>
 <h3 id="lambda-platform">Lambda Platform<a class="headerlink" href="#lambda-platform" title="Permanent link">&para;</a></h3>
 <p>For Lambda deployments, CodeDeploy automates traffic shifting for Lambda aliases, featuring tight integration with the AWS Serverless Application Model (SAM) framework. Traffic shifting patterns include:</p>
-<p>Linear deployments:
-- LambdaLinear10PercentEvery3Minutes
-- LambdaLinear10PercentEvery10Minutes</p>
-<p>Canary deployments:
-- LambdaCanary10Percent5Minutes
-- LambdaCanary10Percent30Minutes</p>
+<p>Linear deployments:</p>
+<ul>
+<li>LambdaLinear10PercentEvery3Minutes</li>
+<li>LambdaLinear10PercentEvery10Minutes</li>
+</ul>
+<p>Canary deployments:</p>
+<ul>
+<li>LambdaCanary10Percent5Minutes</li>
+<li>LambdaCanary10Percent30Minutes</li>
+</ul>
 <p>AllAtOnce deployment for immediate traffic shifting</p>
 <h3 id="ecs-platform">ECS Platform<a class="headerlink" href="#ecs-platform" title="Permanent link">&para;</a></h3>
 <p>CodeDeploy automates the deployment of new ECS Task Definitions exclusively through blue/green deployments. Traffic shifting patterns include:</p>
-<p>Linear deployments:
-- ECSLinear10PercentEvery3Minutes
-- ECSLinear10PercentEvery10Minutes</p>
-<p>Canary deployments:
-- ECSCanary10Percent5Minutes
-- ECSCanary10Percent30Minutes</p>
+<p>Linear deployments:</p>
+<ul>
+<li>ECSLinear10PercentEvery3Minutes</li>
+<li>ECSLinear10PercentEvery10Minutes</li>
+</ul>
+<p>Canary deployments:</p>
+<ul>
+<li>ECSCanary10Percent5Minutes</li>
+<li>ECSCanary10Percent30Minutes</li>
+</ul>
 <p>AllAtOnce deployment for immediate updates</p>
 <h2 id="codedeploy-agent">CodeDeploy Agent<a class="headerlink" href="#codedeploy-agent" title="Permanent link">&para;</a></h2>
 <p>The CodeDeploy Agent is a crucial component that must be running on target EC2 instances prior to deployment. The agent can be automatically installed and updated using AWS Systems Manager. Instances must have appropriate IAM permissions to access deployment bundles stored in Amazon S3.</p>
@@ -4226,21 +4236,29 @@
 <h3 id="ec2-deployment-process">EC2 Deployment Process<a class="headerlink" href="#ec2-deployment-process" title="Permanent link">&para;</a></h3>
 <p>Deployments to EC2 instances are governed by the appspec.yml file and the chosen deployment strategy. The process supports deployment hooks for verification at various phases of the deployment lifecycle.</p>
 <h3 id="auto-scaling-group-integration">Auto Scaling Group Integration<a class="headerlink" href="#auto-scaling-group-integration" title="Permanent link">&para;</a></h3>
-<p>In-place Deployments:
-- Updates existing EC2 instances
-- Automatically includes newly created instances in the deployment process</p>
-<p>Blue/Green Deployments:
-- Creates a new Auto Scaling Group with copied settings
-- Requires an Elastic Load Balancer
-- Allows customization of instance retention period for the old ASG</p>
+<p>In-place Deployments:</p>
+<ul>
+<li>Updates existing EC2 instances</li>
+<li>Automatically includes newly created instances in the deployment process</li>
+</ul>
+<p>Blue/Green Deployments:</p>
+<ul>
+<li>Creates a new Auto Scaling Group with copied settings</li>
+<li>Requires an Elastic Load Balancer</li>
+<li>Allows customization of instance retention period for the old ASG</li>
+</ul>
 <h2 id="rollback-management">Rollback Management<a class="headerlink" href="#rollback-management" title="Permanent link">&para;</a></h2>
 <p>CodeDeploy offers flexible rollback capabilities to maintain application reliability:</p>
-<p>Automatic Rollbacks:
-- Triggered by deployment failures
-- Initiated when CloudWatch Alarm thresholds are exceeded</p>
-<p>Manual Rollbacks:
-- User-initiated rollback to previous version
-- Option to disable rollbacks for specific deployments</p>
+<p>Automatic Rollbacks:</p>
+<ul>
+<li>Triggered by deployment failures</li>
+<li>Initiated when CloudWatch Alarm thresholds are exceeded</li>
+</ul>
+<p>Manual Rollbacks:</p>
+<ul>
+<li>User-initiated rollback to previous version</li>
+<li>Option to disable rollbacks for specific deployments</li>
+</ul>
 <p>When a rollback occurs, CodeDeploy creates a new deployment using the last known good revision rather than restoring a previous version. This approach ensures consistent deployment processes and maintains deployment history.</p>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <ul>
