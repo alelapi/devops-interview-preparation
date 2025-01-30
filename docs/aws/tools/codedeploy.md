@@ -1,185 +1,89 @@
-# CodeDeploy
+# AWS CodeDeploy Documentation
 
-## Service Overview
-AWS CodeDeploy is a robust deployment automation service designed to streamline application version deployments across diverse computing environments. It supports deployment to EC2 instances, on-premises servers, Lambda functions, and ECS services with sophisticated deployment control mechanisms.
+## Overview
 
-## Core Deployment Capabilities
-The service enables automated application deployments with built-in rollback capabilities, triggered either by deployment failures or CloudWatch Alarm conditions. Deployments are orchestrated through an `appspec.yml` configuration file, which defines precise deployment procedures.
+AWS CodeDeploy is an automated deployment service that streamlines the process of deploying applications across various AWS compute platforms. The service supports deployments to Amazon EC2 instances, on-premises servers, AWS Lambda functions, and Amazon ECS services. CodeDeploy provides sophisticated deployment control features, including automated rollback capabilities triggered by deployment failures or CloudWatch alarms. The entire deployment process is defined in an appspec.yml file.
 
-## Core Concepts
+## Platform Support
 
-### 1. Deployment Components
+### EC2 and On-premises Platform
 
-#### Application
-- Container for deployment rules, configurations, and files
-- Groups related deployment resources
-- Can contain multiple deployment groups
+CodeDeploy provides comprehensive support for deploying applications to EC2 instances and on-premises servers. The service supports both in-place and blue/green deployment strategies, with the requirement that target instances run the CodeDeploy Agent.
 
-#### Deployment Group
-- Set of tagged instances
-- Deployment rules and success conditions
-- Deployment configuration
-- Rollback configuration
-- Triggers and alarms
+Deployment speeds can be customized through various options:
+- AllAtOnce: Fastest deployment with maximum downtime
+- HalfAtATime: Balanced approach with 50% capacity reduction
+- OneAtATime: Minimal availability impact with longest deployment time
+- Custom: User-defined percentage-based deployment
 
-#### Deployment Configuration
-- Rules for deployment success/failure
-- Traffic shifting rules
-- Instance health evaluation
+### Lambda Platform
 
-#### Revision
-- Source content to deploy
-- AppSpec file
-- Application files
-- Scripts
-- Configuration files
+For Lambda deployments, CodeDeploy automates traffic shifting for Lambda aliases, featuring tight integration with the AWS Serverless Application Model (SAM) framework. Traffic shifting patterns include:
 
-### 2. AppSpec File
+Linear deployments:
+- LambdaLinear10PercentEvery3Minutes
+- LambdaLinear10PercentEvery10Minutes
 
-The AppSpec file (application specification file) is the core of CodeDeploy deployment.
+Canary deployments:
+- LambdaCanary10Percent5Minutes
+- LambdaCanary10Percent30Minutes
 
-#### Structure
-```yaml
-version: 0.0
-os: linux
-files:
-  - source: /
-    destination: /var/www/html/
-hooks:
-  ApplicationStop:
-    - location: scripts/application_stop.sh
-      timeout: 300
-      runas: root
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
-      runas: root
-  AfterInstall:
-    - location: scripts/after_install.sh
-      timeout: 300
-      runas: root
-  ApplicationStart:
-    - location: scripts/start_application.sh
-      timeout: 300
-      runas: root
-  ValidateService:
-    - location: scripts/validate_service.sh
-      timeout: 300
-      runas: root
-```
+AllAtOnce deployment for immediate traffic shifting
 
-#### Lifecycle Events
-1. **Application Stop**
-   - Stop running version
-   - Prepare for deployment
+### ECS Platform
 
-2. **Download Bundle**
-   - Download revision files
-   - Validate checksums
+CodeDeploy automates the deployment of new ECS Task Definitions exclusively through blue/green deployments. Traffic shifting patterns include:
 
-3. **Before Install**
-   - Pre-installation tasks
-   - Backup existing files
-   - Decrypt files
+Linear deployments:
+- ECSLinear10PercentEvery3Minutes
+- ECSLinear10PercentEvery10Minutes
 
-4. **Install**
-   - Copy revision files
-   - Set permissions
-   - Create directories
+Canary deployments:
+- ECSCanary10Percent5Minutes
+- ECSCanary10Percent30Minutes
 
-5. **After Install**
-   - Configuration tasks
-   - Set environment variables
-   - File modifications
+AllAtOnce deployment for immediate updates
 
-6. **Application Start**
-   - Start application
-   - Enable services
-   - Start servers
+## CodeDeploy Agent
 
-7. **Validate Service**
-   - Health checks
-   - Test functionality
-   - Verify deployment
+The CodeDeploy Agent is a crucial component that must be running on target EC2 instances prior to deployment. The agent can be automatically installed and updated using AWS Systems Manager. Instances must have appropriate IAM permissions to access deployment bundles stored in Amazon S3.
 
-![Lifecycle events:](../../assets/img/codedeploy.jpg)
+## Deployment Configurations
 
-## Deployment Types
-
-### 1. In-Place Deployment
-- Updates existing instances
-- Sequential deployment
-- Possible downtime
-- Rollback replaces files
-
-#### Use Cases
-- Small applications
-- Development environments
-- Quick updates
-
-### 2. Blue/Green Deployment
-- New instance group
-- Zero downtime
-- Easy rollback
-- Higher resource usage
-
-## Deployment Platforms and Strategies
-
-### EC2 and On-Premises Deployments
-CodeDeploy supports comprehensive deployment approaches for traditional server environments, including:
-
-#### Deployment Speed Configurations
-- AllAtOnce: Fastest deployment with maximum potential downtime
-- HalfAtATime: Reduces infrastructure capacity by 50%
-- OneAtATime: Slowest method with minimal availability impact
-- Custom: Percentage-based deployment control
-
-#### Deployment Types
-- In-Place Deployment: Updates existing infrastructure directly
-- Blue/Green Deployment: Creates parallel infrastructure for zero-downtime transitions
-
-### Lambda Function Deployments
-CodeDeploy offers sophisticated traffic shifting mechanisms for Lambda functions:
-
-#### Traffic Shift Strategies
-- Linear Approaches: Gradual traffic increase over specified intervals
-- Canary Deployments: Controlled percentage testing before full rollout
-- Immediate Deployment: Instantaneous full traffic shift
-
-### ECS Service Deployments
-Specialized deployment automation for containerized applications:
-
-#### Deployment Patterns
-- Blue/Green Deployments exclusively
-- Linear and Canary traffic shifting
-- Immediate deployment options
-
-## Agent and Permissions
-
-### CodeDeploy Agent
-A prerequisite agent must run on target EC2 instances, with:
-- Automatic installation via Systems Manager
-- Permissions to access deployment artifacts from Amazon S3
-
-## Advanced Deployment Features
+### EC2 Deployment Process
+Deployments to EC2 instances are governed by the appspec.yml file and the chosen deployment strategy. The process supports deployment hooks for verification at various phases of the deployment lifecycle.
 
 ### Auto Scaling Group Integration
-- Supports in-place and blue/green deployments
-- Automated deployment for newly created instances
-- Configurable old infrastructure retention
 
-### Rollback Mechanisms
-- Automatic rollback on deployment failure
-- Manual rollback capabilities
-- Deployment of last known good revision
-- CloudWatch Alarm-triggered rollbacks
+In-place Deployments:
+- Updates existing EC2 instances
+- Automatically includes newly created instances in the deployment process
 
-## Deployment Configuration
-Deployments are defined through `appspec.yml`, specifying:
-- Deployment targets
-- Artifact locations
-- Execution hooks
-- Validation procedures
+Blue/Green Deployments:
+- Creates a new Auto Scaling Group with copied settings
+- Requires an Elastic Load Balancer
+- Allows customization of instance retention period for the old ASG
 
-## Conclusion
-AWS CodeDeploy provides a comprehensive, flexible deployment automation solution supporting multiple platforms and sophisticated deployment strategies.
+## Rollback Management
+
+CodeDeploy offers flexible rollback capabilities to maintain application reliability:
+
+Automatic Rollbacks:
+- Triggered by deployment failures
+- Initiated when CloudWatch Alarm thresholds are exceeded
+
+Manual Rollbacks:
+- User-initiated rollback to previous version
+- Option to disable rollbacks for specific deployments
+
+When a rollback occurs, CodeDeploy creates a new deployment using the last known good revision rather than restoring a previous version. This approach ensures consistent deployment processes and maintains deployment history.
+
+## Best Practices
+
+- Thoroughly test deployment configurations in non-production environments
+- Implement appropriate CloudWatch Alarms for automated rollbacks
+- Maintain proper version control of your appspec.yml file
+- Regular monitoring and maintenance of the CodeDeploy Agent
+- Implement appropriate security controls and IAM permissions
+- Use deployment hooks effectively for validation
+- Maintain comprehensive documentation of deployment configurations
