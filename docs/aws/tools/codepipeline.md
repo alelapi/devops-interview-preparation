@@ -37,6 +37,7 @@ CodePipeline implements a robust artifact management system where each pipeline 
 
 ### Event Monitoring
 CodePipeline integrates with Amazon EventBridge (formerly CloudWatch Events) to monitor pipeline, action, and stage execution state changes. This enables teams to:
+
 - Create alerts for failed pipelines
 - Monitor cancelled stages
 - Track pipeline execution progress
@@ -51,6 +52,7 @@ AWS CloudTrail integration provides comprehensive audit logging of all API calls
 ## Best Practices
 
 To ensure optimal pipeline operation:
+
 - Regularly review and update IAM roles and permissions
 - Implement appropriate monitoring and alerting through EventBridge
 - Use manual approval stages strategically in sensitive environments

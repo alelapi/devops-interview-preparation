@@ -9,6 +9,7 @@ Amazon CodeGuru is a machine learning-powered service that provides automated co
 CodeGuru Reviewer leverages machine learning and automated reasoning to perform sophisticated code analysis. The service has been trained on millions of code reviews from thousands of open-source and Amazon repositories, incorporating extensive real-world experience into its analysis capabilities.
 
 The reviewer excels at identifying critical issues that might otherwise go unnoticed, including:
+
 - Security vulnerabilities
 - Resource leaks
 - Input validation problems
