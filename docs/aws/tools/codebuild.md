@@ -10,7 +10,7 @@ The service handles essential development tasks including source code compilatio
 
 At its foundation, CodeBuild utilizes Docker containers to ensure consistent and reproducible builds across different environments. Developers can choose from AWS's prepackaged Docker images or create custom images to meet specific build requirements. This containerized approach guarantees that builds remain consistent across different environments and team members.
 
-![Codebuild Architecture:](../assets/img/codebuild.png)
+![Codebuild Architecture:](../../assets/img/codebuild.png)
 
 ## Security Framework
 

@@ -102,7 +102,7 @@ hooks:
    - Test functionality
    - Verify deployment
 
-![Lifecycle events:](../assets/img/codedeploy.jpg)
+![Lifecycle events:](../../assets/img/codedeploy.jpg)
 
 ## Deployment Types
 
