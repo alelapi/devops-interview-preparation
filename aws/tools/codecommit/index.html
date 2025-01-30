@@ -4571,10 +4571,12 @@
 <p>CodeCommit provides a comprehensive platform for creating, managing, and interacting with Git repositories. Developers can seamlessly store and version their source code, documentation, and binary files within a secure, highly available cloud environment. The service supports standard Git commands and integrates natively with existing development workflows.</p>
 <h3 id="security-and-access-control">Security and Access Control<a class="headerlink" href="#security-and-access-control" title="Permanent link">&para;</a></h3>
 <p>Security represents a fundamental design principle of CodeCommit. The service leverages AWS Identity and Access Management (IAM) to implement granular access controls. Organizations can define precise repository permissions, controlling who can view, modify, or delete repository contents. 
-Multi-factor authentication and encryption at rest and in transit ensure comprehensive data protection.
-- Repositories are automatically encrypted at rest using AWS KMS.
-- Encryption in transit is guaranteed by using HTTPS or SSH.
-For cross-account access sharing use a IAM Role and STS AssumeRole</p>
+Multi-factor authentication and encryption at rest and in transit ensure comprehensive data protection.</p>
+<ul>
+<li>Repositories are automatically encrypted at rest using AWS KMS.</li>
+<li>Encryption in transit is guaranteed by using HTTPS or SSH.</li>
+</ul>
+<p>For cross-account access sharing use a IAM Role and STS AssumeRole</p>
 <h2 id="integration-capabilities">Integration Capabilities<a class="headerlink" href="#integration-capabilities" title="Permanent link">&para;</a></h2>
 <h3 id="aws-development-ecosystem">AWS Development Ecosystem<a class="headerlink" href="#aws-development-ecosystem" title="Permanent link">&para;</a></h3>
 <p>CodeCommit seamlessly integrates with other AWS development and deployment services, creating a cohesive software development lifecycle. Developers can easily connect CodeCommit repositories with services like AWS CodeBuild, CodePipeline, and CodeDeploy, enabling streamlined continuous integration and continuous deployment (CI/CD) workflows.</p>
@@ -4582,10 +4584,12 @@ For cross-account access sharing use a IAM Role and STS AssumeRole</p>
 <p>The service supports standard Git client tools, including command-line interfaces, desktop applications, and integrated development environments. Developers can utilize familiar Git workflows without requiring significant tool modifications or learning new interfaces.</p>
 <h2 id="authentication-mechanisms">Authentication Mechanisms<a class="headerlink" href="#authentication-mechanisms" title="Permanent link">&para;</a></h2>
 <h3 id="iam-user-authentication">IAM User Authentication<a class="headerlink" href="#iam-user-authentication" title="Permanent link">&para;</a></h3>
-<p>AWS provides multiple authentication methods for accessing CodeCommit repositories. IAM users can generate:
-- SSH Keys: User can generate SSH Keys in the IAM console
-- HTTPS: with AWS CLI Credentials helper or Git Credentials for IAM User
-The credential management system allows for easy rotation and revocation of access keys.</p>
+<p>AWS provides multiple authentication methods for accessing CodeCommit repositories. IAM users can generate:</p>
+<ul>
+<li>SSH Keys: User can generate SSH Keys in the IAM console</li>
+<li>HTTPS: with AWS CLI Credentials helper or Git Credentials for IAM User</li>
+</ul>
+<p>The credential management system allows for easy rotation and revocation of access keys.</p>
 <h3 id="federated-access">Federated Access<a class="headerlink" href="#federated-access" title="Permanent link">&para;</a></h3>
 <p>Organizations using corporate directory services can implement federated access through AWS Single Sign-On (SSO) or third-party identity providers. This approach simplifies authentication while maintaining robust security standards.</p>
 <h2 id="repository-management-features">Repository Management Features<a class="headerlink" href="#repository-management-features" title="Permanent link">&para;</a></h2>
