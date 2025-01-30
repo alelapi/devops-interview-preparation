@@ -43,7 +43,10 @@ CodeBuild supports various types of environment variables, from plaintext variab
 ### Build Phases
 The build process is organized into distinct phases:
 
-The install phase handles dependency installation and initial setup requirements. During the pre-build phase, final preparations and validations occur before the main build process. The build phase executes the primary build commands, while the post-build phase handles final tasks such as packaging and preparing artifacts for deployment.
+- The `install` phase handles dependency installation and initial setup requirements. 
+- During the `pre-build` phase, final preparations and validations occur before the main build process. 
+- The `build` phase executes the primary build commands
+- The `post-build` phase handles final tasks such as packaging and preparing artifacts for deployment.
 
 ### Artifacts and Caching
 Build outputs designated as artifacts are automatically uploaded to S3 with KMS encryption. To optimize build performance, CodeBuild supports caching of specified files (typically dependencies) to S3, significantly reducing build times for subsequent executions by reusing cached components.
