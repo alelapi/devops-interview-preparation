@@ -4267,22 +4267,26 @@
 <p>CodePipeline implements a robust artifact management system where each pipeline stage can generate artifacts. These artifacts are automatically stored in an Amazon S3 bucket and passed to subsequent stages, ensuring proper version control and traceability throughout the pipeline.</p>
 <h2 id="troubleshooting-and-monitoring">Troubleshooting and Monitoring<a class="headerlink" href="#troubleshooting-and-monitoring" title="Permanent link">&para;</a></h2>
 <h3 id="event-monitoring">Event Monitoring<a class="headerlink" href="#event-monitoring" title="Permanent link">&para;</a></h3>
-<p>CodePipeline integrates with Amazon EventBridge (formerly CloudWatch Events) to monitor pipeline, action, and stage execution state changes. This enables teams to:
-- Create alerts for failed pipelines
-- Monitor cancelled stages
-- Track pipeline execution progress
-- Set up automated responses to pipeline events</p>
+<p>CodePipeline integrates with Amazon EventBridge (formerly CloudWatch Events) to monitor pipeline, action, and stage execution state changes. This enables teams to:</p>
+<ul>
+<li>Create alerts for failed pipelines</li>
+<li>Monitor cancelled stages</li>
+<li>Track pipeline execution progress</li>
+<li>Set up automated responses to pipeline events</li>
+</ul>
 <h3 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h3>
 <p>When a stage fails, the pipeline automatically stops, and detailed information is available in the AWS Management Console. Common issues often relate to IAM permissions, where the pipeline&rsquo;s service role may need additional permissions to perform certain actions.</p>
 <h3 id="audit-and-compliance">Audit and Compliance<a class="headerlink" href="#audit-and-compliance" title="Permanent link">&para;</a></h3>
 <p>AWS CloudTrail integration provides comprehensive audit logging of all API calls made to CodePipeline, supporting security analysis, resource change tracking, and compliance auditing requirements.</p>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>To ensure optimal pipeline operation:
-- Regularly review and update IAM roles and permissions
-- Implement appropriate monitoring and alerting through EventBridge
-- Use manual approval stages strategically in sensitive environments
-- Maintain clear stage and action naming conventions
-- Regularly clean up unused artifacts to manage storage costs</p>
+<p>To ensure optimal pipeline operation:</p>
+<ul>
+<li>Regularly review and update IAM roles and permissions</li>
+<li>Implement appropriate monitoring and alerting through EventBridge</li>
+<li>Use manual approval stages strategically in sensitive environments</li>
+<li>Maintain clear stage and action naming conventions</li>
+<li>Regularly clean up unused artifacts to manage storage costs</li>
+</ul>
 
 
 
