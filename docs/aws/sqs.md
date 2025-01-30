@@ -73,6 +73,8 @@ AWS Identity and Access Management (IAM) provides granular control over queue ac
 - Maximum message retention: 14 days
 - Maximum in-flight messages per queue: 120,000
 - API call rate: 3,000 requests per second per queue
+- When requesting messages from a queue, you cannot specify individual messages
+- The maximum number of messages you wish to retrieve has limit of 10
 
 ## Large Message Processing Strategies
 
