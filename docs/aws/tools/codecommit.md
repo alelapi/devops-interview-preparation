@@ -12,8 +12,10 @@ CodeCommit provides a comprehensive platform for creating, managing, and interac
 ### Security and Access Control
 Security represents a fundamental design principle of CodeCommit. The service leverages AWS Identity and Access Management (IAM) to implement granular access controls. Organizations can define precise repository permissions, controlling who can view, modify, or delete repository contents. 
 Multi-factor authentication and encryption at rest and in transit ensure comprehensive data protection.
+
 - Repositories are automatically encrypted at rest using AWS KMS.
 - Encryption in transit is guaranteed by using HTTPS or SSH.
+
 For cross-account access sharing use a IAM Role and STS AssumeRole
 
 ## Integration Capabilities
@@ -28,8 +30,10 @@ The service supports standard Git client tools, including command-line interface
 
 ### IAM User Authentication
 AWS provides multiple authentication methods for accessing CodeCommit repositories. IAM users can generate:
+
 - SSH Keys: User can generate SSH Keys in the IAM console
 - HTTPS: with AWS CLI Credentials helper or Git Credentials for IAM User
+
 The credential management system allows for easy rotation and revocation of access keys.
 
 
