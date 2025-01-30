@@ -4185,7 +4185,12 @@ Java, Ruby, Python, Go, Node.js, Android, .NET Core, and PHP. The Docker support
 <p>CodeBuild supports various types of environment variables, from plaintext variables for basic configuration to more secure options using AWS Systems Manager Parameter Store or AWS Secrets Manager for sensitive information.</p>
 <h3 id="build-phases">Build Phases<a class="headerlink" href="#build-phases" title="Permanent link">&para;</a></h3>
 <p>The build process is organized into distinct phases:</p>
-<p>The install phase handles dependency installation and initial setup requirements. During the pre-build phase, final preparations and validations occur before the main build process. The build phase executes the primary build commands, while the post-build phase handles final tasks such as packaging and preparing artifacts for deployment.</p>
+<ul>
+<li>The <code>install</code> phase handles dependency installation and initial setup requirements. </li>
+<li>During the <code>pre-build</code> phase, final preparations and validations occur before the main build process. </li>
+<li>The <code>build</code> phase executes the primary build commands</li>
+<li>The <code>post-build</code> phase handles final tasks such as packaging and preparing artifacts for deployment.</li>
+</ul>
 <h3 id="artifacts-and-caching">Artifacts and Caching<a class="headerlink" href="#artifacts-and-caching" title="Permanent link">&para;</a></h3>
 <p>Build outputs designated as artifacts are automatically uploaded to S3 with KMS encryption. To optimize build performance, CodeBuild supports caching of specified files (typically dependencies) to S3, significantly reducing build times for subsequent executions by reusing cached components.</p>
 <p>This caching mechanism is particularly valuable for projects with substantial dependencies, as it can dramatically improve build efficiency by eliminating the need to repeatedly download and process unchanged dependencies.</p>
