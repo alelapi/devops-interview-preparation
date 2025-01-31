@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../../..">
+        <link rel="prev" href="../../database/rds/">
       
       
-        <link rel="next" href="../dynamodb/">
+        <link rel="next" href="../kinesis_data_analytics/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Aurora - My DevOps Interview Preparation</title>
+        <title>Firehose - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#aurora" class="md-skip">
+        <a href="#firehose" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Aurora
+              Firehose
             
           </span>
         </div>
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../../database/aurora/" class="md-tabs__link">
           
   
     
@@ -576,8 +576,6 @@
                 
   
   
-    
-  
   
   
     
@@ -602,11 +600,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
@@ -621,7 +619,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             Databases
@@ -632,31 +630,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Aurora
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../database/aurora/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -666,113 +643,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-capabilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Technical Capabilities
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#high-availability-architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      High Availability Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Framework
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Security Framework">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#encryption-capabilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encryption Capabilities
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      Access Control
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#audit-and-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Audit and Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migration-and-backup-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Migration and Backup Considerations
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -785,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dynamodb/" class="md-nav__link">
+      <a href="../../database/dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -807,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elasticache/" class="md-nav__link">
+      <a href="../../database/elasticache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -829,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rds/" class="md-nav__link">
+      <a href="../../database/rds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,6 +726,8 @@
                 
   
   
+    
+  
   
   
     
@@ -884,11 +756,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
@@ -903,7 +775,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Messaging
@@ -914,10 +786,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../messaging/firehose/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Firehose
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -927,6 +820,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#destination-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Destination Capabilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Characteristics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-format-flexibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Format Flexibility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-transformation-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Transformation Capabilities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparative-analysis-with-kinesis-data-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparative Analysis with Kinesis Data Streams
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-case-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Architecture
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -939,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../kinesis_data_analytics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -961,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../kinesis_data_streams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -983,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messaging/ses/" class="md-nav__link">
+      <a href="../ses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1005,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messaging/sns/" class="md-nav__link">
+      <a href="../sns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messaging/sqs/" class="md-nav__link">
+      <a href="../sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4519,87 +4495,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#destination-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Destination Capabilities
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#technical-capabilities" class="md-nav__link">
+  <a href="#service-characteristics" class="md-nav__link">
     <span class="md-ellipsis">
-      Technical Capabilities
+      Service Characteristics
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#high-availability-architecture" class="md-nav__link">
+  <a href="#data-format-flexibility" class="md-nav__link">
     <span class="md-ellipsis">
-      High Availability Architecture
+      Data Format Flexibility
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-features" class="md-nav__link">
+  <a href="#advanced-transformation-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Features
+      Advanced Transformation Capabilities
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-framework" class="md-nav__link">
+  <a href="#comparative-analysis-with-kinesis-data-streams" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Framework
+      Comparative Analysis with Kinesis Data Streams
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Security Framework">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#encryption-capabilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encryption Capabilities
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      Access Control
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#audit-and-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Audit and Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#migration-and-backup-considerations" class="md-nav__link">
+  <a href="#use-case-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
-      Migration and Backup Considerations
+      Use Case Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Architecture
     </span>
   </a>
   
@@ -4624,29 +4576,23 @@
   
 
 
-<h1 id="aurora">Aurora<a class="headerlink" href="#aurora" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Amazon Aurora represents AWS&rsquo;s proprietary database technology, offering compatibility with both PostgreSQL and MySQL. This compatibility ensures existing database drivers work seamlessly with Aurora deployments. The service demonstrates significant performance improvements over traditional RDS implementations, showing up to 5x better performance compared to MySQL and 3x compared to PostgreSQL on RDS.</p>
-<h2 id="technical-capabilities">Technical Capabilities<a class="headerlink" href="#technical-capabilities" title="Permanent link">&para;</a></h2>
-<p>Aurora&rsquo;s storage infrastructure automatically scales in 10GB increments, supporting databases up to 128TB. The service supports up to 15 replicas with industry-leading replication performance, maintaining sub-10 millisecond replica lag. Built with high availability as a core feature, Aurora provides instantaneous failover capabilities, though it comes at a 20% cost premium over standard RDS offerings.</p>
-<h2 id="high-availability-architecture">High Availability Architecture<a class="headerlink" href="#high-availability-architecture" title="Permanent link">&para;</a></h2>
-<p>Aurora implements a sophisticated high availability model through its distributed storage system. Data is automatically replicated across three Availability Zones with six copies maintained for redundancy. The system requires four copies for write operations and three copies for read operations, ensuring data durability and availability. Storage is distributed across hundreds of volumes with self-healing peer-to-peer replication.</p>
-<p>The primary instance handles write operations while up to 15 read replicas can serve read requests. Master failover occurs automatically within 30 seconds, and the service supports cross-region replication for global deployment scenarios.</p>
-<h2 id="core-features">Core Features<a class="headerlink" href="#core-features" title="Permanent link">&para;</a></h2>
-<p>Aurora delivers enterprise-grade database capabilities including automated failover, comprehensive backup and recovery options, and robust security isolation. The service maintains industry compliance standards while offering push-button scaling capabilities. Operational tasks such as patching and maintenance occur without downtime, complemented by advanced monitoring capabilities.</p>
-<p>A distinctive feature called Backtrack allows point-in-time restoration without relying on traditional backups, offering flexible recovery options.</p>
-<h2 id="security-framework">Security Framework<a class="headerlink" href="#security-framework" title="Permanent link">&para;</a></h2>
-<h3 id="encryption-capabilities">Encryption Capabilities<a class="headerlink" href="#encryption-capabilities" title="Permanent link">&para;</a></h3>
-<p>Aurora provides comprehensive encryption options both at rest and in transit. Database encryption uses AWS KMS and must be configured during instance launch. Important considerations include:
-- Read replicas can only be encrypted if the master database is encrypted
-- Encrypting an unencrypted database requires creating an encrypted snapshot and restoration
-- TLS encryption is enabled by default for data in transit</p>
-<h3 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
-<p>The service integrates with AWS IAM for authentication, allowing database access through IAM roles instead of traditional username/password combinations. Network access is controlled through Security Groups, though direct SSH access is restricted except in RDS Custom deployments.</p>
-<h3 id="audit-and-monitoring">Audit and Monitoring<a class="headerlink" href="#audit-and-monitoring" title="Permanent link">&para;</a></h3>
-<p>Aurora supports audit logging with CloudWatch Logs integration for extended retention periods, enabling comprehensive activity tracking and compliance monitoring.</p>
-<h2 id="migration-and-backup-considerations">Migration and Backup Considerations<a class="headerlink" href="#migration-and-backup-considerations" title="Permanent link">&para;</a></h2>
-<p>When deploying Aurora, organizations should consider their backup strategy, migration paths, and replication requirements. The service&rsquo;s automatic storage scaling and backup capabilities simplify operational management, while its compatibility with existing MySQL and PostgreSQL applications facilitates smooth migrations from traditional database deployments.</p>
+<h1 id="firehose">Firehose<a class="headerlink" href="#firehose" title="Permanent link">&para;</a></h1>
+<p>Previously known as Kinesis Data Firehose, this fully managed service provides a seamless solution for streaming data delivery and transformation. The service enables organizations to efficiently route streaming data to multiple destinations with minimal operational overhead.</p>
+<h2 id="destination-capabilities">Destination Capabilities<a class="headerlink" href="#destination-capabilities" title="Permanent link">&para;</a></h2>
+<p>Amazon Data Firehose supports comprehensive data routing to various destinations, including native AWS services like Amazon Redshift, Amazon S3, and Amazon OpenSearch Service. The platform also facilitates integration with third-party platforms such as Splunk, MongoDB, Datadog, and New Relic, along with support for custom HTTP endpoints.</p>
+<h2 id="service-characteristics">Service Characteristics<a class="headerlink" href="#service-characteristics" title="Permanent link">&para;</a></h2>
+<p>The service operates as a serverless infrastructure with automatic scaling, allowing organizations to pay only for consumed resources. Data processing occurs with near real-time capabilities, utilizing intelligent buffering mechanisms based on data size and time intervals.</p>
+<h2 id="data-format-flexibility">Data Format Flexibility<a class="headerlink" href="#data-format-flexibility" title="Permanent link">&para;</a></h2>
+<p>Firehose demonstrates remarkable versatility in data format handling, supporting multiple input and output formats. Supported input formats include CSV, JSON, Parquet, Avro, Raw Text, and Binary data. The service offers advanced conversion capabilities, transforming data into Parquet or ORC formats and implementing compression using gzip or snappy algorithms.</p>
+<h2 id="advanced-transformation-capabilities">Advanced Transformation Capabilities<a class="headerlink" href="#advanced-transformation-capabilities" title="Permanent link">&para;</a></h2>
+<p>Organizations can leverage AWS Lambda for custom data transformations, enabling sophisticated data processing workflows. This feature allows complex data manipulation tasks, such as converting CSV data to JSON format, directly within the streaming pipeline.</p>
+<h2 id="comparative-analysis-with-kinesis-data-streams">Comparative Analysis with Kinesis Data Streams<a class="headerlink" href="#comparative-analysis-with-kinesis-data-streams" title="Permanent link">&para;</a></h2>
+<p>While Kinesis Data Streams focuses on real-time streaming data collection with producer and consumer code management, Amazon Data Firehose provides a more streamlined approach. Key differentiations include:</p>
+<p>Firehose operates with near real-time processing, offers automatic scaling, and does not maintain long-term data storage. Unlike Kinesis Data Streams, Firehose lacks data replay capabilities, emphasizing immediate data routing and transformation.</p>
+<h2 id="use-case-scenarios">Use Case Scenarios<a class="headerlink" href="#use-case-scenarios" title="Permanent link">&para;</a></h2>
+<p>The service is particularly valuable for organizations requiring efficient, scalable data streaming solutions. Typical applications include log analytics, real-time business intelligence, website clickstream analysis, and comprehensive data warehouse loading.</p>
+<h2 id="technical-architecture">Technical Architecture<a class="headerlink" href="#technical-architecture" title="Permanent link">&para;</a></h2>
+<p>By abstracting complex streaming infrastructure challenges, Amazon Data Firehose enables developers to focus on data processing logic rather than managing underlying streaming mechanics. The serverless nature ensures seamless scalability and minimal operational complexity.</p>
 
 
 
@@ -4682,7 +4628,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+          <a href="../../database/rds/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Relational Database Service (RDS)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4692,20 +4638,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Home
+                Relational Database Service (RDS)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../dynamodb/" class="md-footer__link md-footer__link--next" aria-label="Next: DynamoDB">
+          <a href="../kinesis_data_analytics/" class="md-footer__link md-footer__link--next" aria-label="Next: Amazon Kinesis Data Analytics">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                DynamoDB
+                Amazon Kinesis Data Analytics
               </div>
             </div>
             <div class="md-footer__button md-icon">

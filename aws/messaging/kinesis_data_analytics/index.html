@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../../database/rds/">
+        <link rel="prev" href="../firehose/">
       
       
-        <link rel="next" href="../sns/">
+        <link rel="next" href="../kinesis_data_streams/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Kinesis - My DevOps Interview Preparation</title>
+        <title>Amazon Kinesis Data Analytics - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#kinesis" class="md-skip">
+        <a href="#amazon-kinesis-data-analytics" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kinesis
+              Amazon Kinesis Data Analytics
             
           </span>
         </div>
@@ -739,6 +739,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -780,6 +786,28 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../firehose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firehose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -796,7 +824,7 @@
           
   
   <span class="md-ellipsis">
-    Kinesis
+    Amazon Kinesis Data Analytics
     
   </span>
   
@@ -808,7 +836,7 @@
         
   
   <span class="md-ellipsis">
-    Kinesis
+    Amazon Kinesis Data Analytics
     
   </span>
   
@@ -831,383 +859,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#processing-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Processing Capabilities
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kinesis-services" class="md-nav__link">
+  <a href="#input-and-output-flexibility" class="md-nav__link">
     <span class="md-ellipsis">
-      Kinesis Services
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kinesis Services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-kinesis-data-streams" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Kinesis Data Streams
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Kinesis Data Streams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Components
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-kinesis-data-firehose" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Kinesis Data Firehose
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Kinesis Data Firehose">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-destinations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Destinations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-kinesis-data-analytics" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Kinesis Data Analytics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Kinesis Data Analytics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use Cases
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-kinesis-video-streams" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Kinesis Video Streams
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Kinesis Video Streams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Use Cases
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Use Cases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#real-time-analytics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Real-time Analytics
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-lake-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Lake Integration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#application-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Features
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Security Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#authentication-and-authorization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication and Authorization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encryption
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Optimization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scaling-and-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scaling and Performance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Scaling and Performance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#throughput" class="md-nav__link">
-    <span class="md-ellipsis">
-      Throughput
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#latency" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latency
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-points" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration Points
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Integration Points">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Tools
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pricing-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pricing Considerations
+      Input and Output Flexibility
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#limits-and-quotas" class="md-nav__link">
+  <a href="#data-processing-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Limits and Quotas
+      Data Processing Features
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-guide" class="md-nav__link">
+  <a href="#language-and-reference-data-support" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting Guide
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues
+      Language and Reference Data Support
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#resolution-steps" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-scaling" class="md-nav__link">
     <span class="md-ellipsis">
-      Resolution Steps
+      Performance and Scaling
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#use-case-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Compliance
+    </span>
+  </a>
   
 </li>
       
@@ -1215,6 +925,50 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kinesis_data_streams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kinesis Data Streams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Simple Email Service (SES)
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -4741,383 +4495,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#processing-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Processing Capabilities
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kinesis-services" class="md-nav__link">
+  <a href="#input-and-output-flexibility" class="md-nav__link">
     <span class="md-ellipsis">
-      Kinesis Services
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Kinesis Services">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-kinesis-data-streams" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Kinesis Data Streams
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Kinesis Data Streams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Components
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-kinesis-data-firehose" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Kinesis Data Firehose
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Kinesis Data Firehose">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supported-destinations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported Destinations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-kinesis-data-analytics" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Kinesis Data Analytics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Kinesis Data Analytics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use Cases
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-kinesis-video-streams" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Kinesis Video Streams
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Kinesis Video Streams">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Use Cases
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Use Cases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#real-time-analytics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Real-time Analytics
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-lake-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Lake Integration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#application-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Application Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Features
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Security Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#authentication-and-authorization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authentication and Authorization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Encryption
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Optimization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scaling-and-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scaling and Performance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Scaling and Performance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#throughput" class="md-nav__link">
-    <span class="md-ellipsis">
-      Throughput
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#latency" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latency
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-points" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration Points
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Integration Points">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      AWS Services
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#development-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      Development Tools
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pricing-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pricing Considerations
+      Input and Output Flexibility
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#limits-and-quotas" class="md-nav__link">
+  <a href="#data-processing-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Limits and Quotas
+      Data Processing Features
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-guide" class="md-nav__link">
+  <a href="#language-and-reference-data-support" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting Guide
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues
+      Language and Reference Data Support
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#resolution-steps" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-scaling" class="md-nav__link">
     <span class="md-ellipsis">
-      Resolution Steps
+      Performance and Scaling
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#use-case-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Compliance
+    </span>
+  </a>
   
 </li>
       
@@ -5140,206 +4576,22 @@
   
 
 
-<h1 id="kinesis">Kinesis<a class="headerlink" href="#kinesis" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Amazon Kinesis is a platform for streaming data on AWS, making it easy to collect, process, and analyze real-time streaming data. It enables you to process and analyze data as it arrives and respond instantly instead of having to wait until all your data is collected before processing can begin.</p>
-<h2 id="kinesis-services">Kinesis Services<a class="headerlink" href="#kinesis-services" title="Permanent link">&para;</a></h2>
-<h3 id="1-kinesis-data-streams">1. Kinesis Data Streams<a class="headerlink" href="#1-kinesis-data-streams" title="Permanent link">&para;</a></h3>
-<p>A scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources.</p>
-<h4 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Real-time processing</li>
-<li>Scalable throughput</li>
-<li>Data retention: 24 hours (default) to 365 days</li>
-<li>Multiple consumers</li>
-<li>Ordered record delivery</li>
-<li>Custom encryption with AWS KMS</li>
-</ul>
-<h4 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Producers</strong>: Applications putting data into streams</li>
-<li><strong>Shards</strong>: Base throughput unit</li>
-<li><strong>Consumers</strong>: Applications processing stream data</li>
-<li><strong>Records</strong>: The data blobs being streamed</li>
-</ul>
-<h3 id="2-kinesis-data-firehose">2. Kinesis Data Firehose<a class="headerlink" href="#2-kinesis-data-firehose" title="Permanent link">&para;</a></h3>
-<p>Fully managed service for delivering real-time streaming data to destinations such as Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk.</p>
-<h4 id="key-features_1">Key Features<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Automatic scaling</li>
-<li>Data transformation</li>
-<li>Batch operations</li>
-<li>Near real-time delivery</li>
-<li>Serverless data delivery</li>
-<li>Built-in error handling</li>
-</ul>
-<h4 id="supported-destinations">Supported Destinations<a class="headerlink" href="#supported-destinations" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Amazon S3</li>
-<li>Amazon Redshift</li>
-<li>Amazon Elasticsearch Service</li>
-<li>Splunk</li>
-<li>HTTP Endpoints</li>
-<li>Third-party service providers</li>
-</ul>
-<h3 id="3-kinesis-data-analytics">3. Kinesis Data Analytics<a class="headerlink" href="#3-kinesis-data-analytics" title="Permanent link">&para;</a></h3>
-<p>Allows you to process and analyze streaming data using standard SQL or Apache Flink.</p>
-<h4 id="key-features_2">Key Features<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Real-time analytics</li>
-<li>Built-in functions</li>
-<li>Machine learning integration</li>
-<li>Automated elasticity</li>
-<li>Pay for actual processing</li>
-</ul>
-<h4 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Time-series analytics</li>
-<li>Real-time dashboards</li>
-<li>Real-time metrics</li>
-<li>Complex event processing</li>
-</ul>
-<h3 id="4-kinesis-video-streams">4. Kinesis Video Streams<a class="headerlink" href="#4-kinesis-video-streams" title="Permanent link">&para;</a></h3>
-<p>Securely stream video from connected devices to AWS for analytics, ML, playback, and other processing.</p>
-<h4 id="key-features_3">Key Features<a class="headerlink" href="#key-features_3" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Real-time video processing</li>
-<li>Durable storage</li>
-<li>Integration with AWS services</li>
-<li>Consumer SDK support</li>
-<li>Secure transmission</li>
-</ul>
-<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
-<h3 id="real-time-analytics">Real-time Analytics<a class="headerlink" href="#real-time-analytics" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Log and event data collection</li>
-<li>Mobile data capture</li>
-<li>Gaming data feeds</li>
-<li>Social media feeds</li>
-<li>IoT device telemetry</li>
-</ul>
-<h3 id="data-lake-integration">Data Lake Integration<a class="headerlink" href="#data-lake-integration" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Real-time data ingestion</li>
-<li>ETL processing</li>
-<li>Archive and analysis</li>
-<li>Machine learning input</li>
-</ul>
-<h3 id="application-monitoring">Application Monitoring<a class="headerlink" href="#application-monitoring" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Performance metrics</li>
-<li>Log aggregation</li>
-<li>User activity tracking</li>
-<li>System monitoring</li>
-</ul>
-<h2 id="security-features">Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
-<h3 id="authentication-and-authorization">Authentication and Authorization<a class="headerlink" href="#authentication-and-authorization" title="Permanent link">&para;</a></h3>
-<ul>
-<li>IAM roles and policies</li>
-<li>Fine-grained access control</li>
-<li>VPC endpoints support</li>
-<li>AWS KMS integration</li>
-</ul>
-<h3 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Server-side encryption</li>
-<li>Client-side encryption</li>
-<li>TLS for in-transit data</li>
-<li>Integration with AWS KMS</li>
-</ul>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Proper shard management</li>
-<li>Batch operations when possible</li>
-<li>Handle throttling appropriately</li>
-<li>Monitor shard capacity</li>
-<li>Use enhanced fan-out for multiple consumers</li>
-</ol>
-<h3 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Right-size shard count</li>
-<li>Use appropriate retention period</li>
-<li>Implement efficient error handling</li>
-<li>Monitor usage patterns</li>
-<li>Consider data compression</li>
-</ol>
-<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
-<ol>
-<li>CloudWatch metrics</li>
-<li>CloudWatch alarms</li>
-<li>API logging with CloudTrail</li>
-<li>Enhanced monitoring</li>
-<li>Shard-level metrics</li>
-</ol>
-<h2 id="scaling-and-performance">Scaling and Performance<a class="headerlink" href="#scaling-and-performance" title="Permanent link">&para;</a></h2>
-<h3 id="throughput">Throughput<a class="headerlink" href="#throughput" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Per shard: 1MB/second or 1000 records/second for writes</li>
-<li>Per shard: 2MB/second for reads</li>
-<li>Elastic scaling capabilities</li>
-<li>Auto-scaling options</li>
-</ul>
-<h3 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Sub-second data propagation</li>
-<li>Near real-time processing</li>
-<li>Configurable batch size</li>
-<li>Controllable processing delays</li>
-</ul>
-<h2 id="integration-points">Integration Points<a class="headerlink" href="#integration-points" title="Permanent link">&para;</a></h2>
-<h3 id="aws-services">AWS Services<a class="headerlink" href="#aws-services" title="Permanent link">&para;</a></h3>
-<ul>
-<li>AWS Lambda</li>
-<li>Amazon S3</li>
-<li>Amazon Redshift</li>
-<li>Amazon EMR</li>
-<li>AWS Glue</li>
-<li>Amazon CloudWatch</li>
-</ul>
-<h3 id="development-tools">Development Tools<a class="headerlink" href="#development-tools" title="Permanent link">&para;</a></h3>
-<ul>
-<li>AWS SDK support</li>
-<li>Kinesis Producer Library (KPL)</li>
-<li>Kinesis Client Library (KCL)</li>
-<li>Kinesis Agent</li>
-<li>API support</li>
-</ul>
-<h2 id="pricing-considerations">Pricing Considerations<a class="headerlink" href="#pricing-considerations" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Pay for resources provisioned</li>
-<li>Shard hours</li>
-<li>PUT payload units</li>
-<li>Extended data retention</li>
-<li>Enhanced fan-out</li>
-<li>Data transfer costs</li>
-</ul>
-<h2 id="limits-and-quotas">Limits and Quotas<a class="headerlink" href="#limits-and-quotas" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Shard limits per region</li>
-<li>API limits</li>
-<li>Record size limits</li>
-<li>Retention period limits</li>
-<li>Consumer limits</li>
-<li>Throughput limits</li>
-</ul>
-<h2 id="troubleshooting-guide">Troubleshooting Guide<a class="headerlink" href="#troubleshooting-guide" title="Permanent link">&para;</a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Provisioned throughput exceeded</li>
-<li>Consumer application issues</li>
-<li>Producer throttling</li>
-<li>Connectivity problems</li>
-<li>Permission-related errors</li>
-</ol>
-<h3 id="resolution-steps">Resolution Steps<a class="headerlink" href="#resolution-steps" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Monitor CloudWatch metrics</li>
-<li>Check IAM permissions</li>
-<li>Verify network connectivity</li>
-<li>Review application logs</li>
-<li>Scale resources as needed</li>
-</ol>
+<h1 id="amazon-kinesis-data-analytics">Amazon Kinesis Data Analytics<a class="headerlink" href="#amazon-kinesis-data-analytics" title="Permanent link">&para;</a></h1>
+<p>Amazon Kinesis Data Analytics provides a powerful serverless solution for processing and analyzing streaming data in real-time using standard SQL queries. The service enables organizations to transform and derive insights from data streams without managing complex infrastructure.</p>
+<h2 id="processing-capabilities">Processing Capabilities<a class="headerlink" href="#processing-capabilities" title="Permanent link">&para;</a></h2>
+<p>The service supports multiple input streams from Kinesis Data Streams and Kinesis Data Firehose, allowing sophisticated data processing and analysis. Developers can write SQL queries to perform real-time transformations, aggregations, and complex analytical operations on streaming data.</p>
+<h2 id="input-and-output-flexibility">Input and Output Flexibility<a class="headerlink" href="#input-and-output-flexibility" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Analytics supports diverse data sources and destinations. Input streams can originate from Kinesis Data Streams or Kinesis Data Firehose, while output can be directed to various endpoints including AWS Lambda, Kinesis Data Streams, and Kinesis Data Firehose.</p>
+<h2 id="data-processing-features">Data Processing Features<a class="headerlink" href="#data-processing-features" title="Permanent link">&para;</a></h2>
+<p>The platform enables sophisticated stream processing through in-application SQL transformations. Users can perform complex operations like windowing, filtering, joining streams, and generating time-series aggregations without managing underlying computational infrastructure.</p>
+<h2 id="language-and-reference-data-support">Language and Reference Data Support<a class="headerlink" href="#language-and-reference-data-support" title="Permanent link">&para;</a></h2>
+<p>Beyond standard SQL, the service provides advanced capabilities for referencing external data sources. Users can incorporate reference data from S3 to enrich stream processing, enabling more comprehensive analytical scenarios.</p>
+<h2 id="performance-and-scaling">Performance and Scaling<a class="headerlink" href="#performance-and-scaling" title="Permanent link">&para;</a></h2>
+<p>Kinesis Data Analytics automatically scales computational resources based on streaming data volume and complexity. The serverless architecture ensures efficient resource utilization and eliminates manual capacity management requirements.</p>
+<h2 id="use-case-scenarios">Use Case Scenarios<a class="headerlink" href="#use-case-scenarios" title="Permanent link">&para;</a></h2>
+<p>Typical applications include real-time analytics for IoT sensor data, log analysis, financial transaction monitoring, clickstream analysis, and dynamic business intelligence reporting. The service&rsquo;s flexibility supports diverse industry-specific streaming analysis requirements.</p>
+<h2 id="security-and-compliance">Security and Compliance<a class="headerlink" href="#security-and-compliance" title="Permanent link">&para;</a></h2>
+<p>The service integrates seamlessly with AWS security mechanisms, supporting encryption, access controls, and comprehensive compliance frameworks. Data processing occurs within secure, isolated environments managed by AWS infrastructure.</p>
 
 
 
@@ -5375,7 +4627,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../database/rds/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Relational Database Service (RDS)">
+          <a href="../firehose/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Firehose">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5385,20 +4637,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Relational Database Service (RDS)
+                Firehose
               </div>
             </div>
           </a>
         
         
           
-          <a href="../sns/" class="md-footer__link md-footer__link--next" aria-label="Next: Simple Notification Service (SNS)">
+          <a href="../kinesis_data_streams/" class="md-footer__link md-footer__link--next" aria-label="Next: Kinesis Data Streams">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Simple Notification Service (SNS)
+                Kinesis Data Streams
               </div>
             </div>
             <div class="md-footer__button md-icon">
