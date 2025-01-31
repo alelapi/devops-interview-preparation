@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../ssm/">
+        <link rel="prev" href="../kinesis/">
       
       
-        <link rel="next" href="../sts/">
+        <link rel="next" href="../sqs/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
     
     
       
-        <title>Step Functions - My DevOps Interview Preparation</title>
+        <title>Simple Notification Service (SNS) - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step-functions" class="md-skip">
+        <a href="#simple-notification-service-sns" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Step Functions
+              Simple Notification Service (SNS)
             
           </span>
         </div>
@@ -219,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../database/aurora/" class="md-tabs__link">
+        <a href="../../database/aurora/" class="md-tabs__link">
           
   
     
@@ -271,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
     
@@ -291,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
     
@@ -311,7 +311,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
           
   
     
@@ -331,7 +331,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
     
@@ -351,7 +351,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
     
@@ -371,7 +371,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
     
@@ -391,7 +391,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
     
@@ -426,7 +426,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -456,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -633,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/aurora/" class="md-nav__link">
+      <a href="../../database/aurora/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -655,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/dynamodb/" class="md-nav__link">
+      <a href="../../database/dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -677,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/elasticache/" class="md-nav__link">
+      <a href="../../database/elasticache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -699,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/rds/" class="md-nav__link">
+      <a href="../../database/rds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -726,6 +726,8 @@
                 
   
   
+    
+  
   
   
     
@@ -748,11 +750,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
@@ -767,7 +769,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Messaging
@@ -781,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/kinesis/" class="md-nav__link">
+      <a href="../kinesis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -800,10 +802,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../messaging/sns/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Simple Notification Service (SNS)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -813,6 +836,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Characteristics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publishing Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-and-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security and Encryption
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-out-architecture-with-sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fan-Out Architecture with SQS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fifo-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      FIFO Topics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-filtering-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Filtering Strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-application-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specific Application Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-ecosystem-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Ecosystem Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-platforms-and-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Platforms and Endpoints
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -825,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/sqs/" class="md-nav__link">
+      <a href="../sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -909,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../monitoring/cloudtrail/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -931,7 +1055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../monitoring/cloudwatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -953,7 +1077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../monitoring/eventbridge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -975,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/xray/" class="md-nav__link">
+      <a href="../../monitoring/xray/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1057,7 +1181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/vpc/" class="md-nav__link">
+      <a href="../../network/vpc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1079,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/elb/" class="md-nav__link">
+      <a href="../../network/elb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1101,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/route53/" class="md-nav__link">
+      <a href="../../network/route53/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1189,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codeartifact/" class="md-nav__link">
+      <a href="../../tools/codeartifact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1211,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codebuild/" class="md-nav__link">
+      <a href="../../tools/codebuild/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1233,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codecommit/" class="md-nav__link">
+      <a href="../../tools/codecommit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1255,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codedeploy/" class="md-nav__link">
+      <a href="../../tools/codedeploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1277,7 +1401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codeguru/" class="md-nav__link">
+      <a href="../../tools/codeguru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1299,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codepipeline/" class="md-nav__link">
+      <a href="../../tools/codepipeline/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_gateway/" class="md-nav__link">
+      <a href="../../api_gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1351,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../appsync/" class="md-nav__link">
+      <a href="../../appsync/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,7 +1497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../autoscaling_groups/" class="md-nav__link">
+      <a href="../../autoscaling_groups/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1395,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../billing/" class="md-nav__link">
+      <a href="../../billing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,7 +1541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cdk/" class="md-nav__link">
+      <a href="../../cdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1439,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloudformation/" class="md-nav__link">
+      <a href="../../cloudformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1461,7 +1585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloudfront/" class="md-nav__link">
+      <a href="../../cloudfront/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1483,7 +1607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cognito/" class="md-nav__link">
+      <a href="../../cognito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1505,7 +1629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ebs/" class="md-nav__link">
+      <a href="../../ebs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1527,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ec2/" class="md-nav__link">
+      <a href="../../ec2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1549,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../elastic_beanstalk/" class="md-nav__link">
+      <a href="../../elastic_beanstalk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1571,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../iam/" class="md-nav__link">
+      <a href="../../iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1593,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kms/" class="md-nav__link">
+      <a href="../../kms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1615,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lambda/" class="md-nav__link">
+      <a href="../../lambda/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1637,7 +1761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../s3/" class="md-nav__link">
+      <a href="../../s3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1659,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sam/" class="md-nav__link">
+      <a href="../../sam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1681,7 +1805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sar/" class="md-nav__link">
+      <a href="../../sar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1703,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../secrets_manager/" class="md-nav__link">
+      <a href="../../secrets_manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1725,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssm/" class="md-nav__link">
+      <a href="../../ssm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1744,31 +1868,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Step Functions
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../step_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1778,326 +1881,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-visual-workflow-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Visual Workflow Design
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-service-orchestration" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Service Orchestration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-error-handling-and-retry" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Error Handling and Retry
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-step-execution-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Step Execution Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-serverless-and-fully-managed" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Serverless and Fully Managed
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Workflow Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflow Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-standard-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Standard Workflows
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-express-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Express Workflows
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Task Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-task" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Task
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-parallel" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Parallel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Map
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-choice" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Choice
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-wait" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Wait
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-pass" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Pass
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-succeed" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Succeed
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-fail" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Fail
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-activity" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Activity
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-service-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Service Integration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Use Cases
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#amazon-states-language-asl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Amazon States Language (ASL)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Amazon States Language (ASL)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-elements-of-asl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Elements of ASL
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-state-machine-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example State Machine Definition
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with AWS Services
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pricing
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pricing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#standard-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      Standard Workflows:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#express-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      Express Workflows:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2110,7 +1893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sts/" class="md-nav__link">
+      <a href="../../sts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2132,7 +1915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trusted_advisor/" class="md-nav__link">
+      <a href="../../trusted_advisor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2222,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2244,7 +2027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2266,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2288,7 +2071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2310,7 +2093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2332,7 +2115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2354,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2376,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2398,7 +2181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2498,7 +2281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2520,7 +2303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2542,7 +2325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2564,7 +2347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2586,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2608,7 +2391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2630,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2652,7 +2435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2674,7 +2457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2696,7 +2479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2718,7 +2501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2740,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2762,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2784,7 +2567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2886,7 +2669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2908,7 +2691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2930,7 +2713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2952,7 +2735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2974,7 +2757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2996,7 +2779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3018,7 +2801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3040,7 +2823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3062,7 +2845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3084,7 +2867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3106,7 +2889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/network_tools.md" class="md-nav__link">
+      <a href="../../../kubernetes/network_tools.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3128,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3150,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3223,7 +3006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3245,7 +3028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3267,7 +3050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3340,7 +3123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3362,7 +3145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3384,7 +3167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3406,7 +3189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3513,7 +3296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3535,7 +3318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3557,7 +3340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3579,7 +3362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3601,7 +3384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3623,7 +3406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3645,7 +3428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3667,7 +3450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3689,7 +3472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3711,7 +3494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3733,7 +3516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3755,7 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3777,7 +3560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3873,7 +3656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3895,7 +3678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3917,7 +3700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3939,7 +3722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3961,7 +3744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3983,7 +3766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4005,7 +3788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4027,7 +3810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4121,7 +3904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4143,7 +3926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4165,7 +3948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4187,7 +3970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4209,7 +3992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4231,7 +4014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4253,7 +4036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4275,7 +4058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4297,7 +4080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4319,7 +4102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4341,7 +4124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4425,7 +4208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4447,7 +4230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4469,7 +4252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4491,7 +4274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4513,7 +4296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4535,7 +4318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4609,7 +4392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4658,300 +4441,81 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#core-characteristics" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-visual-workflow-design" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Visual Workflow Design
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-service-orchestration" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Service Orchestration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-error-handling-and-retry" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Error Handling and Retry
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-step-execution-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Step Execution Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-serverless-and-fully-managed" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Serverless and Fully Managed
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Workflow Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflow Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-standard-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Standard Workflows
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-express-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Express Workflows
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#task-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Task Types">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-task" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Task
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-parallel" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Parallel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-map" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Map
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-choice" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Choice
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-wait" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Wait
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-pass" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Pass
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-succeed" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Succeed
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-fail" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Fail
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-activity" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Activity
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-service-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Service Integration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Use Cases
+      Core Characteristics
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#amazon-states-language-asl" class="md-nav__link">
+  <a href="#publishing-methods" class="md-nav__link">
     <span class="md-ellipsis">
-      Amazon States Language (ASL)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Amazon States Language (ASL)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-elements-of-asl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Elements of ASL
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-state-machine-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example State Machine Definition
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integration-with-aws-services" class="md-nav__link">
-    <span class="md-ellipsis">
-      Integration with AWS Services
+      Publishing Methods
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
+  <a href="#security-and-encryption" class="md-nav__link">
     <span class="md-ellipsis">
-      Benefits
+      Security and Encryption
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pricing" class="md-nav__link">
+  <a href="#fan-out-architecture-with-sqs" class="md-nav__link">
     <span class="md-ellipsis">
-      Pricing
+      Fan-Out Architecture with SQS
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Pricing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#standard-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      Standard Workflows:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#express-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      Express Workflows:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#fifo-topics" class="md-nav__link">
     <span class="md-ellipsis">
-      Best Practices
+      FIFO Topics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-filtering-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Filtering Strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specific-application-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specific Application Scenarios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-ecosystem-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Ecosystem Integration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-platforms-and-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Platforms and Endpoints
     </span>
   </a>
   
@@ -4976,205 +4540,33 @@
   
 
 
-<h1 id="step-functions">Step Functions<a class="headerlink" href="#step-functions" title="Permanent link">&para;</a></h1>
-<p>AWS Step Functions is a serverless orchestration service that allows you to coordinate multiple AWS services into scalable workflows. It provides a visual interface for designing and executing workflows, making it easier to build and maintain applications.</p>
-<hr />
-<h2 id="key-features"><strong>Key Features</strong><a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="1-visual-workflow-design">1. <strong>Visual Workflow Design</strong><a class="headerlink" href="#1-visual-workflow-design" title="Permanent link">&para;</a></h3>
+<h1 id="simple-notification-service-sns">Simple Notification Service (SNS)<a class="headerlink" href="#simple-notification-service-sns" title="Permanent link">&para;</a></h1>
+<p>Amazon Simple Notification Service (SNS) is a robust pub/sub messaging service that enables distributed systems to communicate efficiently. The service allows an event producer to publish messages to a single topic, which can then be distributed to multiple subscribers across various AWS services and platforms.</p>
+<h2 id="core-characteristics">Core Characteristics<a class="headerlink" href="#core-characteristics" title="Permanent link">&para;</a></h2>
+<p>SNS provides remarkable scalability, supporting up to 12.5 million subscriptions per topic with a limit of 100,000 topics per account. Every subscriber receives messages published to the topic, with recent enhancements introducing sophisticated message filtering capabilities.</p>
+<h2 id="publishing-methods">Publishing Methods<a class="headerlink" href="#publishing-methods" title="Permanent link">&para;</a></h2>
+<p>Topic publishing utilizes AWS SDK, involving creating topics, establishing subscriptions, and publishing messages. For mobile applications, direct publish offers a specialized mechanism supporting integration with major mobile platforms like Google Cloud Messaging, Apple Push Notification Service, and Amazon Device Messaging.</p>
+<h2 id="security-and-encryption">Security and Encryption<a class="headerlink" href="#security-and-encryption" title="Permanent link">&para;</a></h2>
+<p>Security is deeply embedded in SNS&rsquo;s architecture. The service implements comprehensive encryption strategies, including in-flight encryption through HTTPS API, at-rest encryption via AWS Key Management Service, and optional client-side encryption for custom security requirements.</p>
+<h2 id="fan-out-architecture-with-sqs">Fan-Out Architecture with SQS<a class="headerlink" href="#fan-out-architecture-with-sqs" title="Permanent link">&para;</a></h2>
+<p>SNS supports a powerful fan-out pattern that allows pushing a single message to multiple Amazon SQS queues. This approach creates a decoupled system with enhanced capabilities:</p>
 <ul>
-<li>Provides a graphical user interface to design and visualize workflows.</li>
-<li>Workflows are defined using Amazon States Language (ASL), a JSON-based language.</li>
+<li>Prevents data loss</li>
+<li>Enables data persistence</li>
+<li>Supports delayed processing</li>
+<li>Allows dynamic addition of queue subscribers</li>
+<li>Facilitates cross-region message delivery</li>
 </ul>
-<h3 id="2-service-orchestration">2. <strong>Service Orchestration</strong><a class="headerlink" href="#2-service-orchestration" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Integrates seamlessly with AWS services like Lambda, DynamoDB, S3, ECS, SNS, and more.</li>
-<li>Supports both <strong>standard</strong> and <strong>express</strong> workflows, allowing flexibility based on use case.</li>
-</ul>
-<h3 id="3-error-handling-and-retry">3. <strong>Error Handling and Retry</strong><a class="headerlink" href="#3-error-handling-and-retry" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Built-in error handling and retry logic to manage failures gracefully.</li>
-<li>Allows branching and fallback strategies to handle errors.</li>
-</ul>
-<h3 id="4-step-execution-monitoring">4. <strong>Step Execution Monitoring</strong><a class="headerlink" href="#4-step-execution-monitoring" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Provides detailed logs and metrics through Amazon CloudWatch.</li>
-<li>Supports step-by-step debugging and monitoring.</li>
-</ul>
-<h3 id="5-serverless-and-fully-managed">5. <strong>Serverless and Fully Managed</strong><a class="headerlink" href="#5-serverless-and-fully-managed" title="Permanent link">&para;</a></h3>
-<ul>
-<li>No need to manage infrastructure or scaling.</li>
-<li>Automatically scales based on workflow execution demand.</li>
-</ul>
-<hr />
-<h2 id="workflow-types"><strong>Workflow Types</strong><a class="headerlink" href="#workflow-types" title="Permanent link">&para;</a></h2>
-<h3 id="1-standard-workflows">1. <strong>Standard Workflows</strong><a class="headerlink" href="#1-standard-workflows" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Designed for long-running, durable workflows.</li>
-<li>Features: </li>
-<li>Execution duration up to <strong>1 year</strong>.</li>
-<li>Exactly-once execution semantics.</li>
-<li>High durability and resilience.</li>
-</ul>
-<h3 id="2-express-workflows">2. <strong>Express Workflows</strong><a class="headerlink" href="#2-express-workflows" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Optimized for high-volume, short-duration workflows.</li>
-<li>Features:</li>
-<li>Execution duration up to <strong>5 minutes</strong>.</li>
-<li>At-least-once execution semantics.</li>
-<li>Lower cost, designed for high-throughput applications.</li>
-</ul>
-<hr />
-<h2 id="task-types"><strong>Task Types</strong><a class="headerlink" href="#task-types" title="Permanent link">&para;</a></h2>
-<p>AWS Step Functions supports various task types that allow you to perform different operations in a workflow. Below are the key task types:</p>
-<h3 id="1-task"><strong>1. Task</strong><a class="headerlink" href="#1-task" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Executes a unit of work, such as invoking an AWS Lambda function or running a job on AWS Batch.</li>
-<li>Defined using the <code>Resource</code> field to specify the AWS service or API action.</li>
-</ul>
-<h3 id="2-parallel"><strong>2. Parallel</strong><a class="headerlink" href="#2-parallel" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Executes multiple branches of a workflow simultaneously.</li>
-<li>Useful for scenarios requiring parallel processing.</li>
-</ul>
-<h3 id="3-map"><strong>3. Map</strong><a class="headerlink" href="#3-map" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Processes a collection of items iteratively.</li>
-<li>Similar to a &ldquo;for loop&rdquo; and can run iterations in parallel.</li>
-</ul>
-<h3 id="4-choice"><strong>4. Choice</strong><a class="headerlink" href="#4-choice" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Adds conditional logic to workflows.</li>
-<li>Routes execution based on the evaluation of input data.</li>
-</ul>
-<h3 id="5-wait"><strong>5. Wait</strong><a class="headerlink" href="#5-wait" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Delays execution for a specified time or until a specific timestamp.</li>
-</ul>
-<h3 id="6-pass"><strong>6. Pass</strong><a class="headerlink" href="#6-pass" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Passes input to the next state without performing any work.</li>
-<li>Useful for testing and placeholder states.</li>
-</ul>
-<h3 id="7-succeed"><strong>7. Succeed</strong><a class="headerlink" href="#7-succeed" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Marks the workflow as successfully completed.</li>
-</ul>
-<h3 id="8-fail"><strong>8. Fail</strong><a class="headerlink" href="#8-fail" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Stops the workflow and marks it as failed.</li>
-<li>Can include error details for debugging.</li>
-</ul>
-<h3 id="9-activity"><strong>9. Activity</strong><a class="headerlink" href="#9-activity" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Represents a task performed by a worker program outside of Step Functions.</li>
-<li>Requires integration with an external worker.</li>
-</ul>
-<h3 id="10-service-integration"><strong>10. Service Integration</strong><a class="headerlink" href="#10-service-integration" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Directly integrates with AWS services such as S3, DynamoDB, ECS, and more, without needing AWS Lambda.</li>
-</ul>
-<hr />
-<h2 id="common-use-cases"><strong>Common Use Cases</strong><a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Data Processing Pipelines</strong></li>
-<li>
-<p>Automate ETL jobs, orchestrate machine learning model training, or coordinate big data workflows.</p>
-</li>
-<li>
-<p><strong>Microservices Orchestration</strong></p>
-</li>
-<li>
-<p>Coordinate interactions between microservices in distributed systems.</p>
-</li>
-<li>
-<p><strong>IoT Applications</strong></p>
-</li>
-<li>
-<p>Process and analyze data from IoT devices, triggering workflows based on incoming data.</p>
-</li>
-<li>
-<p><strong>Application Backends</strong></p>
-</li>
-<li>
-<p>Automate approval workflows, payment processing, or user registration flows.</p>
-</li>
-<li>
-<p><strong>Disaster Recovery</strong></p>
-</li>
-<li>Implement failover mechanisms and ensure system resilience.</li>
-</ol>
-<hr />
-<h2 id="amazon-states-language-asl"><strong>Amazon States Language (ASL)</strong><a class="headerlink" href="#amazon-states-language-asl" title="Permanent link">&para;</a></h2>
-<h3 id="key-elements-of-asl"><strong>Key Elements of ASL</strong><a class="headerlink" href="#key-elements-of-asl" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>States</strong></li>
-<li>
-<p>Define individual steps in the workflow, such as tasks, choices, or parallel steps.</p>
-</li>
-<li>
-<p><strong>Transitions</strong></p>
-</li>
-<li>
-<p>Specify how the workflow progresses from one state to another.</p>
-</li>
-<li>
-<p><strong>Error Handling</strong></p>
-</li>
-<li>Define retry policies, catch blocks, and fallback mechanisms for errors.</li>
-</ol>
-<h3 id="example-state-machine-definition"><strong>Example State Machine Definition</strong><a class="headerlink" href="#example-state-machine-definition" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;Comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;An example of a simple Step Function workflow&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;StartAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HelloWorld&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;States&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;HelloWorld&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Task&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:lambda:us-east-1:123456789012:function:HelloWorldFunction&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;End&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="integration-with-aws-services"><strong>Integration with AWS Services</strong><a class="headerlink" href="#integration-with-aws-services" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>AWS Lambda:</strong> Execute serverless functions for tasks within workflows.</li>
-<li><strong>Amazon DynamoDB:</strong> Store and retrieve data as part of the workflow.</li>
-<li><strong>Amazon S3:</strong> Trigger workflows based on events like object creation.</li>
-<li><strong>Amazon ECS:</strong> Manage containerized tasks and services.</li>
-<li><strong>SNS/SQS:</strong> Send notifications or queue messages during workflows.</li>
-</ul>
-<hr />
-<h2 id="benefits"><strong>Benefits</strong><a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Improved Resilience:</strong> Built-in error handling and retries ensure reliable execution.</li>
-<li><strong>Faster Development:</strong> Visual interface and easy integration with AWS services reduce development effort.</li>
-<li><strong>Cost-Effective:</strong> Pay-as-you-go pricing with no upfront costs.</li>
-<li><strong>Scalable and Secure:</strong> Automatically scales with demand and integrates with IAM for fine-grained access control.</li>
-</ol>
-<hr />
-<h2 id="pricing"><strong>Pricing</strong><a class="headerlink" href="#pricing" title="Permanent link">&para;</a></h2>
-<h3 id="standard-workflows">Standard Workflows:<a class="headerlink" href="#standard-workflows" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Charged per state transition: <strong>$0.025 per 1,000 transitions</strong>.</li>
-</ul>
-<h3 id="express-workflows">Express Workflows:<a class="headerlink" href="#express-workflows" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Charged based on <strong>requests</strong> and <strong>runtime</strong>.</li>
-<li>Example: <strong>$1.00 per 1 million requests</strong> and <strong>$0.00000456 per GB-second runtime</strong>.</li>
-</ul>
-<p>Refer to the <a href="https://aws.amazon.com/step-functions/pricing/">AWS Step Functions Pricing Page</a> for detailed information.</p>
-<hr />
-<h2 id="best-practices"><strong>Best Practices</strong><a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Optimize State Transitions:</strong> Minimize the number of state transitions to reduce costs.</li>
-<li><strong>Use Express Workflows for High-Volume Tasks:</strong> Choose express workflows for short-duration, high-volume tasks.</li>
-<li><strong>Implement Robust Error Handling:</strong> Define retries, catch blocks, and fallback states.</li>
-<li><strong>Monitor and Debug:</strong> Use CloudWatch logs and metrics for monitoring and troubleshooting.</li>
-<li><strong>Test Thoroughly:</strong> Use the AWS Step Functions console to simulate and test workflows before production.</li>
-</ol>
-<hr />
-<p>For more details, refer to the <a href="https://docs.aws.amazon.com/step-functions/">AWS Step Functions Documentation</a>.</p>
+<h2 id="fifo-topics">FIFO Topics<a class="headerlink" href="#fifo-topics" title="Permanent link">&para;</a></h2>
+<p>First-In-First-Out topics provide advanced message management capabilities. This feature ensures precise message ordering within message groups, supports deduplication through multiple strategies, and maintains compatibility with both SQS Standard and FIFO queues.</p>
+<h2 id="message-filtering-strategies">Message Filtering Strategies<a class="headerlink" href="#message-filtering-strategies" title="Permanent link">&para;</a></h2>
+<p>SNS introduces sophisticated message filtering using JSON policies. This approach allows granular control over message routing, enabling subscriptions to selectively consume messages based on complex filtering rules.</p>
+<h2 id="specific-application-scenarios">Specific Application Scenarios<a class="headerlink" href="#specific-application-scenarios" title="Permanent link">&para;</a></h2>
+<p>The service offers unique solutions for various architectural challenges. For instance, it overcomes S3 event notification limitations by enabling fan-out distribution of identical events to multiple queues. Additionally, SNS can seamlessly route messages through Kinesis Data Firehose, providing flexible solution architectures.</p>
+<h2 id="service-ecosystem-integration">Service Ecosystem Integration<a class="headerlink" href="#service-ecosystem-integration" title="Permanent link">&para;</a></h2>
+<p>SNS seamlessly connects with numerous AWS services, transforming it from a simple notification service into a robust event-driven architecture enabler. Whether processing cloud events, managing mobile push notifications, or coordinating distributed system communications, SNS provides a flexible, secure, and scalable messaging solution.</p>
+<h2 id="supported-platforms-and-endpoints">Supported Platforms and Endpoints<a class="headerlink" href="#supported-platforms-and-endpoints" title="Permanent link">&para;</a></h2>
+<p>The service supports a wide range of platforms, including mobile notification services like Google Cloud Messaging, Apple Push Notification Service, and Amazon Device Messaging. This extensive platform support ensures broad compatibility and easy integration across different technological ecosystems.</p>
 
 
 
@@ -5210,7 +4602,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../ssm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Systems Manager Parameter Store (SSM)">
+          <a href="../kinesis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kinesis">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5220,20 +4612,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Systems Manager Parameter Store (SSM)
+                Kinesis
               </div>
             </div>
           </a>
         
         
           
-          <a href="../sts/" class="md-footer__link md-footer__link--next" aria-label="Next: Security Token Service (STS)">
+          <a href="../sqs/" class="md-footer__link md-footer__link--next" aria-label="Next: Simple Queue Service (SQS)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Security Token Service (STS)
+                Simple Queue Service (SQS)
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -5267,10 +4659,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5090c770.min.js"></script>
       
     
   </body>
