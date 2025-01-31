@@ -9,6 +9,7 @@ Traditionally, organizations needed to invest significant resources in setting u
 ## Integration with Package Managers
 
 CodeArtifact offers seamless integration with popular dependency management tools that developers use in their daily workflows. The service supports a wide range of package managers including:
+
 - Maven and Gradle for Java dependencies
 - npm and yarn for JavaScript and Node.js packages
 - twine and pip for Python packages
