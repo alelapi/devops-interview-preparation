@@ -78,7 +78,13 @@ Cookie types and naming conventions include:
      - AWSELB for Classic Load Balancer
 
 ### Cross-Zone Load Balancing
-Cross-zone load balancing enables even distribution of traffic across all registered instances in all Availability Zones. Without cross-zone load balancing, requests are distributed only to instances within the load balancer node's Availability Zone. The feature's default state and associated costs vary by load balancer type:
+Cross-zone load balancing enables even distribution of traffic across all registered instances in all Availability Zones. 
+![with Cross-Zone Load Balancing:](../../assets/img/czlb.png)
+
+Without cross-zone load balancing, requests are distributed only to instances within the load balancer node's Availability Zone. 
+![without Cross-Zone Load Balancing:](../../assets/img/no-czlb.png)
+
+The feature's default state and associated costs vary by load balancer type:
 
 - ALB: Enabled by default, no inter-AZ charges
 - NLB and GWLB: Disabled by default, inter-AZ charges apply when enabled
