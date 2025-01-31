@@ -10,7 +10,7 @@ Application → X-Ray SDK → X-Ray Daemon → X-Ray API
     (2000/UDP)         (443/HTTPS)
 ```
 
-![X-Ray Overview:](../assets/img/xray.png)
+![X-Ray Overview:](../../assets/img/xray.png)
 
 ## Compatibility and Supported Platforms
 
