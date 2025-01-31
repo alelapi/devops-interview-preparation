@@ -4634,7 +4634,11 @@
 </li>
 </ol>
 <h3 id="cross-zone-load-balancing">Cross-Zone Load Balancing<a class="headerlink" href="#cross-zone-load-balancing" title="Permanent link">&para;</a></h3>
-<p>Cross-zone load balancing enables even distribution of traffic across all registered instances in all Availability Zones. Without cross-zone load balancing, requests are distributed only to instances within the load balancer node&rsquo;s Availability Zone. The feature&rsquo;s default state and associated costs vary by load balancer type:</p>
+<p>Cross-zone load balancing enables even distribution of traffic across all registered instances in all Availability Zones. 
+<img alt="with Cross-Zone Load Balancing:" src="../../../assets/img/czlb.png" /></p>
+<p>Without cross-zone load balancing, requests are distributed only to instances within the load balancer node&rsquo;s Availability Zone. 
+<img alt="without Cross-Zone Load Balancing:" src="../../../assets/img/no-czlb.png" /></p>
+<p>The feature&rsquo;s default state and associated costs vary by load balancer type:</p>
 <ul>
 <li>ALB: Enabled by default, no inter-AZ charges</li>
 <li>NLB and GWLB: Disabled by default, inter-AZ charges apply when enabled</li>
