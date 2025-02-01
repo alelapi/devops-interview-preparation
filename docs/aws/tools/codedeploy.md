@@ -1,10 +1,10 @@
-# AWS CodeDeploy Documentation
+# CodeDeploy
 
 ## Overview
 
 AWS CodeDeploy is an automated deployment service that streamlines the process of deploying applications across various AWS compute platforms. The service supports deployments to Amazon EC2 instances, on-premises servers, AWS Lambda functions, and Amazon ECS services. CodeDeploy provides sophisticated deployment control features, including automated rollback capabilities triggered by deployment failures or CloudWatch alarms. The entire deployment process is defined in an appspec.yml file.
 
-![Codedeploy Architecture:](../../assets/img/codedeploy.png)
+![Codedeploy Architecture:](../../assets/img/codedeploy.jpg)
 
 ## Platform Support
 
