@@ -1,4 +1,4 @@
-# AWS Elastic Load Balancer: A Comprehensive Guide
+# Elastic Load Balancer
 
 ## Introduction to Elastic Load Balancer
 

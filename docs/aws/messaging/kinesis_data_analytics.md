@@ -1,4 +1,4 @@
-# Amazon Kinesis Data Analytics
+# Kinesis Data Analytics
 
 Amazon Kinesis Data Analytics provides a powerful serverless solution for processing and analyzing streaming data in real-time using standard SQL queries. The service enables organizations to transform and derive insights from data streams without managing complex infrastructure.
 
