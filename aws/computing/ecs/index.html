@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../appsync/">
+        <link rel="prev" href="../ec2/">
       
       
-        <link rel="next" href="../billing/">
+        <link rel="next" href="../elastic_beanstalk/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.1">
     
     
       
-        <title>Auto Scaling Group (ASG) - My DevOps Interview Preparation</title>
+        <title>Elastic Container Service (ECS) - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#auto-scaling-group-asg" class="md-skip">
+        <a href="#elastic-container-service-ecs" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Auto Scaling Group (ASG)
+              Elastic Container Service (ECS)
             
           </span>
         </div>
@@ -219,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../database/aurora/" class="md-tabs__link">
+        <a href="../autoscaling_groups/" class="md-tabs__link">
           
   
     
@@ -271,7 +271,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
     
@@ -291,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
     
@@ -311,7 +311,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
           
   
     
@@ -331,7 +331,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
     
@@ -351,7 +351,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
     
@@ -371,7 +371,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
     
@@ -391,7 +391,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
     
@@ -426,7 +426,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -456,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,12 +480,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
       
         
       
@@ -568,6 +562,523 @@
                 
   
   
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autoscaling_groups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auto Scaling Groups (ASG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ec2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elastic Compute Cloud (EC2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Elastic Container Service (ECS)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Elastic Container Service (ECS)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-launch-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2 Launch Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fargate-launch-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fargate Launch Type
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam-roles-for-ecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM Roles for ECS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IAM Roles for ECS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-profile-ec2-launch-type-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2 Instance Profile (EC2 Launch Type only)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecs-task-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECS Task Role
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancer-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Balancer Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-load-balancers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Load Balancers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Volumes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Volumes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#efs-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bind-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bind Mounts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Scaling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Auto Scaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Auto Scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-launch-type-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2 Launch Type Auto Scaling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Definitions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-placement-ec2-launch-type-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Placement (EC2 Launch Type Only)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task Placement (EC2 Launch Type Only)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#placement-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Placement Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placement-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Placement Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placement-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Placement Constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rolling Updates
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Balancing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-launch-type_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2 Launch Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fargate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fargate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elastic_beanstalk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elastic Beanstalk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer (ELB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lambda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     
@@ -596,10 +1107,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -611,8 +1122,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Databases
           </label>
@@ -625,7 +1136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/aurora/" class="md-nav__link">
+      <a href="../../database/aurora/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -647,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/dynamodb/" class="md-nav__link">
+      <a href="../../database/dynamodb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -669,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/elasticache/" class="md-nav__link">
+      <a href="../../database/elasticache/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +1202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../database/rds/" class="md-nav__link">
+      <a href="../../database/rds/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -750,10 +1261,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -765,8 +1276,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             Messaging
           </label>
@@ -779,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/firehose/" class="md-nav__link">
+      <a href="../../messaging/firehose/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +1334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/ses/" class="md-nav__link">
+      <a href="../../messaging/ses/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -867,7 +1378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/sns/" class="md-nav__link">
+      <a href="../../messaging/sns/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../messaging/sqs/" class="md-nav__link">
+      <a href="../../messaging/sqs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -944,10 +1455,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
         
           
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -959,8 +1470,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
             <span class="md-nav__icon md-icon"></span>
             Monitoring
           </label>
@@ -973,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../monitoring/cloudtrail/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -995,7 +1506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../monitoring/cloudwatch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1017,7 +1528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../monitoring/eventbridge/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1039,7 +1550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/xray/" class="md-nav__link">
+      <a href="../../monitoring/xray/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1092,10 +1603,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
         
           
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1107,8 +1618,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
             <span class="md-nav__icon md-icon"></span>
             Network
           </label>
@@ -1121,7 +1632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/vpc/" class="md-nav__link">
+      <a href="../../network/vpc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1143,7 +1654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/elb/" class="md-nav__link">
+      <a href="../../network/elb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1165,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../network/route53/" class="md-nav__link">
+      <a href="../../network/route53/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1220,10 +1731,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1235,8 +1746,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             Security & Identity
           </label>
@@ -1249,7 +1760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/cognito/" class="md-nav__link">
+      <a href="../../security/cognito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1271,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/iam/" class="md-nav__link">
+      <a href="../../security/iam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/kms/" class="md-nav__link">
+      <a href="../../security/kms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1315,7 +1826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/secrets_manager/" class="md-nav__link">
+      <a href="../../security/secrets_manager/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1368,10 +1879,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
         
           
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1383,8 +1894,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             Storage
           </label>
@@ -1397,7 +1908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage/ebs/" class="md-nav__link">
+      <a href="../../storage/ebs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1419,7 +1930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage/efs/" class="md-nav__link">
+      <a href="../../storage/efs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1441,7 +1952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage/s3/" class="md-nav__link">
+      <a href="../../storage/s3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1500,10 +2011,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
         
           
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1515,8 +2026,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             Tools
           </label>
@@ -1529,7 +2040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codeartifact/" class="md-nav__link">
+      <a href="../../tools/codeartifact/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1551,7 +2062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codebuild/" class="md-nav__link">
+      <a href="../../tools/codebuild/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1573,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codecommit/" class="md-nav__link">
+      <a href="../../tools/codecommit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1595,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codedeploy/" class="md-nav__link">
+      <a href="../../tools/codedeploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1617,7 +2128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codeguru/" class="md-nav__link">
+      <a href="../../tools/codeguru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1639,7 +2150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools/codepipeline/" class="md-nav__link">
+      <a href="../../tools/codepipeline/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1669,7 +2180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../api_gateway/" class="md-nav__link">
+      <a href="../../api_gateway/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1691,7 +2202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../appsync/" class="md-nav__link">
+      <a href="../../appsync/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1710,358 +2221,10 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Auto Scaling Group (ASG)
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Auto Scaling Group (ASG)
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Components
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-launch-templateconfiguration" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Launch Template/Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-scaling-policies" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Scaling Policies
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-capacity-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Capacity Settings
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#geographical-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Geographical Distribution
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Geographical Distribution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#availability-zones-azs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Availability Zones (AZs)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regional-deployment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Regional Deployment
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-configurations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Configurations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Configurations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-auto-scaling-group" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Auto Scaling Group
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#target-tracking-policy-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Target Tracking Policy Example
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices-for-geographical-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices for Geographical Distribution
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scaling-across-locations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scaling Across Locations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Maintenance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring and Maintenance">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cloudwatch-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      CloudWatch Metrics
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-cloudwatch-alarms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common CloudWatch Alarms
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Issues
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Considerations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Security Considerations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-network-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Network Security
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-access-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Access Control
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-data-security" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Data Security
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Cost Optimization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-instance-strategies" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Instance Strategies
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-scaling-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Scaling Optimization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-reserved-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Reserved Instances
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-cross-region-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Cross-Region Considerations
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../billing/" class="md-nav__link">
+      <a href="../../billing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2083,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cdk/" class="md-nav__link">
+      <a href="../../cdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2105,7 +2268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloudformation/" class="md-nav__link">
+      <a href="../../cloudformation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2127,7 +2290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloudfront/" class="md-nav__link">
+      <a href="../../cloudfront/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2149,73 +2312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ec2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Elastic Compute Cloud (EC2)
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../elastic_beanstalk/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Elastic Beanstalk
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lambda/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lambda
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../sam/" class="md-nav__link">
+      <a href="../../sam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2237,7 +2334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sar/" class="md-nav__link">
+      <a href="../../sar/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2259,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ssm/" class="md-nav__link">
+      <a href="../../ssm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2281,7 +2378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step_function/" class="md-nav__link">
+      <a href="../../step_function/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2303,7 +2400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sts/" class="md-nav__link">
+      <a href="../../sts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2325,7 +2422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trusted_advisor/" class="md-nav__link">
+      <a href="../../trusted_advisor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2415,7 +2512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2437,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2459,7 +2556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2481,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2503,7 +2600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2525,7 +2622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2547,7 +2644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2569,7 +2666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2591,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2691,7 +2788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2713,7 +2810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2735,7 +2832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2757,7 +2854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2779,7 +2876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2801,7 +2898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2823,7 +2920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2845,7 +2942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2867,7 +2964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2889,7 +2986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2911,7 +3008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2933,7 +3030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2955,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2977,7 +3074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3079,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3101,7 +3198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3123,7 +3220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3145,7 +3242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3167,7 +3264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3189,7 +3286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3211,7 +3308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3233,7 +3330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3255,7 +3352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3277,7 +3374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3299,7 +3396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/network_tools.md" class="md-nav__link">
+      <a href="../../../kubernetes/network_tools.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3321,7 +3418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3343,7 +3440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3416,7 +3513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3438,7 +3535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3460,7 +3557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3533,7 +3630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3555,7 +3652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3577,7 +3674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3599,7 +3696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3706,7 +3803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3728,7 +3825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3750,7 +3847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3772,7 +3869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3794,7 +3891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3816,7 +3913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3838,7 +3935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3860,7 +3957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3882,7 +3979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3904,7 +4001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3926,7 +4023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3948,7 +4045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3970,7 +4067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4066,7 +4163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4088,7 +4185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4110,7 +4207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4132,7 +4229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4154,7 +4251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4176,7 +4273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4198,7 +4295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4220,7 +4317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4314,7 +4411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4336,7 +4433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4358,7 +4455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4380,7 +4477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4402,7 +4499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4424,7 +4521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4446,7 +4543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4468,7 +4565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4490,7 +4587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4512,7 +4609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4534,7 +4631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4618,7 +4715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4640,7 +4737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4662,7 +4759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4684,7 +4781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4706,7 +4803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4728,7 +4825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4802,7 +4899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4860,37 +4957,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-components" class="md-nav__link">
+  <a href="#launch-types" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Components
+      Launch Types
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Components">
+    <nav class="md-nav" aria-label="Launch Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-launch-templateconfiguration" class="md-nav__link">
+  <a href="#ec2-launch-type" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Launch Template/Configuration
+      EC2 Launch Type
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-scaling-policies" class="md-nav__link">
+  <a href="#fargate-launch-type" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Scaling Policies
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-capacity-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Capacity Settings
+      Fargate Launch Type
     </span>
   </a>
   
@@ -4902,28 +4990,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#geographical-distribution" class="md-nav__link">
+  <a href="#iam-roles-for-ecs" class="md-nav__link">
     <span class="md-ellipsis">
-      Geographical Distribution
+      IAM Roles for ECS
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Geographical Distribution">
+    <nav class="md-nav" aria-label="IAM Roles for ECS">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#availability-zones-azs" class="md-nav__link">
+  <a href="#ec2-instance-profile-ec2-launch-type-only" class="md-nav__link">
     <span class="md-ellipsis">
-      Availability Zones (AZs)
+      EC2 Instance Profile (EC2 Launch Type only)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#regional-deployment" class="md-nav__link">
+  <a href="#ecs-task-role" class="md-nav__link">
     <span class="md-ellipsis">
-      Regional Deployment
+      ECS Task Role
     </span>
   </a>
   
@@ -4935,28 +5023,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-configurations" class="md-nav__link">
+  <a href="#load-balancer-integration" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Configurations
+      Load Balancer Integration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Common Configurations">
+    <nav class="md-nav" aria-label="Load Balancer Integration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-auto-scaling-group" class="md-nav__link">
+  <a href="#supported-load-balancers" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Auto Scaling Group
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#target-tracking-policy-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Target Tracking Policy Example
+      Supported Load Balancers
     </span>
   </a>
   
@@ -4968,46 +5047,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices-for-geographical-distribution" class="md-nav__link">
+  <a href="#data-volumes" class="md-nav__link">
     <span class="md-ellipsis">
-      Best Practices for Geographical Distribution
+      Data Volumes
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scaling-across-locations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scaling Across Locations
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-maintenance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring and Maintenance
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring and Maintenance">
+    <nav class="md-nav" aria-label="Data Volumes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cloudwatch-metrics" class="md-nav__link">
+  <a href="#efs-integration" class="md-nav__link">
     <span class="md-ellipsis">
-      CloudWatch Metrics
+      EFS Integration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#common-cloudwatch-alarms" class="md-nav__link">
+  <a href="#bind-mounts" class="md-nav__link">
     <span class="md-ellipsis">
-      Common CloudWatch Alarms
+      Bind Mounts
     </span>
   </a>
   
@@ -5019,19 +5080,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#auto-scaling" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting
+      Auto Scaling
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="Auto Scaling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#common-issues" class="md-nav__link">
+  <a href="#service-auto-scaling" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Issues
+      Service Auto Scaling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-launch-type-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2 Launch Type Auto Scaling
     </span>
   </a>
   
@@ -5043,37 +5122,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
+  <a href="#task-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Considerations
+      Task Definitions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security Considerations">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-placement-ec2-launch-type-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Placement (EC2 Launch Type Only)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Task Placement (EC2 Launch Type Only)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-network-security" class="md-nav__link">
+  <a href="#placement-process" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Network Security
+      Placement Process
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-access-control" class="md-nav__link">
+  <a href="#placement-strategies" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Access Control
+      Placement Strategies
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-data-security" class="md-nav__link">
+  <a href="#placement-constraints" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Data Security
+      Placement Constraints
     </span>
   </a>
   
@@ -5085,46 +5182,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
+  <a href="#rolling-updates" class="md-nav__link">
     <span class="md-ellipsis">
-      Cost Optimization
+      Rolling Updates
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Cost Optimization">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Balancing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-instance-strategies" class="md-nav__link">
+  <a href="#ec2-launch-type_1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Instance Strategies
+      EC2 Launch Type
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-scaling-optimization" class="md-nav__link">
+  <a href="#fargate" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Scaling Optimization
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-reserved-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Reserved Instances
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-cross-region-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Cross-Region Considerations
+      Fargate
     </span>
   </a>
   
@@ -5154,286 +5242,144 @@
   
 
 
-<h1 id="auto-scaling-group-asg">Auto Scaling Group (ASG)<a class="headerlink" href="#auto-scaling-group-asg" title="Permanent link">&para;</a></h1>
+<h1 id="elastic-container-service-ecs">Elastic Container Service (ECS)<a class="headerlink" href="#elastic-container-service-ecs" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>An Auto Scaling Group (ASG) in AWS is a service that automatically scales EC2 instances based on defined conditions. It helps maintain application availability by ensuring you&rsquo;re running the desired number of instances.</p>
-<h2 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
-<h3 id="1-launch-templateconfiguration">1. Launch Template/Configuration<a class="headerlink" href="#1-launch-templateconfiguration" title="Permanent link">&para;</a></h3>
+<p>Amazon Elastic Container Service (ECS) is a fully managed container orchestration service that enables you to run Docker containers on AWS infrastructure. This document provides a comprehensive overview of ECS components, features, and best practices.</p>
+<h2 id="launch-types">Launch Types<a class="headerlink" href="#launch-types" title="Permanent link">&para;</a></h2>
+<h3 id="ec2-launch-type">EC2 Launch Type<a class="headerlink" href="#ec2-launch-type" title="Permanent link">&para;</a></h3>
+<p>ECS with EC2 launch type requires you to provision and maintain your own EC2 instances. Key characteristics include:</p>
 <ul>
-<li>Defines the instance configuration:</li>
-<li>AMI ID</li>
-<li>Instance type</li>
-<li>Security groups</li>
-<li>Key pair</li>
-<li>Storage configurations</li>
-<li>User data scripts</li>
-<li>IAM roles</li>
+<li>You must provision and maintain the infrastructure (EC2 instances)</li>
+<li>Each EC2 instance must run the ECS Agent to register in the ECS Cluster</li>
+<li>AWS manages container starting and stopping</li>
+<li>Requires more management but offers more control</li>
 </ul>
-<h3 id="2-scaling-policies">2. Scaling Policies<a class="headerlink" href="#2-scaling-policies" title="Permanent link">&para;</a></h3>
-<p>Types of scaling policies available:
-- <strong>Target Tracking</strong>: Maintains a specific metric value
-- <strong>Step Scaling</strong>: Responds to CloudWatch alarms with defined steps
-- <strong>Simple Scaling</strong>: Basic scaling based on a single metric
-- <strong>Scheduled Scaling</strong>: Scales based on predicted load changes</p>
-<h3 id="3-capacity-settings">3. Capacity Settings<a class="headerlink" href="#3-capacity-settings" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;MinSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;MaxSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;DesiredCapacity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
-<span class="p">}</span>
-</code></pre></div>
-<h2 id="geographical-distribution">Geographical Distribution<a class="headerlink" href="#geographical-distribution" title="Permanent link">&para;</a></h2>
-<h3 id="availability-zones-azs">Availability Zones (AZs)<a class="headerlink" href="#availability-zones-azs" title="Permanent link">&para;</a></h3>
+<h3 id="fargate-launch-type">Fargate Launch Type<a class="headerlink" href="#fargate-launch-type" title="Permanent link">&para;</a></h3>
+<p>Fargate is a serverless compute engine for containers. Key features include:</p>
+<ul>
+<li>No infrastructure provisioning required</li>
+<li>Fully serverless operation</li>
+<li>Only requires task definitions</li>
+<li>AWS automatically runs ECS Tasks based on CPU/RAM requirements</li>
+<li>Scaling is simplified - just increase the number of tasks</li>
+</ul>
+<h2 id="iam-roles-for-ecs">IAM Roles for ECS<a class="headerlink" href="#iam-roles-for-ecs" title="Permanent link">&para;</a></h2>
+<h3 id="ec2-instance-profile-ec2-launch-type-only">EC2 Instance Profile (EC2 Launch Type only)<a class="headerlink" href="#ec2-instance-profile-ec2-launch-type-only" title="Permanent link">&para;</a></h3>
+<p>Used by the ECS agent for:</p>
+<ul>
+<li>Making API calls to ECS service</li>
+<li>Sending container logs to CloudWatch Logs</li>
+<li>Pulling Docker images from ECR</li>
+<li>Accessing sensitive data in Secrets Manager or SSM Parameter Store</li>
+</ul>
+<h3 id="ecs-task-role">ECS Task Role<a class="headerlink" href="#ecs-task-role" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Allows each task to have a specific role</li>
+<li>Different roles can be used for different ECS Services</li>
+<li>Defined in the task definition</li>
+</ul>
+<h2 id="load-balancer-integration">Load Balancer Integration<a class="headerlink" href="#load-balancer-integration" title="Permanent link">&para;</a></h2>
+<h3 id="supported-load-balancers">Supported Load Balancers<a class="headerlink" href="#supported-load-balancers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Application Load Balancer (ALB) - recommended for most use cases</li>
+<li>Network Load Balancer (NLB) - recommended for high throughput/performance cases or AWS Private Link</li>
+<li>Classic Load Balancer - supported but not recommended (no advanced features, no Fargate support)</li>
+</ul>
+<h2 id="data-volumes">Data Volumes<a class="headerlink" href="#data-volumes" title="Permanent link">&para;</a></h2>
+<h3 id="efs-integration">EFS Integration<a class="headerlink" href="#efs-integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Mount EFS file systems onto ECS tasks</li>
+<li>Compatible with both EC2 and Fargate launch types</li>
+<li>Tasks in any AZ share the same data</li>
+<li>Fargate + EFS provides fully serverless solution</li>
+<li>Note: Amazon S3 cannot be mounted as a file system</li>
+</ul>
+<h3 id="bind-mounts">Bind Mounts<a class="headerlink" href="#bind-mounts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Share data between multiple containers in the same Task Definition</li>
+<li>Works for both EC2 and Fargate tasks</li>
+<li>EC2 Tasks: Uses EC2 instance storage (data tied to EC2 instance lifecycle)</li>
+<li>Fargate Tasks: Uses ephemeral storage (20-200 GiB, default 20 GiB)</li>
+</ul>
+<h2 id="auto-scaling">Auto Scaling<a class="headerlink" href="#auto-scaling" title="Permanent link">&para;</a></h2>
+<h3 id="service-auto-scaling">Service Auto Scaling<a class="headerlink" href="#service-auto-scaling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Automatically adjusts the number of ECS tasks</li>
+<li>Uses AWS Application Auto Scaling</li>
+<li>Scaling metrics:</li>
+<li>ECS Service Average CPU Utilization</li>
+<li>ECS Service Average Memory Utilization</li>
+<li>ALB Request Count PerTarget</li>
+</ul>
+<h3 id="scaling-methods">Scaling Methods<a class="headerlink" href="#scaling-methods" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Target Tracking - based on CloudWatch metric target</li>
+<li>Step Scaling - based on CloudWatch Alarm</li>
+<li>Scheduled Scaling - based on date/time</li>
+</ul>
+<h3 id="ec2-launch-type-auto-scaling">EC2 Launch Type Auto Scaling<a class="headerlink" href="#ec2-launch-type-auto-scaling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Auto Scaling Group Scaling based on CPU Utilization</li>
+<li>ECS Cluster Capacity Provider for automatic infrastructure provisioning</li>
+</ul>
+<h2 id="task-definitions">Task Definitions<a class="headerlink" href="#task-definitions" title="Permanent link">&para;</a></h2>
+<p>Task definitions are JSON metadata that tell ECS how to run Docker containers. They include:</p>
+<ul>
+<li>Image Name</li>
+<li>Port Binding for Container and Host</li>
+<li>Memory and CPU requirements</li>
+<li>Environment variables</li>
+<li>Networking information</li>
+<li>IAM Role</li>
+<li>Logging configuration</li>
+<li>Up to 10 containers per Task Definition</li>
+</ul>
+<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<p>Supported types:</p>
+<ul>
+<li>Hardcoded values (e.g., URLs)</li>
+<li>SSM Parameter Store (sensitive variables, API keys, configs)</li>
+<li>Secrets Manager (sensitive variables, DB passwords)</li>
+<li>Environment Files (bulk) from Amazon S3</li>
+</ul>
+<h2 id="task-placement-ec2-launch-type-only">Task Placement (EC2 Launch Type Only)<a class="headerlink" href="#task-placement-ec2-launch-type-only" title="Permanent link">&para;</a></h2>
+<h3 id="placement-process">Placement Process<a class="headerlink" href="#placement-process" title="Permanent link">&para;</a></h3>
 <ol>
-<li>
-<p><strong>Multi-AZ Configuration</strong>
-<div class="highlight"><pre><span></span><code><span class="nt">AutoScalingGroup</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::AutoScaling::AutoScalingGroup</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">VPCZoneIdentifier</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subnet-123456789</span><span class="w"> </span><span class="c1"># AZ-1a</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subnet-987654321</span><span class="w"> </span><span class="c1"># AZ-1b</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subnet-456789123</span><span class="w"> </span><span class="c1"># AZ-1c</span>
-<span class="w">    </span><span class="nt">AvailabilityZones</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1a</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1b</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1c</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>AZ Balancing Strategies</strong></p>
-</li>
-<li><code>balance</code> - Distributes instances evenly across AZs</li>
-<li><code>prioritized</code> - Uses AZs in the order specified</li>
+<li>Identify instances meeting CPU, memory, and port requirements</li>
+<li>Identify instances satisfying Task Placement Constraints</li>
+<li>Identify instances satisfying Task Placement Strategies</li>
+<li>Select instances</li>
 </ol>
-<h3 id="regional-deployment">Regional Deployment<a class="headerlink" href="#regional-deployment" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Single Region ASG</strong></li>
-<li>Confined to one AWS region</li>
-<li>Multiple AZs within that region</li>
-<li>Lower latency for regional users</li>
-<li>
-<p>Simpler management</p>
-</li>
-<li>
-<p><strong>Multi-Region Architecture</strong></p>
-</li>
-<li>Requires separate ASGs in each region</li>
-<li>Use Route 53 for traffic distribution</li>
-<li>Regional load balancers
-<div class="highlight"><pre><span></span><code><span class="c1"># Example Route 53 configuration with ASGs in multiple regions</span>
-<span class="nt">Route53Record</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Route53::RecordSet</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">HostedZoneName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.com.</span>
-<span class="w">    </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">www.example.com.</span>
-<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
-<span class="w">    </span><span class="nt">AliasTarget</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">DNSName</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USEastALB.DNSName</span>
-<span class="w">      </span><span class="nt">HostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USEastALB.CanonicalHostedZoneID</span>
-<span class="w">    </span><span class="nt">Region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east-1</span>
-<span class="w">    </span><span class="nt">SetIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-east</span>
-<span class="w">    </span><span class="nt">Weight</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
-</code></pre></div></li>
-</ol>
-<h2 id="common-configurations">Common Configurations<a class="headerlink" href="#common-configurations" title="Permanent link">&para;</a></h2>
-<h3 id="basic-auto-scaling-group">Basic Auto Scaling Group<a class="headerlink" href="#basic-auto-scaling-group" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">Resources</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">MyASG</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::AutoScaling::AutoScalingGroup</span>
-<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">LaunchTemplate</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">LaunchTemplateId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lt-0123456789abcdef0</span>
-<span class="w">        </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1&#39;</span>
-<span class="w">      </span><span class="nt">MinSize</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1&#39;</span>
-<span class="w">      </span><span class="nt">MaxSize</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;5&#39;</span>
-<span class="w">      </span><span class="nt">DesiredCapacity</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2&#39;</span>
-<span class="w">      </span><span class="nt">VPCZoneIdentifier</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subnet-123456789</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subnet-987654321</span>
-<span class="w">      </span><span class="nt">TargetGroupARNs</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arn:aws:elasticloadbalancing:region:account:targetgroup/my-targets/73e2d6bc24d8a067</span>
-</code></pre></div>
-<h3 id="target-tracking-policy-example">Target Tracking Policy Example<a class="headerlink" href="#target-tracking-policy-example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">ScalingPolicy</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::AutoScaling::ScalingPolicy</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">AutoScalingGroupName</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyASG</span>
-<span class="w">    </span><span class="nt">PolicyType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TargetTrackingScaling</span>
-<span class="w">    </span><span class="nt">TargetTrackingConfiguration</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">PredefinedMetricSpecification</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">PredefinedMetricType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ASGAverageCPUUtilization</span>
-<span class="w">      </span><span class="nt">TargetValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50.0</span>
-</code></pre></div>
-<h2 id="best-practices-for-geographical-distribution">Best Practices for Geographical Distribution<a class="headerlink" href="#best-practices-for-geographical-distribution" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Availability Zone Selection</strong></li>
-<li>Use at least two AZs for high availability</li>
-<li>Consider costs (data transfer between AZs)</li>
-<li>
-<p>Match AZ capacity to regional demand</p>
-</li>
-<li>
-<p><strong>Regional Considerations</strong></p>
-</li>
-<li>Data sovereignty requirements</li>
-<li>Regional pricing differences</li>
-<li>Service availability in regions</li>
-<li>
-<p>Disaster recovery planning</p>
-</li>
-<li>
-<p><strong>Network Latency</strong>
-<div class="highlight"><pre><span></span><code><span class="c1"># Example of latency-based routing</span>
-<span class="nt">Route53LatencyRecord</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::Route53::RecordSet</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api.example.com.</span>
-<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
-<span class="w">    </span><span class="nt">Region</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-west-2</span>
-<span class="w">    </span><span class="nt">SetIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">us-west-2</span>
-<span class="w">    </span><span class="nt">AliasTarget</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">DNSName</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WestALB.DNSName</span>
-<span class="w">      </span><span class="nt">HostedZoneId</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WestALB.CanonicalHostedZoneID</span>
-<span class="w">    </span><span class="nt">RoutingPolicy</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LATENCY</span>
-</code></pre></div></p>
-</li>
-</ol>
-<h2 id="scaling-across-locations">Scaling Across Locations<a class="headerlink" href="#scaling-across-locations" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>AZ-Aware Scaling</strong></li>
-<li>Balance instances across AZs</li>
-<li>
-<p>Handle AZ outages gracefully
-<div class="highlight"><pre><span></span><code><span class="nt">AutoScalingGroup</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">MaxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9</span>
-<span class="w">    </span><span class="nt">MinSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">    </span><span class="nt">DesiredCapacity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
-<span class="w">    </span><span class="c1"># This ensures 2 instances per AZ in a 3-AZ configuration</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Regional Scaling Strategies</strong></p>
-</li>
-<li>Independent scaling policies per region</li>
-<li>Region-specific metrics</li>
-<li>Local time-based scaling
-<div class="highlight"><pre><span></span><code><span class="nt">RegionalScalingPolicy</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::AutoScaling::ScalingPolicy</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">AutoScalingGroupName</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RegionalASG</span>
-<span class="w">    </span><span class="nt">PolicyType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TargetTrackingScaling</span>
-<span class="w">    </span><span class="nt">TargetTrackingConfiguration</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">CustomizedMetricSpecification</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">MetricName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RegionalLatency</span>
-<span class="w">        </span><span class="nt">Namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Custom/Metrics</span>
-<span class="w">        </span><span class="nt">Statistic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Average</span>
-<span class="w">      </span><span class="nt">TargetValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-</code></pre></div></li>
-</ol>
-<h2 id="monitoring-and-maintenance">Monitoring and Maintenance<a class="headerlink" href="#monitoring-and-maintenance" title="Permanent link">&para;</a></h2>
-<h3 id="cloudwatch-metrics">CloudWatch Metrics<a class="headerlink" href="#cloudwatch-metrics" title="Permanent link">&para;</a></h3>
-<p>Key metrics to monitor:
-- GroupMinSize
-- GroupMaxSize
-- GroupDesiredCapacity
-- GroupInServiceInstances
-- GroupPendingInstances
-- GroupStandbyInstances
-- GroupTerminatingInstances
-- GroupTotalInstances</p>
-<h3 id="common-cloudwatch-alarms">Common CloudWatch Alarms<a class="headerlink" href="#common-cloudwatch-alarms" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">CPUAlarm</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::CloudWatch::Alarm</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">AlarmDescription</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scale up if CPU &gt; 75% for 5 minutes</span>
-<span class="w">    </span><span class="nt">MetricName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CPUUtilization</span>
-<span class="w">    </span><span class="nt">Namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS/EC2</span>
-<span class="w">    </span><span class="nt">Statistic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Average</span>
-<span class="w">    </span><span class="nt">Period</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
-<span class="w">    </span><span class="nt">EvaluationPeriods</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">    </span><span class="nt">ThresholdMetricId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">75</span>
-<span class="w">    </span><span class="nt">AlarmActions</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScalingPolicy</span>
-</code></pre></div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Instances Not Launching</strong></li>
-<li>Check launch template configuration</li>
-<li>Verify IAM roles and permissions</li>
-<li>Review security group rules</li>
-<li>
-<p>Check subnet capacity</p>
-</li>
-<li>
-<p><strong>Scaling Issues</strong></p>
-</li>
-<li>Review scaling policy configurations</li>
-<li>Check CloudWatch metrics</li>
-<li>Verify cooldown periods</li>
-<li>
-<p>Check service quotas</p>
-</li>
-<li>
-<p><strong>Health Check Failures</strong></p>
-</li>
-<li>Verify instance health check configuration</li>
-<li>Check application health endpoints</li>
-<li>Review security group rules</li>
-<li>Check instance logs</li>
-</ol>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
-<h3 id="1-network-security">1. Network Security<a class="headerlink" href="#1-network-security" title="Permanent link">&para;</a></h3>
+<h3 id="placement-strategies">Placement Strategies<a class="headerlink" href="#placement-strategies" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use security groups effectively</li>
-<li>Implement network ACLs</li>
-<li>Consider using VPC endpoints</li>
+<li>Binpack - optimizes resource usage by placing tasks on instances with least available CPU/memory</li>
+<li>Random - places tasks randomly across instances</li>
+<li>Spread - distributes tasks evenly based on specified values (e.g., availability zone)</li>
 </ul>
-<h3 id="2-access-control">2. Access Control<a class="headerlink" href="#2-access-control" title="Permanent link">&para;</a></h3>
+<h3 id="placement-constraints">Placement Constraints<a class="headerlink" href="#placement-constraints" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use IAM roles for EC2 instances</li>
-<li>Implement least privilege access</li>
-<li>Regular rotation of access keys</li>
+<li>distinctInstance - ensures tasks are placed on different EC2 instances</li>
+<li>memberOf - places tasks on instances meeting specified criteria using Cluster Query Language</li>
 </ul>
-<h3 id="3-data-security">3. Data Security<a class="headerlink" href="#3-data-security" title="Permanent link">&para;</a></h3>
+<h2 id="rolling-updates">Rolling Updates<a class="headerlink" href="#rolling-updates" title="Permanent link">&para;</a></h2>
+<p>Control task updates from v1 to v2 by specifying:</p>
 <ul>
-<li>Encrypt EBS volumes</li>
-<li>Use secure AMIs</li>
-<li>Implement backup strategies</li>
+<li>Minimum Healthy Percent (0-100%)</li>
+<li>Maximum Percent (100-200%)</li>
+<li>Controls task termination and creation order during updates</li>
 </ul>
-<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
-<h3 id="1-instance-strategies">1. Instance Strategies<a class="headerlink" href="#1-instance-strategies" title="Permanent link">&para;</a></h3>
+<h2 id="load-balancing">Load Balancing<a class="headerlink" href="#load-balancing" title="Permanent link">&para;</a></h2>
+<h3 id="ec2-launch-type_1">EC2 Launch Type<a class="headerlink" href="#ec2-launch-type_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use Spot Instances where appropriate</li>
-<li>Implement mixed instance types</li>
-<li>Right-size instances based on metrics</li>
+<li>Supports Dynamic Host Port Mapping</li>
+<li>ALB automatically finds correct ports on EC2 instances</li>
+<li>Security Group configuration required for EC2 instances</li>
 </ul>
-<h3 id="2-scaling-optimization">2. Scaling Optimization<a class="headerlink" href="#2-scaling-optimization" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">PredictiveScaling</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::AutoScaling::ScalingPolicy</span>
-<span class="w">  </span><span class="nt">Properties</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">PolicyType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PredictiveScaling</span>
-<span class="w">    </span><span class="nt">PredictiveScalingConfiguration</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">MetricSpecifications</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">TargetValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70</span>
-<span class="w">          </span><span class="nt">PredefinedMetricPairSpecification</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">PredefinedMetricType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ASGCPUUtilization</span>
-</code></pre></div>
-<h3 id="3-reserved-instances">3. Reserved Instances<a class="headerlink" href="#3-reserved-instances" title="Permanent link">&para;</a></h3>
+<h3 id="fargate">Fargate<a class="headerlink" href="#fargate" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Consider Reserved Instances for base capacity</li>
-<li>Use Savings Plans for predictable workloads</li>
-<li>Regular cost analysis and optimization</li>
-</ul>
-<h3 id="4-cross-region-considerations">4. Cross-Region Considerations<a class="headerlink" href="#4-cross-region-considerations" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Data replication requirements</li>
-<li>Backup and recovery strategies</li>
-<li>Cost optimization across regions</li>
-<li>Compliance and data sovereignty</li>
+<li>Each task gets unique private IP</li>
+<li>Only container port definition required</li>
+<li>Security Group configuration needed for ECS ENI and ALB</li>
 </ul>
 
 
@@ -5470,7 +5416,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../appsync/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AppSync">
+          <a href="../ec2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elastic Compute Cloud (EC2)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5480,20 +5426,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                AppSync
+                Elastic Compute Cloud (EC2)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../billing/" class="md-footer__link md-footer__link--next" aria-label="Next: Billing and Cost">
+          <a href="../elastic_beanstalk/" class="md-footer__link md-footer__link--next" aria-label="Next: Elastic Beanstalk">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Billing and Cost
+                Elastic Beanstalk
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -5527,10 +5473,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5090c770.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5090c770.min.js"></script>
       
     
   </body>
