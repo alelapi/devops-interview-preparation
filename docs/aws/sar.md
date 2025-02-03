@@ -1,5 +1,52 @@
 # Serverless Application Repository (SAR)
 
-The AWS Serverless Application Repository is a managed repository for serverless applications. It enables teams, organizations, and individual developers to store and share reusable applications, and easily assemble and deploy serverless architectures in powerful new ways. Using the Serverless Application Repository, you don't need to clone, build, package, or publish source code to AWS before deploying it. Instead, you can use pre-built applications from the Serverless Application Repository in your serverless architectures, helping you and your teams reduce duplicated work, ensure organizational best practices, and get to market faster. Integration with AWS Identity and Access Management (IAM) provides resource-level control of each application, enabling you to publicly share applications with everyone or privately share them with specific AWS accounts.
+## Overview
+AWS Serverless Application Repository is a managed service that enables developers to find, deploy, and publish serverless applications quickly and easily.
+
+## Key Features
+
+### Application Discovery
+* Centralized repository of pre-built serverless applications
+* Discover and use applications from:
+  * AWS-published applications
+  * Community-contributed applications
+  * Private organizational applications
+
+### Deployment Capabilities
+* One-click deployment of serverless applications
+* Instant integration with AWS Lambda, API Gateway, and other serverless services
+* Simplified infrastructure setup through CloudFormation templates
+
+### Publishing Options
+* Public sharing of serverless applications
+* Private sharing within organizations
+* Ability to publish your own reusable serverless components
+
+### Use Cases
+* Rapid prototyping
+* Accelerating development
+* Sharing common serverless patterns
+* Learning serverless architecture best practices
+
+## Supported Application Types
+* AWS Lambda functions
+* API Gateway configurations
+* Serverless workflows
+* Event-driven applications
+* Microservices components
+
+## Benefits
+* Reduces time-to-market for serverless applications
+* Promotes code reuse
+* Ensures consistent deployment patterns
+* Simplifies serverless application management
+* Facilitates knowledge sharing across development teams
+
+## Security and Governance
+* Configurable visibility settings
+* Version control for applications
+* Integration with AWS Identity and Access Management (IAM)
+* Compliance with organizational policies
+
 
 ![Deploying applications using SAR:](../assets/img/sar.jpg)
