@@ -45,6 +45,7 @@ Provide physical servers dedicated exclusively to a single customer, addressing 
 
 ### Network Configuration
 EC2 instances operate within Virtual Private Clouds (VPCs), offering granular control over network environments. Users can configure:
+
 - IP address ranges
 - Subnet creation
 - Route table management
@@ -55,11 +56,16 @@ EC2 instances operate within Virtual Private Clouds (VPCs), offering granular co
 1. **Use Both**: Combine Security Groups and NACLs for a layered defense approach.
 2. **Least Privilege**: Only allow traffic that is necessary for your application.
 3. **Organize Rule Sets**:
+
    - Use Security Groups for instance-level control.
    - Use NACLs to block/allow traffic at the subnet level.
+
 4. **Monitor and Audit**:
+
    - Regularly review and update rules to ensure compliance and avoid unnecessary exposure.
+
 5. **Default Rules**:
+
    - Ensure custom NACLs deny all traffic by default until rules are explicitly added.
 
 By leveraging Security Groups and NACLs together, you can implement a robust and secure network architecture in AWS.
@@ -69,6 +75,7 @@ By leveraging Security Groups and NACLs together, you can implement a robust and
 
 ### Amazon EBS (Elastic Block Store)
 Persistent block-level storage volumes attachable to EC2 instances. Supports various volume types:
+
 - General Purpose SSD
 - Provisioned IOPS SSD
 - Throughput Optimized HDD
@@ -81,6 +88,7 @@ Temporary block-level storage directly attached to the host computer, providing 
 
 ### Amazon CloudWatch
 Provides comprehensive monitoring capabilities:
+
 - Performance metrics
 - Resource utilization tracking
 - Automated scaling
@@ -88,6 +96,7 @@ Provides comprehensive monitoring capabilities:
 
 ### AWS Systems Manager
 Enables centralized operational management across AWS resources, facilitating:
+
 - Configuration management
 - Patch management
 - Automated tasks
