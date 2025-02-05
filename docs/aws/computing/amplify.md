@@ -12,10 +12,13 @@ AWS Amplify is a comprehensive set of tools and services for building and deploy
 
 ### Amplify Libraries
 Connect applications to AWS services. Support for:
+
   * Amazon Cognito
   * Amazon S3
   * Other AWS services
+
 Front-end libraries for multiple frameworks:
+
   * React.js
   * Vue
   * JavaScript
@@ -37,6 +40,7 @@ Front-end libraries for multiple frameworks:
 
 ### Authentication
 Powered by Amazon Cognito. Features:
+
   * User registration
   * Authentication
   * Account recovery
@@ -47,6 +51,7 @@ Powered by Amazon Cognito. Features:
 
 ### DataStore
 Utilizes Amazon AppSync and DynamoDB. Capabilities:
+
   * Local data management
   * Automatic cloud synchronization
   * GraphQL-powered
@@ -65,8 +70,8 @@ Utilizes Amazon AppSync and DynamoDB. Capabilities:
 * Integrated testing framework
 * Supports Cypress testing
 * Test phases:
-  * During build
-  * During deployment
+  - During build
+  - During deployment
 * Generates UI test reports
 
 ## Benefits
