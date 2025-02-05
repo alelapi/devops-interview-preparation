@@ -5366,14 +5366,16 @@
 <h3 id="instance-refresh">Instance Refresh<a class="headerlink" href="#instance-refresh" title="Permanent link">&para;</a></h3>
 <p>When updating launch templates, ASG provides an Instance Refresh feature to systematically replace existing instances. This process maintains a specified minimum healthy percentage of instances while implementing updates. Administrators can define warm-up periods to ensure instances are fully operational before entering service.</p>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<p>To optimize ASG operations:
-- Implement appropriate monitoring metrics aligned with application characteristics
-- Configure scaling policies that reflect actual application demands
-- Use pre-configured AMIs to reduce instance initialization time
-- Set appropriate cooldown periods to prevent scaling thrashing
-- Regularly review and adjust scaling parameters based on performance data
-- Implement predictive scaling for workloads with predictable patterns
-- Maintain adequate minimum capacity for base load requirements</p>
+<p>To optimize ASG operations:</p>
+<ul>
+<li>Implement appropriate monitoring metrics aligned with application characteristics</li>
+<li>Configure scaling policies that reflect actual application demands</li>
+<li>Use pre-configured AMIs to reduce instance initialization time</li>
+<li>Set appropriate cooldown periods to prevent scaling thrashing</li>
+<li>Regularly review and adjust scaling parameters based on performance data</li>
+<li>Implement predictive scaling for workloads with predictable patterns</li>
+<li>Maintain adequate minimum capacity for base load requirements</li>
+</ul>
 <p>Through careful configuration and monitoring of these components, Auto Scaling Groups provide robust, cost-effective management of compute resources in response to changing application demands.</p>
 
 
