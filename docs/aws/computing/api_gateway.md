@@ -20,12 +20,14 @@ Amazon API Gateway is a fully managed service provided by AWS for creating, depl
 
 ### **4. Security**
 
-- Supports multiple authentication mechanisms:
+Supports multiple authentication mechanisms:
+
   - AWS Identity and Access Management (IAM)
   - API keys
   - Amazon Cognito user pools
   - Lambda authorizers for custom authentication
-- Integration with AWS WAF for protection against DDoS attacks and common web exploits.
+
+Integration with AWS WAF for protection against DDoS attacks and common web exploits.
 
 ### **5. Integration with AWS Services**
 
@@ -50,12 +52,14 @@ Amazon API Gateway is a fully managed service provided by AWS for creating, depl
 
 ### **9. Stages**
 
-- **Definition**: Stages represent different environments or versions of your API (e.g., development, testing, production).
-- **Key Features**:
+**Definition**: Stages represent different environments or versions of your API (e.g., development, testing, production).
+**Key Features**:
+
   - Each stage has its own URL endpoint.
   - Stages can be configured with unique settings, such as throttling limits, caching, and logging.
   - Stage variables allow dynamic configuration of stage-specific values, such as Lambda function ARNs.
-- **Benefits**:
+
+**Benefits**:
   - Simplifies versioning and environment management.
   - Facilitates separate monitoring and troubleshooting for each stage.
 

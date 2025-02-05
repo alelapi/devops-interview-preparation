@@ -64,6 +64,7 @@ When updating launch templates, ASG provides an Instance Refresh feature to syst
 ## Best Practices
 
 To optimize ASG operations:
+
 - Implement appropriate monitoring metrics aligned with application characteristics
 - Configure scaling policies that reflect actual application demands
 - Use pre-configured AMIs to reduce instance initialization time
