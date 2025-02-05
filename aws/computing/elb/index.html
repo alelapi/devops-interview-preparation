@@ -5401,32 +5401,28 @@
 <h2 id="ssltls-support">SSL/TLS Support<a class="headerlink" href="#ssltls-support" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Provides in-flight encryption</li>
-<li>Certificate management through AWS Certificate Manager (ACM)</li>
 <li>
-<p>Features:</p>
+<p>Certificate management through AWS Certificate Manager (ACM)
+Features:</p>
 </li>
 <li>
 <p>Support for multiple certificates (ALB and NLB)</p>
 </li>
 <li>Server Name Indication (SNI) support</li>
-<li>
-<p>Customizable security policies</p>
-</li>
-<li>
+<li>Customizable security policies</li>
+</ul>
 <p>Certificate handling varies by load balancer type:</p>
-</li>
-<li>
-<p>CLB: Single SSL certificate only</p>
-</li>
+<ul>
+<li>CLB: Single SSL certificate only</li>
 <li>ALB/NLB: Multiple listeners with multiple SSL certificates via SNI</li>
 </ul>
 <h2 id="connection-draining">Connection Draining<a class="headerlink" href="#connection-draining" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Named &ldquo;Connection Draining&rdquo; for CLB</li>
 <li>Named &ldquo;Deregistration Delay&rdquo; for ALB &amp; NLB</li>
-<li>Allows completion of in-flight requests during instance deregistration</li>
 <li>
-<p>Configuration options:</p>
+<p>Allows completion of in-flight requests during instance deregistration
+Configuration options:</p>
 </li>
 <li>
 <p>Duration: 1-3600 seconds (default 300)</p>
