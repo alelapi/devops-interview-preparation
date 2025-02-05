@@ -5698,46 +5698,68 @@
 <p>Provide physical servers dedicated exclusively to a single customer, addressing complex licensing and compliance requirements.</p>
 <h2 id="networking-capabilities">Networking Capabilities<a class="headerlink" href="#networking-capabilities" title="Permanent link">&para;</a></h2>
 <h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
-<p>EC2 instances operate within Virtual Private Clouds (VPCs), offering granular control over network environments. Users can configure:
-- IP address ranges
-- Subnet creation
-- Route table management
-- Network gateway configurations</p>
+<p>EC2 instances operate within Virtual Private Clouds (VPCs), offering granular control over network environments. Users can configure:</p>
+<ul>
+<li>IP address ranges</li>
+<li>Subnet creation</li>
+<li>Route table management</li>
+<li>Network gateway configurations</li>
+</ul>
 <h2 id="best-practices"><strong>Best Practices</strong><a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Use Both</strong>: Combine Security Groups and NACLs for a layered defense approach.</li>
 <li><strong>Least Privilege</strong>: Only allow traffic that is necessary for your application.</li>
-<li><strong>Organize Rule Sets</strong>:</li>
-<li>Use Security Groups for instance-level control.</li>
-<li>Use NACLs to block/allow traffic at the subnet level.</li>
-<li><strong>Monitor and Audit</strong>:</li>
-<li>Regularly review and update rules to ensure compliance and avoid unnecessary exposure.</li>
-<li><strong>Default Rules</strong>:</li>
-<li>Ensure custom NACLs deny all traffic by default until rules are explicitly added.</li>
+<li>
+<p><strong>Organize Rule Sets</strong>:</p>
+</li>
+<li>
+<p>Use Security Groups for instance-level control.</p>
+</li>
+<li>
+<p>Use NACLs to block/allow traffic at the subnet level.</p>
+</li>
+<li>
+<p><strong>Monitor and Audit</strong>:</p>
+</li>
+<li>
+<p>Regularly review and update rules to ensure compliance and avoid unnecessary exposure.</p>
+</li>
+<li>
+<p><strong>Default Rules</strong>:</p>
+</li>
+<li>
+<p>Ensure custom NACLs deny all traffic by default until rules are explicitly added.</p>
+</li>
 </ol>
 <p>By leveraging Security Groups and NACLs together, you can implement a robust and secure network architecture in AWS.</p>
 <h2 id="storage-options">Storage Options<a class="headerlink" href="#storage-options" title="Permanent link">&para;</a></h2>
 <h3 id="amazon-ebs-elastic-block-store">Amazon EBS (Elastic Block Store)<a class="headerlink" href="#amazon-ebs-elastic-block-store" title="Permanent link">&para;</a></h3>
-<p>Persistent block-level storage volumes attachable to EC2 instances. Supports various volume types:
-- General Purpose SSD
-- Provisioned IOPS SSD
-- Throughput Optimized HDD
-- Cold HDD</p>
+<p>Persistent block-level storage volumes attachable to EC2 instances. Supports various volume types:</p>
+<ul>
+<li>General Purpose SSD</li>
+<li>Provisioned IOPS SSD</li>
+<li>Throughput Optimized HDD</li>
+<li>Cold HDD</li>
+</ul>
 <h3 id="instance-store">Instance Store<a class="headerlink" href="#instance-store" title="Permanent link">&para;</a></h3>
 <p>Temporary block-level storage directly attached to the host computer, providing high I/O performance for temporary data.</p>
 <h2 id="monitoring-and-management">Monitoring and Management<a class="headerlink" href="#monitoring-and-management" title="Permanent link">&para;</a></h2>
 <h3 id="amazon-cloudwatch">Amazon CloudWatch<a class="headerlink" href="#amazon-cloudwatch" title="Permanent link">&para;</a></h3>
-<p>Provides comprehensive monitoring capabilities:
-- Performance metrics
-- Resource utilization tracking
-- Automated scaling
-- Custom metric creation</p>
+<p>Provides comprehensive monitoring capabilities:</p>
+<ul>
+<li>Performance metrics</li>
+<li>Resource utilization tracking</li>
+<li>Automated scaling</li>
+<li>Custom metric creation</li>
+</ul>
 <h3 id="aws-systems-manager">AWS Systems Manager<a class="headerlink" href="#aws-systems-manager" title="Permanent link">&para;</a></h3>
-<p>Enables centralized operational management across AWS resources, facilitating:
-- Configuration management
-- Patch management
-- Automated tasks
-- Compliance tracking</p>
+<p>Enables centralized operational management across AWS resources, facilitating:</p>
+<ul>
+<li>Configuration management</li>
+<li>Patch management</li>
+<li>Automated tasks</li>
+<li>Compliance tracking</li>
+</ul>
 <h2 id="pricing-model">Pricing Model<a class="headerlink" href="#pricing-model" title="Permanent link">&para;</a></h2>
 <h3 id="factors-influencing-cost">Factors Influencing Cost<a class="headerlink" href="#factors-influencing-cost" title="Permanent link">&para;</a></h3>
 <ul>
