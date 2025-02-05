@@ -65,9 +65,10 @@ Used by the ECS agent for:
 * Automatically adjusts the number of ECS tasks
 * Uses AWS Application Auto Scaling
 * Scaling metrics:
-  * ECS Service Average CPU Utilization
-  * ECS Service Average Memory Utilization
-  * ALB Request Count PerTarget
+
+  - ECS Service Average CPU Utilization
+  - ECS Service Average Memory Utilization
+  - ALB Request Count PerTarget
 
 ### Scaling Methods
 * Target Tracking - based on CloudWatch metric target
