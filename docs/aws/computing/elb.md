@@ -115,13 +115,13 @@ Support various target types depending on the load balancer:
 ## SSL/TLS Support
 * Provides in-flight encryption
 * Certificate management through AWS Certificate Manager (ACM)
-* Features:
+Features:
 
   * Support for multiple certificates (ALB and NLB)
   * Server Name Indication (SNI) support
   * Customizable security policies
 
-* Certificate handling varies by load balancer type:
+Certificate handling varies by load balancer type:
 
   * CLB: Single SSL certificate only
   * ALB/NLB: Multiple listeners with multiple SSL certificates via SNI
@@ -130,7 +130,7 @@ Support various target types depending on the load balancer:
 * Named "Connection Draining" for CLB
 * Named "Deregistration Delay" for ALB & NLB
 * Allows completion of in-flight requests during instance deregistration
-* Configuration options:
+Configuration options:
 
   * Duration: 1-3600 seconds (default 300)
   * Can be disabled (set to 0)
