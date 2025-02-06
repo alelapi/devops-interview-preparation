@@ -1,4 +1,4 @@
-# AWS AppConfig
+# AppConfig
 
 ## Overview
 AWS AppConfig is a dynamic configuration management service that enables you to deploy configuration changes to applications quickly, safely, and independently of code deployments.

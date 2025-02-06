@@ -38,7 +38,7 @@ The standard tier provides essential parameter management capabilities suitable 
 ### Advanced Tier
 The advanced tier offers enhanced features and capabilities, including support for parameter policies and larger parameter values.
 
-![SSM Tiers:](../assets/img/ssm.png)
+![SSM Tiers:](../../assets/img/ssm.png)
 
 ## Parameter Policies
 
