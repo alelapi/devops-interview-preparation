@@ -5323,34 +5323,46 @@
 <h3 id="query-service-capabilities">Query Service Capabilities<a class="headerlink" href="#query-service-capabilities" title="Permanent link">&para;</a></h3>
 <p>Athena operates as a serverless query engine, requiring no infrastructure management while providing the ability to analyze data directly from S3 storage. The service uses standard SQL language (built on Presto), making it accessible to users familiar with SQL syntax.</p>
 <h3 id="supported-file-formats">Supported File Formats<a class="headerlink" href="#supported-file-formats" title="Permanent link">&para;</a></h3>
-<p>Athena supports multiple data formats, including:
-- CSV
-- JSON
-- ORC
-- Avro
-- Parquet</p>
+<p>Athena supports multiple data formats, including:</p>
+<ul>
+<li>CSV</li>
+<li>JSON</li>
+<li>ORC</li>
+<li>Avro</li>
+<li>Parquet</li>
+</ul>
 <h3 id="cost-structure">Cost Structure<a class="headerlink" href="#cost-structure" title="Permanent link">&para;</a></h3>
-<p>The pricing model is straightforward:
-- $5.00 per TB of data scanned
-- Users only pay for the data they query</p>
+<p>The pricing model is straightforward:</p>
+<ul>
+<li>$5.00 per TB of data scanned</li>
+<li>Users only pay for the data they query</li>
+</ul>
 <h3 id="integration-with-quicksight">Integration with QuickSight<a class="headerlink" href="#integration-with-quicksight" title="Permanent link">&para;</a></h3>
-<p>Athena seamlessly integrates with Amazon QuickSight, enabling:
-- Creation of comprehensive reports
-- Building interactive dashboards
-- Visual data exploration and analysis</p>
+<p>Athena seamlessly integrates with Amazon QuickSight, enabling:</p>
+<ul>
+<li>Creation of comprehensive reports</li>
+<li>Building interactive dashboards</li>
+<li>Visual data exploration and analysis</li>
+</ul>
 <h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
-<p>Athena serves various analytical needs, including:
-- Business intelligence and analytics
-- Reporting and data analysis
-- VPC Flow Logs analysis
-- ELB Logs examination
-- CloudTrail trails investigation</p>
+<p>Athena serves various analytical needs, including:</p>
+<ul>
+<li>Business intelligence and analytics</li>
+<li>Reporting and data analysis</li>
+<li>VPC Flow Logs analysis</li>
+<li>ELB Logs examination</li>
+<li>CloudTrail trails investigation</li>
+</ul>
 <h2 id="performance-optimization">Performance Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">&para;</a></h2>
 <h3 id="data-format-recommendations">Data Format Recommendations<a class="headerlink" href="#data-format-recommendations" title="Permanent link">&para;</a></h3>
 <p>To optimize performance and reduce costs, consider the following recommendations:</p>
 <ol>
-<li>Use columnar data formats:</li>
-<li>Apache Parquet or ORC are highly recommended</li>
+<li>
+<p>Use columnar data formats:</p>
+</li>
+<li>
+<p>Apache Parquet or ORC are highly recommended</p>
+</li>
 <li>These formats provide significant performance improvements</li>
 <li>
 <p>AWS Glue can be used to convert existing data to Parquet or ORC</p>
@@ -5358,7 +5370,9 @@
 <li>
 <p>Implement data compression:</p>
 </li>
-<li>Supported compression formats include:<ul>
+<li>
+<p>Supported compression formats include:</p>
+<ul>
 <li>bzip2</li>
 <li>gzip</li>
 <li>lz4</li>
@@ -5371,8 +5385,12 @@
 <h3 id="data-organization-and-storage">Data Organization and Storage<a class="headerlink" href="#data-organization-and-storage" title="Permanent link">&para;</a></h3>
 <p>For optimal performance:</p>
 <ol>
-<li>Implement partitioning:</li>
-<li>Organize datasets in S3 using partition columns</li>
+<li>
+<p>Implement partitioning:</p>
+</li>
+<li>
+<p>Organize datasets in S3 using partition columns</p>
+</li>
 <li>Follow the structure:
      <div class="highlight"><pre><span></span><code>s3://yourBucket/pathToTable/&lt;PARTITION_COLUMN_NAME&gt;=&lt;VALUE&gt;/
 </code></pre></div></li>
@@ -5389,26 +5407,30 @@
 </ol>
 <h2 id="federated-query-capabilities">Federated Query Capabilities<a class="headerlink" href="#federated-query-capabilities" title="Permanent link">&para;</a></h2>
 <h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
-<p>Federated queries enable SQL query execution across diverse data sources, including:
-- Relational databases
-- Non-relational databases
-- Object stores
-- Custom data sources</p>
+<p>Federated queries enable SQL query execution across diverse data sources, including:</p>
+<ul>
+<li>Relational databases</li>
+<li>Non-relational databases</li>
+<li>Object stores</li>
+<li>Custom data sources</li>
+</ul>
 <h3 id="architecture-components">Architecture Components<a class="headerlink" href="#architecture-components" title="Permanent link">&para;</a></h3>
 <p>The federated query system consists of:
 1. Data Source Connectors running on AWS Lambda
-2. Support for various data sources:
-   - CloudWatch Logs
-   - DynamoDB
-   - RDS
-   - ElastiCache
-   - DocumentDB
-   - Redshift
-   - HBase in EMR
-   - MySQL
-   - Aurora
-   - SQL Server
-   - On-premises databases</p>
+2. Support for various data sources:</p>
+<ul>
+<li>CloudWatch Logs</li>
+<li>DynamoDB</li>
+<li>RDS</li>
+<li>ElastiCache</li>
+<li>DocumentDB</li>
+<li>Redshift</li>
+<li>HBase in EMR</li>
+<li>MySQL</li>
+<li>Aurora</li>
+<li>SQL Server</li>
+<li>On-premises databases</li>
+</ul>
 <h3 id="functionality">Functionality<a class="headerlink" href="#functionality" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Enables querying across multiple data sources simultaneously</li>
