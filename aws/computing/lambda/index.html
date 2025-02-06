@@ -16,7 +16,7 @@
         <link rel="prev" href="../elb/">
       
       
-        <link rel="next" href="../../database/aurora/">
+        <link rel="next" href="../../database/athena/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -1226,6 +1226,8 @@
       
         
       
+        
+      
     
     
       
@@ -1262,6 +1264,28 @@
             Databases
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/athena/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Athena
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -5746,10 +5770,18 @@
 <h3 id="zip-file-archives">.zip File Archives<a class="headerlink" href="#zip-file-archives" title="Permanent link">&para;</a></h3>
 <p>The traditional method of deploying Lambda functions using compressed archives:</p>
 <ul>
-<li><strong>Size Limits</strong>: </li>
-<li>Direct upload: 50 MB compressed</li>
-<li>S3 upload: 250 MB uncompressed</li>
-<li><strong>Deployment Process</strong>: Upload directly via AWS Console, CLI, or SDK</li>
+<li>
+<p><strong>Size Limits</strong>: </p>
+</li>
+<li>
+<p>Direct upload: 50 MB compressed</p>
+</li>
+<li>
+<p>S3 upload: 250 MB uncompressed</p>
+</li>
+<li>
+<p><strong>Deployment Process</strong>: Upload directly via AWS Console, CLI, or SDK</p>
+</li>
 <li><strong>Version Control</strong>: Integrated with AWS versioning system</li>
 <li><strong>Cold Start Impact</strong>: Generally faster cold starts compared to containers</li>
 <li><strong>Use Cases</strong>: Ideal for simpler functions with minimal dependencies</li>
@@ -5761,8 +5793,12 @@
 <li><strong>Format Support</strong>: Compatible with OCI (Open Container Initiative) format</li>
 <li><strong>Base Images</strong>: AWS-provided base images for each runtime</li>
 <li><strong>Custom Runtimes</strong>: Support for any programming language via custom containers</li>
-<li><strong>Architecture Support</strong>:</li>
-<li>x86_64: Standard architecture, available in all regions</li>
+<li>
+<p><strong>Architecture Support</strong>:</p>
+</li>
+<li>
+<p>x86_64: Standard architecture, available in all regions</p>
+</li>
 <li>arm64: AWS Graviton2, offering better price/performance ratio</li>
 </ul>
 <h2 id="lambda-layers">Lambda Layers<a class="headerlink" href="#lambda-layers" title="Permanent link">&para;</a></h2>
@@ -5784,21 +5820,27 @@
 <h2 id="testing-and-development">Testing and Development<a class="headerlink" href="#testing-and-development" title="Permanent link">&para;</a></h2>
 <h3 id="local-testing-methods">Local Testing Methods<a class="headerlink" href="#local-testing-methods" title="Permanent link">&para;</a></h3>
 <h4 id="aws-sam-cli">AWS SAM CLI<a class="headerlink" href="#aws-sam-cli" title="Permanent link">&para;</a></h4>
-<p>A command-line tool that provides a local development environment:
-- <strong>Local Execution</strong>: Run Lambda functions locally
-- <strong>API Testing</strong>: Test API Gateway integrations
-- <strong>Debugging</strong>: Step through code using IDE integrations
-- <strong>Event Simulation</strong>: Generate sample events for testing</p>
+<p>A command-line tool that provides a local development environment:</p>
+<ul>
+<li><strong>Local Execution</strong>: Run Lambda functions locally</li>
+<li><strong>API Testing</strong>: Test API Gateway integrations</li>
+<li><strong>Debugging</strong>: Step through code using IDE integrations</li>
+<li><strong>Event Simulation</strong>: Generate sample events for testing</li>
+</ul>
 <h4 id="runtime-interface-emulator-rie">Runtime Interface Emulator (RIE)<a class="headerlink" href="#runtime-interface-emulator-rie" title="Permanent link">&para;</a></h4>
-<p>A tool for testing container image-based functions:
-- <strong>Container Testing</strong>: Test functions exactly as they&rsquo;ll run in AWS
-- <strong>API Emulation</strong>: Simulates the Lambda Runtime API locally
-- <strong>Integration</strong>: Works with standard Docker tools</p>
+<p>A tool for testing container image-based functions:</p>
+<ul>
+<li><strong>Container Testing</strong>: Test functions exactly as they&rsquo;ll run in AWS</li>
+<li><strong>API Emulation</strong>: Simulates the Lambda Runtime API locally</li>
+<li><strong>Integration</strong>: Works with standard Docker tools</li>
+</ul>
 <h4 id="localstack">LocalStack<a class="headerlink" href="#localstack" title="Permanent link">&para;</a></h4>
-<p>A local AWS cloud stack for testing:
-- <strong>Service Emulation</strong>: Emulate AWS services locally
-- <strong>Integration Testing</strong>: Test complete architectures
-- <strong>Offline Development</strong>: Develop without AWS connectivity</p>
+<p>A local AWS cloud stack for testing:</p>
+<ul>
+<li><strong>Service Emulation</strong>: Emulate AWS services locally</li>
+<li><strong>Integration Testing</strong>: Test complete architectures</li>
+<li><strong>Offline Development</strong>: Develop without AWS connectivity</li>
+</ul>
 <h2 id="lambda-runtime-api">Lambda Runtime API<a class="headerlink" href="#lambda-runtime-api" title="Permanent link">&para;</a></h2>
 <h3 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h3>
 <p>The Lambda Runtime API is an HTTP interface that custom runtimes must implement:</p>
@@ -5928,13 +5970,13 @@
         
         
           
-          <a href="../../database/aurora/" class="md-footer__link md-footer__link--next" aria-label="Next: Aurora">
+          <a href="../../database/athena/" class="md-footer__link md-footer__link--next" aria-label="Next: Athena">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Aurora
+                Athena
               </div>
             </div>
             <div class="md-footer__button md-icon">
