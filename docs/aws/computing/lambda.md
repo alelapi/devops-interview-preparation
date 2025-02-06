@@ -31,8 +31,10 @@ Lambda supports multiple programming languages through runtime environments:
 The traditional method of deploying Lambda functions using compressed archives:
 
 - **Size Limits**: 
+
   - Direct upload: 50 MB compressed
   - S3 upload: 250 MB uncompressed
+
 - **Deployment Process**: Upload directly via AWS Console, CLI, or SDK
 - **Version Control**: Integrated with AWS versioning system
 - **Cold Start Impact**: Generally faster cold starts compared to containers
@@ -46,6 +48,7 @@ Deploy Lambda functions as container images, offering greater flexibility and co
 - **Base Images**: AWS-provided base images for each runtime
 - **Custom Runtimes**: Support for any programming language via custom containers
 - **Architecture Support**:
+
   - x86_64: Standard architecture, available in all regions
   - arm64: AWS Graviton2, offering better price/performance ratio
 
@@ -70,6 +73,7 @@ A mechanism to centrally manage code and dependencies:
 
 #### AWS SAM CLI
 A command-line tool that provides a local development environment:
+
 - **Local Execution**: Run Lambda functions locally
 - **API Testing**: Test API Gateway integrations
 - **Debugging**: Step through code using IDE integrations
@@ -77,12 +81,14 @@ A command-line tool that provides a local development environment:
 
 #### Runtime Interface Emulator (RIE)
 A tool for testing container image-based functions:
+
 - **Container Testing**: Test functions exactly as they'll run in AWS
 - **API Emulation**: Simulates the Lambda Runtime API locally
 - **Integration**: Works with standard Docker tools
 
 #### LocalStack
 A local AWS cloud stack for testing:
+
 - **Service Emulation**: Emulate AWS services locally
 - **Integration Testing**: Test complete architectures
 - **Offline Development**: Develop without AWS connectivity
