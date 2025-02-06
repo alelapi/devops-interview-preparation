@@ -10,6 +10,7 @@ Athena operates as a serverless query engine, requiring no infrastructure manage
 
 ### Supported File Formats
 Athena supports multiple data formats, including:
+
 - CSV
 - JSON
 - ORC
@@ -18,17 +19,20 @@ Athena supports multiple data formats, including:
 
 ### Cost Structure
 The pricing model is straightforward:
+
 - $5.00 per TB of data scanned
 - Users only pay for the data they query
 
 ### Integration with QuickSight
 Athena seamlessly integrates with Amazon QuickSight, enabling:
+
 - Creation of comprehensive reports
 - Building interactive dashboards
 - Visual data exploration and analysis
 
 ## Common Use Cases
 Athena serves various analytical needs, including:
+
 - Business intelligence and analytics
 - Reporting and data analysis
 - VPC Flow Logs analysis
@@ -41,12 +45,15 @@ Athena serves various analytical needs, including:
 To optimize performance and reduce costs, consider the following recommendations:
 
 1. Use columnar data formats:
+
    - Apache Parquet or ORC are highly recommended
    - These formats provide significant performance improvements
    - AWS Glue can be used to convert existing data to Parquet or ORC
 
 2. Implement data compression:
+
    - Supported compression formats include:
+
      - bzip2
      - gzip
      - lz4
@@ -58,6 +65,7 @@ To optimize performance and reduce costs, consider the following recommendations
 For optimal performance:
 
 1. Implement partitioning:
+
    - Organize datasets in S3 using partition columns
    - Follow the structure:
      ```
@@ -76,6 +84,7 @@ For optimal performance:
 
 ### Overview
 Federated queries enable SQL query execution across diverse data sources, including:
+
 - Relational databases
 - Non-relational databases
 - Object stores
@@ -85,6 +94,7 @@ Federated queries enable SQL query execution across diverse data sources, includ
 The federated query system consists of:
 1. Data Source Connectors running on AWS Lambda
 2. Support for various data sources:
+
    - CloudWatch Logs
    - DynamoDB
    - RDS
@@ -98,6 +108,7 @@ The federated query system consists of:
    - On-premises databases
 
 ### Functionality
+
 - Enables querying across multiple data sources simultaneously
 - Results can be stored back in Amazon S3
 - Provides unified access to distributed data sources
