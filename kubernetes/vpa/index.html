@@ -4972,30 +4972,29 @@
 
 <h1 id="vertical-pod-autoscaler">Vertical Pod Autoscaler<a class="headerlink" href="#vertical-pod-autoscaler" title="Permanent link">&para;</a></h1>
 <p>Example of VPA manifest:
-&lsquo;&rsquo;&rsquo;
-apiVersion: autoscaling.k8s.io/v1
-kind: VerticalPodAutoscaler
-metadata:
-  name: my-app-vpa
-  namespace: default
-spec:
-  targetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: my-app
-  updatePolicy:
-    updateMode: &ldquo;Auto&rdquo; # Options: &ldquo;Off&rdquo;, &ldquo;Initial&rdquo;, &ldquo;Auto&rdquo;, &ldquo;Recreate&rdquo;
-  resourcePolicy:
-    containerPolicies:
-      - containerName: &lsquo;*&rsquo;
-        minAllowed:
-          cpu: 100m
-          memory: 128Mi
-        maxAllowed:
-          cpu: 1
-          memory: 1Gi
-        controlledResources: [&ldquo;cpu&rdquo;, &ldquo;memory&rdquo;]</p>
-<p>&rsquo;&lsquo;&rsquo;</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">autoscaling.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VerticalPodAutoscaler</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-vpa</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">targetRef</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
+<span class="w">  </span><span class="nt">updatePolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">updateMode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Auto&quot;</span><span class="w"> </span><span class="c1"># Options: &quot;Off&quot;, &quot;Initial&quot;, &quot;Auto&quot;, &quot;Recreate&quot;</span>
+<span class="w">  </span><span class="nt">resourcePolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">containerPolicies</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
+<span class="w">        </span><span class="nt">minAllowed</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100m</span>
+<span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128Mi</span>
+<span class="w">        </span><span class="nt">maxAllowed</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+<span class="w">        </span><span class="nt">controlledResources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;cpu&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;memory&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div></p>
 
 
 
