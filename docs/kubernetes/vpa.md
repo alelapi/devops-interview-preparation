@@ -1,7 +1,7 @@
 # Vertical Pod Autoscaler
 
 Example of VPA manifest:
-'''
+```yaml
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
@@ -25,4 +25,4 @@ spec:
           memory: 1Gi
         controlledResources: ["cpu", "memory"]
 
-'''
+```
