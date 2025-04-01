@@ -25,6 +25,9 @@ An open-source container vulnerability scanner that statically analyzes containe
 ### Grype
 A vulnerability scanner for container images and filesystems created by Anchore that provides fast, comprehensive detection of package vulnerabilities.
 
+### Sysdig Secure
+A cloud-native security platform designed for securing containerized applications, Kubernetes environments, and cloud workloads. It provides comprehensive security capabilities across the entire container lifecycle.
+
 ## Distribute - Signing and Trust
 
 ### in-toto

@@ -14,3 +14,6 @@ US agency that develops cybersecurity frameworks, guidelines, and standards to h
 
 ## CIS Benchmarks
 Industry-standard configuration guidelines developed by the Center for Internet Security that provide best practices for securely configuring operating systems, cloud services, containers, and applications.
+
+## FedRAMP (Federal Risk and Authorization Management Program)
+FedRAMP is a US government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services.
