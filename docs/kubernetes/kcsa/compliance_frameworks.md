@@ -20,7 +20,9 @@ FedRAMP is a US government-wide program that provides a standardized approach to
 
 ## Microsoft Security Development Lifecycle (SDL)
 The Microsoft Security Development Lifecycle (SDL) is a software development process that helps developers build more secure software by reducing the number and severity of vulnerabilities while reducing development cost.
+
 **Key Practices:**
+
 - Threat Modeling: Structured approach to identifying, quantifying, and addressing security risks
 - Secure Coding Guidelines: Standards for writing code that's resistant to vulnerabilities
 - Static Application Security Testing (SAST): Automated scanning during development

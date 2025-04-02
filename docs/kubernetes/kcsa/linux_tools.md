@@ -31,9 +31,9 @@ Kubernetes supports AppArmor profiles through annotations on pods. This allows y
 
 ### Implementation Details
 
-**Pod Annotations**: AppArmor profiles are specified using annotations on the pod specification
-**Node Requirements**: AppArmor must be installed on each worker node
-**Profile Loading**: Profiles must be loaded on each node before pods can use them
+- **Pod Annotations**: AppArmor profiles are specified using annotations on the pod specification
+- **Node Requirements**: AppArmor must be installed on each worker node
+- **Profile Loading**: Profiles must be loaded on each node before pods can use them
 
 ```
 apiVersion: v1

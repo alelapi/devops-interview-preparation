@@ -1,6 +1,6 @@
 # Security Context
 
-## Exmaples
+## Examples
 ```
 apiVersion: v1
 kind: Pod
