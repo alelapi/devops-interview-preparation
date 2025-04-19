@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../../monitoring-and-alerting/observability_tools/">
+        <link rel="prev" href="../seccomp/">
       
       
-        <link rel="next" href="../how_do_you_approach_infrastructure_provisioning_us/">
+        <link rel="next" href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>How do you manage the lifecycle of infrastructure as code using tools like Terraform to ensure consistency and reliability? - My DevOps Interview Preparation</title>
+        <title>gVisor - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-do-you-manage-the-lifecycle-of-infrastructure-as-code-using-tools-like-terraform-to-ensure-consistency-and-reliability" class="md-skip">
+        <a href="#gvisor" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How do you manage the lifecycle of infrastructure as code using tools like Terraform to ensure consistency and reliability?
+              gVisor
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
   
@@ -298,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
   
@@ -316,11 +316,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../envoy/" class="md-tabs__link">
           
   
   
@@ -342,7 +344,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
   
@@ -360,13 +362,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
   
@@ -388,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -410,7 +410,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -446,7 +446,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -476,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -663,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -801,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -887,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -933,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -956,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -979,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -1065,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1088,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1111,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1134,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1245,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1268,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1291,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1314,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1337,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1360,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1444,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1467,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1490,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1620,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1643,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1666,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1758,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1781,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1804,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1827,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1873,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1896,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1919,7 +1919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -2001,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -2024,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -2047,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2137,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2160,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2183,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2206,7 +2206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2229,7 +2229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2252,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2275,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2306,7 +2306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/appsync/" class="md-nav__link">
+      <a href="../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2329,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cdk/" class="md-nav__link">
+      <a href="../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2352,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2375,7 +2375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/codestar/" class="md-nav__link">
+      <a href="../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2398,7 +2398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sar/" class="md-nav__link">
+      <a href="../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2421,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/step_function/" class="md-nav__link">
+      <a href="../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2444,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sts/" class="md-nav__link">
+      <a href="../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2467,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/swf/" class="md-nav__link">
+      <a href="../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2490,7 +2490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2583,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   
@@ -2606,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   
@@ -2629,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   
@@ -2652,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   
@@ -2675,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   
@@ -2721,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   
@@ -2767,7 +2767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   
@@ -2870,7 +2870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   
@@ -2893,7 +2893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   
@@ -2916,7 +2916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   
@@ -2939,7 +2939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   
@@ -2962,7 +2962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   
@@ -2985,7 +2985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   
@@ -3008,7 +3008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   
@@ -3031,7 +3031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   
@@ -3054,7 +3054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   
@@ -3077,7 +3077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   
@@ -3100,7 +3100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   
@@ -3123,7 +3123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   
@@ -3146,7 +3146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   
@@ -3169,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   
@@ -3196,8 +3196,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -3239,19 +3241,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -3264,7 +3269,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -3278,7 +3283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../envoy/" class="md-nav__link">
         
   
   
@@ -3301,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -3324,7 +3329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../pod_security_admission/" class="md-nav__link">
         
   
   
@@ -3347,7 +3352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../admission_controller/" class="md-nav__link">
         
   
   
@@ -3370,7 +3375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -3393,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../aggregation_layer/" class="md-nav__link">
         
   
   
@@ -3416,7 +3421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../encryptionconfig/" class="md-nav__link">
         
   
   
@@ -3439,7 +3444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../submariner/" class="md-nav__link">
         
   
   
@@ -3462,7 +3467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../kubefed/" class="md-nav__link">
         
   
   
@@ -3485,7 +3490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -3508,7 +3513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../observability_tools/" class="md-nav__link">
         
   
   
@@ -3531,7 +3536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../endpoint/" class="md-nav__link">
         
   
   
@@ -3570,17 +3575,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13" >
         
           
-          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="">
             
   
   
@@ -3607,7 +3615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -3630,7 +3638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -3653,7 +3661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -3729,7 +3737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -3752,7 +3760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3775,7 +3783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3798,7 +3806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3871,17 +3879,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
         
           
-          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="">
             
   
   
@@ -3908,7 +3919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   
@@ -3931,7 +3942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   
@@ -3954,7 +3965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   
@@ -3977,7 +3988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   
@@ -4000,7 +4011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   
@@ -4023,7 +4034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   
@@ -4046,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   
@@ -4069,7 +4080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   
@@ -4092,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   
@@ -4115,7 +4126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   
@@ -4138,7 +4149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   
@@ -4161,7 +4172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   
@@ -4184,7 +4195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   
@@ -4239,17 +4250,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
         
           
-          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="">
             
   
   
@@ -4276,7 +4290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/etcd/" class="md-nav__link">
+      <a href="../../cka/etcd/" class="md-nav__link">
         
   
   
@@ -4299,7 +4313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/vpa/" class="md-nav__link">
+      <a href="../../cka/vpa/" class="md-nav__link">
         
   
   
@@ -4322,7 +4336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -4345,7 +4359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/utilities/" class="md-nav__link">
+      <a href="../../cka/utilities/" class="md-nav__link">
         
   
   
@@ -4368,7 +4382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/openssl/" class="md-nav__link">
+      <a href="../../cka/openssl/" class="md-nav__link">
         
   
   
@@ -4391,7 +4405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/helm/" class="md-nav__link">
+      <a href="../../cka/helm/" class="md-nav__link">
         
   
   
@@ -4414,7 +4428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/cri/" class="md-nav__link">
+      <a href="../../cka/cri/" class="md-nav__link">
         
   
   
@@ -4437,7 +4451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/jsonpath/" class="md-nav__link">
+      <a href="../../cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -4492,17 +4506,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_16" >
         
           
-          <label class="md-nav__link" for="__nav_5_16" id="__nav_5_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_16" id="__nav_5_16_label" tabindex="">
             
   
   
@@ -4529,7 +4546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -4552,7 +4569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -4575,7 +4592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/falco/" class="md-nav__link">
+      <a href="../../kcsa/falco/" class="md-nav__link">
         
   
   
@@ -4598,7 +4615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -4621,7 +4638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -4644,7 +4661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/security_context/" class="md-nav__link">
+      <a href="../../kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -4667,7 +4684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -4690,7 +4707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -4718,8 +4735,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4738,18 +4757,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
         
           
-          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="">
             
   
   
@@ -4762,7 +4784,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_17">
             <span class="md-nav__icon md-icon"></span>
             CKS
@@ -4776,7 +4798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -4799,7 +4821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cert_auth/" class="md-nav__link">
+      <a href="../cert_auth/" class="md-nav__link">
         
   
   
@@ -4822,7 +4844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/apparmor/" class="md-nav__link">
+      <a href="../apparmor/" class="md-nav__link">
         
   
   
@@ -4845,7 +4867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/seccomp/" class="md-nav__link">
+      <a href="../seccomp/" class="md-nav__link">
         
   
   
@@ -4865,10 +4887,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../kubernetes/cks/gvisor/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    gVisor
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4879,6 +4923,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-gvisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to gVisor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-gvisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using gVisor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Debugging
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4967,7 +5100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   
@@ -4990,7 +5123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   
@@ -5013,7 +5146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   
@@ -5036,7 +5169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   
@@ -5059,7 +5192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   
@@ -5082,7 +5215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   
@@ -5105,7 +5238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   
@@ -5128,7 +5261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   
@@ -5155,10 +5288,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -5188,22 +5319,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -5216,7 +5344,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Infrastructure as Code
@@ -5227,32 +5355,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    How do you manage the lifecycle of infrastructure as code using tools like Terraform to ensure consistency and reliability?
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   
@@ -5263,35 +5369,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5304,7 +5381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   
@@ -5327,7 +5404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   
@@ -5350,7 +5427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   
@@ -5373,7 +5450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   
@@ -5396,7 +5473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   
@@ -5419,7 +5496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   
@@ -5442,7 +5519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   
@@ -5465,7 +5542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   
@@ -5488,7 +5565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   
@@ -5511,7 +5588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   
@@ -5598,7 +5675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -5621,7 +5698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -5644,7 +5721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -5667,7 +5744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -5690,7 +5767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -5713,7 +5790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -5790,7 +5867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -5840,9 +5917,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
+  <a href="#introduction-to-gvisor" class="md-nav__link">
     <span class="md-ellipsis">
-      Answer
+      Introduction to gVisor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Platform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-gvisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using gVisor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Debugging
     </span>
   </a>
   
@@ -5867,144 +6004,139 @@
   
 
 
-<h1 id="how-do-you-manage-the-lifecycle-of-infrastructure-as-code-using-tools-like-terraform-to-ensure-consistency-and-reliability">How do you manage the lifecycle of infrastructure as code using tools like Terraform to ensure consistency and reliability?<a class="headerlink" href="#how-do-you-manage-the-lifecycle-of-infrastructure-as-code-using-tools-like-terraform-to-ensure-consistency-and-reliability" title="Permanent link">&para;</a></h1>
-<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h1 id="managing-the-lifecycle-of-infrastructure-as-code-using-terraform-to-ensure-consistency-and-reliability">Managing the Lifecycle of Infrastructure as Code Using Terraform to Ensure Consistency and Reliability<a class="headerlink" href="#managing-the-lifecycle-of-infrastructure-as-code-using-terraform-to-ensure-consistency-and-reliability" title="Permanent link">&para;</a></h1>
-<p>Infrastructure as Code (IaC) with tools like <strong>Terraform</strong> allows organizations to automate the provisioning, management, and scaling of infrastructure. Managing the lifecycle of IaC effectively is crucial for ensuring the consistency, reliability, and security of infrastructure. Terraform provides several mechanisms for managing the lifecycle of infrastructure, including planning, applying, versioning, and collaboration. Below are the strategies and best practices for managing the lifecycle of infrastructure as code using Terraform.</p>
-<h2 id="1-version-control-and-modular-code">1. <strong>Version Control and Modular Code</strong><a class="headerlink" href="#1-version-control-and-modular-code" title="Permanent link">&para;</a></h2>
-<p>One of the most effective ways to ensure consistency and reliability in the IaC lifecycle is to store all infrastructure code in version control systems, such as <strong>Git</strong>. This enables tracking, auditing, and collaboration on infrastructure changes.</p>
-<h3 id="how-version-control-works"><strong>How Version Control Works</strong><a class="headerlink" href="#how-version-control-works" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Git</strong>: Store Terraform configurations in Git repositories (e.g., GitHub, GitLab) to track changes, enforce version control, and ensure consistency across environments.</li>
-<li><strong>Branching Strategies</strong>: Implement branching strategies like <strong>GitFlow</strong> to manage different stages of infrastructure development (e.g., feature, staging, and production branches).</li>
-<li><strong>Pull Requests</strong>: Use <strong>pull requests</strong> to review and validate infrastructure changes before they are applied to the environment.</li>
-</ul>
-<h3 id="best-practices"><strong>Best Practices</strong><a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Store all <strong>Terraform configurations</strong> in a version-controlled repository.</li>
-<li>Use <strong>branching strategies</strong> like <strong>GitFlow</strong> for managing feature development, testing, and production environments.</li>
-<li>Implement <strong>peer reviews</strong> for all Terraform code changes to ensure best practices, security, and compliance.</li>
-</ul>
-<p>Example of a basic version-controlled repository structure:</p>
-<div class="highlight"><pre><span></span><code>terraform/
-  ├── main.tf
-  ├── variables.tf
-  ├── outputs.tf
-  ├── modules/
-      ├── ec2-instance/
-          ├── main.tf
-          ├── variables.tf
+<h1 id="gvisor">gVisor<a class="headerlink" href="#gvisor" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-gvisor">Introduction to gVisor<a class="headerlink" href="#introduction-to-gvisor" title="Permanent link">&para;</a></h2>
+<p>gVisor is an application kernel, written in Go, that implements a substantial portion of the Linux system call interface. It provides an additional layer of isolation between running applications and the host operating system, acting as a user-space kernel for containers.</p>
+<p>Unlike traditional container runtimes that share the host kernel, gVisor intercepts application system calls and acts as the guest kernel, providing better security isolation without the overhead of a full virtual machine.</p>
+<p>Key benefits include:
+- Enhanced security isolation
+- Reduced attack surface
+- Compatible with existing container workflows
+- Lightweight compared to VMs</p>
+<h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="platform-configuration">Platform Configuration<a class="headerlink" href="#platform-configuration" title="Permanent link">&para;</a></h3>
+<p>gVisor supports multiple platforms with different isolation characteristics. Edit <code>/etc/containerd/config.toml</code> or configure Docker to use your preferred platform.</p>
+<p><strong>Available platforms:</strong></p>
+<ol>
+<li><strong>ptrace</strong>: Uses <code>ptrace</code> system call for isolation</li>
+<li>Compatible with most systems</li>
+<li>
+<p>Slower than other platforms</p>
+</li>
+<li>
+<p><strong>KVM</strong>: Uses hardware virtualization</p>
+</li>
+<li>Requires KVM support in the kernel</li>
+<li>Better performance than ptrace</li>
+</ol>
+<p>To configure the platform:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create configuration with specific platform</span>
+sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--runtime<span class="o">=</span>runsc-ptrace<span class="w"> </span>--platform<span class="o">=</span>ptrace
+sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--runtime<span class="o">=</span>runsc-kvm<span class="w"> </span>--platform<span class="o">=</span>kvm
 </code></pre></div>
-<h2 id="2-terraform-state-management">2. <strong>Terraform State Management</strong><a class="headerlink" href="#2-terraform-state-management" title="Permanent link">&para;</a></h2>
-<p>Terraform maintains the state of infrastructure in a <strong>state file</strong> (<code>terraform.tfstate</code>), which records the current state of resources. Proper management of Terraform state is essential to ensure that infrastructure remains consistent and reliable.</p>
-<h3 id="how-state-management-works"><strong>How State Management Works</strong><a class="headerlink" href="#how-state-management-works" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Remote State Storage</strong>: Store Terraform state files remotely (e.g., in <strong>AWS S3</strong> with <strong>DynamoDB</strong> for state locking, or <strong>Terraform Cloud</strong>) to enable collaboration and prevent conflicts.</li>
-<li><strong>State Locking</strong>: Use <strong>state locking</strong> to ensure that multiple users or processes do not concurrently modify the state file.</li>
-<li><strong>State Versioning</strong>: Keep track of changes to the state file over time, enabling rollbacks and auditing of infrastructure changes.</li>
-</ul>
-<h3 id="best-practices_1"><strong>Best Practices</strong><a class="headerlink" href="#best-practices_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Use <strong>remote backends</strong> (e.g., <strong>AWS S3</strong>, <strong>Terraform Cloud</strong>) to store Terraform state files securely and share them across teams.</li>
-<li>Enable <strong>state locking</strong> using <strong>DynamoDB</strong> or <strong>Terraform Cloud</strong> to prevent concurrent modifications to the state file.</li>
-<li>Version the Terraform state file and use <strong>state versioning</strong> to enable rollback and track changes over time.</li>
-</ul>
-<p>Example of configuring remote state in Terraform:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">terraform</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kr">backend</span><span class="w"> </span><span class="nv">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="na">bucket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-terraform-state&quot;</span>
-<span class="w">    </span><span class="na">key</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prod/terraform.tfstate&quot;</span>
-<span class="w">    </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-west-2&quot;</span>
-<span class="w">    </span><span class="na">dynamodb_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform-locks&quot;</span>
+<h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
+<p>gVisor provides multiple networking options that can be configured in the runtime spec:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Default networking</span>
+sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--network<span class="o">=</span>sandbox
+
+<span class="c1"># Host networking</span>
+sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--network<span class="o">=</span>host
+</code></pre></div>
+<h3 id="storage-configuration">Storage Configuration<a class="headerlink" href="#storage-configuration" title="Permanent link">&para;</a></h3>
+<p>Configure the overlay filesystem for better performance:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--overlay
+</code></pre></div>
+<p>For Docker, create a config file at <code>/etc/docker/daemon.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;runtimes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;runsc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/runsc&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;runtimeArgs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;--overlay&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;--network=sandbox&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;runsc-kvm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/runsc&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;runtimeArgs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;--platform=kvm&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;--overlay&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;--network=sandbox&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="3-terraform-plans-and-apply">3. <strong>Terraform Plans and Apply</strong><a class="headerlink" href="#3-terraform-plans-and-apply" title="Permanent link">&para;</a></h2>
-<p>To ensure infrastructure changes are applied consistently and reliably, <strong>Terraform plans</strong> and <strong>apply</strong> operations should be used in conjunction with each other. This helps prevent errors by allowing users to preview changes before they are applied.</p>
-<h3 id="how-terraform-plan-and-apply-work"><strong>How Terraform Plan and Apply Work</strong><a class="headerlink" href="#how-terraform-plan-and-apply-work" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>terraform plan</strong>: Generates an execution plan by comparing the current state with the desired state defined in the configuration files. It shows a preview of what changes will be made (e.g., create, update, or delete resources).</li>
-<li><strong>terraform apply</strong>: Applies the changes specified in the plan to the infrastructure. This operation is only executed after reviewing the plan to avoid unexpected changes.</li>
-</ul>
-<h3 id="best-practices_2"><strong>Best Practices</strong><a class="headerlink" href="#best-practices_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Always run <strong>terraform plan</strong> before applying changes to ensure that the desired state is accurate and that no unintended changes will occur.</li>
-<li>Use <strong>CI/CD pipelines</strong> to automate the <code>plan</code> and <code>apply</code> process, ensuring consistent and repeatable infrastructure provisioning.</li>
-<li>Use <strong>workspaces</strong> to manage different environments (e.g., staging, production) within the same Terraform configuration, allowing for better separation and management.</li>
-</ul>
-<p>Example of running Terraform plan and apply:</p>
-<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>plan<span class="w"> </span>-out<span class="o">=</span>tfplan
-terraform<span class="w"> </span>apply<span class="w"> </span>tfplan
+<p>Restart Docker after configuration changes:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </code></pre></div>
-<h2 id="4-modularization-and-reusability">4. <strong>Modularization and Reusability</strong><a class="headerlink" href="#4-modularization-and-reusability" title="Permanent link">&para;</a></h2>
-<p>To ensure the reliability and maintainability of your infrastructure, it&rsquo;s essential to break down your Terraform configurations into <strong>modules</strong>. Modules allow for reusable, encapsulated components that can be shared and updated independently.</p>
-<h3 id="how-modularization-works"><strong>How Modularization Works</strong><a class="headerlink" href="#how-modularization-works" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Modules</strong>: A Terraform module is a container for multiple resources that are used together. Modules can be used to create reusable components for provisioning infrastructure (e.g., EC2 instances, VPCs, IAM roles).</li>
-<li><strong>Public and Private Modules</strong>: You can use <strong>public modules</strong> from the Terraform Module Registry or create <strong>private modules</strong> to encapsulate your organization&rsquo;s infrastructure standards and best practices.</li>
-</ul>
-<h3 id="best-practices_3"><strong>Best Practices</strong><a class="headerlink" href="#best-practices_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Organize Terraform code into <strong>modules</strong> to promote reusability and reduce duplication.</li>
-<li>Create <strong>private modules</strong> to encapsulate internal practices, such as networking setups, EC2 instances, and security policies.</li>
-<li>Version and <strong>document modules</strong> for easier management and collaboration.</li>
-</ul>
-<p>Example of using a Terraform module for provisioning an EC2 instance:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">module</span><span class="w"> </span><span class="nv">&quot;ec2_instance&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">source</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./modules/ec2-instance&quot;</span>
-<span class="w">  </span><span class="na">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t2.micro&quot;</span>
-<span class="w">  </span><span class="na">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ami-12345678&quot;</span>
-<span class="p">}</span>
+<h2 id="using-gvisor">Using gVisor<a class="headerlink" href="#using-gvisor" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>For a Kubernetes cluster with containerd, ensure containerd is configured to use gVisor as shown above.</p>
+</li>
+<li>
+<p>Create a RuntimeClass:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeClass</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gvisor</span>
+<span class="nt">handler</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">runsc</span>
 </code></pre></div>
-<h2 id="5-automated-testing-and-validation">5. <strong>Automated Testing and Validation</strong><a class="headerlink" href="#5-automated-testing-and-validation" title="Permanent link">&para;</a></h2>
-<p>To ensure consistency and reliability, automated testing and validation of Terraform configurations should be integrated into the development lifecycle. This helps catch errors early and maintain high-quality infrastructure code.</p>
-<h3 id="how-automated-testing-works"><strong>How Automated Testing Works</strong><a class="headerlink" href="#how-automated-testing-works" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Terraform Validate</strong>: Use <code>terraform validate</code> to check that the syntax and structure of your Terraform configuration files are correct.</li>
-<li><strong>Terraform fmt</strong>: Use <code>terraform fmt</code> to ensure consistent formatting across configuration files.</li>
-<li><strong>TerraTest</strong>: Use <strong>TerraTest</strong>, a Go-based testing framework, to write automated tests for Terraform infrastructure, allowing you to test the provisioning and configuration of resources in real environments.</li>
-</ul>
-<h3 id="best-practices_4"><strong>Best Practices</strong><a class="headerlink" href="#best-practices_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Use <strong>terraform validate</strong> and <strong>terraform fmt</strong> in your CI/CD pipeline to ensure the configuration files are valid and properly formatted.</li>
-<li>Write <strong>unit tests</strong> for your Terraform modules using <strong>TerraTest</strong> or similar testing frameworks to validate the behavior of the infrastructure.</li>
-<li>Integrate <strong>static analysis tools</strong> like <strong>Checkov</strong> or <strong>TFLint</strong> into your pipeline to check for security misconfigurations and best practices.</li>
-</ul>
-<p>Example of running Terraform validate and fmt:</p>
-<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>validate
-terraform<span class="w"> </span>fmt<span class="w"> </span>-check
+<ol>
+<li>Apply the RuntimeClass:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>runtimeclass.yaml
 </code></pre></div>
-<h2 id="6-collaboration-and-governance">6. <strong>Collaboration and Governance</strong><a class="headerlink" href="#6-collaboration-and-governance" title="Permanent link">&para;</a></h2>
-<p>To ensure that infrastructure changes are applied in a controlled, consistent, and auditable manner, collaboration and governance practices must be put in place.</p>
-<h3 id="how-collaboration-and-governance-work"><strong>How Collaboration and Governance Work</strong><a class="headerlink" href="#how-collaboration-and-governance-work" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Role-Based Access Control (RBAC)</strong>: Use RBAC to define permissions for users and groups to control who can create, modify, or delete infrastructure resources.</li>
-<li><strong>Approval Workflows</strong>: Implement approval workflows in your CI/CD pipeline to ensure that infrastructure changes are reviewed and authorized before they are applied.</li>
-<li><strong>Terraform Cloud</strong>: Use <strong>Terraform Cloud</strong> to manage teams, workspaces, and remote state in a secure, controlled environment.</li>
-</ul>
-<h3 id="best-practices_5"><strong>Best Practices</strong><a class="headerlink" href="#best-practices_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Implement <strong>RBAC</strong> in Terraform Cloud or use access controls in version control systems to manage who can make changes to infrastructure.</li>
-<li>Use <strong>CI/CD pipelines</strong> with <strong>approval workflows</strong> to enforce governance policies for infrastructure provisioning.</li>
-<li>Audit <strong>Terraform actions</strong> using logging and monitoring tools to track changes to infrastructure and ensure compliance with governance standards.</li>
-</ul>
-<p>Example of Terraform Cloud RBAC setup:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">resource</span><span class="w"> </span><span class="nc">&quot;terraform_cloud_team&quot;</span><span class="w"> </span><span class="nv">&quot;example&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="na">name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;InfrastructureTeam&quot;</span>
-<span class="w">  </span><span class="na">organization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;example-org&quot;</span>
-<span class="p">}</span>
+<ol>
+<li>Create a pod using gVisor:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-gvisor</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">runtimeClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gvisor</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
 </code></pre></div>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>To ensure the consistency and reliability of infrastructure provisioning and management using Terraform, the following practices should be implemented:</p>
-<ul>
-<li>Use <strong>version control</strong> to track changes and enforce collaboration on infrastructure code.</li>
-<li>Store <strong>Terraform state remotely</strong> and manage state locking to prevent concurrency issues.</li>
-<li>Use <strong>terraform plan</strong> and <strong>apply</strong> to safely preview and apply infrastructure changes.</li>
-<li>Implement <strong>modular code</strong> for reusability and maintainability across different environments.</li>
-<li>Automate <strong>testing and validation</strong> of Terraform configurations to ensure quality and avoid errors.</li>
-<li>Implement <strong>RBAC and approval workflows</strong> for controlled, auditable infrastructure changes.</li>
-</ul>
-<p>By following these best practices, organizations can effectively manage the lifecycle of their infrastructure, ensuring that it remains consistent, reliable, and aligned with business needs.</p>
+<ol>
+<li>Verify the pod is running with gVisor:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nginx-gvisor<span class="w"> </span>--<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>gVisor
+</code></pre></div>
+<h2 id="monitoring-and-debugging">Monitoring and Debugging<a class="headerlink" href="#monitoring-and-debugging" title="Permanent link">&para;</a></h2>
+<p>gVisor provides several debugging tools:</p>
+<ol>
+<li><strong>View debug logs</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable debug logs</span>
+sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--debug<span class="w"> </span>--debug-log<span class="o">=</span>/var/log/runsc/
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/runsc/*.log
+</code></pre></div>
+<ol>
+<li><strong>Get stacks</strong> of a running container:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--stacks<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div>
+<ol>
+<li><strong>Create a CPU profile</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--cpu-profile<span class="o">=</span>/tmp/profile.out<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div>
+<ol>
+<li><strong>Examine container logs</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--logs<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div>
+<ol>
+<li><strong>Trace system calls</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--trace<span class="w"> </span>&lt;container-id&gt;
+</code></pre></div>
 
 
 
@@ -6040,7 +6172,7 @@ terraform<span class="w"> </span>fmt<span class="w"> </span>-check
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../monitoring-and-alerting/observability_tools/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Observability and Monitoring Tools: FluentD, Zipkin, Loki, Grafana, and Prometheus">
+          <a href="../seccomp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating Seccomp Audit Profile">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6050,20 +6182,20 @@ terraform<span class="w"> </span>fmt<span class="w"> </span>-check
                 Previous
               </span>
               <div class="md-ellipsis">
-                Observability and Monitoring Tools: FluentD, Zipkin, Loki, Grafana, and Prometheus
+                Creating Seccomp Audit Profile
               </div>
             </div>
           </a>
         
         
           
-          <a href="../how_do_you_approach_infrastructure_provisioning_us/" class="md-footer__link md-footer__link--next" aria-label="Next: How do you approach infrastructure provisioning using tools like Terraform to ensure scalability and maintainability?">
+          <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                How do you approach infrastructure provisioning using tools like Terraform to ensure scalability and maintainability?
+                How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6099,10 +6231,10 @@ terraform<span class="w"> </span>fmt<span class="w"> </span>-check
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
