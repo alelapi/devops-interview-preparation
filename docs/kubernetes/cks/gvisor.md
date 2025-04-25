@@ -16,7 +16,14 @@ Key benefits include:
 
 ### Platform Configuration
 
-gVisor supports multiple platforms with different isolation characteristics. Edit `/etc/containerd/config.toml` or configure Docker to use your preferred platform.
+### Check which container runtime is currently used
+```
+k get nodes -o wide
+```
+
+### Set which container runtime to use
+
+Edit `/etc/containerd/config.toml` or configure Docker to use your preferred platform.
 
 **Available platforms:**
 
