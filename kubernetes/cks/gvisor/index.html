@@ -4498,8 +4498,6 @@
       
         
       
-        
-      
     
     
     
@@ -4575,29 +4573,6 @@
   
   <span class="md-ellipsis">
     Compliance and Security frameworks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../kcsa/falco/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Falco
     
   </span>
   
@@ -4752,6 +4727,8 @@
       
         
       
+        
+      
     
     
     
@@ -4867,6 +4844,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../falco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../seccomp/" class="md-nav__link">
         
   
@@ -4962,6 +4962,24 @@
   <a href="#platform-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Platform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-which-container-runtime-is-currently-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check which container runtime is currently used
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-which-container-runtime-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set which container runtime to use
     </span>
   </a>
   
@@ -5945,6 +5963,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#check-which-container-runtime-is-currently-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check which container runtime is currently used
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-which-container-runtime-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set which container runtime to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#network-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       Network Configuration
@@ -6015,7 +6051,11 @@
 - Lightweight compared to VMs</p>
 <h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="platform-configuration">Platform Configuration<a class="headerlink" href="#platform-configuration" title="Permanent link">&para;</a></h3>
-<p>gVisor supports multiple platforms with different isolation characteristics. Edit <code>/etc/containerd/config.toml</code> or configure Docker to use your preferred platform.</p>
+<h3 id="check-which-container-runtime-is-currently-used">Check which container runtime is currently used<a class="headerlink" href="#check-which-container-runtime-is-currently-used" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>k get nodes -o wide
+</code></pre></div>
+<h3 id="set-which-container-runtime-to-use">Set which container runtime to use<a class="headerlink" href="#set-which-container-runtime-to-use" title="Permanent link">&para;</a></h3>
+<p>Edit <code>/etc/containerd/config.toml</code> or configure Docker to use your preferred platform.</p>
 <p><strong>Available platforms:</strong></p>
 <ol>
 <li><strong>ptrace</strong>: Uses <code>ptrace</code> system call for isolation</li>
