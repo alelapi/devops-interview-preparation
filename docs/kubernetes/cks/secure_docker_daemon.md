@@ -30,6 +30,7 @@ By default, Docker runs through a non-networked UNIX socket. It can also optiona
 ```
 
 Unix sockets are more secure than TCP sockets because:
+
 - They're not exposed to the network
 - They use standard Unix file permissions for access control
 - They're not prone to cross-site request forgery attacks that can happen with TCP sockets
