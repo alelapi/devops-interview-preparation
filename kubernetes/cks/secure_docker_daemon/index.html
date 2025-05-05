@@ -6331,7 +6331,7 @@
 <p>Docker daemon can communicate through different types of sockets. Understanding and properly configuring these communication channels is essential for security.</p>
 <h3 id="1-unix-socket-default-and-recommended">1. Unix Socket (Default and Recommended)<a class="headerlink" href="#1-unix-socket-default-and-recommended" title="Permanent link">&para;</a></h3>
 <p>By default, Docker runs through a non-networked UNIX socket. It can also optionally communicate using SSH or a TLS (HTTPS) socket. The Unix socket is located at <code>/var/run/docker.sock</code> and is the most secure option for local communications.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># The default configuration in daemon.json (often doesn&#39;t need to be specified)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># The default configuration in daemon.json [/etc/docker/daemon.json] (often doesn&#39;t need to be specified)</span>
 <span class="o">{</span>
 <span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="o">]</span>
 <span class="o">}</span>
@@ -6343,7 +6343,7 @@
 <h3 id="2-tcp-socket-for-remote-access">2. TCP Socket (For Remote Access)<a class="headerlink" href="#2-tcp-socket-for-remote-access" title="Permanent link">&para;</a></h3>
 <p>If you need remote access to the Docker daemon, you can configure it to listen on a TCP socket, but this should always be protected with TLS.</p>
 <p>When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the built in HTTPS encrypted socket, or by putting a secure web proxy in front of it.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Example daemon.json with both Unix socket and secure TCP socket</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example daemon.json [/etc/docker/daemon.json] with both Unix socket and secure TCP socket</span>
 <span class="o">{</span>
 <span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span>
 <span class="w">    </span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span>,
@@ -6394,7 +6394,7 @@ openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> 
 <ol>
 <li><strong>Configure the Docker daemon to use TLS</strong></li>
 </ol>
-<p>Update the <code>/etc/docker/daemon.json</code> file:</p>
+<p>Update the <code>/etc/docker/daemon.json</code> (/etc/docker/daemon.json) file:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span><span class="p">],</span>
 <span class="w">  </span><span class="nt">&quot;tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
