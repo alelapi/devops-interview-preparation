@@ -56,7 +56,9 @@ When using a TCP socket, the Docker daemon provides un-encrypted and un-authenti
 }
 ```
 
-**Important**: When using the TCP socket:
+**Important**: 
+When using the TCP socket:
+
 - **Never** expose the Docker daemon to the internet without TLS encryption
 - Docker over TLS should run on TCP port 2376 (not 2375, which is unencrypted)
 - Use client certificate authentication
