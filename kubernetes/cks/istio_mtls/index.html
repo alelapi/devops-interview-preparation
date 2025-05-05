@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../how_would_you_automate_the_deployment_process_of_d/">
+        <link rel="prev" href="../secure_docker_daemon/">
       
       
-        <link rel="next" href="../../kubernetes/envoy/">
+        <link rel="next" href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>How would you handle Docker container updates to minimize service disruption? - My DevOps Interview Preparation</title>
+        <title>Implementing mTLS Pod-to-Pod Communication in Istio: A Complete Guide - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-would-you-handle-docker-container-updates-to-minimize-service-disruption" class="md-skip">
+        <a href="#implementing-mtls-pod-to-pod-communication-in-istio-a-complete-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How would you handle Docker container updates to minimize service disruption?
+              Implementing mTLS Pod-to-Pod Communication in Istio: A Complete Guide
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
   
@@ -294,13 +294,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
   
@@ -318,11 +316,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../envoy/" class="md-tabs__link">
           
   
   
@@ -344,7 +344,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
   
@@ -366,7 +366,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
   
@@ -388,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -410,7 +410,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -446,7 +446,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -476,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -663,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -801,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -887,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -933,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -956,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -979,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -1065,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1088,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1111,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1134,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1245,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1268,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1291,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1314,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1337,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1360,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1444,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1467,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1490,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1620,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1643,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1666,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1758,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1781,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1804,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1827,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1873,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1896,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1919,7 +1919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -2001,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -2024,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -2047,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2137,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2160,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2183,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2206,7 +2206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2229,7 +2229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2252,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2275,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2306,7 +2306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/appsync/" class="md-nav__link">
+      <a href="../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2329,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cdk/" class="md-nav__link">
+      <a href="../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2352,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2375,7 +2375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/codestar/" class="md-nav__link">
+      <a href="../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2398,7 +2398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sar/" class="md-nav__link">
+      <a href="../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2421,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/step_function/" class="md-nav__link">
+      <a href="../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2444,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sts/" class="md-nav__link">
+      <a href="../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2467,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/swf/" class="md-nav__link">
+      <a href="../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2490,7 +2490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2583,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   
@@ -2606,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   
@@ -2629,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   
@@ -2652,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   
@@ -2675,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   
@@ -2721,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   
@@ -2767,12 +2767,414 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     What techniques would you use to ensure zero-downtime deployments in a CI/CD pipeline?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can you explain how Docker containers differ from virtual machines in terms of architecture and resource utilization?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you design and implement a Docker-based microservices architecture for scalability and fault tolerance?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you optimize Docker images to reduce size and improve efficiency?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you handle networking between Docker containers to ensure efficient communication and load balancing?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you manage and optimize resource allocation in a Dockerized environment to ensure efficiency?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How can you ensure data persistence and manage stateful applications in Docker?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you secure Docker containers in a production environment?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you handle the orchestration of multiple Docker containers to ensure smooth operation and coordination?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can you describe how you&rsquo;d implement CI/CD using Docker?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How do you handle scaling Docker containers to meet high demand efficiently?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you implement monitoring and logging within Docker containers to ensure effective troubleshooting and performance analysis?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Can you explain how Docker Compose facilitates managing multi-container applications?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you automate the deployment process of Docker containers to streamline operations and reduce manual intervention?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How would you handle Docker container updates to minimize service disruption?
     
   </span>
   
@@ -2800,6 +3202,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2845,469 +3253,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Docker
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Docker
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Can you explain how Docker containers differ from virtual machines in terms of architecture and resource utilization?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you design and implement a Docker-based microservices architecture for scalability and fault tolerance?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How do you optimize Docker images to reduce size and improve efficiency?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you handle networking between Docker containers to ensure efficient communication and load balancing?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you manage and optimize resource allocation in a Dockerized environment to ensure efficiency?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How can you ensure data persistence and manage stateful applications in Docker?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you secure Docker containers in a production environment?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How do you handle the orchestration of multiple Docker containers to ensure smooth operation and coordination?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Can you describe how you&rsquo;d implement CI/CD using Docker?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How do you handle scaling Docker containers to meet high demand efficiently?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you implement monitoring and logging within Docker containers to ensure effective troubleshooting and performance analysis?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Can you explain how Docker Compose facilitates managing multi-container applications?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you automate the deployment process of Docker containers to streamline operations and reduce manual intervention?
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    How would you handle Docker container updates to minimize service disruption?
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    How would you handle Docker container updates to minimize service disruption?
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -3320,7 +3269,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Kubernetes
@@ -3334,7 +3283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../envoy/" class="md-nav__link">
         
   
   
@@ -3357,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -3380,7 +3329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../pod_security_admission/" class="md-nav__link">
         
   
   
@@ -3403,7 +3352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../admission_controller/" class="md-nav__link">
         
   
   
@@ -3426,7 +3375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -3449,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../aggregation_layer/" class="md-nav__link">
         
   
   
@@ -3472,7 +3421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../encryptionconfig/" class="md-nav__link">
         
   
   
@@ -3495,7 +3444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../submariner/" class="md-nav__link">
         
   
   
@@ -3518,7 +3467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../kubefed/" class="md-nav__link">
         
   
   
@@ -3541,7 +3490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -3564,7 +3513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../observability_tools/" class="md-nav__link">
         
   
   
@@ -3587,7 +3536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../endpoint/" class="md-nav__link">
         
   
   
@@ -3626,17 +3575,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_13" >
         
           
-          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_13" id="__nav_5_13_label" tabindex="">
             
   
   
@@ -3663,7 +3615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -3686,7 +3638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -3709,7 +3661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -3785,7 +3737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -3808,7 +3760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3831,7 +3783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3854,7 +3806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3927,17 +3879,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
         
           
-          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="">
             
   
   
@@ -3964,7 +3919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   
@@ -3987,7 +3942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   
@@ -4010,7 +3965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   
@@ -4033,7 +3988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   
@@ -4056,7 +4011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   
@@ -4079,7 +4034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   
@@ -4102,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   
@@ -4125,7 +4080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   
@@ -4148,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
+      <a href="../../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   
@@ -4171,7 +4126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   
@@ -4194,7 +4149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   
@@ -4217,7 +4172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   
@@ -4240,7 +4195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   
@@ -4295,17 +4250,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_15" >
         
           
-          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_15" id="__nav_5_15_label" tabindex="">
             
   
   
@@ -4332,7 +4290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/etcd/" class="md-nav__link">
+      <a href="../../cka/etcd/" class="md-nav__link">
         
   
   
@@ -4355,7 +4313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/vpa/" class="md-nav__link">
+      <a href="../../cka/vpa/" class="md-nav__link">
         
   
   
@@ -4378,7 +4336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -4401,7 +4359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/utilities/" class="md-nav__link">
+      <a href="../../cka/utilities/" class="md-nav__link">
         
   
   
@@ -4424,7 +4382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/openssl/" class="md-nav__link">
+      <a href="../../cka/openssl/" class="md-nav__link">
         
   
   
@@ -4447,7 +4405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/helm/" class="md-nav__link">
+      <a href="../../cka/helm/" class="md-nav__link">
         
   
   
@@ -4470,7 +4428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/cri/" class="md-nav__link">
+      <a href="../../cka/cri/" class="md-nav__link">
         
   
   
@@ -4493,7 +4451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/jsonpath/" class="md-nav__link">
+      <a href="../../cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -4546,17 +4504,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_16" >
         
           
-          <label class="md-nav__link" for="__nav_5_16" id="__nav_5_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_16" id="__nav_5_16_label" tabindex="">
             
   
   
@@ -4583,7 +4544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -4606,7 +4567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -4629,7 +4590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -4652,7 +4613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -4675,7 +4636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/security_context/" class="md-nav__link">
+      <a href="../../kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -4698,7 +4659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -4721,7 +4682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -4749,8 +4710,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4783,18 +4746,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
         
           
-          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="">
             
   
   
@@ -4807,7 +4773,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_17">
             <span class="md-nav__icon md-icon"></span>
             CKS
@@ -4821,7 +4787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -4844,7 +4810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cert_auth/" class="md-nav__link">
+      <a href="../cert_auth/" class="md-nav__link">
         
   
   
@@ -4867,7 +4833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/apparmor/" class="md-nav__link">
+      <a href="../apparmor/" class="md-nav__link">
         
   
   
@@ -4890,7 +4856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/falco/" class="md-nav__link">
+      <a href="../falco/" class="md-nav__link">
         
   
   
@@ -4913,7 +4879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/seccomp/" class="md-nav__link">
+      <a href="../seccomp/" class="md-nav__link">
         
   
   
@@ -4936,7 +4902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/gvisor/" class="md-nav__link">
+      <a href="../gvisor/" class="md-nav__link">
         
   
   
@@ -4959,7 +4925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/kube_bench/" class="md-nav__link">
+      <a href="../kube_bench/" class="md-nav__link">
         
   
   
@@ -4982,7 +4948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/audit_logging/" class="md-nav__link">
+      <a href="../audit_logging/" class="md-nav__link">
         
   
   
@@ -5005,7 +4971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+      <a href="../admission_controller_config/" class="md-nav__link">
         
   
   
@@ -5028,7 +4994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cilium/" class="md-nav__link">
+      <a href="../cilium/" class="md-nav__link">
         
   
   
@@ -5051,7 +5017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+      <a href="../secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -5071,10 +5037,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Implementing mTLS Pod-to-Pod Communication in Istio: A Complete Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5085,6 +5073,134 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-istio-mtls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Istio mTLS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Istio mTLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-mtls-works-in-istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      How mTLS Works in Istio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtls-modes-in-istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      mTLS Modes in Istio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementing-mtls-between-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing mTLS Between Pods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementing mTLS Between Pods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-strict-mtls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Strict mTLS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-destination-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Destination Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-non-mesh-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Non-Mesh Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Non-Mesh Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workload-specific-mtls-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workload-Specific mTLS Policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-destination-rules-for-external-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Destination Rules for External Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5173,7 +5289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   
@@ -5196,7 +5312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   
@@ -5219,7 +5335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   
@@ -5242,7 +5358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   
@@ -5265,7 +5381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   
@@ -5288,7 +5404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   
@@ -5311,7 +5427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   
@@ -5334,7 +5450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   
@@ -5431,7 +5547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   
@@ -5454,7 +5570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   
@@ -5477,7 +5593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   
@@ -5500,7 +5616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   
@@ -5523,7 +5639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   
@@ -5546,7 +5662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   
@@ -5569,7 +5685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   
@@ -5592,7 +5708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   
@@ -5615,7 +5731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   
@@ -5638,7 +5754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   
@@ -5661,7 +5777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   
@@ -5748,7 +5864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -5771,7 +5887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -5794,7 +5910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -5817,7 +5933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -5840,7 +5956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -5863,7 +5979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -5940,7 +6056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -5990,11 +6106,110 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Answer
+      Introduction
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-istio-mtls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Istio mTLS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Istio mTLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-mtls-works-in-istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      How mTLS Works in Istio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtls-modes-in-istio" class="md-nav__link">
+    <span class="md-ellipsis">
+      mTLS Modes in Istio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementing-mtls-between-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing mTLS Between Pods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementing mTLS Between Pods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-strict-mtls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Strict mTLS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-destination-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Destination Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-non-mesh-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling Non-Mesh Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Non-Mesh Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workload-specific-mtls-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workload-Specific mTLS Policies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-destination-rules-for-external-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Destination Rules for External Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6017,121 +6232,115 @@
   
 
 
-<h1 id="how-would-you-handle-docker-container-updates-to-minimize-service-disruption">How would you handle Docker container updates to minimize service disruption?<a class="headerlink" href="#how-would-you-handle-docker-container-updates-to-minimize-service-disruption" title="Permanent link">&para;</a></h1>
-<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h1 id="handling-docker-container-updates-to-minimize-service-disruption">Handling Docker Container Updates to Minimize Service Disruption<a class="headerlink" href="#handling-docker-container-updates-to-minimize-service-disruption" title="Permanent link">&para;</a></h1>
-<p>When updating Docker containers, it&rsquo;s crucial to minimize service disruption to ensure that your application remains available and responsive. Docker provides several strategies and best practices to update containers while ensuring minimal downtime and a smooth transition.</p>
-<p>This guide outlines key techniques and strategies for handling Docker container updates efficiently.</p>
-<hr />
-<h2 id="1-using-rolling-updates-for-docker-container-updates">1. <strong>Using Rolling Updates for Docker Container Updates</strong><a class="headerlink" href="#1-using-rolling-updates-for-docker-container-updates" title="Permanent link">&para;</a></h2>
-<h3 id="description">Description:<a class="headerlink" href="#description" title="Permanent link">&para;</a></h3>
-<p>A rolling update allows you to gradually replace old containers with new ones, ensuring that there is no downtime during the update process. This is the most common approach for updating Docker containers in production environments.</p>
-<h3 id="key-features">Key Features:<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<h1 id="implementing-mtls-pod-to-pod-communication-in-istio-a-complete-guide">Implementing mTLS Pod-to-Pod Communication in Istio: A Complete Guide<a class="headerlink" href="#implementing-mtls-pod-to-pod-communication-in-istio-a-complete-guide" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Mutual TLS (mTLS) is one of the most powerful security features offered by Istio service mesh. Unlike regular TLS where only the server authenticates itself to the client, in mutual TLS both parties verify each other&rsquo;s identity. </p>
+<h2 id="understanding-istio-mtls">Understanding Istio mTLS<a class="headerlink" href="#understanding-istio-mtls" title="Permanent link">&para;</a></h2>
+<h3 id="how-mtls-works-in-istio">How mTLS Works in Istio<a class="headerlink" href="#how-mtls-works-in-istio" title="Permanent link">&para;</a></h3>
+<p>Istio implements mTLS through its sidecar proxies (Envoy). When a service with an Istio sidecar communicates with another service in the mesh, the following happens:</p>
+<ol>
+<li>The client-side sidecar proxy initiates a connection to the server</li>
+<li>The client-side proxy performs a TLS handshake with the server-side proxy, exchanging certificates</li>
+<li>The client-side proxy verifies the server&rsquo;s identity</li>
+<li>The client and server establish a mutual TLS connection</li>
+<li>The client proxy forwards the request to the server through the encrypted channel</li>
+<li>The server-side proxy forwards the request to the application container</li>
+</ol>
+<p>This entire process happens transparently to your application.</p>
+<h3 id="mtls-modes-in-istio">mTLS Modes in Istio<a class="headerlink" href="#mtls-modes-in-istio" title="Permanent link">&para;</a></h3>
+<p>Istio offers three modes for mTLS:</p>
+<ol>
+<li><strong>PERMISSIVE</strong>: Accepts both plaintext and mTLS traffic (default)</li>
+<li><strong>STRICT</strong>: Only accepts mTLS traffic</li>
+<li><strong>DISABLED</strong>: Only accepts plaintext traffic</li>
+</ol>
+<h2 id="implementing-mtls-between-pods">Implementing mTLS Between Pods<a class="headerlink" href="#implementing-mtls-between-pods" title="Permanent link">&para;</a></h2>
+<h3 id="enable-strict-mtls">Enable Strict mTLS<a class="headerlink" href="#enable-strict-mtls" title="Permanent link">&para;</a></h3>
+<p>Enable strict mTLS for the namespaces using PeerAuthentication:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save this as peer-authentication.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security.istio.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PeerAuthentication</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mtls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STRICT</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security.istio.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PeerAuthentication</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mtls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STRICT</span>
+</code></pre></div>
+<p>Apply the configuration:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>peer-authentication.yaml
+</code></pre></div>
+<h3 id="configure-destination-rules">Configure Destination Rules<a class="headerlink" href="#configure-destination-rules" title="Permanent link">&para;</a></h3>
+<p>Destination rules define how traffic is routed to a service after virtual service routing rules are evaluated. 
+When you think about Istio&rsquo;s traffic management, it&rsquo;s important to understand the sequence:</p>
 <ul>
-<li><strong>Incremental Updates</strong>: Containers are updated one at a time or in small batches, reducing the impact on the overall service.</li>
-<li><strong>Minimal Disruption</strong>: Only a subset of containers is updated at any given time, ensuring that some instances of the application remain available to handle requests.</li>
+<li>First, traffic is routed (often using VirtualService)</li>
+<li>Then, DestinationRule policies are applied to that routed traffic</li>
 </ul>
-<h3 id="example-docker-swarm-rolling-updates">Example: Docker Swarm Rolling Updates<a class="headerlink" href="#example-docker-swarm-rolling-updates" title="Permanent link">&para;</a></h3>
-<p>In Docker Swarm, you can perform a rolling update by specifying the number of replicas to update at a time.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>service<span class="w"> </span>update<span class="w"> </span>--image<span class="w"> </span>my-app:latest<span class="w"> </span>--update-parallelism<span class="w"> </span><span class="m">2</span><span class="w"> </span>my-app-service
+<p>Create destination rules to enforce mTLS for outbound traffic:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save this as destination-rule.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DestinationRule</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpbin-foo</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;httpbin.foo.svc.cluster.local&quot;</span>
+<span class="w">  </span><span class="nt">trafficPolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISTIO_MUTUAL</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DestinationRule</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpbin-bar</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;httpbin.bar.svc.cluster.local&quot;</span>
+<span class="w">  </span><span class="nt">trafficPolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ISTIO_MUTUAL</span>
 </code></pre></div>
-<p>This command updates the <code>my-app-service</code> service in a rolling manner, with only 2 replicas updated at a time, ensuring the remaining replicas handle the traffic during the update.</p>
-<h3 id="example-kubernetes-rolling-updates">Example: Kubernetes Rolling Updates<a class="headerlink" href="#example-kubernetes-rolling-updates" title="Permanent link">&para;</a></h3>
-<p>In Kubernetes, rolling updates are managed automatically by default when updating deployments. Kubernetes will gradually replace old pods with new ones to minimize disruption.</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>deployment/my-app<span class="w"> </span>my-app<span class="o">=</span>my-app:latest
+<p>Apply the configuration:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>destination-rule.yaml
 </code></pre></div>
-<p>This command tells Kubernetes to update the <code>my-app</code> deployment to the latest version, managing the rolling update automatically.</p>
-<hr />
-<h2 id="2-canary-releases-for-safe-updates">2. <strong>Canary Releases for Safe Updates</strong><a class="headerlink" href="#2-canary-releases-for-safe-updates" title="Permanent link">&para;</a></h2>
-<h3 id="description_1">Description:<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h3>
-<p>A canary release involves deploying the new version of the container to a small subset of users first. If no issues are detected, the update is rolled out to the entire user base. This approach helps reduce the impact of potential issues by limiting exposure.</p>
-<h3 id="key-features_1">Key Features:<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Incremental Exposure</strong>: Only a small percentage of traffic is directed to the new container version initially.</li>
-<li><strong>Risk Mitigation</strong>: If the new version has issues, only a small subset of users will be affected, and the update can be rolled back quickly.</li>
-</ul>
-<h3 id="example-canary-release-with-docker-swarm">Example: Canary Release with Docker Swarm<a class="headerlink" href="#example-canary-release-with-docker-swarm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>service<span class="w"> </span>update<span class="w"> </span>--image<span class="w"> </span>my-app:latest<span class="w"> </span>--update-parallelism<span class="w"> </span><span class="m">1</span><span class="w"> </span>my-app-service
+<h2 id="handling-non-mesh-services">Handling Non-Mesh Services<a class="headerlink" href="#handling-non-mesh-services" title="Permanent link">&para;</a></h2>
+<p>For services outside the mesh or services that don&rsquo;t support mTLS, you can configure exceptions to the mTLS policy.</p>
+<h3 id="workload-specific-mtls-policies">Workload-Specific mTLS Policies<a class="headerlink" href="#workload-specific-mtls-policies" title="Permanent link">&para;</a></h3>
+<p>Create workload-specific PeerAuthentication policies to override namespace or mesh-wide policies:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">security.istio.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PeerAuthentication</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">workload-policy</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpbin</span>
+<span class="w">  </span><span class="nt">mtls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PERMISSIVE</span>
 </code></pre></div>
-<p>You can set a small <code>--update-parallelism</code> value to roll out the update to just one replica at a time, simulating a canary release. Monitor performance, and if issues arise, halt the update.</p>
-<h3 id="example-canary-release-with-kubernetes">Example: Canary Release with Kubernetes<a class="headerlink" href="#example-canary-release-with-kubernetes" title="Permanent link">&para;</a></h3>
-<p>In Kubernetes, a canary release can be achieved by manually adjusting the number of replicas for the new version and then gradually increasing the replicas over time.</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>my-app<span class="w"> </span>--replicas<span class="o">=</span><span class="m">1</span>
-kubectl<span class="w"> </span><span class="nb">set</span><span class="w"> </span>image<span class="w"> </span>deployment/my-app<span class="w"> </span>my-app<span class="o">=</span>my-app:latest
-kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>my-app<span class="w"> </span>--replicas<span class="o">=</span><span class="m">5</span>
+<h3 id="configure-destination-rules-for-external-services">Configure Destination Rules for External Services<a class="headerlink" href="#configure-destination-rules-for-external-services" title="Permanent link">&para;</a></h3>
+<p>For external services, set up a destination rule to disable mTLS:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.istio.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DestinationRule</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">external-service.example.com</span>
+<span class="w">  </span><span class="nt">trafficPolicy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DISABLE</span><span class="w">  </span><span class="c1"># or SIMPLE for regular TLS</span>
 </code></pre></div>
-<p>This approach allows you to control the number of pods running the new version.</p>
-<hr />
-<h2 id="3-blue-green-deployments-for-zero-downtime-updates">3. <strong>Blue-Green Deployments for Zero-Downtime Updates</strong><a class="headerlink" href="#3-blue-green-deployments-for-zero-downtime-updates" title="Permanent link">&para;</a></h2>
-<h3 id="description_2">Description:<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h3>
-<p>Blue-Green deployment is a technique that involves running two identical environments—Blue (the current production version) and Green (the new version). Traffic is routed to the Blue environment while the Green environment is being prepared. Once the Green environment is ready and tested, traffic is switched over to Green, ensuring zero downtime.</p>
-<h3 id="key-features_2">Key Features:<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>No Service Interruption</strong>: At no point are users directed to an environment where the application is not available.</li>
-<li><strong>Easy Rollback</strong>: If issues arise in the Green environment, traffic can be switched back to the Blue environment with minimal disruption.</li>
-</ul>
-<h3 id="example-blue-green-deployment-with-docker">Example: Blue-Green Deployment with Docker<a class="headerlink" href="#example-blue-green-deployment-with-docker" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Deploy new version (Green) to a separate environment</span>
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my-app-green<span class="w"> </span>my-app:latest
-
-<span class="c1"># Step 2: Switch traffic to the Green environment</span>
-docker<span class="w"> </span>stop<span class="w"> </span>my-app-blue
-docker<span class="w"> </span>rename<span class="w"> </span>my-app-blue<span class="w"> </span>my-app-blue-backup
-docker<span class="w"> </span>rename<span class="w"> </span>my-app-green<span class="w"> </span>my-app-blue
-
-<span class="c1"># Step 3: Rollback (if necessary)</span>
-docker<span class="w"> </span>stop<span class="w"> </span>my-app-blue
-docker<span class="w"> </span>rename<span class="w"> </span>my-app-blue-backup<span class="w"> </span>my-app-blue
-</code></pre></div>
-<p>In this example, you start by deploying the new container (Green) in a separate environment. Once the Green environment is ready, you switch traffic to it by renaming the containers. If needed, you can easily revert the change by switching back to the Blue environment.</p>
-<hr />
-<h2 id="4-using-health-checks-for-safe-updates">4. <strong>Using Health Checks for Safe Updates</strong><a class="headerlink" href="#4-using-health-checks-for-safe-updates" title="Permanent link">&para;</a></h2>
-<h3 id="description_3">Description:<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h3>
-<p>Docker health checks help ensure that containers are in a healthy state before routing traffic to them. By configuring health checks, you can make sure that only healthy containers are running and serving traffic, preventing issues during updates.</p>
-<h3 id="key-features_3">Key Features:<a class="headerlink" href="#key-features_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Automated Health Monitoring</strong>: Docker automatically checks the health of containers and restarts them if necessary.</li>
-<li><strong>Graceful Rollouts</strong>: Health checks allow you to ensure that containers are healthy before they are included in the load balancing rotation.</li>
-</ul>
-<h3 id="example-dockerfile-with-health-check">Example: Dockerfile with Health Check<a class="headerlink" href="#example-dockerfile-with-health-check" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:alpine</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>install
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;npm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
-
-<span class="k">HEALTHCHECK</span><span class="w"> </span>--interval<span class="o">=</span>30s<span class="w"> </span>--timeout<span class="o">=</span>3s<span class="w">   </span><span class="k">CMD</span><span class="w"> </span>curl<span class="w"> </span>--fail<span class="w"> </span>http://localhost:8080/health<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</code></pre></div>
-<p>In this example, a health check is added to the Dockerfile. Docker will periodically check the <code>/health</code> endpoint of the application, and if the health check fails, the container will be restarted.</p>
-<hr />
-<h2 id="5-rolling-back-docker-container-updates">5. <strong>Rolling Back Docker Container Updates</strong><a class="headerlink" href="#5-rolling-back-docker-container-updates" title="Permanent link">&para;</a></h2>
-<h3 id="description_4">Description:<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h3>
-<p>If an update causes issues, it is important to have a mechanism to rollback to a previous version of the container. Docker and Kubernetes both provide ways to manage rollbacks.</p>
-<h3 id="key-features_4">Key Features:<a class="headerlink" href="#key-features_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Docker</strong>: You can roll back to a previous version of a service by specifying the previous image tag or by using the <code>--rollback</code> flag.</li>
-<li><strong>Kubernetes</strong>: Kubernetes offers built-in rollback functionality using the <code>kubectl rollout undo</code> command.</li>
-</ul>
-<h3 id="example-rolling-back-with-docker-swarm">Example: Rolling Back with Docker Swarm<a class="headerlink" href="#example-rolling-back-with-docker-swarm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>service<span class="w"> </span>update<span class="w"> </span>--image<span class="w"> </span>my-app:previous_version<span class="w"> </span>my-app-service
-</code></pre></div>
-<p>This command rolls back the service to the previous container version in Docker Swarm.</p>
-<h3 id="example-rolling-back-with-kubernetes">Example: Rolling Back with Kubernetes<a class="headerlink" href="#example-rolling-back-with-kubernetes" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>rollout<span class="w"> </span>undo<span class="w"> </span>deployment<span class="w"> </span>my-app
-</code></pre></div>
-<p>This command rolls back the <code>my-app</code> deployment to the previous version in Kubernetes.</p>
-<hr />
-<h2 id="6-leveraging-container-orchestration-for-smooth-updates">6. <strong>Leveraging Container Orchestration for Smooth Updates</strong><a class="headerlink" href="#6-leveraging-container-orchestration-for-smooth-updates" title="Permanent link">&para;</a></h2>
-<h3 id="description_5">Description:<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h3>
-<p>Container orchestration platforms like <strong>Docker Swarm</strong> and <strong>Kubernetes</strong> provide powerful features for automating the deployment and management of container updates. These platforms manage container scaling, health checks, and traffic routing, making it easier to implement updates with minimal service disruption.</p>
-<h3 id="key-features_5">Key Features:<a class="headerlink" href="#key-features_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Kubernetes</strong>: Kubernetes provides rolling updates, deployment strategies, auto-scaling, and more, ensuring that container updates are seamless and fault-tolerant.</li>
-<li><strong>Docker Swarm</strong>: Docker Swarm supports rolling updates and provides built-in mechanisms for health checks and automatic recovery in case of failure.</li>
-</ul>
-<hr />
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>To minimize service disruption during Docker container updates, you should leverage strategies such as rolling updates, canary releases, and blue-green deployments. Tools like Docker Swarm and Kubernetes provide orchestration features that handle scaling, traffic distribution, and automated rollbacks, ensuring smooth and efficient container updates. By implementing health checks, monitoring tools, and carefully managing container versions, you can ensure that updates are applied safely without affecting user experience.</p>
 
 
 
@@ -6167,7 +6376,7 @@ docker<span class="w"> </span>rename<span class="w"> </span>my-app-blue-backup<s
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../how_would_you_automate_the_deployment_process_of_d/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you automate the deployment process of Docker containers to streamline operations and reduce manual intervention?">
+          <a href="../secure_docker_daemon/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Secure Docker Daemon">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6177,20 +6386,20 @@ docker<span class="w"> </span>rename<span class="w"> </span>my-app-blue-backup<s
                 Previous
               </span>
               <div class="md-ellipsis">
-                How would you automate the deployment process of Docker containers to streamline operations and reduce manual intervention?
+                Secure Docker Daemon
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../kubernetes/envoy/" class="md-footer__link md-footer__link--next" aria-label="Next: What is Envoy?">
+          <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                What is Envoy?
+                How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6226,10 +6435,10 @@ docker<span class="w"> </span>rename<span class="w"> </span>my-app-blue-backup<s
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
