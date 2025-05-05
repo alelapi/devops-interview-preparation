@@ -6336,10 +6336,12 @@
 <span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div>
-<p>Unix sockets are more secure than TCP sockets because:
-- They&rsquo;re not exposed to the network
-- They use standard Unix file permissions for access control
-- They&rsquo;re not prone to cross-site request forgery attacks that can happen with TCP sockets</p>
+<p>Unix sockets are more secure than TCP sockets because:</p>
+<ul>
+<li>They&rsquo;re not exposed to the network</li>
+<li>They use standard Unix file permissions for access control</li>
+<li>They&rsquo;re not prone to cross-site request forgery attacks that can happen with TCP sockets</li>
+</ul>
 <h3 id="2-tcp-socket-for-remote-access">2. TCP Socket (For Remote Access)<a class="headerlink" href="#2-tcp-socket-for-remote-access" title="Permanent link">&para;</a></h3>
 <p>If you need remote access to the Docker daemon, you can configure it to listen on a TCP socket, but this should always be protected with TLS.</p>
 <p>When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the built in HTTPS encrypted socket, or by putting a secure web proxy in front of it.</p>
