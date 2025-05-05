@@ -6358,11 +6358,14 @@
 <span class="w">  </span><span class="s2">&quot;tlsverify&quot;</span>:<span class="w"> </span><span class="nb">true</span>
 <span class="o">}</span>
 </code></pre></div>
-<p><strong>Important</strong>: When using the TCP socket:
-- <strong>Never</strong> expose the Docker daemon to the internet without TLS encryption
-- Docker over TLS should run on TCP port 2376 (not 2375, which is unencrypted)
-- Use client certificate authentication
-- Implement proper network firewall rules</p>
+<p><strong>Important</strong>: 
+When using the TCP socket:</p>
+<ul>
+<li><strong>Never</strong> expose the Docker daemon to the internet without TLS encryption</li>
+<li>Docker over TLS should run on TCP port 2376 (not 2375, which is unencrypted)</li>
+<li>Use client certificate authentication</li>
+<li>Implement proper network firewall rules</li>
+</ul>
 <h3 id="3-setting-up-tls-for-docker-daemon">3. Setting Up TLS for Docker Daemon<a class="headerlink" href="#3-setting-up-tls-for-docker-daemon" title="Permanent link">&para;</a></h3>
 <p>To set up TLS for secure remote access:</p>
 <ol>
