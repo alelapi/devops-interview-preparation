@@ -5197,6 +5197,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#istio-sidecar-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Istio Sidecar Injection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-sidecar-injection-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Sidecar Injection Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-enable-sidecar-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Enable Sidecar Injection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Enable Sidecar Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-automatic-injection-namespace-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 1: Automatic Injection (Namespace-Level)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-manual-injection-deployment-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 2: Manual Injection (Deployment-Level)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-verify-injection-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Verify Injection Worked
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-sidecar-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling Sidecar Injection
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6213,6 +6282,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#istio-sidecar-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Istio Sidecar Injection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-sidecar-injection-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Sidecar Injection Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-enable-sidecar-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Enable Sidecar Injection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Enable Sidecar Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-1-automatic-injection-namespace-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 1: Automatic Injection (Namespace-Level)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-manual-injection-deployment-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method 2: Manual Injection (Deployment-Level)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-verify-injection-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Verify Injection Worked
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disabling-sidecar-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disabling Sidecar Injection
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6341,6 +6479,55 @@ When you think about Istio&rsquo;s traffic management, it&rsquo;s important to u
 <span class="w">    </span><span class="nt">tls</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DISABLE</span><span class="w">  </span><span class="c1"># or SIMPLE for regular TLS</span>
 </code></pre></div>
+<h2 id="istio-sidecar-injection">Istio Sidecar Injection<a class="headerlink" href="#istio-sidecar-injection" title="Permanent link">&para;</a></h2>
+<p>Istio sidecar injection is the process of automatically adding an Envoy proxy container (the &ldquo;sidecar&rdquo;) to Kubernetes pods. This sidecar proxy is what enables Istio&rsquo;s service mesh functionality, as it intercepts and manages all network traffic going in and out of your application pods.</p>
+<p>When you deploy applications in a Kubernetes cluster with Istio, each pod gets its own sidecar proxy that handles all the networking concerns like traffic routing, load balancing, circuit breaking, and implementing security policies.</p>
+<h2 id="how-sidecar-injection-works">How Sidecar Injection Works<a class="headerlink" href="#how-sidecar-injection-works" title="Permanent link">&para;</a></h2>
+<p>Istio uses a Kubernetes feature called &ldquo;mutating webhook admission controller&rdquo; to modify pod specifications at creation time. When the webhook is enabled and a namespace is properly labeled, any new pods created in that namespace will automatically have the Istio sidecar proxy container added to them.</p>
+<p>The injection can happen in two ways:</p>
+<ol>
+<li><strong>Automatic injection</strong>: Configured at the namespace level</li>
+<li><strong>Manual injection</strong>: Applied directly to deployments using the <code>istioctl</code> command</li>
+</ol>
+<h2 id="how-to-enable-sidecar-injection">How to Enable Sidecar Injection<a class="headerlink" href="#how-to-enable-sidecar-injection" title="Permanent link">&para;</a></h2>
+<h3 id="method-1-automatic-injection-namespace-level">Method 1: Automatic Injection (Namespace-Level)<a class="headerlink" href="#method-1-automatic-injection-namespace-level" title="Permanent link">&para;</a></h3>
+<p>This is the most common approach:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Label the namespace to enable automatic injection</span>
+kubectl<span class="w"> </span>label<span class="w"> </span>namespace<span class="w"> </span>&lt;your-namespace&gt;<span class="w"> </span>istio-injection<span class="o">=</span>enabled
+</code></pre></div>
+<p>Once you apply this label, all new workloads deployed in the namespace will automatically have the Istio sidecar injected. Note that existing workloads won&rsquo;t be affected—you&rsquo;ll need to redeploy them to get the sidecar.</p>
+<p>You can verify the label is applied with:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>namespace<span class="w"> </span>&lt;your-namespace&gt;<span class="w"> </span>--show-labels
+</code></pre></div>
+<h3 id="method-2-manual-injection-deployment-level">Method 2: Manual Injection (Deployment-Level)<a class="headerlink" href="#method-2-manual-injection-deployment-level" title="Permanent link">&para;</a></h3>
+<p>If you prefer to inject sidecars on specific deployments:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Manually inject the sidecar into a deployment</span>
+istioctl<span class="w"> </span>kube-inject<span class="w"> </span>-f<span class="w"> </span>your-deployment.yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-
+</code></pre></div>
+<p>This approach modifies the deployment YAML directly, adding the sidecar configuration before applying it to the cluster.</p>
+<h2 id="how-to-verify-injection-worked">How to Verify Injection Worked<a class="headerlink" href="#how-to-verify-injection-worked" title="Permanent link">&para;</a></h2>
+<p>You can verify that a pod has the sidecar injected by checking the READY column:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods
+</code></pre></div>
+<p>A pod with the sidecar injected will show <code>2/2</code> in the READY column, indicating that there are two containers running (your application and the Istio proxy).</p>
+<p>You can also describe the pod to see the <code>istio-proxy</code> container:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>&lt;pod-name&gt;
+</code></pre></div>
+<p>Or check for the presence of the sidecar container directly:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>&lt;pod-name&gt;<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.containers[*].name}&#39;</span>
+</code></pre></div>
+<h2 id="disabling-sidecar-injection">Disabling Sidecar Injection<a class="headerlink" href="#disabling-sidecar-injection" title="Permanent link">&para;</a></h2>
+<p>If you need to exclude a specific workload from injection, you can add an annotation to that workload:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">sidecar.istio.io/inject</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+</code></pre></div>
+<p>Alternatively, the newer approach uses a label instead of an annotation:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">sidecar.istio.io/inject</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+</code></pre></div>
+<p>This is particularly useful for jobs, CronJobs, or any workload that shouldn&rsquo;t be part of the service mesh.</p>
 
 
 
