@@ -23,7 +23,7 @@ Docker daemon can communicate through different types of sockets. Understanding 
 By default, Docker runs through a non-networked UNIX socket. It can also optionally communicate using SSH or a TLS (HTTPS) socket. The Unix socket is located at `/var/run/docker.sock` and is the most secure option for local communications.
 
 ```bash
-# The default configuration in daemon.json (often doesn't need to be specified)
+# The default configuration in daemon.json [/etc/docker/daemon.json] (often doesn't need to be specified)
 {
   "hosts": ["unix:///var/run/docker.sock"]
 }
@@ -41,7 +41,7 @@ If you need remote access to the Docker daemon, you can configure it to listen o
 When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the built in HTTPS encrypted socket, or by putting a secure web proxy in front of it.
 
 ```bash
-# Example daemon.json with both Unix socket and secure TCP socket
+# Example daemon.json [/etc/docker/daemon.json] with both Unix socket and secure TCP socket
 {
   "hosts": [
     "unix:///var/run/docker.sock",
@@ -96,7 +96,7 @@ openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem 
 
 2. **Configure the Docker daemon to use TLS**
 
-   Update the `/etc/docker/daemon.json` file:
+   Update the `/etc/docker/daemon.json` (/etc/docker/daemon.json) file:
 
 ```json
 {
