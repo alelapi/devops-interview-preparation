@@ -1,4 +1,4 @@
-# Implementing mTLS Pod-to-Pod Communication in Istio: A Complete Guide
+# mTLS Pod-to-Pod Communication with Istio
 
 ## Introduction
 
