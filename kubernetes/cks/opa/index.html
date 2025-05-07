@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../cilium/">
+        <link rel="prev" href="../istio_mtls/">
       
       
-        <link rel="next" href="../istio_mtls/">
+        <link rel="next" href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Secure Docker Daemon - My DevOps Interview Preparation</title>
+        <title>OPA and Gatekeeper - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secure-docker-daemon" class="md-skip">
+        <a href="#opa-and-gatekeeper" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secure Docker Daemon
+              OPA and Gatekeeper
             
           </span>
         </div>
@@ -5016,32 +5016,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Secure Docker Daemon
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -5052,185 +5030,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-docker-daemon-security-risks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding Docker Daemon Security Risks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuring-and-securing-communication-sockets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring and Securing Communication Sockets
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuring and Securing Communication Sockets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-unix-socket-default-and-recommended" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Unix Socket (Default and Recommended)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-tcp-socket-for-remote-access" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. TCP Socket (For Remote Access)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-setting-up-tls-for-docker-daemon" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Setting Up TLS for Docker Daemon
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-using-systemd-configuration-alternative-method" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Using systemd Configuration (Alternative Method)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-verifying-socket-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Verifying Socket Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-listening-on-both-unix-and-tcp-sockets" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Listening on Both Unix and TCP Sockets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-implement-rootless-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Implement Rootless Mode
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-secure-the-docker-socket" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Secure the Docker Socket
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-configure-user-namespace-remapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Configure User Namespace Remapping
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-restrict-inter-container-communication" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Restrict Inter-Container Communication
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-implement-resource-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Implement Resource Limitations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-enable-content-trust" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Enable Content Trust
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-enable-logging-and-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Enable Logging and Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-use-security-enhanced-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Use Security Enhanced Systems
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprehensive-etcdockerdaemonjson-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comprehensive /etc/docker/daemon.json Example
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5263,10 +5062,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../opa/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OPA and Gatekeeper
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5277,6 +5098,257 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-opa-and-gatekeeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding OPA and Gatekeeper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding OPA and Gatekeeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-relationship-between-opa-and-gatekeeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Relationship Between OPA and Gatekeeper
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-gatekeeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Gatekeeper
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Gatekeeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Helm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify the Installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constrainttemplates-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConstraintTemplates and Constraints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConstraintTemplates and Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constrainttemplates" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConstraintTemplates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConstraintTemplates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-a-constrainttemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anatomy of a ConstraintTemplate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Constraint
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-require-specific-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Require Specific Labels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-block-latest-image-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Block Latest Image Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-require-resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Require Resource Limits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mutating-admission-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mutating Admission Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -6182,145 +6254,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-docker-daemon-security-risks" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Docker Daemon Security Risks
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-and-securing-communication-sockets" class="md-nav__link">
+  <a href="#understanding-opa-and-gatekeeper" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring and Securing Communication Sockets
+      Understanding OPA and Gatekeeper
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuring and Securing Communication Sockets">
+    <nav class="md-nav" aria-label="Understanding OPA and Gatekeeper">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-unix-socket-default-and-recommended" class="md-nav__link">
+  <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Unix Socket (Default and Recommended)
+      Key Concepts
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-tcp-socket-for-remote-access" class="md-nav__link">
+  <a href="#the-relationship-between-opa-and-gatekeeper" class="md-nav__link">
     <span class="md-ellipsis">
-      2. TCP Socket (For Remote Access)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-setting-up-tls-for-docker-daemon" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Setting Up TLS for Docker Daemon
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-using-systemd-configuration-alternative-method" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Using systemd Configuration (Alternative Method)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-verifying-socket-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Verifying Socket Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-listening-on-both-unix-and-tcp-sockets" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Listening on Both Unix and TCP Sockets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-implement-rootless-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Implement Rootless Mode
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-secure-the-docker-socket" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Secure the Docker Socket
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-configure-user-namespace-remapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Configure User Namespace Remapping
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-restrict-inter-container-communication" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Restrict Inter-Container Communication
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-implement-resource-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Implement Resource Limitations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-enable-content-trust" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Enable Content Trust
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-enable-logging-and-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Enable Logging and Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-use-security-enhanced-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Use Security Enhanced Systems
+      The Relationship Between OPA and Gatekeeper
     </span>
   </a>
   
@@ -6332,11 +6296,191 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprehensive-etcdockerdaemonjson-example" class="md-nav__link">
+  <a href="#installing-gatekeeper" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprehensive /etc/docker/daemon.json Example
+      Installing Gatekeeper
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Installing Gatekeeper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Helm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verify-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify the Installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constrainttemplates-and-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConstraintTemplates and Constraints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConstraintTemplates and Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constrainttemplates" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConstraintTemplates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConstraintTemplates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anatomy-of-a-constrainttemplate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anatomy of a ConstraintTemplate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Constraint
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-require-specific-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Require Specific Labels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-block-latest-image-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Block Latest Image Tags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-3-require-resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3: Require Resource Limits
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Use Cases
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mutating-admission-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mutating Admission Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemptions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6359,277 +6503,308 @@
   
 
 
-<h1 id="secure-docker-daemon">Secure Docker Daemon<a class="headerlink" href="#secure-docker-daemon" title="Permanent link">&para;</a></h1>
-<p>The Docker daemon is a critical component that manages and coordinates all Docker operations. Since it often runs with elevated privileges, securing it properly is essential to protect your containerized applications and host systems from potential security threats.</p>
-<h2 id="understanding-docker-daemon-security-risks">Understanding Docker Daemon Security Risks<a class="headerlink" href="#understanding-docker-daemon-security-risks" title="Permanent link">&para;</a></h2>
-<p>Before implementing security measures, it&rsquo;s important to understand the potential risks:</p>
-<ol>
-<li>
-<p><strong>Privilege Escalation</strong>: The Docker daemon typically runs with root privileges, making it a prime target for attackers seeking to gain elevated access to your system.</p>
-</li>
-<li>
-<p><strong>Unauthorized Access</strong>: An unsecured Docker daemon can be accessed by unauthorized users, potentially leading to data breaches or system compromise.</p>
-</li>
-<li>
-<p><strong>Container Breakouts</strong>: Vulnerabilities in the Docker daemon can lead to container breakouts, where attackers escape container isolation and access the host system.</p>
-</li>
-<li>
-<p><strong>API Exposure</strong>: The Docker API, if exposed unsafely, can be exploited for unauthorized operations.</p>
-</li>
-</ol>
-<h2 id="configuring-and-securing-communication-sockets">Configuring and Securing Communication Sockets<a class="headerlink" href="#configuring-and-securing-communication-sockets" title="Permanent link">&para;</a></h2>
-<p>Docker daemon can communicate through different types of sockets. Understanding and properly configuring these communication channels is essential for security.</p>
-<h3 id="1-unix-socket-default-and-recommended">1. Unix Socket (Default and Recommended)<a class="headerlink" href="#1-unix-socket-default-and-recommended" title="Permanent link">&para;</a></h3>
-<p>By default, Docker runs through a non-networked UNIX socket. It can also optionally communicate using SSH or a TLS (HTTPS) socket. The Unix socket is located at <code>/var/run/docker.sock</code> and is the most secure option for local communications.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># The default configuration in daemon.json [/etc/docker/daemon.json] (often doesn&#39;t need to be specified)</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="o">]</span>
-<span class="o">}</span>
-</code></pre></div>
-<p>Unix sockets are more secure than TCP sockets because:</p>
+<h1 id="opa-and-gatekeeper">OPA and Gatekeeper<a class="headerlink" href="#opa-and-gatekeeper" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Open Policy Agent (OPA) is a general-purpose policy engine that enables unified policy enforcement across the entire stack. When combined with Gatekeeper, OPA becomes a powerful tool for enforcing policies in Kubernetes environments. This guide will take you through practical implementations of OPA and Gatekeeper, from basic concepts to advanced use cases, preparing you for real-world scenarios and practical exams.</p>
+<h2 id="understanding-opa-and-gatekeeper">Understanding OPA and Gatekeeper<a class="headerlink" href="#understanding-opa-and-gatekeeper" title="Permanent link">&para;</a></h2>
+<p>OPA is a general-purpose policy engine that enables unified policy enforcement across various systems. Gatekeeper is the Kubernetes-native implementation of OPA, providing a way to enforce policies on Kubernetes resources during creation and update operations.</p>
+<h3 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h3>
 <ul>
-<li>They&rsquo;re not exposed to the network</li>
-<li>They use standard Unix file permissions for access control</li>
-<li>They&rsquo;re not prone to cross-site request forgery attacks that can happen with TCP sockets</li>
+<li><strong>Policy as Code</strong>: Define policies in a declarative language (Rego) rather than hardcoding them in applications.</li>
+<li><strong>Admission Control</strong>: Gatekeeper works as a validating admission controller in Kubernetes.</li>
+<li><strong>Constraint Framework</strong>: A system for defining, applying, and monitoring policy compliance.</li>
 </ul>
-<h3 id="2-tcp-socket-for-remote-access">2. TCP Socket (For Remote Access)<a class="headerlink" href="#2-tcp-socket-for-remote-access" title="Permanent link">&para;</a></h3>
-<p>If you need remote access to the Docker daemon, you can configure it to listen on a TCP socket, but this should always be protected with TLS.</p>
-<p>When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the built in HTTPS encrypted socket, or by putting a secure web proxy in front of it.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Example daemon.json [/etc/docker/daemon.json] with both Unix socket and secure TCP socket</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<span class="w">    </span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span>
-<span class="w">  </span><span class="o">]</span>,
-<span class="w">  </span><span class="s2">&quot;tls&quot;</span>:<span class="w"> </span>true,
-<span class="w">  </span><span class="s2">&quot;tlscacert&quot;</span>:<span class="w"> </span><span class="s2">&quot;/path/to/ca.pem&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;tlscert&quot;</span>:<span class="w"> </span><span class="s2">&quot;/path/to/server-cert.pem&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;tlskey&quot;</span>:<span class="w"> </span><span class="s2">&quot;/path/to/server-key.pem&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;tlsverify&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="o">}</span>
-</code></pre></div>
-<p><strong>Important</strong>: 
-When using the TCP socket:</p>
+<h3 id="the-relationship-between-opa-and-gatekeeper">The Relationship Between OPA and Gatekeeper<a class="headerlink" href="#the-relationship-between-opa-and-gatekeeper" title="Permanent link">&para;</a></h3>
+<p>Gatekeeper extends OPA&rsquo;s capabilities specifically for Kubernetes:</p>
 <ul>
-<li><strong>Never</strong> expose the Docker daemon to the internet without TLS encryption</li>
-<li>Docker over TLS should run on TCP port 2376 (not 2375, which is unencrypted)</li>
-<li>Use client certificate authentication</li>
-<li>Implement proper network firewall rules</li>
+<li>It provides Kubernetes custom resources for defining policies</li>
+<li>It integrates with the Kubernetes admission controller</li>
+<li>It enables audit functionality for existing resources</li>
 </ul>
-<h3 id="3-setting-up-tls-for-docker-daemon">3. Setting Up TLS for Docker Daemon<a class="headerlink" href="#3-setting-up-tls-for-docker-daemon" title="Permanent link">&para;</a></h3>
-<p>To set up TLS for secure remote access:</p>
+<h2 id="installing-gatekeeper">Installing Gatekeeper<a class="headerlink" href="#installing-gatekeeper" title="Permanent link">&para;</a></h2>
+<p>Let&rsquo;s begin with installing Gatekeeper on a Kubernetes cluster:</p>
+<h3 id="using-helm">Using Helm<a class="headerlink" href="#using-helm" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add the Gatekeeper Helm repository</span>
+helm<span class="w"> </span>repo<span class="w"> </span>add<span class="w"> </span>gatekeeper<span class="w"> </span>https://open-policy-agent.github.io/gatekeeper/charts
+
+<span class="c1"># Update the Helm repositories</span>
+helm<span class="w"> </span>repo<span class="w"> </span>update
+
+<span class="c1"># Install Gatekeeper</span>
+helm<span class="w"> </span>install<span class="w"> </span>gatekeeper<span class="w"> </span>gatekeeper/gatekeeper<span class="w"> </span>--namespace<span class="w"> </span>gatekeeper-system<span class="w"> </span>--create-namespace
+</code></pre></div>
+<h3 id="using-kubectl">Using kubectl<a class="headerlink" href="#using-kubectl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.11/deploy/gatekeeper.yaml
+</code></pre></div>
+<h3 id="verify-the-installation">Verify the Installation<a class="headerlink" href="#verify-the-installation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>gatekeeper-system
+</code></pre></div>
+<p>You should see pods like <code>gatekeeper-audit-*</code>, <code>gatekeeper-controller-manager-*</code>, etc., all in a Running state.</p>
+<h2 id="constrainttemplates-and-constraints">ConstraintTemplates and Constraints<a class="headerlink" href="#constrainttemplates-and-constraints" title="Permanent link">&para;</a></h2>
+<p>Gatekeeper uses two custom resources to define and enforce policies:</p>
+<h3 id="constrainttemplates">ConstraintTemplates<a class="headerlink" href="#constrainttemplates" title="Permanent link">&para;</a></h3>
+<p>A ConstraintTemplate defines the logic of the policy using Rego and the schema for the Constraint that will implement the policy. Think of it as a reusable policy definition that can be applied in different contexts.</p>
+<h4 id="anatomy-of-a-constrainttemplate">Anatomy of a ConstraintTemplate<a class="headerlink" href="#anatomy-of-a-constrainttemplate" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">templates.gatekeeper.sh/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConstraintTemplate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8srequiredlabels</span><span class="w">  </span><span class="c1"># Name of the template</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">crd</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequiredLabels</span><span class="w">  </span><span class="c1"># Kind of the Constraint this template creates</span>
+<span class="w">      </span><span class="nt">validation</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># Schema for the `parameters` field in the Constraint</span>
+<span class="w">        </span><span class="nt">openAPIV3Schema</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+<span class="w">          </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">array</span>
+<span class="w">              </span><span class="nt">items</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admission.k8s.gatekeeper.sh</span>
+<span class="w">      </span><span class="nt">rego</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">package k8srequiredlabels</span>
+
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg, &quot;details&quot;: {&quot;missing_labels&quot;: missing}}] {</span>
+<span class="w">          </span><span class="no">provided := {label | input.review.object.metadata.labels[label]}</span>
+<span class="w">          </span><span class="no">required := {label | label := input.parameters.labels[_]}</span>
+<span class="w">          </span><span class="no">missing := required - provided</span>
+<span class="w">          </span><span class="no">count(missing) &gt; 0</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;you must provide labels: %v&quot;, [missing])</span>
+<span class="w">        </span><span class="no">}</span>
+</code></pre></div>
+<p>Let&rsquo;s break this down:</p>
 <ol>
-<li><strong>Generate CA, server, and client certificates</strong></li>
+<li><strong>CRD Specification</strong>: Defines the kind name and validation schema for the Constraint.</li>
+<li><strong>Target</strong>: Specifies where the policy will be enforced. For Kubernetes, this is usually <code>admission.k8s.gatekeeper.sh</code>.</li>
+<li><strong>Rego Policy</strong>: The policy logic written in Rego language.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a CA key and certificate</span>
-openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca-key.pem<span class="w"> </span><span class="m">4096</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-key<span class="w"> </span>ca-key.pem<span class="w"> </span>-sha256<span class="w"> </span>-out<span class="w"> </span>ca.pem
-
-<span class="c1"># Create a server key and certificate signing request (CSR)</span>
-<span class="c1"># Set $HOST to the DNS name or IP of your Docker host</span>
-openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>server-key.pem<span class="w"> </span><span class="m">4096</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="nv">$HOST</span><span class="s2">&quot;</span><span class="w"> </span>-sha256<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>server-key.pem<span class="w"> </span>-out<span class="w"> </span>server.csr
-
-<span class="c1"># Sign the server certificate</span>
-<span class="c1"># Include IP addresses and DNS names that will be used to connect to your Docker host</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;subjectAltName = DNS:</span><span class="nv">$HOST</span><span class="s2">,IP:127.0.0.1,IP:</span><span class="nv">$PUBLIC_IP</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>extfile.cnf
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;extendedKeyUsage = serverAuth&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>extfile.cnf
-openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-sha256<span class="w"> </span>-in<span class="w"> </span>server.csr<span class="w"> </span>-CA<span class="w"> </span>ca.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca-key.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span>server-cert.pem<span class="w"> </span>-extfile<span class="w"> </span>extfile.cnf
-
-<span class="c1"># Create a client key and certificate signing request</span>
-openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>client-key.pem<span class="w"> </span><span class="m">4096</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-subj<span class="w"> </span><span class="s1">&#39;/CN=client&#39;</span><span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>client-key.pem<span class="w"> </span>-out<span class="w"> </span>client.csr
-
-<span class="c1"># Sign the client certificate</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;extendedKeyUsage = clientAuth&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>extfile-client.cnf
-openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-sha256<span class="w"> </span>-in<span class="w"> </span>client.csr<span class="w"> </span>-CA<span class="w"> </span>ca.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca-key.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span>client-cert.pem<span class="w"> </span>-extfile<span class="w"> </span>extfile-client.cnf
+<h3 id="constraints">Constraints<a class="headerlink" href="#constraints" title="Permanent link">&para;</a></h3>
+<p>A Constraint is an instance of a ConstraintTemplate that enforces the policy defined in the template. It allows you to specify which resources the policy should apply to and provide parameters to customize the policy.</p>
+<h4 id="example-constraint">Example Constraint<a class="headerlink" href="#example-constraint" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constraints.gatekeeper.sh/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequiredLabels</span><span class="w">  </span><span class="c1"># This must match the kind defined in the ConstraintTemplate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">require-team-label</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kinds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Namespace&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># This policy applies to Namespaces</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;team&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># Require &#39;team&#39; label on all Namespaces</span>
 </code></pre></div>
+<p>Let&rsquo;s break this down:</p>
 <ol>
-<li><strong>Configure the Docker daemon to use TLS</strong></li>
+<li><strong>Kind</strong>: Must match the kind defined in the ConstraintTemplate.</li>
+<li><strong>Match</strong>: Defines which resources the Constraint applies to.</li>
+<li><strong>Parameters</strong>: Values passed to the Rego policy in the ConstraintTemplate.</li>
 </ol>
-<p>Update the <code>/etc/docker/daemon.json</code> (/etc/docker/daemon.json) file:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlsverify&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlscacert&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/ca.pem&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlscert&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/server-cert.pem&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlskey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/server-key.pem&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<ol>
-<li><strong>Configure your client to use TLS</strong></li>
-</ol>
-<p>Replace all instances of $HOST in the following example with the DNS name of your Docker daemon&rsquo;s host.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># When connecting, specify the TLS certificates</span>
-docker<span class="w"> </span>--tlsverify<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tlscacert<span class="o">=</span>ca.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tlscert<span class="o">=</span>client-cert.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tlskey<span class="o">=</span>client-key.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="o">=</span><span class="nv">$HOST</span>:2376<span class="w"> </span>version
+<h2 id="practical-examples">Practical Examples<a class="headerlink" href="#practical-examples" title="Permanent link">&para;</a></h2>
+<p>Let&rsquo;s walk through some practical examples of ConstraintTemplates and Constraints that solve real-world problems:</p>
+<h3 id="example-1-require-specific-labels">Example 1: Require Specific Labels<a class="headerlink" href="#example-1-require-specific-labels" title="Permanent link">&para;</a></h3>
+<p>This example ensures that all Namespaces have required labels:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># First, create the ConstraintTemplate</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">templates.gatekeeper.sh/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConstraintTemplate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8srequiredlabels</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">crd</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequiredLabels</span>
+<span class="w">      </span><span class="nt">validation</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">openAPIV3Schema</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+<span class="w">          </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">array</span>
+<span class="w">              </span><span class="nt">items</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admission.k8s.gatekeeper.sh</span>
+<span class="w">      </span><span class="nt">rego</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">package k8srequiredlabels</span>
 
-<span class="c1"># Or set environment variables</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_HOST</span><span class="o">=</span>tcp://<span class="nv">$HOST</span>:2376
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_TLS_VERIFY</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CERT_PATH</span><span class="o">=</span>/path/to/client/certificates
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg, &quot;details&quot;: {&quot;missing_labels&quot;: missing}}] {</span>
+<span class="w">          </span><span class="no">provided := {label | input.review.object.metadata.labels[label]}</span>
+<span class="w">          </span><span class="no">required := {label | label := input.parameters.labels[_]}</span>
+<span class="w">          </span><span class="no">missing := required - provided</span>
+<span class="w">          </span><span class="no">count(missing) &gt; 0</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;you must provide labels: %v&quot;, [missing])</span>
+<span class="w">        </span><span class="no">}</span>
 </code></pre></div>
-<h3 id="4-using-systemd-configuration-alternative-method">4. Using systemd Configuration (Alternative Method)<a class="headerlink" href="#4-using-systemd-configuration-alternative-method" title="Permanent link">&para;</a></h3>
-<p>If you&rsquo;re using systemd, you can also configure the Docker daemon through the service file:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a systemd override file</span>
-sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system/docker.service.d
-sudo<span class="w"> </span>touch<span class="w"> </span>/etc/systemd/system/docker.service.d/override.conf
+<div class="highlight"><pre><span></span><code><span class="c1"># Then, create the Constraint</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constraints.gatekeeper.sh/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequiredLabels</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ns-must-have-env</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kinds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Namespace&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;environment&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<p>Now, if you try to create a Namespace without the <code>environment</code> label:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<p>It will fail with an error like:</p>
+<div class="highlight"><pre><span></span><code>Error from server ([ns-must-have-env] you must provide labels: {&quot;environment&quot;}): admission webhook &quot;validation.gatekeeper.sh&quot; denied the request: [ns-must-have-env] you must provide labels: {&quot;environment&quot;}
+</code></pre></div>
+<h3 id="example-2-block-latest-image-tags">Example 2: Block Latest Image Tags<a class="headerlink" href="#example-2-block-latest-image-tags" title="Permanent link">&para;</a></h3>
+<p>This example blocks the use of the <code>:latest</code> tag for container images:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ConstraintTemplate</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">templates.gatekeeper.sh/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConstraintTemplate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8sblocklatestimages</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">crd</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sBlockLatestImages</span>
+<span class="w">      </span><span class="nt">validation</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">openAPIV3Schema</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+<span class="w">  </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admission.k8s.gatekeeper.sh</span>
+<span class="w">      </span><span class="nt">rego</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">package k8sblocklatestimages</span>
 
-<span class="c1"># Edit the override file</span>
-sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/docker.service.d/override.conf
-</code></pre></div>
-<p>Add the following content to the <code>override.conf</code> file:</p>
-<div class="highlight"><pre><span></span><code>[Service]
-ExecStart=
-ExecStart=/usr/bin/dockerd -H fd:// -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376 --tlsverify --tlscacert=/path/to/ca.pem --tlscert=/path/to/server-cert.pem --tlskey=/path/to/server-key.pem
-</code></pre></div>
-<p>Reload systemd and restart Docker:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
-</code></pre></div>
-<h3 id="5-verifying-socket-configuration">5. Verifying Socket Configuration<a class="headerlink" href="#5-verifying-socket-configuration" title="Permanent link">&para;</a></h3>
-<p>After configuring your Docker daemon, verify that it&rsquo;s listening on the specified sockets:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check for Unix socket</span>
-ls<span class="w"> </span>-la<span class="w"> </span>/var/run/docker.sock
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span>
+<span class="w">          </span><span class="no">container := input.review.object.spec.containers[_]</span>
+<span class="w">          </span><span class="no">endswith(container.image, &quot;:latest&quot;)</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;container &lt;%v&gt; uses the latest tag&quot;, [container.name])</span>
+<span class="w">        </span><span class="no">}</span>
 
-<span class="c1"># Check for TCP socket</span>
-sudo<span class="w"> </span>netstat<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dockerd
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span>
+<span class="w">          </span><span class="no">container := input.review.object.spec.initContainers[_]</span>
+<span class="w">          </span><span class="no">endswith(container.image, &quot;:latest&quot;)</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;initContainer &lt;%v&gt; uses the latest tag&quot;, [container.name])</span>
+<span class="w">        </span><span class="no">}</span>
 </code></pre></div>
-<h3 id="6-listening-on-both-unix-and-tcp-sockets">6. Listening on Both Unix and TCP Sockets<a class="headerlink" href="#6-listening-on-both-unix-and-tcp-sockets" title="Permanent link">&para;</a></h3>
-<p>When configuring Docker to listen on both types of sockets, be aware that the &ldquo;hosts&rdquo; option overrides the Docker default value rather than appends to it. You must specify both the Unix socket and TCP socket in your configuration.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span><span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Constraint</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constraints.gatekeeper.sh/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sBlockLatestImages</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">block-latest-images</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kinds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Pod&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;apps&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Deployment&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;StatefulSet&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;DaemonSet&quot;</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<p>You can also verify the configuration is working with:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>netstat<span class="w"> </span>-lntp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dockerd
-</code></pre></div>
-<p>If properly configured, you should see Docker listening on both the Unix socket and the specified TCP port.</p>
-<h3 id="3-implement-rootless-mode">3. Implement Rootless Mode<a class="headerlink" href="#3-implement-rootless-mode" title="Permanent link">&para;</a></h3>
-<p>Rootless mode allows running the Docker daemon and containers as a non-root user to mitigate potential vulnerabilities in the daemon and the container runtime.</p>
-<p>Rootless mode ensures that the Docker daemon and containers are running as an unprivileged user, which means that even if an attacker breaks out of the container, they will not have root privileges on the host, which in turn substantially limits the attack surface.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Set up rootless mode</span>
-dockerd-rootless-setuptool.sh<span class="w"> </span>install
-</code></pre></div>
-<h3 id="4-secure-the-docker-socket">4. Secure the Docker Socket<a class="headerlink" href="#4-secure-the-docker-socket" title="Permanent link">&para;</a></h3>
-<p>Docker communicates with a UNIX domain socket called /var/run/docker.sock. This is the main entry point for the Docker API. Anyone who has access to the Docker daemon socket also has unrestricted root access.</p>
-<p>Best practices for socket security:</p>
-<ol>
-<li>Never expose the Docker socket to containers unless absolutely necessary</li>
-<li>Use proper Unix file permissions to restrict access</li>
-<li>If socket sharing is required, consider using a proxy like Docker Socket Proxy</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Set proper permissions for the Docker socket</span>
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">660</span><span class="w"> </span>/var/run/docker.sock
-sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class="w"> </span>/var/run/docker.sock
-</code></pre></div>
-<h3 id="5-configure-user-namespace-remapping">5. Configure User Namespace Remapping<a class="headerlink" href="#5-configure-user-namespace-remapping" title="Permanent link">&para;</a></h3>
-<p>User namespace remapping is a Docker feature that converts host UIDs to a different unprivileged range inside your containers. This helps to prevent privilege escalation attacks, where a process running in a container gains the same privileges as its UID has on your host.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure user namespace remapping in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;userns-remap&quot;</span>:<span class="w"> </span><span class="s2">&quot;default&quot;</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="6-restrict-inter-container-communication">6. Restrict Inter-Container Communication<a class="headerlink" href="#6-restrict-inter-container-communication" title="Permanent link">&para;</a></h3>
-<p>Docker normally allows arbitrary communication between the containers running on your host. Each new container is automatically added to the docker0 bridge network, which allows it to discover and contact its peers. Keeping inter-container communication (ICC) enabled is risky because it could permit a malicious process to launch an attack against neighboring containers.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Disable inter-container communication in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;icc&quot;</span>:<span class="w"> </span><span class="nb">false</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="7-implement-resource-limitations">7. Implement Resource Limitations<a class="headerlink" href="#7-implement-resource-limitations" title="Permanent link">&para;</a></h3>
-<p>Set appropriate resource constraints to prevent denial-of-service attacks:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure default resource constraints in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;default-ulimits&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;nofile&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="s2">&quot;Name&quot;</span>:<span class="w"> </span><span class="s2">&quot;nofile&quot;</span>,
-<span class="w">      </span><span class="s2">&quot;Hard&quot;</span>:<span class="w"> </span><span class="m">64000</span>,
-<span class="w">      </span><span class="s2">&quot;Soft&quot;</span>:<span class="w"> </span><span class="m">64000</span>
-<span class="w">    </span><span class="o">}</span>
-<span class="w">  </span><span class="o">}</span>,
-<span class="w">  </span><span class="s2">&quot;default-shm-size&quot;</span>:<span class="w"> </span><span class="s2">&quot;64M&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;default-memory-swap&quot;</span>:<span class="w"> </span><span class="s2">&quot;-1&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;default-memory&quot;</span>:<span class="w"> </span><span class="s2">&quot;1G&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;default-cpu-shares&quot;</span>:<span class="w"> </span><span class="m">1024</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="8-enable-content-trust">8. Enable Content Trust<a class="headerlink" href="#8-enable-content-trust" title="Permanent link">&para;</a></h3>
-<p>Docker Engine can be configured to run only signed images, enhancing security through image signature verification. This feature, set up in the Docker configuration file (daemon.json), gives you control over enforcing security policies related to image usage.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable Docker Content Trust in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;content-trust&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;trust-pinning&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="s2">&quot;official-library-images&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="o">}</span>
-<span class="w">  </span><span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="9-enable-logging-and-monitoring">9. Enable Logging and Monitoring<a class="headerlink" href="#9-enable-logging-and-monitoring" title="Permanent link">&para;</a></h3>
-<p>Collecting Docker daemon logs is instrumental in identifying and responding to security incidents. These logs offer comprehensive insights into Docker&rsquo;s system-level operations, encompassing critical aspects such as container lifecycle events, network configurations, image management, and incoming API requests.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure logging in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;log-driver&quot;</span>:<span class="w"> </span><span class="s2">&quot;json-file&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;log-opts&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;max-size&quot;</span>:<span class="w"> </span><span class="s2">&quot;10m&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;max-file&quot;</span>:<span class="w"> </span><span class="s2">&quot;3&quot;</span>
-<span class="w">  </span><span class="o">}</span>,
-<span class="w">  </span><span class="s2">&quot;log-level&quot;</span>:<span class="w"> </span><span class="s2">&quot;info&quot;</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="10-use-security-enhanced-systems">10. Use Security Enhanced Systems<a class="headerlink" href="#10-use-security-enhanced-systems" title="Permanent link">&para;</a></h3>
-<p>Ensuring OS-level security systems are active helps defend against malicious activity originating inside containers and the Docker daemon. Docker supports policies for SELinux, Seccomp, and AppArmor; keeping them enabled ensures sane defaults are applied to your containers, including restrictions for dangerous system calls.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t disable security-enhanced systems</span>
-<span class="c1"># Incorrect configuration (do not use):</span>
-<span class="c1"># {</span>
-<span class="c1">#   &quot;selinux-enabled&quot;: false,</span>
-<span class="c1">#   &quot;apparmor-enabled&quot;: false</span>
-<span class="c1"># }</span>
+<h3 id="example-3-require-resource-limits">Example 3: Require Resource Limits<a class="headerlink" href="#example-3-require-resource-limits" title="Permanent link">&para;</a></h3>
+<p>This example ensures all containers have CPU and memory limits:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ConstraintTemplate</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">templates.gatekeeper.sh/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConstraintTemplate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8srequirelimits</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">crd</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequireLimits</span>
+<span class="w">      </span><span class="nt">validation</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">openAPIV3Schema</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+<span class="w">  </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admission.k8s.gatekeeper.sh</span>
+<span class="w">      </span><span class="nt">rego</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">package k8srequirelimits</span>
 
-<span class="c1"># Correct configuration:</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;selinux-enabled&quot;</span>:<span class="w"> </span>true,
-<span class="w">  </span><span class="s2">&quot;apparmor-enabled&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="o">}</span>
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span>
+<span class="w">          </span><span class="no">container := input.review.object.spec.containers[_]</span>
+<span class="w">          </span><span class="no">not container.resources.limits.cpu</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;container &lt;%v&gt; has no CPU limit&quot;, [container.name])</span>
+<span class="w">        </span><span class="no">}</span>
+
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span>
+<span class="w">          </span><span class="no">container := input.review.object.spec.containers[_]</span>
+<span class="w">          </span><span class="no">not container.resources.limits.memory</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;container &lt;%v&gt; has no memory limit&quot;, [container.name])</span>
+<span class="w">        </span><span class="no">}</span>
 </code></pre></div>
-<h2 id="comprehensive-etcdockerdaemonjson-example">Comprehensive <code>/etc/docker/daemon.json</code> Example<a class="headerlink" href="#comprehensive-etcdockerdaemonjson-example" title="Permanent link">&para;</a></h2>
-<p>Here&rsquo;s a comprehensive example of a secure <code>daemon.json</code> configuration that incorporates many of the best practices:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;icc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;iptables&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;live-restore&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;userland-proxy&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;no-new-privileges&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;userns-remap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;storage-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;overlay2&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;default-ulimits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;nofile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nofile&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Hard&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Soft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;selinux-enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;apparmor-enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;default-runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runc&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json-file&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-opts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;max-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;max-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;content-trust&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;trust-pinning&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;official-library-images&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Constraint</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constraints.gatekeeper.sh/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequireLimits</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">require-resource-limits</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kinds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Pod&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;apps&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Deployment&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;StatefulSet&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<h2 id="advanced-use-cases">Advanced Use Cases<a class="headerlink" href="#advanced-use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="mutating-admission-control">Mutating Admission Control<a class="headerlink" href="#mutating-admission-control" title="Permanent link">&para;</a></h3>
+<p>While traditionally Gatekeeper has been used for validation, recent versions support mutation as well. Here&rsquo;s an example of a MutatingWebhook that adds default resource limits:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mutations.gatekeeper.sh/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AssignMetadata</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">add-team-label</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Namespaced</span>
+<span class="w">    </span><span class="nt">kinds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Namespace&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;metadata.labels.team&quot;</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">assign</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default-team&quot;</span>
+</code></pre></div>
+<h3 id="external-data">External Data<a class="headerlink" href="#external-data" title="Permanent link">&para;</a></h3>
+<p>Gatekeeper can use data from external sources through the <code>data.inventory</code> object:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">templates.gatekeeper.sh/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConstraintTemplate</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">k8suniqueservices</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">crd</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">names</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sUniqueServices</span>
+<span class="w">  </span><span class="nt">targets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admission.k8s.gatekeeper.sh</span>
+<span class="w">      </span><span class="nt">rego</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">package k8suniqueservices</span>
+
+<span class="w">        </span><span class="no">violation[{&quot;msg&quot;: msg}] {</span>
+<span class="w">          </span><span class="no">input.review.kind.kind == &quot;Service&quot;</span>
+<span class="w">          </span><span class="no">input.review.object.spec.type == &quot;LoadBalancer&quot;</span>
+<span class="w">          </span><span class="no">port := input.review.object.spec.ports[_]</span>
+<span class="w">          </span><span class="no">existing := data.inventory.namespace[namespace].Service[name]</span>
+<span class="w">          </span><span class="no">existing.spec.type == &quot;LoadBalancer&quot;</span>
+<span class="w">          </span><span class="no">existing_port := existing.spec.ports[_]</span>
+<span class="w">          </span><span class="no">port.port == existing_port.port</span>
+<span class="w">          </span><span class="no">not (input.review.object.metadata.name == existing.metadata.name)</span>
+<span class="w">          </span><span class="no">msg := sprintf(&quot;Service port %v already in use by service %v&quot;, [port.port, existing.metadata.name])</span>
+<span class="w">        </span><span class="no">}</span>
+</code></pre></div>
+<h3 id="exemptions">Exemptions<a class="headerlink" href="#exemptions" title="Permanent link">&para;</a></h3>
+<p>You can create exemptions for your policies using the <code>excludedNamespaces</code> field in the Constraint:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constraints.gatekeeper.sh/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">K8sRequireLimits</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">require-resource-limits</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">kinds</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">apiGroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">kinds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;Pod&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">excludedNamespaces</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;kube-system&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;gatekeeper-system&quot;</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 
 
@@ -6666,7 +6841,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class=
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../cilium/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cilium">
+          <a href="../istio_mtls/" class="md-footer__link md-footer__link--prev" aria-label="Previous: mTLS Pod-to-Pod Communication with Istio">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6676,20 +6851,20 @@ sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class=
                 Previous
               </span>
               <div class="md-ellipsis">
-                Cilium
+                mTLS Pod-to-Pod Communication with Istio
               </div>
             </div>
           </a>
         
         
           
-          <a href="../istio_mtls/" class="md-footer__link md-footer__link--next" aria-label="Next: mTLS Pod-to-Pod Communication with Istio">
+          <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                mTLS Pod-to-Pod Communication with Istio
+                How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?
               </div>
             </div>
             <div class="md-footer__button md-icon">
