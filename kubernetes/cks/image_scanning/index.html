@@ -24,7 +24,7 @@
     
     
       
-        <title>gVisor - My DevOps Interview Preparation</title>
+        <title>Image Scanning and Security - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gvisor" class="md-skip">
+        <a href="#image-scanning-and-security" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              gVisor
+              Image Scanning and Security
             
           </span>
         </div>
@@ -4920,7 +4920,7 @@
   
   
   <span class="md-ellipsis">
-    gVisor
+    Image Scanning and Security
     
   </span>
   
@@ -4933,7 +4933,7 @@
   
   
   <span class="md-ellipsis">
-    gVisor
+    Image Scanning and Security
     
   </span>
   
@@ -4956,64 +4956,94 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-gvisor" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction to gVisor
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
+  <a href="#understanding-sbom" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Configuration
+      Understanding SBOM
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Basic Configuration">
+    <nav class="md-nav" aria-label="Understanding SBOM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-configuration" class="md-nav__link">
+  <a href="#what-is-an-sbom" class="md-nav__link">
     <span class="md-ellipsis">
-      Platform Configuration
+      What is an SBOM?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#check-which-container-runtime-is-currently-used" class="md-nav__link">
+  <a href="#sbom-formats" class="md-nav__link">
     <span class="md-ellipsis">
-      Check which container runtime is currently used
+      SBOM Formats
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SBOM Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cyclonedx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CycloneDX
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-which-container-runtime-to-use" class="md-nav__link">
+  <a href="#2-spdx-software-package-data-exchange" class="md-nav__link">
     <span class="md-ellipsis">
-      Set which container runtime to use
+      2. SPDX (Software Package Data Exchange)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#network-configuration" class="md-nav__link">
+  <a href="#3-swid-software-identification-tags" class="md-nav__link">
     <span class="md-ellipsis">
-      Network Configuration
+      3. SWID (Software Identification Tags)
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#storage-configuration" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-trivy" class="md-nav__link">
     <span class="md-ellipsis">
-      Storage Configuration
+      Introduction to Trivy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Trivy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-trivy" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Trivy?
     </span>
   </a>
   
@@ -5025,20 +5055,125 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-gvisor" class="md-nav__link">
+  <a href="#working-with-trivy" class="md-nav__link">
     <span class="md-ellipsis">
-      Using gVisor
+      Working with Trivy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Trivy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Commands
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-debugging" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#scanning-container-images" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring and Debugging
+      Scanning Container Images
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Scanning Container Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-image-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Image Scanning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-image-scanning-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Image Scanning Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-kubernetes-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scanning Kubernetes Clusters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scanning Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-sboms-with-trivy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating SBOMs with Trivy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating SBOMs with Trivy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sbom-output-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      SBOM Output Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-cyclonedx-sbom-for-a-container-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate CycloneDX SBOM for a Container Image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6135,64 +6270,94 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-to-gvisor" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction to gVisor
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
+  <a href="#understanding-sbom" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Configuration
+      Understanding SBOM
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Basic Configuration">
+    <nav class="md-nav" aria-label="Understanding SBOM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-configuration" class="md-nav__link">
+  <a href="#what-is-an-sbom" class="md-nav__link">
     <span class="md-ellipsis">
-      Platform Configuration
+      What is an SBOM?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#check-which-container-runtime-is-currently-used" class="md-nav__link">
+  <a href="#sbom-formats" class="md-nav__link">
     <span class="md-ellipsis">
-      Check which container runtime is currently used
+      SBOM Formats
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SBOM Formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cyclonedx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CycloneDX
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-which-container-runtime-to-use" class="md-nav__link">
+  <a href="#2-spdx-software-package-data-exchange" class="md-nav__link">
     <span class="md-ellipsis">
-      Set which container runtime to use
+      2. SPDX (Software Package Data Exchange)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#network-configuration" class="md-nav__link">
+  <a href="#3-swid-software-identification-tags" class="md-nav__link">
     <span class="md-ellipsis">
-      Network Configuration
+      3. SWID (Software Identification Tags)
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#storage-configuration" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-trivy" class="md-nav__link">
     <span class="md-ellipsis">
-      Storage Configuration
+      Introduction to Trivy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction to Trivy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-trivy" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Trivy?
     </span>
   </a>
   
@@ -6204,20 +6369,125 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-gvisor" class="md-nav__link">
+  <a href="#working-with-trivy" class="md-nav__link">
     <span class="md-ellipsis">
-      Using gVisor
+      Working with Trivy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with Trivy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Commands
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-and-debugging" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#scanning-container-images" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring and Debugging
+      Scanning Container Images
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Scanning Container Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-image-scanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Image Scanning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-image-scanning-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Image Scanning Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-kubernetes-clusters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scanning Kubernetes Clusters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scanning Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-sboms-with-trivy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating SBOMs with Trivy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating SBOMs with Trivy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sbom-output-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      SBOM Output Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-cyclonedx-sbom-for-a-container-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate CycloneDX SBOM for a Container Image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -6240,142 +6510,155 @@
   
 
 
-<h1 id="gvisor">gVisor<a class="headerlink" href="#gvisor" title="Permanent link">&para;</a></h1>
-<h2 id="introduction-to-gvisor">Introduction to gVisor<a class="headerlink" href="#introduction-to-gvisor" title="Permanent link">&para;</a></h2>
-<p>gVisor is an application kernel, written in Go, that implements a substantial portion of the Linux system call interface. It provides an additional layer of isolation between running applications and the host operating system, acting as a user-space kernel for containers.</p>
-<p>Unlike traditional container runtimes that share the host kernel, gVisor intercepts application system calls and acts as the guest kernel, providing better security isolation without the overhead of a full virtual machine.</p>
-<p>Key benefits include:
-- Enhanced security isolation
-- Reduced attack surface
-- Compatible with existing container workflows
-- Lightweight compared to VMs</p>
-<h2 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="platform-configuration">Platform Configuration<a class="headerlink" href="#platform-configuration" title="Permanent link">&para;</a></h3>
-<h3 id="check-which-container-runtime-is-currently-used">Check which container runtime is currently used<a class="headerlink" href="#check-which-container-runtime-is-currently-used" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>k get nodes -o wide
-</code></pre></div>
-<h3 id="set-which-container-runtime-to-use">Set which container runtime to use<a class="headerlink" href="#set-which-container-runtime-to-use" title="Permanent link">&para;</a></h3>
-<p>Edit <code>/etc/containerd/config.toml</code> or configure Docker to use your preferred platform.</p>
-<p><strong>Available platforms:</strong></p>
-<ol>
-<li><strong>ptrace</strong>: Uses <code>ptrace</code> system call for isolation</li>
-<li>Compatible with most systems</li>
-<li>
-<p>Slower than other platforms</p>
-</li>
-<li>
-<p><strong>KVM</strong>: Uses hardware virtualization</p>
-</li>
-<li>Requires KVM support in the kernel</li>
-<li>Better performance than ptrace</li>
-</ol>
-<p>To configure the platform:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create configuration with specific platform</span>
-sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--runtime<span class="o">=</span>runsc-ptrace<span class="w"> </span>--platform<span class="o">=</span>ptrace
-sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--runtime<span class="o">=</span>runsc-kvm<span class="w"> </span>--platform<span class="o">=</span>kvm
-</code></pre></div>
-<h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
-<p>gVisor provides multiple networking options that can be configured in the runtime spec:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Default networking</span>
-sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--network<span class="o">=</span>sandbox
-
-<span class="c1"># Host networking</span>
-sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--network<span class="o">=</span>host
-</code></pre></div>
-<h3 id="storage-configuration">Storage Configuration<a class="headerlink" href="#storage-configuration" title="Permanent link">&para;</a></h3>
-<p>Configure the overlay filesystem for better performance:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--overlay
-</code></pre></div>
-<p>For Docker, create a config file at <code>/etc/docker/daemon.json</code>:</p>
+<h1 id="image-scanning-and-security">Image Scanning and Security<a class="headerlink" href="#image-scanning-and-security" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>As software supply chain attacks increase in frequency and sophistication, organizations are seeking effective ways to secure their software development lifecycle. Two critical components in this effort are Software Bills of Materials (SBOMs) and vulnerability scanning. This guide focuses on Trivy, a powerful open-source scanner, and how it can be used to generate and analyze SBOMs for enhanced security posture.</p>
+<h2 id="understanding-sbom">Understanding SBOM<a class="headerlink" href="#understanding-sbom" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-an-sbom">What is an SBOM?<a class="headerlink" href="#what-is-an-sbom" title="Permanent link">&para;</a></h3>
+<p>A Software Bill of Materials (SBOM) is a formal, machine-readable inventory of software components and dependencies, information about those components, and their hierarchical relationships. Think of it as a comprehensive ingredient list for software, similar to the nutrition label on food products.</p>
+<p>An SBOM provides transparency into:
+- <strong>Components</strong>: All libraries, modules, and packages included in the software
+- <strong>Versions</strong>: Specific versions of each component
+- <strong>Dependencies</strong>: Relationships between components
+- <strong>Suppliers</strong>: Origin of components
+- <strong>Licensing</strong>: License information for each component</p>
+<h3 id="sbom-formats">SBOM Formats<a class="headerlink" href="#sbom-formats" title="Permanent link">&para;</a></h3>
+<p>There are several SBOM formats available, with the following being the most widely adopted:</p>
+<h4 id="1-cyclonedx">1. CycloneDX<a class="headerlink" href="#1-cyclonedx" title="Permanent link">&para;</a></h4>
+<p>CycloneDX is a lightweight SBOM specification designed by OWASP for application security contexts and supply chain component analysis.</p>
+<p><strong>Key characteristics:</strong>
+- Designed specifically for cybersecurity use cases
+- Supports multiple formats: JSON, XML, Protocol Buffers
+- Lightweight and focused on security-relevant metadata
+- Includes vulnerability reporting capabilities
+- Supports VEX (Vulnerability Exploitability eXchange)</p>
+<p><strong>Sample CycloneDX JSON (simplified):</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;runtimes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;runsc&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/runsc&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;runtimeArgs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;--overlay&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;--network=sandbox&quot;</span>
-<span class="w">      </span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;runsc-kvm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/runsc&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;runtimeArgs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="s2">&quot;--platform=kvm&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;--overlay&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;--network=sandbox&quot;</span>
-<span class="w">      </span><span class="p">]</span>
+<span class="w">  </span><span class="nt">&quot;bomFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CycloneDX&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.4&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;serialNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;components&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;library&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;acme-library&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;purl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pkg:npm/acme-library@1.0.0&quot;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Restart Docker after configuration changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+<h4 id="2-spdx-software-package-data-exchange">2. SPDX (Software Package Data Exchange)<a class="headerlink" href="#2-spdx-software-package-data-exchange" title="Permanent link">&para;</a></h4>
+<p>SPDX is an open standard for communicating software bill of materials information, including components, licenses, copyrights, and security references.</p>
+<p><strong>Key characteristics:</strong>
+- ISO/IEC 5962:2021 standard
+- Comprehensive license information
+- Detailed metadata capabilities
+- Mature standard with strong industry adoption
+- Originally focused on license compliance, now expanded for security</p>
+<p><strong>Sample SPDX JSON (simplified):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;spdxVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SPDX-2.2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;dataLicense&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CC0-1.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;SPDXID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SPDXRef-DOCUMENT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example-project&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;documentNamespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://spdx.org/spdxdocs/example-project&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;packages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;acme-library&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;SPDXID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SPDXRef-Package-1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;versionInfo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;downloadLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/acme-library-1.0.0.tar.gz&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;licenseConcluded&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2 id="using-gvisor">Using gVisor<a class="headerlink" href="#using-gvisor" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>For a Kubernetes cluster with containerd, ensure containerd is configured to use gVisor as shown above.</p>
-</li>
-<li>
-<p>Create a RuntimeClass:</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node.k8s.io/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeClass</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gvisor</span>
-<span class="nt">handler</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">runsc</span>
+<h4 id="3-swid-software-identification-tags">3. SWID (Software Identification Tags)<a class="headerlink" href="#3-swid-software-identification-tags" title="Permanent link">&para;</a></h4>
+<p>SWID tags provide identification information for software, primarily used for inventory and asset management.</p>
+<p><strong>Key characteristics:</strong>
+- Standardized by ISO/IEC 19770-2
+- Focused on software identification and inventory
+- Less detailed than CycloneDX or SPDX
+- Primarily used for IT asset management</p>
+<h2 id="introduction-to-trivy">Introduction to Trivy<a class="headerlink" href="#introduction-to-trivy" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-trivy">What is Trivy?<a class="headerlink" href="#what-is-trivy" title="Permanent link">&para;</a></h3>
+<p>Trivy is a comprehensive and versatile security scanner developed by Aqua Security. It is designed to find vulnerabilities, misconfigurations, secrets, and generate SBOMs across various targets including containers, filesystems, git repositories, and Kubernetes clusters.</p>
+<h2 id="working-with-trivy">Working with Trivy<a class="headerlink" href="#working-with-trivy" title="Permanent link">&para;</a></h2>
+<h3 id="basic-commands">Basic Commands<a class="headerlink" href="#basic-commands" title="Permanent link">&para;</a></h3>
+<p>Trivy has several subcommands for different scanning targets:</p>
+<ul>
+<li><code>image</code>: Scan container images</li>
+<li><code>filesystem</code> (or <code>fs</code>): Scan local filesystem</li>
+<li><code>repository</code> (or <code>repo</code>): Scan a remote git repository</li>
+<li><code>kubernetes</code> (or <code>k8s</code>): Scan Kubernetes resources</li>
+<li><code>config</code>: Scan IaC configuration files</li>
+<li><code>sbom</code>: Scan SBOM files</li>
+</ul>
+<h3 id="scanning-container-images">Scanning Container Images<a class="headerlink" href="#scanning-container-images" title="Permanent link">&para;</a></h3>
+<h4 id="basic-image-scanning">Basic Image Scanning<a class="headerlink" href="#basic-image-scanning" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Scan an image for vulnerabilities (pull from remote registry)</span>
+trivy<span class="w"> </span>image<span class="w"> </span>nginx:latest
+
+<span class="c1"># Scan a locally built image</span>
+trivy<span class="w"> </span>image<span class="w"> </span>my-local-image:tag
+
+<span class="c1"># Scan and filter by severity</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>nginx:latest
+
+<span class="c1"># Output results in JSON format</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--format<span class="w"> </span>json<span class="w"> </span>--output<span class="w"> </span>results.json<span class="w"> </span>nginx:latest
 </code></pre></div>
-<ol>
-<li>Apply the RuntimeClass:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>runtimeclass.yaml
+<h4 id="advanced-image-scanning-options">Advanced Image Scanning Options<a class="headerlink" href="#advanced-image-scanning-options" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ignore unfixed vulnerabilities</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--ignore-unfixed<span class="w"> </span>nginx:latest
+
+<span class="c1"># Include package information in the report</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--list-all-pkgs<span class="w"> </span>nginx:latest
+
+<span class="c1"># Scan with custom policy</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--policy<span class="o">=</span>./policy/<span class="w"> </span>nginx:latest
+
+<span class="c1"># Show dependency tree for vulnerabilities</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--dependency-tree<span class="w"> </span>nginx:latest
 </code></pre></div>
-<ol>
-<li>Create a pod using gVisor:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx-gvisor</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">runtimeClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gvisor</span>
-<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<h3 id="scanning-kubernetes-clusters">Scanning Kubernetes Clusters<a class="headerlink" href="#scanning-kubernetes-clusters" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Scan a Kubernetes cluster (requires kubectl context)</span>
+trivy<span class="w"> </span>k8s<span class="w"> </span>--report<span class="w"> </span>summary<span class="w"> </span>cluster
+
+<span class="c1"># Scan a specific namespace</span>
+trivy<span class="w"> </span>k8s<span class="w"> </span>--namespace<span class="w"> </span>default<span class="w"> </span>all
+
+<span class="c1"># Scan a specific workload</span>
+trivy<span class="w"> </span>k8s<span class="w"> </span>deployment/my-deployment
 </code></pre></div>
-<ol>
-<li>Verify the pod is running with gVisor:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nginx-gvisor<span class="w"> </span>--<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>gVisor
+<h3 id="scanning-infrastructure-as-code">Scanning Infrastructure as Code<a class="headerlink" href="#scanning-infrastructure-as-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Scan IaC files for misconfigurations</span>
+trivy<span class="w"> </span>config<span class="w"> </span>./terraform/
+
+<span class="c1"># Scan Kubernetes YAML files</span>
+trivy<span class="w"> </span>config<span class="w"> </span>./kubernetes-manifests/
+
+<span class="c1"># Scan with custom policies</span>
+trivy<span class="w"> </span>config<span class="w"> </span>--policy<span class="o">=</span>./policy/<span class="w"> </span>./terraform/
 </code></pre></div>
-<h2 id="monitoring-and-debugging">Monitoring and Debugging<a class="headerlink" href="#monitoring-and-debugging" title="Permanent link">&para;</a></h2>
-<p>gVisor provides several debugging tools:</p>
-<ol>
-<li><strong>View debug logs</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable debug logs</span>
-sudo<span class="w"> </span>runsc<span class="w"> </span>install<span class="w"> </span>--debug<span class="w"> </span>--debug-log<span class="o">=</span>/var/log/runsc/
-tail<span class="w"> </span>-f<span class="w"> </span>/var/log/runsc/*.log
-</code></pre></div>
-<ol>
-<li><strong>Get stacks</strong> of a running container:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--stacks<span class="w"> </span>&lt;container-id&gt;
-</code></pre></div>
-<ol>
-<li><strong>Create a CPU profile</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--cpu-profile<span class="o">=</span>/tmp/profile.out<span class="w"> </span>&lt;container-id&gt;
-</code></pre></div>
-<ol>
-<li><strong>Examine container logs</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--logs<span class="w"> </span>&lt;container-id&gt;
-</code></pre></div>
-<ol>
-<li><strong>Trace system calls</strong>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>runsc<span class="w"> </span>debug<span class="w"> </span>--trace<span class="w"> </span>&lt;container-id&gt;
+<h2 id="generating-sboms-with-trivy">Generating SBOMs with Trivy<a class="headerlink" href="#generating-sboms-with-trivy" title="Permanent link">&para;</a></h2>
+<h3 id="sbom-output-formats">SBOM Output Formats<a class="headerlink" href="#sbom-output-formats" title="Permanent link">&para;</a></h3>
+<p>Trivy can generate SBOMs in the following formats:</p>
+<ul>
+<li><strong>CycloneDX</strong>: Using <code>--format cyclonedx</code></li>
+<li><strong>SPDX</strong>: Using <code>--format spdx-json</code> or <code>--format spdx</code></li>
+</ul>
+<h3 id="command-examples">Command Examples<a class="headerlink" href="#command-examples" title="Permanent link">&para;</a></h3>
+<h4 id="generate-cyclonedx-sbom-for-a-container-image">Generate CycloneDX SBOM for a Container Image<a class="headerlink" href="#generate-cyclonedx-sbom-for-a-container-image" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate a CycloneDX SBOM for a container image</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--format<span class="w"> </span>cyclonedx<span class="w"> </span>--output<span class="w"> </span>sbom.cdx.json<span class="w"> </span>nginx:latest
+
+<span class="c1"># Include full dependency tree</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--format<span class="w"> </span>cyclonedx<span class="w"> </span>--output<span class="w"> </span>sbom.cdx.json<span class="w"> </span>--dependency-tree<span class="w"> </span>nginx:latest
+
+<span class="c1"># Include package info for all packages</span>
+trivy<span class="w"> </span>image<span class="w"> </span>--format<span class="w"> </span>cyclonedx<span class="w"> </span>--output<span class="w"> </span>sbom.cdx.json<span class="w"> </span>--list-all-pkgs<span class="w"> </span>nginx:latest
 </code></pre></div>
 
 
