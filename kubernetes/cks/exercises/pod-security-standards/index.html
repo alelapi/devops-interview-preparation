@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../etcd/">
+        <link rel="prev" href="../p2p-encryption-istio-cilium/">
       
       
-        <link rel="next" href="../kubelet_issues/">
+        <link rel="next" href="../../../../architectural-patterns/bulkhead/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
     
     
       
-        <title>Vertical Pod Autoscaler - My DevOps Interview Preparation</title>
+        <title>Pod Security Standards (PSS): Overview and Implementation Guide - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vertical-pod-autoscaler" class="md-skip">
+        <a href="#pod-security-standards-pss-overview-and-implementation-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Vertical Pod Autoscaler
+              Pod Security Standards (PSS): Overview and Implementation Guide
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../envoy/" class="md-tabs__link">
+        <a href="../../../envoy/" class="md-tabs__link">
           
   
   
@@ -300,7 +300,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -322,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -358,7 +358,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -575,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -621,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -644,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -690,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -713,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -799,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -822,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -845,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -868,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -891,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -977,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1000,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1023,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1046,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1069,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1180,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1203,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1226,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1249,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1272,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1356,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1379,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1402,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1425,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1509,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1532,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1555,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1578,7 +1578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1670,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1693,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1716,7 +1716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1739,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1762,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1785,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1808,7 +1808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1831,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -1913,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -1936,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -1959,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2049,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2072,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2095,7 +2095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2118,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2141,7 +2141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2164,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2187,7 +2187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2218,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/appsync/" class="md-nav__link">
+      <a href="../../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2241,7 +2241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cdk/" class="md-nav__link">
+      <a href="../../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2264,7 +2264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2287,7 +2287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/codestar/" class="md-nav__link">
+      <a href="../../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2310,7 +2310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sar/" class="md-nav__link">
+      <a href="../../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2333,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/step_function/" class="md-nav__link">
+      <a href="../../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2356,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sts/" class="md-nav__link">
+      <a href="../../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2379,7 +2379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/swf/" class="md-nav__link">
+      <a href="../../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2402,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2514,7 +2514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../envoy/" class="md-nav__link">
+      <a href="../../../envoy/" class="md-nav__link">
         
   
   
@@ -2537,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -2560,7 +2560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_security_admission/" class="md-nav__link">
+      <a href="../../../pod_security_admission/" class="md-nav__link">
         
   
   
@@ -2583,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../admission_controller/" class="md-nav__link">
+      <a href="../../../admission_controller/" class="md-nav__link">
         
   
   
@@ -2606,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -2629,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aggregation_layer/" class="md-nav__link">
+      <a href="../../../aggregation_layer/" class="md-nav__link">
         
   
   
@@ -2652,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../encryptionconfig/" class="md-nav__link">
+      <a href="../../../encryptionconfig/" class="md-nav__link">
         
   
   
@@ -2675,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../submariner/" class="md-nav__link">
+      <a href="../../../submariner/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubefed/" class="md-nav__link">
+      <a href="../../../kubefed/" class="md-nav__link">
         
   
   
@@ -2721,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability_tools/" class="md-nav__link">
+      <a href="../../../observability_tools/" class="md-nav__link">
         
   
   
@@ -2767,7 +2767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../endpoint/" class="md-nav__link">
+      <a href="../../../endpoint/" class="md-nav__link">
         
   
   
@@ -2846,7 +2846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -2869,7 +2869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -2892,7 +2892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -2968,7 +2968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -2991,7 +2991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3014,7 +3014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3037,7 +3037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3073,8 +3073,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3108,11 +3106,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
         
           
           <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="">
@@ -3128,7 +3126,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_14">
             <span class="md-nav__icon md-icon"></span>
             CKA
@@ -3142,7 +3140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../etcd/" class="md-nav__link">
+      <a href="../../../cka/etcd/" class="md-nav__link">
         
   
   
@@ -3162,19 +3160,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../cka/vpa/" class="md-nav__link">
         
   
   
@@ -3185,7 +3174,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -3198,7 +3186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kubelet_issues/" class="md-nav__link">
+      <a href="../../../cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -3221,7 +3209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../utilities/" class="md-nav__link">
+      <a href="../../../cka/utilities/" class="md-nav__link">
         
   
   
@@ -3244,7 +3232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openssl/" class="md-nav__link">
+      <a href="../../../cka/openssl/" class="md-nav__link">
         
   
   
@@ -3267,7 +3255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helm/" class="md-nav__link">
+      <a href="../../../cka/helm/" class="md-nav__link">
         
   
   
@@ -3290,7 +3278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cri/" class="md-nav__link">
+      <a href="../../../cka/cri/" class="md-nav__link">
         
   
   
@@ -3313,7 +3301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jsonpath/" class="md-nav__link">
+      <a href="../../../cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -3406,7 +3394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../../kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -3429,7 +3417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -3452,7 +3440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -3475,7 +3463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../../kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -3498,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/security_context/" class="md-nav__link">
+      <a href="../../../kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -3521,7 +3509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -3544,7 +3532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../../kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -3572,6 +3560,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3619,11 +3609,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" checked>
         
           
           <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="">
@@ -3639,7 +3629,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_16">
             <span class="md-nav__icon md-icon"></span>
             CKS
@@ -3653,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../../k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -3676,7 +3666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/cert_auth/" class="md-nav__link">
+      <a href="../../cert_auth/" class="md-nav__link">
         
   
   
@@ -3699,7 +3689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/apparmor/" class="md-nav__link">
+      <a href="../../apparmor/" class="md-nav__link">
         
   
   
@@ -3722,7 +3712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/falco/" class="md-nav__link">
+      <a href="../../falco/" class="md-nav__link">
         
   
   
@@ -3745,7 +3735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/seccomp/" class="md-nav__link">
+      <a href="../../seccomp/" class="md-nav__link">
         
   
   
@@ -3768,7 +3758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/image_scanning/" class="md-nav__link">
+      <a href="../../image_scanning/" class="md-nav__link">
         
   
   
@@ -3791,7 +3781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/kube_bench/" class="md-nav__link">
+      <a href="../../kube_bench/" class="md-nav__link">
         
   
   
@@ -3814,7 +3804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/audit_logging/" class="md-nav__link">
+      <a href="../../audit_logging/" class="md-nav__link">
         
   
   
@@ -3837,7 +3827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/admission_controller_config/" class="md-nav__link">
+      <a href="../../admission_controller_config/" class="md-nav__link">
         
   
   
@@ -3860,7 +3850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/cilium/" class="md-nav__link">
+      <a href="../../cilium/" class="md-nav__link">
         
   
   
@@ -3883,7 +3873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/secure_docker_daemon/" class="md-nav__link">
+      <a href="../../secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -3906,7 +3896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/istio_mtls/" class="md-nav__link">
+      <a href="../../istio_mtls/" class="md-nav__link">
         
   
   
@@ -3929,7 +3919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/opa/" class="md-nav__link">
+      <a href="../../opa/" class="md-nav__link">
         
   
   
@@ -3952,7 +3942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/runtimeclass/" class="md-nav__link">
+      <a href="../../runtimeclass/" class="md-nav__link">
         
   
   
@@ -3972,8 +3962,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -4000,11 +3992,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16_15" checked>
         
           
           <label class="md-nav__link" for="__nav_3_16_15" id="__nav_3_16_15_label" tabindex="0">
@@ -4020,7 +4012,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_16_15_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_16_15_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_16_15">
             <span class="md-nav__icon md-icon"></span>
             Exercises
@@ -4034,7 +4026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/falco-rule/" class="md-nav__link">
+      <a href="../falco-rule/" class="md-nav__link">
         
   
   
@@ -4057,7 +4049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/use-sbom/" class="md-nav__link">
+      <a href="../use-sbom/" class="md-nav__link">
         
   
   
@@ -4080,7 +4072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/istio-mtls/" class="md-nav__link">
+      <a href="../istio-mtls/" class="md-nav__link">
         
   
   
@@ -4103,7 +4095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/docker-socket-security/" class="md-nav__link">
+      <a href="../docker-socket-security/" class="md-nav__link">
         
   
   
@@ -4126,7 +4118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/hostpath-only/" class="md-nav__link">
+      <a href="../hostpath-only/" class="md-nav__link">
         
   
   
@@ -4149,7 +4141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+      <a href="../p2p-encryption-istio-cilium/" class="md-nav__link">
         
   
   
@@ -4169,10 +4161,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../cks/exercises/pod-security-standards/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Standards (PSS): Overview and Implementation Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4183,6 +4197,221 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-pod-security-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Pod Security Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pss-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSS Profiles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pss-implementation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSS Implementation Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pss-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSS Modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-task-example-making-a-deployment-compatible-with-pss-restricted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Task Example: Making a Deployment Compatible with PSS-Restricted
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Task Example: Making a Deployment Compatible with PSS-Restricted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-namespace-with-pss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Configure Namespace with PSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-compliant-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create a Compliant Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-the-persistent-volume-claim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create the Persistent Volume Claim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-apply-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Apply the Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-deployment-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Verify Deployment Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-pss-restricted-requirements-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key PSS Restricted Requirements Explained
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues and Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-exam-task-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Exam Task Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Exam Task Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-configure-a-namespace-for-pss-audit-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Configure a Namespace for PSS Audit Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-troubleshoot-a-pod-failing-due-to-pss-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Troubleshoot a Pod Failing Due to PSS Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4275,7 +4504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -4298,7 +4527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -4321,7 +4550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -4344,7 +4573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -4367,7 +4596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -4390,7 +4619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -4467,7 +4696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -4510,6 +4739,209 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-pod-security-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction to Pod Security Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pss-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSS Profiles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pss-implementation-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSS Implementation Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pss-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSS Modes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-task-example-making-a-deployment-compatible-with-pss-restricted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Task Example: Making a Deployment Compatible with PSS-Restricted
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Task Example: Making a Deployment Compatible with PSS-Restricted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-configure-namespace-with-pss" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Configure Namespace with PSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-compliant-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create a Compliant Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-the-persistent-volume-claim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create the Persistent Volume Claim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-apply-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Apply the Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-deployment-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Verify Deployment Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-pss-restricted-requirements-explained" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key PSS Restricted Requirements Explained
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues and Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-exam-task-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Exam Task Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Exam Task Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-configure-a-namespace-for-pss-audit-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1: Configure a Namespace for PSS Audit Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-troubleshoot-a-pod-failing-due-to-pss-restrictions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2: Troubleshoot a Pod Failing Due to PSS Restrictions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4527,31 +4959,257 @@
   
 
 
-<h1 id="vertical-pod-autoscaler">Vertical Pod Autoscaler<a class="headerlink" href="#vertical-pod-autoscaler" title="Permanent link">&para;</a></h1>
-<p>Example of VPA manifest:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">autoscaling.k8s.io/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VerticalPodAutoscaler</span>
+<h1 id="pod-security-standards-pss-overview-and-implementation-guide">Pod Security Standards (PSS): Overview and Implementation Guide<a class="headerlink" href="#pod-security-standards-pss-overview-and-implementation-guide" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-to-pod-security-standards">Introduction to Pod Security Standards<a class="headerlink" href="#introduction-to-pod-security-standards" title="Permanent link">&para;</a></h2>
+<p>Pod Security Standards (PSS) is a feature in Kubernetes that defines different levels of security for pods. It replaced the deprecated PodSecurityPolicy (PSP) in Kubernetes 1.25. The PSS provides a standardized way to enforce security controls for pods, helping cluster administrators ensure workloads meet specific security requirements without needing to create and manage custom policies.</p>
+<h2 id="pss-profiles">PSS Profiles<a class="headerlink" href="#pss-profiles" title="Permanent link">&para;</a></h2>
+<p>PSS defines three security profiles with increasing levels of restriction:</p>
+<ol>
+<li>
+<p><strong>Privileged</strong>: Unrestricted policy, providing the widest possible level of permissions. This profile has essentially no restrictions on pod configuration.</p>
+</li>
+<li>
+<p><strong>Baseline</strong>: Minimally restrictive policy which prevents known privilege escalations. Allows the default (minimally specified) pod configuration.</p>
+</li>
+<li>
+<p><strong>Restricted</strong>: Heavily restricted policy, following current pod hardening best practices. This is the most secure profile, designed to enforce security best practices.</p>
+</li>
+</ol>
+<h2 id="pss-implementation-methods">PSS Implementation Methods<a class="headerlink" href="#pss-implementation-methods" title="Permanent link">&para;</a></h2>
+<p>There are three ways to implement Pod Security Standards:</p>
+<ol>
+<li>
+<p><strong>Pod Security Admission Controller</strong>: Built into Kubernetes since v1.23, it can enforce the standards at the namespace level.</p>
+</li>
+<li>
+<p><strong>Namespace Labels</strong>: Used to configure the Pod Security Admission Controller with different modes (enforce, audit, warn).</p>
+</li>
+<li>
+<p><strong>3<sup>rd</sup> Party Solutions</strong>: Various tools like OPA/Gatekeeper, Kyverno, etc. can enforce PSS.</p>
+</li>
+</ol>
+<h2 id="pss-modes">PSS Modes<a class="headerlink" href="#pss-modes" title="Permanent link">&para;</a></h2>
+<p>Each profile can be applied in one of three modes:</p>
+<ol>
+<li><strong>enforce</strong>: Policy violations will cause the pod to be rejected</li>
+<li><strong>audit</strong>: Policy violations trigger audit annotations, but are allowed</li>
+<li><strong>warn</strong>: Policy violations trigger user-facing warnings, but are allowed</li>
+</ol>
+<h2 id="exam-task-example-making-a-deployment-compatible-with-pss-restricted">Exam Task Example: Making a Deployment Compatible with PSS-Restricted<a class="headerlink" href="#exam-task-example-making-a-deployment-compatible-with-pss-restricted" title="Permanent link">&para;</a></h2>
+<h3 id="task-description">Task Description<a class="headerlink" href="#task-description" title="Permanent link">&para;</a></h3>
+<p>Create a deployment that is compatible with the Pod Security Standard &ldquo;restricted&rdquo; profile in enforce mode. The deployment should run a container that:
+1. Reads and writes to a persistent volume
+2. Exposes port 8080
+3. Runs as a non-root user
+4. Meets all the requirements of the restricted profile</p>
+<h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-configure-namespace-with-pss">Step 1: Configure Namespace with PSS<a class="headerlink" href="#step-1-configure-namespace-with-pss" title="Permanent link">&para;</a></h4>
+<p>First, let&rsquo;s create a namespace with the restricted profile in enforce mode:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>pss-restricted
+kubectl<span class="w"> </span>label<span class="w"> </span>--overwrite<span class="w"> </span>ns<span class="w"> </span>pss-restricted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pod-security.kubernetes.io/enforce<span class="o">=</span>restricted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pod-security.kubernetes.io/warn<span class="o">=</span>restricted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pod-security.kubernetes.io/audit<span class="o">=</span>restricted
+</code></pre></div>
+<h4 id="step-2-create-a-compliant-deployment">Step 2: Create a Compliant Deployment<a class="headerlink" href="#step-2-create-a-compliant-deployment" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app-vpa</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted-app</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">targetRef</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-app</span>
-<span class="w">  </span><span class="nt">updatePolicy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">updateMode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Auto&quot;</span><span class="w"> </span><span class="c1"># Options: &quot;Off&quot;, &quot;Initial&quot;, &quot;Auto&quot;, &quot;Recreate&quot;</span>
-<span class="w">  </span><span class="nt">resourcePolicy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">containerPolicies</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerName</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
-<span class="w">        </span><span class="nt">minAllowed</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100m</span>
-<span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128Mi</span>
-<span class="w">        </span><span class="nt">maxAllowed</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">          </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
-<span class="w">        </span><span class="nt">controlledResources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;cpu&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;memory&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted-app</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted-app</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Security Context at Pod level</span>
+<span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">seccompProfile</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeDefault</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:1.21</span>
+<span class="w">        </span><span class="c1"># Container Security Context</span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">          </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">          </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000</span>
+<span class="w">          </span><span class="nt">seccompProfile</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeDefault</span>
+<span class="w">          </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500m&quot;</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;100m&quot;</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;128Mi&quot;</span>
+<span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-volume</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data</span>
+<span class="w">          </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp-volume</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-volume</span>
+<span class="w">        </span><span class="nt">persistentVolumeClaim</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">claimName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted-pvc</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp-volume</span>
+<span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</code></pre></div>
+<h4 id="step-3-create-the-persistent-volume-claim">Step 3: Create the Persistent Volume Claim<a class="headerlink" href="#step-3-create-the-persistent-volume-claim" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted-pvc</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">accessModes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ReadWriteOnce</span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1Gi</span>
+<span class="w">  </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard</span>
+</code></pre></div>
+<h4 id="step-4-apply-the-configuration">Step 4: Apply the Configuration<a class="headerlink" href="#step-4-apply-the-configuration" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>pss-pvc.yaml
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>pss-deployment.yaml
+</code></pre></div>
+<h4 id="step-5-verify-deployment-status">Step 5: Verify Deployment Status<a class="headerlink" href="#step-5-verify-deployment-status" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>deployment<span class="w"> </span>-n<span class="w"> </span>pss-restricted
+kubectl<span class="w"> </span>describe<span class="w"> </span>deployment<span class="w"> </span>pss-restricted-app<span class="w"> </span>-n<span class="w"> </span>pss-restricted
+</code></pre></div>
+<h3 id="key-pss-restricted-requirements-explained">Key PSS Restricted Requirements Explained<a class="headerlink" href="#key-pss-restricted-requirements-explained" title="Permanent link">&para;</a></h3>
+<p>When the Pod Security Standard enforces the restricted profile, the following security requirements must be met:</p>
+<ol>
+<li><strong>Pod-level Requirements</strong>:</li>
+<li><code>securityContext.runAsNonRoot: true</code>: Ensures pods run as non-root users</li>
+<li>
+<p><code>securityContext.seccompProfile.type: RuntimeDefault</code>: Enables default seccomp profile</p>
+</li>
+<li>
+<p><strong>Container-level Requirements</strong>:</p>
+</li>
+<li><code>securityContext.allowPrivilegeEscalation: false</code>: Prevents privilege escalation</li>
+<li><code>securityContext.capabilities.drop: ["ALL"]</code>: Drops all Linux capabilities</li>
+<li><code>securityContext.runAsUser</code> and <code>runAsGroup</code>: Explicit non-zero user/group IDs</li>
+<li><code>securityContext.seccompProfile.type: RuntimeDefault</code>: Enables seccomp at container level</li>
+<li>
+<p><code>readOnlyRootFilesystem: true</code>: Makes root filesystem read-only</p>
+</li>
+<li>
+<p><strong>Volume-related Considerations</strong>:</p>
+</li>
+<li>When a read-only root filesystem is used, you must provide writable volumes for paths like <code>/tmp</code></li>
+<li>
+<p>PersistentVolumeClaims are allowed and need appropriate mount paths</p>
+</li>
+<li>
+<p><strong>Prohibited configurations</strong>:</p>
+</li>
+<li><code>hostPath</code> volumes</li>
+<li><code>hostNetwork</code>, <code>hostIPC</code>, and <code>hostPID</code> set to true</li>
+<li><code>privileged</code> containers</li>
+<li>Adding capabilities beyond a minimal set</li>
+<li>HostPort usage</li>
+</ol>
+<h2 id="common-issues-and-troubleshooting">Common Issues and Troubleshooting<a class="headerlink" href="#common-issues-and-troubleshooting" title="Permanent link">&para;</a></h2>
+<p>When working with PSS in restricted mode, you might encounter the following issues:</p>
+<ol>
+<li>
+<p><strong>Pod Rejection Errors</strong>: If a pod is rejected, check the error message from kubectl, which will specify which PSS policy was violated.</p>
+</li>
+<li>
+<p><strong>Runtime Failures</strong>: Even if a pod starts, it might fail if it needs to write to locations that are now read-only.</p>
+</li>
+<li>
+<p><strong>Legacy Applications</strong>: Older applications often assume root access or specific capabilities, requiring refactoring.</p>
+</li>
+</ol>
+<h3 id="troubleshooting-commands">Troubleshooting Commands<a class="headerlink" href="#troubleshooting-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if pod was rejected due to PSS violations</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>-n<span class="w"> </span>pss-restricted
+
+<span class="c1"># Check audit annotations for violations</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>&lt;pod-name&gt;<span class="w"> </span>-n<span class="w"> </span>pss-restricted<span class="w"> </span>-o<span class="w"> </span>yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;audit&quot;</span>
+
+<span class="c1"># Check warning events</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>events<span class="w"> </span>-n<span class="w"> </span>pss-restricted<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Warning
+</code></pre></div>
+<h2 id="additional-exam-task-examples">Additional Exam Task Examples<a class="headerlink" href="#additional-exam-task-examples" title="Permanent link">&para;</a></h2>
+<h3 id="task-1-configure-a-namespace-for-pss-audit-mode">Task 1: Configure a Namespace for PSS Audit Mode<a class="headerlink" href="#task-1-configure-a-namespace-for-pss-audit-mode" title="Permanent link">&para;</a></h3>
+<p>Create a namespace that audits according to the restricted profile but only enforces the baseline profile.</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>namespace<span class="w"> </span>mixed-pss
+kubectl<span class="w"> </span>label<span class="w"> </span>--overwrite<span class="w"> </span>ns<span class="w"> </span>mixed-pss<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pod-security.kubernetes.io/enforce<span class="o">=</span>baseline<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pod-security.kubernetes.io/audit<span class="o">=</span>restricted<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>pod-security.kubernetes.io/warn<span class="o">=</span>restricted
+</code></pre></div>
+<h3 id="task-2-troubleshoot-a-pod-failing-due-to-pss-restrictions">Task 2: Troubleshoot a Pod Failing Due to PSS Restrictions<a class="headerlink" href="#task-2-troubleshoot-a-pod-failing-due-to-pss-restrictions" title="Permanent link">&para;</a></h3>
+<p>Given a pod that is failing to deploy in a namespace with PSS restricted enforcement, identify and fix the issues.</p>
+<p>Original pod manifest:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privileged-pod</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">    </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">  </span><span class="c1"># Violation! </span>
 </code></pre></div></p>
+<p>Fixed pod manifest:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pod</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compliant-pod</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pss-restricted</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">seccompProfile</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeDefault</span>
+<span class="w">  </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">    </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">      </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">101</span><span class="w">  </span><span class="c1"># nginx user</span>
+<span class="w">      </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">101</span>
+<span class="w">      </span><span class="nt">seccompProfile</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeDefault</span>
+</code></pre></div></p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Pod Security Standards provide a robust framework for securing Kubernetes workloads. Understanding the different profiles and their requirements is essential for creating secure deployments that can run in restricted environments. When working with the restricted profile:</p>
+<ol>
+<li>Always specify non-root users</li>
+<li>Drop ALL capabilities at the container level</li>
+<li>Prevent privilege escalation</li>
+<li>Use appropriate seccomp profiles</li>
+<li>Make root filesystems read-only when possible</li>
+<li>Use emptyDir volumes for temporary writable storage</li>
+</ol>
+<p>By following these practices, you can ensure your workloads are compatible with Kubernetes security best practices and can run in environments with strict security requirements.</p>
 
 
 
@@ -4587,7 +5245,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../etcd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ETDC">
+          <a href="../p2p-encryption-istio-cilium/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Enabling Pod-to-Pod Encryption with Istio and Cilium">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4597,20 +5255,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                ETDC
+                Enabling Pod-to-Pod Encryption with Istio and Cilium
               </div>
             </div>
           </a>
         
         
           
-          <a href="../kubelet_issues/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubelet Issues">
+          <a href="../../../../architectural-patterns/bulkhead/" class="md-footer__link md-footer__link--next" aria-label="Next: Bulkhead Pattern">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Kubelet Issues
+                Bulkhead Pattern
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4646,10 +5304,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
