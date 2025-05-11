@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../cilium/">
+        <link rel="prev" href="../hostpath-only/">
       
       
-        <link rel="next" href="../istio_mtls/">
+        <link rel="next" href="../../../../architectural-patterns/bulkhead/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
     
     
       
-        <title>Secure Docker Daemon - My DevOps Interview Preparation</title>
+        <title>Enabling Pod-to-Pod Encryption with Istio and Cilium - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secure-docker-daemon" class="md-skip">
+        <a href="#enabling-pod-to-pod-encryption-with-istio-and-cilium" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Secure Docker Daemon
+              Enabling Pod-to-Pod Encryption with Istio and Cilium
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../envoy/" class="md-tabs__link">
+        <a href="../../../envoy/" class="md-tabs__link">
           
   
   
@@ -300,7 +300,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -322,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -358,7 +358,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -575,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -621,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -644,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -690,7 +690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -713,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -799,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -822,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -845,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -868,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -891,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -977,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1000,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1023,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1046,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1069,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1180,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1203,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1226,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1249,7 +1249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1272,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1356,7 +1356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1379,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1402,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1425,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1509,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1532,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1555,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1578,7 +1578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1670,7 +1670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1693,7 +1693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1716,7 +1716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1739,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1762,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1785,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1808,7 +1808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1831,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -1913,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -1936,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -1959,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2049,7 +2049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2072,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2095,7 +2095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2118,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2141,7 +2141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2164,7 +2164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2187,7 +2187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2218,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/appsync/" class="md-nav__link">
+      <a href="../../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2241,7 +2241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cdk/" class="md-nav__link">
+      <a href="../../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2264,7 +2264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2287,7 +2287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/codestar/" class="md-nav__link">
+      <a href="../../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2310,7 +2310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sar/" class="md-nav__link">
+      <a href="../../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2333,7 +2333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/step_function/" class="md-nav__link">
+      <a href="../../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2356,7 +2356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sts/" class="md-nav__link">
+      <a href="../../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2379,7 +2379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/swf/" class="md-nav__link">
+      <a href="../../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2402,7 +2402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2514,7 +2514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../envoy/" class="md-nav__link">
+      <a href="../../../envoy/" class="md-nav__link">
         
   
   
@@ -2537,7 +2537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -2560,7 +2560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_security_admission/" class="md-nav__link">
+      <a href="../../../pod_security_admission/" class="md-nav__link">
         
   
   
@@ -2583,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../admission_controller/" class="md-nav__link">
+      <a href="../../../admission_controller/" class="md-nav__link">
         
   
   
@@ -2606,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -2629,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aggregation_layer/" class="md-nav__link">
+      <a href="../../../aggregation_layer/" class="md-nav__link">
         
   
   
@@ -2652,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../encryptionconfig/" class="md-nav__link">
+      <a href="../../../encryptionconfig/" class="md-nav__link">
         
   
   
@@ -2675,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../submariner/" class="md-nav__link">
+      <a href="../../../submariner/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubefed/" class="md-nav__link">
+      <a href="../../../kubefed/" class="md-nav__link">
         
   
   
@@ -2721,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability_tools/" class="md-nav__link">
+      <a href="../../../observability_tools/" class="md-nav__link">
         
   
   
@@ -2767,7 +2767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../endpoint/" class="md-nav__link">
+      <a href="../../../endpoint/" class="md-nav__link">
         
   
   
@@ -2846,7 +2846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -2869,7 +2869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -2892,7 +2892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -2968,7 +2968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -2991,7 +2991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3014,7 +3014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3037,7 +3037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3140,7 +3140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/etcd/" class="md-nav__link">
+      <a href="../../../cka/etcd/" class="md-nav__link">
         
   
   
@@ -3163,7 +3163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/vpa/" class="md-nav__link">
+      <a href="../../../cka/vpa/" class="md-nav__link">
         
   
   
@@ -3186,7 +3186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../../cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -3209,7 +3209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/utilities/" class="md-nav__link">
+      <a href="../../../cka/utilities/" class="md-nav__link">
         
   
   
@@ -3232,7 +3232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/openssl/" class="md-nav__link">
+      <a href="../../../cka/openssl/" class="md-nav__link">
         
   
   
@@ -3255,7 +3255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/helm/" class="md-nav__link">
+      <a href="../../../cka/helm/" class="md-nav__link">
         
   
   
@@ -3278,7 +3278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/cri/" class="md-nav__link">
+      <a href="../../../cka/cri/" class="md-nav__link">
         
   
   
@@ -3301,7 +3301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/jsonpath/" class="md-nav__link">
+      <a href="../../../cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -3394,7 +3394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../../kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -3417,7 +3417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -3440,7 +3440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -3463,7 +3463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../../kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -3486,7 +3486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/security_context/" class="md-nav__link">
+      <a href="../../../kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -3509,7 +3509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -3532,7 +3532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../../kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -3643,7 +3643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../k8s_dashboard/" class="md-nav__link">
+      <a href="../../k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -3666,7 +3666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cert_auth/" class="md-nav__link">
+      <a href="../../cert_auth/" class="md-nav__link">
         
   
   
@@ -3689,7 +3689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../apparmor/" class="md-nav__link">
+      <a href="../../apparmor/" class="md-nav__link">
         
   
   
@@ -3712,7 +3712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../falco/" class="md-nav__link">
+      <a href="../../falco/" class="md-nav__link">
         
   
   
@@ -3735,7 +3735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../seccomp/" class="md-nav__link">
+      <a href="../../seccomp/" class="md-nav__link">
         
   
   
@@ -3758,7 +3758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../image_scanning/" class="md-nav__link">
+      <a href="../../image_scanning/" class="md-nav__link">
         
   
   
@@ -3781,7 +3781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kube_bench/" class="md-nav__link">
+      <a href="../../kube_bench/" class="md-nav__link">
         
   
   
@@ -3804,7 +3804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit_logging/" class="md-nav__link">
+      <a href="../../audit_logging/" class="md-nav__link">
         
   
   
@@ -3827,7 +3827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../admission_controller_config/" class="md-nav__link">
+      <a href="../../admission_controller_config/" class="md-nav__link">
         
   
   
@@ -3850,12 +3850,278 @@
   
   
     <li class="md-nav__item">
-      <a href="../cilium/" class="md-nav__link">
+      <a href="../../cilium/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../secure_docker_daemon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Docker Daemon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../istio_mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mTLS Pod-to-Pod Communication with Istio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../opa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OPA and Gatekeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runtimeclass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RuntimeClass
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16_15" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_16_15" id="__nav_3_16_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Exercises
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_16_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_16_15">
+            <span class="md-nav__icon md-icon"></span>
+            Exercises
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../falco-rule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco Rule to Detect Container Access to /dev/mem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-sbom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use SBOM - Finding Images Using Cryptolib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../istio-mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-socket-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Docker Socket Service File to Change Group Ownership to Root
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hostpath-only/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Pod with Host Path Access and Falco Detection
     
   </span>
   
@@ -3887,7 +4153,7 @@
   
   
   <span class="md-ellipsis">
-    Secure Docker Daemon
+    Enabling Pod-to-Pod Encryption with Istio and Cilium
     
   </span>
   
@@ -3900,7 +4166,7 @@
   
   
   <span class="md-ellipsis">
-    Secure Docker Daemon
+    Enabling Pod-to-Pod Encryption with Istio and Cilium
     
   </span>
   
@@ -3923,145 +4189,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-docker-daemon-security-risks" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Docker Daemon Security Risks
+      Table of Contents
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-and-securing-communication-sockets" class="md-nav__link">
+  <a href="#solution-1-p2p-encryption-with-istio" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring and Securing Communication Sockets
+      Solution 1: P2P Encryption with Istio
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuring and Securing Communication Sockets">
+    <nav class="md-nav" aria-label="Solution 1: P2P Encryption with Istio">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-unix-socket-default-and-recommended" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Unix Socket (Default and Recommended)
+      Prerequisites
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-tcp-socket-for-remote-access" class="md-nav__link">
+  <a href="#step-1-install-istio-with-mtls-enabled" class="md-nav__link">
     <span class="md-ellipsis">
-      2. TCP Socket (For Remote Access)
+      Step 1: Install Istio with mTLS Enabled
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-setting-up-tls-for-docker-daemon" class="md-nav__link">
+  <a href="#step-2-configure-namespace-for-istio-injection" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Setting Up TLS for Docker Daemon
+      Step 2: Configure Namespace for Istio Injection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-using-systemd-configuration-alternative-method" class="md-nav__link">
+  <a href="#step-3-define-a-peerauthentication-policy-for-strict-mtls" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Using systemd Configuration (Alternative Method)
+      Step 3: Define a PeerAuthentication Policy for Strict mTLS
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-verifying-socket-configuration" class="md-nav__link">
+  <a href="#step-4-verify-mtls-encryption" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Verifying Socket Configuration
+      Step 4: Verify mTLS Encryption
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-listening-on-both-unix-and-tcp-sockets" class="md-nav__link">
+  <a href="#step-5-debugging-and-validating-mtls" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Listening on Both Unix and TCP Sockets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-implement-rootless-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Implement Rootless Mode
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-secure-the-docker-socket" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Secure the Docker Socket
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-configure-user-namespace-remapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Configure User Namespace Remapping
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-restrict-inter-container-communication" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Restrict Inter-Container Communication
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-implement-resource-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Implement Resource Limitations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-enable-content-trust" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Enable Content Trust
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-enable-logging-and-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Enable Logging and Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-use-security-enhanced-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Use Security Enhanced Systems
+      Step 5: Debugging and Validating mTLS
     </span>
   </a>
   
@@ -4073,11 +4267,119 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprehensive-etcdockerdaemonjson-example" class="md-nav__link">
+  <a href="#solution-2-p2p-encryption-with-cilium" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprehensive /etc/docker/daemon.json Example
+      Solution 2: P2P Encryption with Cilium
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Solution 2: P2P Encryption with Cilium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-cilium-with-encryption-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Cilium with Encryption Enabled
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Install Cilium with Encryption Enabled">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-ipsec-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using IPsec Encryption:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-wireguard-encryption-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using WireGuard Encryption (alternative):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-cilium-installation-with-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Verify Cilium Installation with Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create a CiliumNetworkPolicy to Enforce Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-testing-and-validating-cilium-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Testing and Validating Cilium Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison and Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison and Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#istio-mtls-vs-cilium-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Istio mTLS vs. Cilium Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4085,270 +4387,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../istio_mtls/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    mTLS Pod-to-Pod Communication with Istio
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../opa/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    OPA and Gatekeeper
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../runtimeclass/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    RuntimeClass
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16_15" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_16_15" id="__nav_3_16_15_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Exercises
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_16_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_16_15">
-            <span class="md-nav__icon md-icon"></span>
-            Exercises
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercises/falco-rule/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Falco Rule to Detect Container Access to /dev/mem
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercises/use-sbom/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Use SBOM - Finding Images Using Cryptolib
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercises/istio-mtls/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercises/docker-socket-security/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Editing Docker Socket Service File to Change Group Ownership to Root
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercises/hostpath-only/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Creating a Pod with Host Path Access and Falco Detection
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Enabling Pod-to-Pod Encryption with Istio and Cilium
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -4441,7 +4479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -4464,7 +4502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -4487,7 +4525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -4510,7 +4548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -4533,7 +4571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -4556,7 +4594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -4633,7 +4671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -4683,145 +4721,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understanding-docker-daemon-security-risks" class="md-nav__link">
+  <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Docker Daemon Security Risks
+      Table of Contents
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuring-and-securing-communication-sockets" class="md-nav__link">
+  <a href="#solution-1-p2p-encryption-with-istio" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring and Securing Communication Sockets
+      Solution 1: P2P Encryption with Istio
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuring and Securing Communication Sockets">
+    <nav class="md-nav" aria-label="Solution 1: P2P Encryption with Istio">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-unix-socket-default-and-recommended" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Unix Socket (Default and Recommended)
+      Prerequisites
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-tcp-socket-for-remote-access" class="md-nav__link">
+  <a href="#step-1-install-istio-with-mtls-enabled" class="md-nav__link">
     <span class="md-ellipsis">
-      2. TCP Socket (For Remote Access)
+      Step 1: Install Istio with mTLS Enabled
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-setting-up-tls-for-docker-daemon" class="md-nav__link">
+  <a href="#step-2-configure-namespace-for-istio-injection" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Setting Up TLS for Docker Daemon
+      Step 2: Configure Namespace for Istio Injection
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-using-systemd-configuration-alternative-method" class="md-nav__link">
+  <a href="#step-3-define-a-peerauthentication-policy-for-strict-mtls" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Using systemd Configuration (Alternative Method)
+      Step 3: Define a PeerAuthentication Policy for Strict mTLS
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-verifying-socket-configuration" class="md-nav__link">
+  <a href="#step-4-verify-mtls-encryption" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Verifying Socket Configuration
+      Step 4: Verify mTLS Encryption
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-listening-on-both-unix-and-tcp-sockets" class="md-nav__link">
+  <a href="#step-5-debugging-and-validating-mtls" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Listening on Both Unix and TCP Sockets
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-implement-rootless-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Implement Rootless Mode
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-secure-the-docker-socket" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Secure the Docker Socket
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-configure-user-namespace-remapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Configure User Namespace Remapping
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-restrict-inter-container-communication" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Restrict Inter-Container Communication
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-implement-resource-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Implement Resource Limitations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-enable-content-trust" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Enable Content Trust
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-enable-logging-and-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Enable Logging and Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-use-security-enhanced-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Use Security Enhanced Systems
+      Step 5: Debugging and Validating mTLS
     </span>
   </a>
   
@@ -4833,11 +4799,119 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprehensive-etcdockerdaemonjson-example" class="md-nav__link">
+  <a href="#solution-2-p2p-encryption-with-cilium" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprehensive /etc/docker/daemon.json Example
+      Solution 2: P2P Encryption with Cilium
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Solution 2: P2P Encryption with Cilium">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-cilium-with-encryption-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Cilium with Encryption Enabled
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Install Cilium with Encryption Enabled">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-ipsec-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using IPsec Encryption:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-wireguard-encryption-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using WireGuard Encryption (alternative):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-cilium-installation-with-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Verify Cilium Installation with Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create a CiliumNetworkPolicy to Enforce Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-testing-and-validating-cilium-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Testing and Validating Cilium Encryption
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison and Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison and Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#istio-mtls-vs-cilium-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Istio mTLS vs. Cilium Encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4860,278 +4934,270 @@
   
 
 
-<h1 id="secure-docker-daemon">Secure Docker Daemon<a class="headerlink" href="#secure-docker-daemon" title="Permanent link">&para;</a></h1>
-<p>The Docker daemon is a critical component that manages and coordinates all Docker operations. Since it often runs with elevated privileges, securing it properly is essential to protect your containerized applications and host systems from potential security threats.</p>
-<h2 id="understanding-docker-daemon-security-risks">Understanding Docker Daemon Security Risks<a class="headerlink" href="#understanding-docker-daemon-security-risks" title="Permanent link">&para;</a></h2>
-<p>Before implementing security measures, it&rsquo;s important to understand the potential risks:</p>
+<h1 id="enabling-pod-to-pod-encryption-with-istio-and-cilium">Enabling Pod-to-Pod Encryption with Istio and Cilium<a class="headerlink" href="#enabling-pod-to-pod-encryption-with-istio-and-cilium" title="Permanent link">&para;</a></h1>
+<p>This document provides solutions for implementing pod-to-pod (P2P) encryption in Kubernetes using two different approaches: Istio service mesh and Cilium network policy engine. Both methods offer robust security for intra-cluster communications.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ol>
-<li>
-<p><strong>Privilege Escalation</strong>: The Docker daemon typically runs with root privileges, making it a prime target for attackers seeking to gain elevated access to your system.</p>
-</li>
-<li>
-<p><strong>Unauthorized Access</strong>: An unsecured Docker daemon can be accessed by unauthorized users, potentially leading to data breaches or system compromise.</p>
-</li>
-<li>
-<p><strong>Container Breakouts</strong>: Vulnerabilities in the Docker daemon can lead to container breakouts, where attackers escape container isolation and access the host system.</p>
-</li>
-<li>
-<p><strong>API Exposure</strong>: The Docker API, if exposed unsafely, can be exploited for unauthorized operations.</p>
-</li>
+<li><a href="#solution-1-p2p-encryption-with-istio">Solution 1: P2P Encryption with Istio</a></li>
+<li><a href="#solution-2-p2p-encryption-with-cilium">Solution 2: P2P Encryption with Cilium</a></li>
+<li><a href="#comparison-and-best-practices">Comparison and Best Practices</a></li>
 </ol>
-<h2 id="configuring-and-securing-communication-sockets">Configuring and Securing Communication Sockets<a class="headerlink" href="#configuring-and-securing-communication-sockets" title="Permanent link">&para;</a></h2>
-<p>Docker daemon can communicate through different types of sockets. Understanding and properly configuring these communication channels is essential for security.</p>
-<h3 id="1-unix-socket-default-and-recommended">1. Unix Socket (Default and Recommended)<a class="headerlink" href="#1-unix-socket-default-and-recommended" title="Permanent link">&para;</a></h3>
-<p>By default, Docker runs through a non-networked UNIX socket. It can also optionally communicate using SSH or a TLS (HTTPS) socket. The Unix socket is located at <code>/var/run/docker.sock</code> and is the most secure option for local communications.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># The default configuration in daemon.json [/etc/docker/daemon.json] (often doesn&#39;t need to be specified)</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="o">]</span>
-<span class="o">}</span>
-</code></pre></div>
-<p>Unix sockets are more secure than TCP sockets because:</p>
+<h2 id="solution-1-p2p-encryption-with-istio">Solution 1: P2P Encryption with Istio<a class="headerlink" href="#solution-1-p2p-encryption-with-istio" title="Permanent link">&para;</a></h2>
+<p>Istio provides pod-to-pod encryption through mutual TLS (mTLS) authentication, where both the client and server authenticate each other&rsquo;s identity.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul>
-<li>They&rsquo;re not exposed to the network</li>
-<li>They use standard Unix file permissions for access control</li>
-<li>They&rsquo;re not prone to cross-site request forgery attacks that can happen with TCP sockets</li>
+<li>Kubernetes cluster (v1.16+)</li>
+<li>Istio (v1.9+) installed</li>
+<li><code>kubectl</code> and <code>istioctl</code> CLI tools</li>
 </ul>
-<h3 id="2-tcp-socket-for-remote-access">2. TCP Socket (For Remote Access)<a class="headerlink" href="#2-tcp-socket-for-remote-access" title="Permanent link">&para;</a></h3>
-<p>If you need remote access to the Docker daemon, you can configure it to listen on a TCP socket, but this should always be protected with TLS.</p>
-<p>When using a TCP socket, the Docker daemon provides un-encrypted and un-authenticated direct access to the Docker daemon by default. You should secure the daemon either using the built in HTTPS encrypted socket, or by putting a secure web proxy in front of it.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Example daemon.json [/etc/docker/daemon.json] with both Unix socket and secure TCP socket</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;hosts&quot;</span>:<span class="w"> </span><span class="o">[</span>
-<span class="w">    </span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span>
-<span class="w">  </span><span class="o">]</span>,
-<span class="w">  </span><span class="s2">&quot;tls&quot;</span>:<span class="w"> </span>true,
-<span class="w">  </span><span class="s2">&quot;tlscacert&quot;</span>:<span class="w"> </span><span class="s2">&quot;/path/to/ca.pem&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;tlscert&quot;</span>:<span class="w"> </span><span class="s2">&quot;/path/to/server-cert.pem&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;tlskey&quot;</span>:<span class="w"> </span><span class="s2">&quot;/path/to/server-key.pem&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;tlsverify&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="o">}</span>
+<h3 id="step-1-install-istio-with-mtls-enabled">Step 1: Install Istio with mTLS Enabled<a class="headerlink" href="#step-1-install-istio-with-mtls-enabled" title="Permanent link">&para;</a></h3>
+<p>If starting fresh:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download Istio</span>
+curl<span class="w"> </span>-L<span class="w"> </span>https://istio.io/downloadIstio<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-
+<span class="nb">cd</span><span class="w"> </span>istio-*
+
+<span class="c1"># Install Istio with strict mTLS profile</span>
+istioctl<span class="w"> </span>install<span class="w"> </span>--set<span class="w"> </span><span class="nv">profile</span><span class="o">=</span>default<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>meshConfig.enableAutoMtls<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>values.global.mtls.enabled<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<p><strong>Important</strong>: 
-When using the TCP socket:</p>
+<h3 id="step-2-configure-namespace-for-istio-injection">Step 2: Configure Namespace for Istio Injection<a class="headerlink" href="#step-2-configure-namespace-for-istio-injection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Label the namespace for automatic sidecar injection</span>
+kubectl<span class="w"> </span>label<span class="w"> </span>namespace<span class="w"> </span>default<span class="w"> </span>istio-injection<span class="o">=</span>enabled
+</code></pre></div>
+<h3 id="step-3-define-a-peerauthentication-policy-for-strict-mtls">Step 3: Define a PeerAuthentication Policy for Strict mTLS<a class="headerlink" href="#step-3-define-a-peerauthentication-policy-for-strict-mtls" title="Permanent link">&para;</a></h3>
+<p>Create a file named <code>strict-mtls-policy.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;security.istio.io/v1beta1&quot;</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PeerAuthentication&quot;</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;istio-system&quot;</span><span class="w">  </span><span class="c1"># Apply mesh-wide</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">mtls</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STRICT</span>
+</code></pre></div>
+<p>Apply the policy:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>strict-mtls-policy.yaml
+</code></pre></div>
+<h3 id="step-4-verify-mtls-encryption">Step 4: Verify mTLS Encryption<a class="headerlink" href="#step-4-verify-mtls-encryption" title="Permanent link">&para;</a></h3>
+<p>After deploying some applications, verify that mTLS is working:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check mTLS status</span>
+istioctl<span class="w"> </span>x<span class="w"> </span>authz<span class="w"> </span>check<span class="w"> </span>&lt;pod-name&gt;.&lt;namespace&gt;
+
+<span class="c1"># View real-time mTLS status in Kiali</span>
+kubectl<span class="w"> </span>port-forward<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>svc/kiali<span class="w"> </span><span class="m">20001</span>:20001
+</code></pre></div>
+<p>Visit <code>http://localhost:20001</code> in your browser to visualize secure connections.</p>
+<h3 id="step-5-debugging-and-validating-mtls">Step 5: Debugging and Validating mTLS<a class="headerlink" href="#step-5-debugging-and-validating-mtls" title="Permanent link">&para;</a></h3>
+<p>To verify mTLS encryption is actively enforced:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Deploy a sample application</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>samples/bookinfo/platform/kube/bookinfo.yaml
+
+<span class="c1"># Create a testing pod</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: v1</span>
+<span class="s">kind: Pod</span>
+<span class="s">metadata:</span>
+<span class="s">  name: sleep</span>
+<span class="s">  labels:</span>
+<span class="s">    app: sleep</span>
+<span class="s">spec:</span>
+<span class="s">  containers:</span>
+<span class="s">  - name: sleep</span>
+<span class="s">    image: curlimages/curl</span>
+<span class="s">    command: [&quot;/bin/sleep&quot;, &quot;3650d&quot;]</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Test communication (should succeed with mTLS)</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>sleep<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>productpage:9080<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;&lt;title&gt;.*&lt;/title&gt;&quot;</span>
+
+<span class="c1"># View TLS certificate information</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>sleep<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-v<span class="w"> </span>productpage:9080<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SSL connection&quot;</span>
+</code></pre></div>
+<h2 id="solution-2-p2p-encryption-with-cilium">Solution 2: P2P Encryption with Cilium<a class="headerlink" href="#solution-2-p2p-encryption-with-cilium" title="Permanent link">&para;</a></h2>
+<p>Cilium implements transparent encryption using IPsec or WireGuard for pod-to-pod traffic.</p>
+<h3 id="prerequisites_1">Prerequisites<a class="headerlink" href="#prerequisites_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Never</strong> expose the Docker daemon to the internet without TLS encryption</li>
-<li>Docker over TLS should run on TCP port 2376 (not 2375, which is unencrypted)</li>
-<li>Use client certificate authentication</li>
-<li>Implement proper network firewall rules</li>
+<li>Kubernetes cluster</li>
+<li>Helm (v3+)</li>
+<li><code>kubectl</code> CLI tool</li>
 </ul>
-<h3 id="3-setting-up-tls-for-docker-daemon">3. Setting Up TLS for Docker Daemon<a class="headerlink" href="#3-setting-up-tls-for-docker-daemon" title="Permanent link">&para;</a></h3>
-<p>To set up TLS for secure remote access:</p>
+<h3 id="step-1-install-cilium-with-encryption-enabled">Step 1: Install Cilium with Encryption Enabled<a class="headerlink" href="#step-1-install-cilium-with-encryption-enabled" title="Permanent link">&para;</a></h3>
+<h4 id="using-ipsec-encryption">Using IPsec Encryption:<a class="headerlink" href="#using-ipsec-encryption" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a secret for IPsec encryption keys</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>cilium-ipsec-keys<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">keys</span><span class="o">=</span><span class="s2">&quot;3 rfc4106(gcm(aes)) </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/urandom<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">20</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>xxd<span class="w"> </span>-p<span class="w"> </span>-c<span class="w"> </span><span class="m">64</span><span class="k">))</span><span class="s2"> 128&quot;</span>
+
+<span class="c1"># Install Cilium with IPsec encryption enabled</span>
+helm<span class="w"> </span>install<span class="w"> </span>cilium<span class="w"> </span>cilium/cilium<span class="w"> </span>--version<span class="w"> </span><span class="m">1</span>.12.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>kube-system<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>encryption.enabled<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>encryption.type<span class="o">=</span>ipsec
+</code></pre></div>
+<h4 id="using-wireguard-encryption-alternative">Using WireGuard Encryption (alternative):<a class="headerlink" href="#using-wireguard-encryption-alternative" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Cilium with WireGuard encryption enabled</span>
+helm<span class="w"> </span>install<span class="w"> </span>cilium<span class="w"> </span>cilium/cilium<span class="w"> </span>--version<span class="w"> </span><span class="m">1</span>.12.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--namespace<span class="w"> </span>kube-system<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>encryption.enabled<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set<span class="w"> </span>encryption.type<span class="o">=</span>wireguard
+</code></pre></div>
+<h3 id="step-2-verify-cilium-installation-with-encryption">Step 2: Verify Cilium Installation with Encryption<a class="headerlink" href="#step-2-verify-cilium-installation-with-encryption" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if Cilium is running correctly</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-l<span class="w"> </span>k8s-app<span class="o">=</span>cilium
+
+<span class="c1"># Check Cilium status including encryption</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>cilium-xxxx<span class="w"> </span>--<span class="w"> </span>cilium<span class="w"> </span>status<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Encryption
+</code></pre></div>
+<h3 id="step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption">Step 3: Create a CiliumNetworkPolicy to Enforce Encryption<a class="headerlink" href="#step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption" title="Permanent link">&para;</a></h3>
+<p>Cilium allows selective encryption using CiliumNetworkPolicy. Create a file named <code>encryption-policy.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cilium.io/v2&quot;</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;encrypt-all-traffic&quot;</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-app</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-backend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">    </span><span class="nt">encrypted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>Apply the policy:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>encryption-policy.yaml
+</code></pre></div>
+<h3 id="step-4-testing-and-validating-cilium-encryption">Step 4: Testing and Validating Cilium Encryption<a class="headerlink" href="#step-4-testing-and-validating-cilium-encryption" title="Permanent link">&para;</a></h3>
+<p>Deploy test applications:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Deploy a test application</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">apiVersion: apps/v1</span>
+<span class="s">kind: Deployment</span>
+<span class="s">metadata:</span>
+<span class="s">  name: secure-app</span>
+<span class="s">spec:</span>
+<span class="s">  selector:</span>
+<span class="s">    matchLabels:</span>
+<span class="s">      app: secure-app</span>
+<span class="s">  replicas: 2</span>
+<span class="s">  template:</span>
+<span class="s">    metadata:</span>
+<span class="s">      labels:</span>
+<span class="s">        app: secure-app</span>
+<span class="s">    spec:</span>
+<span class="s">      containers:</span>
+<span class="s">      - name: web</span>
+<span class="s">        image: nginx</span>
+<span class="s">---</span>
+<span class="s">apiVersion: apps/v1</span>
+<span class="s">kind: Deployment</span>
+<span class="s">metadata:</span>
+<span class="s">  name: secure-backend</span>
+<span class="s">spec:</span>
+<span class="s">  selector:</span>
+<span class="s">    matchLabels:</span>
+<span class="s">      app: secure-backend</span>
+<span class="s">  replicas: 2</span>
+<span class="s">  template:</span>
+<span class="s">    metadata:</span>
+<span class="s">      labels:</span>
+<span class="s">        app: secure-backend</span>
+<span class="s">    spec:</span>
+<span class="s">      containers:</span>
+<span class="s">      - name: web</span>
+<span class="s">        image: nginx</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<p>Verify encryption:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># For IPsec encryption, verify ESP packets</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>cilium-xxxx<span class="w"> </span>--<span class="w"> </span>cilium<span class="w"> </span>bpf<span class="w"> </span>tunnel<span class="w"> </span>list
+
+<span class="c1"># For WireGuard encryption, verify WireGuard statistics</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>cilium-xxxx<span class="w"> </span>--<span class="w"> </span>cilium<span class="w"> </span>status<span class="w"> </span>--verbose<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>WireGuard
+</code></pre></div>
+<h2 id="comparison-and-best-practices">Comparison and Best Practices<a class="headerlink" href="#comparison-and-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="istio-mtls-vs-cilium-encryption">Istio mTLS vs. Cilium Encryption<a class="headerlink" href="#istio-mtls-vs-cilium-encryption" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Istio mTLS</th>
+<th>Cilium Encryption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layer</td>
+<td>Application (L7)</td>
+<td>Network (L3)</td>
+</tr>
+<tr>
+<td>Encryption Method</td>
+<td>TLS</td>
+<td>IPsec or WireGuard</td>
+</tr>
+<tr>
+<td>Performance Impact</td>
+<td>Moderate</td>
+<td>Low-Moderate</td>
+</tr>
+<tr>
+<td>Identity Verification</td>
+<td>Yes (x509 certs)</td>
+<td>Limited (IPsec PSK)</td>
+</tr>
+<tr>
+<td>Selective Encryption</td>
+<td>Yes (via policies)</td>
+<td>Yes (via policies)</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>High (detailed metrics)</td>
+<td>Basic</td>
+</tr>
+</tbody>
+</table>
+<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Generate CA, server, and client certificates</strong></li>
+<li><strong>Choose based on requirements</strong>:</li>
+<li>Use Istio for comprehensive service mesh features beyond encryption</li>
+<li>
+<p>Use Cilium for network-level security with lower overhead</p>
+</li>
+<li>
+<p><strong>Layered Security</strong>:</p>
+</li>
+<li>Consider using both solutions for defense in depth</li>
+<li>Istio for service-to-service authentication</li>
+<li>
+<p>Cilium for network-level encryption</p>
+</li>
+<li>
+<p><strong>Key Rotation</strong>:</p>
+</li>
+<li>For Istio: Configure automated certificate rotation (default: 24h)</li>
+<li>
+<p>For Cilium IPsec: Rotate encryption keys periodically</p>
+</li>
+<li>
+<p><strong>Monitoring</strong>:</p>
+</li>
+<li>For Istio: Use Kiali, Grafana, and Prometheus for visibility</li>
+<li>
+<p>For Cilium: Use Hubble for network flow visibility</p>
+</li>
+<li>
+<p><strong>Policy Testing</strong>:</p>
+</li>
+<li>Test encryption policies in non-production environments first</li>
+<li>Use Cilium&rsquo;s dry-run mode or Istio&rsquo;s permissive mode initially</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a CA key and certificate</span>
-openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>ca-key.pem<span class="w"> </span><span class="m">4096</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-key<span class="w"> </span>ca-key.pem<span class="w"> </span>-sha256<span class="w"> </span>-out<span class="w"> </span>ca.pem
-
-<span class="c1"># Create a server key and certificate signing request (CSR)</span>
-<span class="c1"># Set $HOST to the DNS name or IP of your Docker host</span>
-openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>server-key.pem<span class="w"> </span><span class="m">4096</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=</span><span class="nv">$HOST</span><span class="s2">&quot;</span><span class="w"> </span>-sha256<span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>server-key.pem<span class="w"> </span>-out<span class="w"> </span>server.csr
-
-<span class="c1"># Sign the server certificate</span>
-<span class="c1"># Include IP addresses and DNS names that will be used to connect to your Docker host</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;subjectAltName = DNS:</span><span class="nv">$HOST</span><span class="s2">,IP:127.0.0.1,IP:</span><span class="nv">$PUBLIC_IP</span><span class="s2">&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>extfile.cnf
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;extendedKeyUsage = serverAuth&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>extfile.cnf
-openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-sha256<span class="w"> </span>-in<span class="w"> </span>server.csr<span class="w"> </span>-CA<span class="w"> </span>ca.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca-key.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span>server-cert.pem<span class="w"> </span>-extfile<span class="w"> </span>extfile.cnf
-
-<span class="c1"># Create a client key and certificate signing request</span>
-openssl<span class="w"> </span>genrsa<span class="w"> </span>-out<span class="w"> </span>client-key.pem<span class="w"> </span><span class="m">4096</span>
-openssl<span class="w"> </span>req<span class="w"> </span>-subj<span class="w"> </span><span class="s1">&#39;/CN=client&#39;</span><span class="w"> </span>-new<span class="w"> </span>-key<span class="w"> </span>client-key.pem<span class="w"> </span>-out<span class="w"> </span>client.csr
-
-<span class="c1"># Sign the client certificate</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;extendedKeyUsage = clientAuth&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>extfile-client.cnf
-openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-sha256<span class="w"> </span>-in<span class="w"> </span>client.csr<span class="w"> </span>-CA<span class="w"> </span>ca.pem<span class="w"> </span>-CAkey<span class="w"> </span>ca-key.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-CAcreateserial<span class="w"> </span>-out<span class="w"> </span>client-cert.pem<span class="w"> </span>-extfile<span class="w"> </span>extfile-client.cnf
-</code></pre></div>
-<ol>
-<li><strong>Configure the Docker daemon to use TLS</strong></li>
-</ol>
-<p>Update the <code>/etc/docker/daemon.json</code> (/etc/docker/daemon.json) file:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlsverify&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlscacert&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/ca.pem&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlscert&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/server-cert.pem&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;tlskey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/server-key.pem&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-<ol>
-<li><strong>Configure your client to use TLS</strong></li>
-</ol>
-<p>Replace all instances of $HOST in the following example with the DNS name of your Docker daemon&rsquo;s host.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># When connecting, specify the TLS certificates</span>
-docker<span class="w"> </span>--tlsverify<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tlscacert<span class="o">=</span>ca.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tlscert<span class="o">=</span>client-cert.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tlskey<span class="o">=</span>client-key.pem<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="o">=</span><span class="nv">$HOST</span>:2376<span class="w"> </span>version
-
-<span class="c1"># Or set environment variables</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_HOST</span><span class="o">=</span>tcp://<span class="nv">$HOST</span>:2376
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_TLS_VERIFY</span><span class="o">=</span><span class="m">1</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CERT_PATH</span><span class="o">=</span>/path/to/client/certificates
-</code></pre></div>
-<h3 id="4-using-systemd-configuration-alternative-method">4. Using systemd Configuration (Alternative Method)<a class="headerlink" href="#4-using-systemd-configuration-alternative-method" title="Permanent link">&para;</a></h3>
-<p>If you&rsquo;re using systemd, you can also configure the Docker daemon through the service file:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a systemd override file</span>
-sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system/docker.service.d
-sudo<span class="w"> </span>touch<span class="w"> </span>/etc/systemd/system/docker.service.d/override.conf
-
-<span class="c1"># Edit the override file</span>
-sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/docker.service.d/override.conf
-</code></pre></div>
-<p>Add the following content to the <code>override.conf</code> file:</p>
-<div class="highlight"><pre><span></span><code>[Service]
-ExecStart=
-ExecStart=/usr/bin/dockerd -H fd:// -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376 --tlsverify --tlscacert=/path/to/ca.pem --tlscert=/path/to/server-cert.pem --tlskey=/path/to/server-key.pem
-</code></pre></div>
-<p>Reload systemd and restart Docker:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
-</code></pre></div>
-<h3 id="5-verifying-socket-configuration">5. Verifying Socket Configuration<a class="headerlink" href="#5-verifying-socket-configuration" title="Permanent link">&para;</a></h3>
-<p>After configuring your Docker daemon, verify that it&rsquo;s listening on the specified sockets:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check for Unix socket</span>
-ls<span class="w"> </span>-la<span class="w"> </span>/var/run/docker.sock
-
-<span class="c1"># Check for TCP socket</span>
-sudo<span class="w"> </span>netstat<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dockerd
-</code></pre></div>
-<h3 id="6-listening-on-both-unix-and-tcp-sockets">6. Listening on Both Unix and TCP Sockets<a class="headerlink" href="#6-listening-on-both-unix-and-tcp-sockets" title="Permanent link">&para;</a></h3>
-<p>When configuring Docker to listen on both types of sockets, be aware that the &ldquo;hosts&rdquo; option overrides the Docker default value rather than appends to it. You must specify both the Unix socket and TCP socket in your configuration.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;hosts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;unix:///var/run/docker.sock&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tcp://0.0.0.0:2376&quot;</span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>You can also verify the configuration is working with:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>netstat<span class="w"> </span>-lntp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dockerd
-</code></pre></div>
-<p>If properly configured, you should see Docker listening on both the Unix socket and the specified TCP port.</p>
-<h3 id="3-implement-rootless-mode">3. Implement Rootless Mode<a class="headerlink" href="#3-implement-rootless-mode" title="Permanent link">&para;</a></h3>
-<p>Rootless mode allows running the Docker daemon and containers as a non-root user to mitigate potential vulnerabilities in the daemon and the container runtime.</p>
-<p>Rootless mode ensures that the Docker daemon and containers are running as an unprivileged user, which means that even if an attacker breaks out of the container, they will not have root privileges on the host, which in turn substantially limits the attack surface.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Set up rootless mode</span>
-dockerd-rootless-setuptool.sh<span class="w"> </span>install
-</code></pre></div>
-<h3 id="4-secure-the-docker-socket">4. Secure the Docker Socket<a class="headerlink" href="#4-secure-the-docker-socket" title="Permanent link">&para;</a></h3>
-<p>Docker communicates with a UNIX domain socket called /var/run/docker.sock. This is the main entry point for the Docker API. Anyone who has access to the Docker daemon socket also has unrestricted root access.</p>
-<p>Best practices for socket security:</p>
-<ol>
-<li>Never expose the Docker socket to containers unless absolutely necessary</li>
-<li>Use proper Unix file permissions to restrict access</li>
-<li>If socket sharing is required, consider using a proxy like Docker Socket Proxy</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="c1"># Set proper permissions for the Docker socket</span>
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">660</span><span class="w"> </span>/var/run/docker.sock
-sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class="w"> </span>/var/run/docker.sock
-</code></pre></div>
-<h3 id="5-configure-user-namespace-remapping">5. Configure User Namespace Remapping<a class="headerlink" href="#5-configure-user-namespace-remapping" title="Permanent link">&para;</a></h3>
-<p>User namespace remapping is a Docker feature that converts host UIDs to a different unprivileged range inside your containers. This helps to prevent privilege escalation attacks, where a process running in a container gains the same privileges as its UID has on your host.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure user namespace remapping in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;userns-remap&quot;</span>:<span class="w"> </span><span class="s2">&quot;default&quot;</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="6-restrict-inter-container-communication">6. Restrict Inter-Container Communication<a class="headerlink" href="#6-restrict-inter-container-communication" title="Permanent link">&para;</a></h3>
-<p>Docker normally allows arbitrary communication between the containers running on your host. Each new container is automatically added to the docker0 bridge network, which allows it to discover and contact its peers. Keeping inter-container communication (ICC) enabled is risky because it could permit a malicious process to launch an attack against neighboring containers.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Disable inter-container communication in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;icc&quot;</span>:<span class="w"> </span><span class="nb">false</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="7-implement-resource-limitations">7. Implement Resource Limitations<a class="headerlink" href="#7-implement-resource-limitations" title="Permanent link">&para;</a></h3>
-<p>Set appropriate resource constraints to prevent denial-of-service attacks:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure default resource constraints in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;default-ulimits&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;nofile&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="s2">&quot;Name&quot;</span>:<span class="w"> </span><span class="s2">&quot;nofile&quot;</span>,
-<span class="w">      </span><span class="s2">&quot;Hard&quot;</span>:<span class="w"> </span><span class="m">64000</span>,
-<span class="w">      </span><span class="s2">&quot;Soft&quot;</span>:<span class="w"> </span><span class="m">64000</span>
-<span class="w">    </span><span class="o">}</span>
-<span class="w">  </span><span class="o">}</span>,
-<span class="w">  </span><span class="s2">&quot;default-shm-size&quot;</span>:<span class="w"> </span><span class="s2">&quot;64M&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;default-memory-swap&quot;</span>:<span class="w"> </span><span class="s2">&quot;-1&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;default-memory&quot;</span>:<span class="w"> </span><span class="s2">&quot;1G&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;default-cpu-shares&quot;</span>:<span class="w"> </span><span class="m">1024</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="8-enable-content-trust">8. Enable Content Trust<a class="headerlink" href="#8-enable-content-trust" title="Permanent link">&para;</a></h3>
-<p>Docker Engine can be configured to run only signed images, enhancing security through image signature verification. This feature, set up in the Docker configuration file (daemon.json), gives you control over enforcing security policies related to image usage.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable Docker Content Trust in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;content-trust&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;trust-pinning&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="s2">&quot;official-library-images&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="o">}</span>
-<span class="w">  </span><span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="9-enable-logging-and-monitoring">9. Enable Logging and Monitoring<a class="headerlink" href="#9-enable-logging-and-monitoring" title="Permanent link">&para;</a></h3>
-<p>Collecting Docker daemon logs is instrumental in identifying and responding to security incidents. These logs offer comprehensive insights into Docker&rsquo;s system-level operations, encompassing critical aspects such as container lifecycle events, network configurations, image management, and incoming API requests.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Configure logging in daemon.json</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;log-driver&quot;</span>:<span class="w"> </span><span class="s2">&quot;json-file&quot;</span>,
-<span class="w">  </span><span class="s2">&quot;log-opts&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;max-size&quot;</span>:<span class="w"> </span><span class="s2">&quot;10m&quot;</span>,
-<span class="w">    </span><span class="s2">&quot;max-file&quot;</span>:<span class="w"> </span><span class="s2">&quot;3&quot;</span>
-<span class="w">  </span><span class="o">}</span>,
-<span class="w">  </span><span class="s2">&quot;log-level&quot;</span>:<span class="w"> </span><span class="s2">&quot;info&quot;</span>
-<span class="o">}</span>
-</code></pre></div>
-<h3 id="10-use-security-enhanced-systems">10. Use Security Enhanced Systems<a class="headerlink" href="#10-use-security-enhanced-systems" title="Permanent link">&para;</a></h3>
-<p>Ensuring OS-level security systems are active helps defend against malicious activity originating inside containers and the Docker daemon. Docker supports policies for SELinux, Seccomp, and AppArmor; keeping them enabled ensures sane defaults are applied to your containers, including restrictions for dangerous system calls.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t disable security-enhanced systems</span>
-<span class="c1"># Incorrect configuration (do not use):</span>
-<span class="c1"># {</span>
-<span class="c1">#   &quot;selinux-enabled&quot;: false,</span>
-<span class="c1">#   &quot;apparmor-enabled&quot;: false</span>
-<span class="c1"># }</span>
-
-<span class="c1"># Correct configuration:</span>
-<span class="o">{</span>
-<span class="w">  </span><span class="s2">&quot;selinux-enabled&quot;</span>:<span class="w"> </span>true,
-<span class="w">  </span><span class="s2">&quot;apparmor-enabled&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="o">}</span>
-</code></pre></div>
-<h2 id="comprehensive-etcdockerdaemonjson-example">Comprehensive <code>/etc/docker/daemon.json</code> Example<a class="headerlink" href="#comprehensive-etcdockerdaemonjson-example" title="Permanent link">&para;</a></h2>
-<p>Here&rsquo;s a comprehensive example of a secure <code>daemon.json</code> configuration that incorporates many of the best practices:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;icc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;info&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;iptables&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;live-restore&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;userland-proxy&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;no-new-privileges&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;userns-remap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;storage-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;overlay2&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;default-ulimits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;nofile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nofile&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Hard&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Soft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;selinux-enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;apparmor-enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;default-runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runc&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;json-file&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;log-opts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;max-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;max-file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;content-trust&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;trust-pinning&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;official-library-images&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>By implementing either or both of these solutions, you can ensure that pod-to-pod communications within your Kubernetes cluster remain secure and protected from eavesdropping or man-in-the-middle attacks.</p>
 
 
 
@@ -5167,7 +5233,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class=
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../cilium/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cilium">
+          <a href="../hostpath-only/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating a Pod with Host Path Access and Falco Detection">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5177,20 +5243,20 @@ sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class=
                 Previous
               </span>
               <div class="md-ellipsis">
-                Cilium
+                Creating a Pod with Host Path Access and Falco Detection
               </div>
             </div>
           </a>
         
         
           
-          <a href="../istio_mtls/" class="md-footer__link md-footer__link--next" aria-label="Next: mTLS Pod-to-Pod Communication with Istio">
+          <a href="../../../../architectural-patterns/bulkhead/" class="md-footer__link md-footer__link--next" aria-label="Next: Bulkhead Pattern">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                mTLS Pod-to-Pod Communication with Istio
+                Bulkhead Pattern
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -5226,10 +5292,10 @@ sudo<span class="w"> </span>chown<span class="w"> </span>root:docker<span class=
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
