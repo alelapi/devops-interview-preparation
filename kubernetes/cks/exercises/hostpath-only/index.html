@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../how_would_you_ensure_efficient_resource_management/">
+        <link rel="prev" href="../docker-socket-security/">
       
       
-        <link rel="next" href="../how_do_you_handle_secrets_management_in_kubernetes/">
+        <link rel="next" href="../../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
     
     
       
-        <title>How do you handle load balancing in a Kubernetes environment to ensure efficient traffic distribution? - My DevOps Interview Preparation</title>
+        <title>Creating a Pod with Host Path Access and Falco Detection - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-do-you-handle-load-balancing-in-a-kubernetes-environment-to-ensure-efficient-traffic-distribution" class="md-skip">
+        <a href="#creating-a-pod-with-host-path-access-and-falco-detection" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How do you handle load balancing in a Kubernetes environment to ensure efficient traffic distribution?
+              Creating a Pod with Host Path Access and Falco Detection
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
+        <a href="../../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-tabs__link">
           
   
   
@@ -298,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
+        <a href="../../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-tabs__link">
           
   
   
@@ -322,7 +322,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../envoy/" class="md-tabs__link">
+        <a href="../../../envoy/" class="md-tabs__link">
           
   
   
@@ -344,7 +344,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
+        <a href="../../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-tabs__link">
           
   
   
@@ -366,7 +366,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
+        <a href="../../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-tabs__link">
           
   
   
@@ -388,7 +388,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -410,7 +410,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -446,7 +446,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -476,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -663,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -709,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -801,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -887,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -933,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -956,7 +956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -979,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -1065,7 +1065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1088,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1111,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1134,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1157,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1245,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1268,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1291,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1314,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1337,7 +1337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1360,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1444,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1467,7 +1467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1490,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1513,7 +1513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1597,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1620,7 +1620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1643,7 +1643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1666,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1758,7 +1758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1781,7 +1781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1804,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1827,7 +1827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1850,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1873,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1896,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1919,7 +1919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -2001,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -2024,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -2047,7 +2047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2137,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2160,7 +2160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2183,7 +2183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2206,7 +2206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2229,7 +2229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2252,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2275,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2306,7 +2306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/appsync/" class="md-nav__link">
+      <a href="../../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2329,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cdk/" class="md-nav__link">
+      <a href="../../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2352,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2375,7 +2375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/codestar/" class="md-nav__link">
+      <a href="../../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2398,7 +2398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sar/" class="md-nav__link">
+      <a href="../../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2421,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/step_function/" class="md-nav__link">
+      <a href="../../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2444,7 +2444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/sts/" class="md-nav__link">
+      <a href="../../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2467,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/swf/" class="md-nav__link">
+      <a href="../../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2490,7 +2490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2583,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_would_you_handle_a_complex_rollback_scenario_i/" class="md-nav__link">
         
   
   
@@ -2606,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
+      <a href="../../../../ci-cd/can_you_discuss_potential_challenges_in_implementi/" class="md-nav__link">
         
   
   
@@ -2629,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_do_you_handle_version_control_in_ci_cd_pipelin/" class="md-nav__link">
         
   
   
@@ -2652,7 +2652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_would_you_ensure_security_and_compliance_throu/" class="md-nav__link">
         
   
   
@@ -2675,7 +2675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_can_you_monitor_and_maintain_the_performance_o/" class="md-nav__link">
         
   
   
@@ -2698,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_do_you_manage_dependencies_in_ci_cd_pipelines_/" class="md-nav__link">
         
   
   
@@ -2721,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_can_you_handle_continuous_testing_in_a_ci_cd_p/" class="md-nav__link">
         
   
   
@@ -2744,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
+      <a href="../../../../ci-cd/how_would_you_integrate_automated_security_checks_/" class="md-nav__link">
         
   
   
@@ -2767,7 +2767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
+      <a href="../../../../ci-cd/what_techniques_would_you_use_to_ensure_zero-downt/" class="md-nav__link">
         
   
   
@@ -2870,7 +2870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
+      <a href="../../../../docker/can_you_explain_how_docker_containers_differ_from_/" class="md-nav__link">
         
   
   
@@ -2893,7 +2893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_design_and_implement_a_docker-based_/" class="md-nav__link">
         
   
   
@@ -2916,7 +2916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
+      <a href="../../../../docker/how_do_you_optimize_docker_images_to_reduce_size_a/" class="md-nav__link">
         
   
   
@@ -2939,7 +2939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_handle_networking_between_docker_con/" class="md-nav__link">
         
   
   
@@ -2962,7 +2962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_manage_and_optimize_resource_allocat/" class="md-nav__link">
         
   
   
@@ -2985,7 +2985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
+      <a href="../../../../docker/how_can_you_ensure_data_persistence_and_manage_sta/" class="md-nav__link">
         
   
   
@@ -3008,7 +3008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_secure_docker_containers_in_a_produc/" class="md-nav__link">
         
   
   
@@ -3031,7 +3031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
+      <a href="../../../../docker/how_do_you_handle_the_orchestration_of_multiple_do/" class="md-nav__link">
         
   
   
@@ -3054,7 +3054,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
+      <a href="../../../../docker/can_you_describe_how_you%27d_implement_ci_cd_using_d/" class="md-nav__link">
         
   
   
@@ -3077,7 +3077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
+      <a href="../../../../docker/how_do_you_handle_scaling_docker_containers_to_mee/" class="md-nav__link">
         
   
   
@@ -3100,7 +3100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_implement_monitoring_and_logging_wit/" class="md-nav__link">
         
   
   
@@ -3123,7 +3123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
+      <a href="../../../../docker/can_you_explain_how_docker_compose_facilitates_man/" class="md-nav__link">
         
   
   
@@ -3146,7 +3146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_automate_the_deployment_process_of_d/" class="md-nav__link">
         
   
   
@@ -3169,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
+      <a href="../../../../docker/how_would_you_handle_docker_container_updates_to_m/" class="md-nav__link">
         
   
   
@@ -3283,7 +3283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../envoy/" class="md-nav__link">
+      <a href="../../../envoy/" class="md-nav__link">
         
   
   
@@ -3306,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -3329,7 +3329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_security_admission/" class="md-nav__link">
+      <a href="../../../pod_security_admission/" class="md-nav__link">
         
   
   
@@ -3352,7 +3352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../admission_controller/" class="md-nav__link">
+      <a href="../../../admission_controller/" class="md-nav__link">
         
   
   
@@ -3375,7 +3375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -3398,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aggregation_layer/" class="md-nav__link">
+      <a href="../../../aggregation_layer/" class="md-nav__link">
         
   
   
@@ -3421,7 +3421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../encryptionconfig/" class="md-nav__link">
+      <a href="../../../encryptionconfig/" class="md-nav__link">
         
   
   
@@ -3444,7 +3444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../submariner/" class="md-nav__link">
+      <a href="../../../submariner/" class="md-nav__link">
         
   
   
@@ -3467,7 +3467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubefed/" class="md-nav__link">
+      <a href="../../../kubefed/" class="md-nav__link">
         
   
   
@@ -3490,7 +3490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -3513,7 +3513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../observability_tools/" class="md-nav__link">
+      <a href="../../../observability_tools/" class="md-nav__link">
         
   
   
@@ -3536,7 +3536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../endpoint/" class="md-nav__link">
+      <a href="../../../endpoint/" class="md-nav__link">
         
   
   
@@ -3615,7 +3615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -3638,7 +3638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -3661,7 +3661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -3737,7 +3737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -3760,7 +3760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3783,7 +3783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3806,7 +3806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3842,8 +3842,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3887,11 +3885,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_14" >
         
           
           <label class="md-nav__link" for="__nav_5_14" id="__nav_5_14_label" tabindex="">
@@ -3907,7 +3905,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_14_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_14">
             <span class="md-nav__icon md-icon"></span>
             Questions
@@ -3921,7 +3919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_manage_and_optimize_kubernetes_resou/" class="md-nav__link">
         
   
   
@@ -3944,7 +3942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
+      <a href="../../../questions/how_do_you_ensure_scalability_and_high_availabilit/" class="md-nav__link">
         
   
   
@@ -3967,7 +3965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
+      <a href="../../../questions/can_you_explain_the_role_and_benefits_of_using_nam/" class="md-nav__link">
         
   
   
@@ -3990,7 +3988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_manage_and_scale_a_kubernetes_cluste/" class="md-nav__link">
         
   
   
@@ -4013,7 +4011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_approach_logging_and_monitoring_to_e/" class="md-nav__link">
         
   
   
@@ -4036,7 +4034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_implement_and_manage_networking_in_a/" class="md-nav__link">
         
   
   
@@ -4059,7 +4057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_implement_security_measures_to_safeg/" class="md-nav__link">
         
   
   
@@ -4082,7 +4080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_ensure_efficient_resource_management/" class="md-nav__link">
         
   
   
@@ -4102,32 +4100,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    How do you handle load balancing in a Kubernetes environment to ensure efficient traffic distribution?
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../questions/how_do_you_handle_load_balancing_in_a_kubernetes_e/" class="md-nav__link">
         
   
   
@@ -4138,35 +4114,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Answer
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4179,7 +4126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
+      <a href="../../../questions/how_do_you_handle_secrets_management_in_kubernetes/" class="md-nav__link">
         
   
   
@@ -4202,7 +4149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_implement_kubernetes_operators_to_ex/" class="md-nav__link">
         
   
   
@@ -4225,7 +4172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
+      <a href="../../../questions/how_do_you_manage_stateful_applications_in_a_kuber/" class="md-nav__link">
         
   
   
@@ -4248,7 +4195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
+      <a href="../../../questions/how_would_you_implement_a_strategy_for_managing_ku/" class="md-nav__link">
         
   
   
@@ -4343,7 +4290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/etcd/" class="md-nav__link">
+      <a href="../../../cka/etcd/" class="md-nav__link">
         
   
   
@@ -4366,7 +4313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/vpa/" class="md-nav__link">
+      <a href="../../../cka/vpa/" class="md-nav__link">
         
   
   
@@ -4389,7 +4336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../../cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -4412,7 +4359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/utilities/" class="md-nav__link">
+      <a href="../../../cka/utilities/" class="md-nav__link">
         
   
   
@@ -4435,7 +4382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/openssl/" class="md-nav__link">
+      <a href="../../../cka/openssl/" class="md-nav__link">
         
   
   
@@ -4458,7 +4405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/helm/" class="md-nav__link">
+      <a href="../../../cka/helm/" class="md-nav__link">
         
   
   
@@ -4481,7 +4428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/cri/" class="md-nav__link">
+      <a href="../../../cka/cri/" class="md-nav__link">
         
   
   
@@ -4504,7 +4451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cka/jsonpath/" class="md-nav__link">
+      <a href="../../../cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -4597,7 +4544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../../kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -4620,7 +4567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../../kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -4643,7 +4590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../../kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -4666,7 +4613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../../kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -4689,7 +4636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/security_context/" class="md-nav__link">
+      <a href="../../../kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -4712,7 +4659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../../kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -4735,7 +4682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../../kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -4763,6 +4710,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4810,11 +4759,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17" checked>
         
           
           <label class="md-nav__link" for="__nav_5_17" id="__nav_5_17_label" tabindex="">
@@ -4830,7 +4779,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_17_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_17">
             <span class="md-nav__icon md-icon"></span>
             CKS
@@ -4844,7 +4793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../../k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -4867,7 +4816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/cert_auth/" class="md-nav__link">
+      <a href="../../cert_auth/" class="md-nav__link">
         
   
   
@@ -4890,7 +4839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/apparmor/" class="md-nav__link">
+      <a href="../../apparmor/" class="md-nav__link">
         
   
   
@@ -4913,7 +4862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/falco/" class="md-nav__link">
+      <a href="../../falco/" class="md-nav__link">
         
   
   
@@ -4936,7 +4885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/seccomp/" class="md-nav__link">
+      <a href="../../seccomp/" class="md-nav__link">
         
   
   
@@ -4959,7 +4908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/image_scanning/" class="md-nav__link">
+      <a href="../../image_scanning/" class="md-nav__link">
         
   
   
@@ -4982,7 +4931,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/kube_bench/" class="md-nav__link">
+      <a href="../../kube_bench/" class="md-nav__link">
         
   
   
@@ -5005,7 +4954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/audit_logging/" class="md-nav__link">
+      <a href="../../audit_logging/" class="md-nav__link">
         
   
   
@@ -5028,7 +4977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/admission_controller_config/" class="md-nav__link">
+      <a href="../../admission_controller_config/" class="md-nav__link">
         
   
   
@@ -5051,7 +5000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/cilium/" class="md-nav__link">
+      <a href="../../cilium/" class="md-nav__link">
         
   
   
@@ -5074,7 +5023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/secure_docker_daemon/" class="md-nav__link">
+      <a href="../../secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -5097,7 +5046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/istio_mtls/" class="md-nav__link">
+      <a href="../../istio_mtls/" class="md-nav__link">
         
   
   
@@ -5120,7 +5069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/opa/" class="md-nav__link">
+      <a href="../../opa/" class="md-nav__link">
         
   
   
@@ -5143,7 +5092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/runtimeclass/" class="md-nav__link">
+      <a href="../../runtimeclass/" class="md-nav__link">
         
   
   
@@ -5163,8 +5112,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -5187,11 +5138,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_17_15" checked>
         
           
           <label class="md-nav__link" for="__nav_5_17_15" id="__nav_5_17_15_label" tabindex="0">
@@ -5207,7 +5158,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_15_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_17_15_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_17_15">
             <span class="md-nav__icon md-icon"></span>
             Exercises
@@ -5221,7 +5172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/falco-rule/" class="md-nav__link">
+      <a href="../falco-rule/" class="md-nav__link">
         
   
   
@@ -5244,7 +5195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/use-sbom/" class="md-nav__link">
+      <a href="../use-sbom/" class="md-nav__link">
         
   
   
@@ -5267,7 +5218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/istio-mtls/" class="md-nav__link">
+      <a href="../istio-mtls/" class="md-nav__link">
         
   
   
@@ -5290,7 +5241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cks/exercises/docker-socket-security/" class="md-nav__link">
+      <a href="../docker-socket-security/" class="md-nav__link">
         
   
   
@@ -5310,10 +5261,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../cks/exercises/hostpath-only/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Creating a Pod with Host Path Access and Falco Detection
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5324,6 +5297,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem Statement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-creating-a-deployment-with-host-path-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Creating a Deployment with Host Path Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-verify-host-path-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Verify Host Path Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-creating-falco-rules-to-detect-host-path-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: Creating Falco Rules to Detect Host Path Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-deploy-the-falco-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Deploy the Falco Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-5-monitor-falco-alerts-with-journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 5: Monitor Falco Alerts with journalctl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-6-test-the-falco-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 6: Test the Falco Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5420,7 +5500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-nav__link">
         
   
   
@@ -5443,7 +5523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_would_you_design_a_system_for_real-time_monito/" class="md-nav__link">
         
   
   
@@ -5466,7 +5546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_do_you_use_alerting_strategies_to_minimize_fal/" class="md-nav__link">
         
   
   
@@ -5489,7 +5569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_would_you_leverage_prometheus_and_grafana_to_a/" class="md-nav__link">
         
   
   
@@ -5512,7 +5592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_would_you_set_up_a_monitoring_dashboard_using_/" class="md-nav__link">
         
   
   
@@ -5535,7 +5615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_would_you_leverage_prometheus_for_alerting_to_/" class="md-nav__link">
         
   
   
@@ -5558,7 +5638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/how_would_you_incorporate_monitoring_frameworks_in/" class="md-nav__link">
         
   
   
@@ -5581,7 +5661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
+      <a href="../../../../monitoring-and-alerting/observability_tools/" class="md-nav__link">
         
   
   
@@ -5678,7 +5758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_do_you_manage_the_lifecycle_of_infrastructure_/" class="md-nav__link">
         
   
   
@@ -5701,7 +5781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_do_you_approach_infrastructure_provisioning_us/" class="md-nav__link">
         
   
   
@@ -5724,7 +5804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_do_you_leverage_tools_like_ansible_or_cloudfor/" class="md-nav__link">
         
   
   
@@ -5747,7 +5827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_do_you_handle_configuration_drift_in_infrastru/" class="md-nav__link">
         
   
   
@@ -5770,7 +5850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_would_you_use_terraform_to_manage_infrastructu/" class="md-nav__link">
         
   
   
@@ -5793,7 +5873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_do_you_ensure_infrastructure_as_code_practices/" class="md-nav__link">
         
   
   
@@ -5816,7 +5896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_would_you_utilize_tools_like_ansible_or_cloudf/" class="md-nav__link">
         
   
   
@@ -5839,7 +5919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_would_you_ensure_repeatable_and_reliable_infra/" class="md-nav__link">
         
   
   
@@ -5862,7 +5942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_would_you_handle_multi-cloud_environments_usin/" class="md-nav__link">
         
   
   
@@ -5885,7 +5965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_would_you_automate_infrastructure_scalability_/" class="md-nav__link">
         
   
   
@@ -5908,7 +5988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
+      <a href="../../../../infrastructure-as-code/how_would_you_use_infrastructure_as_code_to_stream/" class="md-nav__link">
         
   
   
@@ -5995,7 +6075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -6018,7 +6098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -6041,7 +6121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -6064,7 +6144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -6087,7 +6167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -6110,7 +6190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -6187,7 +6267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -6237,9 +6317,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#answer" class="md-nav__link">
+  <a href="#problem-statement" class="md-nav__link">
     <span class="md-ellipsis">
-      Answer
+      Problem Statement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-creating-a-deployment-with-host-path-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: Creating a Deployment with Host Path Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-verify-host-path-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Verify Host Path Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-creating-falco-rules-to-detect-host-path-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3: Creating Falco Rules to Detect Host Path Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-deploy-the-falco-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 4: Deploy the Falco Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-5-monitor-falco-alerts-with-journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 5: Monitor Falco Alerts with journalctl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-6-test-the-falco-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 6: Test the Falco Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
     </span>
   </a>
   
@@ -6264,123 +6422,191 @@
   
 
 
-<h1 id="how-do-you-handle-load-balancing-in-a-kubernetes-environment-to-ensure-efficient-traffic-distribution">How do you handle load balancing in a Kubernetes environment to ensure efficient traffic distribution?<a class="headerlink" href="#how-do-you-handle-load-balancing-in-a-kubernetes-environment-to-ensure-efficient-traffic-distribution" title="Permanent link">&para;</a></h1>
-<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Permanent link">&para;</a></h2>
-<h1 id="load-balancing-in-a-kubernetes-environment">Load Balancing in a Kubernetes Environment<a class="headerlink" href="#load-balancing-in-a-kubernetes-environment" title="Permanent link">&para;</a></h1>
-<p>Load balancing in Kubernetes is crucial for ensuring that traffic is evenly distributed across the available resources, ensuring high availability and optimized resource utilization. There are different types of load balancing in Kubernetes, such as internal and external load balancing, depending on whether the traffic is coming from inside the cluster or from external users. Below are the main strategies for handling load balancing in Kubernetes.</p>
-<h2 id="1-internal-load-balancing-within-the-cluster">1. Internal Load Balancing within the Cluster<a class="headerlink" href="#1-internal-load-balancing-within-the-cluster" title="Permanent link">&para;</a></h2>
-<p>In Kubernetes, internal load balancing ensures that the traffic is distributed evenly across the pods running inside the cluster. Kubernetes achieves this using the following mechanisms:</p>
-<h3 id="kubernetes-services"><strong>Kubernetes Services</strong><a class="headerlink" href="#kubernetes-services" title="Permanent link">&para;</a></h3>
-<p>A Kubernetes Service is an abstraction that provides a stable IP and DNS name for a set of pods, allowing the load to be distributed evenly among them.</p>
-<ul>
+<h1 id="creating-a-pod-with-host-path-access-and-falco-detection">Creating a Pod with Host Path Access and Falco Detection<a class="headerlink" href="#creating-a-pod-with-host-path-access-and-falco-detection" title="Permanent link">&para;</a></h1>
+<h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
+<p>Create a deployment that can read and write to a specific path in the underlying host machine&rsquo;s filesystem using a normal volume added to the container specs. The solution must ensure that access to any other host paths is denied. After creating the deployment and verifying it works, create Falco rules to detect this activity, identifying which container is performing the actions and displaying the output via journalctl.</p>
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
+<h3 id="part-1-creating-a-deployment-with-host-path-access">Part 1: Creating a Deployment with Host Path Access<a class="headerlink" href="#part-1-creating-a-deployment-with-host-path-access" title="Permanent link">&para;</a></h3>
+<p>Let&rsquo;s create a deployment that can access the host filesystem:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># host-path-deployment.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-path-access</span>
+<span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-path-access</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-path-access</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-path-access</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-path-container</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu:20.04</span>
+<span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;sleep&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;infinity&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">drop</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;ALL&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">          </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-volume</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/host-data</span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host-volume</span>
+<span class="w">        </span><span class="nt">hostPath</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/opt/app-data</span><span class="w">  </span><span class="c1"># The specific host path we want to access</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DirectoryOrCreate</span>
+</code></pre></div>
+<p>Apply the deployment:
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>host-path-deployment.yaml
+</code></pre></div></p>
+<h3 id="part-2-verify-host-path-access">Part 2: Verify Host Path Access<a class="headerlink" href="#part-2-verify-host-path-access" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the pod name</span>
+<span class="nv">POD_NAME</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>host-path-access<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[0].metadata.name}&#39;</span><span class="k">)</span>
+
+<span class="c1"># Exec into the pod</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="nv">$POD_NAME</span><span class="w"> </span>--<span class="w"> </span>bash
+
+<span class="c1"># Inside the pod, verify access to the host path</span>
+ls<span class="w"> </span>-la<span class="w"> </span>/host-data
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Test file for host path access&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/host-data/test.txt
+cat<span class="w"> </span>/host-data/test.txt
+
+<span class="c1"># Verify we can&#39;t write to other locations</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This should fail&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/test.txt<span class="w">  </span><span class="c1"># Should fail</span>
+touch<span class="w"> </span>/bin/test-file<span class="w">  </span><span class="c1"># Should fail</span>
+
+<span class="c1"># Exit the pod</span>
+<span class="nb">exit</span>
+</code></pre></div>
+<h3 id="part-3-creating-falco-rules-to-detect-host-path-access">Part 3: Creating Falco Rules to Detect Host Path Access<a class="headerlink" href="#part-3-creating-falco-rules-to-detect-host-path-access" title="Permanent link">&para;</a></h3>
+<p>Now, let&rsquo;s create Falco rules to detect when containers access this specific host path:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># host-path-detection.yaml</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Accessing Host Path</span>
+<span class="w">  </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Detects when a container accesses the specific host path</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">container </span>
+<span class="w">    </span><span class="no">and fd.name startswith &quot;/host-data&quot;</span>
+<span class="w">    </span><span class="no">and (evt.type=open or evt.type=openat)</span>
+<span class="w">  </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Container accessing host path </span>
+<span class="w">    </span><span class="no">(user=%user.name user_uid=%user.uid command=%proc.cmdline </span>
+<span class="w">    </span><span class="no">file=%fd.name access_type=%evt.is_open_read,%evt.is_open_write</span>
+<span class="w">    </span><span class="no">container_id=%container.id container_name=%container.name</span>
+<span class="w">    </span><span class="no">image=%container.image.repository pod=%k8s.pod.name ns=%k8s.ns.name)</span>
+<span class="w">  </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INFO</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">filesystem</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">access</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">allowed</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Writing To Host Path</span>
+<span class="w">  </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Detects when a container writes to the specific host path</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">container </span>
+<span class="w">    </span><span class="no">and fd.name startswith &quot;/host-data&quot;</span>
+<span class="w">    </span><span class="no">and (evt.type=open or evt.type=openat)</span>
+<span class="w">    </span><span class="no">and evt.is_open_write=true</span>
+<span class="w">  </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Container WRITING to host path </span>
+<span class="w">    </span><span class="no">(user=%user.name user_uid=%user.uid command=%proc.cmdline </span>
+<span class="w">    </span><span class="no">file=%fd.name container_id=%container.id container_name=%container.name</span>
+<span class="w">    </span><span class="no">image=%container.image.repository pod=%k8s.pod.name ns=%k8s.ns.name)</span>
+<span class="w">  </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">INFO</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">filesystem</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">modification</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">allowed</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">rule</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Accessing Disallowed Path</span>
+<span class="w">  </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Detects when a container attempts to access any path other than the allowed host path</span>
+<span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">container </span>
+<span class="w">    </span><span class="no">and fd.name startswith &quot;/&quot;</span>
+<span class="w">    </span><span class="no">and not fd.name startswith &quot;/host-data&quot;</span>
+<span class="w">    </span><span class="no">and not fd.name in (/proc, /dev, /sys) </span>
+<span class="w">    </span><span class="no">and (evt.type=open or evt.type=openat)</span>
+<span class="w">    </span><span class="no">and evt.is_open_write=true</span>
+<span class="w">  </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">Suspicious: Container attempting to write to DISALLOWED path </span>
+<span class="w">    </span><span class="no">(user=%user.name user_uid=%user.uid command=%proc.cmdline </span>
+<span class="w">    </span><span class="no">file=%fd.name container_id=%container.id container_name=%container.name</span>
+<span class="w">    </span><span class="no">image=%container.image.repository pod=%k8s.pod.name ns=%k8s.ns.name)</span>
+<span class="w">  </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WARNING</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">filesystem</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">modification</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">suspicious</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<h3 id="part-4-deploy-the-falco-rules">Part 4: Deploy the Falco Rules<a class="headerlink" href="#part-4-deploy-the-falco-rules" title="Permanent link">&para;</a></h3>
+<p>If you&rsquo;re using Falco as a DaemonSet in Kubernetes:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a ConfigMap with the rules</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>configmap<span class="w"> </span>falco-hostpath-rules<span class="w"> </span>--from-file<span class="o">=</span>host-path-detection.yaml
+
+<span class="c1"># Update the Falco DaemonSet to use this ConfigMap</span>
+kubectl<span class="w"> </span>-n<span class="w"> </span>falco<span class="w"> </span>patch<span class="w"> </span>daemonset<span class="w"> </span>falco<span class="w"> </span>--type<span class="o">=</span>json<span class="w"> </span>-p<span class="o">=</span><span class="s1">&#39;[</span>
+<span class="s1">  {</span>
+<span class="s1">    &quot;op&quot;: &quot;add&quot;,</span>
+<span class="s1">    &quot;path&quot;: &quot;/spec/template/spec/volumes/-&quot;,</span>
+<span class="s1">    &quot;value&quot;: {</span>
+<span class="s1">      &quot;name&quot;: &quot;hostpath-rules&quot;,</span>
+<span class="s1">      &quot;configMap&quot;: {</span>
+<span class="s1">        &quot;name&quot;: &quot;falco-hostpath-rules&quot;</span>
+<span class="s1">      }</span>
+<span class="s1">    }</span>
+<span class="s1">  },</span>
+<span class="s1">  {</span>
+<span class="s1">    &quot;op&quot;: &quot;add&quot;,</span>
+<span class="s1">    &quot;path&quot;: &quot;/spec/template/spec/containers/0/volumeMounts/-&quot;,</span>
+<span class="s1">    &quot;value&quot;: {</span>
+<span class="s1">      &quot;mountPath&quot;: &quot;/etc/falco/rules.d/&quot;,</span>
+<span class="s1">      &quot;name&quot;: &quot;hostpath-rules&quot;</span>
+<span class="s1">    }</span>
+<span class="s1">  }</span>
+<span class="s1">]&#39;</span>
+</code></pre></div>
+<p>If you&rsquo;re running Falco directly on the host:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copy the rules file to the Falco rules directory</span>
+sudo<span class="w"> </span>cp<span class="w"> </span>host-path-detection.yaml<span class="w"> </span>/etc/falco/rules.d/
+
+<span class="c1"># Restart Falco</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>falco
+</code></pre></div>
+<h3 id="part-5-monitor-falco-alerts-with-journalctl">Part 5: Monitor Falco Alerts with journalctl<a class="headerlink" href="#part-5-monitor-falco-alerts-with-journalctl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Follow Falco logs in journalctl</span>
+sudo<span class="w"> </span>journalctl<span class="w"> </span>-fu<span class="w"> </span>falco
+</code></pre></div>
+<h3 id="part-6-test-the-falco-detection">Part 6: Test the Falco Detection<a class="headerlink" href="#part-6-test-the-falco-detection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Trigger allowed access to host path</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="nv">$POD_NAME</span><span class="w"> </span>--<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;echo &#39;Allowed write to host path&#39; &gt; /host-data/falco-test.txt&quot;</span>
+
+<span class="c1"># Attempt disallowed access</span>
+kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span><span class="nv">$POD_NAME</span><span class="w"> </span>--<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;touch /etc/not-allowed.txt || echo &#39;Access denied as expected&#39;&quot;</span>
+</code></pre></div>
+<p>You should see Falco alerts in the journalctl output that identify which container is accessing the host path.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This solution demonstrates:</p>
+<ol>
 <li>
-<p><strong>ClusterIP</strong>: This is the default service type that creates a virtual IP inside the cluster. It allows for internal load balancing within the cluster and is used for communication between pods within the same cluster.</p>
+<p>How to create a deployment that can access a specific host path using a direct hostPath volume</p>
 </li>
 <li>
-<p><strong>How it works</strong>: When you create a ClusterIP service, Kubernetes assigns a stable internal IP that can be used by other pods to access the service. Kubernetes then automatically distributes incoming traffic among the pods selected by the service.</p>
+<p>How to restrict file system access to only that specific path</p>
 </li>
 <li>
-<p><strong>Use case</strong>: Ideal for microservices or internal communication within the cluster, where traffic from external clients does not need to be exposed.</p>
+<p>How to configure Falco rules to:</p>
 </li>
-</ul>
-<h3 id="headless-services"><strong>Headless Services</strong><a class="headerlink" href="#headless-services" title="Permanent link">&para;</a></h3>
-<ul>
+<li>Detect access to the allowed host path</li>
+<li>Alert on attempts to access disallowed paths</li>
 <li>
-<p><strong>Headless Service</strong>: A headless service does not assign an IP address and allows clients to directly reach the individual pods backing the service. This is particularly useful when you want to implement custom load balancing at the application level or need DNS records pointing directly to the pods.</p>
-</li>
-<li>
-<p><strong>Use case</strong>: Suitable for stateful applications like databases where direct communication with individual pods is required, or for specific load balancing schemes.</p>
-</li>
-</ul>
-<h3 id="dns-based-service-discovery"><strong>DNS-based Service Discovery</strong><a class="headerlink" href="#dns-based-service-discovery" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Kubernetes DNS</strong>: Kubernetes comes with an internal DNS system, allowing services and pods to be accessed by their names (e.g., <code>my-service.default.svc.cluster.local</code>). This eliminates the need to manually configure service discovery and allows Kubernetes to automatically load balance traffic to the right pods based on DNS names.</li>
-</ul>
-<h2 id="2-external-load-balancing">2. External Load Balancing<a class="headerlink" href="#2-external-load-balancing" title="Permanent link">&para;</a></h2>
-<p>External load balancing is necessary when traffic comes from outside the Kubernetes cluster (e.g., from external users or other services). Kubernetes supports multiple ways of exposing services to the outside world while ensuring load balancing.</p>
-<h3 id="loadbalancer-service-type"><strong>LoadBalancer Service Type</strong><a class="headerlink" href="#loadbalancer-service-type" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>Cloud Provider Load Balancers</strong>: Kubernetes supports the LoadBalancer service type, which integrates with cloud providers like AWS, GCP, and Azure. When a LoadBalancer type service is created, Kubernetes automatically provisions a cloud load balancer that distributes incoming external traffic across the pods behind the service.</p>
+<p>Identify which container is performing these actions</p>
 </li>
 <li>
-<p><strong>How it works</strong>: A cloud provider’s load balancer (e.g., AWS ELB or Google Cloud Load Balancer) is provisioned by Kubernetes, which automatically configures it to forward external traffic to the Kubernetes nodes. The load balancer will forward traffic to the available pods, ensuring high availability and distribution.</p>
+<p>How to monitor these activities in real-time using journalctl</p>
 </li>
-<li>
-<p><strong>Use case</strong>: Typically used for applications that need to be exposed to the internet, like web apps, APIs, or microservices.</p>
-</li>
-</ul>
-<h3 id="nodeport-service-type"><strong>NodePort Service Type</strong><a class="headerlink" href="#nodeport-service-type" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>NodePort</strong>: A NodePort service exposes the service on a specific port across all nodes in the Kubernetes cluster. By accessing the cluster’s external IP address on the NodePort, traffic is directed to the corresponding service and distributed to the pods.</p>
-</li>
-<li>
-<p><strong>How it works</strong>: When a NodePort service is defined, it opens a specific port on each Kubernetes node (e.g., port 30001) and forwards traffic to the service. This allows for access to the service from external clients or load balancers by specifying the cluster&rsquo;s external IP and the NodePort.</p>
-</li>
-<li>
-<p><strong>Use case</strong>: Useful for development, testing, or when you don’t have a cloud load balancer and need to expose a service via any of the Kubernetes node&rsquo;s external IP addresses.</p>
-</li>
-</ul>
-<h3 id="ingress-controllers"><strong>Ingress Controllers</strong><a class="headerlink" href="#ingress-controllers" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>Ingress Resources</strong>: Ingress is an API object in Kubernetes that manages external HTTP/S traffic routing to services within the cluster. It provides sophisticated routing, including SSL termination, path-based routing, and host-based routing. An <strong>Ingress Controller</strong> is responsible for implementing the ingress rules.</p>
-</li>
-<li>
-<p><strong>How it works</strong>: An Ingress Controller (such as NGINX or Traefik) processes incoming traffic and routes it to the appropriate Kubernetes service based on the rules defined in the Ingress resource. It acts as a reverse proxy and load balancer, ensuring that the traffic is distributed to the correct pods.</p>
-</li>
-<li>
-<p><strong>Features</strong>:</p>
-<ul>
-<li>SSL/TLS termination for secure communication.</li>
-<li>URL-based routing, such as routing traffic to different services based on the URL path or host.</li>
-<li>Load balancing for HTTP/S traffic.</li>
-</ul>
-</li>
-<li>
-<p><strong>Use case</strong>: Ideal for applications with HTTP/S traffic where more complex routing, SSL offloading, or load balancing features are required.</p>
-</li>
-</ul>
-<h3 id="externaldns-for-dynamic-dns-updates"><strong>ExternalDNS for Dynamic DNS Updates</strong><a class="headerlink" href="#externaldns-for-dynamic-dns-updates" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>ExternalDNS</strong>: This tool allows Kubernetes to automatically update DNS records based on the status of services in the cluster. It integrates with DNS providers like AWS Route 53, Google Cloud DNS, and others. When an Ingress resource or LoadBalancer service is created, ExternalDNS automatically updates DNS records to point to the new external IP or load balancer.</p>
-</li>
-<li>
-<p><strong>Use case</strong>: Useful when you need to expose services externally via DNS names and ensure that DNS records are automatically updated when IP addresses change (e.g., with dynamic scaling).</p>
-</li>
-</ul>
-<h2 id="3-advanced-load-balancing-techniques">3. Advanced Load Balancing Techniques<a class="headerlink" href="#3-advanced-load-balancing-techniques" title="Permanent link">&para;</a></h2>
-<h3 id="session-affinity-sticky-sessions"><strong>Session Affinity (Sticky Sessions)</strong><a class="headerlink" href="#session-affinity-sticky-sessions" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>Session Affinity</strong>: Kubernetes supports session affinity, which ensures that a client’s requests are always directed to the same pod. This can be useful for stateful applications, where the session state needs to be stored locally within a specific pod.</p>
-</li>
-<li>
-<p><strong>How it works</strong>: This is typically implemented using a cookie-based mechanism, where the load balancer routes the requests from the same client to the same pod.</p>
-</li>
-<li>
-<p><strong>Use case</strong>: Ideal for applications where session state is maintained locally on a per-pod basis (e.g., shopping cart applications).</p>
-</li>
-</ul>
-<h3 id="custom-load-balancer-integrations"><strong>Custom Load Balancer Integrations</strong><a class="headerlink" href="#custom-load-balancer-integrations" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>Custom Ingress Controllers</strong>: For more complex routing and load balancing scenarios, organizations often deploy custom Ingress Controllers or integrate with specialized load balancers such as HAProxy or Envoy. These solutions offer advanced routing strategies, traffic shaping, and enhanced scalability.</p>
-</li>
-<li>
-<p><strong>Service Mesh (e.g., Istio, Linkerd)</strong>: A service mesh like Istio or Linkerd can provide enhanced traffic management features, including intelligent routing, circuit breaking, retries, and observability. Service meshes offer sophisticated control over how traffic is routed between microservices within Kubernetes.</p>
-</li>
-</ul>
-<hr />
-<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
-<p>Kubernetes provides multiple built-in mechanisms to ensure efficient traffic distribution and load balancing, both internally and externally. Key strategies include:</p>
-<ul>
-<li><strong>Internal Load Balancing</strong>: Using Kubernetes Services (ClusterIP, NodePort, and Headless Services) to manage pod-to-pod traffic.</li>
-<li><strong>External Load Balancing</strong>: Using LoadBalancer and NodePort services for routing external traffic, and Ingress controllers for advanced HTTP/S routing.</li>
-<li><strong>Advanced Techniques</strong>: Leveraging session affinity and service meshes for custom routing and traffic management.</li>
-</ul>
+</ol>
+<p>The solution fulfills the requirements by providing a deployment with access to a specific host path and proper Falco detection configured to monitor this activity.</p>
 
 
 
@@ -6416,7 +6642,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../how_would_you_ensure_efficient_resource_management/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How would you ensure efficient resource management and scheduling in Kubernetes for optimal performance?">
+          <a href="../docker-socket-security/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Editing Docker Socket Service File to Change Group Ownership to Root">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6426,20 +6652,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                How would you ensure efficient resource management and scheduling in Kubernetes for optimal performance?
+                Editing Docker Socket Service File to Change Group Ownership to Root
               </div>
             </div>
           </a>
         
         
           
-          <a href="../how_do_you_handle_secrets_management_in_kubernetes/" class="md-footer__link md-footer__link--next" aria-label="Next: How do you handle secrets management in Kubernetes to ensure security and confidentiality?">
+          <a href="../../../../monitoring-and-alerting/how_would_you_ensure_high_availability_and_reliabi/" class="md-footer__link md-footer__link--next" aria-label="Next: How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                How do you handle secrets management in Kubernetes to ensure security and confidentiality?
+                How would you ensure high availability and reliability using monitoring tools like Prometheus or Grafana?
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6475,10 +6701,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
