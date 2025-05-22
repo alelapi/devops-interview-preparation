@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../istio-mtls/">
+        <link rel="prev" href="../pod-security-standards/">
       
       
-        <link rel="next" href="../hostpath-only/">
+        <link rel="next" href="../update-kubelet-config/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Editing Docker Socket Service File to Change Group Ownership to Root - My DevOps Interview Preparation</title>
+        <title>Cilium Exam Exercises by ISO Layer - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#editing-docker-socket-service-file-to-change-group-ownership-to-root" class="md-skip">
+        <a href="#cilium-exam-exercises-by-iso-layer" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Editing Docker Socket Service File to Change Group Ownership to Root
+              Cilium Exam Exercises by ISO Layer
             
           </span>
         </div>
@@ -4096,32 +4096,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Editing Docker Socket Service File to Change Group Ownership to Root
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../docker-socket-security/" class="md-nav__link">
         
   
   
@@ -4132,131 +4110,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problem Statement
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Solution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-locate-the-dockersocket-service-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Locate the docker.socket Service File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-examine-the-current-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Examine the Current Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-edit-the-dockersocket-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Edit the docker.socket File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-reload-the-systemd-daemon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Reload the Systemd Daemon
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-5-restart-the-docker-socket-and-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 5: Restart the Docker Socket and Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-6-verify-the-change" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 6: Verify the Change
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-7-test-docker-functionality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 7: Test Docker Functionality
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security-implications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security Implications
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Conclusion
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4335,10 +4188,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../cilium/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Cilium Exam Exercises by ISO Layer
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4349,6 +4224,227 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-1-physical-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 1 - Physical Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 1 - Physical Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-11-node-connectivity-and-agent-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1.1: Node Connectivity and Agent Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-2-data-link-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 2 - Data Link Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 2 - Data Link Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-21-mac-address-learning-and-arp-table-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2.1: MAC Address Learning and ARP Table Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-3-network-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 3 - Network Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 3 - Network Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-31-ip-routing-and-ipam-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3.1: IP Routing and IPAM Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-4-transport-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 4 - Transport Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 4 - Transport Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-41-load-balancing-and-service-mesh-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4.1: Load Balancing and Service Mesh Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-5-session-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 5 - Session Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 5 - Session Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-51-connection-tracking-and-session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 5.1: Connection Tracking and Session Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-6-presentation-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 6 - Presentation Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 6 - Presentation Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-61-tls-termination-and-certificate-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 6.1: TLS Termination and Certificate Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-7-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 7 - Application Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 7 - Application Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-71-httpgrpc-policy-enforcement-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprehensive-multi-layer-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprehensive Multi-Layer Exercise
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprehensive Multi-Layer Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-end-to-end-microservices-security-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise: End-to-End Microservices Security and Observability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4706,82 +4802,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-statement" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Problem Statement
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
+  <a href="#layer-1-physical-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution
+      Layer 1 - Physical Layer
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Solution">
+    <nav class="md-nav" aria-label="Layer 1 - Physical Layer">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-locate-the-dockersocket-service-file" class="md-nav__link">
+  <a href="#exercise-11-node-connectivity-and-agent-status" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Locate the docker.socket Service File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-examine-the-current-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Examine the Current Configuration
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-edit-the-dockersocket-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Edit the docker.socket File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-reload-the-systemd-daemon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Reload the Systemd Daemon
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-5-restart-the-docker-socket-and-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 5: Restart the Docker Socket and Service
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-6-verify-the-change" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 6: Verify the Change
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-7-test-docker-functionality" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 7: Test Docker Functionality
+      Exercise 1.1: Node Connectivity and Agent Status
     </span>
   </a>
   
@@ -4793,20 +4835,170 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-implications" class="md-nav__link">
+  <a href="#layer-2-data-link-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Implications
+      Layer 2 - Data Link Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 2 - Data Link Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-21-mac-address-learning-and-arp-table-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2.1: MAC Address Learning and ARP Table Management
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
+  <a href="#layer-3-network-layer" class="md-nav__link">
     <span class="md-ellipsis">
-      Conclusion
+      Layer 3 - Network Layer
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Layer 3 - Network Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-31-ip-routing-and-ipam-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 3.1: IP Routing and IPAM Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-4-transport-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 4 - Transport Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 4 - Transport Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-41-load-balancing-and-service-mesh-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 4.1: Load Balancing and Service Mesh Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-5-session-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 5 - Session Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 5 - Session Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-51-connection-tracking-and-session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 5.1: Connection Tracking and Session Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-6-presentation-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 6 - Presentation Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 6 - Presentation Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-61-tls-termination-and-certificate-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 6.1: TLS Termination and Certificate Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-7-application-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer 7 - Application Layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 7 - Application Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-71-httpgrpc-policy-enforcement-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprehensive-multi-layer-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comprehensive Multi-Layer Exercise
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comprehensive Multi-Layer Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-end-to-end-microservices-security-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise: End-to-End Microservices Security and Observability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4829,98 +5021,375 @@
   
 
 
-<h1 id="editing-docker-socket-service-file-to-change-group-ownership-to-root">Editing Docker Socket Service File to Change Group Ownership to Root<a class="headerlink" href="#editing-docker-socket-service-file-to-change-group-ownership-to-root" title="Permanent link">&para;</a></h1>
-<h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
-<p>Edit the docker.socket service file to make the group owned by root instead of the default docker group.</p>
-<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
-<p>The Docker socket file (<code>docker.socket</code>) defines permissions for the Docker daemon socket. By default, this socket is owned by root:docker, which allows any user in the docker group to interact with the Docker daemon with essentially root privileges. Changing the group ownership to root restricts Docker access to only the root user, enhancing security.</p>
-<h3 id="step-1-locate-the-dockersocket-service-file">Step 1: Locate the docker.socket Service File<a class="headerlink" href="#step-1-locate-the-dockersocket-service-file" title="Permanent link">&para;</a></h3>
-<p>First, let&rsquo;s find the exact location of the docker.socket service file:</p>
-<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/lib/systemd/system<span class="w"> </span>/usr/lib/systemd/system<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;docker.socket&quot;</span>
-</code></pre></div>
-<p>This typically returns:
-<div class="highlight"><pre><span></span><code>/lib/systemd/system/docker.socket
+<h1 id="cilium-exam-exercises-by-iso-layer">Cilium Exam Exercises by ISO Layer<a class="headerlink" href="#cilium-exam-exercises-by-iso-layer" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This document contains comprehensive exam exercises for Cilium, organized by ISO network layers. Each exercise tests different aspects of Cilium&rsquo;s functionality and capabilities.</p>
+<hr />
+<h2 id="layer-1-physical-layer">Layer 1 - Physical Layer<a class="headerlink" href="#layer-1-physical-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-11-node-connectivity-and-agent-status">Exercise 1.1: Node Connectivity and Agent Status<a class="headerlink" href="#exercise-11-node-connectivity-and-agent-status" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: You have a 3-node Kubernetes cluster with Cilium installed. One node appears to have connectivity issues.</p>
+<p><strong>Tasks</strong>:
+1. Check the status of Cilium agents on all nodes
+2. Verify that Cilium can detect all network interfaces
+3. Troubleshoot a node where the Cilium agent is not starting properly
+4. Examine Cilium&rsquo;s view of the physical network topology</p>
+<p><strong>Commands to use</strong>:
+<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>status
+cilium<span class="w"> </span>node<span class="w"> </span>list
+kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>-o<span class="w"> </span>wide
+cilium<span class="w"> </span>connectivity<span class="w"> </span><span class="nb">test</span>
 </code></pre></div></p>
-<h3 id="step-2-examine-the-current-configuration">Step 2: Examine the Current Configuration<a class="headerlink" href="#step-2-examine-the-current-configuration" title="Permanent link">&para;</a></h3>
-<p>Before making changes, examine the current configuration:</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/lib/systemd/system/docker.socket
-</code></pre></div>
-<p>The file should look something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">Docker Socket for the API</span>
-
-<span class="k">[Socket]</span>
-<span class="na">ListenStream</span><span class="o">=</span><span class="s">/var/run/docker.sock</span>
-<span class="na">SocketMode</span><span class="o">=</span><span class="s">0660</span>
-<span class="na">SocketUser</span><span class="o">=</span><span class="s">root</span>
-<span class="na">SocketGroup</span><span class="o">=</span><span class="s">docker</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">sockets.target</span>
-</code></pre></div>
-<p>Notice that the <code>SocketGroup</code> is set to <code>docker</code>.</p>
-<h3 id="step-3-edit-the-dockersocket-file">Step 3: Edit the docker.socket File<a class="headerlink" href="#step-3-edit-the-dockersocket-file" title="Permanent link">&para;</a></h3>
-<p>Now edit the file to change the group ownership to root:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vi<span class="w"> </span>/lib/systemd/system/docker.socket
-</code></pre></div>
-<p>Modify the <code>SocketGroup</code> line to use root instead of docker:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">Docker Socket for the API</span>
-
-<span class="k">[Socket]</span>
-<span class="na">ListenStream</span><span class="o">=</span><span class="s">/var/run/docker.sock</span>
-<span class="na">SocketMode</span><span class="o">=</span><span class="s">0660</span>
-<span class="na">SocketUser</span><span class="o">=</span><span class="s">root</span>
-<span class="na">SocketGroup</span><span class="o">=</span><span class="s">root</span>
-
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">sockets.target</span>
-</code></pre></div>
-<p>Save and exit the editor.</p>
-<h3 id="step-4-reload-the-systemd-daemon">Step 4: Reload the Systemd Daemon<a class="headerlink" href="#step-4-reload-the-systemd-daemon" title="Permanent link">&para;</a></h3>
-<p>After editing the service file, reload the systemd daemon to recognize the changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
-</code></pre></div>
-<h3 id="step-5-restart-the-docker-socket-and-service">Step 5: Restart the Docker Socket and Service<a class="headerlink" href="#step-5-restart-the-docker-socket-and-service" title="Permanent link">&para;</a></h3>
-<p>Restart both the Docker socket and the Docker service to apply the changes:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker.socket
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
-</code></pre></div>
-<h3 id="step-6-verify-the-change">Step 6: Verify the Change<a class="headerlink" href="#step-6-verify-the-change" title="Permanent link">&para;</a></h3>
-<p>Verify that the Docker socket is now owned by root:root:</p>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-la<span class="w"> </span>/var/run/docker.sock
-</code></pre></div>
-<p>You should see output similar to this:</p>
-<div class="highlight"><pre><span></span><code>srw-rw---- 1 root root 0 May 11 10:24 /var/run/docker.sock
-</code></pre></div>
-<p>Notice that both the user and group are now &ldquo;root&rdquo; instead of &ldquo;root docker&rdquo;.</p>
-<h3 id="step-7-test-docker-functionality">Step 7: Test Docker Functionality<a class="headerlink" href="#step-7-test-docker-functionality" title="Permanent link">&para;</a></h3>
-<p>Test that Docker still works when accessed with sudo:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps
-</code></pre></div>
-<p>This should execute successfully and list running containers if any.</p>
-<p>Try to run Docker as a non-root user:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
-</code></pre></div>
-<p>This should fail with a permissions error, confirming that only root can now access Docker.</p>
-<h2 id="security-implications">Security Implications<a class="headerlink" href="#security-implications" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Improved Security</strong>: Only the root user can now interact with the Docker daemon, reducing the attack surface.</p>
-</li>
-<li>
-<p><strong>Restricted Access</strong>: Non-root users (even those in the docker group) can no longer run Docker commands directly.</p>
-</li>
-<li>
-<p><strong>Operational Impact</strong>: Any applications or services that rely on docker group access will need to be reconfigured to use sudo or another privilege escalation method.</p>
-</li>
-<li>
-<p><strong>Principle of Least Privilege</strong>: This change implements the security principle of granting only the minimum necessary privileges.</p>
-</li>
-</ol>
-<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
-<p>By changing the Docker socket group ownership from <code>docker</code> to <code>root</code>, we&rsquo;ve significantly enhanced the security of the Docker daemon by restricting access to only the root user. This modification aligns with security best practices for systems where Docker access should be tightly controlled.</p>
-<p>Remember that after this change, all Docker commands must be executed with sudo or by the root user, which might require adjustments to scripts, CI/CD pipelines, or user workflows that previously relied on docker group membership.</p>
+<p><strong>Expected outcomes</strong>:
+- All Cilium agents should be running and healthy
+- Network interfaces should be properly detected
+- Node-to-node connectivity should be established</p>
+<hr />
+<h2 id="layer-2-data-link-layer">Layer 2 - Data Link Layer<a class="headerlink" href="#layer-2-data-link-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-21-mac-address-learning-and-arp-table-management">Exercise 2.1: MAC Address Learning and ARP Table Management<a class="headerlink" href="#exercise-21-mac-address-learning-and-arp-table-management" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Investigate how Cilium handles Layer 2 operations in a cluster with multiple subnets.</p>
+<p><strong>Tasks</strong>:
+1. Examine Cilium&rsquo;s ARP table entries
+2. Verify MAC address learning for endpoints
+3. Configure and test VXLAN encapsulation
+4. Troubleshoot Layer 2 connectivity between pods on different nodes</p>
+<p><strong>Commands to use</strong>:
+<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>bpf<span class="w"> </span>tunnel<span class="w"> </span>list
+cilium<span class="w"> </span>map<span class="w"> </span>get<span class="w"> </span>cilium_lxc
+cilium<span class="w"> </span>endpoint<span class="w"> </span>list
+cilium<span class="w"> </span>bpf<span class="w"> </span>lb<span class="w"> </span>list
+</code></pre></div></p>
+<p><strong>Configuration example</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium-config</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tunnel</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;vxlan&quot;</span>
+<span class="w">  </span><span class="nt">auto-direct-node-routes</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+</code></pre></div></p>
+<p><strong>Expected outcomes</strong>:
+- Proper VXLAN tunnel establishment
+- Correct MAC address resolution
+- Successful Layer 2 forwarding between nodes</p>
+<hr />
+<h2 id="layer-3-network-layer">Layer 3 - Network Layer<a class="headerlink" href="#layer-3-network-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-31-ip-routing-and-ipam-configuration">Exercise 3.1: IP Routing and IPAM Configuration<a class="headerlink" href="#exercise-31-ip-routing-and-ipam-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Configure and troubleshoot Cilium&rsquo;s IP Address Management (IPAM) and routing policies.</p>
+<p><strong>Tasks</strong>:
+1. Configure custom IPAM pools for different node groups
+2. Implement IP routing policies between different subnets
+3. Set up BGP peering with external routers (if using Cilium BGP)
+4. Troubleshoot IP routing issues between pods</p>
+<p><strong>IPAM Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cilium.io/v2alpha1&quot;</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNode</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker-node-1</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ipam</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">podCIDRs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.244.1.0/24</span>
+<span class="w">    </span><span class="nt">pools</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">allocated</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cidrs</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.244.1.0/26</span>
+<span class="w">        </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+</code></pre></div></p>
+<p><strong>BGP Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cilium.io/v2alpha1&quot;</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumBGPPeeringPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bgp-peering-policy</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker-node-1</span>
+<span class="w">  </span><span class="nt">virtualRouters</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">localASN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65001</span>
+<span class="w">    </span><span class="nt">exportPodCIDR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">neighbors</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">peerAddress</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.1.1&quot;</span>
+<span class="w">      </span><span class="nt">peerASN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65000</span>
+</code></pre></div></p>
+<p><strong>Expected outcomes</strong>:
+- Proper IP allocation from custom pools
+- Successful BGP route advertisement
+- Correct routing table entries</p>
+<hr />
+<h2 id="layer-4-transport-layer">Layer 4 - Transport Layer<a class="headerlink" href="#layer-4-transport-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-41-load-balancing-and-service-mesh-configuration">Exercise 4.1: Load Balancing and Service Mesh Configuration<a class="headerlink" href="#exercise-41-load-balancing-and-service-mesh-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Configure advanced Layer 4 load balancing and troubleshoot service connectivity issues.</p>
+<p><strong>Tasks</strong>:
+1. Configure different load balancing algorithms for services
+2. Set up session affinity for stateful applications
+3. Implement health checking for backend endpoints
+4. Troubleshoot connection timeout issues</p>
+<p><strong>Service Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-service</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">service.cilium.io/lb-algorithm</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;maglev&quot;</span>
+<span class="w">    </span><span class="nt">service.cilium.io/health-check-nodeport</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;31234&quot;</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+<span class="w">  </span><span class="nt">sessionAffinity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClientIP</span>
+<span class="w">  </span><span class="nt">sessionAffinityConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">clientIP</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span>
+<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">    </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+</code></pre></div></p>
+<p><strong>Health Check Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumEndpoint</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-endpoint</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">addressing</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ipv4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.244.1.100</span>
+<span class="w">  </span><span class="nt">networking</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker-node-1</span>
+<span class="w">  </span><span class="nt">health</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tcp</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+</code></pre></div></p>
+<p><strong>Commands to use</strong>:
+<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>service<span class="w"> </span>list
+cilium<span class="w"> </span>bpf<span class="w"> </span>lb<span class="w"> </span>list
+cilium<span class="w"> </span>connectivity<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--test-namespace<span class="w"> </span>default
+</code></pre></div></p>
+<p><strong>Expected outcomes</strong>:
+- Services accessible with proper load balancing
+- Health checks functioning correctly
+- Session affinity working as configured</p>
+<hr />
+<h2 id="layer-5-session-layer">Layer 5 - Session Layer<a class="headerlink" href="#layer-5-session-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-51-connection-tracking-and-session-management">Exercise 5.1: Connection Tracking and Session Management<a class="headerlink" href="#exercise-51-connection-tracking-and-session-management" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Implement and troubleshoot connection tracking for long-lived sessions.</p>
+<p><strong>Tasks</strong>:
+1. Configure connection tracking timeouts for different protocols
+2. Monitor active connections and session state
+3. Implement session persistence for database connections
+4. Troubleshoot session timeout issues</p>
+<p><strong>Connection Tracking Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium-config</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ct-global-max-entries-tcp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000000&quot;</span>
+<span class="w">  </span><span class="nt">ct-global-max-entries-other</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500000&quot;</span>
+<span class="w">  </span><span class="nt">conntrack-gc-interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;60s&quot;</span>
+</code></pre></div></p>
+<p><strong>Commands to use</strong>:
+<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>bpf<span class="w"> </span>ct<span class="w"> </span>list<span class="w"> </span>global
+cilium<span class="w"> </span>monitor<span class="w"> </span>--type<span class="w"> </span>trace
+cilium<span class="w"> </span>endpoint<span class="w"> </span>get<span class="w"> </span>&lt;endpoint-id&gt;
+</code></pre></div></p>
+<p><strong>Expected outcomes</strong>:
+- Proper connection tracking entries
+- Sessions maintained for configured duration
+- Efficient garbage collection of expired connections</p>
+<hr />
+<h2 id="layer-6-presentation-layer">Layer 6 - Presentation Layer<a class="headerlink" href="#layer-6-presentation-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-61-tls-termination-and-certificate-management">Exercise 6.1: TLS Termination and Certificate Management<a class="headerlink" href="#exercise-61-tls-termination-and-certificate-management" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Configure TLS termination at the ingress level and manage certificates.</p>
+<p><strong>Tasks</strong>:
+1. Configure Cilium Ingress Controller with TLS termination
+2. Implement automatic certificate rotation
+3. Set up mutual TLS (mTLS) between services
+4. Monitor certificate expiration and renewal</p>
+<p><strong>Ingress Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls-ingress</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ingress.cilium.io/tls-passthrough</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">    </span><span class="nt">cert-manager.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;letsencrypt-prod&quot;</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium</span>
+<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.example.com</span>
+<span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-tls-secret</span>
+<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.example.com</span>
+<span class="w">    </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
+<span class="w">        </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
+<span class="w">        </span><span class="nt">backend</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-service</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+</code></pre></div></p>
+<p><strong>mTLS Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mtls-policy</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-app</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-app</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">tls</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secret</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mtls-secret</span>
+</code></pre></div></p>
+<p><strong>Expected outcomes</strong>:
+- TLS termination working correctly
+- Certificates automatically renewed
+- mTLS authentication successful</p>
+<hr />
+<h2 id="layer-7-application-layer">Layer 7 - Application Layer<a class="headerlink" href="#layer-7-application-layer" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-71-httpgrpc-policy-enforcement-and-observability">Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability<a class="headerlink" href="#exercise-71-httpgrpc-policy-enforcement-and-observability" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Implement comprehensive Layer 7 policies and monitoring for HTTP and gRPC traffic.</p>
+<p><strong>Tasks</strong>:
+1. Create HTTP-aware network policies with path-based routing
+2. Implement rate limiting for specific API endpoints
+3. Set up gRPC load balancing with health checking
+4. Configure comprehensive Layer 7 observability</p>
+<p><strong>HTTP Network Policy</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-access-policy</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-server</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/users&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/users&quot;</span>
+<span class="w">          </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Content-Type:</span><span class="nv"> </span><span class="s">application/json&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin-panel</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET|POST|PUT|DELETE&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/.*&quot;</span>
+</code></pre></div></p>
+<p><strong>Rate Limiting Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumLocalRedirectPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limit-policy</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">redirectFrontend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">serviceMatcher</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-service</span>
+<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">redirectBackend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">localEndpointSelector</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limiter</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limit</span>
+<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div></p>
+<p><strong>gRPC Service Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-policy</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-server</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-client</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9090&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">grpc</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;UserService&quot;</span>
+<span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GetUser&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;UserService&quot;</span>
+<span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CreateUser&quot;</span>
+</code></pre></div></p>
+<p><strong>Observability Configuration</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium-config</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enable-l7-proxy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">  </span><span class="nt">hubble-listen-address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:4244&quot;</span>
+<span class="w">  </span><span class="nt">hubble-disable-tls</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">  </span><span class="nt">hubble-tls-cert-file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/cilium/tls/hubble-server.crt&quot;</span>
+<span class="w">  </span><span class="nt">hubble-tls-key-file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/cilium/tls/hubble-server.key&quot;</span>
+</code></pre></div></p>
+<p><strong>Commands to use</strong>:
+<div class="highlight"><pre><span></span><code>hubble<span class="w"> </span>observe<span class="w"> </span>--protocol<span class="w"> </span>http
+hubble<span class="w"> </span>observe<span class="w"> </span>--protocol<span class="w"> </span>grpc
+cilium<span class="w"> </span>monitor<span class="w"> </span>--type<span class="w"> </span>l7
+hubble<span class="w"> </span>status
+</code></pre></div></p>
+<p><strong>Expected outcomes</strong>:
+- HTTP policies enforced correctly
+- Rate limiting functional
+- gRPC traffic properly load balanced
+- Comprehensive Layer 7 observability</p>
+<hr />
+<h2 id="comprehensive-multi-layer-exercise">Comprehensive Multi-Layer Exercise<a class="headerlink" href="#comprehensive-multi-layer-exercise" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-end-to-end-microservices-security-and-observability">Exercise: End-to-End Microservices Security and Observability<a class="headerlink" href="#exercise-end-to-end-microservices-security-and-observability" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario</strong>: Deploy a complete microservices application with Cilium providing security and observability across all network layers.</p>
+<p><strong>Architecture</strong>:
+- Frontend (React app)
+- API Gateway (Envoy)
+- User Service (gRPC)
+- Order Service (REST API)
+- Database (PostgreSQL)
+- Message Queue (Redis)</p>
+<p><strong>Tasks</strong>:
+1. Implement network policies for each service
+2. Configure Layer 7 routing and load balancing
+3. Set up mTLS between all services
+4. Implement rate limiting and DDoS protection
+5. Configure comprehensive monitoring and alerting
+6. Perform security testing and validation</p>
 
 
 
@@ -4956,7 +5425,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../istio-mtls/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication">
+          <a href="../pod-security-standards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pod Security Standards (PSS): Overview and Implementation Guide">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4966,20 +5435,20 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
                 Previous
               </span>
               <div class="md-ellipsis">
-                Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication
+                Pod Security Standards (PSS): Overview and Implementation Guide
               </div>
             </div>
           </a>
         
         
           
-          <a href="../hostpath-only/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating a Pod with Host Path Access and Falco Detection">
+          <a href="../update-kubelet-config/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubelet Configuration Exam Exercises">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Creating a Pod with Host Path Access and Falco Detection
+                Kubelet Configuration Exam Exercises
               </div>
             </div>
             <div class="md-footer__button md-icon">
