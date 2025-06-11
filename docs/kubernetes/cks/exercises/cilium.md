@@ -1,316 +1,256 @@
-# Cilium Exam Exercises by ISO Layer
+# Cilium Network Policies Certification Guide
 
-## Overview
-This document contains comprehensive exam exercises for Cilium, organized by ISO network layers. Each exercise tests different aspects of Cilium's functionality and capabilities.
+## Layer 3 Network Policies
 
----
+Layer 3 policies control traffic based on IP addresses and CIDR blocks.
 
-## Layer 1 - Physical Layer
+### Basic L3 Policy - Allow Specific IP Ranges
 
-### Exercise 1.1: Node Connectivity and Agent Status
-**Scenario**: You have a 3-node Kubernetes cluster with Cilium installed. One node appears to have connectivity issues.
-
-**Tasks**:
-1. Check the status of Cilium agents on all nodes
-2. Verify that Cilium can detect all network interfaces
-3. Troubleshoot a node where the Cilium agent is not starting properly
-4. Examine Cilium's view of the physical network topology
-
-**Commands to use**:
-```bash
-cilium status
-cilium node list
-kubectl get nodes -o wide
-cilium connectivity test
-```
-
-**Expected outcomes**:
-- All Cilium agents should be running and healthy
-- Network interfaces should be properly detected
-- Node-to-node connectivity should be established
-
----
-
-## Layer 2 - Data Link Layer
-
-### Exercise 2.1: MAC Address Learning and ARP Table Management
-**Scenario**: Investigate how Cilium handles Layer 2 operations in a cluster with multiple subnets.
-
-**Tasks**:
-1. Examine Cilium's ARP table entries
-2. Verify MAC address learning for endpoints
-3. Configure and test VXLAN encapsulation
-4. Troubleshoot Layer 2 connectivity between pods on different nodes
-
-**Commands to use**:
-```bash
-cilium bpf tunnel list
-cilium map get cilium_lxc
-cilium endpoint list
-cilium bpf lb list
-```
-
-**Configuration example**:
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cilium-config
-  namespace: kube-system
-data:
-  tunnel: "vxlan"
-  auto-direct-node-routes: "false"
-```
-
-**Expected outcomes**:
-- Proper VXLAN tunnel establishment
-- Correct MAC address resolution
-- Successful Layer 2 forwarding between nodes
-
----
-
-## Layer 3 - Network Layer
-
-### Exercise 3.1: IP Routing and IPAM Configuration
-**Scenario**: Configure and troubleshoot Cilium's IP Address Management (IPAM) and routing policies.
-
-**Tasks**:
-1. Configure custom IPAM pools for different node groups
-2. Implement IP routing policies between different subnets
-3. Set up BGP peering with external routers (if using Cilium BGP)
-4. Troubleshoot IP routing issues between pods
-
-**IPAM Configuration**:
-```yaml
-apiVersion: "cilium.io/v2alpha1"
-kind: CiliumNode
-metadata:
-  name: worker-node-1
-spec:
-  ipam:
-    podCIDRs:
-    - 10.244.1.0/24
-    pools:
-      allocated:
-      - cidrs:
-        - 10.244.1.0/26
-        pool: default
-```
-
-**BGP Configuration**:
-```yaml
-apiVersion: "cilium.io/v2alpha1"
-kind: CiliumBGPPeeringPolicy
-metadata:
-  name: bgp-peering-policy
-spec:
-  nodeSelector:
-    matchLabels:
-      kubernetes.io/hostname: worker-node-1
-  virtualRouters:
-  - localASN: 65001
-    exportPodCIDR: true
-    neighbors:
-    - peerAddress: "192.168.1.1"
-      peerASN: 65000
-```
-
-**Expected outcomes**:
-- Proper IP allocation from custom pools
-- Successful BGP route advertisement
-- Correct routing table entries
-
----
-
-## Layer 4 - Transport Layer
-
-### Exercise 4.1: Load Balancing and Service Mesh Configuration
-**Scenario**: Configure advanced Layer 4 load balancing and troubleshoot service connectivity issues.
-
-**Tasks**:
-1. Configure different load balancing algorithms for services
-2. Set up session affinity for stateful applications
-3. Implement health checking for backend endpoints
-4. Troubleshoot connection timeout issues
-
-**Service Configuration**:
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-service
-  annotations:
-    service.cilium.io/lb-algorithm: "maglev"
-    service.cilium.io/health-check-nodeport: "31234"
-spec:
-  type: LoadBalancer
-  sessionAffinity: ClientIP
-  sessionAffinityConfig:
-    clientIP:
-      timeoutSeconds: 3600
-  ports:
-  - port: 80
-    targetPort: 8080
-    protocol: TCP
-  selector:
-    app: web-app
-```
-
-**Health Check Configuration**:
-```yaml
-apiVersion: cilium.io/v2
-kind: CiliumEndpoint
-metadata:
-  name: web-endpoint
-spec:
-  addressing:
-    ipv4: 10.244.1.100
-  networking:
-    node: worker-node-1
-  health:
-    tcp:
-      port: 8080
-```
-
-**Commands to use**:
-```bash
-cilium service list
-cilium bpf lb list
-cilium connectivity test --test-namespace default
-```
-
-**Expected outcomes**:
-- Services accessible with proper load balancing
-- Health checks functioning correctly
-- Session affinity working as configured
-
----
-
-## Layer 5 - Session Layer
-
-### Exercise 5.1: Connection Tracking and Session Management
-**Scenario**: Implement and troubleshoot connection tracking for long-lived sessions.
-
-**Tasks**:
-1. Configure connection tracking timeouts for different protocols
-2. Monitor active connections and session state
-3. Implement session persistence for database connections
-4. Troubleshoot session timeout issues
-
-**Connection Tracking Configuration**:
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cilium-config
-  namespace: kube-system
-data:
-  ct-global-max-entries-tcp: "1000000"
-  ct-global-max-entries-other: "500000"
-  conntrack-gc-interval: "60s"
-```
-
-**Commands to use**:
-```bash
-cilium bpf ct list global
-cilium monitor --type trace
-cilium endpoint get <endpoint-id>
-```
-
-**Expected outcomes**:
-- Proper connection tracking entries
-- Sessions maintained for configured duration
-- Efficient garbage collection of expired connections
-
----
-
-## Layer 6 - Presentation Layer
-
-### Exercise 6.1: TLS Termination and Certificate Management
-**Scenario**: Configure TLS termination at the ingress level and manage certificates.
-
-**Tasks**:
-1. Configure Cilium Ingress Controller with TLS termination
-2. Implement automatic certificate rotation
-3. Set up mutual TLS (mTLS) between services
-4. Monitor certificate expiration and renewal
-
-**Ingress Configuration**:
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: tls-ingress
-  annotations:
-    ingress.cilium.io/tls-passthrough: "false"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-spec:
-  ingressClassName: cilium
-  tls:
-  - hosts:
-    - app.example.com
-    secretName: app-tls-secret
-  rules:
-  - host: app.example.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: app-service
-            port:
-              number: 80
-```
-
-**mTLS Configuration**:
 ```yaml
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: mtls-policy
+  name: l3-allow-specific-ips
+  namespace: production
 spec:
   endpointSelector:
     matchLabels:
-      app: secure-app
+      app: web-server
   ingress:
-  - fromEndpoints:
-    - matchLabels:
-        app: client-app
-    toPorts:
-    - ports:
-      - port: "443"
-        protocol: TCP
-      rules:
-        tls:
-        - secret:
-            name: mtls-secret
+  - fromCIDR:
+    - "10.0.1.0/24"    # Allow from specific subnet
+    - "192.168.1.100/32" # Allow from specific IP
+  egress:
+  - toCIDR:
+    - "10.0.2.0/24"    # Allow to database subnet
+  - toFQDNs:
+    - matchName: "api.external-service.com"
 ```
 
-**Expected outcomes**:
-- TLS termination working correctly
-- Certificates automatically renewed
-- mTLS authentication successful
+### L3 Policy - Block External Traffic
 
----
-
-## Layer 7 - Application Layer
-
-### Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability
-**Scenario**: Implement comprehensive Layer 7 policies and monitoring for HTTP and gRPC traffic.
-
-**Tasks**:
-1. Create HTTP-aware network policies with path-based routing
-2. Implement rate limiting for specific API endpoints
-3. Set up gRPC load balancing with health checking
-4. Configure comprehensive Layer 7 observability
-
-**HTTP Network Policy**:
 ```yaml
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: api-access-policy
+  name: l3-block-external
+  namespace: secure-zone
+spec:
+  endpointSelector:
+    matchLabels:
+      security: high
+  ingress:
+  - fromCIDR:
+    - "10.0.0.0/8"     # Only allow internal traffic
+    - "172.16.0.0/12"
+    - "192.168.0.0/16"
+  egress:
+  - toCIDR:
+    - "10.0.0.0/8"     # Only allow internal egress
+    - "172.16.0.0/12"
+    - "192.168.0.0/16"
+```
+
+### L3 Policy with Node Selection
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l3-node-based
+spec:
+  endpointSelector:
+    matchLabels:
+      app: monitoring
+  ingress:
+  - fromEntities:
+    - "host"           # Allow from node
+  - fromNodes:
+    - matchLabels:
+        node-role: "worker"
+```
+
+---
+
+## Layer 4 Network Policies
+
+Layer 4 policies control traffic based on ports and protocols.
+
+### Basic L4 Policy - Port-specific Access
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l4-web-server-ports
+  namespace: web-app
+spec:
+  endpointSelector:
+    matchLabels:
+      app: nginx
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: frontend
+    toPorts:
+    - ports:
+      - port: "80"
+        protocol: TCP
+      - port: "443"
+        protocol: TCP
+  - fromEndpoints:
+    - matchLabels:
+        app: monitoring
+    toPorts:
+    - ports:
+      - port: "9090"    # Metrics port
+        protocol: TCP
+```
+
+### L4 Policy - Database Access Control
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l4-database-access
+  namespace: database
+spec:
+  endpointSelector:
+    matchLabels:
+      app: mysql
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        tier: backend
+    toPorts:
+    - ports:
+      - port: "3306"
+        protocol: TCP
+  # Deny all other ingress traffic (implicit)
+  egress:
+  - {} # Allow all egress for database operations
+```
+
+### L4 Policy - Multi-Protocol Support
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l4-multi-protocol
+spec:
+  endpointSelector:
+    matchLabels:
+      app: dns-server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        role: client
+    toPorts:
+    - ports:
+      - port: "53"
+        protocol: TCP
+      - port: "53"
+        protocol: UDP
+    - ports:
+      - port: "853"      # DNS over TLS
+        protocol: TCP
+```
+
+---
+
+## ICMP Policies
+
+ICMP policies control ping, traceroute, and other ICMP traffic.
+
+### Allow ICMP for Monitoring
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: icmp-monitoring
+  namespace: infrastructure
+spec:
+  endpointSelector:
+    matchLabels:
+      role: server
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: monitoring
+    icmps:
+    - fields:
+      - type: 8          # Echo Request (ping)
+        code: 0
+  - fromEndpoints:
+    - matchLabels:
+        app: network-tools
+    icmps:
+    - fields:
+      - type: 8          # Echo Request
+      - type: 11         # Time Exceeded (traceroute)
+```
+
+### Block ICMP from External Sources
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: icmp-block-external
+spec:
+  endpointSelector:
+    matchLabels:
+      exposure: internal
+  ingress:
+  - fromCIDR:
+    - "10.0.0.0/8"
+    icmps:
+    - fields:
+      - type: 8          # Allow internal ping
+  # ICMP from external sources blocked (no rule = deny)
+```
+
+### ICMP Troubleshooting Policy
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: icmp-troubleshooting
+spec:
+  endpointSelector:
+    matchLabels:
+      debug: enabled
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        role: admin
+    icmps:
+    - fields:
+      - type: 8          # Echo Request
+      - type: 0          # Echo Reply
+      - type: 3          # Destination Unreachable
+      - type: 11         # Time Exceeded
+      - type: 12         # Parameter Problem
+```
+
+---
+
+## Layer 7 (Application Layer) Policies
+
+Layer 7 policies provide HTTP/gRPC/Kafka protocol-aware filtering.
+
+### HTTP-based L7 Policy
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l7-http-api-access
+  namespace: api-gateway
 spec:
   endpointSelector:
     matchLabels:
@@ -329,8 +269,8 @@ spec:
           path: "/api/v1/users"
         - method: "POST"
           path: "/api/v1/users"
-          headers:
-          - "Content-Type: application/json"
+        - method: "GET"
+          path: "/api/v1/health"
   - fromEndpoints:
     - matchLabels:
         app: admin-panel
@@ -340,41 +280,58 @@ spec:
         protocol: TCP
       rules:
         http:
-        - method: "GET|POST|PUT|DELETE"
+        - method: "GET"
+          path: "/api/v1/.*"    # Regex for any v1 endpoint
+        - method: "POST"
+          path: "/api/v1/.*"
+        - method: "PUT"
+          path: "/api/v1/.*"
+        - method: "DELETE"
           path: "/api/v1/.*"
 ```
 
-**Rate Limiting Configuration**:
-```yaml
-apiVersion: cilium.io/v2
-kind: CiliumLocalRedirectPolicy
-metadata:
-  name: rate-limit-policy
-spec:
-  redirectFrontend:
-    serviceMatcher:
-      serviceName: api-service
-      namespace: default
-  redirectBackend:
-    localEndpointSelector:
-      matchLabels:
-        app: rate-limiter
-    toPorts:
-    - port: 8081
-      name: rate-limit
-      protocol: TCP
-```
+### L7 Policy with Headers
 
-**gRPC Service Configuration**:
 ```yaml
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: grpc-policy
+  name: l7-http-headers
 spec:
   endpointSelector:
     matchLabels:
-      app: grpc-server
+      app: auth-service
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: web-app
+    toPorts:
+    - ports:
+      - port: "80"
+        protocol: TCP
+      rules:
+        http:
+        - method: "POST"
+          path: "/auth/login"
+          headers:
+          - "Content-Type: application/json"
+        - method: "GET"
+          path: "/auth/verify"
+          headers:
+          - "Authorization: Bearer .*"
+```
+
+### L7 gRPC Policy
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: l7-grpc-service
+spec:
+  endpointSelector:
+    matchLabels:
+      app: grpc-service
   ingress:
   - fromEndpoints:
     - matchLabels:
@@ -385,60 +342,339 @@ spec:
         protocol: TCP
       rules:
         grpc:
-        - service: "UserService"
+        - service: "user.UserService"
           method: "GetUser"
-        - service: "UserService"
-          method: "CreateUser"
+        - service: "user.UserService"
+          method: "ListUsers"
 ```
 
-**Observability Configuration**:
+### L7 DNS Policy
+
 ```yaml
-apiVersion: v1
-kind: ConfigMap
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
 metadata:
-  name: cilium-config
-  namespace: kube-system
-data:
-  enable-l7-proxy: "true"
-  hubble-listen-address: ":4244"
-  hubble-disable-tls: "false"
-  hubble-tls-cert-file: "/var/lib/cilium/tls/hubble-server.crt"
-  hubble-tls-key-file: "/var/lib/cilium/tls/hubble-server.key"
+  name: l7-dns-filtering
+spec:
+  endpointSelector:
+    matchLabels:
+      app: web-crawler
+  egress:
+  - toEndpoints:
+    - matchLabels:
+        k8s:io.kubernetes.pod.namespace: kube-system
+        k8s:app: kube-dns
+    toPorts:
+    - ports:
+      - port: "53"
+        protocol: UDP
+      rules:
+        dns:
+        - matchPattern: "*.example.com"
+        - matchPattern: "api.allowed-service.org"
+        - matchName: "specific-host.com"
 ```
-
-**Commands to use**:
-```bash
-hubble observe --protocol http
-hubble observe --protocol grpc
-cilium monitor --type l7
-hubble status
-```
-
-**Expected outcomes**:
-- HTTP policies enforced correctly
-- Rate limiting functional
-- gRPC traffic properly load balanced
-- Comprehensive Layer 7 observability
 
 ---
 
-## Comprehensive Multi-Layer Exercise
+## Deny Policies
 
-### Exercise: End-to-End Microservices Security and Observability
-**Scenario**: Deploy a complete microservices application with Cilium providing security and observability across all network layers.
+Cilium supports explicit deny policies for enhanced security.
 
-**Architecture**:
-- Frontend (React app)
-- API Gateway (Envoy)
-- User Service (gRPC)
-- Order Service (REST API)
-- Database (PostgreSQL)
-- Message Queue (Redis)
+### Explicit Deny Policy
 
-**Tasks**:
-1. Implement network policies for each service
-2. Configure Layer 7 routing and load balancing
-3. Set up mTLS between all services
-4. Implement rate limiting and DDoS protection
-5. Configure comprehensive monitoring and alerting
-6. Perform security testing and validation
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: deny-suspicious-traffic
+spec:
+  endpointSelector:
+    matchLabels:
+      security: strict
+  ingressDeny:
+  - fromCIDR:
+    - "192.168.100.0/24"  # Block specific subnet
+  - fromEndpoints:
+    - matchLabels:
+        reputation: suspicious
+  egressDeny:
+  - toPorts:
+    - ports:
+      - port: "22"        # Block SSH
+        protocol: TCP
+      - port: "3389"      # Block RDP
+        protocol: TCP
+```
+
+### Deny with L7 Rules
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: deny-admin-endpoints
+spec:
+  endpointSelector:
+    matchLabels:
+      app: web-server
+  ingressDeny:
+  - fromEndpoints:
+    - matchLabels:
+        role: user
+    toPorts:
+    - ports:
+      - port: "80"
+        protocol: TCP
+      rules:
+        http:
+        - method: "GET"
+          path: "/admin/.*"
+        - method: "POST"
+          path: "/admin/.*"
+```
+
+### Time-based Deny (Advanced)
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: deny-after-hours
+spec:
+  endpointSelector:
+    matchLabels:
+      access: business-hours
+  ingressDeny:
+  - fromEndpoints:
+    - matchLabels:
+        role: employee
+    toPorts:
+    - ports:
+      - port: "443"
+        protocol: TCP
+      rules:
+        http:
+        - method: ".*"
+          path: "/.*"
+          headers:
+          - "X-Time-Restriction: after-hours"
+```
+
+---
+
+## Allow Policies
+
+Allow policies explicitly permit traffic and can work with deny policies.
+
+### Basic Allow Policy
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-essential-services
+spec:
+  endpointSelector:
+    matchLabels:
+      app: microservice
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: gateway
+    toPorts:
+    - ports:
+      - port: "8080"
+        protocol: TCP
+  egress:
+  - toEndpoints:
+    - matchLabels:
+        app: database
+    toPorts:
+    - ports:
+      - port: "5432"
+        protocol: TCP
+  - toFQDNs:
+    - matchName: "logging.external.com"
+```
+
+### Allow with Service Mesh Integration
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-istio-sidecar
+spec:
+  endpointSelector:
+    matchLabels:
+      app: bookinfo
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        "k8s:io.kubernetes.pod.namespace": istio-system
+  - fromEndpoints:
+    - {} # Allow from any pod in same namespace
+    toPorts:
+    - ports:
+      - port: "15001"     # Istio proxy
+        protocol: TCP
+```
+
+---
+
+## Advanced Scenarios
+
+### Multi-tier Application Security
+
+```yaml
+# Frontend tier
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: frontend-policy
+  namespace: web-app
+spec:
+  endpointSelector:
+    matchLabels:
+      tier: frontend
+  ingress:
+  - fromCIDR:
+    - "0.0.0.0/0"        # Allow from internet
+    toPorts:
+    - ports:
+      - port: "80"
+        protocol: TCP
+      - port: "443"
+        protocol: TCP
+  egress:
+  - toEndpoints:
+    - matchLabels:
+        tier: backend
+    toPorts:
+    - ports:
+      - port: "8080"
+        protocol: TCP
+      rules:
+        http:
+        - method: "GET"
+          path: "/api/.*"
+        - method: "POST"
+          path: "/api/.*"
+
+---
+# Backend tier
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: backend-policy
+  namespace: web-app
+spec:
+  endpointSelector:
+    matchLabels:
+      tier: backend
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        tier: frontend
+    toPorts:
+    - ports:
+      - port: "8080"
+        protocol: TCP
+  egress:
+  - toEndpoints:
+    - matchLabels:
+        tier: database
+    toPorts:
+    - ports:
+      - port: "5432"
+        protocol: TCP
+
+---
+# Database tier
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: database-policy
+  namespace: web-app
+spec:
+  endpointSelector:
+    matchLabels:
+      tier: database
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        tier: backend
+    toPorts:
+    - ports:
+      - port: "5432"
+        protocol: TCP
+  # No egress rules = deny all egress
+```
+
+### Cross-Namespace Communication
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: cross-namespace-api
+spec:
+  endpointSelector:
+    matchLabels:
+      app: shared-api
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        "k8s:io.kubernetes.pod.namespace": "frontend"
+        app: web-app
+    - matchLabels:
+        "k8s:io.kubernetes.pod.namespace": "mobile"
+        app: mobile-api
+    toPorts:
+    - ports:
+      - port: "8080"
+        protocol: TCP
+      rules:
+        http:
+        - method: "GET"
+          path: "/shared/.*"
+```
+
+### Zero Trust Network
+
+```yaml
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: zero-trust-default-deny
+spec:
+  endpointSelector: {}   # Apply to all pods
+  ingressDeny:
+  - fromEntities:
+    - "all"
+  egressDeny:
+  - toEntities:
+    - "all"
+
+---
+# Explicit allow for essential services
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-dns
+  namespace: kube-system
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s-app: kube-dns
+  ingress:
+  - fromEntities:
+    - "cluster"
+    toPorts:
+    - ports:
+      - port: "53"
+        protocol: UDP
+      - port: "53"
+        protocol: TCP
+```
