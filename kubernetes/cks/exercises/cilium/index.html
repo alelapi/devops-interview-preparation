@@ -24,7 +24,7 @@
     
     
       
-        <title>Cilium Exam Exercises by ISO Layer - My DevOps Interview Preparation</title>
+        <title>Cilium Network Policies Certification Guide - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cilium-exam-exercises-by-iso-layer" class="md-skip">
+        <a href="#cilium-network-policies-certification-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cilium Exam Exercises by ISO Layer
+              Cilium Network Policies Certification Guide
             
           </span>
         </div>
@@ -3987,6 +3987,8 @@
       
         
       
+        
+      
     
     
     
@@ -4205,7 +4207,7 @@
   
   
   <span class="md-ellipsis">
-    Cilium Exam Exercises by ISO Layer
+    Cilium Network Policies Certification Guide
     
   </span>
   
@@ -4218,7 +4220,7 @@
   
   
   <span class="md-ellipsis">
-    Cilium Exam Exercises by ISO Layer
+    Cilium Network Policies Certification Guide
     
   </span>
   
@@ -4241,28 +4243,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#layer-3-network-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Layer 3 Network Policies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 3 Network Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-l3-policy-allow-specific-ip-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic L3 Policy - Allow Specific IP Ranges
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#layer-1-physical-layer" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#l3-policy-block-external-traffic" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 1 - Physical Layer
+      L3 Policy - Block External Traffic
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 1 - Physical Layer">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#exercise-11-node-connectivity-and-agent-status" class="md-nav__link">
+  <a href="#l3-policy-with-node-selection" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 1.1: Node Connectivity and Agent Status
+      L3 Policy with Node Selection
     </span>
   </a>
   
@@ -4274,19 +4285,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-2-data-link-layer" class="md-nav__link">
+  <a href="#layer-4-network-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 2 - Data Link Layer
+      Layer 4 Network Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 2 - Data Link Layer">
+    <nav class="md-nav" aria-label="Layer 4 Network Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-21-mac-address-learning-and-arp-table-management" class="md-nav__link">
+  <a href="#basic-l4-policy-port-specific-access" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 2.1: MAC Address Learning and ARP Table Management
+      Basic L4 Policy - Port-specific Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l4-policy-database-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      L4 Policy - Database Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l4-policy-multi-protocol-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      L4 Policy - Multi-Protocol Support
     </span>
   </a>
   
@@ -4298,19 +4327,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-3-network-layer" class="md-nav__link">
+  <a href="#icmp-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 3 - Network Layer
+      ICMP Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 3 - Network Layer">
+    <nav class="md-nav" aria-label="ICMP Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-31-ip-routing-and-ipam-configuration" class="md-nav__link">
+  <a href="#allow-icmp-for-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 3.1: IP Routing and IPAM Configuration
+      Allow ICMP for Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-icmp-from-external-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block ICMP from External Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icmp-troubleshooting-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICMP Troubleshooting Policy
     </span>
   </a>
   
@@ -4322,19 +4369,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-4-transport-layer" class="md-nav__link">
+  <a href="#layer-7-application-layer-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 4 - Transport Layer
+      Layer 7 (Application Layer) Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 4 - Transport Layer">
+    <nav class="md-nav" aria-label="Layer 7 (Application Layer) Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-41-load-balancing-and-service-mesh-configuration" class="md-nav__link">
+  <a href="#http-based-l7-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 4.1: Load Balancing and Service Mesh Configuration
+      HTTP-based L7 Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7-policy-with-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      L7 Policy with Headers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7-grpc-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      L7 gRPC Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7-dns-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      L7 DNS Policy
     </span>
   </a>
   
@@ -4346,19 +4420,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-5-session-layer" class="md-nav__link">
+  <a href="#deny-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 5 - Session Layer
+      Deny Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 5 - Session Layer">
+    <nav class="md-nav" aria-label="Deny Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-51-connection-tracking-and-session-management" class="md-nav__link">
+  <a href="#explicit-deny-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 5.1: Connection Tracking and Session Management
+      Explicit Deny Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deny-with-l7-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deny with L7 Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-based-deny-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time-based Deny (Advanced)
     </span>
   </a>
   
@@ -4370,19 +4462,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-6-presentation-layer" class="md-nav__link">
+  <a href="#allow-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 6 - Presentation Layer
+      Allow Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 6 - Presentation Layer">
+    <nav class="md-nav" aria-label="Allow Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-61-tls-termination-and-certificate-management" class="md-nav__link">
+  <a href="#basic-allow-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 6.1: TLS Termination and Certificate Management
+      Basic Allow Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-with-service-mesh-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow with Service Mesh Integration
     </span>
   </a>
   
@@ -4394,43 +4495,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-7-application-layer" class="md-nav__link">
+  <a href="#advanced-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 7 - Application Layer
+      Advanced Scenarios
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 7 - Application Layer">
+    <nav class="md-nav" aria-label="Advanced Scenarios">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-71-httpgrpc-policy-enforcement-and-observability" class="md-nav__link">
+  <a href="#multi-tier-application-security" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability
+      Multi-tier Application Security
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprehensive-multi-layer-exercise" class="md-nav__link">
+          <li class="md-nav__item">
+  <a href="#cross-namespace-communication" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprehensive Multi-Layer Exercise
+      Cross-Namespace Communication
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comprehensive Multi-Layer Exercise">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#exercise-end-to-end-microservices-security-and-observability" class="md-nav__link">
+  <a href="#zero-trust-network" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise: End-to-End Microservices Security and Observability
+      Zero Trust Network
     </span>
   </a>
   
@@ -4463,6 +4558,29 @@
   
   <span class="md-ellipsis">
     Kubelet Configuration Exam Exercises
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-static-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Security Analysis
     
   </span>
   
@@ -4802,28 +4920,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#layer-3-network-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Layer 3 Network Policies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layer 3 Network Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-l3-policy-allow-specific-ip-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic L3 Policy - Allow Specific IP Ranges
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#layer-1-physical-layer" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#l3-policy-block-external-traffic" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 1 - Physical Layer
+      L3 Policy - Block External Traffic
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 1 - Physical Layer">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#exercise-11-node-connectivity-and-agent-status" class="md-nav__link">
+  <a href="#l3-policy-with-node-selection" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 1.1: Node Connectivity and Agent Status
+      L3 Policy with Node Selection
     </span>
   </a>
   
@@ -4835,19 +4962,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-2-data-link-layer" class="md-nav__link">
+  <a href="#layer-4-network-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 2 - Data Link Layer
+      Layer 4 Network Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 2 - Data Link Layer">
+    <nav class="md-nav" aria-label="Layer 4 Network Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-21-mac-address-learning-and-arp-table-management" class="md-nav__link">
+  <a href="#basic-l4-policy-port-specific-access" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 2.1: MAC Address Learning and ARP Table Management
+      Basic L4 Policy - Port-specific Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l4-policy-database-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      L4 Policy - Database Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l4-policy-multi-protocol-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      L4 Policy - Multi-Protocol Support
     </span>
   </a>
   
@@ -4859,19 +5004,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-3-network-layer" class="md-nav__link">
+  <a href="#icmp-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 3 - Network Layer
+      ICMP Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 3 - Network Layer">
+    <nav class="md-nav" aria-label="ICMP Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-31-ip-routing-and-ipam-configuration" class="md-nav__link">
+  <a href="#allow-icmp-for-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 3.1: IP Routing and IPAM Configuration
+      Allow ICMP for Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-icmp-from-external-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block ICMP from External Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#icmp-troubleshooting-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      ICMP Troubleshooting Policy
     </span>
   </a>
   
@@ -4883,19 +5046,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-4-transport-layer" class="md-nav__link">
+  <a href="#layer-7-application-layer-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 4 - Transport Layer
+      Layer 7 (Application Layer) Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 4 - Transport Layer">
+    <nav class="md-nav" aria-label="Layer 7 (Application Layer) Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-41-load-balancing-and-service-mesh-configuration" class="md-nav__link">
+  <a href="#http-based-l7-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 4.1: Load Balancing and Service Mesh Configuration
+      HTTP-based L7 Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7-policy-with-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      L7 Policy with Headers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7-grpc-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      L7 gRPC Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l7-dns-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      L7 DNS Policy
     </span>
   </a>
   
@@ -4907,19 +5097,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-5-session-layer" class="md-nav__link">
+  <a href="#deny-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 5 - Session Layer
+      Deny Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 5 - Session Layer">
+    <nav class="md-nav" aria-label="Deny Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-51-connection-tracking-and-session-management" class="md-nav__link">
+  <a href="#explicit-deny-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 5.1: Connection Tracking and Session Management
+      Explicit Deny Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deny-with-l7-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deny with L7 Rules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-based-deny-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time-based Deny (Advanced)
     </span>
   </a>
   
@@ -4931,19 +5139,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-6-presentation-layer" class="md-nav__link">
+  <a href="#allow-policies" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 6 - Presentation Layer
+      Allow Policies
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 6 - Presentation Layer">
+    <nav class="md-nav" aria-label="Allow Policies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-61-tls-termination-and-certificate-management" class="md-nav__link">
+  <a href="#basic-allow-policy" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 6.1: TLS Termination and Certificate Management
+      Basic Allow Policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allow-with-service-mesh-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allow with Service Mesh Integration
     </span>
   </a>
   
@@ -4955,43 +5172,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#layer-7-application-layer" class="md-nav__link">
+  <a href="#advanced-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
-      Layer 7 - Application Layer
+      Advanced Scenarios
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Layer 7 - Application Layer">
+    <nav class="md-nav" aria-label="Advanced Scenarios">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercise-71-httpgrpc-policy-enforcement-and-observability" class="md-nav__link">
+  <a href="#multi-tier-application-security" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability
+      Multi-tier Application Security
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comprehensive-multi-layer-exercise" class="md-nav__link">
+          <li class="md-nav__item">
+  <a href="#cross-namespace-communication" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprehensive Multi-Layer Exercise
+      Cross-Namespace Communication
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comprehensive Multi-Layer Exercise">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#exercise-end-to-end-microservices-security-and-observability" class="md-nav__link">
+  <a href="#zero-trust-network" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercise: End-to-End Microservices Security and Observability
+      Zero Trust Network
     </span>
   </a>
   
@@ -5021,258 +5232,218 @@
   
 
 
-<h1 id="cilium-exam-exercises-by-iso-layer">Cilium Exam Exercises by ISO Layer<a class="headerlink" href="#cilium-exam-exercises-by-iso-layer" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This document contains comprehensive exam exercises for Cilium, organized by ISO network layers. Each exercise tests different aspects of Cilium&rsquo;s functionality and capabilities.</p>
-<hr />
-<h2 id="layer-1-physical-layer">Layer 1 - Physical Layer<a class="headerlink" href="#layer-1-physical-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-11-node-connectivity-and-agent-status">Exercise 1.1: Node Connectivity and Agent Status<a class="headerlink" href="#exercise-11-node-connectivity-and-agent-status" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: You have a 3-node Kubernetes cluster with Cilium installed. One node appears to have connectivity issues.</p>
-<p><strong>Tasks</strong>:
-1. Check the status of Cilium agents on all nodes
-2. Verify that Cilium can detect all network interfaces
-3. Troubleshoot a node where the Cilium agent is not starting properly
-4. Examine Cilium&rsquo;s view of the physical network topology</p>
-<p><strong>Commands to use</strong>:
-<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>status
-cilium<span class="w"> </span>node<span class="w"> </span>list
-kubectl<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>-o<span class="w"> </span>wide
-cilium<span class="w"> </span>connectivity<span class="w"> </span><span class="nb">test</span>
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- All Cilium agents should be running and healthy
-- Network interfaces should be properly detected
-- Node-to-node connectivity should be established</p>
-<hr />
-<h2 id="layer-2-data-link-layer">Layer 2 - Data Link Layer<a class="headerlink" href="#layer-2-data-link-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-21-mac-address-learning-and-arp-table-management">Exercise 2.1: MAC Address Learning and ARP Table Management<a class="headerlink" href="#exercise-21-mac-address-learning-and-arp-table-management" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Investigate how Cilium handles Layer 2 operations in a cluster with multiple subnets.</p>
-<p><strong>Tasks</strong>:
-1. Examine Cilium&rsquo;s ARP table entries
-2. Verify MAC address learning for endpoints
-3. Configure and test VXLAN encapsulation
-4. Troubleshoot Layer 2 connectivity between pods on different nodes</p>
-<p><strong>Commands to use</strong>:
-<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>bpf<span class="w"> </span>tunnel<span class="w"> </span>list
-cilium<span class="w"> </span>map<span class="w"> </span>get<span class="w"> </span>cilium_lxc
-cilium<span class="w"> </span>endpoint<span class="w"> </span>list
-cilium<span class="w"> </span>bpf<span class="w"> </span>lb<span class="w"> </span>list
-</code></pre></div></p>
-<p><strong>Configuration example</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium-config</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">tunnel</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;vxlan&quot;</span>
-<span class="w">  </span><span class="nt">auto-direct-node-routes</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- Proper VXLAN tunnel establishment
-- Correct MAC address resolution
-- Successful Layer 2 forwarding between nodes</p>
-<hr />
-<h2 id="layer-3-network-layer">Layer 3 - Network Layer<a class="headerlink" href="#layer-3-network-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-31-ip-routing-and-ipam-configuration">Exercise 3.1: IP Routing and IPAM Configuration<a class="headerlink" href="#exercise-31-ip-routing-and-ipam-configuration" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Configure and troubleshoot Cilium&rsquo;s IP Address Management (IPAM) and routing policies.</p>
-<p><strong>Tasks</strong>:
-1. Configure custom IPAM pools for different node groups
-2. Implement IP routing policies between different subnets
-3. Set up BGP peering with external routers (if using Cilium BGP)
-4. Troubleshoot IP routing issues between pods</p>
-<p><strong>IPAM Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cilium.io/v2alpha1&quot;</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNode</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker-node-1</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ipam</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">podCIDRs</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.244.1.0/24</span>
-<span class="w">    </span><span class="nt">pools</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">allocated</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cidrs</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.244.1.0/26</span>
-<span class="w">        </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
-</code></pre></div></p>
-<p><strong>BGP Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cilium.io/v2alpha1&quot;</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumBGPPeeringPolicy</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bgp-peering-policy</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">nodeSelector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">kubernetes.io/hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker-node-1</span>
-<span class="w">  </span><span class="nt">virtualRouters</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">localASN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65001</span>
-<span class="w">    </span><span class="nt">exportPodCIDR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">neighbors</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">peerAddress</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.1.1&quot;</span>
-<span class="w">      </span><span class="nt">peerASN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65000</span>
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- Proper IP allocation from custom pools
-- Successful BGP route advertisement
-- Correct routing table entries</p>
-<hr />
-<h2 id="layer-4-transport-layer">Layer 4 - Transport Layer<a class="headerlink" href="#layer-4-transport-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-41-load-balancing-and-service-mesh-configuration">Exercise 4.1: Load Balancing and Service Mesh Configuration<a class="headerlink" href="#exercise-41-load-balancing-and-service-mesh-configuration" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Configure advanced Layer 4 load balancing and troubleshoot service connectivity issues.</p>
-<p><strong>Tasks</strong>:
-1. Configure different load balancing algorithms for services
-2. Set up session affinity for stateful applications
-3. Implement health checking for backend endpoints
-4. Troubleshoot connection timeout issues</p>
-<p><strong>Service Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-service</span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">service.cilium.io/lb-algorithm</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;maglev&quot;</span>
-<span class="w">    </span><span class="nt">service.cilium.io/health-check-nodeport</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;31234&quot;</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
-<span class="w">  </span><span class="nt">sessionAffinity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ClientIP</span>
-<span class="w">  </span><span class="nt">sessionAffinityConfig</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">clientIP</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span>
-<span class="w">  </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
-<span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
-<span class="w">    </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
-<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
-</code></pre></div></p>
-<p><strong>Health Check Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumEndpoint</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-endpoint</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">addressing</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">ipv4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.244.1.100</span>
-<span class="w">  </span><span class="nt">networking</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">worker-node-1</span>
-<span class="w">  </span><span class="nt">health</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">tcp</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
-</code></pre></div></p>
-<p><strong>Commands to use</strong>:
-<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>service<span class="w"> </span>list
-cilium<span class="w"> </span>bpf<span class="w"> </span>lb<span class="w"> </span>list
-cilium<span class="w"> </span>connectivity<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--test-namespace<span class="w"> </span>default
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- Services accessible with proper load balancing
-- Health checks functioning correctly
-- Session affinity working as configured</p>
-<hr />
-<h2 id="layer-5-session-layer">Layer 5 - Session Layer<a class="headerlink" href="#layer-5-session-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-51-connection-tracking-and-session-management">Exercise 5.1: Connection Tracking and Session Management<a class="headerlink" href="#exercise-51-connection-tracking-and-session-management" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Implement and troubleshoot connection tracking for long-lived sessions.</p>
-<p><strong>Tasks</strong>:
-1. Configure connection tracking timeouts for different protocols
-2. Monitor active connections and session state
-3. Implement session persistence for database connections
-4. Troubleshoot session timeout issues</p>
-<p><strong>Connection Tracking Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium-config</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ct-global-max-entries-tcp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000000&quot;</span>
-<span class="w">  </span><span class="nt">ct-global-max-entries-other</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500000&quot;</span>
-<span class="w">  </span><span class="nt">conntrack-gc-interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;60s&quot;</span>
-</code></pre></div></p>
-<p><strong>Commands to use</strong>:
-<div class="highlight"><pre><span></span><code>cilium<span class="w"> </span>bpf<span class="w"> </span>ct<span class="w"> </span>list<span class="w"> </span>global
-cilium<span class="w"> </span>monitor<span class="w"> </span>--type<span class="w"> </span>trace
-cilium<span class="w"> </span>endpoint<span class="w"> </span>get<span class="w"> </span>&lt;endpoint-id&gt;
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- Proper connection tracking entries
-- Sessions maintained for configured duration
-- Efficient garbage collection of expired connections</p>
-<hr />
-<h2 id="layer-6-presentation-layer">Layer 6 - Presentation Layer<a class="headerlink" href="#layer-6-presentation-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-61-tls-termination-and-certificate-management">Exercise 6.1: TLS Termination and Certificate Management<a class="headerlink" href="#exercise-61-tls-termination-and-certificate-management" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Configure TLS termination at the ingress level and manage certificates.</p>
-<p><strong>Tasks</strong>:
-1. Configure Cilium Ingress Controller with TLS termination
-2. Implement automatic certificate rotation
-3. Set up mutual TLS (mTLS) between services
-4. Monitor certificate expiration and renewal</p>
-<p><strong>Ingress Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls-ingress</span>
-<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">ingress.cilium.io/tls-passthrough</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
-<span class="w">    </span><span class="nt">cert-manager.io/cluster-issuer</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;letsencrypt-prod&quot;</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ingressClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium</span>
-<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.example.com</span>
-<span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-tls-secret</span>
-<span class="w">  </span><span class="nt">rules</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.example.com</span>
-<span class="w">    </span><span class="nt">http</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">paths</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span>
-<span class="w">        </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefix</span>
-<span class="w">        </span><span class="nt">backend</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">service</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-service</span>
-<span class="w">            </span><span class="nt">port</span><span class="p">:</span>
-<span class="w">              </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
-</code></pre></div></p>
-<p><strong>mTLS Configuration</strong>:
+<h1 id="cilium-network-policies-certification-guide">Cilium Network Policies Certification Guide<a class="headerlink" href="#cilium-network-policies-certification-guide" title="Permanent link">&para;</a></h1>
+<h2 id="layer-3-network-policies">Layer 3 Network Policies<a class="headerlink" href="#layer-3-network-policies" title="Permanent link">&para;</a></h2>
+<p>Layer 3 policies control traffic based on IP addresses and CIDR blocks.</p>
+<h3 id="basic-l3-policy-allow-specific-ip-ranges">Basic L3 Policy - Allow Specific IP Ranges<a class="headerlink" href="#basic-l3-policy-allow-specific-ip-ranges" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mtls-policy</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l3-allow-specific-ips</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-app</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-server</span>
 <span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client-app</span>
-<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span>
-<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
-<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">tls</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">secret</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mtls-secret</span>
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- TLS termination working correctly
-- Certificates automatically renewed
-- mTLS authentication successful</p>
-<hr />
-<h2 id="layer-7-application-layer">Layer 7 - Application Layer<a class="headerlink" href="#layer-7-application-layer" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-71-httpgrpc-policy-enforcement-and-observability">Exercise 7.1: HTTP/gRPC Policy Enforcement and Observability<a class="headerlink" href="#exercise-71-httpgrpc-policy-enforcement-and-observability" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Implement comprehensive Layer 7 policies and monitoring for HTTP and gRPC traffic.</p>
-<p><strong>Tasks</strong>:
-1. Create HTTP-aware network policies with path-based routing
-2. Implement rate limiting for specific API endpoints
-3. Set up gRPC load balancing with health checking
-4. Configure comprehensive Layer 7 observability</p>
-<p><strong>HTTP Network Policy</strong>:
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10.0.1.0/24&quot;</span><span class="w">    </span><span class="c1"># Allow from specific subnet</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;192.168.1.100/32&quot;</span><span class="w"> </span><span class="c1"># Allow from specific IP</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10.0.2.0/24&quot;</span><span class="w">    </span><span class="c1"># Allow to database subnet</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toFQDNs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;api.external-service.com&quot;</span>
+</code></pre></div>
+<h3 id="l3-policy-block-external-traffic">L3 Policy - Block External Traffic<a class="headerlink" href="#l3-policy-block-external-traffic" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-access-policy</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l3-block-external</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-zone</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">security</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">high</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10.0.0.0/8&quot;</span><span class="w">     </span><span class="c1"># Only allow internal traffic</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;172.16.0.0/12&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;192.168.0.0/16&quot;</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10.0.0.0/8&quot;</span><span class="w">     </span><span class="c1"># Only allow internal egress</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;172.16.0.0/12&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;192.168.0.0/16&quot;</span>
+</code></pre></div>
+<h3 id="l3-policy-with-node-selection">L3 Policy with Node Selection<a class="headerlink" href="#l3-policy-with-node-selection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l3-node-based</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEntities</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;host&quot;</span><span class="w">           </span><span class="c1"># Allow from node</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromNodes</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">node-role</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;worker&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="layer-4-network-policies">Layer 4 Network Policies<a class="headerlink" href="#layer-4-network-policies" title="Permanent link">&para;</a></h2>
+<p>Layer 4 policies control traffic based on ports and protocols.</p>
+<h3 id="basic-l4-policy-port-specific-access">Basic L4 Policy - Port-specific Access<a class="headerlink" href="#basic-l4-policy-port-specific-access" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l4-web-server-ports</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;80&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9090&quot;</span><span class="w">    </span><span class="c1"># Metrics port</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div>
+<h3 id="l4-policy-database-access-control">L4 Policy - Database Access Control<a class="headerlink" href="#l4-policy-database-access-control" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l4-database-access</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3306&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="c1"># Deny all other ingress traffic (implicit)</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"> </span><span class="c1"># Allow all egress for database operations</span>
+</code></pre></div>
+<h3 id="l4-policy-multi-protocol-support">L4 Policy - Multi-Protocol Support<a class="headerlink" href="#l4-policy-multi-protocol-support" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l4-multi-protocol</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dns-server</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">client</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;53&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;53&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UDP</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;853&quot;</span><span class="w">      </span><span class="c1"># DNS over TLS</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div>
+<hr />
+<h2 id="icmp-policies">ICMP Policies<a class="headerlink" href="#icmp-policies" title="Permanent link">&para;</a></h2>
+<p>ICMP policies control ping, traceroute, and other ICMP traffic.</p>
+<h3 id="allow-icmp-for-monitoring">Allow ICMP for Monitoring<a class="headerlink" href="#allow-icmp-for-monitoring" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icmp-monitoring</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infrastructure</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">server</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring</span>
+<span class="w">    </span><span class="nt">icmps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span><span class="w">          </span><span class="c1"># Echo Request (ping)</span>
+<span class="w">        </span><span class="nt">code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">network-tools</span>
+<span class="w">    </span><span class="nt">icmps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span><span class="w">          </span><span class="c1"># Echo Request</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">11</span><span class="w">         </span><span class="c1"># Time Exceeded (traceroute)</span>
+</code></pre></div>
+<h3 id="block-icmp-from-external-sources">Block ICMP from External Sources<a class="headerlink" href="#block-icmp-from-external-sources" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icmp-block-external</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">exposure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">internal</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;10.0.0.0/8&quot;</span>
+<span class="w">    </span><span class="nt">icmps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span><span class="w">          </span><span class="c1"># Allow internal ping</span>
+<span class="w">  </span><span class="c1"># ICMP from external sources blocked (no rule = deny)</span>
+</code></pre></div>
+<h3 id="icmp-troubleshooting-policy">ICMP Troubleshooting Policy<a class="headerlink" href="#icmp-troubleshooting-policy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icmp-troubleshooting</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">debug</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span>
+<span class="w">    </span><span class="nt">icmps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span><span class="w">          </span><span class="c1"># Echo Request</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">          </span><span class="c1"># Echo Reply</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w">          </span><span class="c1"># Destination Unreachable</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">11</span><span class="w">         </span><span class="c1"># Time Exceeded</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span><span class="w">         </span><span class="c1"># Parameter Problem</span>
+</code></pre></div>
+<hr />
+<h2 id="layer-7-application-layer-policies">Layer 7 (Application Layer) Policies<a class="headerlink" href="#layer-7-application-layer-policies" title="Permanent link">&para;</a></h2>
+<p>Layer 7 policies provide HTTP/gRPC/Kafka protocol-aware filtering.</p>
+<h3 id="http-based-l7-policy">HTTP-based L7 Policy<a class="headerlink" href="#http-based-l7-policy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l7-http-api-access</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-gateway</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
@@ -5291,8 +5462,8 @@ cilium<span class="w"> </span>endpoint<span class="w"> </span>get<span class="w"
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/users&quot;</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/users&quot;</span>
-<span class="w">          </span><span class="nt">headers</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Content-Type:</span><span class="nv"> </span><span class="s">application/json&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/health&quot;</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin-panel</span>
@@ -5302,37 +5473,52 @@ cilium<span class="w"> </span>endpoint<span class="w"> </span>get<span class="w"
 <span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
 <span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">http</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET|POST|PUT|DELETE&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/.*&quot;</span><span class="w">    </span><span class="c1"># Regex for any v1 endpoint</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
 <span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/.*&quot;</span>
-</code></pre></div></p>
-<p><strong>Rate Limiting Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumLocalRedirectPolicy</span>
-<span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limit-policy</span>
-<span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">redirectFrontend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serviceMatcher</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-service</span>
-<span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
-<span class="w">  </span><span class="nt">redirectBackend</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">localEndpointSelector</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limiter</span>
-<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8081</span>
-<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rate-limit</span>
-<span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
-</code></pre></div></p>
-<p><strong>gRPC Service Configuration</strong>:
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PUT&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/.*&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DELETE&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/v1/.*&quot;</span>
+</code></pre></div>
+<h3 id="l7-policy-with-headers">L7 Policy with Headers<a class="headerlink" href="#l7-policy-with-headers" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
 <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-policy</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l7-http-headers</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-server</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auth-service</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;80&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/auth/login&quot;</span>
+<span class="w">          </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Content-Type:</span><span class="nv"> </span><span class="s">application/json&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/auth/verify&quot;</span>
+<span class="w">          </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Authorization:</span><span class="nv"> </span><span class="s">Bearer</span><span class="nv"> </span><span class="s">.*&quot;</span>
+</code></pre></div>
+<h3 id="l7-grpc-policy">L7 gRPC Policy<a class="headerlink" href="#l7-grpc-policy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l7-grpc-service</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grpc-service</span>
 <span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
@@ -5343,53 +5529,307 @@ cilium<span class="w"> </span>endpoint<span class="w"> </span>get<span class="w"
 <span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
 <span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">grpc</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;UserService&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user.UserService&quot;</span>
 <span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GetUser&quot;</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;UserService&quot;</span>
-<span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;CreateUser&quot;</span>
-</code></pre></div></p>
-<p><strong>Observability Configuration</strong>:
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user.UserService&quot;</span>
+<span class="w">          </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ListUsers&quot;</span>
+</code></pre></div>
+<h3 id="l7-dns-policy">L7 DNS Policy<a class="headerlink" href="#l7-dns-policy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium-config</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-<span class="nt">data</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enable-l7-proxy</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
-<span class="w">  </span><span class="nt">hubble-listen-address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;:4244&quot;</span>
-<span class="w">  </span><span class="nt">hubble-disable-tls</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
-<span class="w">  </span><span class="nt">hubble-tls-cert-file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/cilium/tls/hubble-server.crt&quot;</span>
-<span class="w">  </span><span class="nt">hubble-tls-key-file</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/cilium/tls/hubble-server.key&quot;</span>
-</code></pre></div></p>
-<p><strong>Commands to use</strong>:
-<div class="highlight"><pre><span></span><code>hubble<span class="w"> </span>observe<span class="w"> </span>--protocol<span class="w"> </span>http
-hubble<span class="w"> </span>observe<span class="w"> </span>--protocol<span class="w"> </span>grpc
-cilium<span class="w"> </span>monitor<span class="w"> </span>--type<span class="w"> </span>l7
-hubble<span class="w"> </span>status
-</code></pre></div></p>
-<p><strong>Expected outcomes</strong>:
-- HTTP policies enforced correctly
-- Rate limiting functional
-- gRPC traffic properly load balanced
-- Comprehensive Layer 7 observability</p>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">l7-dns-filtering</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-crawler</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">k8s:io.kubernetes.pod.namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="w">        </span><span class="nt">k8s:app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-dns</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;53&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UDP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">dns</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchPattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;*.example.com&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchPattern</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;api.allowed-service.org&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;specific-host.com&quot;</span>
+</code></pre></div>
 <hr />
-<h2 id="comprehensive-multi-layer-exercise">Comprehensive Multi-Layer Exercise<a class="headerlink" href="#comprehensive-multi-layer-exercise" title="Permanent link">&para;</a></h2>
-<h3 id="exercise-end-to-end-microservices-security-and-observability">Exercise: End-to-End Microservices Security and Observability<a class="headerlink" href="#exercise-end-to-end-microservices-security-and-observability" title="Permanent link">&para;</a></h3>
-<p><strong>Scenario</strong>: Deploy a complete microservices application with Cilium providing security and observability across all network layers.</p>
-<p><strong>Architecture</strong>:
-- Frontend (React app)
-- API Gateway (Envoy)
-- User Service (gRPC)
-- Order Service (REST API)
-- Database (PostgreSQL)
-- Message Queue (Redis)</p>
-<p><strong>Tasks</strong>:
-1. Implement network policies for each service
-2. Configure Layer 7 routing and load balancing
-3. Set up mTLS between all services
-4. Implement rate limiting and DDoS protection
-5. Configure comprehensive monitoring and alerting
-6. Perform security testing and validation</p>
+<h2 id="deny-policies">Deny Policies<a class="headerlink" href="#deny-policies" title="Permanent link">&para;</a></h2>
+<p>Cilium supports explicit deny policies for enhanced security.</p>
+<h3 id="explicit-deny-policy">Explicit Deny Policy<a class="headerlink" href="#explicit-deny-policy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deny-suspicious-traffic</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">security</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">strict</span>
+<span class="w">  </span><span class="nt">ingressDeny</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;192.168.100.0/24&quot;</span><span class="w">  </span><span class="c1"># Block specific subnet</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">reputation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">suspicious</span>
+<span class="w">  </span><span class="nt">egressDeny</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;22&quot;</span><span class="w">        </span><span class="c1"># Block SSH</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3389&quot;</span><span class="w">      </span><span class="c1"># Block RDP</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div>
+<h3 id="deny-with-l7-rules">Deny with L7 Rules<a class="headerlink" href="#deny-with-l7-rules" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deny-admin-endpoints</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-server</span>
+<span class="w">  </span><span class="nt">ingressDeny</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;80&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/admin/.*&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/admin/.*&quot;</span>
+</code></pre></div>
+<h3 id="time-based-deny-advanced">Time-based Deny (Advanced)<a class="headerlink" href="#time-based-deny-advanced" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deny-after-hours</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">business-hours</span>
+<span class="w">  </span><span class="nt">ingressDeny</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">employee</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;.*&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/.*&quot;</span>
+<span class="w">          </span><span class="nt">headers</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;X-Time-Restriction:</span><span class="nv"> </span><span class="s">after-hours&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="allow-policies">Allow Policies<a class="headerlink" href="#allow-policies" title="Permanent link">&para;</a></h2>
+<p>Allow policies explicitly permit traffic and can work with deny policies.</p>
+<h3 id="basic-allow-policy">Basic Allow Policy<a class="headerlink" href="#basic-allow-policy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow-essential-services</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microservice</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gateway</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5432&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toFQDNs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;logging.external.com&quot;</span>
+</code></pre></div>
+<h3 id="allow-with-service-mesh-integration">Allow with Service Mesh Integration<a class="headerlink" href="#allow-with-service-mesh-integration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow-istio-sidecar</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bookinfo</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="s">&quot;k8s:io.kubernetes.pod.namespace&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">istio-system</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"> </span><span class="c1"># Allow from any pod in same namespace</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;15001&quot;</span><span class="w">     </span><span class="c1"># Istio proxy</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div>
+<hr />
+<h2 id="advanced-scenarios">Advanced Scenarios<a class="headerlink" href="#advanced-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="multi-tier-application-security">Multi-tier Application Security<a class="headerlink" href="#multi-tier-application-security" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Frontend tier</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend-policy</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromCIDR</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;0.0.0.0/0&quot;</span><span class="w">        </span><span class="c1"># Allow from internet</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;80&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;443&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/.*&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;POST&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/api/.*&quot;</span>
+
+<span class="nn">---</span>
+<span class="c1"># Backend tier</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend-policy</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5432&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+
+<span class="nn">---</span>
+<span class="c1"># Database tier</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database-policy</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backend</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5432&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">  </span><span class="c1"># No egress rules = deny all egress</span>
+</code></pre></div>
+<h3 id="cross-namespace-communication">Cross-Namespace Communication<a class="headerlink" href="#cross-namespace-communication" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumClusterwideNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cross-namespace-api</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shared-api</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEndpoints</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="s">&quot;k8s:io.kubernetes.pod.namespace&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;frontend&quot;</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">        </span><span class="s">&quot;k8s:io.kubernetes.pod.namespace&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;mobile&quot;</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mobile-api</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">http</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;GET&quot;</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/shared/.*&quot;</span>
+</code></pre></div>
+<h3 id="zero-trust-network">Zero Trust Network<a class="headerlink" href="#zero-trust-network" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumClusterwideNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zero-trust-default-deny</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w">   </span><span class="c1"># Apply to all pods</span>
+<span class="w">  </span><span class="nt">ingressDeny</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEntities</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;all&quot;</span>
+<span class="w">  </span><span class="nt">egressDeny</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEntities</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;all&quot;</span>
+
+<span class="nn">---</span>
+<span class="c1"># Explicit allow for essential services</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cilium.io/v2</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">allow-dns</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kube-dns</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">fromEntities</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;cluster&quot;</span>
+<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;53&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UDP</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;53&quot;</span>
+<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div>
 
 
 

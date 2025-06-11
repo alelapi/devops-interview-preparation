@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../hostpath-only/">
+        <link rel="prev" href="../update-kubelet-config/">
       
       
-        <link rel="next" href="../pod-security-standards/">
+        <link rel="next" href="../../../../architectural-patterns/bulkhead/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Enabling Pod-to-Pod Encryption with Istio and Cilium - My DevOps Interview Preparation</title>
+        <title>Static Security Analysis - My DevOps Interview Preparation</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enabling-pod-to-pod-encryption-with-istio-and-cilium" class="md-skip">
+        <a href="#static-security-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enabling Pod-to-Pod Encryption with Istio and Cilium
+              Static Security Analysis
             
           </span>
         </div>
@@ -4144,32 +4144,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Enabling Pod-to-Pod Encryption with Istio and Cilium
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../p2p-encryption-istio-cilium/" class="md-nav__link">
         
   
   
@@ -4180,221 +4158,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      Table of Contents
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solution-1-p2p-encryption-with-istio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution 1: P2P Encryption with Istio
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Solution 1: P2P Encryption with Istio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-1-install-istio-with-mtls-enabled" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Install Istio with mTLS Enabled
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-configure-namespace-for-istio-injection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Configure Namespace for Istio Injection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-define-a-peerauthentication-policy-for-strict-mtls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Define a PeerAuthentication Policy for Strict mTLS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-verify-mtls-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Verify mTLS Encryption
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-5-debugging-and-validating-mtls" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 5: Debugging and Validating mTLS
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solution-2-p2p-encryption-with-cilium" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution 2: P2P Encryption with Cilium
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Solution 2: P2P Encryption with Cilium">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-1-install-cilium-with-encryption-enabled" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 1: Install Cilium with Encryption Enabled
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 1: Install Cilium with Encryption Enabled">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-ipsec-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using IPsec Encryption:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-wireguard-encryption-alternative" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using WireGuard Encryption (alternative):
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-verify-cilium-installation-with-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Verify Cilium Installation with Encryption
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Create a CiliumNetworkPolicy to Enforce Encryption
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-testing-and-validating-cilium-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Testing and Validating Cilium Encryption
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comparison-and-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Comparison and Best Practices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Comparison and Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#istio-mtls-vs-cilium-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Istio mTLS vs. Cilium Encryption
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4473,10 +4236,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../security-static-analysis/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Static Security Analysis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4487,6 +4272,419 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dockerfile-security-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfile Security Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dockerfile Security Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-security-issues-to-look-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Security Issues to Look For
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Security Issues to Look For">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-running-as-root-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Running as Root User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-secrets-in-image-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Secrets in Image Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-unnecessary-packages-and-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Unnecessary Packages and Attack Surface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-improper-file-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Improper File Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-using-latest-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Using Latest Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kubernetes-manifest-security-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kubernetes Manifest Security Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kubernetes Manifest Security Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-security-issues-to-look-for_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Security Issues to Look For
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Security Issues to Look For">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-missing-security-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Missing Security Context
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-privileged-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Privileged Containers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-missing-resource-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Missing Resource Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-secrets-in-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Secrets in Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-network-policies-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Network Policies Missing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-for-static-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for Static Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools for Static Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trivy-recommended-for-exams" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Trivy (Recommended for exams)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-checkov" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Checkov
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kubesec" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Kubesec
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kube-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Kube-score
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-exam-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Exam Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Exam Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-type-1-identify-security-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question Type 1: &ldquo;Identify Security Issues&rdquo;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-type-2-fix-security-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question Type 2: &ldquo;Fix Security Issues&rdquo;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#question-type-3-use-tool-for-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question Type 3: &ldquo;Use Tool for Analysis&rdquo;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step Solutions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-dockerfile-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Dockerfile Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-kubernetes-manifest-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: Kubernetes Manifest Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remediation-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remediation Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remediation Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-context-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Context Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-commands-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Commands to Remember
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist-for-quick-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checklist for Quick Review
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-fix-this-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Fix This Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-secure-this-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Secure This Deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4821,73 +5019,196 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
+  <a href="#dockerfile-security-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Table of Contents
+      Dockerfile Security Analysis
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Dockerfile Security Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-security-issues-to-look-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Security Issues to Look For
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Security Issues to Look For">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-running-as-root-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Running as Root User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-secrets-in-image-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Secrets in Image Layers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-unnecessary-packages-and-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Unnecessary Packages and Attack Surface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-improper-file-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Improper File Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-using-latest-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Using Latest Tags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution-1-p2p-encryption-with-istio" class="md-nav__link">
+  <a href="#kubernetes-manifest-security-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1: P2P Encryption with Istio
+      Kubernetes Manifest Security Analysis
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Solution 1: P2P Encryption with Istio">
+    <nav class="md-nav" aria-label="Kubernetes Manifest Security Analysis">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#key-security-issues-to-look-for_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Key Security Issues to Look For
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Security Issues to Look For">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-missing-security-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Missing Security Context
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-1-install-istio-with-mtls-enabled" class="md-nav__link">
+  <a href="#2-privileged-containers" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Install Istio with mTLS Enabled
+      2. Privileged Containers
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-configure-namespace-for-istio-injection" class="md-nav__link">
+  <a href="#3-missing-resource-limits" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Configure Namespace for Istio Injection
+      3. Missing Resource Limits
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-define-a-peerauthentication-policy-for-strict-mtls" class="md-nav__link">
+  <a href="#4-secrets-in-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 3: Define a PeerAuthentication Policy for Strict mTLS
+      4. Secrets in Environment Variables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-verify-mtls-encryption" class="md-nav__link">
+  <a href="#5-network-policies-missing" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 4: Verify mTLS Encryption
+      5. Network Policies Missing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-for-static-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools for Static Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools for Static Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-trivy-recommended-for-exams" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Trivy (Recommended for exams)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-debugging-and-validating-mtls" class="md-nav__link">
+  <a href="#2-checkov" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Debugging and Validating mTLS
+      2. Checkov
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-kubesec" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Kubesec
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-kube-score" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Kube-score
     </span>
   </a>
   
@@ -4899,79 +5220,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution-2-p2p-encryption-with-cilium" class="md-nav__link">
+  <a href="#common-exam-questions" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2: P2P Encryption with Cilium
+      Common Exam Questions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Solution 2: P2P Encryption with Cilium">
+    <nav class="md-nav" aria-label="Common Exam Questions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites_1" class="md-nav__link">
+  <a href="#question-type-1-identify-security-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Question Type 1: &ldquo;Identify Security Issues&rdquo;
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-1-install-cilium-with-encryption-enabled" class="md-nav__link">
+  <a href="#question-type-2-fix-security-issues" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Install Cilium with Encryption Enabled
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 1: Install Cilium with Encryption Enabled">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-ipsec-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using IPsec Encryption:
+      Question Type 2: &ldquo;Fix Security Issues&rdquo;
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-wireguard-encryption-alternative" class="md-nav__link">
+  <a href="#question-type-3-use-tool-for-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Using WireGuard Encryption (alternative):
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-verify-cilium-installation-with-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Verify Cilium Installation with Encryption
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Create a CiliumNetworkPolicy to Enforce Encryption
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-testing-and-validating-cilium-encryption" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Testing and Validating Cilium Encryption
+      Question Type 3: &ldquo;Use Tool for Analysis&rdquo;
     </span>
   </a>
   
@@ -4983,28 +5262,145 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comparison-and-best-practices" class="md-nav__link">
+  <a href="#step-by-step-solutions" class="md-nav__link">
     <span class="md-ellipsis">
-      Comparison and Best Practices
+      Step-by-Step Solutions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Comparison and Best Practices">
+    <nav class="md-nav" aria-label="Step-by-Step Solutions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#istio-mtls-vs-cilium-encryption" class="md-nav__link">
+  <a href="#scenario-1-dockerfile-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Istio mTLS vs. Cilium Encryption
+      Scenario 1: Dockerfile Analysis
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#scenario-2-kubernetes-manifest-analysis" class="md-nav__link">
     <span class="md-ellipsis">
-      Best Practices
+      Scenario 2: Kubernetes Manifest Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remediation-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remediation Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remediation Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-context-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Context Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resource-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Tips
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#time-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-commands-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Commands to Remember
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist-for-quick-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checklist for Quick Review
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-fix-this-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 1: Fix This Dockerfile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-secure-this-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercise 2: Secure This Deployment
     </span>
   </a>
   
@@ -5034,270 +5430,506 @@
   
 
 
-<h1 id="enabling-pod-to-pod-encryption-with-istio-and-cilium">Enabling Pod-to-Pod Encryption with Istio and Cilium<a class="headerlink" href="#enabling-pod-to-pod-encryption-with-istio-and-cilium" title="Permanent link">&para;</a></h1>
-<p>This document provides solutions for implementing pod-to-pod (P2P) encryption in Kubernetes using two different approaches: Istio service mesh and Cilium network policy engine. Both methods offer robust security for intra-cluster communications.</p>
-<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
-<ol>
-<li><a href="#solution-1-p2p-encryption-with-istio">Solution 1: P2P Encryption with Istio</a></li>
-<li><a href="#solution-2-p2p-encryption-with-cilium">Solution 2: P2P Encryption with Cilium</a></li>
-<li><a href="#comparison-and-best-practices">Comparison and Best Practices</a></li>
-</ol>
-<h2 id="solution-1-p2p-encryption-with-istio">Solution 1: P2P Encryption with Istio<a class="headerlink" href="#solution-1-p2p-encryption-with-istio" title="Permanent link">&para;</a></h2>
-<p>Istio provides pod-to-pod encryption through mutual TLS (mTLS) authentication, where both the client and server authenticate each other&rsquo;s identity.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Kubernetes cluster (v1.16+)</li>
-<li>Istio (v1.9+) installed</li>
-<li><code>kubectl</code> and <code>istioctl</code> CLI tools</li>
-</ul>
-<h3 id="step-1-install-istio-with-mtls-enabled">Step 1: Install Istio with mTLS Enabled<a class="headerlink" href="#step-1-install-istio-with-mtls-enabled" title="Permanent link">&para;</a></h3>
-<p>If starting fresh:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Download Istio</span>
-curl<span class="w"> </span>-L<span class="w"> </span>https://istio.io/downloadIstio<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-
-<span class="nb">cd</span><span class="w"> </span>istio-*
+<h1 id="static-security-analysis">Static Security Analysis<a class="headerlink" href="#static-security-analysis" title="Permanent link">&para;</a></h1>
+<h2 id="dockerfile-security-analysis">Dockerfile Security Analysis<a class="headerlink" href="#dockerfile-security-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="key-security-issues-to-look-for">Key Security Issues to Look For<a class="headerlink" href="#key-security-issues-to-look-for" title="Permanent link">&para;</a></h3>
+<h4 id="1-running-as-root-user">1. <strong>Running as Root User</strong><a class="headerlink" href="#1-running-as-root-user" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c"># ❌ BAD - Running as root</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;nginx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-g&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;daemon off;&quot;</span><span class="p">]</span>
 
-<span class="c1"># Install Istio with strict mTLS profile</span>
-istioctl<span class="w"> </span>install<span class="w"> </span>--set<span class="w"> </span><span class="nv">profile</span><span class="o">=</span>default<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set<span class="w"> </span>meshConfig.enableAutoMtls<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set<span class="w"> </span>values.global.mtls.enabled<span class="o">=</span><span class="nb">true</span>
+<span class="c"># ✅ GOOD - Non-root user</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>nginx-user
+<span class="k">USER</span><span class="w"> </span><span class="s">nginx-user</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;nginx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-g&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;daemon off;&quot;</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="step-2-configure-namespace-for-istio-injection">Step 2: Configure Namespace for Istio Injection<a class="headerlink" href="#step-2-configure-namespace-for-istio-injection" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Label the namespace for automatic sidecar injection</span>
-kubectl<span class="w"> </span>label<span class="w"> </span>namespace<span class="w"> </span>default<span class="w"> </span>istio-injection<span class="o">=</span>enabled
+<h4 id="2-secrets-in-image-layers">2. <strong>Secrets in Image Layers</strong><a class="headerlink" href="#2-secrets-in-image-layers" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c"># ❌ BAD - Hardcoded secrets</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:14</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">API_KEY</span><span class="o">=</span>sk-1234567890abcdef
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DATABASE_PASSWORD</span><span class="o">=</span>super-secret-password
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>/app
+
+<span class="c"># ✅ GOOD - No secrets in Dockerfile</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:14</span>
+<span class="c"># Secrets should be passed at runtime via K8s secrets</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>/app
 </code></pre></div>
-<h3 id="step-3-define-a-peerauthentication-policy-for-strict-mtls">Step 3: Define a PeerAuthentication Policy for Strict mTLS<a class="headerlink" href="#step-3-define-a-peerauthentication-policy-for-strict-mtls" title="Permanent link">&para;</a></h3>
-<p>Create a file named <code>strict-mtls-policy.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;security.istio.io/v1beta1&quot;</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PeerAuthentication&quot;</span>
+<h4 id="3-unnecessary-packages-and-attack-surface">3. <strong>Unnecessary Packages and Attack Surface</strong><a class="headerlink" href="#3-unnecessary-packages-and-attack-surface" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c"># ❌ BAD - Full OS with unnecessary packages</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>curl<span class="w"> </span>wget<span class="w"> </span>git<span class="w"> </span>vim<span class="w"> </span>nano<span class="w"> </span>ssh<span class="w"> </span>openssh-server
+
+<span class="c"># ✅ GOOD - Minimal base image</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:14-alpine</span>
+<span class="c"># Only install what&#39;s needed</span>
+<span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--no-cache<span class="w"> </span>dumb-init
+</code></pre></div>
+<h4 id="4-improper-file-permissions">4. <strong>Improper File Permissions</strong><a class="headerlink" href="#4-improper-file-permissions" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c"># ❌ BAD - World-writable files</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
+<span class="k">COPY</span><span class="w"> </span>--chmod<span class="o">=</span><span class="m">777</span><span class="w"> </span>app.sh<span class="w"> </span>/usr/local/bin/
+<span class="k">COPY</span><span class="w"> </span>--chmod<span class="o">=</span><span class="m">666</span><span class="w"> </span>config.json<span class="w"> </span>/etc/
+
+<span class="c"># ✅ GOOD - Restrictive permissions</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">alpine</span>
+<span class="k">COPY</span><span class="w"> </span>--chmod<span class="o">=</span><span class="m">755</span><span class="w"> </span>app.sh<span class="w"> </span>/usr/local/bin/
+<span class="k">COPY</span><span class="w"> </span>--chmod<span class="o">=</span><span class="m">644</span><span class="w"> </span>config.json<span class="w"> </span>/etc/
+</code></pre></div>
+<h4 id="5-using-latest-tags">5. <strong>Using Latest Tags</strong><a class="headerlink" href="#5-using-latest-tags" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c"># ❌ BAD - Unpredictable base image</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:latest</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
+
+<span class="c"># ✅ GOOD - Specific versions</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:14.21.3-alpine</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
+</code></pre></div>
+<hr />
+<h2 id="kubernetes-manifest-security-analysis">Kubernetes Manifest Security Analysis<a class="headerlink" href="#kubernetes-manifest-security-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="key-security-issues-to-look-for_1">Key Security Issues to Look For<a class="headerlink" href="#key-security-issues-to-look-for_1" title="Permanent link">&para;</a></h3>
+<h4 id="1-missing-security-context">1. <strong>Missing Security Context</strong><a class="headerlink" href="#1-missing-security-context" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># ❌ BAD - No security context</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
-<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;istio-system&quot;</span><span class="w">  </span><span class="c1"># Apply mesh-wide</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">insecure-app</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">mtls</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">STRICT</span>
-</code></pre></div>
-<p>Apply the policy:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>strict-mtls-policy.yaml
-</code></pre></div>
-<h3 id="step-4-verify-mtls-encryption">Step 4: Verify mTLS Encryption<a class="headerlink" href="#step-4-verify-mtls-encryption" title="Permanent link">&para;</a></h3>
-<p>After deploying some applications, verify that mTLS is working:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check mTLS status</span>
-istioctl<span class="w"> </span>x<span class="w"> </span>authz<span class="w"> </span>check<span class="w"> </span>&lt;pod-name&gt;.&lt;namespace&gt;
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:1.20</span>
 
-<span class="c1"># View real-time mTLS status in Kiali</span>
-kubectl<span class="w"> </span>port-forward<span class="w"> </span>-n<span class="w"> </span>istio-system<span class="w"> </span>svc/kiali<span class="w"> </span><span class="m">20001</span>:20001
-</code></pre></div>
-<p>Visit <code>http://localhost:20001</code> in your browser to visualize secure connections.</p>
-<h3 id="step-5-debugging-and-validating-mtls">Step 5: Debugging and Validating mTLS<a class="headerlink" href="#step-5-debugging-and-validating-mtls" title="Permanent link">&para;</a></h3>
-<p>To verify mTLS encryption is actively enforced:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Deploy a sample application</span>
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>samples/bookinfo/platform/kube/bookinfo.yaml
-
-<span class="c1"># Create a testing pod</span>
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
-<span class="s">apiVersion: v1</span>
-<span class="s">kind: Pod</span>
-<span class="s">metadata:</span>
-<span class="s">  name: sleep</span>
-<span class="s">  labels:</span>
-<span class="s">    app: sleep</span>
-<span class="s">spec:</span>
-<span class="s">  containers:</span>
-<span class="s">  - name: sleep</span>
-<span class="s">    image: curlimages/curl</span>
-<span class="s">    command: [&quot;/bin/sleep&quot;, &quot;3650d&quot;]</span>
-<span class="s">EOF</span>
-
-<span class="c1"># Test communication (should succeed with mTLS)</span>
-kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>sleep<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>productpage:9080<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;&lt;title&gt;.*&lt;/title&gt;&quot;</span>
-
-<span class="c1"># View TLS certificate information</span>
-kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>sleep<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-v<span class="w"> </span>productpage:9080<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SSL connection&quot;</span>
-</code></pre></div>
-<h2 id="solution-2-p2p-encryption-with-cilium">Solution 2: P2P Encryption with Cilium<a class="headerlink" href="#solution-2-p2p-encryption-with-cilium" title="Permanent link">&para;</a></h2>
-<p>Cilium implements transparent encryption using IPsec or WireGuard for pod-to-pod traffic.</p>
-<h3 id="prerequisites_1">Prerequisites<a class="headerlink" href="#prerequisites_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Kubernetes cluster</li>
-<li>Helm (v3+)</li>
-<li><code>kubectl</code> CLI tool</li>
-</ul>
-<h3 id="step-1-install-cilium-with-encryption-enabled">Step 1: Install Cilium with Encryption Enabled<a class="headerlink" href="#step-1-install-cilium-with-encryption-enabled" title="Permanent link">&para;</a></h3>
-<h4 id="using-ipsec-encryption">Using IPsec Encryption:<a class="headerlink" href="#using-ipsec-encryption" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a secret for IPsec encryption keys</span>
-kubectl<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>cilium-ipsec-keys<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">keys</span><span class="o">=</span><span class="s2">&quot;3 rfc4106(gcm(aes)) </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/urandom<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">20</span><span class="w"> </span><span class="nv">bs</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>xxd<span class="w"> </span>-p<span class="w"> </span>-c<span class="w"> </span><span class="m">64</span><span class="k">))</span><span class="s2"> 128&quot;</span>
-
-<span class="c1"># Install Cilium with IPsec encryption enabled</span>
-helm<span class="w"> </span>install<span class="w"> </span>cilium<span class="w"> </span>cilium/cilium<span class="w"> </span>--version<span class="w"> </span><span class="m">1</span>.12.0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>kube-system<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set<span class="w"> </span>encryption.enabled<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set<span class="w"> </span>encryption.type<span class="o">=</span>ipsec
-</code></pre></div>
-<h4 id="using-wireguard-encryption-alternative">Using WireGuard Encryption (alternative):<a class="headerlink" href="#using-wireguard-encryption-alternative" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install Cilium with WireGuard encryption enabled</span>
-helm<span class="w"> </span>install<span class="w"> </span>cilium<span class="w"> </span>cilium/cilium<span class="w"> </span>--version<span class="w"> </span><span class="m">1</span>.12.0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--namespace<span class="w"> </span>kube-system<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set<span class="w"> </span>encryption.enabled<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set<span class="w"> </span>encryption.type<span class="o">=</span>wireguard
-</code></pre></div>
-<h3 id="step-2-verify-cilium-installation-with-encryption">Step 2: Verify Cilium Installation with Encryption<a class="headerlink" href="#step-2-verify-cilium-installation-with-encryption" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if Cilium is running correctly</span>
-kubectl<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-l<span class="w"> </span>k8s-app<span class="o">=</span>cilium
-
-<span class="c1"># Check Cilium status including encryption</span>
-kubectl<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>cilium-xxxx<span class="w"> </span>--<span class="w"> </span>cilium<span class="w"> </span>status<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Encryption
-</code></pre></div>
-<h3 id="step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption">Step 3: Create a CiliumNetworkPolicy to Enforce Encryption<a class="headerlink" href="#step-3-create-a-ciliumnetworkpolicy-to-enforce-encryption" title="Permanent link">&para;</a></h3>
-<p>Cilium allows selective encryption using CiliumNetworkPolicy. Create a file named <code>encryption-policy.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cilium.io/v2&quot;</span>
-<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CiliumNetworkPolicy</span>
+<span class="c1"># ✅ GOOD - Proper security context</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;encrypt-all-traffic&quot;</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-app</span>
 <span class="nt">spec</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">endpointSelector</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:1.20</span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+</code></pre></div>
+<h4 id="2-privileged-containers">2. <strong>Privileged Containers</strong><a class="headerlink" href="#2-privileged-containers" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># ❌ BAD - Privileged container</span>
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dangerous-app</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app:1.0</span>
+<span class="w">  </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># ✅ GOOD - Non-privileged with specific capabilities</span>
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe-app</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app:1.0</span>
+<span class="w">  </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">add</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NET_BIND_SERVICE</span>
+<span class="w">      </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+</code></pre></div>
+<h4 id="3-missing-resource-limits">3. <strong>Missing Resource Limits</strong><a class="headerlink" href="#3-missing-resource-limits" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># ❌ BAD - No resource limits</span>
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resource-hog</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app:1.0</span>
+
+<span class="c1"># ✅ GOOD - Resource limits set</span>
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">limited-app</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app:1.0</span>
+<span class="w">  </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span>
+<span class="w">      </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500m&quot;</span>
+<span class="w">    </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;256Mi&quot;</span>
+<span class="w">      </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;250m&quot;</span>
+</code></pre></div>
+<h4 id="4-secrets-in-environment-variables">4. <strong>Secrets in Environment Variables</strong><a class="headerlink" href="#4-secrets-in-environment-variables" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># ❌ BAD - Secrets in plain text env vars</span>
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp:1.0</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;super-secret-password&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">API_KEY</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sk-1234567890&quot;</span>
+
+<span class="c1"># ✅ GOOD - Using Kubernetes secrets</span>
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapp:1.0</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span>
+<span class="w">    </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-secret</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">API_KEY</span>
+<span class="w">    </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-secret</span>
+<span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-key</span>
+</code></pre></div>
+<h4 id="5-network-policies-missing">5. <strong>Network Policies Missing</strong><a class="headerlink" href="#5-network-policies-missing" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># ❌ BAD - No network restrictions</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="c1"># No NetworkPolicy defined</span>
+
+<span class="c1"># ✅ GOOD - With NetworkPolicy</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NetworkPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app-netpol</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">podSelector</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-app</span>
-<span class="w">  </span><span class="nt">egress</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toEndpoints</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">matchLabels</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secure-backend</span>
-<span class="w">    </span><span class="nt">toPorts</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8080&quot;</span>
-<span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
-<span class="w">    </span><span class="nt">encrypted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">  </span><span class="nt">policyTypes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Egress</span>
+<span class="w">  </span><span class="nt">ingress</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">from</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">podSelector</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frontend</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCP</span>
+<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
 </code></pre></div>
-<p>Apply the policy:</p>
-<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>encryption-policy.yaml
-</code></pre></div>
-<h3 id="step-4-testing-and-validating-cilium-encryption">Step 4: Testing and Validating Cilium Encryption<a class="headerlink" href="#step-4-testing-and-validating-cilium-encryption" title="Permanent link">&para;</a></h3>
-<p>Deploy test applications:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Deploy a test application</span>
-kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
-<span class="s">apiVersion: apps/v1</span>
-<span class="s">kind: Deployment</span>
-<span class="s">metadata:</span>
-<span class="s">  name: secure-app</span>
-<span class="s">spec:</span>
-<span class="s">  selector:</span>
-<span class="s">    matchLabels:</span>
-<span class="s">      app: secure-app</span>
-<span class="s">  replicas: 2</span>
-<span class="s">  template:</span>
-<span class="s">    metadata:</span>
-<span class="s">      labels:</span>
-<span class="s">        app: secure-app</span>
-<span class="s">    spec:</span>
-<span class="s">      containers:</span>
-<span class="s">      - name: web</span>
-<span class="s">        image: nginx</span>
-<span class="s">---</span>
-<span class="s">apiVersion: apps/v1</span>
-<span class="s">kind: Deployment</span>
-<span class="s">metadata:</span>
-<span class="s">  name: secure-backend</span>
-<span class="s">spec:</span>
-<span class="s">  selector:</span>
-<span class="s">    matchLabels:</span>
-<span class="s">      app: secure-backend</span>
-<span class="s">  replicas: 2</span>
-<span class="s">  template:</span>
-<span class="s">    metadata:</span>
-<span class="s">      labels:</span>
-<span class="s">        app: secure-backend</span>
-<span class="s">    spec:</span>
-<span class="s">      containers:</span>
-<span class="s">      - name: web</span>
-<span class="s">        image: nginx</span>
-<span class="s">EOF</span>
-</code></pre></div>
-<p>Verify encryption:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># For IPsec encryption, verify ESP packets</span>
-kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>cilium-xxxx<span class="w"> </span>--<span class="w"> </span>cilium<span class="w"> </span>bpf<span class="w"> </span>tunnel<span class="w"> </span>list
+<hr />
+<h2 id="tools-for-static-analysis">Tools for Static Analysis<a class="headerlink" href="#tools-for-static-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="1-trivy-recommended-for-exams">1. <strong>Trivy (Recommended for exams)</strong><a class="headerlink" href="#1-trivy-recommended-for-exams" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Scan Dockerfile</span>
+trivy<span class="w"> </span>config<span class="w"> </span>Dockerfile
 
-<span class="c1"># For WireGuard encryption, verify WireGuard statistics</span>
-kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span>cilium-xxxx<span class="w"> </span>--<span class="w"> </span>cilium<span class="w"> </span>status<span class="w"> </span>--verbose<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>WireGuard
+<span class="c1"># Scan Kubernetes manifests</span>
+trivy<span class="w"> </span>config<span class="w"> </span>k8s-manifests/
+
+<span class="c1"># Scan specific manifest</span>
+trivy<span class="w"> </span>config<span class="w"> </span>deployment.yaml
 </code></pre></div>
-<h2 id="comparison-and-best-practices">Comparison and Best Practices<a class="headerlink" href="#comparison-and-best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="istio-mtls-vs-cilium-encryption">Istio mTLS vs. Cilium Encryption<a class="headerlink" href="#istio-mtls-vs-cilium-encryption" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Istio mTLS</th>
-<th>Cilium Encryption</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Layer</td>
-<td>Application (L7)</td>
-<td>Network (L3)</td>
-</tr>
-<tr>
-<td>Encryption Method</td>
-<td>TLS</td>
-<td>IPsec or WireGuard</td>
-</tr>
-<tr>
-<td>Performance Impact</td>
-<td>Moderate</td>
-<td>Low-Moderate</td>
-</tr>
-<tr>
-<td>Identity Verification</td>
-<td>Yes (x509 certs)</td>
-<td>Limited (IPsec PSK)</td>
-</tr>
-<tr>
-<td>Selective Encryption</td>
-<td>Yes (via policies)</td>
-<td>Yes (via policies)</td>
-</tr>
-<tr>
-<td>Observability</td>
-<td>High (detailed metrics)</td>
-<td>Basic</td>
-</tr>
-</tbody>
-</table>
-<h3 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h3>
+<h3 id="2-checkov">2. <strong>Checkov</strong><a class="headerlink" href="#2-checkov" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install</span>
+pip<span class="w"> </span>install<span class="w"> </span>checkov
+
+<span class="c1"># Scan Dockerfile</span>
+checkov<span class="w"> </span>-f<span class="w"> </span>Dockerfile
+
+<span class="c1"># Scan Kubernetes manifests</span>
+checkov<span class="w"> </span>-d<span class="w"> </span>k8s-manifests/
+</code></pre></div>
+<h3 id="3-kubesec">3. <strong>Kubesec</strong><a class="headerlink" href="#3-kubesec" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Online tool</span>
+curl<span class="w"> </span>-sSX<span class="w"> </span>POST<span class="w"> </span>--data-binary<span class="w"> </span>@deployment.yaml<span class="w"> </span>https://v2.kubesec.io/scan
+
+<span class="c1"># Local installation</span>
+kubesec<span class="w"> </span>scan<span class="w"> </span>deployment.yaml
+</code></pre></div>
+<h3 id="4-kube-score">4. <strong>Kube-score</strong><a class="headerlink" href="#4-kube-score" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install</span>
+kubectl<span class="w"> </span>krew<span class="w"> </span>install<span class="w"> </span>score
+
+<span class="c1"># Analyze manifest</span>
+kubectl<span class="w"> </span>score<span class="w"> </span>deployment.yaml
+</code></pre></div>
+<hr />
+<h2 id="common-exam-questions">Common Exam Questions<a class="headerlink" href="#common-exam-questions" title="Permanent link">&para;</a></h2>
+<h3 id="question-type-1-identify-security-issues">Question Type 1: &ldquo;Identify Security Issues&rdquo;<a class="headerlink" href="#question-type-1-identify-security-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Prompt</strong>: <em>&ldquo;Analyze the following Dockerfile and identify at least 3 security vulnerabilities&rdquo;</em></p>
+<p><strong>Approach</strong>:
+1. Look for root user usage
+2. Check for hardcoded secrets
+3. Verify base image tags
+4. Check file permissions
+5. Look for unnecessary packages</p>
+<h3 id="question-type-2-fix-security-issues">Question Type 2: &ldquo;Fix Security Issues&rdquo;<a class="headerlink" href="#question-type-2-fix-security-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Prompt</strong>: <em>&ldquo;Fix the security issues in the following Kubernetes deployment manifest&rdquo;</em></p>
+<p><strong>Approach</strong>:
+1. Add securityContext
+2. Set resource limits
+3. Use secrets instead of plain env vars
+4. Ensure non-root execution
+5. Add readiness/liveness probes</p>
+<h3 id="question-type-3-use-tool-for-analysis">Question Type 3: &ldquo;Use Tool for Analysis&rdquo;<a class="headerlink" href="#question-type-3-use-tool-for-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Prompt</strong>: <em>&ldquo;Use trivy to scan the provided manifest and fix the HIGH severity issues&rdquo;</em></p>
+<p><strong>Approach</strong>:
+1. Run trivy scan
+2. Identify HIGH severity findings
+3. Apply fixes systematically
+4. Re-scan to verify</p>
+<hr />
+<h2 id="step-by-step-solutions">Step-by-Step Solutions<a class="headerlink" href="#step-by-step-solutions" title="Permanent link">&para;</a></h2>
+<h3 id="scenario-1-dockerfile-analysis">Scenario 1: Dockerfile Analysis<a class="headerlink" href="#scenario-1-dockerfile-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Given Dockerfile</strong>:
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>git
+<span class="k">ENV</span><span class="w"> </span><span class="nv">SECRET_KEY</span><span class="o">=</span>abc123
+<span class="k">COPY</span><span class="w"> </span>app.py<span class="w"> </span>/app/
+<span class="k">RUN</span><span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>/app/app.py
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/app/app.py&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+<p><strong>Step 1</strong>: Identify Issues
+<div class="highlight"><pre><span></span><code><span class="c1"># Run trivy scan</span>
+trivy<span class="w"> </span>config<span class="w"> </span>Dockerfile
+</code></pre></div></p>
+<p><strong>Step 2</strong>: Issues Found
+- Using <code>latest</code> tag (unpredictable)
+- Running as root user
+- Hardcoded secret in ENV
+- Overly permissive file permissions (777)
+- Unnecessary packages installed</p>
+<p><strong>Step 3</strong>: Fixed Dockerfile
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:20.04</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>apt-get<span class="w"> </span>clean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>appuser
+<span class="k">COPY</span><span class="w"> </span>--chown<span class="o">=</span>appuser:appuser<span class="w"> </span>--chmod<span class="o">=</span><span class="m">644</span><span class="w"> </span>app.py<span class="w"> </span>/app/
+<span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/app/app.py&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+<h3 id="scenario-2-kubernetes-manifest-analysis">Scenario 2: Kubernetes Manifest Analysis<a class="headerlink" href="#scenario-2-kubernetes-manifest-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Given Deployment</strong>:
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:latest</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;secretpassword&quot;</span>
+</code></pre></div></p>
+<p><strong>Step 1</strong>: Scan with Tools
+<div class="highlight"><pre><span></span><code>trivy<span class="w"> </span>config<span class="w"> </span>deployment.yaml
+kubesec<span class="w"> </span>scan<span class="w"> </span>deployment.yaml
+</code></pre></div></p>
+<p><strong>Step 2</strong>: Issues Identified
+- No security context
+- Using latest tag
+- Secret in plain text env var
+- No resource limits
+- Missing health checks</p>
+<p><strong>Step 3</strong>: Fixed Deployment
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web-app</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">        </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:1.21.6-alpine</span>
+<span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span>
+<span class="w">          </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db-secret</span>
+<span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+<span class="w">        </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500m&quot;</span>
+<span class="w">          </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;256Mi&quot;</span>
+<span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;250m&quot;</span>
+<span class="w">        </span><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/healthz</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">        </span><span class="nt">readinessProbe</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ready</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp-volume</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">var-cache</span>
+<span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/cache/nginx</span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tmp-volume</span>
+<span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">var-cache</span>
+<span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="remediation-examples">Remediation Examples<a class="headerlink" href="#remediation-examples" title="Permanent link">&para;</a></h2>
+<h3 id="security-context-best-practices">Security Context Best Practices<a class="headerlink" href="#security-context-best-practices" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Complete security context example</span>
+<span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># Pod-level</span>
+<span class="w">  </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">  </span><span class="nt">seccompProfile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RuntimeDefault</span>
+
+<span class="nt">containers</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="w">  </span><span class="nt">securityContext</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Container-level</span>
+<span class="w">    </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">capabilities</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">drop</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ALL</span>
+<span class="w">      </span><span class="nt">add</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NET_BIND_SERVICE</span><span class="w">  </span><span class="c1"># Only if needed</span>
+</code></pre></div>
+<h3 id="resource-management">Resource Management<a class="headerlink" href="#resource-management" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">resources</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">limits</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;512Mi&quot;</span>
+<span class="w">    </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500m&quot;</span>
+<span class="w">    </span><span class="nt">ephemeral-storage</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1Gi&quot;</span>
+<span class="w">  </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;256Mi&quot;</span>
+<span class="w">    </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;250m&quot;</span>
+<span class="w">    </span><span class="nt">ephemeral-storage</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500Mi&quot;</span>
+</code></pre></div>
+<h3 id="secrets-management">Secrets Management<a class="headerlink" href="#secrets-management" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create secret first</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Secret</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-secrets</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Opaque</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;base64-encoded-value&gt;</span>
+<span class="w">  </span><span class="nt">db-password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;base64-encoded-value&gt;</span>
+
+<span class="c1"># Reference in deployment</span>
+<span class="nt">env</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">API_KEY</span>
+<span class="w">  </span><span class="nt">valueFrom</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">secretKeyRef</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-secrets</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-key</span>
+</code></pre></div>
+<hr />
+<h2 id="exam-tips">Exam Tips<a class="headerlink" href="#exam-tips" title="Permanent link">&para;</a></h2>
+<h3 id="time-management">Time Management<a class="headerlink" href="#time-management" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Choose based on requirements</strong>:</li>
-<li>Use Istio for comprehensive service mesh features beyond encryption</li>
-<li>
-<p>Use Cilium for network-level security with lower overhead</p>
-</li>
-<li>
-<p><strong>Layered Security</strong>:</p>
-</li>
-<li>Consider using both solutions for defense in depth</li>
-<li>Istio for service-to-service authentication</li>
-<li>
-<p>Cilium for network-level encryption</p>
-</li>
-<li>
-<p><strong>Key Rotation</strong>:</p>
-</li>
-<li>For Istio: Configure automated certificate rotation (default: 24h)</li>
-<li>
-<p>For Cilium IPsec: Rotate encryption keys periodically</p>
-</li>
-<li>
-<p><strong>Monitoring</strong>:</p>
-</li>
-<li>For Istio: Use Kiali, Grafana, and Prometheus for visibility</li>
-<li>
-<p>For Cilium: Use Hubble for network flow visibility</p>
-</li>
-<li>
-<p><strong>Policy Testing</strong>:</p>
-</li>
-<li>Test encryption policies in non-production environments first</li>
-<li>Use Cilium&rsquo;s dry-run mode or Istio&rsquo;s permissive mode initially</li>
+<li><strong>Quick Scan First</strong>: Use automated tools to identify obvious issues</li>
+<li><strong>Prioritize</strong>: Focus on HIGH/CRITICAL severity issues first</li>
+<li><strong>Systematic Approach</strong>: Check each category methodically</li>
 </ol>
-<p>By implementing either or both of these solutions, you can ensure that pod-to-pod communications within your Kubernetes cluster remain secure and protected from eavesdropping or man-in-the-middle attacks.</p>
+<h3 id="common-commands-to-remember">Common Commands to Remember<a class="headerlink" href="#common-commands-to-remember" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Trivy scanning</span>
+trivy<span class="w"> </span>config<span class="w"> </span>.
+trivy<span class="w"> </span>image<span class="w"> </span>nginx:latest
+
+<span class="c1"># Kubesec analysis</span>
+kubesec<span class="w"> </span>scan<span class="w"> </span>pod.yaml
+
+<span class="c1"># Kubectl dry-run for validation</span>
+kubectl<span class="w"> </span>apply<span class="w"> </span>--dry-run<span class="o">=</span>client<span class="w"> </span>-f<span class="w"> </span>manifest.yaml
+
+<span class="c1"># Check security context</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.securityContext}&#39;</span>
+</code></pre></div>
+<h3 id="checklist-for-quick-review">Checklist for Quick Review<a class="headerlink" href="#checklist-for-quick-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Non-root user execution</li>
+<li>[ ] No hardcoded secrets</li>
+<li>[ ] Specific image tags (not latest)</li>
+<li>[ ] Resource limits set</li>
+<li>[ ] Security context configured</li>
+<li>[ ] Minimal attack surface</li>
+<li>[ ] Health checks present</li>
+<li>[ ] Network policies defined</li>
+</ul>
+<hr />
+<h2 id="practice-exercises">Practice Exercises<a class="headerlink" href="#practice-exercises" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-1-fix-this-dockerfile">Exercise 1: Fix This Dockerfile<a class="headerlink" href="#exercise-1-fix-this-dockerfile" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:latest</span>
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>vim<span class="w"> </span>curl<span class="w"> </span>wget<span class="w"> </span>git
+<span class="k">ENV</span><span class="w"> </span><span class="nv">JWT_SECRET</span><span class="o">=</span>mysecretkey123
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>/app
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>install
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">3000</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;npm&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="exercise-2-secure-this-deployment">Exercise 2: Secure This Deployment<a class="headerlink" href="#exercise-2-secure-this-deployment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-server</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapi:latest</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DATABASE_URL</span>
+<span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres://user:password@db:5432/mydb&quot;</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+</code></pre></div>
+<p><em>Solutions available upon request or can be worked through using the guidelines above.</em></p>
 
 
 
@@ -5333,7 +5965,7 @@ kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </sp
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../hostpath-only/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating a Pod with Host Path Access and Falco Detection">
+          <a href="../update-kubelet-config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Kubelet Configuration Exam Exercises">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5343,20 +5975,20 @@ kubectl<span class="w"> </span><span class="nb">exec</span><span class="w"> </sp
                 Previous
               </span>
               <div class="md-ellipsis">
-                Creating a Pod with Host Path Access and Falco Detection
+                Kubelet Configuration Exam Exercises
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pod-security-standards/" class="md-footer__link md-footer__link--next" aria-label="Next: Pod Security Standards (PSS): Overview and Implementation Guide">
+          <a href="../../../../architectural-patterns/bulkhead/" class="md-footer__link md-footer__link--next" aria-label="Next: Bulkhead Pattern">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Pod Security Standards (PSS): Overview and Implementation Guide
+                Bulkhead Pattern
               </div>
             </div>
             <div class="md-footer__button md-icon">
