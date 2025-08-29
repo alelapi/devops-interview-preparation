@@ -80,6 +80,7 @@ Cilium is a cloud-native networking, observability, and security solution built 
 ### IPAM
 
 Two available modes:
+
 - Kubernetes Host Scope: kube-controllermanager assign PodCIDR to each nodes. Set the resource Node
 ```
 ipam:
@@ -111,6 +112,7 @@ Do not change IPAM mode on live clusters. Instead, deploy a new cluster with des
 ### Routing modes
 
 Cilium supports following routing modes that determine how packets are forwarded between pods across nodes:
+
 1. Native Routing
 Uses the host's existing routing table and network stack
 ```
@@ -165,12 +167,14 @@ Ingress mode:
 - Shared: one single loadbalancer for all ingress
 
 Ingress components:
+
 - GatewayClass: created by Infra team
 - Gateway: created by cluster operator
 - HTTPRoute (TCP, GRPC): created by developer
 
 ## Encryption
 If enabled, traffic between clusters will be encryted, traffic within cluster not encrypted.
+
 - IPSec
 ```
 encryption:
@@ -191,6 +195,7 @@ cilium-dbg encryption status
 
 ## mTLS
 Applied with SPIFFE, implemented by Spire.
+
 - A spire-server will be deployed in the cluster
 - A spire-agent in every node
 
