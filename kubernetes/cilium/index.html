@@ -5389,16 +5389,19 @@
 </ul>
 <h2 id="cilium-features">Cilium Features<a class="headerlink" href="#cilium-features" title="Permanent link">&para;</a></h2>
 <h3 id="ipam">IPAM<a class="headerlink" href="#ipam" title="Permanent link">&para;</a></h3>
-<p>Two available modes:
-- Kubernetes Host Scope: kube-controllermanager assign PodCIDR to each nodes. Set the resource Node
+<p>Two available modes:</p>
+<ul>
+<li>
+<p>Kubernetes Host Scope: kube-controllermanager assign PodCIDR to each nodes. Set the resource Node
 <div class="highlight"><pre><span></span><code>ipam:
   mode: &quot;kubernetes&quot;
 k8s:
   requireIPv4PodCIDR: true
   requireIPv6PodCIDR: true
 </code></pre></div></p>
-<ul>
-<li>Cluster Scope (default): Cilium Operator assign PodCIDR. Use the resource CiliumNode
+</li>
+<li>
+<p>Cluster Scope (default): Cilium Operator assign PodCIDR. Use the resource CiliumNode
 <div class="highlight"><pre><span></span><code>ipam:
   mode: &quot;cluster-pool&quot;
 k8s:
@@ -5406,22 +5409,26 @@ k8s:
   clusterPoolIPv4MaskSize: 24
   clusterPoolIPv6PodCIDRList: [&quot;fd00::/104&quot;]
   clusterPoolIPv6MaskSize: 120
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ul>
 <p>To get all assigned CIDRs:</p>
 <div class="highlight"><pre><span></span><code>cilium-dbg status --all-addresses
 </code></pre></div>
 <p>Do not change IPAM mode on live clusters. Instead, deploy a new cluster with desired IPAM mode and migrate workloads.</p>
 <h3 id="routing-modes">Routing modes<a class="headerlink" href="#routing-modes" title="Permanent link">&para;</a></h3>
-<p>Cilium supports following routing modes that determine how packets are forwarded between pods across nodes:
-1. Native Routing
+<p>Cilium supports following routing modes that determine how packets are forwarded between pods across nodes:</p>
+<ol>
+<li>
+<p>Native Routing
 Uses the host&rsquo;s existing routing table and network stack
 <div class="highlight"><pre><span></span><code>routingMode: &quot;native&quot;
 ipV4NativeRoutingCIDR: &quot;10.244.0.0/16&quot;
 ipV6NativeRoutingCIDR: &quot;&quot;
 </code></pre></div></p>
-<ol>
-<li>Tunnel - Encapsulating (Default)
+</li>
+<li>
+<p>Tunnel - Encapsulating (Default)
 Encapsulates pod traffic in VXLAN or Geneve tunnels
 Overhead: ~50 bytes per packet (VXLAN + UDP + IP headers)
 <div class="highlight"><pre><span></span><code>routingMode: &quot;tunnel&quot;
@@ -5431,7 +5438,8 @@ tunnelProtocol: &quot;vxlan&quot; # default
 
 tunnelPort: 8472 # vxlan
 # tunnelPort: 6081 # geneve
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ol>
 <h3 id="kube-proxy-replacement">Kube-Proxy Replacement<a class="headerlink" href="#kube-proxy-replacement" title="Permanent link">&para;</a></h3>
 <p>Cilium can completely replace kube-proxy with a more efficient eBPF-based implementation for Kubernetes Service load balancing.
@@ -5459,29 +5467,35 @@ Ingress mode:</p>
 <li>Dedicated: one loadbalancer for each ingress</li>
 <li>Shared: one single loadbalancer for all ingress</li>
 </ul>
-<p>Ingress components:
-- GatewayClass: created by Infra team
-- Gateway: created by cluster operator
-- HTTPRoute (TCP, GRPC): created by developer</p>
+<p>Ingress components:</p>
+<ul>
+<li>GatewayClass: created by Infra team</li>
+<li>Gateway: created by cluster operator</li>
+<li>HTTPRoute (TCP, GRPC): created by developer</li>
+</ul>
 <h2 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h2>
-<p>If enabled, traffic between clusters will be encryted, traffic within cluster not encrypted.
-- IPSec
+<p>If enabled, traffic between clusters will be encryted, traffic within cluster not encrypted.</p>
+<ul>
+<li>IPSec
 <div class="highlight"><pre><span></span><code>encryption:
   enabled: true
   type: ipsec
-</code></pre></div>
-- WireGuard
+</code></pre></div></li>
+<li>WireGuard
 <div class="highlight"><pre><span></span><code>encryption:
   enabled: true
   type: wireguard
-</code></pre></div></p>
+</code></pre></div></li>
+</ul>
 <p>check encryption status:
 <div class="highlight"><pre><span></span><code>cilium-dbg encryption status
 </code></pre></div></p>
 <h2 id="mtls">mTLS<a class="headerlink" href="#mtls" title="Permanent link">&para;</a></h2>
-<p>Applied with SPIFFE, implemented by Spire.
-- A spire-server will be deployed in the cluster
-- A spire-agent in every node</p>
+<p>Applied with SPIFFE, implemented by Spire.</p>
+<ul>
+<li>A spire-server will be deployed in the cluster</li>
+<li>A spire-agent in every node</li>
+</ul>
 <p>Encryption must be enabled.
 <div class="highlight"><pre><span></span><code>encryption:
   enabled: true
