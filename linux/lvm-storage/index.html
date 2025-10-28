@@ -5145,15 +5145,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#quick-reference" class="md-nav__link">
     <span class="md-ellipsis">
       Quick Reference
@@ -5808,15 +5799,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#quick-reference" class="md-nav__link">
     <span class="md-ellipsis">
       Quick Reference
@@ -5879,37 +5861,49 @@
 <h3 id="pvs-display-physical-volume-information">pvs - Display Physical Volume Information<a class="headerlink" href="#pvs-display-physical-volume-information" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>pvs
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-o</code> : Specify output columns
-- <code>-v</code> : Verbose output
-- <code>--segments</code> : Display segment information</p>
-<p><strong>Use Cases:</strong>
-- Quick overview of all PVs
-- Check PV utilization</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-o</code> : Specify output columns</li>
+<li><code>-v</code> : Verbose output</li>
+<li><code>--segments</code> : Display segment information</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Quick overview of all PVs</li>
+<li>Check PV utilization</li>
+</ul>
 <h3 id="pvdisplay-detailed-physical-volume-information">pvdisplay - Detailed Physical Volume Information<a class="headerlink" href="#pvdisplay-detailed-physical-volume-information" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>pvdisplay<span class="w"> </span><span class="o">[</span>PV_path<span class="o">]</span>
 pvdisplay<span class="w"> </span>/dev/sdb1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-v</code> : Verbose output
-- <code>-m</code> : Display mapping of physical extents
-- <code>-s</code> : Short format</p>
-<p><strong>Use Cases:</strong>
-- Detailed PV examination
-- View PV UUID and size
-- Check which VG a PV belongs to</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-v</code> : Verbose output</li>
+<li><code>-m</code> : Display mapping of physical extents</li>
+<li><code>-s</code> : Short format</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Detailed PV examination</li>
+<li>View PV UUID and size</li>
+<li>Check which VG a PV belongs to</li>
+</ul>
 <h3 id="pvcreate-create-physical-volume">pvcreate - Create Physical Volume<a class="headerlink" href="#pvcreate-create-physical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>pvcreate<span class="w"> </span>/dev/sdb
 pvcreate<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-f</code> : Force creation
-- <code>--metadatasize</code> : Set metadata area size
-- <code>-y</code> : Automatic yes to prompts</p>
-<p><strong>Use Cases:</strong>
-- Initialize disk for LVM use
-- Prepare partitions for VG
-- Convert existing disk to PV</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-f</code> : Force creation</li>
+<li><code>--metadatasize</code> : Set metadata area size</li>
+<li><code>-y</code> : Automatic yes to prompts</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Initialize disk for LVM use</li>
+<li>Prepare partitions for VG</li>
+<li>Convert existing disk to PV</li>
+</ul>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create PV on entire disk</span>
 pvcreate<span class="w"> </span>/dev/sdb
@@ -5920,23 +5914,31 @@ pvcreate<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1<span 
 <h3 id="pvremove-remove-physical-volume">pvremove - Remove Physical Volume<a class="headerlink" href="#pvremove-remove-physical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>pvremove<span class="w"> </span>/dev/sdb
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-f</code> : Force removal
-- <code>-y</code> : Automatic yes</p>
-<p><strong>Use Cases:</strong>
-- Decommission disk from LVM
-- Remove unused PV</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-f</code> : Force removal</li>
+<li><code>-y</code> : Automatic yes</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Decommission disk from LVM</li>
+<li>Remove unused PV</li>
+</ul>
 <h3 id="pvmove-move-data-between-physical-volumes">pvmove - Move Data Between Physical Volumes<a class="headerlink" href="#pvmove-move-data-between-physical-volumes" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>pvmove<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-i</code> : Interval for progress updates
-- <code>-n</code> : Only move specified logical volume
-- <code>--abort</code> : Abort in-progress move</p>
-<p><strong>Use Cases:</strong>
-- Migrate data before disk removal
-- Balance data across PVs
-- Move data off failing disk</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-i</code> : Interval for progress updates</li>
+<li><code>-n</code> : Only move specified logical volume</li>
+<li><code>--abort</code> : Abort in-progress move</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Migrate data before disk removal</li>
+<li>Balance data across PVs</li>
+<li>Move data off failing disk</li>
+</ul>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move all data from sdb1 to sdc1</span>
 pvmove<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1
@@ -5947,45 +5949,61 @@ pvmove<span class="w"> </span>-n<span class="w"> </span>vg01/lv_data<span class=
 <h3 id="pvresize-resize-physical-volume">pvresize - Resize Physical Volume<a class="headerlink" href="#pvresize-resize-physical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>pvresize<span class="w"> </span>/dev/sdb1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>--setphysicalvolumesize</code> : Set specific size</p>
-<p><strong>Use Cases:</strong>
-- Expand PV after partition resize
-- Shrink PV before partition reduction</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>--setphysicalvolumesize</code> : Set specific size</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Expand PV after partition resize</li>
+<li>Shrink PV before partition reduction</li>
+</ul>
 <hr />
 <h2 id="volume-group-management">Volume Group Management<a class="headerlink" href="#volume-group-management" title="Permanent link">&para;</a></h2>
 <h3 id="vgs-display-volume-group-information">vgs - Display Volume Group Information<a class="headerlink" href="#vgs-display-volume-group-information" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgs
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-o</code> : Specify output columns
-- <code>-v</code> : Verbose output
-- <code>--units</code> : Set display units (k/m/g/t)</p>
-<p><strong>Use Cases:</strong>
-- Quick VG overview
-- Check available space</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-o</code> : Specify output columns</li>
+<li><code>-v</code> : Verbose output</li>
+<li><code>--units</code> : Set display units (k/m/g/t)</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Quick VG overview</li>
+<li>Check available space</li>
+</ul>
 <h3 id="vgdisplay-detailed-volume-group-information">vgdisplay - Detailed Volume Group Information<a class="headerlink" href="#vgdisplay-detailed-volume-group-information" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgdisplay<span class="w"> </span><span class="o">[</span>VG_name<span class="o">]</span>
 vgdisplay<span class="w"> </span>vg01
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-v</code> : Verbose output (shows LVs and PVs)
-- <code>-s</code> : Short format
-- <code>-A</code> : Show active VGs only</p>
-<p><strong>Use Cases:</strong>
-- Detailed VG examination
-- View VG size and free space
-- List all LVs in VG</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-v</code> : Verbose output (shows LVs and PVs)</li>
+<li><code>-s</code> : Short format</li>
+<li><code>-A</code> : Show active VGs only</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Detailed VG examination</li>
+<li>View VG size and free space</li>
+<li>List all LVs in VG</li>
+</ul>
 <h3 id="vgcreate-create-volume-group">vgcreate - Create Volume Group<a class="headerlink" href="#vgcreate-create-volume-group" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgcreate<span class="w"> </span>vg01<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-s</code> : Set physical extent size
-- <code>-l</code> : Set maximum logical volumes
-- <code>-p</code> : Set maximum physical volumes</p>
-<p><strong>Use Cases:</strong>
-- Create new storage pool
-- Group multiple PVs</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-s</code> : Set physical extent size</li>
+<li><code>-l</code> : Set maximum logical volumes</li>
+<li><code>-p</code> : Set maximum physical volumes</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Create new storage pool</li>
+<li>Group multiple PVs</li>
+</ul>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create VG with default settings</span>
 vgcreate<span class="w"> </span>vg01<span class="w"> </span>/dev/sdb1
@@ -5999,12 +6017,16 @@ vgcreate<span class="w"> </span>-s<span class="w"> </span>16M<span class="w"> </
 <h3 id="vgextend-add-physical-volume-to-volume-group">vgextend - Add Physical Volume to Volume Group<a class="headerlink" href="#vgextend-add-physical-volume-to-volume-group" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgextend<span class="w"> </span>vg01<span class="w"> </span>/dev/sdd1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-A</code> : Set autobackup
-- <code>-t</code> : Test mode</p>
-<p><strong>Use Cases:</strong>
-- Expand VG capacity
-- Add new disk to existing VG</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-A</code> : Set autobackup</li>
+<li><code>-t</code> : Test mode</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Expand VG capacity</li>
+<li>Add new disk to existing VG</li>
+</ul>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># First create PV, then extend VG</span>
 pvcreate<span class="w"> </span>/dev/sdd1
@@ -6013,13 +6035,17 @@ vgextend<span class="w"> </span>vg01<span class="w"> </span>/dev/sdd1
 <h3 id="vgreduce-remove-physical-volume-from-volume-group">vgreduce - Remove Physical Volume from Volume Group<a class="headerlink" href="#vgreduce-remove-physical-volume-from-volume-group" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgreduce<span class="w"> </span>vg01<span class="w"> </span>/dev/sdd1
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>--removemissing</code> : Remove missing PVs
-- <code>-a</code> : Remove all empty PVs
-- <code>-f</code> : Force removal</p>
-<p><strong>Use Cases:</strong>
-- Remove unused PV from VG
-- Remove failed disk</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>--removemissing</code> : Remove missing PVs</li>
+<li><code>-a</code> : Remove all empty PVs</li>
+<li><code>-f</code> : Force removal</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Remove unused PV from VG</li>
+<li>Remove failed disk</li>
+</ul>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move data off PV first, then reduce</span>
 pvmove<span class="w"> </span>/dev/sdd1
@@ -6031,66 +6057,88 @@ vgreduce<span class="w"> </span>--removemissing<span class="w"> </span>vg01
 <h3 id="vgremove-remove-volume-group">vgremove - Remove Volume Group<a class="headerlink" href="#vgremove-remove-volume-group" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgremove<span class="w"> </span>vg01
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-f</code> : Force removal</p>
-<p><strong>Use Cases:</strong>
-- Delete entire VG
-- Clean up unused storage pool</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-f</code> : Force removal</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Delete entire VG</li>
+<li>Clean up unused storage pool</li>
+</ul>
 <h3 id="vgrename-rename-volume-group">vgrename - Rename Volume Group<a class="headerlink" href="#vgrename-rename-volume-group" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgrename<span class="w"> </span>vg01<span class="w"> </span>vg_data
 vgrename<span class="w"> </span>/dev/vg01<span class="w"> </span>/dev/vg_data
 </code></pre></div>
-<strong>Use Cases:</strong>
-- Change VG name for clarity
-- Standardize naming</p>
+<strong>Use Cases:</strong></p>
+<ul>
+<li>Change VG name for clarity</li>
+<li>Standardize naming</li>
+</ul>
 <h3 id="vgchange-change-volume-group-attributes">vgchange - Change Volume Group Attributes<a class="headerlink" href="#vgchange-change-volume-group-attributes" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>vgchange<span class="w"> </span>-a<span class="w"> </span>y<span class="w"> </span>vg01
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-a y|n</code> : Activate/deactivate VG
-- <code>-l</code> : Set maximum logical volumes
-- <code>--refresh</code> : Refresh metadata</p>
-<p><strong>Use Cases:</strong>
-- Activate/deactivate VG
-- Enable VG at boot
-- Refresh VG state</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-a y|n</code> : Activate/deactivate VG</li>
+<li><code>-l</code> : Set maximum logical volumes</li>
+<li><code>--refresh</code> : Refresh metadata</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Activate/deactivate VG</li>
+<li>Enable VG at boot</li>
+<li>Refresh VG state</li>
+</ul>
 <hr />
 <h2 id="logical-volume-management">Logical Volume Management<a class="headerlink" href="#logical-volume-management" title="Permanent link">&para;</a></h2>
 <h3 id="lvs-display-logical-volume-information">lvs - Display Logical Volume Information<a class="headerlink" href="#lvs-display-logical-volume-information" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvs
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-o</code> : Specify output columns
-- <code>-a</code> : Show all LVs including hidden
-- <code>--units</code> : Set display units</p>
-<p><strong>Use Cases:</strong>
-- Quick LV overview
-- Check LV size and attributes</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-o</code> : Specify output columns</li>
+<li><code>-a</code> : Show all LVs including hidden</li>
+<li><code>--units</code> : Set display units</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Quick LV overview</li>
+<li>Check LV size and attributes</li>
+</ul>
 <h3 id="lvdisplay-detailed-logical-volume-information">lvdisplay - Detailed Logical Volume Information<a class="headerlink" href="#lvdisplay-detailed-logical-volume-information" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvdisplay<span class="w"> </span><span class="o">[</span>VG_name/LV_name<span class="o">]</span>
 lvdisplay<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-v</code> : Verbose output
-- <code>-m</code> : Display mapping
-- <code>--maps</code> : Show extent mappings</p>
-<p><strong>Use Cases:</strong>
-- Detailed LV examination
-- View LV path and size
-- Check LV segments</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-v</code> : Verbose output</li>
+<li><code>-m</code> : Display mapping</li>
+<li><code>--maps</code> : Show extent mappings</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Detailed LV examination</li>
+<li>View LV path and size</li>
+<li>Check LV segments</li>
+</ul>
 <h3 id="lvcreate-create-logical-volume">lvcreate - Create Logical Volume<a class="headerlink" href="#lvcreate-create-logical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvcreate<span class="w"> </span>-L<span class="w"> </span>10G<span class="w"> </span>-n<span class="w"> </span>lv_data<span class="w"> </span>vg01
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-L</code> : Size in bytes (K/M/G/T)
-- <code>-l</code> : Size in extents or percentage
-- <code>-n</code> : Name of logical volume
-- <code>-s</code> : Create snapshot
-- <code>--type</code> : Specify LV type (linear, striped, mirror, raid)</p>
-<p><strong>Use Cases:</strong>
-- Create storage volumes
-- Create snapshots for backups
-- Set up mirrored volumes</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-L</code> : Size in bytes (K/M/G/T)</li>
+<li><code>-l</code> : Size in extents or percentage</li>
+<li><code>-n</code> : Name of logical volume</li>
+<li><code>-s</code> : Create snapshot</li>
+<li><code>--type</code> : Specify LV type (linear, striped, mirror, raid)</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Create storage volumes</li>
+<li>Create snapshots for backups</li>
+<li>Set up mirrored volumes</li>
+</ul>
 <p><strong>Examples:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create 10GB LV</span>
 lvcreate<span class="w"> </span>-L<span class="w"> </span>10G<span class="w"> </span>-n<span class="w"> </span>lv_data<span class="w"> </span>vg01
@@ -6116,13 +6164,17 @@ lvcreate<span class="w"> </span>-L<span class="w"> </span>10G<span class="w"> </
 <h3 id="lvextend-extend-logical-volume">lvextend - Extend Logical Volume<a class="headerlink" href="#lvextend-extend-logical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvextend<span class="w"> </span>-L<span class="w"> </span>+5G<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-L</code> : New size or size to add (+)
-- <code>-l</code> : Extents to add
-- <code>-r</code> : Resize filesystem automatically</p>
-<p><strong>Use Cases:</strong>
-- Expand volume when space needed
-- Resize filesystem in one command</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-L</code> : New size or size to add (+)</li>
+<li><code>-l</code> : Extents to add</li>
+<li><code>-r</code> : Resize filesystem automatically</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Expand volume when space needed</li>
+<li>Resize filesystem in one command</li>
+</ul>
 <p><strong>Examples:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add 5GB to LV</span>
 lvextend<span class="w"> </span>-L<span class="w"> </span>+5G<span class="w"> </span>/dev/vg01/lv_data
@@ -6139,14 +6191,18 @@ lvextend<span class="w"> </span>-L<span class="w"> </span>+5G<span class="w"> </
 <h3 id="lvreduce-reduce-logical-volume">lvreduce - Reduce Logical Volume<a class="headerlink" href="#lvreduce-reduce-logical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvreduce<span class="w"> </span>-L<span class="w"> </span>-5G<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-L</code> : New size or size to reduce (-)
-- <code>-l</code> : Extents to reduce
-- <code>-r</code> : Resize filesystem first
-- <code>-f</code> : Force without confirmation</p>
-<p><strong>Use Cases:</strong>
-- Reclaim unused space
-- Shrink oversized volumes</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-L</code> : New size or size to reduce (-)</li>
+<li><code>-l</code> : Extents to reduce</li>
+<li><code>-r</code> : Resize filesystem first</li>
+<li><code>-f</code> : Force without confirmation</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Reclaim unused space</li>
+<li>Shrink oversized volumes</li>
+</ul>
 <p><strong>Examples:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># ALWAYS shrink filesystem BEFORE reducing LV</span>
 resize2fs<span class="w"> </span>/dev/vg01/lv_data<span class="w"> </span>10G
@@ -6159,13 +6215,17 @@ lvreduce<span class="w"> </span>-L<span class="w"> </span>-5G<span class="w"> </
 <h3 id="lvresize-resize-logical-volume">lvresize - Resize Logical Volume<a class="headerlink" href="#lvresize-resize-logical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvresize<span class="w"> </span>-L<span class="w"> </span>15G<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-L</code> : Set absolute size
-- <code>-l</code> : Size in extents
-- <code>-r</code> : Resize filesystem automatically</p>
-<p><strong>Use Cases:</strong>
-- Unified command for extend/reduce
-- Set exact size</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-L</code> : Set absolute size</li>
+<li><code>-l</code> : Size in extents</li>
+<li><code>-r</code> : Resize filesystem automatically</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Unified command for extend/reduce</li>
+<li>Set exact size</li>
+</ul>
 <p><strong>Examples:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Resize to exactly 15GB</span>
 lvresize<span class="w"> </span>-L<span class="w"> </span>15G<span class="w"> </span>-r<span class="w"> </span>/dev/vg01/lv_data
@@ -6176,11 +6236,15 @@ lvresize<span class="w"> </span>-l<span class="w"> </span><span class="m">80</sp
 <h3 id="lvremove-remove-logical-volume">lvremove - Remove Logical Volume<a class="headerlink" href="#lvremove-remove-logical-volume" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvremove<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-f</code> : Force removal</p>
-<p><strong>Use Cases:</strong>
-- Delete unused LV
-- Clean up test volumes</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-f</code> : Force removal</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Delete unused LV</li>
+<li>Clean up test volumes</li>
+</ul>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="c1"># Unmount first, then remove</span>
 umount<span class="w"> </span>/mnt/data
@@ -6190,28 +6254,36 @@ lvremove<span class="w"> </span>/dev/vg01/lv_data
 <p><div class="highlight"><pre><span></span><code>lvrename<span class="w"> </span>vg01<span class="w"> </span>lv_old<span class="w"> </span>lv_new
 lvrename<span class="w"> </span>/dev/vg01/lv_old<span class="w"> </span>/dev/vg01/lv_new
 </code></pre></div>
-<strong>Use Cases:</strong>
-- Change LV name for clarity
-- Standardize naming</p>
+<strong>Use Cases:</strong></p>
+<ul>
+<li>Change LV name for clarity</li>
+<li>Standardize naming</li>
+</ul>
 <h3 id="lvchange-change-logical-volume-attributes">lvchange - Change Logical Volume Attributes<a class="headerlink" href="#lvchange-change-logical-volume-attributes" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvchange<span class="w"> </span>-a<span class="w"> </span>y<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Common Options:</strong>
-- <code>-a y|n</code> : Activate/deactivate LV
-- <code>-p r|rw</code> : Change permissions
-- <code>--refresh</code> : Refresh LV</p>
-<p><strong>Use Cases:</strong>
-- Activate/deactivate volumes
-- Change read-only status</p>
+<strong>Common Options:</strong></p>
+<ul>
+<li><code>-a y|n</code> : Activate/deactivate LV</li>
+<li><code>-p r|rw</code> : Change permissions</li>
+<li><code>--refresh</code> : Refresh LV</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Activate/deactivate volumes</li>
+<li>Change read-only status</li>
+</ul>
 <hr />
 <h2 id="lvm-snapshots">LVM Snapshots<a class="headerlink" href="#lvm-snapshots" title="Permanent link">&para;</a></h2>
 <h3 id="create-snapshot">Create Snapshot<a class="headerlink" href="#create-snapshot" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvcreate<span class="w"> </span>-L<span class="w"> </span>5G<span class="w"> </span>-s<span class="w"> </span>-n<span class="w"> </span>lv_data_snap<span class="w"> </span>/dev/vg01/lv_data
 </code></pre></div>
-<strong>Use Cases:</strong>
-- Backup consistent state
-- Test changes safely
-- Rollback capability</p>
+<strong>Use Cases:</strong></p>
+<ul>
+<li>Backup consistent state</li>
+<li>Test changes safely</li>
+<li>Rollback capability</li>
+</ul>
 <h3 id="merge-snapshot-rollback">Merge Snapshot (Rollback)<a class="headerlink" href="#merge-snapshot-rollback" title="Permanent link">&para;</a></h3>
 <p><div class="highlight"><pre><span></span><code>lvconvert<span class="w"> </span>--merge<span class="w"> </span>/dev/vg01/lv_data_snap
 </code></pre></div>
@@ -6339,17 +6411,6 @@ vgreduce<span class="w"> </span>--removemissing<span class="w"> </span>--force<s
 <h3 id="extend-snapshot-thats-getting-full">Extend Snapshot That&rsquo;s Getting Full<a class="headerlink" href="#extend-snapshot-thats-getting-full" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>lvextend<span class="w"> </span>-L<span class="w"> </span>+2G<span class="w"> </span>/dev/vg_data/lv_data_snap
 </code></pre></div>
-<hr />
-<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Always backup data</strong> before LVM operations, especially resize operations</li>
-<li><strong>Shrinking</strong>: Always shrink filesystem BEFORE reducing LV size</li>
-<li><strong>Growing</strong>: Can extend filesystem AFTER extending LV (or use -r flag)</li>
-<li><strong>Snapshots</strong>: Monitor snapshot usage; full snapshots become invalid</li>
-<li><strong>Device Names</strong>: Use <code>/dev/VG_name/LV_name</code> or <code>/dev/mapper/VG_name-LV_name</code></li>
-<li><strong>Extent Size</strong>: Default is 4MB; choose larger for big volumes</li>
-<li><strong>Testing</strong>: Use VMs or test systems for practicing destructive operations</li>
-</ol>
 <hr />
 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
 <h3 id="size-specifications">Size Specifications<a class="headerlink" href="#size-specifications" title="Permanent link">&para;</a></h3>
