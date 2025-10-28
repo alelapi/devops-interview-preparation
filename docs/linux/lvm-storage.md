@@ -17,11 +17,13 @@ Physical Disks → Physical Volumes (PV) → Volume Groups (VG) → Logical Volu
 pvs
 ```
 **Common Options:**
+
 - `-o` : Specify output columns
 - `-v` : Verbose output
 - `--segments` : Display segment information
 
 **Use Cases:**
+
 - Quick overview of all PVs
 - Check PV utilization
 
@@ -31,11 +33,13 @@ pvdisplay [PV_path]
 pvdisplay /dev/sdb1
 ```
 **Common Options:**
+
 - `-v` : Verbose output
 - `-m` : Display mapping of physical extents
 - `-s` : Short format
 
 **Use Cases:**
+
 - Detailed PV examination
 - View PV UUID and size
 - Check which VG a PV belongs to
@@ -46,11 +50,13 @@ pvcreate /dev/sdb
 pvcreate /dev/sdb1 /dev/sdc1
 ```
 **Common Options:**
+
 - `-f` : Force creation
 - `--metadatasize` : Set metadata area size
 - `-y` : Automatic yes to prompts
 
 **Use Cases:**
+
 - Initialize disk for LVM use
 - Prepare partitions for VG
 - Convert existing disk to PV
@@ -69,10 +75,12 @@ pvcreate /dev/sdb1 /dev/sdc1 /dev/sdd1
 pvremove /dev/sdb
 ```
 **Common Options:**
+
 - `-f` : Force removal
 - `-y` : Automatic yes
 
 **Use Cases:**
+
 - Decommission disk from LVM
 - Remove unused PV
 
@@ -81,11 +89,13 @@ pvremove /dev/sdb
 pvmove /dev/sdb1 /dev/sdc1
 ```
 **Common Options:**
+
 - `-i` : Interval for progress updates
 - `-n` : Only move specified logical volume
 - `--abort` : Abort in-progress move
 
 **Use Cases:**
+
 - Migrate data before disk removal
 - Balance data across PVs
 - Move data off failing disk
@@ -104,9 +114,11 @@ pvmove -n vg01/lv_data /dev/sdb1 /dev/sdc1
 pvresize /dev/sdb1
 ```
 **Common Options:**
+
 - `--setphysicalvolumesize` : Set specific size
 
 **Use Cases:**
+
 - Expand PV after partition resize
 - Shrink PV before partition reduction
 
@@ -119,11 +131,13 @@ pvresize /dev/sdb1
 vgs
 ```
 **Common Options:**
+
 - `-o` : Specify output columns
 - `-v` : Verbose output
 - `--units` : Set display units (k/m/g/t)
 
 **Use Cases:**
+
 - Quick VG overview
 - Check available space
 
@@ -133,11 +147,13 @@ vgdisplay [VG_name]
 vgdisplay vg01
 ```
 **Common Options:**
+
 - `-v` : Verbose output (shows LVs and PVs)
 - `-s` : Short format
 - `-A` : Show active VGs only
 
 **Use Cases:**
+
 - Detailed VG examination
 - View VG size and free space
 - List all LVs in VG
@@ -147,11 +163,13 @@ vgdisplay vg01
 vgcreate vg01 /dev/sdb1 /dev/sdc1
 ```
 **Common Options:**
+
 - `-s` : Set physical extent size
 - `-l` : Set maximum logical volumes
 - `-p` : Set maximum physical volumes
 
 **Use Cases:**
+
 - Create new storage pool
 - Group multiple PVs
 
@@ -172,10 +190,12 @@ vgcreate -s 16M vg_data /dev/sd{b,c,d}1
 vgextend vg01 /dev/sdd1
 ```
 **Common Options:**
+
 - `-A` : Set autobackup
 - `-t` : Test mode
 
 **Use Cases:**
+
 - Expand VG capacity
 - Add new disk to existing VG
 
@@ -191,11 +211,13 @@ vgextend vg01 /dev/sdd1
 vgreduce vg01 /dev/sdd1
 ```
 **Common Options:**
+
 - `--removemissing` : Remove missing PVs
 - `-a` : Remove all empty PVs
 - `-f` : Force removal
 
 **Use Cases:**
+
 - Remove unused PV from VG
 - Remove failed disk
 
@@ -214,9 +236,11 @@ vgreduce --removemissing vg01
 vgremove vg01
 ```
 **Common Options:**
+
 - `-f` : Force removal
 
 **Use Cases:**
+
 - Delete entire VG
 - Clean up unused storage pool
 
@@ -226,6 +250,7 @@ vgrename vg01 vg_data
 vgrename /dev/vg01 /dev/vg_data
 ```
 **Use Cases:**
+
 - Change VG name for clarity
 - Standardize naming
 
@@ -234,11 +259,13 @@ vgrename /dev/vg01 /dev/vg_data
 vgchange -a y vg01
 ```
 **Common Options:**
+
 - `-a y|n` : Activate/deactivate VG
 - `-l` : Set maximum logical volumes
 - `--refresh` : Refresh metadata
 
 **Use Cases:**
+
 - Activate/deactivate VG
 - Enable VG at boot
 - Refresh VG state
@@ -252,11 +279,13 @@ vgchange -a y vg01
 lvs
 ```
 **Common Options:**
+
 - `-o` : Specify output columns
 - `-a` : Show all LVs including hidden
 - `--units` : Set display units
 
 **Use Cases:**
+
 - Quick LV overview
 - Check LV size and attributes
 
@@ -266,11 +295,13 @@ lvdisplay [VG_name/LV_name]
 lvdisplay /dev/vg01/lv_data
 ```
 **Common Options:**
+
 - `-v` : Verbose output
 - `-m` : Display mapping
 - `--maps` : Show extent mappings
 
 **Use Cases:**
+
 - Detailed LV examination
 - View LV path and size
 - Check LV segments
@@ -280,6 +311,7 @@ lvdisplay /dev/vg01/lv_data
 lvcreate -L 10G -n lv_data vg01
 ```
 **Common Options:**
+
 - `-L` : Size in bytes (K/M/G/T)
 - `-l` : Size in extents or percentage
 - `-n` : Name of logical volume
@@ -287,6 +319,7 @@ lvcreate -L 10G -n lv_data vg01
 - `--type` : Specify LV type (linear, striped, mirror, raid)
 
 **Use Cases:**
+
 - Create storage volumes
 - Create snapshots for backups
 - Set up mirrored volumes
@@ -320,11 +353,13 @@ lvcreate -L 10G -m1 -n lv_mirror vg01
 lvextend -L +5G /dev/vg01/lv_data
 ```
 **Common Options:**
+
 - `-L` : New size or size to add (+)
 - `-l` : Extents to add
 - `-r` : Resize filesystem automatically
 
 **Use Cases:**
+
 - Expand volume when space needed
 - Resize filesystem in one command
 
@@ -348,12 +383,14 @@ lvextend -L +5G -r /dev/vg01/lv_data
 lvreduce -L -5G /dev/vg01/lv_data
 ```
 **Common Options:**
+
 - `-L` : New size or size to reduce (-)
 - `-l` : Extents to reduce
 - `-r` : Resize filesystem first
 - `-f` : Force without confirmation
 
 **Use Cases:**
+
 - Reclaim unused space
 - Shrink oversized volumes
 
@@ -374,11 +411,13 @@ lvreduce -L -5G -r /dev/vg01/lv_data
 lvresize -L 15G /dev/vg01/lv_data
 ```
 **Common Options:**
+
 - `-L` : Set absolute size
 - `-l` : Size in extents
 - `-r` : Resize filesystem automatically
 
 **Use Cases:**
+
 - Unified command for extend/reduce
 - Set exact size
 
@@ -396,9 +435,11 @@ lvresize -l 80%VG -r /dev/vg01/lv_data
 lvremove /dev/vg01/lv_data
 ```
 **Common Options:**
+
 - `-f` : Force removal
 
 **Use Cases:**
+
 - Delete unused LV
 - Clean up test volumes
 
@@ -415,6 +456,7 @@ lvrename vg01 lv_old lv_new
 lvrename /dev/vg01/lv_old /dev/vg01/lv_new
 ```
 **Use Cases:**
+
 - Change LV name for clarity
 - Standardize naming
 
@@ -423,11 +465,13 @@ lvrename /dev/vg01/lv_old /dev/vg01/lv_new
 lvchange -a y /dev/vg01/lv_data
 ```
 **Common Options:**
+
 - `-a y|n` : Activate/deactivate LV
 - `-p r|rw` : Change permissions
 - `--refresh` : Refresh LV
 
 **Use Cases:**
+
 - Activate/deactivate volumes
 - Change read-only status
 
@@ -440,6 +484,7 @@ lvchange -a y /dev/vg01/lv_data
 lvcreate -L 5G -s -n lv_data_snap /dev/vg01/lv_data
 ```
 **Use Cases:**
+
 - Backup consistent state
 - Test changes safely
 - Rollback capability
@@ -602,18 +647,6 @@ lvs -a -o +snap_percent
 ```bash
 lvextend -L +2G /dev/vg_data/lv_data_snap
 ```
-
----
-
-## Important Notes
-
-1. **Always backup data** before LVM operations, especially resize operations
-2. **Shrinking**: Always shrink filesystem BEFORE reducing LV size
-3. **Growing**: Can extend filesystem AFTER extending LV (or use -r flag)
-4. **Snapshots**: Monitor snapshot usage; full snapshots become invalid
-5. **Device Names**: Use `/dev/VG_name/LV_name` or `/dev/mapper/VG_name-LV_name`
-6. **Extent Size**: Default is 4MB; choose larger for big volumes
-7. **Testing**: Use VMs or test systems for practicing destructive operations
 
 ---
 
