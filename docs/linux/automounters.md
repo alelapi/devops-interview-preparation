@@ -1,717 +1,789 @@
 # Configure Filesystem Automounters
 
-## Overview
-Automounters (autofs) automatically mount filesystems on-demand and unmount them after a period of inactivity. This saves resources and provides dynamic mounting capabilities.
+## What are Automounters?
+
+Automounters automatically mount filesystems when you access them, and automatically unmount them when they're not being used. Think of them as smart mounting - the system handles the mounting/unmounting for you.
+
+### Why Use Automounters?
+
+**Without automount:**
+
+- Mount 20 network shares at boot
+- Uses resources even if not needed
+- Boot takes longer
+- More points of failure
+
+**With automount:**
+
+- Mount on-demand (only when accessed)
+- Unmount when idle (free resources)
+- Faster boot
+- More resilient to network issues
+
+**Common uses:**
+
+- User home directories on networks
+- Shared company data
+- USB/CD-ROM auto-mounting
+- NFS shares that aren't always needed
+- Mounting many filesystems efficiently
 
 ---
 
-## Automount Concepts
+## How Automount Works
 
-### Why Use Automount?
-- **On-demand mounting:** Only mount when accessed
-- **Resource efficiency:** Unmount idle filesystems
-- **Network resilience:** Handle network interruptions
-- **Scalability:** Manage many mount points efficiently
-- **User convenience:** Transparent access to resources
+**Traditional mounting:**
+
+```bash
+# You manually mount
+mount server:/home/john /home/john
+
+# Must manually unmount
+umount /home/john
+```
+
+**Automounting:**
+
+```bash
+# You just access the directory
+cd /home/john
+
+# System automatically:
+# 1. Detects access
+# 2. Mounts server:/home/john
+# 3. Gives you access
+
+# After 5 minutes of inactivity:
+# - System automatically unmounts
+```
 
 ### Components
-- **automount daemon:** Background service (autofs)
-- **Master map:** Main configuration file (/etc/auto.master)
-- **Map files:** Define mount points and options
-- **Mount points:** Directories where filesystems are mounted
 
-### Types of Maps
-- **Direct maps:** Explicit mount points (/-)
-- **Indirect maps:** Mount points under a parent directory
-- **Master map:** References other maps
+**Master Map** (`/etc/auto.master`):
+
+- Main configuration
+- Points to other maps
+- Sets global options
+
+**Map Files**:
+
+- Define what to mount and where
+- Can be files, LDAP, NIS, etc.
+
+**autofs Service**:
+
+- The daemon that does the work
+- Monitors access to mount points
+- Handles mounting/unmounting
 
 ---
 
-## Installing and Enabling autofs
+## Installing autofs
 
-### Install autofs
 ```bash
 # RHEL/CentOS/Rocky
 dnf install autofs
+systemctl enable --now autofs
 
 # Debian/Ubuntu
 apt install autofs
-
-# SUSE
-zypper install autofs
-```
-
-### Enable and Start Service
-```bash
-# Enable at boot and start
 systemctl enable --now autofs
 
 # Check status
 systemctl status autofs
-
-# Restart after configuration changes
-systemctl restart autofs
-
-# Reload without disrupting existing mounts
-systemctl reload autofs
 ```
-
-**Use Cases:**
-- Initial setup
-- After configuration changes
-- Troubleshooting mount issues
 
 ---
 
-## Master Map Configuration
+## Master Map - /etc/auto.master
 
-### /etc/auto.master - Main Configuration
-```bash
-mount-point map-file [options]
+**What it is:** The main configuration file that tells autofs where to look for mount definitions.
+
+**Format:**
+
+```
+mount-point  map-file  [options]
 ```
 
-**Syntax:**
-- `mount-point` : Base directory (or /- for direct maps)
-- `map-file` : Path to map file or map type
-- `options` : Mount options (optional)
-
-**Map Types:**
-- `file:/path/to/file` : File-based map
-- `ldap:` : LDAP-based map
-- `nisplus:` : NIS+ map
-- `nis:` : NIS map
-
-**Use Cases:**
-- Define automount hierarchies
-- Configure mount behaviors
-- Set global options
-
 **Examples:**
+
 ```bash
-# Indirect map
+# Simple indirect map
 /misc /etc/auto.misc
 
-# Direct map
+# Direct map (special mount point /-)
 /- /etc/auto.direct
 
-# With global options
+# With timeout (unmount after 60 seconds)
 /home /etc/auto.home --timeout=60
 
 # Multiple maps
 /misc /etc/auto.misc
 /net /etc/auto.net
 /- /etc/auto.direct
-
-# With strict option (require successful mount)
-/data /etc/auto.data --strict
-
-# Browse mode (show all mount points)
-/misc /etc/auto.misc --browse
 ```
 
-### Master Map Options
-- `--timeout=N` : Unmount after N seconds of inactivity (default 300)
-- `--ghost` : Create empty directories for mount points
-- `--browse` : Show all available mount points
-- `--strict` : Require all mounts to succeed
+**Common options:**
+
+- `--timeout=N` - Unmount after N seconds idle (default 300)
+- `--ghost` - Create empty directories for mount points
+- `--browse` - Show all available mounts (uses more resources)
 
 ---
 
-## Indirect Maps
+## Indirect Maps - Most Common Type
 
-### Concept
-Indirect maps mount filesystems under a parent directory. The parent directory acts as a base for all mounts.
+### What are Indirect Maps?
 
-### Format
+With indirect maps, all mounts appear under a parent directory. The parent is defined in the master map, and the map file defines subdirectories.
+
+**Example:**
+
+- Master map says: `/data` uses `/etc/auto.data`
+- Map file says: `projects` mounts from `server:/projects`
+- Result: Accessing `/data/projects` automatically mounts `server:/projects`
+
+### Creating Indirect Maps
+
+**Real-world scenario - Company file shares:**
+
 ```bash
-key [options] location
+# Step 1: Edit master map
+vi /etc/auto.master
+
+# Add line:
+/company /etc/auto.company --timeout=300
+
+# Step 2: Create map file
+vi /etc/auto.company
+
+# Add shares:
+projects    -rw,soft,intr    nfs-server:/export/projects
+docs        -ro,soft         nfs-server:/export/documentation  
+shared      -rw,soft,intr    nfs-server:/export/shared
+
+# Step 3: Reload autofs
+systemctl reload autofs
+
+# Step 4: Test
+ls /company/projects
+# Automatically mounts nfs-server:/export/projects!
+
+# Step 5: Check mount
+df -h | grep projects
+mount | grep projects
+
+# After 5 minutes of inactivity, it auto-unmounts
+```
+
+### Map File Format
+
+```
+key  [options]  location
 ```
 
 **Components:**
-- `key` : Subdirectory name under mount point
-- `options` : Mount options (optional)
-- `location` : Source (NFS, local, etc.)
 
-### /etc/auto.misc - Example Indirect Map
+- **key:** Subdirectory name (becomes /mount-point/key)
+- **options:** Mount options (optional)
+- **location:** What to mount
+
+**Examples:**
+
 ```bash
-# Local filesystem
-cdrom   -fstype=iso9660,ro,nosuid,nodev :/dev/cdrom
-
 # NFS mount
-data    -rw,soft,intr  nfs-server:/export/data
+data    -rw,soft,intr    server:/export/data
 
-# Multiple NFS servers (replicated)
-shared  -ro  server1:/export/shared  server2:/export/shared
+# Multiple NFS servers (failover)
+backup  -ro    server1:/backup  server2:/backup  server3:/backup
 
-# Local directory bind mount
-backup  -fstype=bind  :/local/backup
-```
+# Local device
+cdrom   -fstype=iso9660,ro    :/dev/cdrom
 
-**Use Cases:**
-- NFS home directories
-- Shared data directories
-- Removable media
-- Network shares
-
-**Complete Example:**
-```bash
-# /etc/auto.master
-/mnt /etc/auto.mnt
-
-# /etc/auto.mnt
-cdrom    -fstype=iso9660,ro    :/dev/cdrom
-usb      -fstype=auto          :/dev/sdb1
-nfs1     -rw,soft               server1:/export/data
-nfs2     -rw,soft               server2:/export/share
-backup   -fstype=bind          :/backup/data
-
-# Accessing:
-# ls /mnt/cdrom    → mounts /dev/cdrom
-# ls /mnt/nfs1     → mounts NFS share
+# Bind mount (mount local directory)
+archive -fstype=bind    :/backup/archive
 ```
 
 ---
 
-## Direct Maps
+## Direct Maps - Specific Paths
 
-### Concept
-Direct maps specify absolute mount points anywhere in the filesystem hierarchy.
+### What are Direct Maps?
 
-### Master Map Entry
-```bash
-/- /etc/auto.direct
-```
-
-### /etc/auto.direct - Example Direct Map
-```bash
-# Absolute mount points
-/data/projects    -rw,soft    nfs-server:/export/projects
-/opt/shared       -rw,hard    nfs-server:/export/shared
-/mnt/backup       -fstype=bind    :/backup/main
-```
-
-**Use Cases:**
-- Mount at specific locations
-- Legacy application requirements
-- Fixed mount point paths
+Direct maps let you mount to any specific path, not just under a parent directory.
 
 **Example:**
+
+- Want to mount at `/data/warehouse` (not `/something/warehouse`)
+- Use direct map with `/data/warehouse` as the path
+
+### Creating Direct Maps
+
+**Real-world scenario - Specific locations:**
+
 ```bash
-# /etc/auto.master
+# Step 1: Edit master map
+vi /etc/auto.master
+
+# Add direct map line:
 /- /etc/auto.direct
 
-# /etc/auto.direct
-/data/warehouse   -rw,soft,intr   storage:/export/warehouse
-/data/analytics   -rw,soft,intr   storage:/export/analytics
-/mnt/archive      -ro             archive:/export/data
+# Step 2: Create direct map
+vi /etc/auto.direct
 
-# Accessing:
-# ls /data/warehouse    → mounts storage:/export/warehouse
-# ls /data/analytics    → mounts storage:/export/analytics
+# Add mounts with full paths:
+/data/warehouse    -rw,soft,intr    storage:/export/warehouse
+/data/analytics    -rw,soft,intr    storage:/export/analytics
+/opt/shared        -ro              fileserver:/export/tools
+/mnt/archive       -ro              backup:/export/archive
+
+# Step 3: Reload
+systemctl reload autofs
+
+# Step 4: Test
+ls /data/warehouse
+# Mounts automatically!
 ```
 
 ---
 
-## Common Map Configurations
+## Common Configurations
 
-### NFS Automounts
+### User Home Directories
 
-#### Home Directories
+**Scenario:** Network home directories. When john logs in, their home mounts automatically.
+
 ```bash
-# /etc/auto.master
+# Master map
 /home /etc/auto.home
 
-# /etc/auto.home
+# Map file (/etc/auto.home)
 *    -rw,soft,intr    nfs-server:/home/&
 
-# Explanation:
-# * matches any username
-# & is replaced with the matched value
-# User "john" accessing /home/john → mounts nfs-server:/home/john
+# How it works:
+# User "john" accesses /home/john
+# * matches "john"
+# & is replaced with "john"
+# Result: mounts nfs-server:/home/john to /home/john
 ```
 
-#### Data Shares
-```bash
-# /etc/auto.master
-/data /etc/auto.data
+**Full example:**
 
-# /etc/auto.data
-projects    -rw,soft    nfs-server:/export/projects
-shared      -rw,soft    nfs-server:/export/shared
-archive     -ro         nfs-server:/export/archive
+```bash
+# Step 1: Master map
+echo "/home /etc/auto.home --timeout=600" >> /etc/auto.master
+
+# Step 2: Map file
+cat > /etc/auto.home << 'EOF'
+*    -rw,soft,intr,rsize=8192,wsize=8192    homeserver:/home/&
+EOF
+
+# Step 3: Reload
+systemctl reload autofs
+
+# Now when any user logs in, their home auto-mounts!
 ```
 
-### CIFS/SMB Automounts
+### Multiple Data Shares
+
+**Scenario:** Company has several shared drives.
+
 ```bash
-# /etc/auto.master
-/smb /etc/auto.smb
+# Master map
+/shares /etc/auto.shares
 
-# /etc/auto.smb
-share1  -fstype=cifs,credentials=/etc/auto.creds,uid=1000  ://server/share1
-share2  -fstype=cifs,credentials=/etc/auto.creds,uid=1000  ://server/share2
+# Map file
+vi /etc/auto.shares
 
-# /etc/auto.creds (chmod 600!)
-username=myuser
-password=mypass
-domain=DOMAIN
+projects    -rw,soft    proj-server:/projects
+finance     -rw,soft    fin-server:/finance
+hr          -ro,soft    hr-server:/human-resources
+marketing   -rw,soft    mkt-server:/marketing
+
+# Result:
+# /shares/projects → proj-server:/projects
+# /shares/finance  → fin-server:/finance
+# /shares/hr       → hr-server:/human-resources
+# /shares/marketing → mkt-server:/marketing
 ```
 
-### Local Device Automounts
+### Windows (CIFS) Shares
+
+**Scenario:** Mount Windows file servers.
+
 ```bash
-# /etc/auto.master
+# Master map
+/windows /etc/auto.windows
+
+# Map file
+vi /etc/auto.windows
+
+share1  -fstype=cifs,credentials=/root/.smbcreds,uid=1000,gid=1000  ://fileserver/share1
+share2  -fstype=cifs,credentials=/root/.smbcreds,uid=1000,gid=1000  ://fileserver/share2
+
+# Credentials file
+cat > /root/.smbcreds << EOF
+username=domain\\user
+password=SecurePass123
+domain=COMPANY
+EOF
+chmod 600 /root/.smbcreds
+
+# Reload
+systemctl reload autofs
+```
+
+### Removable Media
+
+**Scenario:** Auto-mount USB drives and CDs.
+
+```bash
+# Master map
 /media /etc/auto.media
 
-# /etc/auto.media
+# Map file
+vi /etc/auto.media
+
 cdrom   -fstype=iso9660,ro,nosuid,nodev    :/dev/cdrom
 usb     -fstype=auto,nodev,nosuid          :/dev/sdb1
-floppy  -fstype=auto                       :/dev/fd0
-```
-
-### Bind Mounts
-```bash
-# /etc/auto.master
-/- /etc/auto.bind
-
-# /etc/auto.bind
-/mnt/data       -fstype=bind    :/var/data
-/opt/app/cache  -fstype=bind    :/cache/app
 ```
 
 ---
 
-## Advanced Configurations
+## Advanced Features
 
-### Multiple Locations (Replication/Failover)
+### Wildcards and Variables
+
+**Using wildcards:**
+
 ```bash
-# /etc/auto.data
-projects  -ro  server1:/export/projects  server2:/export/projects  server3:/export/projects
+# In auto.home
+*    -rw    server:/home/&
 
-# autofs will try servers in order
+# Matches any username
+# & is replaced with matched value
+```
+
+**Variables available:**
+
+- `${key}` - The matched key
+- `${*}` - Everything matched
+- `$USER` - Current user (in some contexts)
+
+**Example with subdirectories:**
+
+```bash
+# Map file
+*/*  -rw,soft  server:/dept/${0}
+
+# Accessing /data/sales/reports
+# Mounts: server:/dept/sales/reports
+```
+
+### Multiple Server Failover
+
+**Scenario:** Use backup servers if primary fails.
+
+```bash
+# Try servers in order
+data  -ro  server1:/data  server2:/data  server3:/data
+
 # First available server is used
+# Automatic failover if one fails
 ```
 
-### Weighted Selections
+### Nested Automounts
+
+**Scenario:** Organize mounts in hierarchies.
+
 ```bash
-# Prefer server1, use server2 if unavailable
-projects  -ro  server1(1):/export/projects  server2(2):/export/projects
+# Master map
+/company /etc/auto.company
 
-# Lower weight = higher priority
-```
+# /etc/auto.company
+data    /etc/auto.company.data
+projects /etc/auto.company.projects
 
-### Variable Substitutions
-```bash
-# ${key} - matched key
-# ${*} - entire matched string
+# /etc/auto.company.data
+current  -rw,soft  server:/data/current
+archive  -ro,soft  server:/data/archive
 
-# /etc/auto.users
-*  -rw,soft  server:/home/${key}
-
-# /etc/auto.dept
-*  -rw,soft  server:/dept/${key}/data
-```
-
-### Executable Maps
-```bash
-# /etc/auto.master
-/dynamic  program:/etc/auto.dynamic.sh
-
-# /etc/auto.dynamic.sh (executable script)
-#!/bin/bash
-# Return autofs map format
-if [ "$1" = "data" ]; then
-    echo "-rw,soft server:/export/data"
-fi
-```
-
-### Nested Mounts
-```bash
-# /etc/auto.master
-/mnt /etc/auto.mnt
-
-# /etc/auto.mnt
-storage  /etc/auto.storage
-
-# /etc/auto.storage
-data1   -rw,soft    server:/data1
-data2   -rw,soft    server:/data2
-
-# Results in: /mnt/storage/data1, /mnt/storage/data2
+# Result:
+# /company/data/current
+# /company/data/archive
+# /company/projects/...
 ```
 
 ---
 
-## autofs Commands and Tools
+## Managing autofs
 
-### systemctl - Service Management
+### Service Control
+
 ```bash
-systemctl start autofs          # Start service
-systemctl stop autofs           # Stop service
-systemctl restart autofs        # Restart (disrupts mounts)
-systemctl reload autofs         # Reload config (safer)
-systemctl status autofs         # Check status
-systemctl enable autofs         # Enable at boot
-systemctl disable autofs        # Disable at boot
-```
+# Start autofs
+systemctl start autofs
 
-### automount - Manual Testing
-```bash
-# Check configuration syntax
-automount -f -v
+# Stop autofs (unmounts all autofs mounts)
+systemctl stop autofs
 
-# Run in foreground with debug
-automount -f -d
+# Reload configuration (safer, doesn't unmount)
+systemctl reload autofs
 
-# Check master map
-cat /etc/auto.master
-```
-
-### Auto-generated Mount Status
-```bash
-# Check active mounts
-mount | grep autofs
-df -h | grep autofs
-
-# Check autofs mount points
-ls /proc/mounts | grep autofs
-```
-
----
-
-## Troubleshooting autofs
-
-### Common Issues and Solutions
-
-#### 1. Mounts Not Working
-```bash
-# Check service status
-systemctl status autofs
-
-# Verify configuration syntax
-automount -f -v
-
-# Check for typos in map files
-cat /etc/auto.master
-cat /etc/auto.misc
-
-# Restart service
+# Restart (unmounts everything, reloads)
 systemctl restart autofs
 
-# Check logs
+# Check status
+systemctl status autofs
+
+# Enable at boot
+systemctl enable autofs
+```
+
+**Always use `reload` instead of `restart` when possible!**
+
+### Checking Configuration
+
+```bash
+# Test configuration without starting
+automount -f -v
+
+# Run in debug mode (foreground)
+systemctl stop autofs
+automount -f -d
+
+# View logs
 journalctl -u autofs -f
 tail -f /var/log/messages | grep automount
 ```
 
-#### 2. Permission Denied
+---
+
+## Troubleshooting
+
+### Problem: Mount Not Working
+
+**Steps to diagnose:**
+
 ```bash
-# Check NFS export permissions on server
+# Step 1: Check service
+systemctl status autofs
+
+# Step 2: Check configuration syntax
+cat /etc/auto.master
+cat /etc/auto.misc
+
+# Step 3: Test access
+ls /misc/share
+cd /misc/share
+
+# Step 4: Check logs
+journalctl -u autofs --since "5 minutes ago"
+dmesg | tail -20
+
+# Step 5: Verify server
 showmount -e nfs-server
-
-# Verify credentials (CIFS)
-cat /etc/auto.creds
-ls -l /etc/auto.creds  # Should be 600
-
-# Check mount options
-# Add proper uid/gid for CIFS
--fstype=cifs,credentials=/etc/creds,uid=1000,gid=1000
-```
-
-#### 3. Mounts Not Unmounting
-```bash
-# Check timeout setting
-grep timeout /etc/auto.master
-
-# Force unmount
-umount -l /mount/point
-
-# Check for processes using mount
-lsof /mount/point
-fuser -m /mount/point
-
-# Kill processes if necessary
-fuser -k /mount/point
-```
-
-#### 4. Cannot Access Mount Point
-```bash
-# Verify network connectivity
 ping nfs-server
-showmount -e nfs-server
+```
 
-# Check firewall
-firewall-cmd --list-all
+**Common mistakes:**
+
+```bash
+# Wrong: Missing the colon for local device
+cdrom   -fstype=iso9660,ro    /dev/cdrom
+
+# Right: Add colon before local device
+cdrom   -fstype=iso9660,ro    :/dev/cdrom
+
+# Wrong: Full path in indirect map
+/data/projects  -rw,soft  server:/projects
+
+# Right: Just the key
+projects  -rw,soft  server:/projects
+```
+
+### Problem: Permission Denied
+
+**For NFS:**
+
+```bash
+# Check server exports
+showmount -e server
+
+# Verify client IP is allowed
+exportfs -v
 
 # Test manual mount
-mount -t nfs nfs-server:/export/data /mnt/test
-
-# Check autofs logs
-journalctl -u autofs --since "10 minutes ago"
+mount -t nfs server:/export /mnt/test
 ```
 
-#### 5. Configuration Not Loading
+**For CIFS:**
+
 ```bash
-# Reload autofs
-systemctl reload autofs
+# Check credentials file
+cat /root/.smbcreds
+ls -l /root/.smbcreds  # Should be 600
 
-# Full restart (disrupts existing mounts)
-systemctl restart autofs
-
-# Check for syntax errors
-automount -f -v
+# Test with smbclient
+smbclient //server/share -U username
 ```
 
-### Debug Mode
+### Problem: Mount Not Unmounting
+
+**Check timeout:**
+
+```bash
+# View current timeout
+grep timeout /etc/auto.master
+
+# Increase timeout
+/data /etc/auto.data --timeout=600
+```
+
+**Force unmount if needed:**
+
+```bash
+# Find what's using it
+lsof /data/projects
+fuser -m /data/projects
+
+# Kill processes
+fuser -k /data/projects
+
+# Manual unmount
+umount -l /data/projects
+```
+
+### Problem: Slow Performance
+
+**Check network:**
+
+```bash
+# Test NFS performance
+dd if=/dev/zero of=/autofs/mount/test bs=1M count=100
+
+# Check mount options
+mount | grep autofs
+```
+
+**Optimize options:**
+
+```bash
+# In map file, add performance options
+data  -rw,soft,intr,rsize=32768,wsize=32768,noatime  server:/data
+```
+
+---
+
+## Debug Mode
+
+**When nothing works, use debug mode:**
+
 ```bash
 # Stop service
 systemctl stop autofs
 
-# Run in debug mode
-automount -f -d -v
+# Run in foreground with debug
+automount -f -d
 
-# In another terminal, try accessing mount
-ls /mnt/data
+# In another terminal, try to access mount
+ls /autofs/path
 
-# Observe debug output
+# Watch debug output in first terminal
+# Shows exactly what autofs is doing
 ```
 
-### Log Analysis
-```bash
-# View autofs logs
-journalctl -u autofs -f
+**Example output:**
 
-# System logs
-tail -f /var/log/messages | grep automount
-tail -f /var/log/syslog | grep automount
-
-# Increase logging verbosity
-# Edit /etc/sysconfig/autofs (RHEL) or /etc/default/autofs (Debian)
-OPTIONS="--debug"
 ```
-
----
-
-## Performance Tuning
-
-### Timeout Optimization
-```bash
-# Shorter timeout for frequently changing mounts
-/misc /etc/auto.misc --timeout=60
-
-# Longer timeout for stable mounts
-/data /etc/auto.data --timeout=600
-
-# No timeout (manual unmount only)
-/critical /etc/auto.critical --timeout=0
-```
-
-### Browse Mode (Show Available Mounts)
-```bash
-# Enable browse mode
-/misc /etc/auto.misc --browse
-
-# Pros: Users can see available mounts
-# Cons: More overhead, all maps are checked
-```
-
-### Ghost Mode (Pre-create Directories)
-```bash
-# Enable ghost mode
-/data /etc/auto.data --ghost
-
-# Creates empty directories for all possible mounts
-# Good for applications expecting directories to exist
-```
-
----
-
-## Security Considerations
-
-### Protect Credential Files
-```bash
-# Set restrictive permissions
-chmod 600 /etc/auto.creds
-chown root:root /etc/auto.creds
-
-# Never put credentials in map files directly
-# Always use credential files for CIFS/SMB
-```
-
-### Use Read-Only Where Possible
-```bash
-# Read-only mounts for security
-archive  -ro,nosuid,nodev  server:/export/archive
-```
-
-### Disable Unnecessary Options
-```bash
-# Use nosuid and nodev for untrusted sources
-external  -nosuid,nodev,noexec  server:/export/external
+attempting to mount entry /misc/data
+lookup_mount: lookup(file): looking up data
+parse_mount: parse(sun): expanded entry: -rw,soft server:/data
+mount_mount: mounting /misc/data from server:/data with options rw,soft
+mounted /misc/data successfully
 ```
 
 ---
 
 ## Best Practices
 
-1. **Use Indirect Maps:** More flexible and scalable
-2. **Set Appropriate Timeouts:** Balance between resources and convenience
-3. **Secure Credential Files:** Always chmod 600
-4. **Use Soft Mounts:** For NFS to prevent hanging
-5. **Enable Logging:** For troubleshooting
-6. **Test Before Production:** Verify all mounts work
-7. **Document Custom Maps:** Comment complex configurations
-8. **Use Replication:** Specify multiple servers for redundancy
-9. **Regular Monitoring:** Check autofs status and logs
-10. **Standardize Naming:** Use consistent mount point naming
+**1. Always use `_netdev` equivalent options:**
 
----
-
-## Complete Working Examples
-
-### Example 1: NFS Home Directories
 ```bash
-# /etc/auto.master
-/home /etc/auto.home --timeout=600
-
-# /etc/auto.home
-* -rw,soft,intr nfs-server.example.com:/home/&
-
-# Usage:
-# User accesses /home/john
-# Automatically mounts nfs-server.example.com:/home/john
+# Don't rely on network at boot
+# autofs handles network wait automatically
 ```
 
-### Example 2: Mixed Storage Environment
+**2. Set reasonable timeouts:**
+
 ```bash
-# /etc/auto.master
-/mnt /etc/auto.mnt --timeout=300
-/- /etc/auto.direct
-
-# /etc/auto.mnt
-nfs1     -rw,soft,intr          nfs-server:/export/data1
-nfs2     -rw,soft,intr          nfs-server:/export/data2
-smb1     -fstype=cifs,credentials=/etc/smb.creds,uid=1000  ://fileserver/share1
-backup   -fstype=bind           :/backup/main
-
-# /etc/auto.direct
-/data/warehouse  -rw,hard,intr  storage:/warehouse
-/data/archive    -ro            storage:/archive
-
-# /etc/smb.creds (chmod 600)
-username=svc_mount
-password=SecureP@ss123
-domain=CORP
-```
-
-### Example 3: Replicated Storage
-```bash
-# /etc/auto.master
+# Too short: Constant mounting/unmounting
+# Too long: Resources held unnecessarily
+# Good default: 300 seconds (5 minutes)
 /data /etc/auto.data --timeout=300
-
-# /etc/auto.data
-# Try server1 first, fallback to server2, then server3
-projects  -ro  server1:/projects  server2:/projects  server3:/projects
-shared    -rw,soft  server1:/shared  server2:/shared
 ```
 
-### Example 4: Dynamic User Mounts
+**3. Use indirect maps when possible:**
+
 ```bash
-# /etc/auto.master
-/home /etc/auto.home
-/scratch /etc/auto.scratch
+# Cleaner, more organized
+/shares /etc/auto.shares
+```
 
-# /etc/auto.home
-* -rw,soft,intr,nosuid home-server:/home/&
+**4. Secure credentials:**
 
-# /etc/auto.scratch
-* -rw,nosuid,nodev scratch-server:/scratch/&
+```bash
+chmod 600 /root/.smbcreds
+chown root:root /root/.smbcreds
+```
 
-# Each user gets both:
-# /home/username → home-server:/home/username
-# /scratch/username → scratch-server:/scratch/username
+**5. Test before making permanent:**
+
+```bash
+# Test mount manually first
+mount -t nfs server:/data /mnt/test
+
+# Then add to autofs
+```
+
+**6. Use `reload` not `restart`:**
+
+```bash
+# After config changes
+systemctl reload autofs
+# Not: systemctl restart autofs
+```
+
+**7. Monitor autofs:**
+
+```bash
+# Regular checks
+systemctl status autofs
+journalctl -u autofs --since today
 ```
 
 ---
 
-## Migration from Static Mounts
+## Real-World Complete Example
 
-### Converting /etc/fstab to autofs
+**Scenario:** Company with multiple shares and user homes.
 
-**Before (/etc/fstab):**
 ```bash
-nfs-server:/export/data /mnt/data nfs defaults 0 0
+# === Step 1: Master Map ===
+cat > /etc/auto.master << 'EOF'
+/home     /etc/auto.home --timeout=600
+/company  /etc/auto.company --timeout=300
+/-        /etc/auto.direct
+EOF
+
+# === Step 2: Home Directories ===
+cat > /etc/auto.home << 'EOF'
+*    -rw,soft,intr,rsize=8192,wsize=8192    homeserver.company.local:/home/&
+EOF
+
+# === Step 3: Company Shares ===
+cat > /etc/auto.company << 'EOF'
+projects    -rw,soft,intr    proj-server:/projects
+finance     -rw,soft,intr    fin-server:/finance
+docs        -ro,soft         doc-server:/documentation
+shared      -rw,soft,intr    file-server:/shared
+EOF
+
+# === Step 4: Direct Mounts ===
+cat > /etc/auto.direct << 'EOF'
+/data/warehouse    -rw,soft,intr    storage:/warehouse
+/opt/tools         -ro,soft         tools:/export/tools
+EOF
+
+# === Step 5: Reload ===
+systemctl reload autofs
+
+# === Step 6: Test ===
+# User homes
+ls /home/john           # Auto-mounts homeserver:/home/john
+
+# Company shares
+ls /company/projects    # Auto-mounts proj-server:/projects
+cd /company/finance     # Auto-mounts fin-server:/finance
+
+# Direct mounts
+cd /data/warehouse      # Auto-mounts storage:/warehouse
+
+# === Step 7: Verify ===
+mount | grep autofs
+df -h | grep autofs
+
+# === Step 8: Monitor ===
+journalctl -u autofs -f
 ```
-
-**After:**
-```bash
-# /etc/auto.master
-/mnt /etc/auto.mnt
-
-# /etc/auto.mnt
-data  -rw,soft,intr  nfs-server:/export/data
-
-# Remove from /etc/fstab
-# Restart autofs
-systemctl restart autofs
-```
-
-**Benefits:**
-- Mounts on-demand
-- Automatic unmounting
-- Better resource management
 
 ---
 
 ## Quick Reference
 
 ### Installation
+
 ```bash
 # Install
-dnf install autofs              # RHEL
-apt install autofs              # Debian
-
-# Enable and start
+dnf install autofs
 systemctl enable --now autofs
 ```
 
-### Basic Configuration
-```bash
-# /etc/auto.master
-/mount-parent /etc/auto.mapfile
+### Configuration Files
 
-# /etc/auto.mapfile
-key  options  location
+```bash
+# Master map (main config)
+/etc/auto.master
+
+# Map files (mount definitions)
+/etc/auto.misc
+/etc/auto.home
+```
+
+### Basic Indirect Map
+
+```bash
+# Master map
+/mnt /etc/auto.mnt
+
+# Map file
+data  -rw,soft,intr  server:/export/data
+
+# Result: /mnt/data
+```
+
+### Basic Direct Map
+
+```bash
+# Master map
+/- /etc/auto.direct
+
+# Map file
+/data/warehouse  -rw,soft  server:/warehouse
+
+# Result: /data/warehouse
 ```
 
 ### Service Management
+
 ```bash
-systemctl restart autofs        # After config changes
-systemctl reload autofs         # Safer, no disruption
-systemctl status autofs         # Check status
-journalctl -u autofs -f         # View logs
+systemctl reload autofs     # Apply changes (safe)
+systemctl status autofs     # Check status
+journalctl -u autofs -f     # View logs
+automount -f -v             # Test config
 ```
 
 ### Testing
+
 ```bash
-# Check syntax
-automount -f -v
+# Test by accessing
+ls /mount/point
+
+# Check if mounted
+mount | grep autofs
+df -h | grep autofs
 
 # Debug mode
+systemctl stop autofs
 automount -f -d
-
-# Test access
-ls /mount/point
-```
-
-### Common Map Entries
-```bash
-# NFS
-data  -rw,soft,intr  nfs-server:/export/data
-
-# CIFS
-share  -fstype=cifs,credentials=/etc/creds  ://server/share
-
-# Local bind
-backup  -fstype=bind  :/backup/data
-
-# Wildcard (home dirs)
-*  -rw,soft  server:/home/&
 ```

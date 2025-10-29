@@ -1,26 +1,66 @@
 # Use Remote Filesystems and Network Block Devices
 
-## Overview
-This guide covers NFS, CIFS/SMB, iSCSI, and other network storage technologies for sharing and accessing remote storage.
+## What Are Remote Filesystems?
+
+Remote filesystems let you access files stored on another computer over the network as if they were local. Instead of copying files back and forth, you mount the remote location and work with files directly.
+
+Think of it like network drives in Windows, but more powerful and with different protocols for different needs.
+
+### Why Use Remote Filesystems?
+
+**Central Storage:**
+
+- One server stores data, many clients access it
+- Easy backups (backup one location, not many computers)
+- Consistent data across multiple machines
+
+**Resource Sharing:**
+
+- Share files between Linux, Windows, and Mac
+- Access powerful storage from lightweight clients
+- Cost effective (one big storage server vs many small disks)
 
 ---
 
-## NFS (Network File System)
+## NFS - Network File System
 
-### Overview
-NFS is a distributed filesystem protocol that allows remote file access over a network. Commonly used in Unix/Linux environments.
+### What is NFS?
+
+NFS is the native file-sharing protocol for Unix/Linux. It's fast, efficient, and designed for Linux systems to share files with each other.
+
+**Think of it as:** Linux-to-Linux file sharing (though other OS can use it too).
+
+**Common uses:**
+
+- Shared home directories on office networks
+- Central storage for web servers
+- Shared data between multiple Linux servers
+- Development teams sharing code
 
 ### NFS Versions
-- **NFSv3:** Traditional, widely compatible, UDP/TCP
-- **NFSv4:** Modern, better security, stateful, TCP only, includes Kerberos support
+
+**NFSv3:**
+
+- Older, widely supported
+- Can use UDP or TCP
+- Simpler but less features
+
+**NFSv4:** (Recommended)
+
+- Modern standard
+- Better security (includes Kerberos support)
+- Better performance
+- TCP only
+- Stateful (tracks connections)
 
 ---
 
-## NFS Server Configuration
+## Setting Up NFS Server
 
-### Install NFS Server
+### Installing NFS Server
+
 ```bash
-# RHEL/CentOS/Rocky
+# RHEL/CentOS/Rocky/Alma
 dnf install nfs-utils
 systemctl enable --now nfs-server
 
@@ -29,109 +69,115 @@ apt install nfs-kernel-server
 systemctl enable --now nfs-server
 ```
 
-### Configure NFS Exports
+### Configuring Exports - /etc/exports
 
-#### /etc/exports - Main Configuration File
-```bash
-/path/to/share client(options)
+**What it is:** This file tells NFS what directories to share and who can access them.
+
+**Format:**
+
 ```
-
-**Common Export Options:**
-- `ro` : Read-only
-- `rw` : Read-write
-- `sync` : Synchronous writes (safer)
-- `async` : Asynchronous writes (faster)
-- `no_root_squash` : Root on client = root on server
-- `root_squash` : Map root to nobody (default, safer)
-- `all_squash` : Map all users to nobody
-- `no_subtree_check` : Disable subtree checking (recommended)
-- `anonuid=UID` : Map anonymous users to UID
-- `anongid=GID` : Map anonymous users to GID
-
-**Client Specifications:**
-- `192.168.1.100` : Single IP
-- `192.168.1.0/24` : Network range (CIDR)
-- `*.example.com` : Wildcard hostname
-- `*` : All hosts (use with caution!)
-
-**Use Cases:**
-- Share files across network
-- Central storage for multiple servers
-- Home directories
-- Application data
+/path/to/share    client(options)
+```
 
 **Examples:**
+
 ```bash
-# Simple read-only share
-/export/public 192.168.1.0/24(ro,sync,no_subtree_check)
+# Share /data with one specific computer
+/data 192.168.1.100(rw,sync,no_subtree_check)
 
-# Read-write share for single host
-/export/data 192.168.1.100(rw,sync,no_root_squash,no_subtree_check)
+# Share with entire network
+/data 192.168.1.0/24(rw,sync,no_subtree_check)
 
-# Multiple clients with different permissions
-/export/share 192.168.1.100(rw) 192.168.1.0/24(ro)
+# Share read-only with everyone
+/public *(ro,sync,no_subtree_check)
 
-# Home directories
-/home 192.168.1.0/24(rw,sync,no_root_squash)
+# Share /home with specific computers (root on client stays root on server)
+/home 192.168.1.100(rw,sync,no_subtree_check,no_root_squash)
 
-# All hosts (insecure!)
-/export/public *(ro,sync)
+# Multiple clients, different permissions
+/data 192.168.1.100(rw) 192.168.1.0/24(ro)
 ```
 
-### exportfs - Manage NFS Exports
-```bash
-exportfs [options]
-```
-**Common Options:**
-- `-a` : Export/unexport all
-- `-r` : Re-export all (refresh)
-- `-u` : Unexport directories
-- `-v` : Verbose
+**Common options:**
 
-**Use Cases:**
-- Apply export changes without restart
-- List current exports
-- Temporarily unexport shares
+- `rw` - Read-write access
+- `ro` - Read-only access
+- `sync` - Sync writes immediately (safer, slower)
+- `async` - Async writes (faster, less safe)
+- `no_subtree_check` - Don't check subdirectories (recommended, faster)
+- `no_root_squash` - Don't map root user to nobody (needed for some setups)
+- `root_squash` - Map root to nobody (default, safer)
+
+**Real-world scenario - Company file share:**
+
+```bash
+# Edit /etc/exports
+vi /etc/exports
+
+# Add share for company data
+# Office computers (192.168.1.0/24) get read-write
+# Remote workers (192.168.2.0/24) get read-only
+/company/data 192.168.1.0/24(rw,sync,no_subtree_check) 192.168.2.0/24(ro,sync,no_subtree_check)
+
+# Apply changes
+exportfs -ra
+
+# Verify
+exportfs -v
+```
+
+### exportfs - Manage Exports
+
+**What it does:** Applies changes to /etc/exports without restarting NFS server.
+
+**Why use it:** Fast way to add/remove shares or change settings.
 
 **Examples:**
+
 ```bash
 # Show current exports
 exportfs -v
 
-# Export all in /etc/exports
-exportfs -a
-
-# Re-export all (reload configuration)
+# Reload /etc/exports (apply changes)
 exportfs -ra
 
-# Unexport specific share
-exportfs -u 192.168.1.100:/export/data
+# Export all in /etc/exports
+exportfs -a
 
 # Unexport all
 exportfs -ua
 
-# Export without /etc/exports entry
-exportfs -o rw,sync 192.168.1.100:/export/test
+# Unexport specific directory
+exportfs -u 192.168.1.100:/data
+
+# Temporarily export (not in /etc/exports)
+exportfs -o rw,sync 192.168.1.100:/tmp/test
 ```
 
-### showmount - Show NFS Server Information
+**Real-world scenario:**
+
 ```bash
-showmount [options] [host]
-```
-**Common Options:**
-- `-e` : Show export list
-- `-a` : Show clients and mount points
-- `-d` : Show directories
+# Add new share to /etc/exports
+echo "/backups 192.168.1.0/24(ro,sync,no_subtree_check)" >> /etc/exports
 
-**Use Cases:**
-- Check server exports
-- Verify client connections
-- Troubleshooting
+# Apply without restarting
+exportfs -ra
+
+# Verify it's exported
+exportfs -v | grep backups
+```
+
+### showmount - Check NFS Exports
+
+**What it does:** Shows what a server is exporting.
+
+**Why use it:** Verify your exports or see what another server shares.
 
 **Examples:**
+
 ```bash
 # Show exports on local server
-showmount -e
+showmount -e localhost
 
 # Show exports on remote server
 showmount -e nfs-server.example.com
@@ -139,28 +185,36 @@ showmount -e nfs-server.example.com
 # Show all current mounts
 showmount -a
 
-# Show mounted directories
+# Show directories being exported
 showmount -d
 ```
 
-### Firewall Configuration (NFSv4)
+**Output example:**
+
+```bash
+showmount -e nfs-server
+Export list for nfs-server:
+/data      192.168.1.0/24
+/home      192.168.1.100,192.168.1.101
+/public    *
+```
+
+### Firewall Configuration
+
 ```bash
 # RHEL/CentOS
 firewall-cmd --permanent --add-service=nfs
 firewall-cmd --permanent --add-service=rpc-bind
 firewall-cmd --permanent --add-service=mountd
 firewall-cmd --reload
-
-# Or specific ports
-firewall-cmd --permanent --add-port=2049/tcp
-firewall-cmd --reload
 ```
 
 ---
 
-## NFS Client Configuration
+## Using NFS as Client
 
-### Install NFS Client
+### Installing NFS Client
+
 ```bash
 # RHEL/CentOS
 dnf install nfs-utils
@@ -169,102 +223,103 @@ dnf install nfs-utils
 apt install nfs-common
 ```
 
-### Mount NFS Share
-```bash
-mount -t nfs server:/export/path /local/mountpoint
-```
-**Common Mount Options:**
-- `vers=4` : Use NFSv4
-- `hard` : Hard mount (keep trying on failure)
-- `soft` : Soft mount (timeout and error)
-- `intr` : Allow interruption
-- `rsize=N` : Read buffer size
-- `wsize=N` : Write buffer size
-- `timeo=N` : Timeout in tenths of second
-- `retrans=N` : Number of retransmissions
-- `nolock` : Disable file locking
-- `_netdev` : Network device (wait for network)
+### Mounting NFS Shares
 
-**Use Cases:**
-- Access remote files
-- Mount shared storage
-- Central file repository
+**What it does:** Connects to remote share and makes it accessible locally.
+
+**Why use it:** Access files stored on NFS server.
 
 **Examples:**
+
 ```bash
-# Basic NFS mount (NFSv4)
-mount -t nfs nfs-server.example.com:/export/data /mnt/nfs
+# Basic mount
+mount nfs-server:/data /mnt/data
 
-# NFSv3 mount
-mount -t nfs -o vers=3 server:/export /mnt/nfs
+# Specify NFSv4
+mount -t nfs4 nfs-server:/data /mnt/data
 
-# With specific options
-mount -t nfs -o rw,hard,intr,rsize=8192,wsize=8192 server:/export /mnt/nfs
+# With options
+mount -t nfs -o rw,hard,intr nfs-server:/data /mnt/data
+
+# Mount read-only
+mount -t nfs -o ro nfs-server:/data /mnt/data
+```
+
+**Common mount options:**
+
+- `hard` - Keep trying if server unavailable (recommended for important data)
+- `soft` - Give up after timeout (can cause data loss)
+- `intr` - Allow interruption if mount hangs
+- `rsize=8192` - Read buffer size
+- `wsize=8192` - Write buffer size
+- `_netdev` - Wait for network before mounting (important for /etc/fstab)
+
+**Real-world scenario - Mount company share:**
+
+```bash
+# Create mount point
+mkdir -p /mnt/company-data
+
+# Test mount first
+mount -t nfs nfs-server.company.com:/data /mnt/company-data
+
+# Check if it works
+ls /mnt/company-data
+df -h /mnt/company-data
+
+# If good, make permanent in /etc/fstab
+echo "nfs-server.company.com:/data /mnt/company-data nfs defaults,_netdev 0 0" >> /etc/fstab
+
+# Test fstab
+umount /mnt/company-data
+mount -a
+```
+
+### Permanent NFS Mounts - /etc/fstab
+
+**Format:**
+
+```
+server:/export  /mount/point  nfs  options  0  0
+```
+
+**Examples:**
+
+```bash
+# Basic NFS mount
+nfs-server:/data /mnt/data nfs defaults,_netdev 0 0
+
+# NFSv4 with specific options
+nfs-server:/data /mnt/data nfs4 rw,hard,intr,_netdev 0 0
+
+# With performance tuning
+nfs-server:/data /mnt/data nfs rw,hard,intr,rsize=8192,wsize=8192,_netdev 0 0
 
 # Read-only mount
-mount -t nfs -o ro server:/export /mnt/nfs
-
-# Soft mount with timeout
-mount -t nfs -o soft,timeo=10,retrans=3 server:/export /mnt/nfs
+nfs-server:/public /mnt/public nfs ro,_netdev 0 0
 ```
 
-### /etc/fstab - Persistent NFS Mounts
-```bash
-server:/export/path /local/mountpoint nfs options 0 0
-```
-
-**Examples:**
-```bash
-# NFSv4 with recommended options
-nfs-server:/export/data /mnt/data nfs4 defaults,_netdev 0 0
-
-# NFSv3 mount
-nfs-server:/export/share /mnt/share nfs vers=3,hard,intr,rsize=8192,wsize=8192,_netdev 0 0
-
-# Read-only mount
-nfs-server:/export/public /mnt/public nfs ro,_netdev 0 0
-
-# With specific user mapping
-nfs-server:/export/home /home nfs rw,hard,intr,_netdev 0 0
-```
-
-### Useful NFS Client Commands
-
-#### nfsstat - NFS Statistics
-```bash
-nfsstat [options]
-```
-**Common Options:**
-- `-c` : Client statistics
-- `-s` : Server statistics
-- `-m` : Mounted filesystems info
-
-**Examples:**
-```bash
-# Client statistics
-nfsstat -c
-
-# Show mounted NFS filesystems
-nfsstat -m
-```
-
-#### Check NFS Version
-```bash
-# Check negotiated NFS version
-nfsstat -m | grep vers
-
-# Mount with specific version
-mount -t nfs -o vers=4.2 server:/export /mnt
-```
+**Always use `_netdev`!** This tells Linux to wait for the network before mounting, preventing boot failures.
 
 ---
 
-## CIFS/SMB (Windows File Sharing)
+## CIFS/SMB - Windows File Sharing
 
-### Overview
-CIFS (Common Internet File System) / SMB (Server Message Block) is used for Windows file sharing. Linux can both mount and serve CIFS shares.
+### What is CIFS/SMB?
 
-### Install CIFS Client
+SMB (Server Message Block) is the file-sharing protocol used by Windows. CIFS is an older dialect of SMB. Linux can both connect to Windows shares and serve files to Windows computers.
+
+**Think of it as:** Linux-to-Windows file sharing (and vice versa).
+
+**Common uses:**
+
+- Access Windows file servers from Linux
+- Connect to NAS devices
+- Share files between mixed Windows/Linux environments
+- Access Samba shares
+
+### Installing CIFS Client
+
 ```bash
 # RHEL/CentOS
 dnf install cifs-utils
@@ -273,263 +328,132 @@ dnf install cifs-utils
 apt install cifs-utils
 ```
 
-### Mount CIFS Share
-```bash
-mount -t cifs //server/share /mountpoint -o options
-```
-**Common Options:**
-- `username=user` : Username
-- `password=pass` : Password (insecure!)
-- `credentials=file` : Credentials file (recommended)
-- `domain=DOMAIN` : Windows domain
-- `uid=UID` : Local user ID
-- `gid=GID` : Local group ID
-- `file_mode=0755` : File permissions
-- `dir_mode=0755` : Directory permissions
-- `vers=3.0` : SMB protocol version
-- `sec=ntlmssp` : Security mode
+### Mounting CIFS/SMB Shares
 
-**Use Cases:**
-- Access Windows shares
-- Mount NAS devices
-- Cross-platform file sharing
+**What it does:** Connects to Windows/Samba shares.
+
+**Why use it:** Access files on Windows servers or NAS devices.
 
 **Examples:**
-```bash
-# Basic mount with inline credentials (not recommended)
-mount -t cifs //server/share /mnt/share -o username=user,password=pass
 
-# With credentials file
-mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcredentials
+```bash
+# Basic mount with username/password (not secure!)
+mount -t cifs //server/share /mnt/share -o username=myuser,password=mypass
+
+# Using credentials file (recommended)
+mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcreds
 
 # With domain
-mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcredentials,domain=DOMAIN
+mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcreds,domain=COMPANY
 
-# With specific permissions and UID
-mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcredentials,uid=1000,gid=1000,file_mode=0755,dir_mode=0755
-
-# Specify SMB version
-mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcredentials,vers=3.0
+# Specify permissions
+mount -t cifs //server/share /mnt/share -o credentials=/root/.smbcreds,uid=1000,gid=1000
 
 # Guest access (no password)
 mount -t cifs //server/share /mnt/share -o guest
 ```
 
+**Common options:**
+
+- `username=user` - Username for authentication
+- `password=pass` - Password (avoid, use credentials file!)
+- `credentials=file` - File with username/password
+- `domain=DOMAIN` - Windows domain
+- `uid=1000` - Set owner of files
+- `gid=1000` - Set group of files
+- `file_mode=0755` - Permissions for files
+- `dir_mode=0755` - Permissions for directories
+
 ### Credentials File
+
+**Why use it:** Never put passwords directly in mount commands or /etc/fstab!
+
+**Create credentials file:**
+
 ```bash
-# Create /root/.smbcredentials
+# Create file
+vi /root/.smbcreds
+
+# Add credentials
 username=myuser
 password=mypassword
-domain=MYDOMAIN
+domain=COMPANY
 
-# Secure the file
-chmod 600 /root/.smbcredentials
+# Secure it (CRITICAL!)
+chmod 600 /root/.smbcreds
+chown root:root /root/.smbcreds
 ```
 
-### /etc/fstab - Persistent CIFS Mounts
+**Real-world scenario - Mount NAS share:**
+
 ```bash
-//server/share /mountpoint cifs credentials=/root/.smbcredentials,_netdev 0 0
+# Step 1: Create credentials file
+cat > /root/.nascreds << EOF
+username=admin
+password=SecurePassword123
+EOF
+chmod 600 /root/.nascreds
+
+# Step 2: Create mount point
+mkdir /mnt/nas
+
+# Step 3: Test mount
+mount -t cifs //nas.local/backup /mnt/nas -o credentials=/root/.nascreds,uid=1000,gid=1000
+
+# Step 4: Make permanent
+echo "//nas.local/backup /mnt/nas cifs credentials=/root/.nascreds,uid=1000,gid=1000,_netdev 0 0" >> /etc/fstab
 ```
 
-**Examples:**
+### /etc/fstab for CIFS
+
 ```bash
-# Basic with credentials file
-//fileserver/data /mnt/data cifs credentials=/root/.smbcredentials,_netdev 0 0
+# Using credentials file
+//server/share /mnt/share cifs credentials=/root/.smbcreds,_netdev 0 0
 
 # With specific permissions
-//fileserver/share /mnt/share cifs credentials=/root/.smbcredentials,uid=1000,gid=1000,file_mode=0755,dir_mode=0755,_netdev 0 0
+//server/share /mnt/share cifs credentials=/root/.smbcreds,uid=1000,gid=1000,file_mode=0755,dir_mode=0755,_netdev 0 0
 
-# With domain
-//fileserver/share /mnt/share cifs credentials=/root/.smbcredentials,domain=CORPORATE,_netdev 0 0
-
-# SMB3
-//fileserver/share /mnt/share cifs credentials=/root/.smbcredentials,vers=3.0,_netdev 0 0
-```
-
-### smbclient - Access SMB Shares
-```bash
-smbclient [options] //server/share
-```
-**Common Options:**
-- `-U` : Username
-- `-L` : List shares
-- `-N` : No password
-
-**Use Cases:**
-- Browse Windows shares
-- Test connectivity
-- Transfer files
-
-**Examples:**
-```bash
-# List shares on server
-smbclient -L //server -U username
-
-# Connect to share
-smbclient //server/share -U username
-
-# List shares without password (guest)
-smbclient -L //server -N
-
-# Execute command and exit
-smbclient //server/share -U username -c 'ls'
+# Guest access
+//server/public /mnt/public cifs guest,_netdev 0 0
 ```
 
 ---
 
-## Samba Server (Serve Files via SMB/CIFS)
+## iSCSI - Network Block Devices
 
-### Install Samba Server
-```bash
-# RHEL/CentOS
-dnf install samba samba-client
-systemctl enable --now smb nmb
+### What is iSCSI?
 
-# Debian/Ubuntu
-apt install samba
-systemctl enable --now smbd nmbd
-```
+iSCSI (Internet SCSI) provides block-level access to storage over a network. Unlike NFS or SMB which share files, iSCSI makes a remote disk appear as if it's locally attached.
 
-### Configure Samba - /etc/samba/smb.conf
-```ini
-[global]
-   workgroup = WORKGROUP
-   server string = Samba Server
-   security = user
-   map to guest = Bad User
+**Think of it as:** A hard drive that's physically in another computer but appears local.
 
-[share_name]
-   path = /path/to/directory
-   browseable = yes
-   writable = yes
-   guest ok = no
-   valid users = user1, user2
-   create mask = 0755
-   directory mask = 0755
-```
+**Key Difference:**
 
-**Example Configurations:**
-```ini
-# Public read-only share
-[public]
-   path = /srv/samba/public
-   browseable = yes
-   writable = no
-   guest ok = yes
-   read only = yes
+- **NFS/CIFS:** Share files (filesystem-level)
+- **iSCSI:** Share entire disks (block-level)
 
-# Private read-write share
-[private]
-   path = /srv/samba/private
-   browseable = yes
-   writable = yes
-   guest ok = no
-   valid users = john, jane
-   create mask = 0644
-   directory mask = 0755
+**Common uses:**
 
-# Home directories
-[homes]
-   comment = Home Directories
-   browseable = no
-   writable = yes
-   valid users = %S
-```
-
-### Samba User Management
-
-#### smbpasswd - Manage Samba Users
-```bash
-smbpasswd [options] username
-```
-**Common Options:**
-- `-a` : Add user
-- `-d` : Disable user
-- `-e` : Enable user
-- `-x` : Delete user
-
-**Examples:**
-```bash
-# Add Samba user (must be Linux user first)
-useradd john
-smbpasswd -a john
-
-# Change password
-smbpasswd john
-
-# Disable user
-smbpasswd -d john
-
-# Enable user
-smbpasswd -e john
-
-# Delete Samba user
-smbpasswd -x john
-```
-
-#### pdbedit - Samba User Database Tool
-```bash
-pdbedit [options]
-```
-**Common Options:**
-- `-L` : List users
-- `-v` : Verbose
-- `-a` : Add user
-- `-x` : Delete user
-
-**Examples:**
-```bash
-# List all Samba users
-pdbedit -L
-
-# List with details
-pdbedit -Lv
-
-# Add user
-pdbedit -a -u john
-```
-
-### Test Samba Configuration
-```bash
-# Test configuration file
-testparm
-
-# Verbose output
-testparm -v
-```
-
-### Firewall Configuration
-```bash
-# RHEL/CentOS
-firewall-cmd --permanent --add-service=samba
-firewall-cmd --reload
-
-# Or specific ports
-firewall-cmd --permanent --add-port=139/tcp
-firewall-cmd --permanent --add-port=445/tcp
-firewall-cmd --reload
-```
-
----
-
-## iSCSI (Internet SCSI)
-
-### Overview
-iSCSI provides block-level storage access over IP networks. Allows remote disk access as if it were local.
+- SAN (Storage Area Network) connections
+- Virtual machine storage
+- Database servers needing fast storage
+- Clustered filesystems
 
 **Components:**
-- **Target:** iSCSI server (storage provider)
-- **Initiator:** iSCSI client (storage consumer)
-- **IQN:** iSCSI Qualified Name (unique identifier)
-- **LUN:** Logical Unit Number (storage unit)
+
+- **Target:** The iSCSI server (provides storage)
+- **Initiator:** The iSCSI client (uses storage)
+- **IQN:** Unique identifier (like iqn.2024-01.com.example:server)
+- **LUN:** Logical Unit Number (the actual storage unit)
 
 ---
 
-## iSCSI Target (Server) Configuration
+## iSCSI Target (Server)
 
-### Install iSCSI Target
+### Installing iSCSI Target
+
 ```bash
-# RHEL/CentOS/Rocky
+# RHEL/CentOS
 dnf install targetcli
 systemctl enable --now target
 
@@ -538,68 +462,49 @@ apt install targetcli-fb
 systemctl enable --now target
 ```
 
-### Configure iSCSI Target - targetcli
-```bash
-targetcli
-```
+### Configuring iSCSI Target with targetcli
 
-**Use Cases:**
-- Provide block storage over network
-- SAN configuration
-- Shared storage for clusters
+**What it does:** Interactive tool to configure iSCSI storage.
 
-**Example Configuration:**
+**Why use it:** Easy way to share disks over network.
+
+**Real-world scenario - Share a disk:**
+
 ```bash
-# Enter targetcli
+# Enter interactive mode
 targetcli
 
-# Create backing storage (file-based)
-/backstores/fileio create disk1 /storage/disk1.img 10G
+# Create backing storage (file-based, 100GB)
+/backstores/fileio create disk01 /storage/disk01.img 100G
 
-# Or block device
-/backstores/block create disk1 /dev/sdb
+# OR use a real disk
+/backstores/block create disk01 /dev/sdb
 
 # Create iSCSI target
-/iscsi create iqn.2024-01.com.example:target1
+/iscsi create iqn.2024-01.com.example:storage01
 
-# Create LUN
-/iscsi/iqn.2024-01.com.example:target1/tpg1/luns create /backstores/fileio/disk1
+# Create LUN (connects storage to target)
+/iscsi/iqn.2024-01.com.example:storage01/tpg1/luns create /backstores/fileio/disk01
 
-# Set ACL (allow specific initiator)
-/iscsi/iqn.2024-01.com.example:target1/tpg1/acls create iqn.2024-01.com.example:initiator1
+# Allow specific initiator to connect
+/iscsi/iqn.2024-01.com.example:storage01/tpg1/acls create iqn.2024-01.com.example:client01
 
-# Configure portal (IP and port)
-/iscsi/iqn.2024-01.com.example:target1/tpg1/portals create 192.168.1.100
+# Configure network portal
+/iscsi/iqn.2024-01.com.example:storage01/tpg1/portals create 192.168.1.100
 
 # Save and exit
 saveconfig
 exit
 ```
 
-**Simplified Commands:**
-```bash
-# All in one session
-targetcli <<EOF
-/backstores/fileio create disk1 /storage/disk1.img 10G
-/iscsi create iqn.2024-01.com.example:target1
-/iscsi/iqn.2024-01.com.example:target1/tpg1/luns create /backstores/fileio/disk1
-/iscsi/iqn.2024-01.com.example:target1/tpg1/acls create iqn.2024-01.com.example:initiator1
-saveconfig
-exit
-EOF
-```
+**View configuration:**
 
-### View iSCSI Configuration
 ```bash
-# List all configuration
 targetcli ls
-
-# Specific sections
-targetcli ls /backstores
-targetcli ls /iscsi
 ```
 
-### Firewall Configuration
+### Firewall for iSCSI
+
 ```bash
 firewall-cmd --permanent --add-port=3260/tcp
 firewall-cmd --reload
@@ -607,9 +512,10 @@ firewall-cmd --reload
 
 ---
 
-## iSCSI Initiator (Client) Configuration
+## iSCSI Initiator (Client)
 
-### Install iSCSI Initiator
+### Installing iSCSI Initiator
+
 ```bash
 # RHEL/CentOS
 dnf install iscsi-initiator-utils
@@ -617,92 +523,79 @@ systemctl enable --now iscsid
 
 # Debian/Ubuntu
 apt install open-iscsi
-systemctl enable --now iscsid open-iscsi
+systemctl enable --now iscsid
 ```
 
-### Configure Initiator Name
+### Setting Initiator Name
+
 ```bash
-# Edit /etc/iscsi/initiatorname.iscsi
-InitiatorName=iqn.2024-01.com.example:initiator1
+# Edit initiator name
+vi /etc/iscsi/initiatorname.iscsi
+
+# Set to match what target allows
+InitiatorName=iqn.2024-01.com.example:client01
+
+# Restart service
+systemctl restart iscsid
 ```
 
-### iscsiadm - iSCSI Administration Tool
+### Connecting to iSCSI Target
+
+**What it does:** Discovers and connects to iSCSI storage.
+
+**Why use it:** Makes remote storage available as local disk.
+
+**Real-world scenario:**
+
 ```bash
-iscsiadm [options]
-```
-
-**Common Operations:**
-- `-m discovery` : Discover targets
-- `-m node` : Manage nodes
-- `-m session` : Show sessions
-
-**Use Cases:**
-- Discover available targets
-- Connect to iSCSI storage
-- Manage iSCSI connections
-
-**Examples:**
-```bash
-# Discover targets on server
+# Step 1: Discover available targets
 iscsiadm -m discovery -t st -p 192.168.1.100
 
-# Show discovered targets
-iscsiadm -m node
+# Output shows available targets:
+# 192.168.1.100:3260,1 iqn.2024-01.com.example:storage01
 
-# Login to target (connect)
-iscsiadm -m node -T iqn.2024-01.com.example:target1 -p 192.168.1.100 --login
+# Step 2: Login to target (connect)
+iscsiadm -m node --login
 
-# Logout from target
-iscsiadm -m node -T iqn.2024-01.com.example:target1 -p 192.168.1.100 --logout
+# Step 3: Check for new disk
+lsblk
+# New disk appears (probably /dev/sdc)
 
+# Step 4: Use it like any disk
+# Create partition
+fdisk /dev/sdc
+
+# Create filesystem
+mkfs.ext4 /dev/sdc1
+
+# Mount
+mkdir /mnt/iscsi
+mount /dev/sdc1 /mnt/iscsi
+
+# Step 5: Make permanent
+echo "/dev/sdc1 /mnt/iscsi ext4 _netdev 0 0" >> /etc/fstab
+```
+
+### Managing iSCSI Sessions
+
+```bash
 # Show active sessions
 iscsiadm -m session
 
 # Show detailed session info
 iscsiadm -m session -P 3
 
-# Delete target configuration
-iscsiadm -m node -T iqn.2024-01.com.example:target1 -p 192.168.1.100 -o delete
+# Logout (disconnect)
+iscsiadm -m node -T iqn.2024-01.com.example:storage01 -p 192.168.1.100 --logout
+
+# Login
+iscsiadm -m node -T iqn.2024-01.com.example:storage01 -p 192.168.1.100 --login
+
+# Automatic login at boot
+iscsiadm -m node -T iqn.2024-01.com.example:storage01 -p 192.168.1.100 --op update -n node.startup -v automatic
 
 # Rescan for new LUNs
 iscsiadm -m session --rescan
-```
-
-### Complete iSCSI Client Workflow
-```bash
-# 1. Set initiator name
-echo "InitiatorName=iqn.2024-01.com.example:initiator1" > /etc/iscsi/initiatorname.iscsi
-
-# 2. Restart iscsid
-systemctl restart iscsid
-
-# 3. Discover targets
-iscsiadm -m discovery -t st -p 192.168.1.100
-
-# 4. Login to target
-iscsiadm -m node --login
-
-# 5. Check for new disk
-lsblk
-fdisk -l
-
-# 6. Use the disk (appears as /dev/sd*)
-# Create partition, filesystem, mount, etc.
-fdisk /dev/sdc
-mkfs.ext4 /dev/sdc1
-mount /dev/sdc1 /mnt/iscsi
-
-# 7. Make persistent in /etc/fstab
-echo "/dev/sdc1 /mnt/iscsi ext4 _netdev 0 0" >> /etc/fstab
-```
-
-### Automatic iSCSI Mount
-```bash
-# Enable automatic login
-iscsiadm -m node -T iqn.2024-01.com.example:target1 -p 192.168.1.100 --op update -n node.startup -v automatic
-
-# Disable automatic login
-iscsiadm -m node -T iqn.2024-01.com.example:target1 -p 192.168.1.100 --op update -n node.startup -v manual
 ```
 
 ---
@@ -711,207 +604,144 @@ iscsiadm -m node -T iqn.2024-01.com.example:target1 -p 192.168.1.100 --op update
 
 ### NFS Troubleshooting
 
-#### Check NFS Service Status
-```bash
-systemctl status nfs-server
-systemctl status rpcbind
-```
+**Problem: Cannot mount NFS share**
 
-#### Verify Exports
 ```bash
-exportfs -v
-showmount -e localhost
-```
+# Step 1: Check if server is exporting
+showmount -e nfs-server
 
-#### Check Firewall
-```bash
-firewall-cmd --list-services
-firewall-cmd --list-ports
-```
-
-#### Network Connectivity
-```bash
+# Step 2: Test network connectivity
 ping nfs-server
 telnet nfs-server 2049
+
+# Step 3: Check firewall
+firewall-cmd --list-services
+
+# Step 4: Try mounting with verbose
+mount -v -t nfs nfs-server:/data /mnt/data
+
+# Step 5: Check logs
+journalctl -u nfs-server
+dmesg | grep nfs
+```
+
+**Problem: NFS mount hangs**
+
+```bash
+# Use soft mount for testing
+mount -t nfs -o soft,timeo=10 nfs-server:/data /mnt/data
+
+# Check if server is responsive
 rpcinfo -p nfs-server
 ```
 
-#### Mount Issues
+### CIFS Troubleshooting
+
+**Problem: Cannot mount Windows share**
+
 ```bash
-# Check mount from client
-mount | grep nfs
-nfsstat -m
-
-# Debug mount
-mount -vvv -t nfs server:/export /mnt
-
-# Check logs
-journalctl -u nfs-server
-dmesg | grep -i nfs
-```
-
-### CIFS/SMB Troubleshooting
-
-#### Test Connectivity
-```bash
-# List shares
+# Step 1: List available shares
 smbclient -L //server -U username
 
-# Test connection
+# Step 2: Test connection
 smbclient //server/share -U username
+
+# Step 3: Check credentials file
+cat /root/.smbcreds
+ls -l /root/.smbcreds  # Should be 600
+
+# Step 4: Try with verbose
+mount -v -t cifs //server/share /mnt -o credentials=/root/.smbcreds
+
+# Step 5: Specify SMB version
+mount -t cifs //server/share /mnt -o credentials=/root/.smbcreds,vers=3.0
 ```
 
-#### Check Credentials
+**Problem: Permission denied on CIFS**
+
 ```bash
-# Verify credentials file
-cat /root/.smbcredentials
-ls -l /root/.smbcredentials  # Should be 600
-```
-
-#### Mount Debug
-```bash
-# Verbose mount
-mount -vvv -t cifs //server/share /mnt
-
-# Check logs
-dmesg | grep -i cifs
-journalctl -xe
-```
-
-#### Samba Server Issues
-```bash
-# Test configuration
-testparm
-
-# Check service
-systemctl status smb nmb
-
-# Check logs
-tail -f /var/log/samba/log.smbd
-
-# Verify users
-pdbedit -L
+# Mount with specific UID/GID
+mount -t cifs //server/share /mnt -o credentials=/root/.smbcreds,uid=1000,gid=1000,file_mode=0755,dir_mode=0755
 ```
 
 ### iSCSI Troubleshooting
 
-#### Check Services
-```bash
-# Target
-systemctl status target
+**Problem: Cannot discover target**
 
-# Initiator
-systemctl status iscsid
+```bash
+# Check network
+ping target-server
+nc -zv target-server 3260
+
+# Check firewall
+firewall-cmd --list-ports
+
+# Check initiator name matches
+cat /etc/iscsi/initiatorname.iscsi
+
+# Restart service
+systemctl restart iscsid
 ```
 
-#### Verify Target Configuration
+**Problem: Lost connection**
+
 ```bash
-targetcli ls
-```
-
-#### Check Discovery
-```bash
-# Discover targets
-iscsiadm -m discovery -t st -p target-server
-
-# Show nodes
-iscsiadm -m node
-```
-
-#### Session Issues
-```bash
-# Check active sessions
-iscsiadm -m session
-
-# Detailed session info
+# Check session status
 iscsiadm -m session -P 3
 
 # Restart session
 iscsiadm -m node --logout
 iscsiadm -m node --login
-```
 
-#### Network Issues
-```bash
-# Test connectivity
-telnet target-server 3260
-nc -zv target-server 3260
-
-# Check firewall
-firewall-cmd --list-all
-```
-
-#### Logs
-```bash
+# Check logs
 journalctl -u iscsid
-dmesg | grep -i iscsi
 ```
 
 ---
 
-## Performance Considerations
+## Performance Tips
 
-### NFS Tuning
+### NFS Performance
+
 ```bash
 # Increase buffer sizes
-mount -o rsize=32768,wsize=32768 server:/export /mnt
+mount -o rsize=32768,wsize=32768 server:/data /mnt/data
 
 # Use async for better performance (less safe)
-mount -o async server:/export /mnt
+mount -o async server:/data /mnt/data
 
-# In /etc/fstab
-server:/export /mnt nfs rsize=32768,wsize=32768,async 0 0
+# Combine options
+mount -o rsize=32768,wsize=32768,async,noatime server:/data /mnt/data
 ```
 
-### CIFS Tuning
+### CIFS Performance
+
 ```bash
-# Increase cache ttl
-mount -t cifs -o cache=strict //server/share /mnt
+# Use SMB3 with multichannel
+mount -t cifs //server/share /mnt -o vers=3.0,multichannel
 
-# Use multichannel (SMB3)
-mount -t cifs -o vers=3.0,multichannel //server/share /mnt
+# Increase cache
+mount -t cifs //server/share /mnt -o cache=strict
 ```
-
-### iSCSI Tuning
-```bash
-# Adjust queue depth
-echo 128 > /sys/block/sdc/device/queue_depth
-
-# Enable write cache
-hdparm -W1 /dev/sdc
-```
-
----
-
-## Best Practices
-
-1. **Use NFSv4** for better security and performance
-2. **Always use _netdev** in fstab for network mounts
-3. **Secure credentials files** with chmod 600
-4. **Use credentials files** instead of inline passwords
-5. **Enable firewalls** and allow only necessary ports
-6. **Use hard mounts** for critical data (NFS)
-7. **Test recovery procedures** for network failures
-8. **Monitor network performance** and latency
-9. **Use multipathing** for iSCSI redundancy
-10. **Regular backups** of network-mounted data
 
 ---
 
 ## Quick Reference
 
 ### NFS
+
 ```bash
 # Server
-exportfs -ra                           # Reload exports
-showmount -e                          # Show exports
+exportfs -ra                      # Reload exports
+showmount -e                      # Show exports
 
 # Client
-mount -t nfs server:/export /mnt      # Mount
-nfsstat -m                            # Show mounts
+mount nfs-server:/data /mnt       # Mount NFS share
+umount /mnt                       # Unmount
 ```
 
-### CIFS/SMB
+### CIFS
+
 ```bash
 # Mount
 mount -t cifs //server/share /mnt -o credentials=/root/.creds
@@ -921,13 +751,29 @@ smbclient -L //server -U user
 ```
 
 ### iSCSI
+
 ```bash
-# Discover
+# Discover targets
 iscsiadm -m discovery -t st -p server
 
-# Login
+# Connect
 iscsiadm -m node --login
 
-# Sessions
+# Show sessions
 iscsiadm -m session
+
+# Disconnect
+iscsiadm -m node --logout
+```
+
+### Credentials File
+
+```bash
+# Create CIFS credentials
+cat > /root/.smbcreds << EOF
+username=myuser
+password=mypass
+domain=COMPANY
+EOF
+chmod 600 /root/.smbcreds
 ```
