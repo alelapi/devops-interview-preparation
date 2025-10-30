@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../filesystems/">
+        <link rel="prev" href="../../storage/storage-performance/">
       
       
-        <link rel="next" href="../swap-space/">
+        <link rel="next" href="../time-synchronization/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>Use Remote Filesystems and Network Block Devices - My DevOps Interview Preparation</title>
+        <title>Configure IPv4 and IPv6 Networking and Hostname Resolution - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#use-remote-filesystems-and-network-block-devices" class="md-skip">
+        <a href="#configure-ipv4-and-ipv6-networking-and-hostname-resolution" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use Remote Filesystems and Network Block Devices
+              Configure IPv4 and IPv6 Networking and Hostname Resolution
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
           
   
   
@@ -298,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -343,8 +343,17 @@
   
     
     
+      
+  
+  
+  
+    
+  
+  
+    
+    
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../lvm-storage/" class="md-tabs__link">
+        <a href="../../storage/lvm-storage/" class="md-tabs__link">
           
   
   
@@ -354,6 +363,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -380,7 +392,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -410,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -574,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -597,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -620,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -643,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -666,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -689,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -712,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -735,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -821,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -844,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -867,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -890,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -913,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -999,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1022,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1045,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1068,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1091,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1179,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1202,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1225,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1248,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1271,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1294,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1378,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1401,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1424,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1447,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1531,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1554,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1577,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1600,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1692,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1715,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1738,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1761,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1784,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1807,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1830,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1853,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -1935,7 +1947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -1958,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -1981,7 +1993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2071,7 +2083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2094,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2117,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2140,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2163,7 +2175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2186,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2209,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2240,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/appsync/" class="md-nav__link">
+      <a href="../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2263,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cdk/" class="md-nav__link">
+      <a href="../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2286,7 +2298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2309,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/codestar/" class="md-nav__link">
+      <a href="../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2332,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sar/" class="md-nav__link">
+      <a href="../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2355,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/step_function/" class="md-nav__link">
+      <a href="../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2378,7 +2390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sts/" class="md-nav__link">
+      <a href="../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2401,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/swf/" class="md-nav__link">
+      <a href="../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2424,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2533,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
         
   
   
@@ -2556,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -2579,7 +2591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   
@@ -2602,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   
@@ -2625,7 +2637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -2648,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   
@@ -2671,7 +2683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   
@@ -2694,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
         
   
   
@@ -2717,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
         
   
   
@@ -2740,7 +2752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -2763,7 +2775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   
@@ -2786,7 +2798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
         
   
   
@@ -2809,7 +2821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cilium/" class="md-nav__link">
         
   
   
@@ -2885,7 +2897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -2908,7 +2920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -2931,7 +2943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -3007,7 +3019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -3030,7 +3042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3053,7 +3065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3076,7 +3088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3176,7 +3188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/etcd/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/etcd/" class="md-nav__link">
         
   
   
@@ -3199,7 +3211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/vpa/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/vpa/" class="md-nav__link">
         
   
   
@@ -3222,7 +3234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -3245,7 +3257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/utilities/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/utilities/" class="md-nav__link">
         
   
   
@@ -3268,7 +3280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/openssl/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/openssl/" class="md-nav__link">
         
   
   
@@ -3291,7 +3303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/helm/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/helm/" class="md-nav__link">
         
   
   
@@ -3314,7 +3326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/cri/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/cri/" class="md-nav__link">
         
   
   
@@ -3337,7 +3349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/jsonpath/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -3427,7 +3439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -3450,7 +3462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -3473,7 +3485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -3496,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -3519,7 +3531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/security_context/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -3542,7 +3554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -3565,7 +3577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -3671,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -3694,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cert_auth/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/cert_auth/" class="md-nav__link">
         
   
   
@@ -3717,7 +3729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/apparmor/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/apparmor/" class="md-nav__link">
         
   
   
@@ -3740,7 +3752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/falco/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/falco/" class="md-nav__link">
         
   
   
@@ -3763,7 +3775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/seccomp/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/seccomp/" class="md-nav__link">
         
   
   
@@ -3786,7 +3798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/image_scanning/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/image_scanning/" class="md-nav__link">
         
   
   
@@ -3809,7 +3821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/kube_bench/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/kube_bench/" class="md-nav__link">
         
   
   
@@ -3832,7 +3844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/audit_logging/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/audit_logging/" class="md-nav__link">
         
   
   
@@ -3855,7 +3867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
         
   
   
@@ -3878,7 +3890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/cilium/" class="md-nav__link">
         
   
   
@@ -3901,7 +3913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -3924,7 +3936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/istio_mtls/" class="md-nav__link">
         
   
   
@@ -3947,7 +3959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/opa/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/opa/" class="md-nav__link">
         
   
   
@@ -3970,7 +3982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/runtimeclass/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/runtimeclass/" class="md-nav__link">
         
   
   
@@ -4058,7 +4070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
         
   
   
@@ -4081,7 +4093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
         
   
   
@@ -4104,7 +4116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
         
   
   
@@ -4127,7 +4139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
         
   
   
@@ -4150,7 +4162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
         
   
   
@@ -4173,7 +4185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
         
   
   
@@ -4196,7 +4208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
         
   
   
@@ -4219,7 +4231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
         
   
   
@@ -4242,7 +4254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
         
   
   
@@ -4265,7 +4277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
         
   
   
@@ -4368,7 +4380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -4391,7 +4403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -4414,7 +4426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -4437,7 +4449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -4460,7 +4472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -4483,7 +4495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -4560,7 +4572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -4593,16 +4605,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -4653,8 +4655,70 @@
   
   
   
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../lvm-storage/" class="md-nav__link">
+      <a href="../../storage/lvm-storage/" class="md-nav__link">
         
   
   
@@ -4677,7 +4741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual-file-system/" class="md-nav__link">
+      <a href="../../storage/virtual-file-system/" class="md-nav__link">
         
   
   
@@ -4700,7 +4764,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../filesystems/" class="md-nav__link">
+      <a href="../../storage/filesystems/" class="md-nav__link">
         
   
   
@@ -4720,32 +4784,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Use Remote Filesystems and Network Block Devices
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../storage/remote-filesystems/" class="md-nav__link">
         
   
   
@@ -4756,488 +4798,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-are-remote-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      What Are Remote Filesystems?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What Are Remote Filesystems?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-use-remote-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Use Remote Filesystems?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nfs-network-file-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS - Network File System
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="NFS - Network File System">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is NFS?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nfs-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS Versions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-nfs-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Up NFS Server
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setting Up NFS Server">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-nfs-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing NFS Server
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-exports-etcexports" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring Exports - /etc/exports
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exportfs-manage-exports" class="md-nav__link">
-    <span class="md-ellipsis">
-      exportfs - Manage Exports
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#showmount-check-nfs-exports" class="md-nav__link">
-    <span class="md-ellipsis">
-      showmount - Check NFS Exports
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#firewall-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Firewall Configuration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-nfs-as-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using NFS as Client
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Using NFS as Client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-nfs-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing NFS Client
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mounting-nfs-shares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mounting NFS Shares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#permanent-nfs-mounts-etcfstab" class="md-nav__link">
-    <span class="md-ellipsis">
-      Permanent NFS Mounts - /etc/fstab
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cifssmb-windows-file-sharing" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS/SMB - Windows File Sharing
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CIFS/SMB - Windows File Sharing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-cifssmb" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is CIFS/SMB?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-cifs-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing CIFS Client
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mounting-cifssmb-shares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mounting CIFS/SMB Shares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#credentials-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credentials File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etcfstab-for-cifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      /etc/fstab for CIFS
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iscsi-network-block-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI - Network Block Devices
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="iSCSI - Network Block Devices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-iscsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is iSCSI?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iscsi-target-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI Target (Server)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="iSCSI Target (Server)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-iscsi-target" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iSCSI Target
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-iscsi-target-with-targetcli" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring iSCSI Target with targetcli
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#firewall-for-iscsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Firewall for iSCSI
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#iscsi-initiator-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI Initiator (Client)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="iSCSI Initiator (Client)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-iscsi-initiator" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iSCSI Initiator
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setting-initiator-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Initiator Name
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connecting-to-iscsi-target" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting to iSCSI Target
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#managing-iscsi-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing iSCSI Sessions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-remote-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting Remote Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Remote Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nfs-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS Troubleshooting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cifs-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS Troubleshooting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iscsi-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI Troubleshooting
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Tips
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nfs-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cifs-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS Performance
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iscsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#credentials-file_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credentials File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5250,7 +4810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../swap-space/" class="md-nav__link">
+      <a href="../../storage/swap-space/" class="md-nav__link">
         
   
   
@@ -5273,7 +4833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../automounters/" class="md-nav__link">
+      <a href="../../storage/automounters/" class="md-nav__link">
         
   
   
@@ -5296,7 +4856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage-performance/" class="md-nav__link">
+      <a href="../../storage/storage-performance/" class="md-nav__link">
         
   
   
@@ -5307,6 +4867,770 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-interface-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Interface Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Interface Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      ip Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ip Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#display-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Network Interfaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabledisable-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable/Disable Interfaces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv4-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv4 Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IPv4 Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-ipv4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing IPv4 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addingremoving-ipv4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding/Removing IPv4 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Gateway
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv6-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv6 Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IPv6 Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-ipv6-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing IPv6 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addingremoving-ipv6-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding/Removing IPv6 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-link-local-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv6 Link-Local Addresses
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#networkmanager-rhelcentosfedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      NetworkManager (RHEL/CentOS/Fedora)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NetworkManager (RHEL/CentOS/Fedora)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-nmcli-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using nmcli Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-files-rhelcentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Files (RHEL/CentOS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netplan-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Netplan (Ubuntu/Debian)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hostname-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hostname Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hostname Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing Hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Hostname
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Hostname">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-hostnamectl-systemd-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using hostnamectl (systemd systems)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-and-name-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS and Name Resolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS and Name Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS Configuration File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etchosts-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/hosts File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcnsswitchconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nsswitch.conf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-testing-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS Testing Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS Testing Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nslookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      nslookup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dig" class="md-nav__link">
+    <span class="md-ellipsis">
+      dig
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    <span class="md-ellipsis">
+      host
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getent" class="md-nav__link">
+    <span class="md-ellipsis">
+      getent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-manager-text-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Manager Text UI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Manager Text UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nmtui" class="md-nav__link">
+    <span class="md-ellipsis">
+      nmtui
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SystemD Network Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SystemD Network Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#systemd-networkd" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemd-networkd
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-network-information-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Network Information Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Useful Network Information Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-network-configuration-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show Network Configuration Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Connectivity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistent-vs-temporary-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistent vs Temporary Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-troubleshooting-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Troubleshooting Steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Exam Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time-synchronization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set and Synchronize System Time Using Time Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitor-troubleshoot-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor and Troubleshoot Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openssh-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packet-filtering-nat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Packet Filtering, Port Redirection, and NAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Static Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bridge-bonding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Bridge and Bonding Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reverse-proxy-load-balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -5346,19 +5670,94 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-are-remote-filesystems" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      What Are Remote Filesystems?
+      Overview
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What Are Remote Filesystems?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-interface-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Interface Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Interface Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-use-remote-filesystems" class="md-nav__link">
+  <a href="#ip-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Use Remote Filesystems?
+      ip Command
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ip Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#display-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Display Network Interfaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabledisable-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable/Disable Interfaces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv4-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv4 Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IPv4 Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-ipv4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewing IPv4 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addingremoving-ipv4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding/Removing IPv4 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Gateway
     </span>
   </a>
   
@@ -5370,28 +5769,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#nfs-network-file-system" class="md-nav__link">
+  <a href="#ipv6-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      NFS - Network File System
+      IPv6 Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="NFS - Network File System">
+    <nav class="md-nav" aria-label="IPv6 Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-nfs" class="md-nav__link">
+  <a href="#viewing-ipv6-addresses" class="md-nav__link">
     <span class="md-ellipsis">
-      What is NFS?
+      Viewing IPv6 Addresses
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nfs-versions" class="md-nav__link">
+  <a href="#addingremoving-ipv6-addresses" class="md-nav__link">
     <span class="md-ellipsis">
-      NFS Versions
+      Adding/Removing IPv6 Addresses
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-link-local-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv6 Link-Local Addresses
     </span>
   </a>
   
@@ -5403,55 +5811,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setting-up-nfs-server" class="md-nav__link">
+  <a href="#network-configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up NFS Server
+      Network Configuration Files
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Setting Up NFS Server">
+    <nav class="md-nav" aria-label="Network Configuration Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installing-nfs-server" class="md-nav__link">
+  <a href="#networkmanager-rhelcentosfedora" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing NFS Server
+      NetworkManager (RHEL/CentOS/Fedora)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NetworkManager (RHEL/CentOS/Fedora)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-nmcli-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using nmcli Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-files-rhelcentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Files (RHEL/CentOS)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuring-exports-etcexports" class="md-nav__link">
+  <a href="#netplan-ubuntudebian" class="md-nav__link">
     <span class="md-ellipsis">
-      Configuring Exports - /etc/exports
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exportfs-manage-exports" class="md-nav__link">
-    <span class="md-ellipsis">
-      exportfs - Manage Exports
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#showmount-check-nfs-exports" class="md-nav__link">
-    <span class="md-ellipsis">
-      showmount - Check NFS Exports
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#firewall-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Firewall Configuration
+      Netplan (Ubuntu/Debian)
     </span>
   </a>
   
@@ -5463,37 +5868,169 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-nfs-as-client" class="md-nav__link">
+  <a href="#hostname-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Using NFS as Client
+      Hostname Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Using NFS as Client">
+    <nav class="md-nav" aria-label="Hostname Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installing-nfs-client" class="md-nav__link">
+  <a href="#viewing-hostname" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing NFS Client
+      Viewing Hostname
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mounting-nfs-shares" class="md-nav__link">
+  <a href="#setting-hostname" class="md-nav__link">
     <span class="md-ellipsis">
-      Mounting NFS Shares
+      Setting Hostname
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Hostname">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-hostnamectl-systemd-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using hostnamectl (systemd systems)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#permanent-nfs-mounts-etcfstab" class="md-nav__link">
+  <a href="#manual-configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Permanent NFS Mounts - /etc/fstab
+      Manual Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dns-and-name-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS and Name Resolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS and Name Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS Configuration File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etchosts-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/hosts File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcnsswitchconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nsswitch.conf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-testing-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS Testing Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DNS Testing Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nslookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      nslookup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dig" class="md-nav__link">
+    <span class="md-ellipsis">
+      dig
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    <span class="md-ellipsis">
+      host
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getent" class="md-nav__link">
+    <span class="md-ellipsis">
+      getent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-manager-text-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Manager Text UI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Manager Text UI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nmtui" class="md-nav__link">
+    <span class="md-ellipsis">
+      nmtui
     </span>
   </a>
   
@@ -5505,55 +6042,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cifssmb-windows-file-sharing" class="md-nav__link">
+  <a href="#systemd-network-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      CIFS/SMB - Windows File Sharing
+      SystemD Network Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="CIFS/SMB - Windows File Sharing">
+    <nav class="md-nav" aria-label="SystemD Network Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-cifssmb" class="md-nav__link">
+  <a href="#systemd-networkd" class="md-nav__link">
     <span class="md-ellipsis">
-      What is CIFS/SMB?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-cifs-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing CIFS Client
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mounting-cifssmb-shares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mounting CIFS/SMB Shares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#credentials-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credentials File
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etcfstab-for-cifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      /etc/fstab for CIFS
+      systemd-networkd
     </span>
   </a>
   
@@ -5565,19 +6066,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#iscsi-network-block-devices" class="md-nav__link">
+  <a href="#useful-network-information-commands" class="md-nav__link">
     <span class="md-ellipsis">
-      iSCSI - Network Block Devices
+      Useful Network Information Commands
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="iSCSI - Network Block Devices">
+    <nav class="md-nav" aria-label="Useful Network Information Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-iscsi" class="md-nav__link">
+  <a href="#show-network-configuration-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      What is iSCSI?
+      Show Network Configuration Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Connectivity
     </span>
   </a>
   
@@ -5589,221 +6099,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#iscsi-target-server" class="md-nav__link">
+  <a href="#persistent-vs-temporary-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      iSCSI Target (Server)
+      Persistent vs Temporary Configuration
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="iSCSI Target (Server)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-iscsi-target" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iSCSI Target
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-iscsi-target-with-targetcli" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring iSCSI Target with targetcli
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#firewall-for-iscsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Firewall for iSCSI
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#iscsi-initiator-client" class="md-nav__link">
+  <a href="#common-troubleshooting-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      iSCSI Initiator (Client)
+      Common Troubleshooting Steps
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="iSCSI Initiator (Client)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#installing-iscsi-initiator" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iSCSI Initiator
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setting-initiator-name" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Initiator Name
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connecting-to-iscsi-target" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting to iSCSI Target
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#managing-iscsi-sessions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing iSCSI Sessions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-remote-filesystems" class="md-nav__link">
+  <a href="#key-exam-tips" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting Remote Filesystems
+      Key Exam Tips
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Remote Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nfs-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS Troubleshooting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cifs-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS Troubleshooting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iscsi-troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI Troubleshooting
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Tips
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Tips">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nfs-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cifs-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS Performance
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      NFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cifs" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iscsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      iSCSI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#credentials-file_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Credentials File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -5826,607 +6144,472 @@
   
 
 
-<h1 id="use-remote-filesystems-and-network-block-devices">Use Remote Filesystems and Network Block Devices<a class="headerlink" href="#use-remote-filesystems-and-network-block-devices" title="Permanent link">&para;</a></h1>
-<h2 id="what-are-remote-filesystems">What Are Remote Filesystems?<a class="headerlink" href="#what-are-remote-filesystems" title="Permanent link">&para;</a></h2>
-<p>Remote filesystems let you access files stored on another computer over the network as if they were local. Instead of copying files back and forth, you mount the remote location and work with files directly.</p>
-<p>Think of it like network drives in Windows, but more powerful and with different protocols for different needs.</p>
-<h3 id="why-use-remote-filesystems">Why Use Remote Filesystems?<a class="headerlink" href="#why-use-remote-filesystems" title="Permanent link">&para;</a></h3>
-<p><strong>Central Storage:</strong></p>
-<ul>
-<li>One server stores data, many clients access it</li>
-<li>Easy backups (backup one location, not many computers)</li>
-<li>Consistent data across multiple machines</li>
-</ul>
-<p><strong>Resource Sharing:</strong></p>
-<ul>
-<li>Share files between Linux, Windows, and Mac</li>
-<li>Access powerful storage from lightweight clients</li>
-<li>Cost effective (one big storage server vs many small disks)</li>
-</ul>
+<h1 id="configure-ipv4-and-ipv6-networking-and-hostname-resolution">Configure IPv4 and IPv6 Networking and Hostname Resolution<a class="headerlink" href="#configure-ipv4-and-ipv6-networking-and-hostname-resolution" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This guide covers essential commands and configurations for managing network interfaces, IP addressing (both IPv4 and IPv6), and hostname resolution in Linux systems.</p>
 <hr />
-<h2 id="nfs-network-file-system">NFS - Network File System<a class="headerlink" href="#nfs-network-file-system" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-nfs">What is NFS?<a class="headerlink" href="#what-is-nfs" title="Permanent link">&para;</a></h3>
-<p>NFS is the native file-sharing protocol for Unix/Linux. It&rsquo;s fast, efficient, and designed for Linux systems to share files with each other.</p>
-<p><strong>Think of it as:</strong> Linux-to-Linux file sharing (though other OS can use it too).</p>
-<p><strong>Common uses:</strong></p>
-<ul>
-<li>Shared home directories on office networks</li>
-<li>Central storage for web servers</li>
-<li>Shared data between multiple Linux servers</li>
-<li>Development teams sharing code</li>
-</ul>
-<h3 id="nfs-versions">NFS Versions<a class="headerlink" href="#nfs-versions" title="Permanent link">&para;</a></h3>
-<p><strong>NFSv3:</strong></p>
-<ul>
-<li>Older, widely supported</li>
-<li>Can use UDP or TCP</li>
-<li>Simpler but less features</li>
-</ul>
-<p><strong>NFSv4:</strong> (Recommended)</p>
-<ul>
-<li>Modern standard</li>
-<li>Better security (includes Kerberos support)</li>
-<li>Better performance</li>
-<li>TCP only</li>
-<li>Stateful (tracks connections)</li>
-</ul>
-<hr />
-<h2 id="setting-up-nfs-server">Setting Up NFS Server<a class="headerlink" href="#setting-up-nfs-server" title="Permanent link">&para;</a></h2>
-<h3 id="installing-nfs-server">Installing NFS Server<a class="headerlink" href="#installing-nfs-server" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Rocky/Alma</span>
-dnf<span class="w"> </span>install<span class="w"> </span>nfs-utils
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>nfs-server
+<h2 id="network-interface-management">Network Interface Management<a class="headerlink" href="#network-interface-management" title="Permanent link">&para;</a></h2>
+<h3 id="ip-command"><code>ip</code> Command<a class="headerlink" href="#ip-command" title="Permanent link">&para;</a></h3>
+<p>The modern standard for network configuration in Linux, replacing older tools like <code>ifconfig</code>.</p>
+<h4 id="display-network-interfaces">Display Network Interfaces<a class="headerlink" href="#display-network-interfaces" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show all network interfaces</span>
+ip<span class="w"> </span>link<span class="w"> </span>show
 
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>nfs-server
+<span class="c1"># Show specific interface</span>
+ip<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>eth0
+
+<span class="c1"># Show interface statistics</span>
+ip<span class="w"> </span>-s<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>eth0
 </code></pre></div>
-<h3 id="configuring-exports-etcexports">Configuring Exports - /etc/exports<a class="headerlink" href="#configuring-exports-etcexports" title="Permanent link">&para;</a></h3>
-<p><strong>What it is:</strong> This file tells NFS what directories to share and who can access them.</p>
-<p><strong>Format:</strong></p>
-<div class="highlight"><pre><span></span><code>/path/to/share    client(options)
-</code></pre></div>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Share /data with one specific computer</span>
-/data<span class="w"> </span><span class="m">192</span>.168.1.100<span class="o">(</span>rw,sync,no_subtree_check<span class="o">)</span>
+<h4 id="enabledisable-interfaces">Enable/Disable Interfaces<a class="headerlink" href="#enabledisable-interfaces" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bring interface up</span>
+ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
 
-<span class="c1"># Share with entire network</span>
-/data<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="o">(</span>rw,sync,no_subtree_check<span class="o">)</span>
-
-<span class="c1"># Share read-only with everyone</span>
-/public<span class="w"> </span>*<span class="o">(</span>ro,sync,no_subtree_check<span class="o">)</span>
-
-<span class="c1"># Share /home with specific computers (root on client stays root on server)</span>
-/home<span class="w"> </span><span class="m">192</span>.168.1.100<span class="o">(</span>rw,sync,no_subtree_check,no_root_squash<span class="o">)</span>
-
-<span class="c1"># Multiple clients, different permissions</span>
-/data<span class="w"> </span><span class="m">192</span>.168.1.100<span class="o">(</span>rw<span class="o">)</span><span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="o">(</span>ro<span class="o">)</span>
-</code></pre></div>
-<p><strong>Common options:</strong></p>
-<ul>
-<li><code>rw</code> - Read-write access</li>
-<li><code>ro</code> - Read-only access</li>
-<li><code>sync</code> - Sync writes immediately (safer, slower)</li>
-<li><code>async</code> - Async writes (faster, less safe)</li>
-<li><code>no_subtree_check</code> - Don&rsquo;t check subdirectories (recommended, faster)</li>
-<li><code>no_root_squash</code> - Don&rsquo;t map root user to nobody (needed for some setups)</li>
-<li><code>root_squash</code> - Map root to nobody (default, safer)</li>
-</ul>
-<p><strong>Real-world scenario - Company file share:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Edit /etc/exports</span>
-vi<span class="w"> </span>/etc/exports
-
-<span class="c1"># Add share for company data</span>
-<span class="c1"># Office computers (192.168.1.0/24) get read-write</span>
-<span class="c1"># Remote workers (192.168.2.0/24) get read-only</span>
-/company/data<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="o">(</span>rw,sync,no_subtree_check<span class="o">)</span><span class="w"> </span><span class="m">192</span>.168.2.0/24<span class="o">(</span>ro,sync,no_subtree_check<span class="o">)</span>
-
-<span class="c1"># Apply changes</span>
-exportfs<span class="w"> </span>-ra
-
-<span class="c1"># Verify</span>
-exportfs<span class="w"> </span>-v
-</code></pre></div>
-<h3 id="exportfs-manage-exports">exportfs - Manage Exports<a class="headerlink" href="#exportfs-manage-exports" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Applies changes to /etc/exports without restarting NFS server.</p>
-<p><strong>Why use it:</strong> Fast way to add/remove shares or change settings.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show current exports</span>
-exportfs<span class="w"> </span>-v
-
-<span class="c1"># Reload /etc/exports (apply changes)</span>
-exportfs<span class="w"> </span>-ra
-
-<span class="c1"># Export all in /etc/exports</span>
-exportfs<span class="w"> </span>-a
-
-<span class="c1"># Unexport all</span>
-exportfs<span class="w"> </span>-ua
-
-<span class="c1"># Unexport specific directory</span>
-exportfs<span class="w"> </span>-u<span class="w"> </span><span class="m">192</span>.168.1.100:/data
-
-<span class="c1"># Temporarily export (not in /etc/exports)</span>
-exportfs<span class="w"> </span>-o<span class="w"> </span>rw,sync<span class="w"> </span><span class="m">192</span>.168.1.100:/tmp/test
-</code></pre></div>
-<p><strong>Real-world scenario:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Add new share to /etc/exports</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/backups 192.168.1.0/24(ro,sync,no_subtree_check)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/exports
-
-<span class="c1"># Apply without restarting</span>
-exportfs<span class="w"> </span>-ra
-
-<span class="c1"># Verify it&#39;s exported</span>
-exportfs<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>backups
-</code></pre></div>
-<h3 id="showmount-check-nfs-exports">showmount - Check NFS Exports<a class="headerlink" href="#showmount-check-nfs-exports" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Shows what a server is exporting.</p>
-<p><strong>Why use it:</strong> Verify your exports or see what another server shares.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show exports on local server</span>
-showmount<span class="w"> </span>-e<span class="w"> </span>localhost
-
-<span class="c1"># Show exports on remote server</span>
-showmount<span class="w"> </span>-e<span class="w"> </span>nfs-server.example.com
-
-<span class="c1"># Show all current mounts</span>
-showmount<span class="w"> </span>-a
-
-<span class="c1"># Show directories being exported</span>
-showmount<span class="w"> </span>-d
-</code></pre></div>
-<p><strong>Output example:</strong></p>
-<div class="highlight"><pre><span></span><code>showmount<span class="w"> </span>-e<span class="w"> </span>nfs-server
-Export<span class="w"> </span>list<span class="w"> </span><span class="k">for</span><span class="w"> </span>nfs-server:
-/data<span class="w">      </span><span class="m">192</span>.168.1.0/24
-/home<span class="w">      </span><span class="m">192</span>.168.1.100,192.168.1.101
-/public<span class="w">    </span>*
-</code></pre></div>
-<h3 id="firewall-configuration">Firewall Configuration<a class="headerlink" href="#firewall-configuration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-service<span class="o">=</span>nfs
-firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-service<span class="o">=</span>rpc-bind
-firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-service<span class="o">=</span>mountd
-firewall-cmd<span class="w"> </span>--reload
+<span class="c1"># Bring interface down</span>
+ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>down
 </code></pre></div>
 <hr />
-<h2 id="using-nfs-as-client">Using NFS as Client<a class="headerlink" href="#using-nfs-as-client" title="Permanent link">&para;</a></h2>
-<h3 id="installing-nfs-client">Installing NFS Client<a class="headerlink" href="#installing-nfs-client" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-dnf<span class="w"> </span>install<span class="w"> </span>nfs-utils
+<h2 id="ipv4-configuration">IPv4 Configuration<a class="headerlink" href="#ipv4-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="viewing-ipv4-addresses">Viewing IPv4 Addresses<a class="headerlink" href="#viewing-ipv4-addresses" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show all IPv4 addresses</span>
+ip<span class="w"> </span>-4<span class="w"> </span>addr<span class="w"> </span>show
 
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>nfs-common
+<span class="c1"># Show IPv4 for specific interface</span>
+ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
+
+<span class="c1"># Brief output</span>
+ip<span class="w"> </span>-br<span class="w"> </span>addr<span class="w"> </span>show
 </code></pre></div>
-<h3 id="mounting-nfs-shares">Mounting NFS Shares<a class="headerlink" href="#mounting-nfs-shares" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Connects to remote share and makes it accessible locally.</p>
-<p><strong>Why use it:</strong> Access files stored on NFS server.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic mount</span>
-mount<span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt/data
+<h3 id="addingremoving-ipv4-addresses">Adding/Removing IPv4 Addresses<a class="headerlink" href="#addingremoving-ipv4-addresses" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add IPv4 address</span>
+ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.100/24<span class="w"> </span>dev<span class="w"> </span>eth0
 
-<span class="c1"># Specify NFSv4</span>
-mount<span class="w"> </span>-t<span class="w"> </span>nfs4<span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt/data
+<span class="c1"># Add with broadcast</span>
+ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.100/24<span class="w"> </span>broadcast<span class="w"> </span><span class="m">192</span>.168.1.255<span class="w"> </span>dev<span class="w"> </span>eth0
 
-<span class="c1"># With options</span>
-mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>rw,hard,intr<span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt/data
+<span class="c1"># Remove IPv4 address</span>
+ip<span class="w"> </span>addr<span class="w"> </span>del<span class="w"> </span><span class="m">192</span>.168.1.100/24<span class="w"> </span>dev<span class="w"> </span>eth0
 
-<span class="c1"># Mount read-only</span>
-mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt/data
+<span class="c1"># Flush all addresses from interface</span>
+ip<span class="w"> </span>addr<span class="w"> </span>flush<span class="w"> </span>dev<span class="w"> </span>eth0
 </code></pre></div>
-<p><strong>Common mount options:</strong></p>
+<h3 id="default-gateway">Default Gateway<a class="headerlink" href="#default-gateway" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show routing table</span>
+ip<span class="w"> </span>route<span class="w"> </span>show
+
+<span class="c1"># Add default gateway</span>
+ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.1.1
+
+<span class="c1"># Delete default gateway</span>
+ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.1.1
+
+<span class="c1"># Add route to specific network</span>
+ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.0.0.0/8<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.1.254
+</code></pre></div>
+<hr />
+<h2 id="ipv6-configuration">IPv6 Configuration<a class="headerlink" href="#ipv6-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="viewing-ipv6-addresses">Viewing IPv6 Addresses<a class="headerlink" href="#viewing-ipv6-addresses" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show all IPv6 addresses</span>
+ip<span class="w"> </span>-6<span class="w"> </span>addr<span class="w"> </span>show
+
+<span class="c1"># Show IPv6 only for specific interface</span>
+ip<span class="w"> </span>-6<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0
+
+<span class="c1"># Show IPv6 routing table</span>
+ip<span class="w"> </span>-6<span class="w"> </span>route<span class="w"> </span>show
+</code></pre></div>
+<h3 id="addingremoving-ipv6-addresses">Adding/Removing IPv6 Addresses<a class="headerlink" href="#addingremoving-ipv6-addresses" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add IPv6 address</span>
+ip<span class="w"> </span>-6<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">2001</span>:db8::1/64<span class="w"> </span>dev<span class="w"> </span>eth0
+
+<span class="c1"># Remove IPv6 address</span>
+ip<span class="w"> </span>-6<span class="w"> </span>addr<span class="w"> </span>del<span class="w"> </span><span class="m">2001</span>:db8::1/64<span class="w"> </span>dev<span class="w"> </span>eth0
+
+<span class="c1"># Add IPv6 default gateway</span>
+ip<span class="w"> </span>-6<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">2001</span>:db8::ff
+
+<span class="c1"># Delete IPv6 default gateway</span>
+ip<span class="w"> </span>-6<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">2001</span>:db8::ff
+</code></pre></div>
+<h3 id="ipv6-link-local-addresses">IPv6 Link-Local Addresses<a class="headerlink" href="#ipv6-link-local-addresses" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># View link-local addresses (fe80::/10)</span>
+ip<span class="w"> </span>-6<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>scope<span class="w"> </span>link
+
+<span class="c1"># Ping using link-local (must specify interface)</span>
+ping6<span class="w"> </span>fe80::a00:27ff:fe4e:66a1%eth0
+</code></pre></div>
+<hr />
+<h2 id="network-configuration-files">Network Configuration Files<a class="headerlink" href="#network-configuration-files" title="Permanent link">&para;</a></h2>
+<h3 id="networkmanager-rhelcentosfedora">NetworkManager (RHEL/CentOS/Fedora)<a class="headerlink" href="#networkmanager-rhelcentosfedora" title="Permanent link">&para;</a></h3>
+<h4 id="using-nmcli-command">Using <code>nmcli</code> Command<a class="headerlink" href="#using-nmcli-command" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show all connections</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>show
+
+<span class="c1"># Show active connections</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>show<span class="w"> </span>--active
+
+<span class="c1"># Show device status</span>
+nmcli<span class="w"> </span>device<span class="w"> </span>status
+
+<span class="c1"># Create new connection with static IPv4</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span>ethernet<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>con-name<span class="w"> </span>eth0-static<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ifname<span class="w"> </span>eth0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv4.addresses<span class="w"> </span><span class="m">192</span>.168.1.100/24<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv4.gateway<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv4.dns<span class="w"> </span><span class="s2">&quot;8.8.8.8 8.8.4.4&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv4.method<span class="w"> </span>manual
+
+<span class="c1"># Create DHCP connection</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>add<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span>ethernet<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>con-name<span class="w"> </span>eth0-dhcp<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ifname<span class="w"> </span>eth0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv4.method<span class="w"> </span>auto
+
+<span class="c1"># Modify existing connection</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span>eth0-static<span class="w"> </span>ipv4.addresses<span class="w"> </span><span class="m">192</span>.168.1.101/24
+
+<span class="c1"># Add secondary IP address</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span>eth0-static<span class="w"> </span>+ipv4.addresses<span class="w"> </span><span class="m">192</span>.168.1.102/24
+
+<span class="c1"># Configure IPv6</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span>eth0-static<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv6.addresses<span class="w"> </span><span class="m">2001</span>:db8::100/64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv6.gateway<span class="w"> </span><span class="m">2001</span>:db8::1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ipv6.method<span class="w"> </span>manual
+
+<span class="c1"># Enable/disable IPv6</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span>eth0-static<span class="w"> </span>ipv6.method<span class="w"> </span>auto
+nmcli<span class="w"> </span>connection<span class="w"> </span>modify<span class="w"> </span>eth0-static<span class="w"> </span>ipv6.method<span class="w"> </span>ignore
+
+<span class="c1"># Activate connection</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>up<span class="w"> </span>eth0-static
+
+<span class="c1"># Deactivate connection</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>down<span class="w"> </span>eth0-static
+
+<span class="c1"># Delete connection</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>delete<span class="w"> </span>eth0-static
+
+<span class="c1"># Reload configuration</span>
+nmcli<span class="w"> </span>connection<span class="w"> </span>reload
+</code></pre></div>
+<h3 id="configuration-files-rhelcentos">Configuration Files (RHEL/CentOS)<a class="headerlink" href="#configuration-files-rhelcentos" title="Permanent link">&para;</a></h3>
+<p>Location: <code>/etc/sysconfig/network-scripts/ifcfg-&lt;interface&gt;</code></p>
+<p>Example static IPv4 configuration:
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/sysconfig/network-scripts/ifcfg-eth0</span>
+<span class="nv">TYPE</span><span class="o">=</span>Ethernet
+<span class="nv">BOOTPROTO</span><span class="o">=</span>none
+<span class="nv">NAME</span><span class="o">=</span>eth0
+<span class="nv">DEVICE</span><span class="o">=</span>eth0
+<span class="nv">ONBOOT</span><span class="o">=</span>yes
+<span class="nv">IPADDR</span><span class="o">=</span><span class="m">192</span>.168.1.100
+<span class="nv">PREFIX</span><span class="o">=</span><span class="m">24</span>
+<span class="nv">GATEWAY</span><span class="o">=</span><span class="m">192</span>.168.1.1
+<span class="nv">DNS1</span><span class="o">=</span><span class="m">8</span>.8.8.8
+<span class="nv">DNS2</span><span class="o">=</span><span class="m">8</span>.8.4.4
+</code></pre></div></p>
+<p>Example DHCP configuration:
+<div class="highlight"><pre><span></span><code><span class="nv">TYPE</span><span class="o">=</span>Ethernet
+<span class="nv">BOOTPROTO</span><span class="o">=</span>dhcp
+<span class="nv">NAME</span><span class="o">=</span>eth0
+<span class="nv">DEVICE</span><span class="o">=</span>eth0
+<span class="nv">ONBOOT</span><span class="o">=</span>yes
+</code></pre></div></p>
+<p>Example IPv6 configuration:
+<div class="highlight"><pre><span></span><code><span class="nv">IPV6INIT</span><span class="o">=</span>yes
+<span class="nv">IPV6ADDR</span><span class="o">=</span><span class="m">2001</span>:db8::100/64
+<span class="nv">IPV6_DEFAULTGW</span><span class="o">=</span><span class="m">2001</span>:db8::1
+</code></pre></div></p>
+<h3 id="netplan-ubuntudebian">Netplan (Ubuntu/Debian)<a class="headerlink" href="#netplan-ubuntudebian" title="Permanent link">&para;</a></h3>
+<p>Location: <code>/etc/netplan/*.yaml</code></p>
+<p>Example static configuration:
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/netplan/01-netcfg.yaml</span>
+<span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networkd</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eth0</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.100/24</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2001:db8::100/64</span>
+<span class="w">      </span><span class="nt">gateway4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.1</span>
+<span class="w">      </span><span class="nt">gateway6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2001:db8::1</span>
+<span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.8.8.8</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.8.4.4</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2001:4860:4860::8888</span>
+</code></pre></div></p>
+<p>Example DHCP configuration:
+<div class="highlight"><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eth0</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div></p>
+<p>Apply Netplan configuration:
+<div class="highlight"><pre><span></span><code><span class="c1"># Test configuration</span>
+netplan<span class="w"> </span>try
+
+<span class="c1"># Apply configuration</span>
+netplan<span class="w"> </span>apply
+
+<span class="c1"># Generate backend configuration</span>
+netplan<span class="w"> </span>generate
+</code></pre></div></p>
+<hr />
+<h2 id="hostname-configuration">Hostname Configuration<a class="headerlink" href="#hostname-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="viewing-hostname">Viewing Hostname<a class="headerlink" href="#viewing-hostname" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show hostname</span>
+hostname
+
+<span class="c1"># Show FQDN (Fully Qualified Domain Name)</span>
+hostname<span class="w"> </span>-f
+
+<span class="c1"># Show short hostname</span>
+hostname<span class="w"> </span>-s
+
+<span class="c1"># Show all hostname information</span>
+hostnamectl
+</code></pre></div>
+<h3 id="setting-hostname">Setting Hostname<a class="headerlink" href="#setting-hostname" title="Permanent link">&para;</a></h3>
+<h4 id="using-hostnamectl-systemd-systems">Using <code>hostnamectl</code> (systemd systems)<a class="headerlink" href="#using-hostnamectl-systemd-systems" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set hostname</span>
+hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>server1.example.com
+
+<span class="c1"># Set static hostname only</span>
+hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>server1<span class="w"> </span>--static
+
+<span class="c1"># Set pretty hostname (descriptive name)</span>
+hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span><span class="s2">&quot;Production Web Server&quot;</span><span class="w"> </span>--pretty
+
+<span class="c1"># Set transient hostname (temporary)</span>
+hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>temp-host<span class="w"> </span>--transient
+</code></pre></div>
+<h4 id="manual-configuration-files">Manual Configuration Files<a class="headerlink" href="#manual-configuration-files" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Fedora</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;server1.example.com&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/hostname
+
+<span class="c1"># Also update /etc/hosts</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;192.168.1.100 server1.example.com server1&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/hosts
+</code></pre></div>
+<hr />
+<h2 id="dns-and-name-resolution">DNS and Name Resolution<a class="headerlink" href="#dns-and-name-resolution" title="Permanent link">&para;</a></h2>
+<h3 id="dns-configuration-file">DNS Configuration File<a class="headerlink" href="#dns-configuration-file" title="Permanent link">&para;</a></h3>
+<p>Location: <code>/etc/resolv.conf</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Configure DNS servers</span>
+nameserver<span class="w"> </span><span class="m">8</span>.8.8.8
+nameserver<span class="w"> </span><span class="m">8</span>.8.4.4
+nameserver<span class="w"> </span><span class="m">2001</span>:4860:4860::8888
+
+<span class="c1"># Search domains</span>
+search<span class="w"> </span>example.com<span class="w"> </span>local.domain
+
+<span class="c1"># Options</span>
+options<span class="w"> </span>timeout:2
+options<span class="w"> </span>attempts:3
+</code></pre></div>
+<h3 id="etchosts-file"><code>/etc/hosts</code> File<a class="headerlink" href="#etchosts-file" title="Permanent link">&para;</a></h3>
+<p>Static hostname to IP mapping:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># IPv4</span>
+<span class="m">127</span>.0.0.1<span class="w">       </span>localhost<span class="w"> </span>localhost.localdomain
+<span class="m">192</span>.168.1.100<span class="w">   </span>server1.example.com<span class="w"> </span>server1
+<span class="m">192</span>.168.1.101<span class="w">   </span>server2.example.com<span class="w"> </span>server2
+
+<span class="c1"># IPv6</span>
+::1<span class="w">             </span>localhost<span class="w"> </span>localhost.localdomain
+<span class="m">2001</span>:db8::100<span class="w">   </span>server1.example.com<span class="w"> </span>server1
+</code></pre></div>
+<h3 id="etcnsswitchconf"><code>/etc/nsswitch.conf</code><a class="headerlink" href="#etcnsswitchconf" title="Permanent link">&para;</a></h3>
+<p>Controls the order of name resolution sources:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Important line for hostname resolution</span>
+hosts:<span class="w"> </span>files<span class="w"> </span>dns<span class="w"> </span>myhostname
+
+<span class="c1"># This means: check /etc/hosts first, then DNS, then systemd hostname</span>
+</code></pre></div>
+<h3 id="dns-testing-commands">DNS Testing Commands<a class="headerlink" href="#dns-testing-commands" title="Permanent link">&para;</a></h3>
+<h4 id="nslookup"><code>nslookup</code><a class="headerlink" href="#nslookup" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Query DNS for domain</span>
+nslookup<span class="w"> </span>example.com
+
+<span class="c1"># Query specific DNS server</span>
+nslookup<span class="w"> </span>example.com<span class="w"> </span><span class="m">8</span>.8.8.8
+
+<span class="c1"># Reverse lookup</span>
+nslookup<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div>
+<h4 id="dig"><code>dig</code><a class="headerlink" href="#dig" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic query</span>
+dig<span class="w"> </span>example.com
+
+<span class="c1"># Query specific record type</span>
+dig<span class="w"> </span>example.com<span class="w"> </span>A<span class="w">      </span><span class="c1"># IPv4</span>
+dig<span class="w"> </span>example.com<span class="w"> </span>AAAA<span class="w">   </span><span class="c1"># IPv6</span>
+dig<span class="w"> </span>example.com<span class="w"> </span>MX<span class="w">     </span><span class="c1"># Mail exchange</span>
+dig<span class="w"> </span>example.com<span class="w"> </span>NS<span class="w">     </span><span class="c1"># Name servers</span>
+
+<span class="c1"># Query specific DNS server</span>
+dig<span class="w"> </span>@8.8.8.8<span class="w"> </span>example.com
+
+<span class="c1"># Short output</span>
+dig<span class="w"> </span>+short<span class="w"> </span>example.com
+
+<span class="c1"># Reverse lookup</span>
+dig<span class="w"> </span>-x<span class="w"> </span><span class="m">8</span>.8.8.8
+
+<span class="c1"># Trace DNS resolution path</span>
+dig<span class="w"> </span>+trace<span class="w"> </span>example.com
+</code></pre></div>
+<h4 id="host"><code>host</code><a class="headerlink" href="#host" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Simple lookup</span>
+host<span class="w"> </span>example.com
+
+<span class="c1"># Reverse lookup</span>
+host<span class="w"> </span><span class="m">8</span>.8.8.8
+
+<span class="c1"># Query specific record type</span>
+host<span class="w"> </span>-t<span class="w"> </span>MX<span class="w"> </span>example.com
+host<span class="w"> </span>-t<span class="w"> </span>AAAA<span class="w"> </span>example.com
+
+<span class="c1"># Use specific DNS server</span>
+host<span class="w"> </span>example.com<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div>
+<h4 id="getent"><code>getent</code><a class="headerlink" href="#getent" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Query using system resolution (respects /etc/nsswitch.conf)</span>
+getent<span class="w"> </span>hosts<span class="w"> </span>example.com
+
+<span class="c1"># This uses the configured resolution order (files, DNS, etc.)</span>
+getent<span class="w"> </span>ahosts<span class="w"> </span>example.com<span class="w">  </span><span class="c1"># All addresses</span>
+</code></pre></div>
+<hr />
+<h2 id="network-manager-text-ui">Network Manager Text UI<a class="headerlink" href="#network-manager-text-ui" title="Permanent link">&para;</a></h2>
+<h3 id="nmtui"><code>nmtui</code><a class="headerlink" href="#nmtui" title="Permanent link">&para;</a></h3>
+<p>Interactive text-based interface for NetworkManager:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Launch network configuration UI</span>
+nmtui
+
+<span class="c1"># Directly launch specific function</span>
+nmtui<span class="w"> </span>edit<span class="w">       </span><span class="c1"># Edit connection</span>
+nmtui<span class="w"> </span>connect<span class="w">    </span><span class="c1"># Activate connection</span>
+nmtui<span class="w"> </span>hostname<span class="w">   </span><span class="c1"># Set hostname</span>
+</code></pre></div>
+<hr />
+<h2 id="systemd-network-configuration">SystemD Network Configuration<a class="headerlink" href="#systemd-network-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="systemd-networkd"><code>systemd-networkd</code><a class="headerlink" href="#systemd-networkd" title="Permanent link">&para;</a></h3>
+<p>Alternative to NetworkManager on systemd systems.</p>
+<p>Configuration files: <code>/etc/systemd/network/*.network</code></p>
+<p>Example configuration:
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/systemd/network/20-wired.network</span>
+<span class="k">[Match]</span>
+<span class="na">Name</span><span class="o">=</span><span class="s">eth0</span>
+
+<span class="k">[Network]</span>
+<span class="na">Address</span><span class="o">=</span><span class="s">192.168.1.100/24</span>
+<span class="na">Gateway</span><span class="o">=</span><span class="s">192.168.1.1</span>
+<span class="na">DNS</span><span class="o">=</span><span class="s">8.8.8.8</span>
+<span class="na">DNS</span><span class="o">=</span><span class="s">8.8.4.4</span>
+</code></pre></div></p>
+<p>Enable and start:
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>systemd-networkd
+systemctl<span class="w"> </span>start<span class="w"> </span>systemd-networkd
+systemctl<span class="w"> </span>status<span class="w"> </span>systemd-networkd
+</code></pre></div></p>
+<hr />
+<h2 id="useful-network-information-commands">Useful Network Information Commands<a class="headerlink" href="#useful-network-information-commands" title="Permanent link">&para;</a></h2>
+<h3 id="show-network-configuration-summary">Show Network Configuration Summary<a class="headerlink" href="#show-network-configuration-summary" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Modern way</span>
+ip<span class="w"> </span>addr<span class="w"> </span>show
+
+<span class="c1"># Show only IPv4</span>
+ip<span class="w"> </span>-4<span class="w"> </span>addr
+
+<span class="c1"># Show only IPv6</span>
+ip<span class="w"> </span>-6<span class="w"> </span>addr
+
+<span class="c1"># Show with colors</span>
+ip<span class="w"> </span>-c<span class="w"> </span>addr
+
+<span class="c1"># Brief output</span>
+ip<span class="w"> </span>-br<span class="w"> </span>addr<span class="w"> </span>show
+</code></pre></div>
+<h3 id="check-connectivity">Check Connectivity<a class="headerlink" href="#check-connectivity" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ping IPv4</span>
+ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">192</span>.168.1.1
+
+<span class="c1"># Ping IPv6</span>
+ping6<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">2001</span>:db8::1
+
+<span class="c1"># Ping with specific interface</span>
+ping<span class="w"> </span>-I<span class="w"> </span>eth0<span class="w"> </span><span class="m">192</span>.168.1.1
+</code></pre></div>
+<hr />
+<h2 id="persistent-vs-temporary-configuration">Persistent vs Temporary Configuration<a class="headerlink" href="#persistent-vs-temporary-configuration" title="Permanent link">&para;</a></h2>
+<p><strong>Temporary (runtime only):</strong>
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.100/24<span class="w"> </span>dev<span class="w"> </span>eth0
+<span class="c1"># Lost after reboot</span>
+</code></pre></div></p>
+<p><strong>Persistent (survives reboot):</strong>
+- Use <code>nmcli</code> commands
+- Edit configuration files in <code>/etc/sysconfig/network-scripts/</code> (RHEL)
+- Edit Netplan files <code>/etc/netplan/</code> (Ubuntu)
+- Use <code>systemd-networkd</code> configuration files</p>
+<hr />
+<h2 id="common-troubleshooting-steps">Common Troubleshooting Steps<a class="headerlink" href="#common-troubleshooting-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Check interface status:</strong>
+   <div class="highlight"><pre><span></span><code>ip<span class="w"> </span>link<span class="w"> </span>show
+ip<span class="w"> </span>addr<span class="w"> </span>show
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Check routing:</strong>
+   <div class="highlight"><pre><span></span><code>ip<span class="w"> </span>route<span class="w"> </span>show
+ip<span class="w"> </span>-6<span class="w"> </span>route<span class="w"> </span>show
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Test connectivity:</strong>
+   <div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">8</span>.8.8.8
+ping6<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">2001</span>:4860:4860::8888
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Check DNS resolution:</strong>
+   <div class="highlight"><pre><span></span><code>dig<span class="w"> </span>example.com
+nslookup<span class="w"> </span>example.com
+getent<span class="w"> </span>hosts<span class="w"> </span>example.com
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Verify configuration files:</strong>
+   <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/resolv.conf
+cat<span class="w"> </span>/etc/hosts
+cat<span class="w"> </span>/etc/nsswitch.conf
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Check NetworkManager/networkd status:</strong>
+   <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>NetworkManager
+systemctl<span class="w"> </span>status<span class="w"> </span>systemd-networkd
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h2 id="key-exam-tips">Key Exam Tips<a class="headerlink" href="#key-exam-tips" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>hard</code> - Keep trying if server unavailable (recommended for important data)</li>
-<li><code>soft</code> - Give up after timeout (can cause data loss)</li>
-<li><code>intr</code> - Allow interruption if mount hangs</li>
-<li><code>rsize=8192</code> - Read buffer size</li>
-<li><code>wsize=8192</code> - Write buffer size</li>
-<li><code>_netdev</code> - Wait for network before mounting (important for /etc/fstab)</li>
+<li>Know both temporary (<code>ip</code> commands) and persistent (config files, <code>nmcli</code>) methods</li>
+<li>Understand IPv4 and IPv6 addressing and configuration</li>
+<li>Be comfortable with CIDR notation (e.g., /24, /64)</li>
+<li>Practice DNS configuration and testing</li>
+<li>Understand the hostname resolution order in <code>/etc/nsswitch.conf</code></li>
+<li>Know how to configure both DHCP and static IP addresses</li>
+<li>Remember to restart/reload network services after configuration changes</li>
 </ul>
-<p><strong>Real-world scenario - Mount company share:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create mount point</span>
-mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/company-data
-
-<span class="c1"># Test mount first</span>
-mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>nfs-server.company.com:/data<span class="w"> </span>/mnt/company-data
-
-<span class="c1"># Check if it works</span>
-ls<span class="w"> </span>/mnt/company-data
-df<span class="w"> </span>-h<span class="w"> </span>/mnt/company-data
-
-<span class="c1"># If good, make permanent in /etc/fstab</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;nfs-server.company.com:/data /mnt/company-data nfs defaults,_netdev 0 0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-
-<span class="c1"># Test fstab</span>
-umount<span class="w"> </span>/mnt/company-data
-mount<span class="w"> </span>-a
-</code></pre></div>
-<h3 id="permanent-nfs-mounts-etcfstab">Permanent NFS Mounts - /etc/fstab<a class="headerlink" href="#permanent-nfs-mounts-etcfstab" title="Permanent link">&para;</a></h3>
-<p><strong>Format:</strong></p>
-<div class="highlight"><pre><span></span><code>server:/export  /mount/point  nfs  options  0  0
-</code></pre></div>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic NFS mount</span>
-nfs-server:/data<span class="w"> </span>/mnt/data<span class="w"> </span>nfs<span class="w"> </span>defaults,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-
-<span class="c1"># NFSv4 with specific options</span>
-nfs-server:/data<span class="w"> </span>/mnt/data<span class="w"> </span>nfs4<span class="w"> </span>rw,hard,intr,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-
-<span class="c1"># With performance tuning</span>
-nfs-server:/data<span class="w"> </span>/mnt/data<span class="w"> </span>nfs<span class="w"> </span>rw,hard,intr,rsize<span class="o">=</span><span class="m">8192</span>,wsize<span class="o">=</span><span class="m">8192</span>,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-
-<span class="c1"># Read-only mount</span>
-nfs-server:/public<span class="w"> </span>/mnt/public<span class="w"> </span>nfs<span class="w"> </span>ro,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-</code></pre></div>
-<p><strong>Always use <code>_netdev</code>!</strong> This tells Linux to wait for the network before mounting, preventing boot failures.</p>
-<hr />
-<h2 id="cifssmb-windows-file-sharing">CIFS/SMB - Windows File Sharing<a class="headerlink" href="#cifssmb-windows-file-sharing" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-cifssmb">What is CIFS/SMB?<a class="headerlink" href="#what-is-cifssmb" title="Permanent link">&para;</a></h3>
-<p>SMB (Server Message Block) is the file-sharing protocol used by Windows. CIFS is an older dialect of SMB. Linux can both connect to Windows shares and serve files to Windows computers.</p>
-<p><strong>Think of it as:</strong> Linux-to-Windows file sharing (and vice versa).</p>
-<p><strong>Common uses:</strong></p>
-<ul>
-<li>Access Windows file servers from Linux</li>
-<li>Connect to NAS devices</li>
-<li>Share files between mixed Windows/Linux environments</li>
-<li>Access Samba shares</li>
-</ul>
-<h3 id="installing-cifs-client">Installing CIFS Client<a class="headerlink" href="#installing-cifs-client" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-dnf<span class="w"> </span>install<span class="w"> </span>cifs-utils
-
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>cifs-utils
-</code></pre></div>
-<h3 id="mounting-cifssmb-shares">Mounting CIFS/SMB Shares<a class="headerlink" href="#mounting-cifssmb-shares" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Connects to Windows/Samba shares.</p>
-<p><strong>Why use it:</strong> Access files on Windows servers or NAS devices.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic mount with username/password (not secure!)</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>-o<span class="w"> </span><span class="nv">username</span><span class="o">=</span>myuser,password<span class="o">=</span>mypass
-
-<span class="c1"># Using credentials file (recommended)</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds
-
-<span class="c1"># With domain</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds,domain<span class="o">=</span>COMPANY
-
-<span class="c1"># Specify permissions</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span>
-
-<span class="c1"># Guest access (no password)</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>-o<span class="w"> </span>guest
-</code></pre></div>
-<p><strong>Common options:</strong></p>
-<ul>
-<li><code>username=user</code> - Username for authentication</li>
-<li><code>password=pass</code> - Password (avoid, use credentials file!)</li>
-<li><code>credentials=file</code> - File with username/password</li>
-<li><code>domain=DOMAIN</code> - Windows domain</li>
-<li><code>uid=1000</code> - Set owner of files</li>
-<li><code>gid=1000</code> - Set group of files</li>
-<li><code>file_mode=0755</code> - Permissions for files</li>
-<li><code>dir_mode=0755</code> - Permissions for directories</li>
-</ul>
-<h3 id="credentials-file">Credentials File<a class="headerlink" href="#credentials-file" title="Permanent link">&para;</a></h3>
-<p><strong>Why use it:</strong> Never put passwords directly in mount commands or /etc/fstab!</p>
-<p><strong>Create credentials file:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create file</span>
-vi<span class="w"> </span>/root/.smbcreds
-
-<span class="c1"># Add credentials</span>
-<span class="nv">username</span><span class="o">=</span>myuser
-<span class="nv">password</span><span class="o">=</span>mypassword
-<span class="nv">domain</span><span class="o">=</span>COMPANY
-
-<span class="c1"># Secure it (CRITICAL!)</span>
-chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/root/.smbcreds
-chown<span class="w"> </span>root:root<span class="w"> </span>/root/.smbcreds
-</code></pre></div>
-<p><strong>Real-world scenario - Mount NAS share:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Create credentials file</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>/root/.nascreds<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">username=admin</span>
-<span class="s">password=SecurePassword123</span>
-<span class="s">EOF</span>
-chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/root/.nascreds
-
-<span class="c1"># Step 2: Create mount point</span>
-mkdir<span class="w"> </span>/mnt/nas
-
-<span class="c1"># Step 3: Test mount</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//nas.local/backup<span class="w"> </span>/mnt/nas<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.nascreds,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span>
-
-<span class="c1"># Step 4: Make permanent</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;//nas.local/backup /mnt/nas cifs credentials=/root/.nascreds,uid=1000,gid=1000,_netdev 0 0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-</code></pre></div>
-<h3 id="etcfstab-for-cifs">/etc/fstab for CIFS<a class="headerlink" href="#etcfstab-for-cifs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Using credentials file</span>
-//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>cifs<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-
-<span class="c1"># With specific permissions</span>
-//server/share<span class="w"> </span>/mnt/share<span class="w"> </span>cifs<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span>,file_mode<span class="o">=</span><span class="m">0755</span>,dir_mode<span class="o">=</span><span class="m">0755</span>,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-
-<span class="c1"># Guest access</span>
-//server/public<span class="w"> </span>/mnt/public<span class="w"> </span>cifs<span class="w"> </span>guest,_netdev<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
-</code></pre></div>
-<hr />
-<h2 id="iscsi-network-block-devices">iSCSI - Network Block Devices<a class="headerlink" href="#iscsi-network-block-devices" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-iscsi">What is iSCSI?<a class="headerlink" href="#what-is-iscsi" title="Permanent link">&para;</a></h3>
-<p>iSCSI (Internet SCSI) provides block-level access to storage over a network. Unlike NFS or SMB which share files, iSCSI makes a remote disk appear as if it&rsquo;s locally attached.</p>
-<p><strong>Think of it as:</strong> A hard drive that&rsquo;s physically in another computer but appears local.</p>
-<p><strong>Key Difference:</strong></p>
-<ul>
-<li><strong>NFS/CIFS:</strong> Share files (filesystem-level)</li>
-<li><strong>iSCSI:</strong> Share entire disks (block-level)</li>
-</ul>
-<p><strong>Common uses:</strong></p>
-<ul>
-<li>SAN (Storage Area Network) connections</li>
-<li>Virtual machine storage</li>
-<li>Database servers needing fast storage</li>
-<li>Clustered filesystems</li>
-</ul>
-<p><strong>Components:</strong></p>
-<ul>
-<li><strong>Target:</strong> The iSCSI server (provides storage)</li>
-<li><strong>Initiator:</strong> The iSCSI client (uses storage)</li>
-<li><strong>IQN:</strong> Unique identifier (like iqn.2024-01.com.example:server)</li>
-<li><strong>LUN:</strong> Logical Unit Number (the actual storage unit)</li>
-</ul>
-<hr />
-<h2 id="iscsi-target-server">iSCSI Target (Server)<a class="headerlink" href="#iscsi-target-server" title="Permanent link">&para;</a></h2>
-<h3 id="installing-iscsi-target">Installing iSCSI Target<a class="headerlink" href="#installing-iscsi-target" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-dnf<span class="w"> </span>install<span class="w"> </span>targetcli
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>target
-
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>targetcli-fb
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>target
-</code></pre></div>
-<h3 id="configuring-iscsi-target-with-targetcli">Configuring iSCSI Target with targetcli<a class="headerlink" href="#configuring-iscsi-target-with-targetcli" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Interactive tool to configure iSCSI storage.</p>
-<p><strong>Why use it:</strong> Easy way to share disks over network.</p>
-<p><strong>Real-world scenario - Share a disk:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enter interactive mode</span>
-targetcli
-
-<span class="c1"># Create backing storage (file-based, 100GB)</span>
-/backstores/fileio<span class="w"> </span>create<span class="w"> </span>disk01<span class="w"> </span>/storage/disk01.img<span class="w"> </span>100G
-
-<span class="c1"># OR use a real disk</span>
-/backstores/block<span class="w"> </span>create<span class="w"> </span>disk01<span class="w"> </span>/dev/sdb
-
-<span class="c1"># Create iSCSI target</span>
-/iscsi<span class="w"> </span>create<span class="w"> </span>iqn.2024-01.com.example:storage01
-
-<span class="c1"># Create LUN (connects storage to target)</span>
-/iscsi/iqn.2024-01.com.example:storage01/tpg1/luns<span class="w"> </span>create<span class="w"> </span>/backstores/fileio/disk01
-
-<span class="c1"># Allow specific initiator to connect</span>
-/iscsi/iqn.2024-01.com.example:storage01/tpg1/acls<span class="w"> </span>create<span class="w"> </span>iqn.2024-01.com.example:client01
-
-<span class="c1"># Configure network portal</span>
-/iscsi/iqn.2024-01.com.example:storage01/tpg1/portals<span class="w"> </span>create<span class="w"> </span><span class="m">192</span>.168.1.100
-
-<span class="c1"># Save and exit</span>
-saveconfig
-<span class="nb">exit</span>
-</code></pre></div>
-<p><strong>View configuration:</strong></p>
-<div class="highlight"><pre><span></span><code>targetcli<span class="w"> </span>ls
-</code></pre></div>
-<h3 id="firewall-for-iscsi">Firewall for iSCSI<a class="headerlink" href="#firewall-for-iscsi" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-port<span class="o">=</span><span class="m">3260</span>/tcp
-firewall-cmd<span class="w"> </span>--reload
-</code></pre></div>
-<hr />
-<h2 id="iscsi-initiator-client">iSCSI Initiator (Client)<a class="headerlink" href="#iscsi-initiator-client" title="Permanent link">&para;</a></h2>
-<h3 id="installing-iscsi-initiator">Installing iSCSI Initiator<a class="headerlink" href="#installing-iscsi-initiator" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-dnf<span class="w"> </span>install<span class="w"> </span>iscsi-initiator-utils
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>iscsid
-
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>open-iscsi
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>iscsid
-</code></pre></div>
-<h3 id="setting-initiator-name">Setting Initiator Name<a class="headerlink" href="#setting-initiator-name" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Edit initiator name</span>
-vi<span class="w"> </span>/etc/iscsi/initiatorname.iscsi
-
-<span class="c1"># Set to match what target allows</span>
-<span class="nv">InitiatorName</span><span class="o">=</span>iqn.2024-01.com.example:client01
-
-<span class="c1"># Restart service</span>
-systemctl<span class="w"> </span>restart<span class="w"> </span>iscsid
-</code></pre></div>
-<h3 id="connecting-to-iscsi-target">Connecting to iSCSI Target<a class="headerlink" href="#connecting-to-iscsi-target" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Discovers and connects to iSCSI storage.</p>
-<p><strong>Why use it:</strong> Makes remote storage available as local disk.</p>
-<p><strong>Real-world scenario:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Discover available targets</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>discovery<span class="w"> </span>-t<span class="w"> </span>st<span class="w"> </span>-p<span class="w"> </span><span class="m">192</span>.168.1.100
-
-<span class="c1"># Output shows available targets:</span>
-<span class="c1"># 192.168.1.100:3260,1 iqn.2024-01.com.example:storage01</span>
-
-<span class="c1"># Step 2: Login to target (connect)</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>--login
-
-<span class="c1"># Step 3: Check for new disk</span>
-lsblk
-<span class="c1"># New disk appears (probably /dev/sdc)</span>
-
-<span class="c1"># Step 4: Use it like any disk</span>
-<span class="c1"># Create partition</span>
-fdisk<span class="w"> </span>/dev/sdc
-
-<span class="c1"># Create filesystem</span>
-mkfs.ext4<span class="w"> </span>/dev/sdc1
-
-<span class="c1"># Mount</span>
-mkdir<span class="w"> </span>/mnt/iscsi
-mount<span class="w"> </span>/dev/sdc1<span class="w"> </span>/mnt/iscsi
-
-<span class="c1"># Step 5: Make permanent</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/dev/sdc1 /mnt/iscsi ext4 _netdev 0 0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-</code></pre></div>
-<h3 id="managing-iscsi-sessions">Managing iSCSI Sessions<a class="headerlink" href="#managing-iscsi-sessions" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show active sessions</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>session
-
-<span class="c1"># Show detailed session info</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>session<span class="w"> </span>-P<span class="w"> </span><span class="m">3</span>
-
-<span class="c1"># Logout (disconnect)</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>-T<span class="w"> </span>iqn.2024-01.com.example:storage01<span class="w"> </span>-p<span class="w"> </span><span class="m">192</span>.168.1.100<span class="w"> </span>--logout
-
-<span class="c1"># Login</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>-T<span class="w"> </span>iqn.2024-01.com.example:storage01<span class="w"> </span>-p<span class="w"> </span><span class="m">192</span>.168.1.100<span class="w"> </span>--login
-
-<span class="c1"># Automatic login at boot</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>-T<span class="w"> </span>iqn.2024-01.com.example:storage01<span class="w"> </span>-p<span class="w"> </span><span class="m">192</span>.168.1.100<span class="w"> </span>--op<span class="w"> </span>update<span class="w"> </span>-n<span class="w"> </span>node.startup<span class="w"> </span>-v<span class="w"> </span>automatic
-
-<span class="c1"># Rescan for new LUNs</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>session<span class="w"> </span>--rescan
-</code></pre></div>
-<hr />
-<h2 id="troubleshooting-remote-filesystems">Troubleshooting Remote Filesystems<a class="headerlink" href="#troubleshooting-remote-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="nfs-troubleshooting">NFS Troubleshooting<a class="headerlink" href="#nfs-troubleshooting" title="Permanent link">&para;</a></h3>
-<p><strong>Problem: Cannot mount NFS share</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Check if server is exporting</span>
-showmount<span class="w"> </span>-e<span class="w"> </span>nfs-server
-
-<span class="c1"># Step 2: Test network connectivity</span>
-ping<span class="w"> </span>nfs-server
-telnet<span class="w"> </span>nfs-server<span class="w"> </span><span class="m">2049</span>
-
-<span class="c1"># Step 3: Check firewall</span>
-firewall-cmd<span class="w"> </span>--list-services
-
-<span class="c1"># Step 4: Try mounting with verbose</span>
-mount<span class="w"> </span>-v<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt/data
-
-<span class="c1"># Step 5: Check logs</span>
-journalctl<span class="w"> </span>-u<span class="w"> </span>nfs-server
-dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nfs
-</code></pre></div>
-<p><strong>Problem: NFS mount hangs</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use soft mount for testing</span>
-mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>soft,timeo<span class="o">=</span><span class="m">10</span><span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt/data
-
-<span class="c1"># Check if server is responsive</span>
-rpcinfo<span class="w"> </span>-p<span class="w"> </span>nfs-server
-</code></pre></div>
-<h3 id="cifs-troubleshooting">CIFS Troubleshooting<a class="headerlink" href="#cifs-troubleshooting" title="Permanent link">&para;</a></h3>
-<p><strong>Problem: Cannot mount Windows share</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: List available shares</span>
-smbclient<span class="w"> </span>-L<span class="w"> </span>//server<span class="w"> </span>-U<span class="w"> </span>username
-
-<span class="c1"># Step 2: Test connection</span>
-smbclient<span class="w"> </span>//server/share<span class="w"> </span>-U<span class="w"> </span>username
-
-<span class="c1"># Step 3: Check credentials file</span>
-cat<span class="w"> </span>/root/.smbcreds
-ls<span class="w"> </span>-l<span class="w"> </span>/root/.smbcreds<span class="w">  </span><span class="c1"># Should be 600</span>
-
-<span class="c1"># Step 4: Try with verbose</span>
-mount<span class="w"> </span>-v<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds
-
-<span class="c1"># Step 5: Specify SMB version</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds,vers<span class="o">=</span><span class="m">3</span>.0
-</code></pre></div>
-<p><strong>Problem: Permission denied on CIFS</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Mount with specific UID/GID</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.smbcreds,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span>,file_mode<span class="o">=</span><span class="m">0755</span>,dir_mode<span class="o">=</span><span class="m">0755</span>
-</code></pre></div>
-<h3 id="iscsi-troubleshooting">iSCSI Troubleshooting<a class="headerlink" href="#iscsi-troubleshooting" title="Permanent link">&para;</a></h3>
-<p><strong>Problem: Cannot discover target</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check network</span>
-ping<span class="w"> </span>target-server
-nc<span class="w"> </span>-zv<span class="w"> </span>target-server<span class="w"> </span><span class="m">3260</span>
-
-<span class="c1"># Check firewall</span>
-firewall-cmd<span class="w"> </span>--list-ports
-
-<span class="c1"># Check initiator name matches</span>
-cat<span class="w"> </span>/etc/iscsi/initiatorname.iscsi
-
-<span class="c1"># Restart service</span>
-systemctl<span class="w"> </span>restart<span class="w"> </span>iscsid
-</code></pre></div>
-<p><strong>Problem: Lost connection</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check session status</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>session<span class="w"> </span>-P<span class="w"> </span><span class="m">3</span>
-
-<span class="c1"># Restart session</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>--logout
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>--login
-
-<span class="c1"># Check logs</span>
-journalctl<span class="w"> </span>-u<span class="w"> </span>iscsid
-</code></pre></div>
-<hr />
-<h2 id="performance-tips">Performance Tips<a class="headerlink" href="#performance-tips" title="Permanent link">&para;</a></h2>
-<h3 id="nfs-performance">NFS Performance<a class="headerlink" href="#nfs-performance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Increase buffer sizes</span>
-mount<span class="w"> </span>-o<span class="w"> </span><span class="nv">rsize</span><span class="o">=</span><span class="m">32768</span>,wsize<span class="o">=</span><span class="m">32768</span><span class="w"> </span>server:/data<span class="w"> </span>/mnt/data
-
-<span class="c1"># Use async for better performance (less safe)</span>
-mount<span class="w"> </span>-o<span class="w"> </span>async<span class="w"> </span>server:/data<span class="w"> </span>/mnt/data
-
-<span class="c1"># Combine options</span>
-mount<span class="w"> </span>-o<span class="w"> </span><span class="nv">rsize</span><span class="o">=</span><span class="m">32768</span>,wsize<span class="o">=</span><span class="m">32768</span>,async,noatime<span class="w"> </span>server:/data<span class="w"> </span>/mnt/data
-</code></pre></div>
-<h3 id="cifs-performance">CIFS Performance<a class="headerlink" href="#cifs-performance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use SMB3 with multichannel</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt<span class="w"> </span>-o<span class="w"> </span><span class="nv">vers</span><span class="o">=</span><span class="m">3</span>.0,multichannel
-
-<span class="c1"># Increase cache</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt<span class="w"> </span>-o<span class="w"> </span><span class="nv">cache</span><span class="o">=</span>strict
-</code></pre></div>
-<hr />
-<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<h3 id="nfs">NFS<a class="headerlink" href="#nfs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Server</span>
-exportfs<span class="w"> </span>-ra<span class="w">                      </span><span class="c1"># Reload exports</span>
-showmount<span class="w"> </span>-e<span class="w">                      </span><span class="c1"># Show exports</span>
-
-<span class="c1"># Client</span>
-mount<span class="w"> </span>nfs-server:/data<span class="w"> </span>/mnt<span class="w">       </span><span class="c1"># Mount NFS share</span>
-umount<span class="w"> </span>/mnt<span class="w">                       </span><span class="c1"># Unmount</span>
-</code></pre></div>
-<h3 id="cifs">CIFS<a class="headerlink" href="#cifs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Mount</span>
-mount<span class="w"> </span>-t<span class="w"> </span>cifs<span class="w"> </span>//server/share<span class="w"> </span>/mnt<span class="w"> </span>-o<span class="w"> </span><span class="nv">credentials</span><span class="o">=</span>/root/.creds
-
-<span class="c1"># List shares</span>
-smbclient<span class="w"> </span>-L<span class="w"> </span>//server<span class="w"> </span>-U<span class="w"> </span>user
-</code></pre></div>
-<h3 id="iscsi">iSCSI<a class="headerlink" href="#iscsi" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Discover targets</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>discovery<span class="w"> </span>-t<span class="w"> </span>st<span class="w"> </span>-p<span class="w"> </span>server
-
-<span class="c1"># Connect</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>--login
-
-<span class="c1"># Show sessions</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>session
-
-<span class="c1"># Disconnect</span>
-iscsiadm<span class="w"> </span>-m<span class="w"> </span>node<span class="w"> </span>--logout
-</code></pre></div>
-<h3 id="credentials-file_1">Credentials File<a class="headerlink" href="#credentials-file_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create CIFS credentials</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>/root/.smbcreds<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
-<span class="s">username=myuser</span>
-<span class="s">password=mypass</span>
-<span class="s">domain=COMPANY</span>
-<span class="s">EOF</span>
-chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/root/.smbcreds
-</code></pre></div>
 
 
 
@@ -6462,7 +6645,7 @@ chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../filesystems/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Create, Manage, and Troubleshoot Filesystems">
+          <a href="../../storage/storage-performance/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Monitor Storage Performance">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6472,20 +6655,20 @@ chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/
                 Previous
               </span>
               <div class="md-ellipsis">
-                Create, Manage, and Troubleshoot Filesystems
+                Monitor Storage Performance
               </div>
             </div>
           </a>
         
         
           
-          <a href="../swap-space/" class="md-footer__link md-footer__link--next" aria-label="Next: Configure and Manage Swap Space">
+          <a href="../time-synchronization/" class="md-footer__link md-footer__link--next" aria-label="Next: Set and Synchronize System Time Using Time Servers">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Configure and Manage Swap Space
+                Set and Synchronize System Time Using Time Servers
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6521,10 +6704,10 @@ chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>

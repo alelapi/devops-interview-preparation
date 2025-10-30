@@ -1,0 +1,7314 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My DevOps Interview Preparation">
+      
+      
+        <meta name="author" content="Alessio Lapi">
+      
+      
+      
+        <link rel="prev" href="../bridge-bonding/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Implement Reverse Proxies and Load Balancers - My DevOps Interview Preparation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/app.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implement-reverse-proxies-and-load-balancers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My DevOps Interview Preparation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implement Reverse Proxies and Load Balancers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/alelapi/devops-interview-preparation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    devops-interview-preparation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AWS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architectural Patterns
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  General
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../storage/lvm-storage/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My DevOps Interview Preparation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alelapi/devops-interview-preparation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    devops-interview-preparation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amplify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Gateway
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Scaling Groups (ASG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Compute Cloud (EC2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Container Service (ECS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Beanstalk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer (ELB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Athena
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aurora
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ElastiCache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Relational Database Service (RDS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppConfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Billing and Cost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudFormation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless Application Model (SAM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systems Manager Parameter Store (SSM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messaging
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firehose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinesis Data Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinesis Data Streams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Email Service (SES)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Notification Service (SNS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Queue Service (SQS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Monitoring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudTrail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudWatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EventBridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-Ray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudFront
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Route 53
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtual Private Cloud (VPC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security & Identity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Security & Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cognito
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identity and Access Management (IAM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Management Service (KMS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Macie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shield
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Single Sign-On (SSO)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Block Store (EBS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic File System (EFS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Storage Service (S3)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeArtifact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeBuild
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeCommit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeDeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeGuru
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodePipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/appsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppSync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/cdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Development Kit (CDK)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudHSM (Cloud Hardware Security Module)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codestar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeStar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/sar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless Application Repository (SAR)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/step_function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Step Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/sts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Token Service (STS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/swf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Workflow Service (SWF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trusted Advisor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Envoy?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Serverless Platforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Admission (PSA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementing Pod Priority and Preemption in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Aggregation Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EncryptionConfig in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submariner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KubeFed (Kubernetes Federation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PodDisruptionBudget (PDB) in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability Tools in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Endpoint Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Open Standards
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Open Standards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes — Open Standards (OCI, CRI, CNI, CSI, SMI, CPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networking Tools in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Provider Interface (CPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14_4" id="__nav_3_14_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SMI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_14_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14_4">
+            <span class="md-nav__icon md-icon"></span>
+            SMI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a Service Mesh?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Istio: A Service Mesh for Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linkerd: An Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Mesh Interface (SMI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CKA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            CKA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/etcd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ETDC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/vpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertical Pod Autoscaler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubelet Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utility commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSSL commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/cri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CRI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/jsonpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jsonpath and custom-columns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    KCSA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            KCSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance Frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance and Security frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Auditing Policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppArmor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/security_context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Threat Modeling Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualization Technologies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CKS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            CKS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Dashboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/cert_auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create User Certificate Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/apparmor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppArmor Profile Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/falco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/seccomp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Seccomp Audit Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/image_scanning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Image Scanning and Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/kube_bench/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    kube-bench
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/audit_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audit Logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Controller Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Docker Daemon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mTLS Pod-to-Pod Communication with Istio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/opa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OPA and Gatekeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/runtimeclass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RuntimeClass
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17_15" id="__nav_3_17_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Exercises
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_17_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17_15">
+            <span class="md-nav__icon md-icon"></span>
+            Exercises
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco Rule to Detect Container Access to /dev/mem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use SBOM - Finding Images Using Cryptolib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Docker Socket Service File to Change Group Ownership to Root
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Pod with Host Path Access and Falco Detection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enabling Pod-to-Pod Encryption with Istio and Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Standards (PSS): Overview and Implementation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium Network Policies Certification Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubelet Configuration Exam Exercises
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Security Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architectural Patterns
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architectural Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bulkhead Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Circuit Breaker Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event-Driven Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event Sourcing Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Saga Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strangler Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Different Types of Scaling in IT Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/lvm-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage LVM Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/virtual-file-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage and Configure the Virtual File System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/filesystems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create, Manage, and Troubleshoot Filesystems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/remote-filesystems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use Remote Filesystems and Network Block Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/swap-space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage Swap Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/automounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Filesystem Automounters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/storage-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor Storage Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipv4-ipv6-hostname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time-synchronization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set and Synchronize System Time Using Time Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitor-troubleshoot-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor and Troubleshoot Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openssh-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packet-filtering-nat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Packet Filtering, Port Redirection, and NAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Static Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bridge-bonding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Bridge and Bonding Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Terms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#haproxy-high-availability-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy (High Availability Proxy)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAProxy (High Availability Proxy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-haproxy-configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic HAProxy Configuration Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-http-load-balancer-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple HTTP Load Balancer Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-haproxy-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced HAProxy Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced HAProxy Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLS Termination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-algorithms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weighted Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-persistence-sticky-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session Persistence (Sticky Sessions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acls-access-control-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACLs (Access Control Lists)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-headers-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Headers Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haproxy-statistics-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy Statistics Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haproxy-runtime-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy Runtime API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-as-reverse-proxy-and-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx as Reverse Proxy and Load Balancer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nginx as Reverse Proxy and Load Balancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-reverse-proxy-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Reverse Proxy Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-checks_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-termination_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLS Termination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-as-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache as Reverse Proxy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apache as Reverse Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Modules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-apache-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Apache Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL Termination
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-haproxy-vs-nginx-vs-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison: HAProxy vs Nginx vs Apache
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Scenarios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-web-application-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Web Application Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-api-gateway-with-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: API Gateway with Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-high-availability-setup-with-health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: High Availability Setup with Health Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-4-ssl-offloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 4: SSL Offloading
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#haproxy-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy Stats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-backend-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Backend Connectivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Terms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#haproxy-high-availability-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy (High Availability Proxy)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAProxy (High Availability Proxy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-haproxy-configuration-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic HAProxy Configuration Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-http-load-balancer-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple HTTP Load Balancer Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-haproxy-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced HAProxy Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced HAProxy Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLS Termination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-algorithms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weighted-load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weighted Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-persistence-sticky-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session Persistence (Sticky Sessions)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acls-access-control-lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACLs (Access Control Lists)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-headers-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Headers Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haproxy-statistics-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy Statistics Page
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#haproxy-runtime-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy Runtime API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx-as-reverse-proxy-and-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx as Reverse Proxy and Load Balancer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nginx as Reverse Proxy and Load Balancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-reverse-proxy-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Reverse Proxy Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-checks_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Health Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssltls-termination_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL/TLS Termination
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-as-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache as Reverse Proxy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apache as Reverse Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Modules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Reverse Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-apache-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Apache Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL Termination
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-haproxy-vs-nginx-vs-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison: HAProxy vs Nginx vs Apache
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Scenarios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-1-web-application-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 1: Web Application Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-2-api-gateway-with-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 2: API Gateway with Rate Limiting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-3-high-availability-setup-with-health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 3: High Availability Setup with Health Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scenario-4-ssl-offloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario 4: SSL Offloading
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#haproxy-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy Stats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-backend-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Backend Connectivity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#haproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      HAProxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nginx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="implement-reverse-proxies-and-load-balancers">Implement Reverse Proxies and Load Balancers<a class="headerlink" href="#implement-reverse-proxies-and-load-balancers" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This guide covers implementation of reverse proxies and load balancers using HAProxy, Nginx, and Apache in Linux systems.</p>
+<hr />
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<h3 id="reverse-proxy">Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Permanent link">&para;</a></h3>
+<p>A <strong>reverse proxy</strong> sits in front of web servers and forwards client requests to those servers. Benefits:
+- SSL/TLS termination
+- Caching
+- Compression
+- Security (hide backend servers)
+- Single entry point</p>
+<h3 id="load-balancer">Load Balancer<a class="headerlink" href="#load-balancer" title="Permanent link">&para;</a></h3>
+<p>A <strong>load balancer</strong> distributes incoming traffic across multiple servers. Benefits:
+- High availability
+- Scalability
+- Redundancy
+- Performance optimization</p>
+<h3 id="key-terms">Key Terms<a class="headerlink" href="#key-terms" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Frontend</strong>: Entry point that receives client requests</li>
+<li><strong>Backend</strong>: Pool of servers that handle requests</li>
+<li><strong>Health Check</strong>: Monitoring to verify server availability</li>
+<li><strong>Session Persistence</strong>: Maintaining user session on same server (sticky sessions)</li>
+<li><strong>Load Balancing Algorithm</strong>: Method to distribute traffic</li>
+</ul>
+<h3 id="load-balancing-algorithms">Load Balancing Algorithms<a class="headerlink" href="#load-balancing-algorithms" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Round Robin</strong>: Sequential distribution</li>
+<li><strong>Least Connections</strong>: Server with fewest active connections</li>
+<li><strong>IP Hash</strong>: Based on client IP address</li>
+<li><strong>Weighted</strong>: Servers have different capacities</li>
+<li><strong>Least Response Time</strong>: Fastest responding server</li>
+</ul>
+<hr />
+<h2 id="haproxy-high-availability-proxy">HAProxy (High Availability Proxy)<a class="headerlink" href="#haproxy-high-availability-proxy" title="Permanent link">&para;</a></h2>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
+<p>HAProxy is a popular open-source load balancer and proxy server for TCP and HTTP-based applications.</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Fedora</span>
+dnf<span class="w"> </span>install<span class="w"> </span>haproxy
+
+<span class="c1"># Ubuntu/Debian</span>
+apt<span class="w"> </span>install<span class="w"> </span>haproxy
+
+<span class="c1"># Start service</span>
+systemctl<span class="w"> </span>start<span class="w"> </span>haproxy
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>haproxy
+
+<span class="c1"># Check status</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>haproxy
+</code></pre></div>
+<h3 id="configuration-file">Configuration File<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h3>
+<p>Location: <code>/etc/haproxy/haproxy.cfg</code></p>
+<h3 id="basic-haproxy-configuration-structure">Basic HAProxy Configuration Structure<a class="headerlink" href="#basic-haproxy-configuration-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Global settings</span>
+global
+<span class="w">    </span><span class="c1"># Process management</span>
+<span class="w">    </span><span class="c1"># Logging</span>
+<span class="w">    </span><span class="c1"># Performance tuning</span>
+
+<span class="c1"># Default settings for all sections</span>
+defaults
+<span class="w">    </span><span class="c1"># Timeouts</span>
+<span class="w">    </span><span class="c1"># Mode (tcp/http)</span>
+<span class="w">    </span><span class="c1"># Options</span>
+
+<span class="c1"># Frontend - entry point</span>
+frontend<span class="w"> </span>&lt;name&gt;
+<span class="w">    </span><span class="c1"># Bind address and port</span>
+<span class="w">    </span><span class="c1"># ACLs</span>
+<span class="w">    </span><span class="c1"># Backend selection</span>
+
+<span class="c1"># Backend - server pool</span>
+backend<span class="w"> </span>&lt;name&gt;
+<span class="w">    </span><span class="c1"># Load balancing algorithm</span>
+<span class="w">    </span><span class="c1"># Health checks</span>
+<span class="w">    </span><span class="c1"># Server definitions</span>
+</code></pre></div>
+<h3 id="simple-http-load-balancer-example">Simple HTTP Load Balancer Example<a class="headerlink" href="#simple-http-load-balancer-example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/haproxy/haproxy.cfg</span>
+
+global
+<span class="w">    </span>log<span class="w"> </span>/dev/log<span class="w"> </span>local0
+<span class="w">    </span>log<span class="w"> </span>/dev/log<span class="w"> </span>local1<span class="w"> </span>notice
+<span class="w">    </span>chroot<span class="w"> </span>/var/lib/haproxy
+<span class="w">    </span>stats<span class="w"> </span>socket<span class="w"> </span>/run/haproxy/admin.sock<span class="w"> </span>mode<span class="w"> </span><span class="m">660</span><span class="w"> </span>level<span class="w"> </span>admin
+<span class="w">    </span>stats<span class="w"> </span>timeout<span class="w"> </span>30s
+<span class="w">    </span>user<span class="w"> </span>haproxy
+<span class="w">    </span>group<span class="w"> </span>haproxy
+<span class="w">    </span>daemon
+
+defaults
+<span class="w">    </span>log<span class="w">     </span>global
+<span class="w">    </span>mode<span class="w">    </span>http
+<span class="w">    </span>option<span class="w">  </span>httplog
+<span class="w">    </span>option<span class="w">  </span>dontlognull
+<span class="w">    </span>timeout<span class="w"> </span>connect<span class="w"> </span><span class="m">5000</span>
+<span class="w">    </span>timeout<span class="w"> </span>client<span class="w">  </span><span class="m">50000</span>
+<span class="w">    </span>timeout<span class="w"> </span>server<span class="w">  </span><span class="m">50000</span>
+
+frontend<span class="w"> </span>http_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+<span class="w">    </span>stats<span class="w"> </span>uri<span class="w"> </span>/haproxy?stats
+<span class="w">    </span>default_backend<span class="w"> </span>http_back
+
+backend<span class="w"> </span>http_back
+<span class="w">    </span>balance<span class="w"> </span>roundrobin
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check
+<span class="w">    </span>server<span class="w"> </span>web3<span class="w"> </span><span class="m">192</span>.168.1.12:80<span class="w"> </span>check
+</code></pre></div>
+<p>Test and reload:
+<div class="highlight"><pre><span></span><code><span class="c1"># Test configuration</span>
+haproxy<span class="w"> </span>-c<span class="w"> </span>-f<span class="w"> </span>/etc/haproxy/haproxy.cfg
+
+<span class="c1"># Reload without dropping connections</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>haproxy
+
+<span class="c1"># Restart</span>
+systemctl<span class="w"> </span>restart<span class="w"> </span>haproxy
+</code></pre></div></p>
+<h3 id="advanced-haproxy-configuration">Advanced HAProxy Configuration<a class="headerlink" href="#advanced-haproxy-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="ssltls-termination">SSL/TLS Termination<a class="headerlink" href="#ssltls-termination" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>frontend<span class="w"> </span>https_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:443<span class="w"> </span>ssl<span class="w"> </span>crt<span class="w"> </span>/etc/haproxy/certs/cert.pem
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+<span class="w">    </span>redirect<span class="w"> </span>scheme<span class="w"> </span>https<span class="w"> </span>code<span class="w"> </span><span class="m">301</span><span class="w"> </span><span class="k">if</span><span class="w"> </span>!<span class="o">{</span><span class="w"> </span>ssl_fc<span class="w"> </span><span class="o">}</span>
+<span class="w">    </span>default_backend<span class="w"> </span>web_back
+
+backend<span class="w"> </span>web_back
+<span class="w">    </span>balance<span class="w"> </span>roundrobin
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check
+</code></pre></div>
+<h4 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>backend<span class="w"> </span>web_back
+<span class="w">    </span>balance<span class="w"> </span>roundrobin
+<span class="w">    </span>option<span class="w"> </span>httpchk<span class="w"> </span>GET<span class="w"> </span>/health
+<span class="w">    </span>http-check<span class="w"> </span>expect<span class="w"> </span>status<span class="w"> </span><span class="m">200</span>
+
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check<span class="w"> </span>inter<span class="w"> </span><span class="m">2000</span><span class="w"> </span>rise<span class="w"> </span><span class="m">2</span><span class="w"> </span>fall<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check<span class="w"> </span>inter<span class="w"> </span><span class="m">2000</span><span class="w"> </span>rise<span class="w"> </span><span class="m">2</span><span class="w"> </span>fall<span class="w"> </span><span class="m">3</span>
+
+<span class="c1"># Parameters:</span>
+<span class="c1"># check      - Enable health checks</span>
+<span class="c1"># inter 2000 - Check interval (2 seconds)</span>
+<span class="c1"># rise 2     - Consider server up after 2 successful checks</span>
+<span class="c1"># fall 3     - Consider server down after 3 failed checks</span>
+</code></pre></div>
+<h4 id="load-balancing-algorithms_1">Load Balancing Algorithms<a class="headerlink" href="#load-balancing-algorithms_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>backend<span class="w"> </span>web_back
+<span class="w">    </span><span class="c1"># Round robin (default)</span>
+<span class="w">    </span>balance<span class="w"> </span>roundrobin
+
+<span class="w">    </span><span class="c1"># Or least connections</span>
+<span class="w">    </span><span class="c1"># balance leastconn</span>
+
+<span class="w">    </span><span class="c1"># Or source IP hash</span>
+<span class="w">    </span><span class="c1"># balance source</span>
+
+<span class="w">    </span><span class="c1"># Or URI hash</span>
+<span class="w">    </span><span class="c1"># balance uri</span>
+
+<span class="w">    </span><span class="c1"># Or URL parameter hash</span>
+<span class="w">    </span><span class="c1"># balance url_param userid</span>
+
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check
+</code></pre></div>
+<h4 id="weighted-load-balancing">Weighted Load Balancing<a class="headerlink" href="#weighted-load-balancing" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>backend<span class="w"> </span>web_back
+<span class="w">    </span>balance<span class="w"> </span>roundrobin
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check<span class="w"> </span>weight<span class="w"> </span><span class="m">100</span>
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check<span class="w"> </span>weight<span class="w"> </span><span class="m">50</span>
+<span class="w">    </span>server<span class="w"> </span>web3<span class="w"> </span><span class="m">192</span>.168.1.12:80<span class="w"> </span>check<span class="w"> </span>weight<span class="w"> </span><span class="m">150</span>
+<span class="w">    </span><span class="c1"># web3 gets 1.5x more traffic than web1</span>
+</code></pre></div>
+<h4 id="session-persistence-sticky-sessions">Session Persistence (Sticky Sessions)<a class="headerlink" href="#session-persistence-sticky-sessions" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>backend<span class="w"> </span>web_back
+<span class="w">    </span>balance<span class="w"> </span>roundrobin
+<span class="w">    </span><span class="c1"># Cookie-based persistence</span>
+<span class="w">    </span>cookie<span class="w"> </span>SERVERID<span class="w"> </span>insert<span class="w"> </span>indirect<span class="w"> </span>nocache
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check<span class="w"> </span>cookie<span class="w"> </span>web1
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check<span class="w"> </span>cookie<span class="w"> </span>web2
+
+<span class="w">    </span><span class="c1"># Or source IP based</span>
+<span class="w">    </span><span class="c1"># stick-table type ip size 200k expire 30m</span>
+<span class="w">    </span><span class="c1"># stick on src</span>
+</code></pre></div>
+<h4 id="acls-access-control-lists">ACLs (Access Control Lists)<a class="headerlink" href="#acls-access-control-lists" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>frontend<span class="w"> </span>http_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+
+<span class="w">    </span><span class="c1"># Define ACLs</span>
+<span class="w">    </span>acl<span class="w"> </span>is_api<span class="w"> </span>path_beg<span class="w"> </span>/api
+<span class="w">    </span>acl<span class="w"> </span>is_admin<span class="w"> </span>path_beg<span class="w"> </span>/admin
+<span class="w">    </span>acl<span class="w"> </span>is_static<span class="w"> </span>path_end<span class="w"> </span>.jpg<span class="w"> </span>.png<span class="w"> </span>.css<span class="w"> </span>.js
+<span class="w">    </span>acl<span class="w"> </span>allowed_ips<span class="w"> </span>src<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span><span class="m">10</span>.0.0.0/8
+
+<span class="w">    </span><span class="c1"># Use ACLs</span>
+<span class="w">    </span>use_backend<span class="w"> </span>api_back<span class="w"> </span><span class="k">if</span><span class="w"> </span>is_api
+<span class="w">    </span>use_backend<span class="w"> </span>admin_back<span class="w"> </span><span class="k">if</span><span class="w"> </span>is_admin<span class="w"> </span>allowed_ips
+<span class="w">    </span>use_backend<span class="w"> </span>static_back<span class="w"> </span><span class="k">if</span><span class="w"> </span>is_static
+<span class="w">    </span>default_backend<span class="w"> </span>web_back
+
+backend<span class="w"> </span>api_back
+<span class="w">    </span>server<span class="w"> </span>api1<span class="w"> </span><span class="m">192</span>.168.1.20:8080<span class="w"> </span>check
+
+backend<span class="w"> </span>admin_back
+<span class="w">    </span>server<span class="w"> </span>admin1<span class="w"> </span><span class="m">192</span>.168.1.30:8080<span class="w"> </span>check
+
+backend<span class="w"> </span>static_back
+<span class="w">    </span>server<span class="w"> </span>static1<span class="w"> </span><span class="m">192</span>.168.1.40:80<span class="w"> </span>check
+
+backend<span class="w"> </span>web_back
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check
+</code></pre></div>
+<h4 id="http-headers-manipulation">HTTP Headers Manipulation<a class="headerlink" href="#http-headers-manipulation" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>frontend<span class="w"> </span>http_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+<span class="w">    </span><span class="c1"># Add headers</span>
+<span class="w">    </span>http-request<span class="w"> </span>add-header<span class="w"> </span>X-Forwarded-Proto<span class="w"> </span>https
+<span class="w">    </span>http-request<span class="w"> </span>set-header<span class="w"> </span>X-Client-IP<span class="w"> </span>%<span class="o">[</span>src<span class="o">]</span>
+<span class="w">    </span>default_backend<span class="w"> </span>web_back
+
+backend<span class="w"> </span>web_back
+<span class="w">    </span><span class="c1"># Add backend headers</span>
+<span class="w">    </span>http-request<span class="w"> </span>add-header<span class="w"> </span>X-Backend-Server<span class="w"> </span>%<span class="o">[</span>srv_name<span class="o">]</span>
+<span class="w">    </span><span class="c1"># Remove headers</span>
+<span class="w">    </span>http-response<span class="w"> </span>del-header<span class="w"> </span>Server
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check
+</code></pre></div>
+<h4 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>frontend<span class="w"> </span>http_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+<span class="w">    </span><span class="c1"># Track client requests</span>
+<span class="w">    </span>stick-table<span class="w"> </span><span class="nb">type</span><span class="w"> </span>ip<span class="w"> </span>size<span class="w"> </span>100k<span class="w"> </span>expire<span class="w"> </span>30s<span class="w"> </span>store<span class="w"> </span>http_req_rate<span class="o">(</span>10s<span class="o">)</span>
+<span class="w">    </span>http-request<span class="w"> </span>track-sc0<span class="w"> </span>src
+<span class="w">    </span><span class="c1"># Deny if more than 100 requests in 10 seconds</span>
+<span class="w">    </span>http-request<span class="w"> </span>deny<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>sc_http_req_rate<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span>gt<span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="o">}</span>
+<span class="w">    </span>default_backend<span class="w"> </span>web_back
+</code></pre></div>
+<h3 id="haproxy-statistics-page">HAProxy Statistics Page<a class="headerlink" href="#haproxy-statistics-page" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>frontend<span class="w"> </span>http_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+<span class="w">    </span><span class="c1"># Enable stats</span>
+<span class="w">    </span>stats<span class="w"> </span><span class="nb">enable</span>
+<span class="w">    </span>stats<span class="w"> </span>uri<span class="w"> </span>/haproxy-stats
+<span class="w">    </span>stats<span class="w"> </span>auth<span class="w"> </span>admin:password
+<span class="w">    </span>stats<span class="w"> </span>refresh<span class="w"> </span>30s
+<span class="w">    </span>default_backend<span class="w"> </span>web_back
+</code></pre></div>
+<p>Access: <a href="http://your-server/haproxy-stats">http://your-server/haproxy-stats</a></p>
+<h3 id="haproxy-runtime-api">HAProxy Runtime API<a class="headerlink" href="#haproxy-runtime-api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect to admin socket</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show stat&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+
+<span class="c1"># Show servers</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show servers state&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+
+<span class="c1"># Disable server</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;disable server web_back/web1&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+
+<span class="c1"># Enable server</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;enable server web_back/web1&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+
+<span class="c1"># Set server weight</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;set weight web_back/web1 50&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+</code></pre></div>
+<hr />
+<h2 id="nginx-as-reverse-proxy-and-load-balancer">Nginx as Reverse Proxy and Load Balancer<a class="headerlink" href="#nginx-as-reverse-proxy-and-load-balancer" title="Permanent link">&para;</a></h2>
+<h3 id="installation_1">Installation<a class="headerlink" href="#installation_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Fedora</span>
+dnf<span class="w"> </span>install<span class="w"> </span>nginx
+
+<span class="c1"># Ubuntu/Debian</span>
+apt<span class="w"> </span>install<span class="w"> </span>nginx
+
+<span class="c1"># Start service</span>
+systemctl<span class="w"> </span>start<span class="w"> </span>nginx
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx
+</code></pre></div>
+<h3 id="basic-reverse-proxy-configuration">Basic Reverse Proxy Configuration<a class="headerlink" href="#basic-reverse-proxy-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/nginx/nginx.conf or /etc/nginx/conf.d/proxy.conf</span>
+
+<span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.12</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Test and reload:
+<div class="highlight"><pre><span></span><code><span class="c1"># Test configuration</span>
+nginx<span class="w"> </span>-t
+
+<span class="c1"># Reload</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+
+<span class="c1"># Restart</span>
+systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
+</code></pre></div></p>
+<h3 id="load-balancing-methods">Load Balancing Methods<a class="headerlink" href="#load-balancing-methods" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Round robin (default)</span>
+<span class="k">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># Least connections</span>
+<span class="k">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">least_conn</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># IP hash (session persistence)</span>
+<span class="k">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">ip_hash</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># Weighted load balancing</span>
+<span class="k">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">weight=3</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">weight=1</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.12</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">weight=2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># Hash-based (generic)</span>
+<span class="k">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">hash</span><span class="w"> </span><span class="nv">$request_uri</span><span class="w"> </span><span class="s">consistent</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="health-checks_1">Health Checks<a class="headerlink" href="#health-checks_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">max_fails=3</span><span class="w"> </span><span class="s">fail_timeout=30s</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">max_fails=3</span><span class="w"> </span><span class="s">fail_timeout=30s</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.12</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">backup</span><span class="p">;</span><span class="w">  </span><span class="c1"># Backup server</span>
+<span class="p">}</span>
+
+<span class="c1"># max_fails: Number of failed attempts before marking down</span>
+<span class="c1"># fail_timeout: Time to consider server down</span>
+<span class="c1"># backup: Only used when other servers are down</span>
+</code></pre></div>
+<h3 id="ssltls-termination_1">SSL/TLS Termination<a class="headerlink" href="#ssltls-termination_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/nginx/ssl/cert.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/nginx/ssl/key.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_protocols</span><span class="w"> </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_ciphers</span><span class="w"> </span><span class="s">HIGH:!aNULL:!MD5</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Redirect HTTP to HTTPS</span>
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">return</span><span class="w"> </span><span class="mi">301</span><span class="w"> </span><span class="s">https://</span><span class="nv">$server_name$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define cache path</span>
+<span class="k">proxy_cache_path</span><span class="w"> </span><span class="s">/var/cache/nginx</span><span class="w"> </span><span class="s">levels=1:2</span><span class="w"> </span><span class="s">keys_zone=my_cache:10m</span><span class="w"> </span><span class="s">max_size=1g</span><span class="w"> </span><span class="s">inactive=60m</span><span class="p">;</span>
+
+<span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_cache</span><span class="w"> </span><span class="s">my_cache</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_cache_valid</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="mi">60m</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_cache_valid</span><span class="w"> </span><span class="mi">404</span><span class="w"> </span><span class="mi">10m</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_cache_key</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$scheme$request_method$host$request_uri&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Cache-Status</span><span class="w"> </span><span class="nv">$upstream_cache_status</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1"># Rate limiting</span>
+<span class="w">    </span><span class="kn">limit_req_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=mylimit:10m</span><span class="w"> </span><span class="s">rate=10r/s</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1"># Connection limiting</span>
+<span class="w">    </span><span class="kn">limit_conn_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=addr:10m</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">upstream</span><span class="w"> </span><span class="s">backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">least_conn</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">weight=3</span><span class="w"> </span><span class="s">max_fails=2</span><span class="w"> </span><span class="s">fail_timeout=30s</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">weight=2</span><span class="w"> </span><span class="s">max_fails=2</span><span class="w"> </span><span class="s">fail_timeout=30s</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.12</span><span class="p">:</span><span class="mi">80</span><span class="w"> </span><span class="s">backup</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1"># Keepalive connections</span>
+<span class="w">        </span><span class="kn">keepalive</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.com</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1"># Apply rate limit</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">limit_req</span><span class="w"> </span><span class="s">zone=mylimit</span><span class="w"> </span><span class="s">burst=20</span><span class="w"> </span><span class="s">nodelay</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">limit_conn</span><span class="w"> </span><span class="s">addr</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1"># Timeouts</span>
+<span class="w">            </span><span class="kn">proxy_connect_timeout</span><span class="w"> </span><span class="s">60s</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_send_timeout</span><span class="w"> </span><span class="s">60s</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_read_timeout</span><span class="w"> </span><span class="s">60s</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1"># Static content (bypass backend)</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(jpg|jpeg|png|gif|ico|css|js)</span>$<span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/static</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">expires</span><span class="w"> </span><span class="s">30d</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">access_log</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1"># Health check endpoint</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/health</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">access_log</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">return</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="s">&quot;healthy\n&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="apache-as-reverse-proxy">Apache as Reverse Proxy<a class="headerlink" href="#apache-as-reverse-proxy" title="Permanent link">&para;</a></h2>
+<h3 id="installation-and-modules">Installation and Modules<a class="headerlink" href="#installation-and-modules" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Fedora</span>
+dnf<span class="w"> </span>install<span class="w"> </span>httpd
+
+<span class="c1"># Enable proxy modules</span>
+<span class="c1"># Modules are typically enabled by default or in:</span>
+<span class="c1"># /etc/httpd/conf.modules.d/00-proxy.conf</span>
+
+<span class="c1"># Required modules:</span>
+<span class="c1"># mod_proxy</span>
+<span class="c1"># mod_proxy_http</span>
+<span class="c1"># mod_proxy_balancer</span>
+<span class="c1"># mod_lbmethod_byrequests</span>
+
+<span class="c1"># Ubuntu/Debian</span>
+apt<span class="w"> </span>install<span class="w"> </span>apache2
+a2enmod<span class="w"> </span>proxy
+a2enmod<span class="w"> </span>proxy_http
+a2enmod<span class="w"> </span>proxy_balancer
+a2enmod<span class="w"> </span>lbmethod_byrequests
+
+systemctl<span class="w"> </span>restart<span class="w"> </span>httpd<span class="w">  </span><span class="c1"># or apache2</span>
+</code></pre></div>
+<h3 id="basic-reverse-proxy">Basic Reverse Proxy<a class="headerlink" href="#basic-reverse-proxy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c"># /etc/httpd/conf.d/proxy.conf</span>
+
+<span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.com
+
+<span class="w">    </span><span class="nb">ProxyPreserveHost</span><span class="w"> </span><span class="k">On</span>
+<span class="w">    </span><span class="nb">ProxyPass</span><span class="w"> </span>/<span class="w"> </span>http://192.168.1.10/
+<span class="w">    </span><span class="nb">ProxyPassReverse</span><span class="w"> </span>/<span class="w"> </span>http://192.168.1.10/
+
+<span class="w">    </span><span class="c"># Logging</span>
+<span class="w">    </span><span class="nb">ErrorLog</span><span class="w"> </span><span class="sx">/var/log/httpd/proxy_error.log</span>
+<span class="w">    </span><span class="nb">CustomLog</span><span class="w"> </span><span class="sx">/var/log/httpd/proxy_access.log</span><span class="w"> </span>combined
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<h3 id="load-balancer-configuration">Load Balancer Configuration<a class="headerlink" href="#load-balancer-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.com
+
+<span class="w">    </span><span class="c"># Load balancer</span>
+<span class="w">    </span><span class="nt">&lt;Proxy</span><span class="w"> </span><span class="s">balancer://mycluster</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.10:80
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.11:80
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.12:80
+
+<span class="w">        </span><span class="c"># Load balancing method</span>
+<span class="w">        </span><span class="nb">ProxySet</span><span class="w"> </span>lbmethod=byrequests
+<span class="w">        </span><span class="c"># Options: byrequests, bytraffic, bybusyness</span>
+<span class="w">    </span><span class="nt">&lt;/Proxy&gt;</span>
+
+<span class="w">    </span><span class="nb">ProxyPreserveHost</span><span class="w"> </span><span class="k">On</span>
+<span class="w">    </span><span class="nb">ProxyPass</span><span class="w"> </span>/<span class="w"> </span>balancer://mycluster/
+<span class="w">    </span><span class="nb">ProxyPassReverse</span><span class="w"> </span>/<span class="w"> </span>balancer://mycluster/
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<h3 id="advanced-apache-load-balancer">Advanced Apache Load Balancer<a class="headerlink" href="#advanced-apache-load-balancer" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.com
+
+<span class="w">    </span><span class="nt">&lt;Proxy</span><span class="w"> </span><span class="s">balancer://mycluster</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="c"># Server definitions with parameters</span>
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.10:80<span class="w"> </span>loadfactor=3<span class="w"> </span>route=node1
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.11:80<span class="w"> </span>loadfactor=2<span class="w"> </span>route=node2
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.12:80<span class="w"> </span>loadfactor=1<span class="w"> </span>status=+H
+<span class="w">        </span><span class="c"># status=+H means hot standby (backup)</span>
+
+<span class="w">        </span><span class="c"># Health check (requires mod_proxy_hcheck)</span>
+<span class="w">        </span><span class="c"># ProxySet lbmethod=bybusyness</span>
+
+<span class="w">        </span><span class="c"># Session stickiness</span>
+<span class="w">        </span><span class="nb">ProxySet</span><span class="w"> </span>stickysession=ROUTEID
+<span class="w">    </span><span class="nt">&lt;/Proxy&gt;</span>
+
+<span class="w">    </span><span class="c"># Headers</span>
+<span class="w">    </span><span class="nb">RequestHeader</span><span class="w"> </span>set<span class="w"> </span>X-Forwarded-Proto<span class="w"> </span><span class="s2">&quot;http&quot;</span>
+<span class="w">    </span><span class="nb">RequestHeader</span><span class="w"> </span>set<span class="w"> </span>X-Forwarded-Port<span class="w"> </span><span class="s2">&quot;80&quot;</span>
+
+<span class="w">    </span><span class="nb">ProxyPass</span><span class="w"> </span>/<span class="w"> </span>balancer://mycluster/
+<span class="w">    </span><span class="nb">ProxyPassReverse</span><span class="w"> </span>/<span class="w"> </span>balancer://mycluster/
+
+<span class="w">    </span><span class="c"># Manager interface</span>
+<span class="w">    </span><span class="nt">&lt;Location</span><span class="w"> </span><span class="s">/balancer-manager</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nb">SetHandler</span><span class="w"> </span>balancer-manager
+<span class="w">        </span><span class="nb">Require</span><span class="w"> </span>ip<span class="w"> </span><span class="m">192.168.1.0/24</span>
+<span class="w">    </span><span class="nt">&lt;/Location&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<h3 id="ssl-termination">SSL Termination<a class="headerlink" href="#ssl-termination" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:443</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.com
+
+<span class="w">    </span><span class="nb">SSLEngine</span><span class="w"> </span><span class="k">on</span>
+<span class="w">    </span><span class="nb">SSLCertificateFile</span><span class="w"> </span><span class="sx">/etc/pki/tls/certs/cert.pem</span>
+<span class="w">    </span><span class="nb">SSLCertificateKeyFile</span><span class="w"> </span><span class="sx">/etc/pki/tls/private/key.pem</span>
+
+<span class="w">    </span><span class="nt">&lt;Proxy</span><span class="w"> </span><span class="s">balancer://mycluster</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.10:80
+<span class="w">        </span><span class="nb">BalancerMember</span><span class="w"> </span>http://192.168.1.11:80
+<span class="w">    </span><span class="nt">&lt;/Proxy&gt;</span>
+
+<span class="w">    </span><span class="nb">RequestHeader</span><span class="w"> </span>set<span class="w"> </span>X-Forwarded-Proto<span class="w"> </span><span class="s2">&quot;https&quot;</span>
+<span class="w">    </span><span class="nb">ProxyPreserveHost</span><span class="w"> </span><span class="k">On</span>
+<span class="w">    </span><span class="nb">ProxyPass</span><span class="w"> </span>/<span class="w"> </span>balancer://mycluster/
+<span class="w">    </span><span class="nb">ProxyPassReverse</span><span class="w"> </span>/<span class="w"> </span>balancer://mycluster/
+<span class="nt">&lt;/VirtualHost&gt;</span>
+
+<span class="c"># HTTP to HTTPS redirect</span>
+<span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.com
+<span class="w">    </span><span class="nb">Redirect</span><span class="w"> </span>permanent<span class="w"> </span>/<span class="w"> </span>https://example.com/
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<hr />
+<h2 id="comparison-haproxy-vs-nginx-vs-apache">Comparison: HAProxy vs Nginx vs Apache<a class="headerlink" href="#comparison-haproxy-vs-nginx-vs-apache" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>HAProxy</th>
+<th>Nginx</th>
+<th>Apache</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Use</strong></td>
+<td>Load balancing</td>
+<td>Web server + proxy</td>
+<td>Web server + proxy</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Excellent</td>
+<td>Excellent</td>
+<td>Good</td>
+</tr>
+<tr>
+<td><strong>Configuration</strong></td>
+<td>Moderate complexity</td>
+<td>Moderate</td>
+<td>Complex</td>
+</tr>
+<tr>
+<td><strong>Layer 4 LB</strong></td>
+<td>Yes</td>
+<td>Yes (stream)</td>
+<td>Limited</td>
+</tr>
+<tr>
+<td><strong>Layer 7 LB</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Health Checks</strong></td>
+<td>Advanced</td>
+<td>Basic+</td>
+<td>Basic</td>
+</tr>
+<tr>
+<td><strong>SSL Termination</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Statistics</strong></td>
+<td>Built-in</td>
+<td>Third-party</td>
+<td>mod_status</td>
+</tr>
+<tr>
+<td><strong>Hot Reload</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Limited</td>
+</tr>
+<tr>
+<td><strong>Ease of Use</strong></td>
+<td>Moderate</td>
+<td>Good</td>
+<td>Moderate</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-scenarios">Common Scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="scenario-1-web-application-load-balancer">Scenario 1: Web Application Load Balancer<a class="headerlink" href="#scenario-1-web-application-load-balancer" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Nginx configuration</span>
+<span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">upstream</span><span class="w"> </span><span class="s">webapp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">least_conn</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.10</span><span class="p">:</span><span class="mi">8080</span><span class="w"> </span><span class="s">weight=2</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.11</span><span class="p">:</span><span class="mi">8080</span><span class="w"> </span><span class="s">weight=2</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.12</span><span class="p">:</span><span class="mi">8080</span><span class="w"> </span><span class="s">weight=1</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">keepalive</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">app.example.com</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://webapp</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_http_version</span><span class="w"> </span><span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Connection</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="scenario-2-api-gateway-with-rate-limiting">Scenario 2: API Gateway with Rate Limiting<a class="headerlink" href="#scenario-2-api-gateway-with-rate-limiting" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">limit_req_zone</span><span class="w"> </span><span class="nv">$binary_remote_addr</span><span class="w"> </span><span class="s">zone=api_limit:10m</span><span class="w"> </span><span class="s">rate=100r/s</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">upstream</span><span class="w"> </span><span class="s">api_backend</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.20</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server</span><span class="w"> </span><span class="n">192.168.1.21</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kn">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">server_name</span><span class="w"> </span><span class="s">api.example.com</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="s">/api/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kn">limit_req</span><span class="w"> </span><span class="s">zone=api_limit</span><span class="w"> </span><span class="s">burst=50</span><span class="w"> </span><span class="s">nodelay</span><span class="p">;</span>
+
+<span class="w">            </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://api_backend</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="scenario-3-high-availability-setup-with-health-checks">Scenario 3: High Availability Setup with Health Checks<a class="headerlink" href="#scenario-3-high-availability-setup-with-health-checks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># HAProxy configuration</span>
+frontend<span class="w"> </span>http_front
+<span class="w">    </span><span class="nb">bind</span><span class="w"> </span>*:80
+<span class="w">    </span>default_backend<span class="w"> </span>web_servers
+
+backend<span class="w"> </span>web_servers
+<span class="w">    </span>balance<span class="w"> </span>leastconn
+<span class="w">    </span>option<span class="w"> </span>httpchk<span class="w"> </span>GET<span class="w"> </span>/health<span class="w"> </span>HTTP/1.1<span class="se">\r\n</span>Host:<span class="se">\ </span>example.com
+<span class="w">    </span>http-check<span class="w"> </span>expect<span class="w"> </span>status<span class="w"> </span><span class="m">200</span>
+
+<span class="w">    </span>server<span class="w"> </span>web1<span class="w"> </span><span class="m">192</span>.168.1.10:80<span class="w"> </span>check<span class="w"> </span>inter<span class="w"> </span>5s<span class="w"> </span>fall<span class="w"> </span><span class="m">3</span><span class="w"> </span>rise<span class="w"> </span><span class="m">2</span>
+<span class="w">    </span>server<span class="w"> </span>web2<span class="w"> </span><span class="m">192</span>.168.1.11:80<span class="w"> </span>check<span class="w"> </span>inter<span class="w"> </span>5s<span class="w"> </span>fall<span class="w"> </span><span class="m">3</span><span class="w"> </span>rise<span class="w"> </span><span class="m">2</span>
+<span class="w">    </span>server<span class="w"> </span>web3<span class="w"> </span><span class="m">192</span>.168.1.12:80<span class="w"> </span>check<span class="w"> </span>inter<span class="w"> </span>5s<span class="w"> </span>fall<span class="w"> </span><span class="m">3</span><span class="w"> </span>rise<span class="w"> </span><span class="m">2</span><span class="w"> </span>backup
+</code></pre></div>
+<h3 id="scenario-4-ssl-offloading">Scenario 4: SSL Offloading<a class="headerlink" href="#scenario-4-ssl-offloading" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">secure.example.com</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/etc/nginx/ssl/cert.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/etc/nginx/ssl/key.pem</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">ssl_protocols</span><span class="w"> </span><span class="s">TLSv1.2</span><span class="w"> </span><span class="s">TLSv1.3</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://backend</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="s">https</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="monitoring-and-logging">Monitoring and Logging<a class="headerlink" href="#monitoring-and-logging" title="Permanent link">&para;</a></h2>
+<h3 id="haproxy-stats">HAProxy Stats<a class="headerlink" href="#haproxy-stats" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Via stats page</span>
+frontend<span class="w"> </span>http_front
+<span class="w">    </span>stats<span class="w"> </span><span class="nb">enable</span>
+<span class="w">    </span>stats<span class="w"> </span>uri<span class="w"> </span>/stats
+<span class="w">    </span>stats<span class="w"> </span>auth<span class="w"> </span>admin:password
+
+<span class="c1"># Via socket</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show stat&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+
+<span class="c1"># Show info</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show info&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock
+</code></pre></div>
+<h3 id="nginx-status">Nginx Status<a class="headerlink" href="#nginx-status" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/nginx_status</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">stub_status</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">access_log</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">allow</span><span class="w"> </span><span class="mi">127</span><span class="s">.0.0.1</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">deny</span><span class="w"> </span><span class="s">all</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="logs">Logs<a class="headerlink" href="#logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># HAProxy logs</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/haproxy.log
+
+<span class="c1"># Nginx logs</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nginx/access.log
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/nginx/error.log
+
+<span class="c1"># Apache logs</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/httpd/access_log
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/httpd/error_log
+</code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="check-configuration">Check Configuration<a class="headerlink" href="#check-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># HAProxy</span>
+haproxy<span class="w"> </span>-c<span class="w"> </span>-f<span class="w"> </span>/etc/haproxy/haproxy.cfg
+
+<span class="c1"># Nginx</span>
+nginx<span class="w"> </span>-t
+
+<span class="c1"># Apache</span>
+apachectl<span class="w"> </span>configtest
+httpd<span class="w"> </span>-t
+</code></pre></div>
+<h3 id="test-backend-connectivity">Test Backend Connectivity<a class="headerlink" href="#test-backend-connectivity" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># From load balancer</span>
+curl<span class="w"> </span>-I<span class="w"> </span>http://192.168.1.10/
+telnet<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">80</span>
+nc<span class="w"> </span>-vz<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">80</span>
+</code></pre></div>
+<h3 id="debug-issues">Debug Issues<a class="headerlink" href="#debug-issues" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if service is running</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>haproxy
+systemctl<span class="w"> </span>status<span class="w"> </span>nginx
+systemctl<span class="w"> </span>status<span class="w"> </span>httpd
+
+<span class="c1"># Check listening ports</span>
+ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>haproxy
+ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nginx
+
+<span class="c1"># View connections</span>
+ss<span class="w"> </span>-tn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:80
+
+<span class="c1"># Check logs</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>haproxy<span class="w"> </span>-f
+journalctl<span class="w"> </span>-u<span class="w"> </span>nginx<span class="w"> </span>-f
+</code></pre></div>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Backend servers not responding:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check health</span>
+curl<span class="w"> </span>http://backend-ip/health
+
+<span class="c1"># Verify firewall</span>
+firewall-cmd<span class="w"> </span>--list-all
+
+<span class="c1"># Check backend logs</span>
+</code></pre></div></p>
+<p><strong>SSL certificate errors:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify certificate</span>
+openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> </span>/path/to/cert.pem<span class="w"> </span>-text<span class="w"> </span>-noout
+
+<span class="c1"># Test SSL</span>
+openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>example.com:443
+</code></pre></div></p>
+<hr />
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<h3 id="haproxy">HAProxy<a class="headerlink" href="#haproxy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>haproxy<span class="w"> </span>-c<span class="w"> </span>-f<span class="w"> </span>/etc/haproxy/haproxy.cfg<span class="w">    </span><span class="c1"># Test config</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>haproxy<span class="w">                   </span><span class="c1"># Reload</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show stat&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>socat<span class="w"> </span>stdio<span class="w"> </span>/run/haproxy/admin.sock<span class="w">  </span><span class="c1"># Stats</span>
+</code></pre></div>
+<h3 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>nginx<span class="w"> </span>-t<span class="w">                                   </span><span class="c1"># Test config</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>nginx<span class="w">                     </span><span class="c1"># Reload</span>
+curl<span class="w"> </span>http://localhost/nginx_status<span class="w">         </span><span class="c1"># Status</span>
+</code></pre></div>
+<h3 id="apache">Apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>apachectl<span class="w"> </span>configtest<span class="w">                       </span><span class="c1"># Test config</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>httpd<span class="w">                     </span><span class="c1"># Reload</span>
+curl<span class="w"> </span>http://localhost/server-status<span class="w">        </span><span class="c1"># Status</span>
+</code></pre></div>
+<hr />
+<h2 id="exam-tips">Exam Tips<a class="headerlink" href="#exam-tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Know how to configure basic reverse proxy with Nginx or HAProxy</li>
+<li>Understand load balancing algorithms (round-robin, least-conn, etc.)</li>
+<li>Be familiar with health checks configuration</li>
+<li>Know how to implement SSL termination</li>
+<li>Understand session persistence mechanisms</li>
+<li>Practice testing configurations before applying</li>
+<li>Know how to view statistics and monitor</li>
+<li>Be comfortable with ACLs and routing rules</li>
+<li>Understand the difference between Layer 4 and Layer 7 load balancing</li>
+<li>Know how to troubleshoot backend connectivity issues</li>
+<li>Practice configuring multiple backends with different weights</li>
+<li>Understand when to use each solution (HAProxy vs Nginx vs Apache)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../bridge-bonding/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configure Bridge and Bonding Devices">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Configure Bridge and Bonding Devices
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

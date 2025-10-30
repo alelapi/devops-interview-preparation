@@ -13,25 +13,25 @@
       
       
       
-        <link rel="prev" href="../virtual-file-system/">
+        <link rel="prev" href="../swap-space/">
       
       
-        <link rel="next" href="../remote-filesystems/">
+        <link rel="next" href="../storage-performance/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>Create, Manage, and Troubleshoot Filesystems - My DevOps Interview Preparation</title>
+        <title>Configure Filesystem Automounters - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-manage-and-troubleshoot-filesystems" class="md-skip">
+        <a href="#configure-filesystem-automounters" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Create, Manage, and Troubleshoot Filesystems
+              Configure Filesystem Automounters
             
           </span>
         </div>
@@ -223,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
           
   
   
@@ -298,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -343,6 +343,15 @@
   
     
     
+      
+  
+  
+  
+    
+  
+  
+    
+    
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../lvm-storage/" class="md-tabs__link">
           
@@ -354,6 +363,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -380,7 +392,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -410,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -574,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -597,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -620,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -643,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -666,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -689,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -712,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -735,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -821,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -844,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -867,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -890,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -913,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -999,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1022,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1045,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1068,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1091,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1179,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1202,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1225,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1248,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1271,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1294,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1378,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1401,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1424,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1447,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1531,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1554,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1577,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1600,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1692,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1715,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1738,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1761,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1784,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1807,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1830,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1853,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -1935,7 +1947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -1958,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -1981,7 +1993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2071,7 +2083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2094,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2117,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2140,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2163,7 +2175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2186,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2209,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2240,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/appsync/" class="md-nav__link">
+      <a href="../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2263,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cdk/" class="md-nav__link">
+      <a href="../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2286,7 +2298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2309,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/codestar/" class="md-nav__link">
+      <a href="../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2332,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sar/" class="md-nav__link">
+      <a href="../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2355,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/step_function/" class="md-nav__link">
+      <a href="../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2378,7 +2390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sts/" class="md-nav__link">
+      <a href="../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2401,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/swf/" class="md-nav__link">
+      <a href="../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2424,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2533,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
         
   
   
@@ -2556,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -2579,7 +2591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   
@@ -2602,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   
@@ -2625,7 +2637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -2648,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   
@@ -2671,7 +2683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   
@@ -2694,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
         
   
   
@@ -2717,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
         
   
   
@@ -2740,7 +2752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -2763,7 +2775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   
@@ -2786,7 +2798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
         
   
   
@@ -2809,7 +2821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cilium/" class="md-nav__link">
         
   
   
@@ -2885,7 +2897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -2908,7 +2920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -2931,7 +2943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -3007,7 +3019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -3030,7 +3042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3053,7 +3065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3076,7 +3088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3176,7 +3188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/etcd/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/etcd/" class="md-nav__link">
         
   
   
@@ -3199,7 +3211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/vpa/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/vpa/" class="md-nav__link">
         
   
   
@@ -3222,7 +3234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -3245,7 +3257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/utilities/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/utilities/" class="md-nav__link">
         
   
   
@@ -3268,7 +3280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/openssl/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/openssl/" class="md-nav__link">
         
   
   
@@ -3291,7 +3303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/helm/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/helm/" class="md-nav__link">
         
   
   
@@ -3314,7 +3326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/cri/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/cri/" class="md-nav__link">
         
   
   
@@ -3337,7 +3349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/jsonpath/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -3427,7 +3439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -3450,7 +3462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -3473,7 +3485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -3496,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -3519,7 +3531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/security_context/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -3542,7 +3554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -3565,7 +3577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -3671,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -3694,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cert_auth/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/cert_auth/" class="md-nav__link">
         
   
   
@@ -3717,7 +3729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/apparmor/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/apparmor/" class="md-nav__link">
         
   
   
@@ -3740,7 +3752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/falco/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/falco/" class="md-nav__link">
         
   
   
@@ -3763,7 +3775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/seccomp/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/seccomp/" class="md-nav__link">
         
   
   
@@ -3786,7 +3798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/image_scanning/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/image_scanning/" class="md-nav__link">
         
   
   
@@ -3809,7 +3821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/kube_bench/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/kube_bench/" class="md-nav__link">
         
   
   
@@ -3832,7 +3844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/audit_logging/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/audit_logging/" class="md-nav__link">
         
   
   
@@ -3855,7 +3867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
         
   
   
@@ -3878,7 +3890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/cilium/" class="md-nav__link">
         
   
   
@@ -3901,7 +3913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -3924,7 +3936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/istio_mtls/" class="md-nav__link">
         
   
   
@@ -3947,7 +3959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/opa/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/opa/" class="md-nav__link">
         
   
   
@@ -3970,7 +3982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/runtimeclass/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/runtimeclass/" class="md-nav__link">
         
   
   
@@ -4058,7 +4070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
         
   
   
@@ -4081,7 +4093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
         
   
   
@@ -4104,7 +4116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
         
   
   
@@ -4127,7 +4139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
         
   
   
@@ -4150,7 +4162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
         
   
   
@@ -4173,7 +4185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
         
   
   
@@ -4196,7 +4208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
         
   
   
@@ -4219,7 +4231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
         
   
   
@@ -4242,7 +4254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
         
   
   
@@ -4265,7 +4277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
         
   
   
@@ -4368,7 +4380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -4391,7 +4403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -4414,7 +4426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -4437,7 +4449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -4460,7 +4472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -4483,7 +4495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -4560,7 +4572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -4593,16 +4605,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -4644,6 +4646,70 @@
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4697,32 +4763,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Create, Manage, and Troubleshoot Filesystems
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../filesystems/" class="md-nav__link">
         
   
   
@@ -4733,464 +4777,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-a-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is a Filesystem?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What is a Filesystem?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-different-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Different Filesystems?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-linux-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Linux Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Linux Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ext4-fourth-extended-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      ext4 - Fourth Extended Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfs-high-performance-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      XFS - High Performance Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#btrfs-b-tree-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Btrfs - B-Tree Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fat32-and-exfat" class="md-nav__link">
-    <span class="md-ellipsis">
-      FAT32 and exFAT
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Creating Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mkfsext4-create-ext4-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      mkfs.ext4 - Create ext4 Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mkfsxfs-create-xfs-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      mkfs.xfs - Create XFS Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mkfsbtrfs-create-btrfs-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      mkfs.btrfs - Create Btrfs Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mkfsvfat-create-fat32-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      mkfs.vfat - Create FAT32 Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mounting-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mounting Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Mounting Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#understanding-mounting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding Mounting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mount-attach-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      mount - Attach Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#umount-detach-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      umount - Detach Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etcfstab-permanent-mounts" class="md-nav__link">
-    <span class="md-ellipsis">
-      /etc/fstab - Permanent Mounts
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#managing-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Managing Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Managing Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tune2fs-tune-ext4-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      tune2fs - Tune ext4 Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfs_admin-manage-xfs-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      xfs_admin - Manage XFS Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#btrfs-manage-btrfs-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      btrfs - Manage Btrfs Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-and-repairing-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checking and Repairing Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Checking and Repairing Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fsck-filesystem-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      fsck - Filesystem Check
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#e2fsck-ext4-filesystem-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      e2fsck - ext4 Filesystem Check
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfs_repair-xfs-filesystem-repair" class="md-nav__link">
-    <span class="md-ellipsis">
-      xfs_repair - XFS Filesystem Repair
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resizing-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resizing Filesystems
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Resizing Filesystems">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#resize2fs-resize-ext4" class="md-nav__link">
-    <span class="md-ellipsis">
-      resize2fs - Resize ext4
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfs_growfs-grow-xfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      xfs_growfs - Grow XFS
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-filesystem-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checking Filesystem Information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Checking Filesystem Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blkid-block-device-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      blkid - Block Device Information
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lsblk-list-block-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      lsblk - List Block Devices
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#problem-filesystem-wont-mount" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problem: Filesystem Won&rsquo;t Mount
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#problem-device-is-busy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problem: Device is Busy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#problem-read-only-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problem: Read-only Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#problem-no-space-left-on-device-but-df-shows-space" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problem: No Space Left on Device (But df Shows Space)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#creating-filesystems_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mounting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mounting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checking" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checking
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resizing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resizing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Information
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -5246,10 +4832,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../automounters/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configure Filesystem Automounters
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -5260,6 +4868,440 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-automounters" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Automounters?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What are Automounters?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-automounters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use Automounters?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-automount-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Automount Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How Automount Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-autofs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing autofs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#master-map-etcautomaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master Map - /etc/auto.master
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indirect-maps-most-common-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indirect Maps - Most Common Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Indirect Maps - Most Common Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-indirect-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Indirect Maps?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-indirect-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Indirect Maps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-file-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map File Format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-maps-specific-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Maps - Specific Paths
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direct Maps - Specific Paths">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-direct-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Direct Maps?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-direct-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Direct Maps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Configurations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-home-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      User Home Directories
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-data-shares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Data Shares
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-cifs-shares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows (CIFS) Shares
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removable-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removable Media
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcards-and-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wildcards and Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-server-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Server Failover
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-automounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nested Automounts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-autofs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing autofs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing autofs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-mount-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Mount Not Working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Permission Denied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-mount-not-unmounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Mount Not Unmounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-slow-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Slow Performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Complete Example
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-indirect-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Indirect Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-direct-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Direct Map
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -5283,6 +5325,270 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/ipv4-ipv6-hostname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/time-synchronization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set and Synchronize System Time Using Time Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/monitor-troubleshoot-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor and Troubleshoot Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/openssh-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/packet-filtering-nat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Packet Filtering, Port Redirection, and NAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/static-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Static Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/bridge-bonding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Bridge and Bonding Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/reverse-proxy-load-balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -5322,19 +5628,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-filesystem" class="md-nav__link">
+  <a href="#what-are-automounters" class="md-nav__link">
     <span class="md-ellipsis">
-      What is a Filesystem?
+      What are Automounters?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What is a Filesystem?">
+    <nav class="md-nav" aria-label="What are Automounters?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-different-filesystems" class="md-nav__link">
+  <a href="#why-use-automounters" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Different Filesystems?
+      Why Use Automounters?
     </span>
   </a>
   
@@ -5346,46 +5652,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-linux-filesystems" class="md-nav__link">
+  <a href="#how-automount-works" class="md-nav__link">
     <span class="md-ellipsis">
-      Common Linux Filesystems
+      How Automount Works
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Common Linux Filesystems">
+    <nav class="md-nav" aria-label="How Automount Works">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ext4-fourth-extended-filesystem" class="md-nav__link">
+  <a href="#components" class="md-nav__link">
     <span class="md-ellipsis">
-      ext4 - Fourth Extended Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#xfs-high-performance-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      XFS - High Performance Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#btrfs-b-tree-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Btrfs - B-Tree Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fat32-and-exfat" class="md-nav__link">
-    <span class="md-ellipsis">
-      FAT32 and exFAT
+      Components
     </span>
   </a>
   
@@ -5397,46 +5676,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-filesystems" class="md-nav__link">
+  <a href="#installing-autofs" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating Filesystems
+      Installing autofs
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating Filesystems">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#master-map-etcautomaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master Map - /etc/auto.master
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indirect-maps-most-common-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indirect Maps - Most Common Type
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Indirect Maps - Most Common Type">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mkfsext4-create-ext4-filesystem" class="md-nav__link">
+  <a href="#what-are-indirect-maps" class="md-nav__link">
     <span class="md-ellipsis">
-      mkfs.ext4 - Create ext4 Filesystem
+      What are Indirect Maps?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mkfsxfs-create-xfs-filesystem" class="md-nav__link">
+  <a href="#creating-indirect-maps" class="md-nav__link">
     <span class="md-ellipsis">
-      mkfs.xfs - Create XFS Filesystem
+      Creating Indirect Maps
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mkfsbtrfs-create-btrfs-filesystem" class="md-nav__link">
+  <a href="#map-file-format" class="md-nav__link">
     <span class="md-ellipsis">
-      mkfs.btrfs - Create Btrfs Filesystem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mkfsvfat-create-fat32-filesystem" class="md-nav__link">
-    <span class="md-ellipsis">
-      mkfs.vfat - Create FAT32 Filesystem
+      Map File Format
     </span>
   </a>
   
@@ -5448,46 +5736,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mounting-filesystems" class="md-nav__link">
+  <a href="#direct-maps-specific-paths" class="md-nav__link">
     <span class="md-ellipsis">
-      Mounting Filesystems
+      Direct Maps - Specific Paths
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Mounting Filesystems">
+    <nav class="md-nav" aria-label="Direct Maps - Specific Paths">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#understanding-mounting" class="md-nav__link">
+  <a href="#what-are-direct-maps" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding Mounting
+      What are Direct Maps?
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mount-attach-filesystems" class="md-nav__link">
+  <a href="#creating-direct-maps" class="md-nav__link">
     <span class="md-ellipsis">
-      mount - Attach Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#umount-detach-filesystems" class="md-nav__link">
-    <span class="md-ellipsis">
-      umount - Detach Filesystems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#etcfstab-permanent-mounts" class="md-nav__link">
-    <span class="md-ellipsis">
-      /etc/fstab - Permanent Mounts
+      Creating Direct Maps
     </span>
   </a>
   
@@ -5499,37 +5769,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#managing-filesystems" class="md-nav__link">
+  <a href="#common-configurations" class="md-nav__link">
     <span class="md-ellipsis">
-      Managing Filesystems
+      Common Configurations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Managing Filesystems">
+    <nav class="md-nav" aria-label="Common Configurations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tune2fs-tune-ext4-filesystems" class="md-nav__link">
+  <a href="#user-home-directories" class="md-nav__link">
     <span class="md-ellipsis">
-      tune2fs - Tune ext4 Filesystems
+      User Home Directories
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#xfs_admin-manage-xfs-filesystems" class="md-nav__link">
+  <a href="#multiple-data-shares" class="md-nav__link">
     <span class="md-ellipsis">
-      xfs_admin - Manage XFS Filesystems
+      Multiple Data Shares
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#btrfs-manage-btrfs-filesystems" class="md-nav__link">
+  <a href="#windows-cifs-shares" class="md-nav__link">
     <span class="md-ellipsis">
-      btrfs - Manage Btrfs Filesystems
+      Windows (CIFS) Shares
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removable-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removable Media
     </span>
   </a>
   
@@ -5541,37 +5820,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#checking-and-repairing-filesystems" class="md-nav__link">
+  <a href="#advanced-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Checking and Repairing Filesystems
+      Advanced Features
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Checking and Repairing Filesystems">
+    <nav class="md-nav" aria-label="Advanced Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fsck-filesystem-check" class="md-nav__link">
+  <a href="#wildcards-and-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      fsck - Filesystem Check
+      Wildcards and Variables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#e2fsck-ext4-filesystem-check" class="md-nav__link">
+  <a href="#multiple-server-failover" class="md-nav__link">
     <span class="md-ellipsis">
-      e2fsck - ext4 Filesystem Check
+      Multiple Server Failover
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#xfs_repair-xfs-filesystem-repair" class="md-nav__link">
+  <a href="#nested-automounts" class="md-nav__link">
     <span class="md-ellipsis">
-      xfs_repair - XFS Filesystem Repair
+      Nested Automounts
     </span>
   </a>
   
@@ -5583,61 +5862,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resizing-filesystems" class="md-nav__link">
+  <a href="#managing-autofs" class="md-nav__link">
     <span class="md-ellipsis">
-      Resizing Filesystems
+      Managing autofs
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Resizing Filesystems">
+    <nav class="md-nav" aria-label="Managing autofs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#resize2fs-resize-ext4" class="md-nav__link">
+  <a href="#service-control" class="md-nav__link">
     <span class="md-ellipsis">
-      resize2fs - Resize ext4
+      Service Control
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#xfs_growfs-grow-xfs" class="md-nav__link">
+  <a href="#checking-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      xfs_growfs - Grow XFS
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#checking-filesystem-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checking Filesystem Information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Checking Filesystem Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#blkid-block-device-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      blkid - Block Device Information
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lsblk-list-block-devices" class="md-nav__link">
-    <span class="md-ellipsis">
-      lsblk - List Block Devices
+      Checking Configuration
     </span>
   </a>
   
@@ -5659,36 +5905,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#problem-filesystem-wont-mount" class="md-nav__link">
+  <a href="#problem-mount-not-working" class="md-nav__link">
     <span class="md-ellipsis">
-      Problem: Filesystem Won&rsquo;t Mount
+      Problem: Mount Not Working
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#problem-device-is-busy" class="md-nav__link">
+  <a href="#problem-permission-denied" class="md-nav__link">
     <span class="md-ellipsis">
-      Problem: Device is Busy
+      Problem: Permission Denied
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#problem-read-only-filesystem" class="md-nav__link">
+  <a href="#problem-mount-not-unmounting" class="md-nav__link">
     <span class="md-ellipsis">
-      Problem: Read-only Filesystem
+      Problem: Mount Not Unmounting
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#problem-no-space-left-on-device-but-df-shows-space" class="md-nav__link">
+  <a href="#problem-slow-performance" class="md-nav__link">
     <span class="md-ellipsis">
-      Problem: No Space Left on Device (But df Shows Space)
+      Problem: Slow Performance
     </span>
   </a>
   
@@ -5696,6 +5942,33 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-world-complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Complete Example
+    </span>
+  </a>
   
 </li>
       
@@ -5710,45 +5983,54 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-filesystems_1" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating Filesystems
+      Installation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mounting" class="md-nav__link">
+  <a href="#configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Mounting
+      Configuration Files
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#checking" class="md-nav__link">
+  <a href="#basic-indirect-map" class="md-nav__link">
     <span class="md-ellipsis">
-      Checking
+      Basic Indirect Map
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#resizing" class="md-nav__link">
+  <a href="#basic-direct-map" class="md-nav__link">
     <span class="md-ellipsis">
-      Resizing
+      Basic Direct Map
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#information" class="md-nav__link">
+  <a href="#service-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Information
+      Service Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
     </span>
   </a>
   
@@ -5778,744 +6060,614 @@
   
 
 
-<h1 id="create-manage-and-troubleshoot-filesystems">Create, Manage, and Troubleshoot Filesystems<a class="headerlink" href="#create-manage-and-troubleshoot-filesystems" title="Permanent link">&para;</a></h1>
-<h2 id="what-is-a-filesystem">What is a Filesystem?<a class="headerlink" href="#what-is-a-filesystem" title="Permanent link">&para;</a></h2>
-<p>A filesystem is the method and structure used to organize and store files on a storage device. Think of it as the filing system for your hard drive - it determines how data is stored, how files are named, what metadata is kept, and how space is managed.</p>
-<p>Without a filesystem, a hard drive is just a blank slate. The filesystem gives it structure and makes it usable.</p>
-<h3 id="why-different-filesystems">Why Different Filesystems?<a class="headerlink" href="#why-different-filesystems" title="Permanent link">&para;</a></h3>
-<p>Different filesystems are optimized for different uses:</p>
+<h1 id="configure-filesystem-automounters">Configure Filesystem Automounters<a class="headerlink" href="#configure-filesystem-automounters" title="Permanent link">&para;</a></h1>
+<h2 id="what-are-automounters">What are Automounters?<a class="headerlink" href="#what-are-automounters" title="Permanent link">&para;</a></h2>
+<p>Automounters automatically mount filesystems when you access them, and automatically unmount them when they&rsquo;re not being used. Think of them as smart mounting - the system handles the mounting/unmounting for you.</p>
+<h3 id="why-use-automounters">Why Use Automounters?<a class="headerlink" href="#why-use-automounters" title="Permanent link">&para;</a></h3>
+<p><strong>Without automount:</strong></p>
 <ul>
-<li><strong>ext4:</strong> General purpose, very stable, great for Linux systems</li>
-<li><strong>XFS:</strong> Excellent for large files, high performance, used in enterprise</li>
-<li><strong>Btrfs:</strong> Modern features like snapshots and compression</li>
-<li><strong>VFAT/FAT32:</strong> Cross-platform compatibility (Windows, Mac, Linux)</li>
-<li><strong>NTFS:</strong> Windows native filesystem</li>
-<li><strong>exFAT:</strong> Modern cross-platform for large files</li>
+<li>Mount 20 network shares at boot</li>
+<li>Uses resources even if not needed</li>
+<li>Boot takes longer</li>
+<li>More points of failure</li>
+</ul>
+<p><strong>With automount:</strong></p>
+<ul>
+<li>Mount on-demand (only when accessed)</li>
+<li>Unmount when idle (free resources)</li>
+<li>Faster boot</li>
+<li>More resilient to network issues</li>
+</ul>
+<p><strong>Common uses:</strong></p>
+<ul>
+<li>User home directories on networks</li>
+<li>Shared company data</li>
+<li>USB/CD-ROM auto-mounting</li>
+<li>NFS shares that aren&rsquo;t always needed</li>
+<li>Mounting many filesystems efficiently</li>
 </ul>
 <hr />
-<h2 id="common-linux-filesystems">Common Linux Filesystems<a class="headerlink" href="#common-linux-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="ext4-fourth-extended-filesystem">ext4 - Fourth Extended Filesystem<a class="headerlink" href="#ext4-fourth-extended-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it is:</strong> The most common Linux filesystem. Reliable, mature, and the default on most Linux distributions.</p>
-<p><strong>Best for:</strong></p>
+<h2 id="how-automount-works">How Automount Works<a class="headerlink" href="#how-automount-works" title="Permanent link">&para;</a></h2>
+<p><strong>Traditional mounting:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You manually mount</span>
+mount<span class="w"> </span>server:/home/john<span class="w"> </span>/home/john
+
+<span class="c1"># Must manually unmount</span>
+umount<span class="w"> </span>/home/john
+</code></pre></div>
+<p><strong>Automounting:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You just access the directory</span>
+<span class="nb">cd</span><span class="w"> </span>/home/john
+
+<span class="c1"># System automatically:</span>
+<span class="c1"># 1. Detects access</span>
+<span class="c1"># 2. Mounts server:/home/john</span>
+<span class="c1"># 3. Gives you access</span>
+
+<span class="c1"># After 5 minutes of inactivity:</span>
+<span class="c1"># - System automatically unmounts</span>
+</code></pre></div>
+<h3 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h3>
+<p><strong>Master Map</strong> (<code>/etc/auto.master</code>):</p>
 <ul>
-<li>Linux system partitions</li>
-<li>General purpose storage</li>
-<li>Root and /home partitions</li>
-<li>When you need stability and maturity</li>
+<li>Main configuration</li>
+<li>Points to other maps</li>
+<li>Sets global options</li>
 </ul>
-<p><strong>Key features:</strong></p>
+<p><strong>Map Files</strong>:</p>
 <ul>
-<li>Maximum file size: 16 TB</li>
-<li>Maximum partition size: 1 EB (Exabyte)</li>
-<li>Journaling (protects against corruption)</li>
-<li>Backwards compatible with ext3 and ext2</li>
+<li>Define what to mount and where</li>
+<li>Can be files, LDAP, NIS, etc.</li>
 </ul>
-<p><strong>When to use:</strong> Default choice for most Linux installations. If unsure, use ext4.</p>
-<h3 id="xfs-high-performance-filesystem">XFS - High Performance Filesystem<a class="headerlink" href="#xfs-high-performance-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it is:</strong> Originally from SGI, designed for high-performance computing.</p>
-<p><strong>Best for:</strong></p>
+<p><strong>autofs Service</strong>:</p>
 <ul>
-<li>Large files (videos, databases, disk images)</li>
-<li>High throughput workloads</li>
-<li>Enterprise storage systems</li>
-<li>NAS devices</li>
-</ul>
-<p><strong>Key features:</strong></p>
-<ul>
-<li>Excellent performance with large files</li>
-<li>Online defragmentation</li>
-<li>Can grow online (but cannot shrink!)</li>
-<li>Maximum file size: 8 EB</li>
-</ul>
-<p><strong>When to use:</strong> Database servers, video editing, large file storage.</p>
-<p><strong>Important limitation:</strong> You CANNOT shrink XFS filesystems!</p>
-<h3 id="btrfs-b-tree-filesystem">Btrfs - B-Tree Filesystem<a class="headerlink" href="#btrfs-b-tree-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it is:</strong> Modern filesystem with advanced features like built-in snapshots and compression.</p>
-<p><strong>Best for:</strong></p>
-<ul>
-<li>When you need snapshots</li>
-<li>When you want compression</li>
-<li>Desktop systems</li>
-<li>Development environments</li>
-</ul>
-<p><strong>Key features:</strong></p>
-<ul>
-<li>Built-in snapshots (no LVM needed)</li>
-<li>Online compression</li>
-<li>Self-healing (detects and repairs corruption)</li>
-<li>Subvolumes (like lightweight partitions)</li>
-</ul>
-<p><strong>When to use:</strong> When you want modern features and don&rsquo;t mind some complexity.</p>
-<h3 id="fat32-and-exfat">FAT32 and exFAT<a class="headerlink" href="#fat32-and-exfat" title="Permanent link">&para;</a></h3>
-<p><strong>What they are:</strong> Simple filesystems that work on Windows, Mac, and Linux.</p>
-<p><strong>Best for:</strong></p>
-<ul>
-<li>USB flash drives</li>
-<li>External hard drives</li>
-<li>Sharing files between different operating systems</li>
-</ul>
-<p><strong>Limitations:</strong></p>
-<ul>
-<li><strong>FAT32:</strong> Cannot handle files larger than 4GB</li>
-<li><strong>exFAT:</strong> No file size limit, but not as widely supported as FAT32</li>
+<li>The daemon that does the work</li>
+<li>Monitors access to mount points</li>
+<li>Handles mounting/unmounting</li>
 </ul>
 <hr />
-<h2 id="creating-filesystems">Creating Filesystems<a class="headerlink" href="#creating-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="mkfsext4-create-ext4-filesystem">mkfs.ext4 - Create ext4 Filesystem<a class="headerlink" href="#mkfsext4-create-ext4-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Formats a partition or disk with the ext4 filesystem.</p>
-<p><strong>Why use it:</strong> To make a disk usable for storing files on Linux.</p>
-<p><strong>⚠️ WARNING:</strong> This ERASES all data on the partition!</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic ext4 creation</span>
-mkfs.ext4<span class="w"> </span>/dev/sdb1
+<h2 id="installing-autofs">Installing autofs<a class="headerlink" href="#installing-autofs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Rocky</span>
+dnf<span class="w"> </span>install<span class="w"> </span>autofs
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>autofs
 
-<span class="c1"># With a label (helps identify the filesystem)</span>
-mkfs.ext4<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="w"> </span>/dev/sdb1
+<span class="c1"># Debian/Ubuntu</span>
+apt<span class="w"> </span>install<span class="w"> </span>autofs
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>autofs
 
-<span class="c1"># With less reserved space (default is 5%, which wastes space)</span>
-mkfs.ext4<span class="w"> </span>-m<span class="w"> </span><span class="m">1</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Force creation (even if filesystem already exists)</span>
-mkfs.ext4<span class="w"> </span>-F<span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<p><strong>Real-world scenario - New data drive:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># You added a new 1TB drive to your server</span>
-<span class="c1"># Step 1: Create partition</span>
-fdisk<span class="w"> </span>/dev/sdb
-<span class="c1"># Press: n, p, 1, Enter, Enter, w</span>
-
-<span class="c1"># Step 2: Create ext4 filesystem with label</span>
-mkfs.ext4<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;ServerData&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Output:</span>
-<span class="c1"># Creating filesystem with 262144000 4k blocks and 65536000 inodes</span>
-<span class="c1"># Filesystem UUID: 1234abcd-5678-efgh...</span>
-<span class="c1"># Allocating group tables: done</span>
-<span class="c1"># Writing inode tables: done</span>
-<span class="c1"># Creating journal (32768 blocks): done</span>
-<span class="c1"># Writing superblocks and filesystem accounting information: done</span>
-
-<span class="c1"># Step 3: Create mount point and mount</span>
-mkdir<span class="w"> </span>/data
-mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/data
-
-<span class="c1"># Step 4: Make it permanent</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LABEL=ServerData /data ext4 defaults 0 2&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-</code></pre></div>
-<p><strong>Understanding the output:</strong></p>
-<ul>
-<li><strong>UUID:</strong> Unique identifier for this filesystem</li>
-<li><strong>Inode tables:</strong> Where file metadata is stored</li>
-<li><strong>Journal:</strong> Protects against corruption during crashes</li>
-</ul>
-<h3 id="mkfsxfs-create-xfs-filesystem">mkfs.xfs - Create XFS Filesystem<a class="headerlink" href="#mkfsxfs-create-xfs-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Formats a partition with the XFS filesystem.</p>
-<p><strong>Why use it:</strong> When you need high performance for large files or databases.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic XFS creation</span>
-mkfs.xfs<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># With a label</span>
-mkfs.xfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;Database&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Force creation (overwrite existing)</span>
-mkfs.xfs<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<p><strong>Real-world scenario - Database server:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Creating XFS for PostgreSQL database</span>
-mkfs.xfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;PostgreSQL&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Mount it</span>
-mkdir<span class="w"> </span>/var/lib/postgresql
-mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/var/lib/postgresql
-
-<span class="c1"># Permanent mount</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LABEL=PostgreSQL /var/lib/postgresql xfs defaults 0 2&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-
-<span class="c1"># Change ownership for PostgreSQL</span>
-chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/postgresql
-</code></pre></div>
-<h3 id="mkfsbtrfs-create-btrfs-filesystem">mkfs.btrfs - Create Btrfs Filesystem<a class="headerlink" href="#mkfsbtrfs-create-btrfs-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Creates a Btrfs filesystem with advanced features.</p>
-<p><strong>Why use it:</strong> When you want snapshots, compression, or other modern features.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic Btrfs creation</span>
-mkfs.btrfs<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># With a label</span>
-mkfs.btrfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;BtrfsData&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Create with multiple devices (RAID-like)</span>
-mkfs.btrfs<span class="w"> </span>-d<span class="w"> </span>raid1<span class="w"> </span>-m<span class="w"> </span>raid1<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1
-
-<span class="c1"># Force creation</span>
-mkfs.btrfs<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<p><strong>Real-world scenario - Development workstation:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create Btrfs for /home with snapshot capability</span>
-mkfs.btrfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;Home&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Mount with compression</span>
-mount<span class="w"> </span>-o<span class="w"> </span><span class="nv">compress</span><span class="o">=</span>zstd<span class="w"> </span>/dev/sdb1<span class="w"> </span>/home
-
-<span class="c1"># Make permanent with compression</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LABEL=Home /home btrfs compress=zstd 0 0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-</code></pre></div>
-<h3 id="mkfsvfat-create-fat32-filesystem">mkfs.vfat - Create FAT32 Filesystem<a class="headerlink" href="#mkfsvfat-create-fat32-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Creates FAT32 filesystem for cross-platform compatibility.</p>
-<p><strong>Why use it:</strong> USB drives, EFI boot partitions, sharing between operating systems.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create FAT32</span>
-mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># With volume name</span>
-mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;USB_DRIVE&quot;</span><span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<p><strong>Real-world scenario - USB flash drive:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Format USB drive for Windows/Mac/Linux compatibility</span>
-<span class="c1"># Step 1: Identify the drive</span>
-lsblk
-<span class="c1"># sdb is your USB drive</span>
-
-<span class="c1"># Step 2: Unmount if mounted</span>
-umount<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Step 3: Create new partition (if needed)</span>
-fdisk<span class="w"> </span>/dev/sdb
-<span class="c1"># d (delete), n (new), p (primary), 1, Enter, Enter, t (type), c (W95 FAT32), w (write)</span>
-
-<span class="c1"># Step 4: Format as FAT32</span>
-mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;MYUSB&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Now it works on any computer</span>
+<span class="c1"># Check status</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>autofs
 </code></pre></div>
 <hr />
-<h2 id="mounting-filesystems">Mounting Filesystems<a class="headerlink" href="#mounting-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="understanding-mounting">Understanding Mounting<a class="headerlink" href="#understanding-mounting" title="Permanent link">&para;</a></h3>
-<p>In Linux, you don&rsquo;t access drives by letters like Windows (C:, D:). Instead, you &ldquo;mount&rdquo; them to directories. The mount point is where the filesystem appears in your directory tree.</p>
-<p><strong>Example:</strong> Mount <code>/dev/sdb1</code> to <code>/data</code>, and the files on that disk appear at <code>/data</code>.</p>
-<h3 id="mount-attach-filesystems">mount - Attach Filesystems<a class="headerlink" href="#mount-attach-filesystems" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Makes a filesystem accessible at a specific directory.</p>
-<p><strong>Why use it:</strong> You can&rsquo;t access files on a disk until it&rsquo;s mounted!</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic mount</span>
-mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt
-
-<span class="c1"># Mount with filesystem type specified</span>
-mount<span class="w"> </span>-t<span class="w"> </span>ext4<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/data
-
-<span class="c1"># Mount read-only</span>
-mount<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/data
-
-<span class="c1"># Mount with multiple options</span>
-mount<span class="w"> </span>-o<span class="w"> </span>rw,noatime<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/data
-
-<span class="c1"># Mount all entries in /etc/fstab</span>
-mount<span class="w"> </span>-a
-
-<span class="c1"># Remount with different options (no unmount needed)</span>
-mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/mnt/data
-
-<span class="c1"># Mount an ISO file</span>
-mount<span class="w"> </span>-o<span class="w"> </span>loop<span class="w"> </span>image.iso<span class="w"> </span>/mnt/iso
-
-<span class="c1"># Bind mount (mount directory to another location)</span>
-mount<span class="w"> </span>--bind<span class="w"> </span>/source/dir<span class="w"> </span>/dest/dir
-</code></pre></div>
-<p><strong>Common mount options:</strong></p>
-<ul>
-<li><code>ro</code> - Read-only (cannot modify files)</li>
-<li><code>rw</code> - Read-write (can modify files) </li>
-<li><code>noatime</code> - Don&rsquo;t update access times (faster)</li>
-<li><code>noexec</code> - Cannot execute binaries (security)</li>
-<li><code>nosuid</code> - Ignore setuid bits (security)</li>
-<li><code>nodev</code> - No device files (security)</li>
-</ul>
-<p><strong>Real-world scenario - Mounting a new drive:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># You&#39;ve created filesystem on /dev/sdb1</span>
-<span class="c1"># Create mount point</span>
-mkdir<span class="w"> </span>/data
-
-<span class="c1"># Test mount first</span>
-mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/data
-
-<span class="c1"># Check if it worked</span>
-df<span class="w"> </span>-h<span class="w"> </span>/data
-ls<span class="w"> </span>/data
-
-<span class="c1"># If good, make permanent</span>
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/dev/sdb1 /data ext4 defaults 0 2&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
-
-<span class="c1"># Unmount</span>
-umount<span class="w"> </span>/data
-
-<span class="c1"># Test fstab entry</span>
-mount<span class="w"> </span>-a
-
-<span class="c1"># Verify</span>
-df<span class="w"> </span>-h<span class="w"> </span>/data
-</code></pre></div>
-<p><strong>Real-world scenario - Mount with specific options:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Mount external drive with better performance</span>
-mount<span class="w"> </span>-o<span class="w"> </span>noatime,nodiratime<span class="w"> </span>/dev/sdb1<span class="w"> </span>/media/external
-
-<span class="c1"># Mount with specific user ownership (for FAT32/exFAT)</span>
-mount<span class="w"> </span>-o<span class="w"> </span><span class="nv">uid</span><span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span><span class="w"> </span>/dev/sdb1<span class="w"> </span>/media/usb
-</code></pre></div>
-<h3 id="umount-detach-filesystems">umount - Detach Filesystems<a class="headerlink" href="#umount-detach-filesystems" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Unmounts a filesystem, making it safe to remove.</p>
-<p><strong>Why use it:</strong> Before unplugging USB drives or doing maintenance, always unmount!</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Unmount by mount point</span>
-umount<span class="w"> </span>/mnt/data
-
-<span class="c1"># Unmount by device</span>
-umount<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Force unmount (if regular umount fails)</span>
-umount<span class="w"> </span>-f<span class="w"> </span>/mnt/data
-
-<span class="c1"># Lazy unmount (detach now, cleanup when no longer busy)</span>
-umount<span class="w"> </span>-l<span class="w"> </span>/mnt/data
-
-<span class="c1"># Unmount all</span>
-umount<span class="w"> </span>-a
-</code></pre></div>
-<p><strong>Real-world scenario - &ldquo;Device is busy&rdquo; error:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Try to unmount</span>
-umount<span class="w"> </span>/mnt/data
-<span class="c1"># Error: target is busy</span>
-
-<span class="c1"># Find what&#39;s using it</span>
-lsof<span class="w"> </span>/mnt/data
-<span class="c1"># Shows: some-process is using a file</span>
-
-<span class="c1"># or</span>
-fuser<span class="w"> </span>-m<span class="w"> </span>/mnt/data
-<span class="c1"># Shows: 1234 (PID of process)</span>
-
-<span class="c1"># Option 1: Close the application</span>
-<span class="nb">kill</span><span class="w"> </span><span class="m">1234</span>
-
-<span class="c1"># Option 2: Force unmount</span>
-umount<span class="w"> </span>-f<span class="w"> </span>/mnt/data
-
-<span class="c1"># Option 3: Lazy unmount (not recommended unless necessary)</span>
-umount<span class="w"> </span>-l<span class="w"> </span>/mnt/data
-</code></pre></div>
-<h3 id="etcfstab-permanent-mounts">/etc/fstab - Permanent Mounts<a class="headerlink" href="#etcfstab-permanent-mounts" title="Permanent link">&para;</a></h3>
-<p><strong>What it is:</strong> Configuration file that tells Linux what to mount automatically at boot.</p>
-<p><strong>Why use it:</strong> So you don&rsquo;t have to manually mount filesystems every time you reboot.</p>
+<h2 id="master-map-etcautomaster">Master Map - /etc/auto.master<a class="headerlink" href="#master-map-etcautomaster" title="Permanent link">&para;</a></h2>
+<p><strong>What it is:</strong> The main configuration file that tells autofs where to look for mount definitions.</p>
 <p><strong>Format:</strong></p>
-<div class="highlight"><pre><span></span><code>device  mount_point  filesystem_type  options  dump  pass
+<div class="highlight"><pre><span></span><code>mount-point  map-file  [options]
 </code></pre></div>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic entry for data partition</span>
-/dev/sdb1<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>defaults<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Simple indirect map</span>
+/misc<span class="w"> </span>/etc/auto.misc
 
-<span class="c1"># Using UUID (more reliable than /dev/sdX)</span>
-<span class="nv">UUID</span><span class="o">=</span><span class="m">1234</span>-5678<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>defaults<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+<span class="c1"># Direct map (special mount point /-)</span>
+/-<span class="w"> </span>/etc/auto.direct
 
-<span class="c1"># Using label</span>
-<span class="nv">LABEL</span><span class="o">=</span>DATA<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>defaults<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+<span class="c1"># With timeout (unmount after 60 seconds)</span>
+/home<span class="w"> </span>/etc/auto.home<span class="w"> </span>--timeout<span class="o">=</span><span class="m">60</span>
 
-<span class="c1"># Network filesystem (wait for network)</span>
-<span class="m">192</span>.168.1.100:/share<span class="w">  </span>/mnt/nfs<span class="w">  </span>nfs<span class="w">  </span>defaults,_netdev<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
-
-<span class="c1"># Swap partition</span>
-/dev/sdb2<span class="w">  </span>none<span class="w">  </span>swap<span class="w">  </span>sw<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
-
-<span class="c1"># With performance options</span>
-<span class="nv">UUID</span><span class="o">=</span>abcd-1234<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>noatime,nodiratime<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
-
-<span class="c1"># USB drive that might not always be present</span>
-<span class="nv">UUID</span><span class="o">=</span><span class="m">1234</span>-5678<span class="w">  </span>/media/usb<span class="w">  </span>vfat<span class="w">  </span>noauto,user<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
+<span class="c1"># Multiple maps</span>
+/misc<span class="w"> </span>/etc/auto.misc
+/net<span class="w"> </span>/etc/auto.net
+/-<span class="w"> </span>/etc/auto.direct
 </code></pre></div>
-<p><strong>Understanding the fields:</strong></p>
-<ol>
-<li><strong>Device:</strong> <code>/dev/sdb1</code>, <code>UUID=...</code>, or <code>LABEL=...</code></li>
-<li><strong>Mount point:</strong> Where it appears (<code>/data</code>, <code>/mnt/backup</code>)</li>
-<li><strong>Filesystem:</strong> <code>ext4</code>, <code>xfs</code>, <code>ntfs</code>, <code>vfat</code>, etc.</li>
-<li><strong>Options:</strong> <code>defaults</code>, <code>noatime</code>, <code>ro</code>, etc.</li>
-<li><strong>Dump:</strong> Backup with dump (0=no, 1=yes) - rarely used</li>
-<li><strong>Pass:</strong> fsck check order (0=no check, 1=first, 2=later)</li>
-</ol>
-<p><strong>Real-world scenario - Adding entry:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get UUID of partition</span>
-blkid<span class="w"> </span>/dev/sdb1
-<span class="c1"># Output: /dev/sdb1: UUID=&quot;1234abcd-...&quot; TYPE=&quot;ext4&quot; LABEL=&quot;DATA&quot;</span>
+<p><strong>Common options:</strong></p>
+<ul>
+<li><code>--timeout=N</code> - Unmount after N seconds idle (default 300)</li>
+<li><code>--ghost</code> - Create empty directories for mount points</li>
+<li><code>--browse</code> - Show all available mounts (uses more resources)</li>
+</ul>
+<hr />
+<h2 id="indirect-maps-most-common-type">Indirect Maps - Most Common Type<a class="headerlink" href="#indirect-maps-most-common-type" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-indirect-maps">What are Indirect Maps?<a class="headerlink" href="#what-are-indirect-maps" title="Permanent link">&para;</a></h3>
+<p>With indirect maps, all mounts appear under a parent directory. The parent is defined in the master map, and the map file defines subdirectories.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Master map says: <code>/data</code> uses <code>/etc/auto.data</code></li>
+<li>Map file says: <code>projects</code> mounts from <code>server:/projects</code></li>
+<li>Result: Accessing <code>/data/projects</code> automatically mounts <code>server:/projects</code></li>
+</ul>
+<h3 id="creating-indirect-maps">Creating Indirect Maps<a class="headerlink" href="#creating-indirect-maps" title="Permanent link">&para;</a></h3>
+<p><strong>Real-world scenario - Company file shares:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Edit master map</span>
+vi<span class="w"> </span>/etc/auto.master
 
-<span class="c1"># Edit fstab</span>
-vi<span class="w"> </span>/etc/fstab
+<span class="c1"># Add line:</span>
+/company<span class="w"> </span>/etc/auto.company<span class="w"> </span>--timeout<span class="o">=</span><span class="m">300</span>
 
-<span class="c1"># Add entry (using UUID is more reliable)</span>
-<span class="nv">UUID</span><span class="o">=</span>1234abcd-...<span class="w"> </span>/data<span class="w"> </span>ext4<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+<span class="c1"># Step 2: Create map file</span>
+vi<span class="w"> </span>/etc/auto.company
 
-<span class="c1"># Save and test (doesn&#39;t actually mount, just checks syntax)</span>
-mount<span class="w"> </span>-a
+<span class="c1"># Add shares:</span>
+projects<span class="w">    </span>-rw,soft,intr<span class="w">    </span>nfs-server:/export/projects
+docs<span class="w">        </span>-ro,soft<span class="w">         </span>nfs-server:/export/documentation<span class="w">  </span>
+shared<span class="w">      </span>-rw,soft,intr<span class="w">    </span>nfs-server:/export/shared
 
-<span class="c1"># If no errors, reboot to verify it mounts automatically</span>
-reboot
+<span class="c1"># Step 3: Reload autofs</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
+
+<span class="c1"># Step 4: Test</span>
+ls<span class="w"> </span>/company/projects
+<span class="c1"># Automatically mounts nfs-server:/export/projects!</span>
+
+<span class="c1"># Step 5: Check mount</span>
+df<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>projects
+mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>projects
+
+<span class="c1"># After 5 minutes of inactivity, it auto-unmounts</span>
+</code></pre></div>
+<h3 id="map-file-format">Map File Format<a class="headerlink" href="#map-file-format" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>key  [options]  location
+</code></pre></div>
+<p><strong>Components:</strong></p>
+<ul>
+<li><strong>key:</strong> Subdirectory name (becomes /mount-point/key)</li>
+<li><strong>options:</strong> Mount options (optional)</li>
+<li><strong>location:</strong> What to mount</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># NFS mount</span>
+data<span class="w">    </span>-rw,soft,intr<span class="w">    </span>server:/export/data
+
+<span class="c1"># Multiple NFS servers (failover)</span>
+backup<span class="w">  </span>-ro<span class="w">    </span>server1:/backup<span class="w">  </span>server2:/backup<span class="w">  </span>server3:/backup
+
+<span class="c1"># Local device</span>
+cdrom<span class="w">   </span>-fstype<span class="o">=</span>iso9660,ro<span class="w">    </span>:/dev/cdrom
+
+<span class="c1"># Bind mount (mount local directory)</span>
+archive<span class="w"> </span>-fstype<span class="o">=</span><span class="nb">bind</span><span class="w">    </span>:/backup/archive
 </code></pre></div>
 <hr />
-<h2 id="managing-filesystems">Managing Filesystems<a class="headerlink" href="#managing-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="tune2fs-tune-ext4-filesystems">tune2fs - Tune ext4 Filesystems<a class="headerlink" href="#tune2fs-tune-ext4-filesystems" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Adjusts parameters of ext2/ext3/ext4 filesystems.</p>
-<p><strong>Why use it:</strong> Change labels, reserved space, mount counts, and other settings without reformatting.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># View filesystem information</span>
-tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1
+<h2 id="direct-maps-specific-paths">Direct Maps - Specific Paths<a class="headerlink" href="#direct-maps-specific-paths" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-direct-maps">What are Direct Maps?<a class="headerlink" href="#what-are-direct-maps" title="Permanent link">&para;</a></h3>
+<p>Direct maps let you mount to any specific path, not just under a parent directory.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Want to mount at <code>/data/warehouse</code> (not <code>/something/warehouse</code>)</li>
+<li>Use direct map with <code>/data/warehouse</code> as the path</li>
+</ul>
+<h3 id="creating-direct-maps">Creating Direct Maps<a class="headerlink" href="#creating-direct-maps" title="Permanent link">&para;</a></h3>
+<p><strong>Real-world scenario - Specific locations:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Edit master map</span>
+vi<span class="w"> </span>/etc/auto.master
 
-<span class="c1"># Change filesystem label</span>
-tune2fs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;NewLabel&quot;</span><span class="w"> </span>/dev/sdb1
+<span class="c1"># Add direct map line:</span>
+/-<span class="w"> </span>/etc/auto.direct
 
-<span class="c1"># Set reserved space to 1% (default is 5%)</span>
-tune2fs<span class="w"> </span>-m<span class="w"> </span><span class="m">1</span><span class="w"> </span>/dev/sdb1
+<span class="c1"># Step 2: Create direct map</span>
+vi<span class="w"> </span>/etc/auto.direct
 
-<span class="c1"># Disable fsck on mount count</span>
-tune2fs<span class="w"> </span>-c<span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/sdb1
+<span class="c1"># Add mounts with full paths:</span>
+/data/warehouse<span class="w">    </span>-rw,soft,intr<span class="w">    </span>storage:/export/warehouse
+/data/analytics<span class="w">    </span>-rw,soft,intr<span class="w">    </span>storage:/export/analytics
+/opt/shared<span class="w">        </span>-ro<span class="w">              </span>fileserver:/export/tools
+/mnt/archive<span class="w">       </span>-ro<span class="w">              </span>backup:/export/archive
 
-<span class="c1"># Disable fsck on time interval</span>
-tune2fs<span class="w"> </span>-i<span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/sdb1
+<span class="c1"># Step 3: Reload</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
 
-<span class="c1"># Set error behavior to remount read-only</span>
-tune2fs<span class="w"> </span>-e<span class="w"> </span>remount-ro<span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<p><strong>Real-world scenario - Free up reserved space:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ext4 reserves 5% for root by default</span>
-<span class="c1"># On large data drives, this wastes space</span>
-
-<span class="c1"># Check current settings</span>
-tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;block count\|reserved&quot;</span>
-
-<span class="c1"># Reserved block count:     5120000 (5% of 100GB = 5GB wasted!)</span>
-<span class="c1"># Change to 1%</span>
-tune2fs<span class="w"> </span>-m<span class="w"> </span><span class="m">1</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Now you have 4GB more usable space</span>
-</code></pre></div>
-<h3 id="xfs_admin-manage-xfs-filesystems">xfs_admin - Manage XFS Filesystems<a class="headerlink" href="#xfs_admin-manage-xfs-filesystems" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Changes parameters of XFS filesystems.</p>
-<p><strong>Why use it:</strong> Change labels or UUIDs on XFS.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show current label</span>
-xfs_admin<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Set new label</span>
-xfs_admin<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;NewLabel&quot;</span><span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Show UUID</span>
-xfs_admin<span class="w"> </span>-u<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Generate new UUID</span>
-xfs_admin<span class="w"> </span>-U<span class="w"> </span>generate<span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<h3 id="btrfs-manage-btrfs-filesystems">btrfs - Manage Btrfs Filesystems<a class="headerlink" href="#btrfs-manage-btrfs-filesystems" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Comprehensive tool for managing Btrfs features.</p>
-<p><strong>Why use it:</strong> Work with subvolumes, snapshots, and other Btrfs features.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show Btrfs filesystems</span>
-btrfs<span class="w"> </span>filesystem<span class="w"> </span>show
-
-<span class="c1"># Show space usage</span>
-btrfs<span class="w"> </span>filesystem<span class="w"> </span>df<span class="w"> </span>/mnt/btrfs
-
-<span class="c1"># Create subvolume</span>
-btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>/mnt/btrfs/mysubvol
-
-<span class="c1"># List subvolumes</span>
-btrfs<span class="w"> </span>subvolume<span class="w"> </span>list<span class="w"> </span>/mnt/btrfs
-
-<span class="c1"># Create snapshot</span>
-btrfs<span class="w"> </span>subvolume<span class="w"> </span>snapshot<span class="w"> </span>/mnt/btrfs/mysubvol<span class="w"> </span>/mnt/btrfs/snapshot_2024
-
-<span class="c1"># Resize filesystem (can grow or shrink)</span>
-btrfs<span class="w"> </span>filesystem<span class="w"> </span>resize<span class="w"> </span>+10G<span class="w"> </span>/mnt/btrfs
-btrfs<span class="w"> </span>filesystem<span class="w"> </span>resize<span class="w"> </span>max<span class="w"> </span>/mnt/btrfs
-</code></pre></div>
-<p><strong>Real-world scenario - Snapshots before update:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Take snapshot before system update</span>
-btrfs<span class="w"> </span>subvolume<span class="w"> </span>snapshot<span class="w"> </span>/<span class="w"> </span>/.snapshots/before-update
-
-<span class="c1"># Perform update</span>
-dnf<span class="w"> </span>update<span class="w"> </span>-y
-
-<span class="c1"># If something breaks, boot from snapshot</span>
-<span class="c1"># (requires bootloader configuration)</span>
-
-<span class="c1"># If everything works, delete snapshot</span>
-btrfs<span class="w"> </span>subvolume<span class="w"> </span>delete<span class="w"> </span>/.snapshots/before-update
+<span class="c1"># Step 4: Test</span>
+ls<span class="w"> </span>/data/warehouse
+<span class="c1"># Mounts automatically!</span>
 </code></pre></div>
 <hr />
-<h2 id="checking-and-repairing-filesystems">Checking and Repairing Filesystems<a class="headerlink" href="#checking-and-repairing-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="fsck-filesystem-check">fsck - Filesystem Check<a class="headerlink" href="#fsck-filesystem-check" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Checks and repairs filesystem errors.</p>
-<p><strong>Why use it:</strong> Fix corruption, prepare for resize operations, routine maintenance.</p>
-<p><strong>⚠️ CRITICAL:</strong> Always unmount before running fsck!</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check filesystem (unmount first!)</span>
-fsck<span class="w"> </span>/dev/sdb1
+<h2 id="common-configurations">Common Configurations<a class="headerlink" href="#common-configurations" title="Permanent link">&para;</a></h2>
+<h3 id="user-home-directories">User Home Directories<a class="headerlink" href="#user-home-directories" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario:</strong> Network home directories. When john logs in, their home mounts automatically.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/home<span class="w"> </span>/etc/auto.home
 
-<span class="c1"># Automatic repair</span>
-fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
+<span class="c1"># Map file (/etc/auto.home)</span>
+*<span class="w">    </span>-rw,soft,intr<span class="w">    </span>nfs-server:/home/<span class="p">&amp;</span>
 
-<span class="c1"># Check even if marked clean</span>
-fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Check all filesystems in /etc/fstab</span>
-fsck<span class="w"> </span>-A
+<span class="c1"># How it works:</span>
+<span class="c1"># User &quot;john&quot; accesses /home/john</span>
+<span class="c1"># * matches &quot;john&quot;</span>
+<span class="c1"># &amp; is replaced with &quot;john&quot;</span>
+<span class="c1"># Result: mounts nfs-server:/home/john to /home/john</span>
 </code></pre></div>
-<p><strong>Real-world scenario - Fixing corruption:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># System won&#39;t boot, dropped to emergency shell</span>
-<span class="c1"># Root filesystem has errors</span>
+<p><strong>Full example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Master map</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/home /etc/auto.home --timeout=600&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/auto.master
 
-<span class="c1"># Try to mount, fails with errors</span>
-mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt
-<span class="c1"># Error: filesystem has errors</span>
+<span class="c1"># Step 2: Map file</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/auto.home<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">*    -rw,soft,intr,rsize=8192,wsize=8192    homeserver:/home/&amp;</span>
+<span class="s">EOF</span>
 
-<span class="c1"># Check and repair</span>
-fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sda1
-<span class="c1"># Pass 1: Checking inodes...</span>
-<span class="c1"># Pass 2: Checking directory structure...</span>
-<span class="c1"># Pass 3: Checking directory connectivity...</span>
-<span class="c1"># Pass 4: Checking reference counts...</span>
-<span class="c1"># Pass 5: Checking group summary information...</span>
-<span class="c1"># Fixed 15 errors</span>
+<span class="c1"># Step 3: Reload</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
 
-<span class="c1"># Now mount works</span>
-mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt
+<span class="c1"># Now when any user logs in, their home auto-mounts!</span>
 </code></pre></div>
-<h3 id="e2fsck-ext4-filesystem-check">e2fsck - ext4 Filesystem Check<a class="headerlink" href="#e2fsck-ext4-filesystem-check" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Specialized tool for ext2/ext3/ext4 filesystems.</p>
-<p><strong>Why use it:</strong> More control than generic fsck for ext filesystems.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Automatic repair</span>
-e2fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
+<h3 id="multiple-data-shares">Multiple Data Shares<a class="headerlink" href="#multiple-data-shares" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario:</strong> Company has several shared drives.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/shares<span class="w"> </span>/etc/auto.shares
 
-<span class="c1"># Force check even if clean</span>
-e2fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
+<span class="c1"># Map file</span>
+vi<span class="w"> </span>/etc/auto.shares
 
-<span class="c1"># Check for bad blocks</span>
-e2fsck<span class="w"> </span>-c<span class="w"> </span>/dev/sdb1
+projects<span class="w">    </span>-rw,soft<span class="w">    </span>proj-server:/projects
+finance<span class="w">     </span>-rw,soft<span class="w">    </span>fin-server:/finance
+hr<span class="w">          </span>-ro,soft<span class="w">    </span>hr-server:/human-resources
+marketing<span class="w">   </span>-rw,soft<span class="w">    </span>mkt-server:/marketing
 
-<span class="c1"># Read-only check (no modifications)</span>
-e2fsck<span class="w"> </span>-n<span class="w"> </span>/dev/sdb1
+<span class="c1"># Result:</span>
+<span class="c1"># /shares/projects → proj-server:/projects</span>
+<span class="c1"># /shares/finance  → fin-server:/finance</span>
+<span class="c1"># /shares/hr       → hr-server:/human-resources</span>
+<span class="c1"># /shares/marketing → mkt-server:/marketing</span>
 </code></pre></div>
-<h3 id="xfs_repair-xfs-filesystem-repair">xfs_repair - XFS Filesystem Repair<a class="headerlink" href="#xfs_repair-xfs-filesystem-repair" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Repairs XFS filesystems.</p>
-<p><strong>Why use it:</strong> XFS doesn&rsquo;t use fsck; use this instead.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Dry run (check only)</span>
-xfs_repair<span class="w"> </span>-n<span class="w"> </span>/dev/sdb1
+<h3 id="windows-cifs-shares">Windows (CIFS) Shares<a class="headerlink" href="#windows-cifs-shares" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario:</strong> Mount Windows file servers.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/windows<span class="w"> </span>/etc/auto.windows
 
-<span class="c1"># Repair filesystem (unmount first!)</span>
-xfs_repair<span class="w"> </span>/dev/sdb1
+<span class="c1"># Map file</span>
+vi<span class="w"> </span>/etc/auto.windows
 
-<span class="c1"># Force log zeroing (last resort, may lose data)</span>
-xfs_repair<span class="w"> </span>-L<span class="w"> </span>/dev/sdb1
+share1<span class="w">  </span>-fstype<span class="o">=</span>cifs,credentials<span class="o">=</span>/root/.smbcreds,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span><span class="w">  </span>://fileserver/share1
+share2<span class="w">  </span>-fstype<span class="o">=</span>cifs,credentials<span class="o">=</span>/root/.smbcreds,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span><span class="w">  </span>://fileserver/share2
+
+<span class="c1"># Credentials file</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/root/.smbcreds<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">username=domain\\user</span>
+<span class="s">password=SecurePass123</span>
+<span class="s">domain=COMPANY</span>
+<span class="s">EOF</span>
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/root/.smbcreds
+
+<span class="c1"># Reload</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
 </code></pre></div>
-<hr />
-<h2 id="resizing-filesystems">Resizing Filesystems<a class="headerlink" href="#resizing-filesystems" title="Permanent link">&para;</a></h2>
-<h3 id="resize2fs-resize-ext4">resize2fs - Resize ext4<a class="headerlink" href="#resize2fs-resize-ext4" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Grows or shrinks ext2/ext3/ext4 filesystems.</p>
-<p><strong>Why use it:</strong> Adjust filesystem size to match partition size.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Grow to fill partition (after extending partition)</span>
-resize2fs<span class="w"> </span>/dev/sdb1
+<h3 id="removable-media">Removable Media<a class="headerlink" href="#removable-media" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario:</strong> Auto-mount USB drives and CDs.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/media<span class="w"> </span>/etc/auto.media
 
-<span class="c1"># Shrink to specific size (unmount first!)</span>
-resize2fs<span class="w"> </span>/dev/sdb1<span class="w"> </span>50G
+<span class="c1"># Map file</span>
+vi<span class="w"> </span>/etc/auto.media
 
-<span class="c1"># Shrink to minimum possible size</span>
-resize2fs<span class="w"> </span>-M<span class="w"> </span>/dev/sdb1
-</code></pre></div>
-<p><strong>Real-world scenario - Growing filesystem:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># You extended LVM volume from 50GB to 100GB</span>
-<span class="c1"># Filesystem is still 50GB</span>
-
-<span class="c1"># Step 1: Check current size</span>
-df<span class="w"> </span>-h<span class="w"> </span>/data
-<span class="c1"># 50GB</span>
-
-<span class="c1"># Step 2: Resize filesystem</span>
-resize2fs<span class="w"> </span>/dev/vg0/lv_data
-
-<span class="c1"># Step 3: Verify</span>
-df<span class="w"> </span>-h<span class="w"> </span>/data
-<span class="c1"># 100GB - done!</span>
-</code></pre></div>
-<p><strong>Real-world scenario - Shrinking filesystem:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># You want to shrink partition from 100GB to 50GB</span>
-<span class="c1"># ALWAYS shrink filesystem BEFORE shrinking partition!</span>
-
-<span class="c1"># Step 1: Unmount</span>
-umount<span class="w"> </span>/data
-
-<span class="c1"># Step 2: Check filesystem</span>
-e2fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Step 3: Shrink filesystem to 50GB</span>
-resize2fs<span class="w"> </span>/dev/sdb1<span class="w"> </span>50G
-
-<span class="c1"># Step 4: Shrink partition to 50GB (using fdisk, parted, or LVM)</span>
-lvreduce<span class="w"> </span>-L<span class="w"> </span>50G<span class="w"> </span>/dev/vg0/lv_data
-
-<span class="c1"># Step 5: Mount</span>
-mount<span class="w"> </span>/dev/vg0/lv_data<span class="w"> </span>/data
-</code></pre></div>
-<h3 id="xfs_growfs-grow-xfs">xfs_growfs - Grow XFS<a class="headerlink" href="#xfs_growfs-grow-xfs" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Grows XFS filesystems (online - while mounted).</p>
-<p><strong>Why use it:</strong> Expand XFS to use additional space.</p>
-<p><strong>⚠️ Note:</strong> XFS can ONLY grow, never shrink!</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Grow to fill device</span>
-xfs_growfs<span class="w"> </span>/mnt/data
-
-<span class="c1"># Grow by specific amount</span>
-xfs_growfs<span class="w"> </span>-D<span class="w"> </span>100g<span class="w"> </span>/mnt/data
-</code></pre></div>
-<p><strong>Real-world scenario:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Extended partition, need to grow XFS</span>
-<span class="c1"># Step 1: Extend partition (already done)</span>
-
-<span class="c1"># Step 2: Grow filesystem (while mounted!)</span>
-xfs_growfs<span class="w"> </span>/data
-
-<span class="c1"># Step 3: Verify</span>
-df<span class="w"> </span>-h<span class="w"> </span>/data
+cdrom<span class="w">   </span>-fstype<span class="o">=</span>iso9660,ro,nosuid,nodev<span class="w">    </span>:/dev/cdrom
+usb<span class="w">     </span>-fstype<span class="o">=</span>auto,nodev,nosuid<span class="w">          </span>:/dev/sdb1
 </code></pre></div>
 <hr />
-<h2 id="checking-filesystem-information">Checking Filesystem Information<a class="headerlink" href="#checking-filesystem-information" title="Permanent link">&para;</a></h2>
-<h3 id="blkid-block-device-information">blkid - Block Device Information<a class="headerlink" href="#blkid-block-device-information" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Shows UUID, label, and filesystem type of block devices.</p>
-<p><strong>Why use it:</strong> Get information needed for /etc/fstab entries.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show all block devices</span>
-blkid
+<h2 id="advanced-features">Advanced Features<a class="headerlink" href="#advanced-features" title="Permanent link">&para;</a></h2>
+<h3 id="wildcards-and-variables">Wildcards and Variables<a class="headerlink" href="#wildcards-and-variables" title="Permanent link">&para;</a></h3>
+<p><strong>Using wildcards:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In auto.home</span>
+*<span class="w">    </span>-rw<span class="w">    </span>server:/home/<span class="p">&amp;</span>
 
-<span class="c1"># Show specific device</span>
-blkid<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Show only UUID</span>
-blkid<span class="w"> </span>-s<span class="w"> </span>UUID<span class="w"> </span>-o<span class="w"> </span>value<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Show only label</span>
-blkid<span class="w"> </span>-s<span class="w"> </span>LABEL<span class="w"> </span>-o<span class="w"> </span>value<span class="w"> </span>/dev/sdb1
+<span class="c1"># Matches any username</span>
+<span class="c1"># &amp; is replaced with matched value</span>
 </code></pre></div>
-<p><strong>Output example:</strong></p>
-<div class="highlight"><pre><span></span><code>blkid<span class="w"> </span>/dev/sdb1
-/dev/sdb1:<span class="w"> </span><span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;1234abcd-...&quot;</span><span class="w"> </span><span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;ext4&quot;</span><span class="w"> </span><span class="nv">LABEL</span><span class="o">=</span><span class="s2">&quot;DATA&quot;</span><span class="w"> </span><span class="nv">PARTLABEL</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="w"> </span><span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+<p><strong>Variables available:</strong></p>
+<ul>
+<li><code>${key}</code> - The matched key</li>
+<li><code>${*}</code> - Everything matched</li>
+<li><code>$USER</code> - Current user (in some contexts)</li>
+</ul>
+<p><strong>Example with subdirectories:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Map file</span>
+*/*<span class="w">  </span>-rw,soft<span class="w">  </span>server:/dept/<span class="si">${</span><span class="nv">0</span><span class="si">}</span>
+
+<span class="c1"># Accessing /data/sales/reports</span>
+<span class="c1"># Mounts: server:/dept/sales/reports</span>
 </code></pre></div>
-<h3 id="lsblk-list-block-devices">lsblk - List Block Devices<a class="headerlink" href="#lsblk-list-block-devices" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Shows tree view of all block devices with mount points.</p>
-<p><strong>Why use it:</strong> Quick overview of all disks and partitions.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic tree view</span>
-lsblk
+<h3 id="multiple-server-failover">Multiple Server Failover<a class="headerlink" href="#multiple-server-failover" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario:</strong> Use backup servers if primary fails.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Try servers in order</span>
+data<span class="w">  </span>-ro<span class="w">  </span>server1:/data<span class="w">  </span>server2:/data<span class="w">  </span>server3:/data
 
-<span class="c1"># With filesystem information</span>
-lsblk<span class="w"> </span>-f
-
-<span class="c1"># With full device paths</span>
-lsblk<span class="w"> </span>-p
-
-<span class="c1"># Custom columns</span>
-lsblk<span class="w"> </span>-o<span class="w"> </span>NAME,SIZE,TYPE,MOUNTPOINT
+<span class="c1"># First available server is used</span>
+<span class="c1"># Automatic failover if one fails</span>
 </code></pre></div>
-<p><strong>Output example:</strong></p>
-<div class="highlight"><pre><span></span><code>lsblk
-NAME<span class="w">   </span>MAJ:MIN<span class="w"> </span>RM<span class="w">  </span>SIZE<span class="w"> </span>RO<span class="w"> </span>TYPE<span class="w"> </span>MOUNTPOINT
-sda<span class="w">      </span><span class="m">8</span>:0<span class="w">    </span><span class="m">0</span><span class="w">  </span>100G<span class="w">  </span><span class="m">0</span><span class="w"> </span>disk
-├─sda1<span class="w">   </span><span class="m">8</span>:1<span class="w">    </span><span class="m">0</span><span class="w">   </span>50G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part<span class="w"> </span>/
-└─sda2<span class="w">   </span><span class="m">8</span>:2<span class="w">    </span><span class="m">0</span><span class="w">   </span>50G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part<span class="w"> </span>/home
-sdb<span class="w">      </span><span class="m">8</span>:16<span class="w">   </span><span class="m">0</span><span class="w">  </span>500G<span class="w">  </span><span class="m">0</span><span class="w"> </span>disk
-└─sdb1<span class="w">   </span><span class="m">8</span>:17<span class="w">   </span><span class="m">0</span><span class="w">  </span>500G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part<span class="w"> </span>/data
+<h3 id="nested-automounts">Nested Automounts<a class="headerlink" href="#nested-automounts" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario:</strong> Organize mounts in hierarchies.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/company<span class="w"> </span>/etc/auto.company
+
+<span class="c1"># /etc/auto.company</span>
+data<span class="w">    </span>/etc/auto.company.data
+projects<span class="w"> </span>/etc/auto.company.projects
+
+<span class="c1"># /etc/auto.company.data</span>
+current<span class="w">  </span>-rw,soft<span class="w">  </span>server:/data/current
+archive<span class="w">  </span>-ro,soft<span class="w">  </span>server:/data/archive
+
+<span class="c1"># Result:</span>
+<span class="c1"># /company/data/current</span>
+<span class="c1"># /company/data/archive</span>
+<span class="c1"># /company/projects/...</span>
+</code></pre></div>
+<hr />
+<h2 id="managing-autofs">Managing autofs<a class="headerlink" href="#managing-autofs" title="Permanent link">&para;</a></h2>
+<h3 id="service-control">Service Control<a class="headerlink" href="#service-control" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start autofs</span>
+systemctl<span class="w"> </span>start<span class="w"> </span>autofs
+
+<span class="c1"># Stop autofs (unmounts all autofs mounts)</span>
+systemctl<span class="w"> </span>stop<span class="w"> </span>autofs
+
+<span class="c1"># Reload configuration (safer, doesn&#39;t unmount)</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
+
+<span class="c1"># Restart (unmounts everything, reloads)</span>
+systemctl<span class="w"> </span>restart<span class="w"> </span>autofs
+
+<span class="c1"># Check status</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>autofs
+
+<span class="c1"># Enable at boot</span>
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>autofs
+</code></pre></div>
+<p><strong>Always use <code>reload</code> instead of <code>restart</code> when possible!</strong></p>
+<h3 id="checking-configuration">Checking Configuration<a class="headerlink" href="#checking-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test configuration without starting</span>
+automount<span class="w"> </span>-f<span class="w"> </span>-v
+
+<span class="c1"># Run in debug mode (foreground)</span>
+systemctl<span class="w"> </span>stop<span class="w"> </span>autofs
+automount<span class="w"> </span>-f<span class="w"> </span>-d
+
+<span class="c1"># View logs</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>autofs<span class="w"> </span>-f
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/messages<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>automount
 </code></pre></div>
 <hr />
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="problem-filesystem-wont-mount">Problem: Filesystem Won&rsquo;t Mount<a class="headerlink" href="#problem-filesystem-wont-mount" title="Permanent link">&para;</a></h3>
-<p><strong>Symptoms:</strong> Mount command fails with errors.</p>
-<p><strong>Solutions:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if device exists</span>
-ls<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1
+<h3 id="problem-mount-not-working">Problem: Mount Not Working<a class="headerlink" href="#problem-mount-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Steps to diagnose:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Check service</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>autofs
 
-<span class="c1"># Check filesystem type</span>
-blkid<span class="w"> </span>/dev/sdb1
+<span class="c1"># Step 2: Check configuration syntax</span>
+cat<span class="w"> </span>/etc/auto.master
+cat<span class="w"> </span>/etc/auto.misc
 
-<span class="c1"># Try specifying filesystem type</span>
-mount<span class="w"> </span>-t<span class="w"> </span>ext4<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt
+<span class="c1"># Step 3: Test access</span>
+ls<span class="w"> </span>/misc/share
+<span class="nb">cd</span><span class="w"> </span>/misc/share
 
-<span class="c1"># Check for errors</span>
-fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
-
-<span class="c1"># Check system logs</span>
+<span class="c1"># Step 4: Check logs</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>autofs<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;5 minutes ago&quot;</span>
 dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-journalctl<span class="w"> </span>-xe
+
+<span class="c1"># Step 5: Verify server</span>
+showmount<span class="w"> </span>-e<span class="w"> </span>nfs-server
+ping<span class="w"> </span>nfs-server
 </code></pre></div>
-<h3 id="problem-device-is-busy">Problem: Device is Busy<a class="headerlink" href="#problem-device-is-busy" title="Permanent link">&para;</a></h3>
-<p><strong>Symptoms:</strong> Cannot unmount because device is in use.</p>
-<p><strong>Solutions:</strong></p>
+<p><strong>Common mistakes:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Wrong: Missing the colon for local device</span>
+cdrom<span class="w">   </span>-fstype<span class="o">=</span>iso9660,ro<span class="w">    </span>/dev/cdrom
+
+<span class="c1"># Right: Add colon before local device</span>
+cdrom<span class="w">   </span>-fstype<span class="o">=</span>iso9660,ro<span class="w">    </span>:/dev/cdrom
+
+<span class="c1"># Wrong: Full path in indirect map</span>
+/data/projects<span class="w">  </span>-rw,soft<span class="w">  </span>server:/projects
+
+<span class="c1"># Right: Just the key</span>
+projects<span class="w">  </span>-rw,soft<span class="w">  </span>server:/projects
+</code></pre></div>
+<h3 id="problem-permission-denied">Problem: Permission Denied<a class="headerlink" href="#problem-permission-denied" title="Permanent link">&para;</a></h3>
+<p><strong>For NFS:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check server exports</span>
+showmount<span class="w"> </span>-e<span class="w"> </span>server
+
+<span class="c1"># Verify client IP is allowed</span>
+exportfs<span class="w"> </span>-v
+
+<span class="c1"># Test manual mount</span>
+mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>server:/export<span class="w"> </span>/mnt/test
+</code></pre></div>
+<p><strong>For CIFS:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check credentials file</span>
+cat<span class="w"> </span>/root/.smbcreds
+ls<span class="w"> </span>-l<span class="w"> </span>/root/.smbcreds<span class="w">  </span><span class="c1"># Should be 600</span>
+
+<span class="c1"># Test with smbclient</span>
+smbclient<span class="w"> </span>//server/share<span class="w"> </span>-U<span class="w"> </span>username
+</code></pre></div>
+<h3 id="problem-mount-not-unmounting">Problem: Mount Not Unmounting<a class="headerlink" href="#problem-mount-not-unmounting" title="Permanent link">&para;</a></h3>
+<p><strong>Check timeout:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># View current timeout</span>
+grep<span class="w"> </span>timeout<span class="w"> </span>/etc/auto.master
+
+<span class="c1"># Increase timeout</span>
+/data<span class="w"> </span>/etc/auto.data<span class="w"> </span>--timeout<span class="o">=</span><span class="m">600</span>
+</code></pre></div>
+<p><strong>Force unmount if needed:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Find what&#39;s using it</span>
-lsof<span class="w"> </span>/mnt/data
-fuser<span class="w"> </span>-vm<span class="w"> </span>/mnt/data
+lsof<span class="w"> </span>/data/projects
+fuser<span class="w"> </span>-m<span class="w"> </span>/data/projects
 
-<span class="c1"># Change to different directory</span>
-<span class="nb">cd</span><span class="w"> </span>~
+<span class="c1"># Kill processes</span>
+fuser<span class="w"> </span>-k<span class="w"> </span>/data/projects
 
-<span class="c1"># Kill processes (careful!)</span>
-fuser<span class="w"> </span>-k<span class="w"> </span>/mnt/data
-
-<span class="c1"># Lazy unmount (last resort)</span>
-umount<span class="w"> </span>-l<span class="w"> </span>/mnt/data
+<span class="c1"># Manual unmount</span>
+umount<span class="w"> </span>-l<span class="w"> </span>/data/projects
 </code></pre></div>
-<h3 id="problem-read-only-filesystem">Problem: Read-only Filesystem<a class="headerlink" href="#problem-read-only-filesystem" title="Permanent link">&para;</a></h3>
-<p><strong>Symptoms:</strong> Cannot write to filesystem.</p>
-<p><strong>Solutions:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Remount as read-write</span>
-mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/mount/point
+<h3 id="problem-slow-performance">Problem: Slow Performance<a class="headerlink" href="#problem-slow-performance" title="Permanent link">&para;</a></h3>
+<p><strong>Check network:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test NFS performance</span>
+dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/autofs/mount/test<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">100</span>
 
-<span class="c1"># If that fails, check for errors</span>
-umount<span class="w"> </span>/mount/point
-fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
-mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mount/point
+<span class="c1"># Check mount options</span>
+mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>autofs
 </code></pre></div>
-<h3 id="problem-no-space-left-on-device-but-df-shows-space">Problem: No Space Left on Device (But df Shows Space)<a class="headerlink" href="#problem-no-space-left-on-device-but-df-shows-space" title="Permanent link">&para;</a></h3>
-<p><strong>Symptoms:</strong> Cannot create files even though df shows free space.</p>
-<p><strong>Cause:</strong> Out of inodes (file metadata structures).</p>
-<p><strong>Solution:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check inodes</span>
-df<span class="w"> </span>-i
+<p><strong>Optimize options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In map file, add performance options</span>
+data<span class="w">  </span>-rw,soft,intr,rsize<span class="o">=</span><span class="m">32768</span>,wsize<span class="o">=</span><span class="m">32768</span>,noatime<span class="w">  </span>server:/data
+</code></pre></div>
+<hr />
+<h2 id="debug-mode">Debug Mode<a class="headerlink" href="#debug-mode" title="Permanent link">&para;</a></h2>
+<p><strong>When nothing works, use debug mode:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Stop service</span>
+systemctl<span class="w"> </span>stop<span class="w"> </span>autofs
 
-<span class="c1"># If inodes are at 100%, delete many small files</span>
-<span class="c1"># Or recreate filesystem with more inodes</span>
+<span class="c1"># Run in foreground with debug</span>
+automount<span class="w"> </span>-f<span class="w"> </span>-d
+
+<span class="c1"># In another terminal, try to access mount</span>
+ls<span class="w"> </span>/autofs/path
+
+<span class="c1"># Watch debug output in first terminal</span>
+<span class="c1"># Shows exactly what autofs is doing</span>
+</code></pre></div>
+<p><strong>Example output:</strong></p>
+<div class="highlight"><pre><span></span><code>attempting to mount entry /misc/data
+lookup_mount: lookup(file): looking up data
+parse_mount: parse(sun): expanded entry: -rw,soft server:/data
+mount_mount: mounting /misc/data from server:/data with options rw,soft
+mounted /misc/data successfully
+</code></pre></div>
+<hr />
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<p><strong>1. Always use <code>_netdev</code> equivalent options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t rely on network at boot</span>
+<span class="c1"># autofs handles network wait automatically</span>
+</code></pre></div>
+<p><strong>2. Set reasonable timeouts:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Too short: Constant mounting/unmounting</span>
+<span class="c1"># Too long: Resources held unnecessarily</span>
+<span class="c1"># Good default: 300 seconds (5 minutes)</span>
+/data<span class="w"> </span>/etc/auto.data<span class="w"> </span>--timeout<span class="o">=</span><span class="m">300</span>
+</code></pre></div>
+<p><strong>3. Use indirect maps when possible:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Cleaner, more organized</span>
+/shares<span class="w"> </span>/etc/auto.shares
+</code></pre></div>
+<p><strong>4. Secure credentials:</strong></p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/root/.smbcreds
+chown<span class="w"> </span>root:root<span class="w"> </span>/root/.smbcreds
+</code></pre></div>
+<p><strong>5. Test before making permanent:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test mount manually first</span>
+mount<span class="w"> </span>-t<span class="w"> </span>nfs<span class="w"> </span>server:/data<span class="w"> </span>/mnt/test
+
+<span class="c1"># Then add to autofs</span>
+</code></pre></div>
+<p><strong>6. Use <code>reload</code> not <code>restart</code>:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># After config changes</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
+<span class="c1"># Not: systemctl restart autofs</span>
+</code></pre></div>
+<p><strong>7. Monitor autofs:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Regular checks</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>autofs
+journalctl<span class="w"> </span>-u<span class="w"> </span>autofs<span class="w"> </span>--since<span class="w"> </span>today
+</code></pre></div>
+<hr />
+<h2 id="real-world-complete-example">Real-World Complete Example<a class="headerlink" href="#real-world-complete-example" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario:</strong> Company with multiple shares and user homes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># === Step 1: Master Map ===</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/auto.master<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">/home     /etc/auto.home --timeout=600</span>
+<span class="s">/company  /etc/auto.company --timeout=300</span>
+<span class="s">/-        /etc/auto.direct</span>
+<span class="s">EOF</span>
+
+<span class="c1"># === Step 2: Home Directories ===</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/auto.home<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">*    -rw,soft,intr,rsize=8192,wsize=8192    homeserver.company.local:/home/&amp;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># === Step 3: Company Shares ===</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/auto.company<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">projects    -rw,soft,intr    proj-server:/projects</span>
+<span class="s">finance     -rw,soft,intr    fin-server:/finance</span>
+<span class="s">docs        -ro,soft         doc-server:/documentation</span>
+<span class="s">shared      -rw,soft,intr    file-server:/shared</span>
+<span class="s">EOF</span>
+
+<span class="c1"># === Step 4: Direct Mounts ===</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/auto.direct<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">/data/warehouse    -rw,soft,intr    storage:/warehouse</span>
+<span class="s">/opt/tools         -ro,soft         tools:/export/tools</span>
+<span class="s">EOF</span>
+
+<span class="c1"># === Step 5: Reload ===</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>autofs
+
+<span class="c1"># === Step 6: Test ===</span>
+<span class="c1"># User homes</span>
+ls<span class="w"> </span>/home/john<span class="w">           </span><span class="c1"># Auto-mounts homeserver:/home/john</span>
+
+<span class="c1"># Company shares</span>
+ls<span class="w"> </span>/company/projects<span class="w">    </span><span class="c1"># Auto-mounts proj-server:/projects</span>
+<span class="nb">cd</span><span class="w"> </span>/company/finance<span class="w">     </span><span class="c1"># Auto-mounts fin-server:/finance</span>
+
+<span class="c1"># Direct mounts</span>
+<span class="nb">cd</span><span class="w"> </span>/data/warehouse<span class="w">      </span><span class="c1"># Auto-mounts storage:/warehouse</span>
+
+<span class="c1"># === Step 7: Verify ===</span>
+mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>autofs
+df<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>autofs
+
+<span class="c1"># === Step 8: Monitor ===</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>autofs<span class="w"> </span>-f
 </code></pre></div>
 <hr />
 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<h3 id="creating-filesystems_1">Creating Filesystems<a class="headerlink" href="#creating-filesystems_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>mkfs.ext4<span class="w"> </span>/dev/sdb1<span class="w">                </span><span class="c1"># ext4</span>
-mkfs.xfs<span class="w"> </span>/dev/sdb1<span class="w">                 </span><span class="c1"># XFS</span>
-mkfs.btrfs<span class="w"> </span>/dev/sdb1<span class="w">               </span><span class="c1"># Btrfs</span>
-mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>/dev/sdb1<span class="w">          </span><span class="c1"># FAT32</span>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install</span>
+dnf<span class="w"> </span>install<span class="w"> </span>autofs
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>autofs
 </code></pre></div>
-<h3 id="mounting">Mounting<a class="headerlink" href="#mounting" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt<span class="w">               </span><span class="c1"># Mount</span>
-umount<span class="w"> </span>/mnt<span class="w">                        </span><span class="c1"># Unmount</span>
-mount<span class="w"> </span>-a<span class="w">                           </span><span class="c1"># Mount all (fstab)</span>
+<h3 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map (main config)</span>
+/etc/auto.master
+
+<span class="c1"># Map files (mount definitions)</span>
+/etc/auto.misc
+/etc/auto.home
 </code></pre></div>
-<h3 id="checking">Checking<a class="headerlink" href="#checking" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1<span class="w">                  </span><span class="c1"># Check and repair</span>
-e2fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1<span class="w">                </span><span class="c1"># ext4 check</span>
-xfs_repair<span class="w"> </span>/dev/sdb1<span class="w">               </span><span class="c1"># XFS repair</span>
+<h3 id="basic-indirect-map">Basic Indirect Map<a class="headerlink" href="#basic-indirect-map" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/mnt<span class="w"> </span>/etc/auto.mnt
+
+<span class="c1"># Map file</span>
+data<span class="w">  </span>-rw,soft,intr<span class="w">  </span>server:/export/data
+
+<span class="c1"># Result: /mnt/data</span>
 </code></pre></div>
-<h3 id="resizing">Resizing<a class="headerlink" href="#resizing" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>resize2fs<span class="w"> </span>/dev/sdb1<span class="w">                </span><span class="c1"># Grow ext4</span>
-xfs_growfs<span class="w"> </span>/mnt/data<span class="w">               </span><span class="c1"># Grow XFS</span>
+<h3 id="basic-direct-map">Basic Direct Map<a class="headerlink" href="#basic-direct-map" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Master map</span>
+/-<span class="w"> </span>/etc/auto.direct
+
+<span class="c1"># Map file</span>
+/data/warehouse<span class="w">  </span>-rw,soft<span class="w">  </span>server:/warehouse
+
+<span class="c1"># Result: /data/warehouse</span>
 </code></pre></div>
-<h3 id="information">Information<a class="headerlink" href="#information" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>blkid<span class="w"> </span>/dev/sdb1<span class="w">                    </span><span class="c1"># UUID, label, type</span>
-lsblk<span class="w"> </span>-f<span class="w">                           </span><span class="c1"># Tree with fs info</span>
-df<span class="w"> </span>-h<span class="w">                              </span><span class="c1"># Space usage</span>
-tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w">               </span><span class="c1"># ext4 details</span>
+<h3 id="service-management">Service Management<a class="headerlink" href="#service-management" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>reload<span class="w"> </span>autofs<span class="w">     </span><span class="c1"># Apply changes (safe)</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>autofs<span class="w">     </span><span class="c1"># Check status</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>autofs<span class="w"> </span>-f<span class="w">     </span><span class="c1"># View logs</span>
+automount<span class="w"> </span>-f<span class="w"> </span>-v<span class="w">             </span><span class="c1"># Test config</span>
+</code></pre></div>
+<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test by accessing</span>
+ls<span class="w"> </span>/mount/point
+
+<span class="c1"># Check if mounted</span>
+mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>autofs
+df<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>autofs
+
+<span class="c1"># Debug mode</span>
+systemctl<span class="w"> </span>stop<span class="w"> </span>autofs
+automount<span class="w"> </span>-f<span class="w"> </span>-d
 </code></pre></div>
 
 
@@ -6552,7 +6704,7 @@ tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../virtual-file-system/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manage and Configure the Virtual File System">
+          <a href="../swap-space/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configure and Manage Swap Space">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6562,20 +6714,20 @@ tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w
                 Previous
               </span>
               <div class="md-ellipsis">
-                Manage and Configure the Virtual File System
+                Configure and Manage Swap Space
               </div>
             </div>
           </a>
         
         
           
-          <a href="../remote-filesystems/" class="md-footer__link md-footer__link--next" aria-label="Next: Use Remote Filesystems and Network Block Devices">
+          <a href="../storage-performance/" class="md-footer__link md-footer__link--next" aria-label="Next: Monitor Storage Performance">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Use Remote Filesystems and Network Block Devices
+                Monitor Storage Performance
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -6611,10 +6763,10 @@ tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>

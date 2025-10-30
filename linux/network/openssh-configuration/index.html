@@ -1,0 +1,7376 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My DevOps Interview Preparation">
+      
+      
+        <meta name="author" content="Alessio Lapi">
+      
+      
+      
+        <link rel="prev" href="../monitor-troubleshoot-networking/">
+      
+      
+        <link rel="next" href="../packet-filtering-nat/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Configure OpenSSH Server and Client - My DevOps Interview Preparation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/app.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configure-openssh-server-and-client" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My DevOps Interview Preparation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configure OpenSSH Server and Client
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/alelapi/devops-interview-preparation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    devops-interview-preparation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AWS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architectural Patterns
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  General
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../storage/lvm-storage/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My DevOps Interview Preparation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alelapi/devops-interview-preparation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    devops-interview-preparation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amplify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Gateway
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Scaling Groups (ASG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Compute Cloud (EC2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Container Service (ECS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Beanstalk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer (ELB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Athena
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aurora
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ElastiCache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Relational Database Service (RDS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppConfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Billing and Cost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudFormation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless Application Model (SAM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systems Manager Parameter Store (SSM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messaging
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firehose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinesis Data Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinesis Data Streams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Email Service (SES)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Notification Service (SNS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Queue Service (SQS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Monitoring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudTrail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudWatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EventBridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-Ray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudFront
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Route 53
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtual Private Cloud (VPC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security & Identity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Security & Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cognito
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identity and Access Management (IAM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Management Service (KMS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Macie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shield
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Single Sign-On (SSO)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Block Store (EBS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic File System (EFS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Storage Service (S3)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeArtifact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeBuild
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeCommit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeDeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeGuru
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodePipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/appsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppSync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/cdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Development Kit (CDK)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudHSM (Cloud Hardware Security Module)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codestar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeStar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/sar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless Application Repository (SAR)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/step_function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Step Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/sts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Token Service (STS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/swf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Workflow Service (SWF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trusted Advisor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Envoy?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Serverless Platforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Admission (PSA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementing Pod Priority and Preemption in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Aggregation Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EncryptionConfig in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submariner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KubeFed (Kubernetes Federation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PodDisruptionBudget (PDB) in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability Tools in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Endpoint Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Open Standards
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Open Standards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes — Open Standards (OCI, CRI, CNI, CSI, SMI, CPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networking Tools in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Provider Interface (CPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14_4" id="__nav_3_14_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SMI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_14_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14_4">
+            <span class="md-nav__icon md-icon"></span>
+            SMI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a Service Mesh?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Istio: A Service Mesh for Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linkerd: An Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Mesh Interface (SMI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CKA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            CKA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/etcd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ETDC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/vpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertical Pod Autoscaler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubelet Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utility commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSSL commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/cri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CRI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/jsonpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jsonpath and custom-columns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    KCSA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            KCSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance Frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance and Security frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Auditing Policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppArmor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/security_context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Threat Modeling Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualization Technologies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CKS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            CKS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Dashboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/cert_auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create User Certificate Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/apparmor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppArmor Profile Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/falco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/seccomp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Seccomp Audit Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/image_scanning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Image Scanning and Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/kube_bench/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    kube-bench
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/audit_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audit Logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Controller Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Docker Daemon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mTLS Pod-to-Pod Communication with Istio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/opa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OPA and Gatekeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/runtimeclass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RuntimeClass
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17_15" id="__nav_3_17_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Exercises
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_17_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17_15">
+            <span class="md-nav__icon md-icon"></span>
+            Exercises
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco Rule to Detect Container Access to /dev/mem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use SBOM - Finding Images Using Cryptolib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Docker Socket Service File to Change Group Ownership to Root
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Pod with Host Path Access and Falco Detection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enabling Pod-to-Pod Encryption with Istio and Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Standards (PSS): Overview and Implementation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium Network Policies Certification Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubelet Configuration Exam Exercises
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Security Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architectural Patterns
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architectural Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bulkhead Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Circuit Breaker Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event-Driven Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event Sourcing Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Saga Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strangler Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Different Types of Scaling in IT Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/lvm-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage LVM Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/virtual-file-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage and Configure the Virtual File System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/filesystems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create, Manage, and Troubleshoot Filesystems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/remote-filesystems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use Remote Filesystems and Network Block Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/swap-space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage Swap Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/automounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Filesystem Automounters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/storage-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor Storage Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipv4-ipv6-hostname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time-synchronization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set and Synchronize System Time Using Time Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitor-troubleshoot-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor and Troubleshoot Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Basics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-openssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install OpenSSH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-server-sshd-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Server (sshd) Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Server (sshd) Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Configuration File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-secure-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Secure Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reload-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reload Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-client-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Client Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Client Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-user-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-User Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-wide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      System-Wide Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Key Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Key Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-ssh-key-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate SSH Key Pairs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-public-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy Public Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correct-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Correct Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-authorized-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage Authorized Keys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-with-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting with SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting with SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Connection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-connection-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Connection Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump-hosts-bastion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jump Hosts (Bastion)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-tunneling-and-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Tunneling and Port Forwarding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Tunneling and Port Forwarding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-port-forwarding-socks-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Port Forwarding (SOCKS Proxy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combined-tunneling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combined Tunneling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-tunnel-as-daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Tunnel as Daemon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-transfer-with-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Transfer with SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Transfer with SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scp-secure-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCP (Secure Copy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sftp-ssh-file-transfer-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      SFTP (SSH File Transfer Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsync-over-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      rsync over SSH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Security Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-disable-root-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Disable Root Login
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-key-based-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Use Key-Based Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-change-default-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Change Default Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-limit-user-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Limit User Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-use-fail2ban" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Use fail2ban
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-two-factor-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Two-Factor Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-restrict-ssh-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Restrict SSH Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-set-login-grace-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Set Login Grace Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-use-tcp-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Use TCP Wrappers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-configure-idle-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Configure Idle Timeout
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-ssh-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check SSH Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verbose-connection-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verbose Connection Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-refused" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Refused
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-publickey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Denied (publickey)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-key-verification-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host Key Verification Failed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-many-authentication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Too Many Authentication Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewalld" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewalld
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      iptables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-management_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packet-filtering-nat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Packet Filtering, Port Redirection, and NAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Static Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bridge-bonding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Bridge and Bonding Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reverse-proxy-load-balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Basics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-openssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install OpenSSH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-server-sshd-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Server (sshd) Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Server (sshd) Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Configuration File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-secure-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Secure Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reload-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reload Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-client-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Client Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Client Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-user-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-User Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-wide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      System-Wide Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Key Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Key Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-ssh-key-pairs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate SSH Key Pairs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-public-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy Public Key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correct-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Correct Permissions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-authorized-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manage Authorized Keys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-with-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting with SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting with SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Connection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-connection-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Connection Options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump-hosts-bastion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jump Hosts (Bastion)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-tunneling-and-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Tunneling and Port Forwarding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Tunneling and Port Forwarding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-port-forwarding-socks-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Port Forwarding (SOCKS Proxy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combined-tunneling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combined Tunneling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-tunnel-as-daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Tunnel as Daemon
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-transfer-with-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Transfer with SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Transfer with SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scp-secure-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      SCP (Secure Copy)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sftp-ssh-file-transfer-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      SFTP (SSH File Transfer Protocol)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rsync-over-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      rsync over SSH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH Security Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-disable-root-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Disable Root Login
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-key-based-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Use Key-Based Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-change-default-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Change Default Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-limit-user-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Limit User Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-use-fail2ban" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Use fail2ban
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-two-factor-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Two-Factor Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-restrict-ssh-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Restrict SSH Protocol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-set-login-grace-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Set Login Grace Time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-use-tcp-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Use TCP Wrappers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-configure-idle-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Configure Idle Timeout
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting SSH
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-ssh-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check SSH Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verbose-connection-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verbose Connection Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-refused" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Refused
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-publickey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Denied (publickey)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-key-verification-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host Key Verification Failed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#too-many-authentication-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Too Many Authentication Failures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firewall-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firewall Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewalld" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewalld
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      iptables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-management_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port Forwarding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam Tips
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="configure-openssh-server-and-client">Configure OpenSSH Server and Client<a class="headerlink" href="#configure-openssh-server-and-client" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>This guide covers configuration, management, and security best practices for OpenSSH server (sshd) and client (ssh) on Linux systems.</p>
+<hr />
+<h2 id="ssh-basics">SSH Basics<a class="headerlink" href="#ssh-basics" title="Permanent link">&para;</a></h2>
+<p>SSH (Secure Shell) provides encrypted network communication for:
+- Remote command execution
+- Secure file transfer (SCP, SFTP)
+- Port forwarding and tunneling
+- X11 forwarding for GUI applications</p>
+<p>Default port: <strong>22/TCP</strong></p>
+<hr />
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<h3 id="install-openssh">Install OpenSSH<a class="headerlink" href="#install-openssh" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Fedora</span>
+dnf<span class="w"> </span>install<span class="w"> </span>openssh-server<span class="w"> </span>openssh-clients
+
+<span class="c1"># Ubuntu/Debian</span>
+apt<span class="w"> </span>install<span class="w"> </span>openssh-server<span class="w"> </span>openssh-client
+
+<span class="c1"># Check if installed</span>
+rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>openssh<span class="w">          </span><span class="c1"># RHEL</span>
+dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>openssh<span class="w">          </span><span class="c1"># Debian</span>
+</code></pre></div>
+<hr />
+<h2 id="ssh-server-sshd-configuration">SSH Server (sshd) Configuration<a class="headerlink" href="#ssh-server-sshd-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="service-management">Service Management<a class="headerlink" href="#service-management" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start SSH service</span>
+systemctl<span class="w"> </span>start<span class="w"> </span>sshd
+
+<span class="c1"># Stop SSH service</span>
+systemctl<span class="w"> </span>stop<span class="w"> </span>sshd
+
+<span class="c1"># Restart SSH service</span>
+systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
+
+<span class="c1"># Reload configuration (no connection drop)</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>sshd
+
+<span class="c1"># Enable at boot</span>
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sshd
+
+<span class="c1"># Check status</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>sshd
+
+<span class="c1"># Check if enabled</span>
+systemctl<span class="w"> </span>is-enabled<span class="w"> </span>sshd
+
+<span class="c1"># View SSH service logs</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>sshd
+journalctl<span class="w"> </span>-u<span class="w"> </span>sshd<span class="w"> </span>-f<span class="w">          </span><span class="c1"># Follow logs</span>
+</code></pre></div>
+<h3 id="main-configuration-file">Main Configuration File<a class="headerlink" href="#main-configuration-file" title="Permanent link">&para;</a></h3>
+<p>Location: <code>/etc/ssh/sshd_config</code></p>
+<p><strong>Important Configuration Directives:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Port and address binding</span>
+Port<span class="w"> </span><span class="m">22</span><span class="w">                        </span><span class="c1"># Change default port</span>
+<span class="c1">#Port 2222                     # Custom port</span>
+ListenAddress<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w">          </span><span class="c1"># Listen on all IPv4</span>
+ListenAddress<span class="w"> </span>::<span class="w">               </span><span class="c1"># Listen on all IPv6</span>
+<span class="c1">#ListenAddress 192.168.1.100   # Specific IP only</span>
+
+<span class="c1"># Protocol version</span>
+Protocol<span class="w"> </span><span class="m">2</span><span class="w">                     </span><span class="c1"># Only use SSH protocol 2</span>
+
+<span class="c1"># Host keys</span>
+HostKey<span class="w"> </span>/etc/ssh/ssh_host_rsa_key
+HostKey<span class="w"> </span>/etc/ssh/ssh_host_ecdsa_key
+HostKey<span class="w"> </span>/etc/ssh/ssh_host_ed25519_key
+
+<span class="c1"># Logging</span>
+SyslogFacility<span class="w"> </span>AUTH
+LogLevel<span class="w"> </span>INFO<span class="w">                  </span><span class="c1"># QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG</span>
+
+<span class="c1"># Authentication</span>
+PermitRootLogin<span class="w"> </span>no<span class="w">             </span><span class="c1"># Disable root login (RECOMMENDED)</span>
+<span class="c1">#PermitRootLogin prohibit-password  # Allow only key-based root login</span>
+<span class="c1">#PermitRootLogin yes            # Allow all root login (NOT RECOMMENDED)</span>
+
+PubkeyAuthentication<span class="w"> </span>yes<span class="w">       </span><span class="c1"># Enable public key authentication</span>
+PasswordAuthentication<span class="w"> </span>yes<span class="w">     </span><span class="c1"># Enable password authentication</span>
+PermitEmptyPasswords<span class="w"> </span>no<span class="w">        </span><span class="c1"># Disable empty passwords</span>
+ChallengeResponseAuthentication<span class="w"> </span>no
+
+<span class="c1"># PAM authentication</span>
+UsePAM<span class="w"> </span>yes
+
+<span class="c1"># Kerberos authentication</span>
+KerberosAuthentication<span class="w"> </span>no
+KerberosOrLocalPasswd<span class="w"> </span>yes
+
+<span class="c1"># GSSAPI authentication</span>
+GSSAPIAuthentication<span class="w"> </span>no
+
+<span class="c1"># Connection settings</span>
+X11Forwarding<span class="w"> </span>yes<span class="w">              </span><span class="c1"># Enable X11 forwarding</span>
+X11UseLocalhost<span class="w"> </span>yes
+PrintMotd<span class="w"> </span>no<span class="w">                   </span><span class="c1"># Don&#39;t print /etc/motd</span>
+PrintLastLog<span class="w"> </span>yes
+TCPKeepAlive<span class="w"> </span>yes
+ClientAliveInterval<span class="w"> </span><span class="m">300</span><span class="w">        </span><span class="c1"># Send keepalive every 300 seconds</span>
+ClientAliveCountMax<span class="w"> </span><span class="m">3</span><span class="w">          </span><span class="c1"># Disconnect after 3 failed keepalives</span>
+
+<span class="c1"># Login settings</span>
+MaxAuthTries<span class="w"> </span><span class="m">3</span><span class="w">                 </span><span class="c1"># Maximum authentication attempts</span>
+MaxSessions<span class="w"> </span><span class="m">10</span><span class="w">                 </span><span class="c1"># Maximum sessions per connection</span>
+LoginGraceTime<span class="w"> </span><span class="m">60</span><span class="w">              </span><span class="c1"># Time to authenticate (seconds)</span>
+
+<span class="c1"># Subsystem</span>
+Subsystem<span class="w"> </span>sftp<span class="w"> </span>/usr/libexec/openssh/sftp-server
+
+<span class="c1"># User/Group restrictions</span>
+AllowUsers<span class="w"> </span>user1<span class="w"> </span>user2<span class="w">         </span><span class="c1"># Only these users can connect</span>
+<span class="c1">#DenyUsers baduser             # These users cannot connect</span>
+AllowGroups<span class="w"> </span>sshusers<span class="w">           </span><span class="c1"># Only members of these groups</span>
+<span class="c1">#DenyGroups restricted         # Members cannot connect</span>
+
+<span class="c1"># Banner</span>
+Banner<span class="w"> </span>/etc/ssh/banner<span class="w">         </span><span class="c1"># Display banner before login</span>
+</code></pre></div>
+<h3 id="example-secure-configuration">Example: Secure Configuration<a class="headerlink" href="#example-secure-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/ssh/sshd_config - Hardened configuration</span>
+Port<span class="w"> </span><span class="m">2222</span>
+Protocol<span class="w"> </span><span class="m">2</span>
+ListenAddress<span class="w"> </span><span class="m">0</span>.0.0.0
+
+<span class="c1"># Encryption</span>
+Ciphers<span class="w"> </span>chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+MACs<span class="w"> </span>hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+KexAlgorithms<span class="w"> </span>curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+<span class="c1"># Authentication</span>
+PermitRootLogin<span class="w"> </span>no
+PubkeyAuthentication<span class="w"> </span>yes
+PasswordAuthentication<span class="w"> </span>no
+PermitEmptyPasswords<span class="w"> </span>no
+ChallengeResponseAuthentication<span class="w"> </span>no
+UsePAM<span class="w"> </span>yes
+
+<span class="c1"># Access control</span>
+AllowGroups<span class="w"> </span>sshusers
+MaxAuthTries<span class="w"> </span><span class="m">3</span>
+MaxSessions<span class="w"> </span><span class="m">5</span>
+LoginGraceTime<span class="w"> </span><span class="m">30</span>
+
+<span class="c1"># Connection security</span>
+ClientAliveInterval<span class="w"> </span><span class="m">300</span>
+ClientAliveCountMax<span class="w"> </span><span class="m">2</span>
+X11Forwarding<span class="w"> </span>no
+PrintMotd<span class="w"> </span>no
+TCPKeepAlive<span class="w"> </span>yes
+
+<span class="c1"># Logging</span>
+LogLevel<span class="w"> </span>VERBOSE
+SyslogFacility<span class="w"> </span>AUTH
+</code></pre></div>
+<h3 id="test-configuration">Test Configuration<a class="headerlink" href="#test-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test configuration syntax</span>
+sshd<span class="w"> </span>-t
+
+<span class="c1"># Test with specific config file</span>
+sshd<span class="w"> </span>-t<span class="w"> </span>-f<span class="w"> </span>/etc/ssh/sshd_config
+
+<span class="c1"># Test and show configuration</span>
+sshd<span class="w"> </span>-T
+
+<span class="c1"># Show configuration for specific user</span>
+sshd<span class="w"> </span>-T<span class="w"> </span>-C<span class="w"> </span><span class="nv">user</span><span class="o">=</span>john
+</code></pre></div>
+<h3 id="reload-configuration">Reload Configuration<a class="headerlink" href="#reload-configuration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Reload without dropping connections</span>
+systemctl<span class="w"> </span>reload<span class="w"> </span>sshd
+
+<span class="c1"># Or send HUP signal</span>
+<span class="nb">kill</span><span class="w"> </span>-HUP<span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>/var/run/sshd.pid<span class="k">)</span>
+</code></pre></div>
+<hr />
+<h2 id="ssh-client-configuration">SSH Client Configuration<a class="headerlink" href="#ssh-client-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="per-user-configuration">Per-User Configuration<a class="headerlink" href="#per-user-configuration" title="Permanent link">&para;</a></h3>
+<p>Location: <code>~/.ssh/config</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Global defaults</span>
+Host<span class="w"> </span>*
+<span class="w">    </span>ServerAliveInterval<span class="w"> </span><span class="m">60</span>
+<span class="w">    </span>ServerAliveCountMax<span class="w"> </span><span class="m">3</span>
+<span class="w">    </span>Compression<span class="w"> </span>yes
+<span class="w">    </span>ForwardAgent<span class="w"> </span>no
+
+<span class="c1"># Specific host</span>
+Host<span class="w"> </span>webserver
+<span class="w">    </span>HostName<span class="w"> </span>web.example.com
+<span class="w">    </span>User<span class="w"> </span>admin
+<span class="w">    </span>Port<span class="w"> </span><span class="m">2222</span>
+<span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/web_rsa
+
+Host<span class="w"> </span>db
+<span class="w">    </span>HostName<span class="w"> </span><span class="m">192</span>.168.1.100
+<span class="w">    </span>User<span class="w"> </span>dbadmin
+<span class="w">    </span>Port<span class="w"> </span><span class="m">22</span>
+<span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/db_key
+<span class="w">    </span>ForwardAgent<span class="w"> </span>yes
+
+<span class="c1"># Pattern matching</span>
+Host<span class="w"> </span>*.example.com
+<span class="w">    </span>User<span class="w"> </span>john
+<span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/example_rsa
+
+<span class="c1"># Jump host (bastion)</span>
+Host<span class="w"> </span>internal-server
+<span class="w">    </span>HostName<span class="w"> </span><span class="m">10</span>.0.1.100
+<span class="w">    </span>User<span class="w"> </span>admin
+<span class="w">    </span>ProxyJump<span class="w"> </span>bastion.example.com
+
+<span class="c1"># Multiple jump hosts</span>
+Host<span class="w"> </span>deep-server
+<span class="w">    </span>HostName<span class="w"> </span><span class="m">10</span>.0.2.100
+<span class="w">    </span>ProxyJump<span class="w"> </span>bastion1.example.com,bastion2.example.com
+</code></pre></div>
+<h3 id="system-wide-configuration">System-Wide Configuration<a class="headerlink" href="#system-wide-configuration" title="Permanent link">&para;</a></h3>
+<p>Location: <code>/etc/ssh/ssh_config</code></p>
+<hr />
+<h2 id="ssh-key-management">SSH Key Management<a class="headerlink" href="#ssh-key-management" title="Permanent link">&para;</a></h2>
+<h3 id="generate-ssh-key-pairs">Generate SSH Key Pairs<a class="headerlink" href="#generate-ssh-key-pairs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate RSA key (default, 3072 bits)</span>
+ssh-keygen
+
+<span class="c1"># Generate RSA with specific bits</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;user@email.com&quot;</span>
+
+<span class="c1"># Generate Ed25519 key (recommended, more secure)</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;user@email.com&quot;</span>
+
+<span class="c1"># Generate ECDSA key</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ecdsa<span class="w"> </span>-b<span class="w"> </span><span class="m">521</span>
+
+<span class="c1"># Specify file location</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-f<span class="w"> </span>~/.ssh/custom_key
+
+<span class="c1"># Generate without passphrase (not recommended)</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-N<span class="w"> </span><span class="s2">&quot;&quot;</span>
+
+<span class="c1"># Change passphrase of existing key</span>
+ssh-keygen<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>~/.ssh/id_ed25519
+</code></pre></div>
+<h3 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>~/.ssh/id_rsa<span class="w">          </span><span class="c1"># Private key (RSA)</span>
+~/.ssh/id_rsa.pub<span class="w">      </span><span class="c1"># Public key (RSA)</span>
+~/.ssh/id_ed25519<span class="w">      </span><span class="c1"># Private key (Ed25519)</span>
+~/.ssh/id_ed25519.pub<span class="w">  </span><span class="c1"># Public key (Ed25519)</span>
+~/.ssh/authorized_keys<span class="w"> </span><span class="c1"># Authorized public keys</span>
+~/.ssh/known_hosts<span class="w">     </span><span class="c1"># Known host fingerprints</span>
+~/.ssh/config<span class="w">          </span><span class="c1"># Client configuration</span>
+</code></pre></div>
+<h3 id="deploy-public-key">Deploy Public Key<a class="headerlink" href="#deploy-public-key" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Method 1: Using ssh-copy-id (recommended)</span>
+ssh-copy-id<span class="w"> </span>user@remote-host
+ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>user@remote-host
+ssh-copy-id<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>user@remote-host
+
+<span class="c1"># Method 2: Manual copy</span>
+cat<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span><span class="p">|</span><span class="w"> </span>ssh<span class="w"> </span>user@remote-host<span class="w"> </span><span class="s2">&quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&quot;</span>
+
+<span class="c1"># Method 3: Direct append</span>
+ssh<span class="w"> </span>user@remote-host<span class="w"> </span><span class="s2">&quot;echo &#39;</span><span class="k">$(</span>cat<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="k">)</span><span class="s2">&#39; &gt;&gt; ~/.ssh/authorized_keys&quot;</span>
+
+<span class="c1"># Method 4: SCP</span>
+scp<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>user@remote-host:~/key.pub
+ssh<span class="w"> </span>user@remote-host<span class="w"> </span><span class="s2">&quot;mkdir -p ~/.ssh &amp;&amp; cat ~/key.pub &gt;&gt; ~/.ssh/authorized_keys &amp;&amp; rm ~/key.pub&quot;</span>
+</code></pre></div>
+<h3 id="correct-permissions">Correct Permissions<a class="headerlink" href="#correct-permissions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># On remote server</span>
+chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>~/.ssh
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/authorized_keys
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/id_*
+chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/id_*.pub
+chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/known_hosts
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/config
+
+<span class="c1"># Fix all at once</span>
+chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>~/.ssh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.ssh/*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>~/.ssh/*.pub
+</code></pre></div>
+<h3 id="manage-authorized-keys">Manage Authorized Keys<a class="headerlink" href="#manage-authorized-keys" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add key to authorized_keys</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ssh-ed25519 AAAA...&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.ssh/authorized_keys
+
+<span class="c1"># View authorized keys</span>
+cat<span class="w"> </span>~/.ssh/authorized_keys
+
+<span class="c1"># Remove specific key (edit file)</span>
+vim<span class="w"> </span>~/.ssh/authorized_keys
+
+<span class="c1"># Limit key usage (prepend to key in authorized_keys)</span>
+<span class="nv">from</span><span class="o">=</span><span class="s2">&quot;192.168.1.0/24&quot;</span><span class="w"> </span>ssh-ed25519<span class="w"> </span>AAAA...
+<span class="nv">command</span><span class="o">=</span><span class="s2">&quot;/usr/local/bin/backup.sh&quot;</span><span class="w"> </span>ssh-ed25519<span class="w"> </span>AAAA...
+no-port-forwarding,no-X11-forwarding<span class="w"> </span>ssh-ed25519<span class="w"> </span>AAAA...
+</code></pre></div>
+<h3 id="ssh-agent">SSH Agent<a class="headerlink" href="#ssh-agent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Start SSH agent</span>
+<span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>ssh-agent<span class="k">)</span>
+
+<span class="c1"># Add key to agent</span>
+ssh-add<span class="w"> </span>~/.ssh/id_ed25519
+
+<span class="c1"># Add with timeout (seconds)</span>
+ssh-add<span class="w"> </span>-t<span class="w"> </span><span class="m">3600</span><span class="w"> </span>~/.ssh/id_ed25519
+
+<span class="c1"># List loaded keys</span>
+ssh-add<span class="w"> </span>-l
+
+<span class="c1"># List loaded keys with full public key</span>
+ssh-add<span class="w"> </span>-L
+
+<span class="c1"># Remove specific key</span>
+ssh-add<span class="w"> </span>-d<span class="w"> </span>~/.ssh/id_ed25519
+
+<span class="c1"># Remove all keys</span>
+ssh-add<span class="w"> </span>-D
+
+<span class="c1"># Kill agent</span>
+ssh-agent<span class="w"> </span>-k
+</code></pre></div>
+<hr />
+<h2 id="connecting-with-ssh">Connecting with SSH<a class="headerlink" href="#connecting-with-ssh" title="Permanent link">&para;</a></h2>
+<h3 id="basic-connection">Basic Connection<a class="headerlink" href="#basic-connection" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect to host</span>
+ssh<span class="w"> </span>user@hostname
+
+<span class="c1"># Connect to specific port</span>
+ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>user@hostname
+
+<span class="c1"># Connect using specific key</span>
+ssh<span class="w"> </span>-i<span class="w"> </span>~/.ssh/custom_key<span class="w"> </span>user@hostname
+
+<span class="c1"># Connect with verbose output</span>
+ssh<span class="w"> </span>-v<span class="w"> </span>user@hostname<span class="w">          </span><span class="c1"># Level 1</span>
+ssh<span class="w"> </span>-vv<span class="w"> </span>user@hostname<span class="w">         </span><span class="c1"># Level 2</span>
+ssh<span class="w"> </span>-vvv<span class="w"> </span>user@hostname<span class="w">        </span><span class="c1"># Level 3 (most verbose)</span>
+
+<span class="c1"># Connect and execute command</span>
+ssh<span class="w"> </span>user@hostname<span class="w"> </span><span class="s2">&quot;ls -la /tmp&quot;</span>
+
+<span class="c1"># Connect and execute multiple commands</span>
+ssh<span class="w"> </span>user@hostname<span class="w"> </span><span class="s2">&quot;uptime; df -h; free -m&quot;</span>
+
+<span class="c1"># Using config alias</span>
+ssh<span class="w"> </span>webserver<span class="w">                 </span><span class="c1"># Uses ~/.ssh/config</span>
+</code></pre></div>
+<h3 id="advanced-connection-options">Advanced Connection Options<a class="headerlink" href="#advanced-connection-options" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Disable strict host key checking (use carefully)</span>
+ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>user@hostname
+
+<span class="c1"># Specify cipher</span>
+ssh<span class="w"> </span>-c<span class="w"> </span>aes256-gcm@openssh.com<span class="w"> </span>user@hostname
+
+<span class="c1"># Enable compression</span>
+ssh<span class="w"> </span>-C<span class="w"> </span>user@hostname
+
+<span class="c1"># Allocate pseudo-TTY</span>
+ssh<span class="w"> </span>-t<span class="w"> </span>user@hostname
+
+<span class="c1"># No pseudo-TTY</span>
+ssh<span class="w"> </span>-T<span class="w"> </span>user@hostname
+
+<span class="c1"># Run in background</span>
+ssh<span class="w"> </span>-f<span class="w"> </span>user@hostname<span class="w"> </span><span class="s2">&quot;sleep 10; command&quot;</span>
+
+<span class="c1"># Keep connection alive</span>
+ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">ServerAliveInterval</span><span class="o">=</span><span class="m">60</span><span class="w"> </span>user@hostname
+
+<span class="c1"># X11 forwarding</span>
+ssh<span class="w"> </span>-X<span class="w"> </span>user@hostname
+ssh<span class="w"> </span>-Y<span class="w"> </span>user@hostname<span class="w">          </span><span class="c1"># Trusted X11 forwarding</span>
+</code></pre></div>
+<h3 id="jump-hosts-bastion">Jump Hosts (Bastion)<a class="headerlink" href="#jump-hosts-bastion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect through jump host</span>
+ssh<span class="w"> </span>-J<span class="w"> </span>jump-host<span class="w"> </span>user@target-host
+
+<span class="c1"># Multiple jump hosts</span>
+ssh<span class="w"> </span>-J<span class="w"> </span>jump1,jump2<span class="w"> </span>user@target
+
+<span class="c1"># Alternative syntax</span>
+ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">ProxyJump</span><span class="o">=</span>jump-host<span class="w"> </span>user@target
+
+<span class="c1"># With different users</span>
+ssh<span class="w"> </span>-J<span class="w"> </span>jumpuser@jump-host<span class="w"> </span>targetuser@target
+</code></pre></div>
+<hr />
+<h2 id="ssh-tunneling-and-port-forwarding">SSH Tunneling and Port Forwarding<a class="headerlink" href="#ssh-tunneling-and-port-forwarding" title="Permanent link">&para;</a></h2>
+<h3 id="local-port-forwarding">Local Port Forwarding<a class="headerlink" href="#local-port-forwarding" title="Permanent link">&para;</a></h3>
+<p>Forward local port to remote destination.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic syntax: ssh -L local_port:destination:destination_port user@ssh_server</span>
+
+<span class="c1"># Forward local port 8080 to remote localhost:80</span>
+ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:localhost:80<span class="w"> </span>user@remote-host
+
+<span class="c1"># Access remote database locally</span>
+ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">3306</span>:localhost:3306<span class="w"> </span>user@database-server
+<span class="c1"># Now connect to localhost:3306 locally</span>
+
+<span class="c1"># Forward to third host through SSH server</span>
+ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:internal-web:80<span class="w"> </span>user@gateway
+
+<span class="c1"># Multiple port forwards</span>
+ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:web:80<span class="w"> </span>-L<span class="w"> </span><span class="m">3306</span>:db:3306<span class="w"> </span>user@gateway
+
+<span class="c1"># Bind to specific interface</span>
+ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">192</span>.168.1.100:8080:localhost:80<span class="w"> </span>user@remote
+</code></pre></div>
+<h3 id="remote-port-forwarding">Remote Port Forwarding<a class="headerlink" href="#remote-port-forwarding" title="Permanent link">&para;</a></h3>
+<p>Forward remote port to local destination.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic syntax: ssh -R remote_port:destination:destination_port user@ssh_server</span>
+
+<span class="c1"># Expose local web server to remote</span>
+ssh<span class="w"> </span>-R<span class="w"> </span><span class="m">8080</span>:localhost:80<span class="w"> </span>user@remote-host
+<span class="c1"># Remote host can access your local web server on port 8080</span>
+
+<span class="c1"># Allow remote server to forward to internal network</span>
+ssh<span class="w"> </span>-R<span class="w"> </span><span class="m">3306</span>:database:3306<span class="w"> </span>user@remote
+
+<span class="c1"># Bind to all remote interfaces (requires GatewayPorts yes in sshd_config)</span>
+ssh<span class="w"> </span>-R<span class="w"> </span><span class="m">0</span>.0.0.0:8080:localhost:80<span class="w"> </span>user@remote
+</code></pre></div>
+<h3 id="dynamic-port-forwarding-socks-proxy">Dynamic Port Forwarding (SOCKS Proxy)<a class="headerlink" href="#dynamic-port-forwarding-socks-proxy" title="Permanent link">&para;</a></h3>
+<p>Create a SOCKS proxy for all traffic.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create SOCKS proxy on local port 1080</span>
+ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">1080</span><span class="w"> </span>user@remote-host
+
+<span class="c1"># Use specific bind address</span>
+ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">127</span>.0.0.1:1080<span class="w"> </span>user@remote
+
+<span class="c1"># Configure browser or application to use SOCKS proxy:</span>
+<span class="c1"># Host: localhost, Port: 1080, SOCKS v5</span>
+
+<span class="c1"># Test SOCKS proxy</span>
+curl<span class="w"> </span>--socks5<span class="w"> </span>localhost:1080<span class="w"> </span>http://example.com
+</code></pre></div>
+<h3 id="combined-tunneling">Combined Tunneling<a class="headerlink" href="#combined-tunneling" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Local + Dynamic forwarding</span>
+ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:web:80<span class="w"> </span>-D<span class="w"> </span><span class="m">1080</span><span class="w"> </span>user@gateway
+
+<span class="c1"># Background with no shell</span>
+ssh<span class="w"> </span>-fNL<span class="w"> </span><span class="m">8080</span>:localhost:80<span class="w"> </span>user@remote
+
+<span class="c1"># Options explained:</span>
+<span class="c1"># -f: Background</span>
+<span class="c1"># -N: No command execution</span>
+<span class="c1"># -L: Local forward</span>
+<span class="c1"># -R: Remote forward</span>
+<span class="c1"># -D: Dynamic forward</span>
+</code></pre></div>
+<h3 id="ssh-tunnel-as-daemon">SSH Tunnel as Daemon<a class="headerlink" href="#ssh-tunnel-as-daemon" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create persistent tunnel</span>
+ssh<span class="w"> </span>-fNL<span class="w"> </span><span class="m">8080</span>:localhost:80<span class="w"> </span>user@remote
+
+<span class="c1"># With auto-reconnect in cron</span>
+*/5<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>pgrep<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;ssh -fNL&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>ssh<span class="w"> </span>-fNL<span class="w"> </span><span class="m">8080</span>:localhost:80<span class="w"> </span>user@remote
+
+<span class="c1"># Using autossh (better for persistent tunnels)</span>
+autossh<span class="w"> </span>-M<span class="w"> </span><span class="m">0</span><span class="w"> </span>-fNL<span class="w"> </span><span class="m">8080</span>:localhost:80<span class="w"> </span>user@remote
+</code></pre></div>
+<hr />
+<h2 id="file-transfer-with-ssh">File Transfer with SSH<a class="headerlink" href="#file-transfer-with-ssh" title="Permanent link">&para;</a></h2>
+<h3 id="scp-secure-copy">SCP (Secure Copy)<a class="headerlink" href="#scp-secure-copy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copy file to remote</span>
+scp<span class="w"> </span>file.txt<span class="w"> </span>user@remote:/path/to/destination
+
+<span class="c1"># Copy file from remote</span>
+scp<span class="w"> </span>user@remote:/path/to/file.txt<span class="w"> </span>/local/destination
+
+<span class="c1"># Copy directory recursively</span>
+scp<span class="w"> </span>-r<span class="w"> </span>/local/dir<span class="w"> </span>user@remote:/remote/dir
+
+<span class="c1"># Copy with specific port</span>
+scp<span class="w"> </span>-P<span class="w"> </span><span class="m">2222</span><span class="w"> </span>file.txt<span class="w"> </span>user@remote:/path
+
+<span class="c1"># Copy with compression</span>
+scp<span class="w"> </span>-C<span class="w"> </span>large_file.txt<span class="w"> </span>user@remote:/path
+
+<span class="c1"># Preserve permissions and timestamps</span>
+scp<span class="w"> </span>-p<span class="w"> </span>file.txt<span class="w"> </span>user@remote:/path
+
+<span class="c1"># Copy between two remote hosts</span>
+scp<span class="w"> </span>user1@remote1:/file<span class="w"> </span>user2@remote2:/path
+
+<span class="c1"># Limit bandwidth (in Kbps)</span>
+scp<span class="w"> </span>-l<span class="w"> </span><span class="m">1000</span><span class="w"> </span>large_file<span class="w"> </span>user@remote:/path
+
+<span class="c1"># Verbose output</span>
+scp<span class="w"> </span>-v<span class="w"> </span>file.txt<span class="w"> </span>user@remote:/path
+</code></pre></div>
+<h3 id="sftp-ssh-file-transfer-protocol">SFTP (SSH File Transfer Protocol)<a class="headerlink" href="#sftp-ssh-file-transfer-protocol" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect to SFTP server</span>
+sftp<span class="w"> </span>user@remote-host
+
+<span class="c1"># Connect with specific port</span>
+sftp<span class="w"> </span>-P<span class="w"> </span><span class="m">2222</span><span class="w"> </span>user@remote
+
+<span class="c1"># SFTP interactive commands</span>
+sftp&gt;<span class="w"> </span>ls<span class="w">                      </span><span class="c1"># List remote directory</span>
+sftp&gt;<span class="w"> </span>lls<span class="w">                     </span><span class="c1"># List local directory</span>
+sftp&gt;<span class="w"> </span><span class="nb">pwd</span><span class="w">                     </span><span class="c1"># Print remote working directory</span>
+sftp&gt;<span class="w"> </span>lpwd<span class="w">                    </span><span class="c1"># Print local working directory</span>
+sftp&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/remote/path<span class="w">         </span><span class="c1"># Change remote directory</span>
+sftp&gt;<span class="w"> </span>lcd<span class="w"> </span>/local/path<span class="w">         </span><span class="c1"># Change local directory</span>
+sftp&gt;<span class="w"> </span>get<span class="w"> </span>file.txt<span class="w">            </span><span class="c1"># Download file</span>
+sftp&gt;<span class="w"> </span>get<span class="w"> </span>-r<span class="w"> </span>directory/<span class="w">       </span><span class="c1"># Download directory</span>
+sftp&gt;<span class="w"> </span>put<span class="w"> </span>file.txt<span class="w">            </span><span class="c1"># Upload file</span>
+sftp&gt;<span class="w"> </span>put<span class="w"> </span>-r<span class="w"> </span>directory/<span class="w">       </span><span class="c1"># Upload directory</span>
+sftp&gt;<span class="w"> </span>mkdir<span class="w"> </span>newdir<span class="w">            </span><span class="c1"># Create remote directory</span>
+sftp&gt;<span class="w"> </span>rmdir<span class="w"> </span>directory<span class="w">         </span><span class="c1"># Remove remote directory</span>
+sftp&gt;<span class="w"> </span>rm<span class="w"> </span>file.txt<span class="w">             </span><span class="c1"># Delete remote file</span>
+sftp&gt;<span class="w"> </span>rename<span class="w"> </span>old.txt<span class="w"> </span>new.txt<span class="w">  </span><span class="c1"># Rename remote file</span>
+sftp&gt;<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>script.sh<span class="w">     </span><span class="c1"># Change permissions</span>
+sftp&gt;<span class="w"> </span><span class="nb">exit</span><span class="w">                    </span><span class="c1"># Quit</span>
+
+<span class="c1"># Batch mode with command file</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;get file.txt&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sftp<span class="w"> </span>user@remote
+
+<span class="c1"># Execute single command</span>
+sftp<span class="w"> </span>user@remote<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;get /remote/file.txt&quot;</span>
+</code></pre></div>
+<h3 id="rsync-over-ssh">rsync over SSH<a class="headerlink" href="#rsync-over-ssh" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic sync</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>/local/path/<span class="w"> </span>user@remote:/remote/path/
+
+<span class="c1"># Sync with specific SSH port</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p 2222&quot;</span><span class="w"> </span>/local/<span class="w"> </span>user@remote:/remote/
+
+<span class="c1"># Sync with progress</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>--progress<span class="w"> </span>/local/<span class="w"> </span>user@remote:/remote/
+
+<span class="c1"># Dry run (test without changes)</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>--dry-run<span class="w"> </span>/local/<span class="w"> </span>user@remote:/remote/
+
+<span class="c1"># Delete files in destination not in source</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>--delete<span class="w"> </span>/local/<span class="w"> </span>user@remote:/remote/
+
+<span class="c1"># Exclude files</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>--exclude<span class="o">=</span><span class="s1">&#39;*.log&#39;</span><span class="w"> </span>/local/<span class="w"> </span>user@remote:/remote/
+
+<span class="c1"># Options explained:</span>
+<span class="c1"># -a: Archive mode (preserves permissions, times, etc.)</span>
+<span class="c1"># -v: Verbose</span>
+<span class="c1"># -z: Compress</span>
+<span class="c1"># -e: Specify SSH command</span>
+</code></pre></div>
+<hr />
+<h2 id="ssh-security-best-practices">SSH Security Best Practices<a class="headerlink" href="#ssh-security-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-disable-root-login">1. Disable Root Login<a class="headerlink" href="#1-disable-root-login" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># In /etc/ssh/sshd_config</span>
+PermitRootLogin<span class="w"> </span>no
+</code></pre></div>
+<h3 id="2-use-key-based-authentication">2. Use Key-Based Authentication<a class="headerlink" href="#2-use-key-based-authentication" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate strong key</span>
+ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;user@email.com&quot;</span>
+
+<span class="c1"># Disable password authentication after deploying keys</span>
+PasswordAuthentication<span class="w"> </span>no
+</code></pre></div>
+<h3 id="3-change-default-port">3. Change Default Port<a class="headerlink" href="#3-change-default-port" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># In /etc/ssh/sshd_config</span>
+Port<span class="w"> </span><span class="m">2222</span>
+
+<span class="c1"># Update firewall</span>
+firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-port<span class="o">=</span><span class="m">2222</span>/tcp
+firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<h3 id="4-limit-user-access">4. Limit User Access<a class="headerlink" href="#4-limit-user-access" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># In /etc/ssh/sshd_config</span>
+AllowUsers<span class="w"> </span>john<span class="w"> </span>jane<span class="w"> </span>admin
+<span class="c1"># Or use groups</span>
+AllowGroups<span class="w"> </span>sshusers
+</code></pre></div>
+<h3 id="5-use-fail2ban">5. Use fail2ban<a class="headerlink" href="#5-use-fail2ban" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install fail2ban</span>
+dnf<span class="w"> </span>install<span class="w"> </span>fail2ban
+
+<span class="c1"># Configure for SSH</span>
+<span class="c1"># /etc/fail2ban/jail.local</span>
+<span class="o">[</span>sshd<span class="o">]</span>
+<span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="nv">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ssh
+<span class="nv">filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sshd
+<span class="nv">logpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/log/secure
+<span class="nv">maxretry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="nv">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3600</span>
+</code></pre></div>
+<h3 id="6-two-factor-authentication">6. Two-Factor Authentication<a class="headerlink" href="#6-two-factor-authentication" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Google Authenticator PAM module</span>
+dnf<span class="w"> </span>install<span class="w"> </span>google-authenticator
+
+<span class="c1"># Configure PAM</span>
+<span class="c1"># Add to /etc/pam.d/sshd</span>
+auth<span class="w"> </span>required<span class="w"> </span>pam_google_authenticator.so
+
+<span class="c1"># Configure sshd_config</span>
+ChallengeResponseAuthentication<span class="w"> </span>yes
+AuthenticationMethods<span class="w"> </span>publickey,keyboard-interactive
+</code></pre></div>
+<h3 id="7-restrict-ssh-protocol">7. Restrict SSH Protocol<a class="headerlink" href="#7-restrict-ssh-protocol" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Only use protocol 2</span>
+Protocol<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<h3 id="8-set-login-grace-time">8. Set Login Grace Time<a class="headerlink" href="#8-set-login-grace-time" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Limit time to authenticate</span>
+LoginGraceTime<span class="w"> </span><span class="m">30</span>
+</code></pre></div>
+<h3 id="9-use-tcp-wrappers">9. Use TCP Wrappers<a class="headerlink" href="#9-use-tcp-wrappers" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/hosts.allow</span>
+sshd:<span class="w"> </span><span class="m">192</span>.168.1.0/24
+
+<span class="c1"># /etc/hosts.deny</span>
+sshd:<span class="w"> </span>ALL
+</code></pre></div>
+<h3 id="10-configure-idle-timeout">10. Configure Idle Timeout<a class="headerlink" href="#10-configure-idle-timeout" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># In /etc/ssh/sshd_config</span>
+ClientAliveInterval<span class="w"> </span><span class="m">300</span>
+ClientAliveCountMax<span class="w"> </span><span class="m">2</span>
+</code></pre></div>
+<hr />
+<h2 id="troubleshooting-ssh">Troubleshooting SSH<a class="headerlink" href="#troubleshooting-ssh" title="Permanent link">&para;</a></h2>
+<h3 id="check-ssh-service">Check SSH Service<a class="headerlink" href="#check-ssh-service" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Service status</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>sshd
+
+<span class="c1"># Check if listening</span>
+ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ssh
+netstat<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ssh
+
+<span class="c1"># Test configuration</span>
+sshd<span class="w"> </span>-t
+
+<span class="c1"># View logs</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>sshd<span class="w"> </span>-f
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/secure<span class="w">    </span><span class="c1"># RHEL</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/auth.log<span class="w">  </span><span class="c1"># Ubuntu</span>
+</code></pre></div>
+<h3 id="verbose-connection-testing">Verbose Connection Testing<a class="headerlink" href="#verbose-connection-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Client-side debugging</span>
+ssh<span class="w"> </span>-vvv<span class="w"> </span>user@host
+
+<span class="c1"># Look for:</span>
+<span class="c1"># - Key exchange</span>
+<span class="c1"># - Authentication attempts</span>
+<span class="c1"># - Cipher negotiation</span>
+<span class="c1"># - Connection errors</span>
+</code></pre></div>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<h4 id="connection-refused">Connection Refused<a class="headerlink" href="#connection-refused" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if service running</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>sshd
+
+<span class="c1"># Check firewall</span>
+firewall-cmd<span class="w"> </span>--list-all
+iptables<span class="w"> </span>-L<span class="w"> </span>-n
+
+<span class="c1"># Check if listening on correct interface</span>
+ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:22
+</code></pre></div>
+<h4 id="permission-denied-publickey">Permission Denied (publickey)<a class="headerlink" href="#permission-denied-publickey" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check key permissions</span>
+ls<span class="w"> </span>-la<span class="w"> </span>~/.ssh/
+
+<span class="c1"># Should be:</span>
+<span class="c1"># 700 for ~/.ssh/</span>
+<span class="c1"># 600 for private keys</span>
+<span class="c1"># 644 for public keys</span>
+
+<span class="c1"># Check server logs</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/secure
+
+<span class="c1"># Verify key is in authorized_keys</span>
+cat<span class="w"> </span>~/.ssh/authorized_keys
+
+<span class="c1"># Test with password (if enabled)</span>
+ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">PubkeyAuthentication</span><span class="o">=</span>no<span class="w"> </span>user@host
+</code></pre></div>
+<h4 id="host-key-verification-failed">Host Key Verification Failed<a class="headerlink" href="#host-key-verification-failed" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove old key</span>
+ssh-keygen<span class="w"> </span>-R<span class="w"> </span>hostname
+
+<span class="c1"># Or edit known_hosts</span>
+vim<span class="w"> </span>~/.ssh/known_hosts
+
+<span class="c1"># Accept new key</span>
+ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>user@host
+</code></pre></div>
+<h4 id="too-many-authentication-failures">Too Many Authentication Failures<a class="headerlink" href="#too-many-authentication-failures" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Limit keys offered</span>
+ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">IdentitiesOnly</span><span class="o">=</span>yes<span class="w"> </span>-i<span class="w"> </span>~/.ssh/specific_key<span class="w"> </span>user@host
+
+<span class="c1"># Or configure in ~/.ssh/config</span>
+Host<span class="w"> </span>problem-host
+<span class="w">    </span>IdentitiesOnly<span class="w"> </span>yes
+<span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/specific_key
+</code></pre></div>
+<hr />
+<h2 id="firewall-configuration">Firewall Configuration<a class="headerlink" href="#firewall-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="firewalld">firewalld<a class="headerlink" href="#firewalld" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Allow SSH</span>
+firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-service<span class="o">=</span>ssh
+firewall-cmd<span class="w"> </span>--reload
+
+<span class="c1"># Allow custom SSH port</span>
+firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-port<span class="o">=</span><span class="m">2222</span>/tcp
+firewall-cmd<span class="w"> </span>--reload
+
+<span class="c1"># Allow from specific source</span>
+firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--add-rich-rule<span class="o">=</span><span class="s1">&#39;rule family=&quot;ipv4&quot; source address=&quot;192.168.1.0/24&quot; service name=&quot;ssh&quot; accept&#39;</span>
+firewall-cmd<span class="w"> </span>--reload
+</code></pre></div>
+<h3 id="iptables">iptables<a class="headerlink" href="#iptables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Allow SSH</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+
+<span class="c1"># Allow from specific source</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span>--dport<span class="w"> </span><span class="m">22</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+
+<span class="c1"># Save rules</span>
+iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/sysconfig/iptables
+</code></pre></div>
+<hr />
+<h2 id="quick-reference-commands">Quick Reference Commands<a class="headerlink" href="#quick-reference-commands" title="Permanent link">&para;</a></h2>
+<h3 id="service-management_1">Service Management<a class="headerlink" href="#service-management_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start/stop/restart<span class="w"> </span>sshd<span class="w">    </span><span class="c1"># Manage service</span>
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>sshd<span class="w">                 </span><span class="c1"># Enable at boot</span>
+sshd<span class="w"> </span>-t<span class="w">                               </span><span class="c1"># Test configuration</span>
+</code></pre></div>
+<h3 id="key-management">Key Management<a class="headerlink" href="#key-management" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w">                 </span><span class="c1"># Generate key</span>
+ssh-copy-id<span class="w"> </span>user@host<span class="w">                 </span><span class="c1"># Deploy key</span>
+ssh-add<span class="w">                               </span><span class="c1"># Add to agent</span>
+</code></pre></div>
+<h3 id="connecting">Connecting<a class="headerlink" href="#connecting" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>user@host<span class="w">                         </span><span class="c1"># Basic connection</span>
+ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>user@host<span class="w">                 </span><span class="c1"># Custom port</span>
+ssh<span class="w"> </span>-i<span class="w"> </span>key<span class="w"> </span>user@host<span class="w">                  </span><span class="c1"># Specific key</span>
+ssh<span class="w"> </span>-J<span class="w"> </span>jump<span class="w"> </span>user@target<span class="w">               </span><span class="c1"># Jump host</span>
+</code></pre></div>
+<h3 id="port-forwarding">Port Forwarding<a class="headerlink" href="#port-forwarding" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8080</span>:dest:80<span class="w"> </span>user@host<span class="w">        </span><span class="c1"># Local forward</span>
+ssh<span class="w"> </span>-R<span class="w"> </span><span class="m">8080</span>:dest:80<span class="w"> </span>user@host<span class="w">        </span><span class="c1"># Remote forward</span>
+ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">1080</span><span class="w"> </span>user@host<span class="w">                 </span><span class="c1"># SOCKS proxy</span>
+</code></pre></div>
+<h3 id="file-transfer">File Transfer<a class="headerlink" href="#file-transfer" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>file<span class="w"> </span>user@host:/path<span class="w">              </span><span class="c1"># Copy file</span>
+sftp<span class="w"> </span>user@host<span class="w">                        </span><span class="c1"># Interactive transfer</span>
+rsync<span class="w"> </span>-avz<span class="w"> </span>/src/<span class="w"> </span>user@host:/dst/<span class="w">     </span><span class="c1"># Sync directories</span>
+</code></pre></div>
+<hr />
+<h2 id="exam-tips">Exam Tips<a class="headerlink" href="#exam-tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Know both server (<code>sshd_config</code>) and client (<code>ssh_config</code>) configuration</li>
+<li>Understand key-based authentication setup and troubleshooting</li>
+<li>Practice port forwarding scenarios (local, remote, dynamic)</li>
+<li>Know how to secure SSH (disable root, change port, keys only)</li>
+<li>Understand file permissions for SSH directories and files</li>
+<li>Be comfortable with <code>ssh-keygen</code>, <code>ssh-copy-id</code>, and <code>ssh-agent</code></li>
+<li>Know how to test SSH configuration without breaking access</li>
+<li>Practice troubleshooting with verbose output (<code>-vvv</code>)</li>
+<li>Understand TCP wrappers and firewall configuration for SSH</li>
+<li>Know the difference between SCP, SFTP, and rsync</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../monitor-troubleshoot-networking/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Monitor and Troubleshoot Networking">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Monitor and Troubleshoot Networking
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../packet-filtering-nat/" class="md-footer__link md-footer__link--next" aria-label="Next: Configure Packet Filtering, Port Redirection, and NAT">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Configure Packet Filtering, Port Redirection, and NAT
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

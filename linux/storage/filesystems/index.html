@@ -1,0 +1,6951 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="My DevOps Interview Preparation">
+      
+      
+        <meta name="author" content="Alessio Lapi">
+      
+      
+      
+        <link rel="prev" href="../virtual-file-system/">
+      
+      
+        <link rel="next" href="../remote-filesystems/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Create, Manage, and Troubleshoot Filesystems - My DevOps Interview Preparation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/app.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#create-manage-and-troubleshoot-filesystems" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My DevOps Interview Preparation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Create, Manage, and Troubleshoot Filesystems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/alelapi/devops-interview-preparation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    devops-interview-preparation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AWS
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Architectural Patterns
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  General
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lvm-storage/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My DevOps Interview Preparation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alelapi/devops-interview-preparation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    devops-interview-preparation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amplify
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Gateway
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Scaling Groups (ASG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Compute Cloud (EC2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Container Service (ECS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Beanstalk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer (ELB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lambda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Athena
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aurora
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ElastiCache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Relational Database Service (RDS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppConfig
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Billing and Cost
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudFormation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless Application Model (SAM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systems Manager Parameter Store (SSM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Messaging
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Messaging
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firehose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinesis Data Analytics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kinesis Data Streams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Email Service (SES)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Notification Service (SNS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Queue Service (SQS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Monitoring
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Monitoring
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudTrail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudWatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EventBridge
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    X-Ray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudFront
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Route 53
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtual Private Cloud (VPC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security & Identity
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Security & Identity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cognito
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identity and Access Management (IAM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Key Management Service (KMS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Macie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shield
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Single Sign-On (SSO)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic Block Store (EBS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elastic File System (EFS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Storage Service (S3)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeArtifact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeBuild
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeCommit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeDeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeGuru
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodePipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/appsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppSync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/cdk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Development Kit (CDK)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CloudHSM (Cloud Hardware Security Module)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codestar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CodeStar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/sar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Serverless Application Repository (SAR)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/step_function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Step Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/sts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Token Service (STS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/swf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple Workflow Service (SWF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trusted Advisor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Envoy?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Serverless Platforms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Admission (PSA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementing Pod Priority and Preemption in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Aggregation Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EncryptionConfig in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Submariner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KubeFed (Kubernetes Federation)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PodDisruptionBudget (PDB) in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability Tools in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Endpoint Resource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14" id="__nav_3_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Open Standards
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Open Standards
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes — Open Standards (OCI, CRI, CNI, CSI, SMI, CPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networking Tools in Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud Provider Interface (CPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_14_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_14_4" id="__nav_3_14_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SMI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_14_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_14_4">
+            <span class="md-nav__icon md-icon"></span>
+            SMI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is a Service Mesh?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Istio: A Service Mesh for Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linkerd: An Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Service Mesh Interface (SMI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_15" id="__nav_3_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CKA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_15">
+            <span class="md-nav__icon md-icon"></span>
+            CKA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/etcd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ETDC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/vpa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertical Pod Autoscaler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubelet Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utility commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSSL commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/cri/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CRI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cka/jsonpath/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jsonpath and custom-columns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_16" id="__nav_3_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    KCSA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_16">
+            <span class="md-nav__icon md-icon"></span>
+            KCSA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance Frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance and Security frameworks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Auditing Policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppArmor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/security_context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Threat Modeling Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualization Technologies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17" id="__nav_3_17_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CKS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17">
+            <span class="md-nav__icon md-icon"></span>
+            CKS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Dashboard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/cert_auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create User Certificate Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/apparmor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AppArmor Profile Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/falco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/seccomp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Seccomp Audit Profile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/image_scanning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Image Scanning and Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/kube_bench/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    kube-bench
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/audit_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audit Logging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Admission Controller Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secure Docker Daemon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mTLS Pod-to-Pod Communication with Istio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/opa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OPA and Gatekeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/runtimeclass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RuntimeClass
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_17_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_17_15" id="__nav_3_17_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Exercises
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_17_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_17_15">
+            <span class="md-nav__icon md-icon"></span>
+            Exercises
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Falco Rule to Detect Container Access to /dev/mem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use SBOM - Finding Images Using Cryptolib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Securing Pod-to-Pod Encryption with mTLS Using Istio and PeerAuthentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing Docker Socket Service File to Change Group Ownership to Root
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a Pod with Host Path Access and Falco Detection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enabling Pod-to-Pod Encryption with Istio and Cilium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pod Security Standards (PSS): Overview and Implementation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cilium Network Policies Certification Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubelet Configuration Exam Exercises
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Static Security Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architectural Patterns
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architectural Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bulkhead Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Circuit Breaker Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event-Driven Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event Sourcing Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Saga Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strangler Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Different Types of Scaling in IT Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lvm-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage LVM Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual-file-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage and Configure the Virtual File System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Create, Manage, and Troubleshoot Filesystems
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create, Manage, and Troubleshoot Filesystems
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Filesystem?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Filesystem?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-different-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Different Filesystems?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-linux-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Linux Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Linux Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ext4-fourth-extended-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      ext4 - Fourth Extended Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs-high-performance-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      XFS - High Performance Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btrfs-b-tree-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Btrfs - B-Tree Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fat32-and-exfat" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAT32 and exFAT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkfsext4-create-ext4-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.ext4 - Create ext4 Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfsxfs-create-xfs-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.xfs - Create XFS Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfsbtrfs-create-btrfs-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.btrfs - Create Btrfs Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfsvfat-create-fat32-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.vfat - Create FAT32 Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mounting Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-mounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Mounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-attach-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      mount - Attach Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#umount-detach-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      umount - Detach Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcfstab-permanent-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/fstab - Permanent Mounts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tune2fs-tune-ext4-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      tune2fs - Tune ext4 Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs_admin-manage-xfs-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfs_admin - Manage XFS Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btrfs-manage-btrfs-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      btrfs - Manage Btrfs Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-and-repairing-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking and Repairing Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking and Repairing Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fsck-filesystem-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      fsck - Filesystem Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e2fsck-ext4-filesystem-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      e2fsck - ext4 Filesystem Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs_repair-xfs-filesystem-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfs_repair - XFS Filesystem Repair
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resizing-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resizing Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resizing Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resize2fs-resize-ext4" class="md-nav__link">
+    <span class="md-ellipsis">
+      resize2fs - Resize ext4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs_growfs-grow-xfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfs_growfs - Grow XFS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-filesystem-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking Filesystem Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking Filesystem Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blkid-block-device-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      blkid - Block Device Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsblk-list-block-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      lsblk - List Block Devices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-filesystem-wont-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Filesystem Won&rsquo;t Mount
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-device-is-busy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Device is Busy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-read-only-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Read-only Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-no-space-left-on-device-but-df-shows-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: No Space Left on Device (But df Shows Space)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-filesystems_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resizing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../remote-filesystems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use Remote Filesystems and Network Block Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../swap-space/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage Swap Space
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automounters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Filesystem Automounters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor Storage Performance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/ipv4-ipv6-hostname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/time-synchronization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set and Synchronize System Time Using Time Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/monitor-troubleshoot-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor and Troubleshoot Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/openssh-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/packet-filtering-nat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Packet Filtering, Port Redirection, and NAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/static-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Static Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/bridge-bonding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Bridge and Bonding Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/reverse-proxy-load-balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Filesystem?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is a Filesystem?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-different-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Different Filesystems?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-linux-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Linux Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Linux Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ext4-fourth-extended-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      ext4 - Fourth Extended Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs-high-performance-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      XFS - High Performance Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btrfs-b-tree-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Btrfs - B-Tree Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fat32-and-exfat" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAT32 and exFAT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkfsext4-create-ext4-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.ext4 - Create ext4 Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfsxfs-create-xfs-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.xfs - Create XFS Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfsbtrfs-create-btrfs-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.btrfs - Create Btrfs Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkfsvfat-create-fat32-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkfs.vfat - Create FAT32 Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mounting Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-mounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Mounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mount-attach-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      mount - Attach Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#umount-detach-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      umount - Detach Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etcfstab-permanent-mounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/fstab - Permanent Mounts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tune2fs-tune-ext4-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      tune2fs - Tune ext4 Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs_admin-manage-xfs-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfs_admin - Manage XFS Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btrfs-manage-btrfs-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      btrfs - Manage Btrfs Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-and-repairing-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking and Repairing Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking and Repairing Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fsck-filesystem-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      fsck - Filesystem Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e2fsck-ext4-filesystem-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      e2fsck - ext4 Filesystem Check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs_repair-xfs-filesystem-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfs_repair - XFS Filesystem Repair
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resizing-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resizing Filesystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resizing Filesystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resize2fs-resize-ext4" class="md-nav__link">
+    <span class="md-ellipsis">
+      resize2fs - Resize ext4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xfs_growfs-grow-xfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      xfs_growfs - Grow XFS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-filesystem-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking Filesystem Information
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking Filesystem Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blkid-block-device-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      blkid - Block Device Information
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lsblk-list-block-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      lsblk - List Block Devices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-filesystem-wont-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Filesystem Won&rsquo;t Mount
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-device-is-busy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Device is Busy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-read-only-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Read-only Filesystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-no-space-left-on-device-but-df-shows-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: No Space Left on Device (But df Shows Space)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-filesystems_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resizing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Information
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="create-manage-and-troubleshoot-filesystems">Create, Manage, and Troubleshoot Filesystems<a class="headerlink" href="#create-manage-and-troubleshoot-filesystems" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-a-filesystem">What is a Filesystem?<a class="headerlink" href="#what-is-a-filesystem" title="Permanent link">&para;</a></h2>
+<p>A filesystem is the method and structure used to organize and store files on a storage device. Think of it as the filing system for your hard drive - it determines how data is stored, how files are named, what metadata is kept, and how space is managed.</p>
+<p>Without a filesystem, a hard drive is just a blank slate. The filesystem gives it structure and makes it usable.</p>
+<h3 id="why-different-filesystems">Why Different Filesystems?<a class="headerlink" href="#why-different-filesystems" title="Permanent link">&para;</a></h3>
+<p>Different filesystems are optimized for different uses:</p>
+<ul>
+<li><strong>ext4:</strong> General purpose, very stable, great for Linux systems</li>
+<li><strong>XFS:</strong> Excellent for large files, high performance, used in enterprise</li>
+<li><strong>Btrfs:</strong> Modern features like snapshots and compression</li>
+<li><strong>VFAT/FAT32:</strong> Cross-platform compatibility (Windows, Mac, Linux)</li>
+<li><strong>NTFS:</strong> Windows native filesystem</li>
+<li><strong>exFAT:</strong> Modern cross-platform for large files</li>
+</ul>
+<hr />
+<h2 id="common-linux-filesystems">Common Linux Filesystems<a class="headerlink" href="#common-linux-filesystems" title="Permanent link">&para;</a></h2>
+<h3 id="ext4-fourth-extended-filesystem">ext4 - Fourth Extended Filesystem<a class="headerlink" href="#ext4-fourth-extended-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> The most common Linux filesystem. Reliable, mature, and the default on most Linux distributions.</p>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>Linux system partitions</li>
+<li>General purpose storage</li>
+<li>Root and /home partitions</li>
+<li>When you need stability and maturity</li>
+</ul>
+<p><strong>Key features:</strong></p>
+<ul>
+<li>Maximum file size: 16 TB</li>
+<li>Maximum partition size: 1 EB (Exabyte)</li>
+<li>Journaling (protects against corruption)</li>
+<li>Backwards compatible with ext3 and ext2</li>
+</ul>
+<p><strong>When to use:</strong> Default choice for most Linux installations. If unsure, use ext4.</p>
+<h3 id="xfs-high-performance-filesystem">XFS - High Performance Filesystem<a class="headerlink" href="#xfs-high-performance-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Originally from SGI, designed for high-performance computing.</p>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>Large files (videos, databases, disk images)</li>
+<li>High throughput workloads</li>
+<li>Enterprise storage systems</li>
+<li>NAS devices</li>
+</ul>
+<p><strong>Key features:</strong></p>
+<ul>
+<li>Excellent performance with large files</li>
+<li>Online defragmentation</li>
+<li>Can grow online (but cannot shrink!)</li>
+<li>Maximum file size: 8 EB</li>
+</ul>
+<p><strong>When to use:</strong> Database servers, video editing, large file storage.</p>
+<p><strong>Important limitation:</strong> You CANNOT shrink XFS filesystems!</p>
+<h3 id="btrfs-b-tree-filesystem">Btrfs - B-Tree Filesystem<a class="headerlink" href="#btrfs-b-tree-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Modern filesystem with advanced features like built-in snapshots and compression.</p>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>When you need snapshots</li>
+<li>When you want compression</li>
+<li>Desktop systems</li>
+<li>Development environments</li>
+</ul>
+<p><strong>Key features:</strong></p>
+<ul>
+<li>Built-in snapshots (no LVM needed)</li>
+<li>Online compression</li>
+<li>Self-healing (detects and repairs corruption)</li>
+<li>Subvolumes (like lightweight partitions)</li>
+</ul>
+<p><strong>When to use:</strong> When you want modern features and don&rsquo;t mind some complexity.</p>
+<h3 id="fat32-and-exfat">FAT32 and exFAT<a class="headerlink" href="#fat32-and-exfat" title="Permanent link">&para;</a></h3>
+<p><strong>What they are:</strong> Simple filesystems that work on Windows, Mac, and Linux.</p>
+<p><strong>Best for:</strong></p>
+<ul>
+<li>USB flash drives</li>
+<li>External hard drives</li>
+<li>Sharing files between different operating systems</li>
+</ul>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li><strong>FAT32:</strong> Cannot handle files larger than 4GB</li>
+<li><strong>exFAT:</strong> No file size limit, but not as widely supported as FAT32</li>
+</ul>
+<hr />
+<h2 id="creating-filesystems">Creating Filesystems<a class="headerlink" href="#creating-filesystems" title="Permanent link">&para;</a></h2>
+<h3 id="mkfsext4-create-ext4-filesystem">mkfs.ext4 - Create ext4 Filesystem<a class="headerlink" href="#mkfsext4-create-ext4-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Formats a partition or disk with the ext4 filesystem.</p>
+<p><strong>Why use it:</strong> To make a disk usable for storing files on Linux.</p>
+<p><strong>⚠️ WARNING:</strong> This ERASES all data on the partition!</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic ext4 creation</span>
+mkfs.ext4<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># With a label (helps identify the filesystem)</span>
+mkfs.ext4<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;DATA&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># With less reserved space (default is 5%, which wastes space)</span>
+mkfs.ext4<span class="w"> </span>-m<span class="w"> </span><span class="m">1</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Force creation (even if filesystem already exists)</span>
+mkfs.ext4<span class="w"> </span>-F<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Real-world scenario - New data drive:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You added a new 1TB drive to your server</span>
+<span class="c1"># Step 1: Create partition</span>
+fdisk<span class="w"> </span>/dev/sdb
+<span class="c1"># Press: n, p, 1, Enter, Enter, w</span>
+
+<span class="c1"># Step 2: Create ext4 filesystem with label</span>
+mkfs.ext4<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;ServerData&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Output:</span>
+<span class="c1"># Creating filesystem with 262144000 4k blocks and 65536000 inodes</span>
+<span class="c1"># Filesystem UUID: 1234abcd-5678-efgh...</span>
+<span class="c1"># Allocating group tables: done</span>
+<span class="c1"># Writing inode tables: done</span>
+<span class="c1"># Creating journal (32768 blocks): done</span>
+<span class="c1"># Writing superblocks and filesystem accounting information: done</span>
+
+<span class="c1"># Step 3: Create mount point and mount</span>
+mkdir<span class="w"> </span>/data
+mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/data
+
+<span class="c1"># Step 4: Make it permanent</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LABEL=ServerData /data ext4 defaults 0 2&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<p><strong>Understanding the output:</strong></p>
+<ul>
+<li><strong>UUID:</strong> Unique identifier for this filesystem</li>
+<li><strong>Inode tables:</strong> Where file metadata is stored</li>
+<li><strong>Journal:</strong> Protects against corruption during crashes</li>
+</ul>
+<h3 id="mkfsxfs-create-xfs-filesystem">mkfs.xfs - Create XFS Filesystem<a class="headerlink" href="#mkfsxfs-create-xfs-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Formats a partition with the XFS filesystem.</p>
+<p><strong>Why use it:</strong> When you need high performance for large files or databases.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic XFS creation</span>
+mkfs.xfs<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># With a label</span>
+mkfs.xfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;Database&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Force creation (overwrite existing)</span>
+mkfs.xfs<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Real-world scenario - Database server:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Creating XFS for PostgreSQL database</span>
+mkfs.xfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;PostgreSQL&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Mount it</span>
+mkdir<span class="w"> </span>/var/lib/postgresql
+mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/var/lib/postgresql
+
+<span class="c1"># Permanent mount</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LABEL=PostgreSQL /var/lib/postgresql xfs defaults 0 2&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
+
+<span class="c1"># Change ownership for PostgreSQL</span>
+chown<span class="w"> </span>-R<span class="w"> </span>postgres:postgres<span class="w"> </span>/var/lib/postgresql
+</code></pre></div>
+<h3 id="mkfsbtrfs-create-btrfs-filesystem">mkfs.btrfs - Create Btrfs Filesystem<a class="headerlink" href="#mkfsbtrfs-create-btrfs-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Creates a Btrfs filesystem with advanced features.</p>
+<p><strong>Why use it:</strong> When you want snapshots, compression, or other modern features.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic Btrfs creation</span>
+mkfs.btrfs<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># With a label</span>
+mkfs.btrfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;BtrfsData&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Create with multiple devices (RAID-like)</span>
+mkfs.btrfs<span class="w"> </span>-d<span class="w"> </span>raid1<span class="w"> </span>-m<span class="w"> </span>raid1<span class="w"> </span>/dev/sdb1<span class="w"> </span>/dev/sdc1
+
+<span class="c1"># Force creation</span>
+mkfs.btrfs<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Real-world scenario - Development workstation:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create Btrfs for /home with snapshot capability</span>
+mkfs.btrfs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;Home&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Mount with compression</span>
+mount<span class="w"> </span>-o<span class="w"> </span><span class="nv">compress</span><span class="o">=</span>zstd<span class="w"> </span>/dev/sdb1<span class="w"> </span>/home
+
+<span class="c1"># Make permanent with compression</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;LABEL=Home /home btrfs compress=zstd 0 0&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<h3 id="mkfsvfat-create-fat32-filesystem">mkfs.vfat - Create FAT32 Filesystem<a class="headerlink" href="#mkfsvfat-create-fat32-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Creates FAT32 filesystem for cross-platform compatibility.</p>
+<p><strong>Why use it:</strong> USB drives, EFI boot partitions, sharing between operating systems.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create FAT32</span>
+mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># With volume name</span>
+mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;USB_DRIVE&quot;</span><span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Real-world scenario - USB flash drive:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Format USB drive for Windows/Mac/Linux compatibility</span>
+<span class="c1"># Step 1: Identify the drive</span>
+lsblk
+<span class="c1"># sdb is your USB drive</span>
+
+<span class="c1"># Step 2: Unmount if mounted</span>
+umount<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Step 3: Create new partition (if needed)</span>
+fdisk<span class="w"> </span>/dev/sdb
+<span class="c1"># d (delete), n (new), p (primary), 1, Enter, Enter, t (type), c (W95 FAT32), w (write)</span>
+
+<span class="c1"># Step 4: Format as FAT32</span>
+mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;MYUSB&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Now it works on any computer</span>
+</code></pre></div>
+<hr />
+<h2 id="mounting-filesystems">Mounting Filesystems<a class="headerlink" href="#mounting-filesystems" title="Permanent link">&para;</a></h2>
+<h3 id="understanding-mounting">Understanding Mounting<a class="headerlink" href="#understanding-mounting" title="Permanent link">&para;</a></h3>
+<p>In Linux, you don&rsquo;t access drives by letters like Windows (C:, D:). Instead, you &ldquo;mount&rdquo; them to directories. The mount point is where the filesystem appears in your directory tree.</p>
+<p><strong>Example:</strong> Mount <code>/dev/sdb1</code> to <code>/data</code>, and the files on that disk appear at <code>/data</code>.</p>
+<h3 id="mount-attach-filesystems">mount - Attach Filesystems<a class="headerlink" href="#mount-attach-filesystems" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Makes a filesystem accessible at a specific directory.</p>
+<p><strong>Why use it:</strong> You can&rsquo;t access files on a disk until it&rsquo;s mounted!</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic mount</span>
+mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt
+
+<span class="c1"># Mount with filesystem type specified</span>
+mount<span class="w"> </span>-t<span class="w"> </span>ext4<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/data
+
+<span class="c1"># Mount read-only</span>
+mount<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/data
+
+<span class="c1"># Mount with multiple options</span>
+mount<span class="w"> </span>-o<span class="w"> </span>rw,noatime<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/data
+
+<span class="c1"># Mount all entries in /etc/fstab</span>
+mount<span class="w"> </span>-a
+
+<span class="c1"># Remount with different options (no unmount needed)</span>
+mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/mnt/data
+
+<span class="c1"># Mount an ISO file</span>
+mount<span class="w"> </span>-o<span class="w"> </span>loop<span class="w"> </span>image.iso<span class="w"> </span>/mnt/iso
+
+<span class="c1"># Bind mount (mount directory to another location)</span>
+mount<span class="w"> </span>--bind<span class="w"> </span>/source/dir<span class="w"> </span>/dest/dir
+</code></pre></div>
+<p><strong>Common mount options:</strong></p>
+<ul>
+<li><code>ro</code> - Read-only (cannot modify files)</li>
+<li><code>rw</code> - Read-write (can modify files) </li>
+<li><code>noatime</code> - Don&rsquo;t update access times (faster)</li>
+<li><code>noexec</code> - Cannot execute binaries (security)</li>
+<li><code>nosuid</code> - Ignore setuid bits (security)</li>
+<li><code>nodev</code> - No device files (security)</li>
+</ul>
+<p><strong>Real-world scenario - Mounting a new drive:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You&#39;ve created filesystem on /dev/sdb1</span>
+<span class="c1"># Create mount point</span>
+mkdir<span class="w"> </span>/data
+
+<span class="c1"># Test mount first</span>
+mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/data
+
+<span class="c1"># Check if it worked</span>
+df<span class="w"> </span>-h<span class="w"> </span>/data
+ls<span class="w"> </span>/data
+
+<span class="c1"># If good, make permanent</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;/dev/sdb1 /data ext4 defaults 0 2&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
+
+<span class="c1"># Unmount</span>
+umount<span class="w"> </span>/data
+
+<span class="c1"># Test fstab entry</span>
+mount<span class="w"> </span>-a
+
+<span class="c1"># Verify</span>
+df<span class="w"> </span>-h<span class="w"> </span>/data
+</code></pre></div>
+<p><strong>Real-world scenario - Mount with specific options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mount external drive with better performance</span>
+mount<span class="w"> </span>-o<span class="w"> </span>noatime,nodiratime<span class="w"> </span>/dev/sdb1<span class="w"> </span>/media/external
+
+<span class="c1"># Mount with specific user ownership (for FAT32/exFAT)</span>
+mount<span class="w"> </span>-o<span class="w"> </span><span class="nv">uid</span><span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span><span class="w"> </span>/dev/sdb1<span class="w"> </span>/media/usb
+</code></pre></div>
+<h3 id="umount-detach-filesystems">umount - Detach Filesystems<a class="headerlink" href="#umount-detach-filesystems" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Unmounts a filesystem, making it safe to remove.</p>
+<p><strong>Why use it:</strong> Before unplugging USB drives or doing maintenance, always unmount!</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Unmount by mount point</span>
+umount<span class="w"> </span>/mnt/data
+
+<span class="c1"># Unmount by device</span>
+umount<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Force unmount (if regular umount fails)</span>
+umount<span class="w"> </span>-f<span class="w"> </span>/mnt/data
+
+<span class="c1"># Lazy unmount (detach now, cleanup when no longer busy)</span>
+umount<span class="w"> </span>-l<span class="w"> </span>/mnt/data
+
+<span class="c1"># Unmount all</span>
+umount<span class="w"> </span>-a
+</code></pre></div>
+<p><strong>Real-world scenario - &ldquo;Device is busy&rdquo; error:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Try to unmount</span>
+umount<span class="w"> </span>/mnt/data
+<span class="c1"># Error: target is busy</span>
+
+<span class="c1"># Find what&#39;s using it</span>
+lsof<span class="w"> </span>/mnt/data
+<span class="c1"># Shows: some-process is using a file</span>
+
+<span class="c1"># or</span>
+fuser<span class="w"> </span>-m<span class="w"> </span>/mnt/data
+<span class="c1"># Shows: 1234 (PID of process)</span>
+
+<span class="c1"># Option 1: Close the application</span>
+<span class="nb">kill</span><span class="w"> </span><span class="m">1234</span>
+
+<span class="c1"># Option 2: Force unmount</span>
+umount<span class="w"> </span>-f<span class="w"> </span>/mnt/data
+
+<span class="c1"># Option 3: Lazy unmount (not recommended unless necessary)</span>
+umount<span class="w"> </span>-l<span class="w"> </span>/mnt/data
+</code></pre></div>
+<h3 id="etcfstab-permanent-mounts">/etc/fstab - Permanent Mounts<a class="headerlink" href="#etcfstab-permanent-mounts" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Configuration file that tells Linux what to mount automatically at boot.</p>
+<p><strong>Why use it:</strong> So you don&rsquo;t have to manually mount filesystems every time you reboot.</p>
+<p><strong>Format:</strong></p>
+<div class="highlight"><pre><span></span><code>device  mount_point  filesystem_type  options  dump  pass
+</code></pre></div>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic entry for data partition</span>
+/dev/sdb1<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>defaults<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+
+<span class="c1"># Using UUID (more reliable than /dev/sdX)</span>
+<span class="nv">UUID</span><span class="o">=</span><span class="m">1234</span>-5678<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>defaults<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+
+<span class="c1"># Using label</span>
+<span class="nv">LABEL</span><span class="o">=</span>DATA<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>defaults<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+
+<span class="c1"># Network filesystem (wait for network)</span>
+<span class="m">192</span>.168.1.100:/share<span class="w">  </span>/mnt/nfs<span class="w">  </span>nfs<span class="w">  </span>defaults,_netdev<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
+
+<span class="c1"># Swap partition</span>
+/dev/sdb2<span class="w">  </span>none<span class="w">  </span>swap<span class="w">  </span>sw<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
+
+<span class="c1"># With performance options</span>
+<span class="nv">UUID</span><span class="o">=</span>abcd-1234<span class="w">  </span>/data<span class="w">  </span>ext4<span class="w">  </span>noatime,nodiratime<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">2</span>
+
+<span class="c1"># USB drive that might not always be present</span>
+<span class="nv">UUID</span><span class="o">=</span><span class="m">1234</span>-5678<span class="w">  </span>/media/usb<span class="w">  </span>vfat<span class="w">  </span>noauto,user<span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">0</span>
+</code></pre></div>
+<p><strong>Understanding the fields:</strong></p>
+<ol>
+<li><strong>Device:</strong> <code>/dev/sdb1</code>, <code>UUID=...</code>, or <code>LABEL=...</code></li>
+<li><strong>Mount point:</strong> Where it appears (<code>/data</code>, <code>/mnt/backup</code>)</li>
+<li><strong>Filesystem:</strong> <code>ext4</code>, <code>xfs</code>, <code>ntfs</code>, <code>vfat</code>, etc.</li>
+<li><strong>Options:</strong> <code>defaults</code>, <code>noatime</code>, <code>ro</code>, etc.</li>
+<li><strong>Dump:</strong> Backup with dump (0=no, 1=yes) - rarely used</li>
+<li><strong>Pass:</strong> fsck check order (0=no check, 1=first, 2=later)</li>
+</ol>
+<p><strong>Real-world scenario - Adding entry:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get UUID of partition</span>
+blkid<span class="w"> </span>/dev/sdb1
+<span class="c1"># Output: /dev/sdb1: UUID=&quot;1234abcd-...&quot; TYPE=&quot;ext4&quot; LABEL=&quot;DATA&quot;</span>
+
+<span class="c1"># Edit fstab</span>
+vi<span class="w"> </span>/etc/fstab
+
+<span class="c1"># Add entry (using UUID is more reliable)</span>
+<span class="nv">UUID</span><span class="o">=</span>1234abcd-...<span class="w"> </span>/data<span class="w"> </span>ext4<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># Save and test (doesn&#39;t actually mount, just checks syntax)</span>
+mount<span class="w"> </span>-a
+
+<span class="c1"># If no errors, reboot to verify it mounts automatically</span>
+reboot
+</code></pre></div>
+<hr />
+<h2 id="managing-filesystems">Managing Filesystems<a class="headerlink" href="#managing-filesystems" title="Permanent link">&para;</a></h2>
+<h3 id="tune2fs-tune-ext4-filesystems">tune2fs - Tune ext4 Filesystems<a class="headerlink" href="#tune2fs-tune-ext4-filesystems" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Adjusts parameters of ext2/ext3/ext4 filesystems.</p>
+<p><strong>Why use it:</strong> Change labels, reserved space, mount counts, and other settings without reformatting.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># View filesystem information</span>
+tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Change filesystem label</span>
+tune2fs<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;NewLabel&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Set reserved space to 1% (default is 5%)</span>
+tune2fs<span class="w"> </span>-m<span class="w"> </span><span class="m">1</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Disable fsck on mount count</span>
+tune2fs<span class="w"> </span>-c<span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Disable fsck on time interval</span>
+tune2fs<span class="w"> </span>-i<span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Set error behavior to remount read-only</span>
+tune2fs<span class="w"> </span>-e<span class="w"> </span>remount-ro<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Real-world scenario - Free up reserved space:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ext4 reserves 5% for root by default</span>
+<span class="c1"># On large data drives, this wastes space</span>
+
+<span class="c1"># Check current settings</span>
+tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;block count\|reserved&quot;</span>
+
+<span class="c1"># Reserved block count:     5120000 (5% of 100GB = 5GB wasted!)</span>
+<span class="c1"># Change to 1%</span>
+tune2fs<span class="w"> </span>-m<span class="w"> </span><span class="m">1</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Now you have 4GB more usable space</span>
+</code></pre></div>
+<h3 id="xfs_admin-manage-xfs-filesystems">xfs_admin - Manage XFS Filesystems<a class="headerlink" href="#xfs_admin-manage-xfs-filesystems" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Changes parameters of XFS filesystems.</p>
+<p><strong>Why use it:</strong> Change labels or UUIDs on XFS.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show current label</span>
+xfs_admin<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Set new label</span>
+xfs_admin<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;NewLabel&quot;</span><span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Show UUID</span>
+xfs_admin<span class="w"> </span>-u<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Generate new UUID</span>
+xfs_admin<span class="w"> </span>-U<span class="w"> </span>generate<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<h3 id="btrfs-manage-btrfs-filesystems">btrfs - Manage Btrfs Filesystems<a class="headerlink" href="#btrfs-manage-btrfs-filesystems" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Comprehensive tool for managing Btrfs features.</p>
+<p><strong>Why use it:</strong> Work with subvolumes, snapshots, and other Btrfs features.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show Btrfs filesystems</span>
+btrfs<span class="w"> </span>filesystem<span class="w"> </span>show
+
+<span class="c1"># Show space usage</span>
+btrfs<span class="w"> </span>filesystem<span class="w"> </span>df<span class="w"> </span>/mnt/btrfs
+
+<span class="c1"># Create subvolume</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>/mnt/btrfs/mysubvol
+
+<span class="c1"># List subvolumes</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>list<span class="w"> </span>/mnt/btrfs
+
+<span class="c1"># Create snapshot</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>snapshot<span class="w"> </span>/mnt/btrfs/mysubvol<span class="w"> </span>/mnt/btrfs/snapshot_2024
+
+<span class="c1"># Resize filesystem (can grow or shrink)</span>
+btrfs<span class="w"> </span>filesystem<span class="w"> </span>resize<span class="w"> </span>+10G<span class="w"> </span>/mnt/btrfs
+btrfs<span class="w"> </span>filesystem<span class="w"> </span>resize<span class="w"> </span>max<span class="w"> </span>/mnt/btrfs
+</code></pre></div>
+<p><strong>Real-world scenario - Snapshots before update:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Take snapshot before system update</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>snapshot<span class="w"> </span>/<span class="w"> </span>/.snapshots/before-update
+
+<span class="c1"># Perform update</span>
+dnf<span class="w"> </span>update<span class="w"> </span>-y
+
+<span class="c1"># If something breaks, boot from snapshot</span>
+<span class="c1"># (requires bootloader configuration)</span>
+
+<span class="c1"># If everything works, delete snapshot</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>delete<span class="w"> </span>/.snapshots/before-update
+</code></pre></div>
+<hr />
+<h2 id="checking-and-repairing-filesystems">Checking and Repairing Filesystems<a class="headerlink" href="#checking-and-repairing-filesystems" title="Permanent link">&para;</a></h2>
+<h3 id="fsck-filesystem-check">fsck - Filesystem Check<a class="headerlink" href="#fsck-filesystem-check" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Checks and repairs filesystem errors.</p>
+<p><strong>Why use it:</strong> Fix corruption, prepare for resize operations, routine maintenance.</p>
+<p><strong>⚠️ CRITICAL:</strong> Always unmount before running fsck!</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check filesystem (unmount first!)</span>
+fsck<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Automatic repair</span>
+fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Check even if marked clean</span>
+fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Check all filesystems in /etc/fstab</span>
+fsck<span class="w"> </span>-A
+</code></pre></div>
+<p><strong>Real-world scenario - Fixing corruption:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># System won&#39;t boot, dropped to emergency shell</span>
+<span class="c1"># Root filesystem has errors</span>
+
+<span class="c1"># Try to mount, fails with errors</span>
+mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt
+<span class="c1"># Error: filesystem has errors</span>
+
+<span class="c1"># Check and repair</span>
+fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sda1
+<span class="c1"># Pass 1: Checking inodes...</span>
+<span class="c1"># Pass 2: Checking directory structure...</span>
+<span class="c1"># Pass 3: Checking directory connectivity...</span>
+<span class="c1"># Pass 4: Checking reference counts...</span>
+<span class="c1"># Pass 5: Checking group summary information...</span>
+<span class="c1"># Fixed 15 errors</span>
+
+<span class="c1"># Now mount works</span>
+mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt
+</code></pre></div>
+<h3 id="e2fsck-ext4-filesystem-check">e2fsck - ext4 Filesystem Check<a class="headerlink" href="#e2fsck-ext4-filesystem-check" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Specialized tool for ext2/ext3/ext4 filesystems.</p>
+<p><strong>Why use it:</strong> More control than generic fsck for ext filesystems.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Automatic repair</span>
+e2fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Force check even if clean</span>
+e2fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Check for bad blocks</span>
+e2fsck<span class="w"> </span>-c<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Read-only check (no modifications)</span>
+e2fsck<span class="w"> </span>-n<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<h3 id="xfs_repair-xfs-filesystem-repair">xfs_repair - XFS Filesystem Repair<a class="headerlink" href="#xfs_repair-xfs-filesystem-repair" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Repairs XFS filesystems.</p>
+<p><strong>Why use it:</strong> XFS doesn&rsquo;t use fsck; use this instead.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dry run (check only)</span>
+xfs_repair<span class="w"> </span>-n<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Repair filesystem (unmount first!)</span>
+xfs_repair<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Force log zeroing (last resort, may lose data)</span>
+xfs_repair<span class="w"> </span>-L<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<hr />
+<h2 id="resizing-filesystems">Resizing Filesystems<a class="headerlink" href="#resizing-filesystems" title="Permanent link">&para;</a></h2>
+<h3 id="resize2fs-resize-ext4">resize2fs - Resize ext4<a class="headerlink" href="#resize2fs-resize-ext4" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Grows or shrinks ext2/ext3/ext4 filesystems.</p>
+<p><strong>Why use it:</strong> Adjust filesystem size to match partition size.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Grow to fill partition (after extending partition)</span>
+resize2fs<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Shrink to specific size (unmount first!)</span>
+resize2fs<span class="w"> </span>/dev/sdb1<span class="w"> </span>50G
+
+<span class="c1"># Shrink to minimum possible size</span>
+resize2fs<span class="w"> </span>-M<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Real-world scenario - Growing filesystem:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You extended LVM volume from 50GB to 100GB</span>
+<span class="c1"># Filesystem is still 50GB</span>
+
+<span class="c1"># Step 1: Check current size</span>
+df<span class="w"> </span>-h<span class="w"> </span>/data
+<span class="c1"># 50GB</span>
+
+<span class="c1"># Step 2: Resize filesystem</span>
+resize2fs<span class="w"> </span>/dev/vg0/lv_data
+
+<span class="c1"># Step 3: Verify</span>
+df<span class="w"> </span>-h<span class="w"> </span>/data
+<span class="c1"># 100GB - done!</span>
+</code></pre></div>
+<p><strong>Real-world scenario - Shrinking filesystem:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You want to shrink partition from 100GB to 50GB</span>
+<span class="c1"># ALWAYS shrink filesystem BEFORE shrinking partition!</span>
+
+<span class="c1"># Step 1: Unmount</span>
+umount<span class="w"> </span>/data
+
+<span class="c1"># Step 2: Check filesystem</span>
+e2fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Step 3: Shrink filesystem to 50GB</span>
+resize2fs<span class="w"> </span>/dev/sdb1<span class="w"> </span>50G
+
+<span class="c1"># Step 4: Shrink partition to 50GB (using fdisk, parted, or LVM)</span>
+lvreduce<span class="w"> </span>-L<span class="w"> </span>50G<span class="w"> </span>/dev/vg0/lv_data
+
+<span class="c1"># Step 5: Mount</span>
+mount<span class="w"> </span>/dev/vg0/lv_data<span class="w"> </span>/data
+</code></pre></div>
+<h3 id="xfs_growfs-grow-xfs">xfs_growfs - Grow XFS<a class="headerlink" href="#xfs_growfs-grow-xfs" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Grows XFS filesystems (online - while mounted).</p>
+<p><strong>Why use it:</strong> Expand XFS to use additional space.</p>
+<p><strong>⚠️ Note:</strong> XFS can ONLY grow, never shrink!</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Grow to fill device</span>
+xfs_growfs<span class="w"> </span>/mnt/data
+
+<span class="c1"># Grow by specific amount</span>
+xfs_growfs<span class="w"> </span>-D<span class="w"> </span>100g<span class="w"> </span>/mnt/data
+</code></pre></div>
+<p><strong>Real-world scenario:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Extended partition, need to grow XFS</span>
+<span class="c1"># Step 1: Extend partition (already done)</span>
+
+<span class="c1"># Step 2: Grow filesystem (while mounted!)</span>
+xfs_growfs<span class="w"> </span>/data
+
+<span class="c1"># Step 3: Verify</span>
+df<span class="w"> </span>-h<span class="w"> </span>/data
+</code></pre></div>
+<hr />
+<h2 id="checking-filesystem-information">Checking Filesystem Information<a class="headerlink" href="#checking-filesystem-information" title="Permanent link">&para;</a></h2>
+<h3 id="blkid-block-device-information">blkid - Block Device Information<a class="headerlink" href="#blkid-block-device-information" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Shows UUID, label, and filesystem type of block devices.</p>
+<p><strong>Why use it:</strong> Get information needed for /etc/fstab entries.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Show all block devices</span>
+blkid
+
+<span class="c1"># Show specific device</span>
+blkid<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Show only UUID</span>
+blkid<span class="w"> </span>-s<span class="w"> </span>UUID<span class="w"> </span>-o<span class="w"> </span>value<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Show only label</span>
+blkid<span class="w"> </span>-s<span class="w"> </span>LABEL<span class="w"> </span>-o<span class="w"> </span>value<span class="w"> </span>/dev/sdb1
+</code></pre></div>
+<p><strong>Output example:</strong></p>
+<div class="highlight"><pre><span></span><code>blkid<span class="w"> </span>/dev/sdb1
+/dev/sdb1:<span class="w"> </span><span class="nv">UUID</span><span class="o">=</span><span class="s2">&quot;1234abcd-...&quot;</span><span class="w"> </span><span class="nv">TYPE</span><span class="o">=</span><span class="s2">&quot;ext4&quot;</span><span class="w"> </span><span class="nv">LABEL</span><span class="o">=</span><span class="s2">&quot;DATA&quot;</span><span class="w"> </span><span class="nv">PARTLABEL</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="w"> </span><span class="nv">PARTUUID</span><span class="o">=</span><span class="s2">&quot;...&quot;</span>
+</code></pre></div>
+<h3 id="lsblk-list-block-devices">lsblk - List Block Devices<a class="headerlink" href="#lsblk-list-block-devices" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Shows tree view of all block devices with mount points.</p>
+<p><strong>Why use it:</strong> Quick overview of all disks and partitions.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Basic tree view</span>
+lsblk
+
+<span class="c1"># With filesystem information</span>
+lsblk<span class="w"> </span>-f
+
+<span class="c1"># With full device paths</span>
+lsblk<span class="w"> </span>-p
+
+<span class="c1"># Custom columns</span>
+lsblk<span class="w"> </span>-o<span class="w"> </span>NAME,SIZE,TYPE,MOUNTPOINT
+</code></pre></div>
+<p><strong>Output example:</strong></p>
+<div class="highlight"><pre><span></span><code>lsblk
+NAME<span class="w">   </span>MAJ:MIN<span class="w"> </span>RM<span class="w">  </span>SIZE<span class="w"> </span>RO<span class="w"> </span>TYPE<span class="w"> </span>MOUNTPOINT
+sda<span class="w">      </span><span class="m">8</span>:0<span class="w">    </span><span class="m">0</span><span class="w">  </span>100G<span class="w">  </span><span class="m">0</span><span class="w"> </span>disk
+├─sda1<span class="w">   </span><span class="m">8</span>:1<span class="w">    </span><span class="m">0</span><span class="w">   </span>50G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part<span class="w"> </span>/
+└─sda2<span class="w">   </span><span class="m">8</span>:2<span class="w">    </span><span class="m">0</span><span class="w">   </span>50G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part<span class="w"> </span>/home
+sdb<span class="w">      </span><span class="m">8</span>:16<span class="w">   </span><span class="m">0</span><span class="w">  </span>500G<span class="w">  </span><span class="m">0</span><span class="w"> </span>disk
+└─sdb1<span class="w">   </span><span class="m">8</span>:17<span class="w">   </span><span class="m">0</span><span class="w">  </span>500G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part<span class="w"> </span>/data
+</code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="problem-filesystem-wont-mount">Problem: Filesystem Won&rsquo;t Mount<a class="headerlink" href="#problem-filesystem-wont-mount" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> Mount command fails with errors.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if device exists</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Check filesystem type</span>
+blkid<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Try specifying filesystem type</span>
+mount<span class="w"> </span>-t<span class="w"> </span>ext4<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt
+
+<span class="c1"># Check for errors</span>
+fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Check system logs</span>
+dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
+journalctl<span class="w"> </span>-xe
+</code></pre></div>
+<h3 id="problem-device-is-busy">Problem: Device is Busy<a class="headerlink" href="#problem-device-is-busy" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> Cannot unmount because device is in use.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find what&#39;s using it</span>
+lsof<span class="w"> </span>/mnt/data
+fuser<span class="w"> </span>-vm<span class="w"> </span>/mnt/data
+
+<span class="c1"># Change to different directory</span>
+<span class="nb">cd</span><span class="w"> </span>~
+
+<span class="c1"># Kill processes (careful!)</span>
+fuser<span class="w"> </span>-k<span class="w"> </span>/mnt/data
+
+<span class="c1"># Lazy unmount (last resort)</span>
+umount<span class="w"> </span>-l<span class="w"> </span>/mnt/data
+</code></pre></div>
+<h3 id="problem-read-only-filesystem">Problem: Read-only Filesystem<a class="headerlink" href="#problem-read-only-filesystem" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> Cannot write to filesystem.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remount as read-write</span>
+mount<span class="w"> </span>-o<span class="w"> </span>remount,rw<span class="w"> </span>/mount/point
+
+<span class="c1"># If that fails, check for errors</span>
+umount<span class="w"> </span>/mount/point
+fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1
+mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mount/point
+</code></pre></div>
+<h3 id="problem-no-space-left-on-device-but-df-shows-space">Problem: No Space Left on Device (But df Shows Space)<a class="headerlink" href="#problem-no-space-left-on-device-but-df-shows-space" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> Cannot create files even though df shows free space.</p>
+<p><strong>Cause:</strong> Out of inodes (file metadata structures).</p>
+<p><strong>Solution:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check inodes</span>
+df<span class="w"> </span>-i
+
+<span class="c1"># If inodes are at 100%, delete many small files</span>
+<span class="c1"># Or recreate filesystem with more inodes</span>
+</code></pre></div>
+<hr />
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<h3 id="creating-filesystems_1">Creating Filesystems<a class="headerlink" href="#creating-filesystems_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkfs.ext4<span class="w"> </span>/dev/sdb1<span class="w">                </span><span class="c1"># ext4</span>
+mkfs.xfs<span class="w"> </span>/dev/sdb1<span class="w">                 </span><span class="c1"># XFS</span>
+mkfs.btrfs<span class="w"> </span>/dev/sdb1<span class="w">               </span><span class="c1"># Btrfs</span>
+mkfs.vfat<span class="w"> </span>-F<span class="w"> </span><span class="m">32</span><span class="w"> </span>/dev/sdb1<span class="w">          </span><span class="c1"># FAT32</span>
+</code></pre></div>
+<h3 id="mounting">Mounting<a class="headerlink" href="#mounting" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt<span class="w">               </span><span class="c1"># Mount</span>
+umount<span class="w"> </span>/mnt<span class="w">                        </span><span class="c1"># Unmount</span>
+mount<span class="w"> </span>-a<span class="w">                           </span><span class="c1"># Mount all (fstab)</span>
+</code></pre></div>
+<h3 id="checking">Checking<a class="headerlink" href="#checking" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>fsck<span class="w"> </span>-y<span class="w"> </span>/dev/sdb1<span class="w">                  </span><span class="c1"># Check and repair</span>
+e2fsck<span class="w"> </span>-f<span class="w"> </span>/dev/sdb1<span class="w">                </span><span class="c1"># ext4 check</span>
+xfs_repair<span class="w"> </span>/dev/sdb1<span class="w">               </span><span class="c1"># XFS repair</span>
+</code></pre></div>
+<h3 id="resizing">Resizing<a class="headerlink" href="#resizing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>resize2fs<span class="w"> </span>/dev/sdb1<span class="w">                </span><span class="c1"># Grow ext4</span>
+xfs_growfs<span class="w"> </span>/mnt/data<span class="w">               </span><span class="c1"># Grow XFS</span>
+</code></pre></div>
+<h3 id="information">Information<a class="headerlink" href="#information" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>blkid<span class="w"> </span>/dev/sdb1<span class="w">                    </span><span class="c1"># UUID, label, type</span>
+lsblk<span class="w"> </span>-f<span class="w">                           </span><span class="c1"># Tree with fs info</span>
+df<span class="w"> </span>-h<span class="w">                              </span><span class="c1"># Space usage</span>
+tune2fs<span class="w"> </span>-l<span class="w"> </span>/dev/sdb1<span class="w">               </span><span class="c1"># ext4 details</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../virtual-file-system/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manage and Configure the Virtual File System">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Manage and Configure the Virtual File System
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../remote-filesystems/" class="md-footer__link md-footer__link--next" aria-label="Next: Use Remote Filesystems and Network Block Devices">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Use Remote Filesystems and Network Block Devices
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -13,23 +13,25 @@
       
       
       
-        <link rel="prev" href="../automounters/">
+        <link rel="prev" href="../remote-filesystems/">
       
       
+        <link rel="next" href="../automounters/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>Monitor Storage Performance - My DevOps Interview Preparation</title>
+        <title>Configure and Manage Swap Space - My DevOps Interview Preparation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/app.css">
+      <link rel="stylesheet" href="../../../assets/css/app.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitor-storage-performance" class="md-skip">
+        <a href="#configure-and-manage-swap-space" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-header__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Monitor Storage Performance
+              Configure and Manage Swap Space
             
           </span>
         </div>
@@ -221,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -249,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../aws/computing/amplify/" class="md-tabs__link">
+        <a href="../../../aws/computing/amplify/" class="md-tabs__link">
           
   
   
@@ -274,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../kubernetes/envoy/" class="md-tabs__link">
+        <a href="../../../kubernetes/envoy/" class="md-tabs__link">
           
   
   
@@ -296,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../architectural-patterns/bulkhead/" class="md-tabs__link">
+        <a href="../../../architectural-patterns/bulkhead/" class="md-tabs__link">
           
   
   
@@ -318,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../general/different_types_of_scaling/" class="md-tabs__link">
+        <a href="../../../general/different_types_of_scaling/" class="md-tabs__link">
           
   
   
@@ -341,6 +343,15 @@
   
     
     
+      
+  
+  
+  
+    
+  
+  
+    
+    
       <li class="md-tabs__item md-tabs__item--active">
         <a href="../lvm-storage/" class="md-tabs__link">
           
@@ -352,6 +363,9 @@
 
         </a>
       </li>
+    
+  
+
     
   
 
@@ -378,7 +392,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
+    <a href="../../.." title="My DevOps Interview Preparation" class="md-nav__button md-logo" aria-label="My DevOps Interview Preparation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -408,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -572,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/amplify/" class="md-nav__link">
+      <a href="../../../aws/computing/amplify/" class="md-nav__link">
         
   
   
@@ -595,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/api_gateway/" class="md-nav__link">
+      <a href="../../../aws/computing/api_gateway/" class="md-nav__link">
         
   
   
@@ -618,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/autoscaling_groups/" class="md-nav__link">
+      <a href="../../../aws/computing/autoscaling_groups/" class="md-nav__link">
         
   
   
@@ -641,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ec2/" class="md-nav__link">
+      <a href="../../../aws/computing/ec2/" class="md-nav__link">
         
   
   
@@ -664,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/ecs/" class="md-nav__link">
+      <a href="../../../aws/computing/ecs/" class="md-nav__link">
         
   
   
@@ -687,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elastic_beanstalk/" class="md-nav__link">
+      <a href="../../../aws/computing/elastic_beanstalk/" class="md-nav__link">
         
   
   
@@ -710,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/elb/" class="md-nav__link">
+      <a href="../../../aws/computing/elb/" class="md-nav__link">
         
   
   
@@ -733,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/computing/lambda/" class="md-nav__link">
+      <a href="../../../aws/computing/lambda/" class="md-nav__link">
         
   
   
@@ -819,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/athena/" class="md-nav__link">
+      <a href="../../../aws/database/athena/" class="md-nav__link">
         
   
   
@@ -842,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/aurora/" class="md-nav__link">
+      <a href="../../../aws/database/aurora/" class="md-nav__link">
         
   
   
@@ -865,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/dynamodb/" class="md-nav__link">
+      <a href="../../../aws/database/dynamodb/" class="md-nav__link">
         
   
   
@@ -888,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/elasticache/" class="md-nav__link">
+      <a href="../../../aws/database/elasticache/" class="md-nav__link">
         
   
   
@@ -911,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/database/rds/" class="md-nav__link">
+      <a href="../../../aws/database/rds/" class="md-nav__link">
         
   
   
@@ -997,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/appconfig/" class="md-nav__link">
+      <a href="../../../aws/management/appconfig/" class="md-nav__link">
         
   
   
@@ -1020,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/billing/" class="md-nav__link">
+      <a href="../../../aws/management/billing/" class="md-nav__link">
         
   
   
@@ -1043,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/cloudformation/" class="md-nav__link">
+      <a href="../../../aws/management/cloudformation/" class="md-nav__link">
         
   
   
@@ -1066,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/sam/" class="md-nav__link">
+      <a href="../../../aws/management/sam/" class="md-nav__link">
         
   
   
@@ -1089,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/management/ssm/" class="md-nav__link">
+      <a href="../../../aws/management/ssm/" class="md-nav__link">
         
   
   
@@ -1177,7 +1191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/firehose/" class="md-nav__link">
+      <a href="../../../aws/messaging/firehose/" class="md-nav__link">
         
   
   
@@ -1200,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_analytics/" class="md-nav__link">
         
   
   
@@ -1223,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
+      <a href="../../../aws/messaging/kinesis_data_streams/" class="md-nav__link">
         
   
   
@@ -1246,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/ses/" class="md-nav__link">
+      <a href="../../../aws/messaging/ses/" class="md-nav__link">
         
   
   
@@ -1269,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sns/" class="md-nav__link">
+      <a href="../../../aws/messaging/sns/" class="md-nav__link">
         
   
   
@@ -1292,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/messaging/sqs/" class="md-nav__link">
+      <a href="../../../aws/messaging/sqs/" class="md-nav__link">
         
   
   
@@ -1376,7 +1390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudtrail/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudtrail/" class="md-nav__link">
         
   
   
@@ -1399,7 +1413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/cloudwatch/" class="md-nav__link">
+      <a href="../../../aws/monitoring/cloudwatch/" class="md-nav__link">
         
   
   
@@ -1422,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/eventbridge/" class="md-nav__link">
+      <a href="../../../aws/monitoring/eventbridge/" class="md-nav__link">
         
   
   
@@ -1445,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/monitoring/xray/" class="md-nav__link">
+      <a href="../../../aws/monitoring/xray/" class="md-nav__link">
         
   
   
@@ -1529,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/cloudfront/" class="md-nav__link">
+      <a href="../../../aws/network/cloudfront/" class="md-nav__link">
         
   
   
@@ -1552,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/elb/" class="md-nav__link">
+      <a href="../../../aws/network/elb/" class="md-nav__link">
         
   
   
@@ -1575,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/route53/" class="md-nav__link">
+      <a href="../../../aws/network/route53/" class="md-nav__link">
         
   
   
@@ -1598,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/network/vpc/" class="md-nav__link">
+      <a href="../../../aws/network/vpc/" class="md-nav__link">
         
   
   
@@ -1690,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/cognito/" class="md-nav__link">
+      <a href="../../../aws/security/cognito/" class="md-nav__link">
         
   
   
@@ -1713,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/iam/" class="md-nav__link">
+      <a href="../../../aws/security/iam/" class="md-nav__link">
         
   
   
@@ -1736,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/inspector/" class="md-nav__link">
+      <a href="../../../aws/security/inspector/" class="md-nav__link">
         
   
   
@@ -1759,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/kms/" class="md-nav__link">
+      <a href="../../../aws/security/kms/" class="md-nav__link">
         
   
   
@@ -1782,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/macie/" class="md-nav__link">
+      <a href="../../../aws/security/macie/" class="md-nav__link">
         
   
   
@@ -1805,7 +1819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/secrets_manager/" class="md-nav__link">
+      <a href="../../../aws/security/secrets_manager/" class="md-nav__link">
         
   
   
@@ -1828,7 +1842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/shield/" class="md-nav__link">
+      <a href="../../../aws/security/shield/" class="md-nav__link">
         
   
   
@@ -1851,7 +1865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/security/sso/" class="md-nav__link">
+      <a href="../../../aws/security/sso/" class="md-nav__link">
         
   
   
@@ -1933,7 +1947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/ebs/" class="md-nav__link">
+      <a href="../../../aws/storage/ebs/" class="md-nav__link">
         
   
   
@@ -1956,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/efs/" class="md-nav__link">
+      <a href="../../../aws/storage/efs/" class="md-nav__link">
         
   
   
@@ -1979,7 +1993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/storage/s3/" class="md-nav__link">
+      <a href="../../../aws/storage/s3/" class="md-nav__link">
         
   
   
@@ -2069,7 +2083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/cloud9/" class="md-nav__link">
+      <a href="../../../aws/tools/cloud9/" class="md-nav__link">
         
   
   
@@ -2092,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeartifact/" class="md-nav__link">
+      <a href="../../../aws/tools/codeartifact/" class="md-nav__link">
         
   
   
@@ -2115,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codebuild/" class="md-nav__link">
+      <a href="../../../aws/tools/codebuild/" class="md-nav__link">
         
   
   
@@ -2138,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codecommit/" class="md-nav__link">
+      <a href="../../../aws/tools/codecommit/" class="md-nav__link">
         
   
   
@@ -2161,7 +2175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codedeploy/" class="md-nav__link">
+      <a href="../../../aws/tools/codedeploy/" class="md-nav__link">
         
   
   
@@ -2184,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codeguru/" class="md-nav__link">
+      <a href="../../../aws/tools/codeguru/" class="md-nav__link">
         
   
   
@@ -2207,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/tools/codepipeline/" class="md-nav__link">
+      <a href="../../../aws/tools/codepipeline/" class="md-nav__link">
         
   
   
@@ -2238,7 +2252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/appsync/" class="md-nav__link">
+      <a href="../../../aws/appsync/" class="md-nav__link">
         
   
   
@@ -2261,7 +2275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cdk/" class="md-nav__link">
+      <a href="../../../aws/cdk/" class="md-nav__link">
         
   
   
@@ -2284,7 +2298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/cloudhsm/" class="md-nav__link">
+      <a href="../../../aws/cloudhsm/" class="md-nav__link">
         
   
   
@@ -2307,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/codestar/" class="md-nav__link">
+      <a href="../../../aws/codestar/" class="md-nav__link">
         
   
   
@@ -2330,7 +2344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sar/" class="md-nav__link">
+      <a href="../../../aws/sar/" class="md-nav__link">
         
   
   
@@ -2353,7 +2367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/step_function/" class="md-nav__link">
+      <a href="../../../aws/step_function/" class="md-nav__link">
         
   
   
@@ -2376,7 +2390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/sts/" class="md-nav__link">
+      <a href="../../../aws/sts/" class="md-nav__link">
         
   
   
@@ -2399,7 +2413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/swf/" class="md-nav__link">
+      <a href="../../../aws/swf/" class="md-nav__link">
         
   
   
@@ -2422,7 +2436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../aws/trusted_advisor/" class="md-nav__link">
+      <a href="../../../aws/trusted_advisor/" class="md-nav__link">
         
   
   
@@ -2531,7 +2545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/envoy/" class="md-nav__link">
+      <a href="../../../kubernetes/envoy/" class="md-nav__link">
         
   
   
@@ -2554,7 +2568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
+      <a href="../../../kubernetes/kubernetes_serverless_platforms/" class="md-nav__link">
         
   
   
@@ -2577,7 +2591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_security_admission/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_security_admission/" class="md-nav__link">
         
   
   
@@ -2600,7 +2614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/admission_controller/" class="md-nav__link">
+      <a href="../../../kubernetes/admission_controller/" class="md-nav__link">
         
   
   
@@ -2623,7 +2637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_priority_and_preemption/" class="md-nav__link">
         
   
   
@@ -2646,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/aggregation_layer/" class="md-nav__link">
+      <a href="../../../kubernetes/aggregation_layer/" class="md-nav__link">
         
   
   
@@ -2669,7 +2683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/encryptionconfig/" class="md-nav__link">
+      <a href="../../../kubernetes/encryptionconfig/" class="md-nav__link">
         
   
   
@@ -2692,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/submariner/" class="md-nav__link">
+      <a href="../../../kubernetes/submariner/" class="md-nav__link">
         
   
   
@@ -2715,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kubefed/" class="md-nav__link">
+      <a href="../../../kubernetes/kubefed/" class="md-nav__link">
         
   
   
@@ -2738,7 +2752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/pod_disruption_budget/" class="md-nav__link">
+      <a href="../../../kubernetes/pod_disruption_budget/" class="md-nav__link">
         
   
   
@@ -2761,7 +2775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/observability_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/observability_tools/" class="md-nav__link">
         
   
   
@@ -2784,7 +2798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/endpoint/" class="md-nav__link">
+      <a href="../../../kubernetes/endpoint/" class="md-nav__link">
         
   
   
@@ -2807,7 +2821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cilium/" class="md-nav__link">
         
   
   
@@ -2883,7 +2897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/open_standards/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/open_standards/" class="md-nav__link">
         
   
   
@@ -2906,7 +2920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cni_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cni_components/" class="md-nav__link">
         
   
   
@@ -2929,7 +2943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/cpi_components/" class="md-nav__link">
         
   
   
@@ -3005,7 +3019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/what_is_a_service_mesh/" class="md-nav__link">
         
   
   
@@ -3028,7 +3042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/istio/" class="md-nav__link">
         
   
   
@@ -3051,7 +3065,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/linkerd/" class="md-nav__link">
         
   
   
@@ -3074,7 +3088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
+      <a href="../../../kubernetes/open_standards/SMI/description/" class="md-nav__link">
         
   
   
@@ -3174,7 +3188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/etcd/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/etcd/" class="md-nav__link">
         
   
   
@@ -3197,7 +3211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/vpa/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/vpa/" class="md-nav__link">
         
   
   
@@ -3220,7 +3234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/kubelet_issues/" class="md-nav__link">
         
   
   
@@ -3243,7 +3257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/utilities/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/utilities/" class="md-nav__link">
         
   
   
@@ -3266,7 +3280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/openssl/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/openssl/" class="md-nav__link">
         
   
   
@@ -3289,7 +3303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/helm/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/helm/" class="md-nav__link">
         
   
   
@@ -3312,7 +3326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/cri/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/cri/" class="md-nav__link">
         
   
   
@@ -3335,7 +3349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cka/jsonpath/" class="md-nav__link">
+      <a href="../../../kubernetes/cka/jsonpath/" class="md-nav__link">
         
   
   
@@ -3425,7 +3439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/compliance_frameworks/" class="md-nav__link">
         
   
   
@@ -3448,7 +3462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/compliance_security_frameworks_tools/" class="md-nav__link">
         
   
   
@@ -3471,7 +3485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/kubernetes_auditing_policy/" class="md-nav__link">
         
   
   
@@ -3494,7 +3508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/linux_tools/" class="md-nav__link">
         
   
   
@@ -3517,7 +3531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/security_context/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/security_context/" class="md-nav__link">
         
   
   
@@ -3540,7 +3554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/threat_modeling_frameworks/" class="md-nav__link">
         
   
   
@@ -3563,7 +3577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
+      <a href="../../../kubernetes/kcsa/virtualizers/" class="md-nav__link">
         
   
   
@@ -3669,7 +3683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/k8s_dashboard/" class="md-nav__link">
         
   
   
@@ -3692,7 +3706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cert_auth/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/cert_auth/" class="md-nav__link">
         
   
   
@@ -3715,7 +3729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/apparmor/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/apparmor/" class="md-nav__link">
         
   
   
@@ -3738,7 +3752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/falco/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/falco/" class="md-nav__link">
         
   
   
@@ -3761,7 +3775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/seccomp/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/seccomp/" class="md-nav__link">
         
   
   
@@ -3784,7 +3798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/image_scanning/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/image_scanning/" class="md-nav__link">
         
   
   
@@ -3807,7 +3821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/kube_bench/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/kube_bench/" class="md-nav__link">
         
   
   
@@ -3830,7 +3844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/audit_logging/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/audit_logging/" class="md-nav__link">
         
   
   
@@ -3853,7 +3867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/admission_controller_config/" class="md-nav__link">
         
   
   
@@ -3876,7 +3890,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/cilium/" class="md-nav__link">
         
   
   
@@ -3899,7 +3913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/secure_docker_daemon/" class="md-nav__link">
         
   
   
@@ -3922,7 +3936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/istio_mtls/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/istio_mtls/" class="md-nav__link">
         
   
   
@@ -3945,7 +3959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/opa/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/opa/" class="md-nav__link">
         
   
   
@@ -3968,7 +3982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/runtimeclass/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/runtimeclass/" class="md-nav__link">
         
   
   
@@ -4056,7 +4070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/falco-rule/" class="md-nav__link">
         
   
   
@@ -4079,7 +4093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/use-sbom/" class="md-nav__link">
         
   
   
@@ -4102,7 +4116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/istio-mtls/" class="md-nav__link">
         
   
   
@@ -4125,7 +4139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/docker-socket-security/" class="md-nav__link">
         
   
   
@@ -4148,7 +4162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/hostpath-only/" class="md-nav__link">
         
   
   
@@ -4171,7 +4185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/p2p-encryption-istio-cilium/" class="md-nav__link">
         
   
   
@@ -4194,7 +4208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/pod-security-standards/" class="md-nav__link">
         
   
   
@@ -4217,7 +4231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/cilium/" class="md-nav__link">
         
   
   
@@ -4240,7 +4254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/update-kubelet-config/" class="md-nav__link">
         
   
   
@@ -4263,7 +4277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
+      <a href="../../../kubernetes/cks/exercises/security-static-analysis/" class="md-nav__link">
         
   
   
@@ -4366,7 +4380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/bulkhead/" class="md-nav__link">
+      <a href="../../../architectural-patterns/bulkhead/" class="md-nav__link">
         
   
   
@@ -4389,7 +4403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/circuit_breaker/" class="md-nav__link">
+      <a href="../../../architectural-patterns/circuit_breaker/" class="md-nav__link">
         
   
   
@@ -4412,7 +4426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_driven/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_driven/" class="md-nav__link">
         
   
   
@@ -4435,7 +4449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/event_sourcing/" class="md-nav__link">
+      <a href="../../../architectural-patterns/event_sourcing/" class="md-nav__link">
         
   
   
@@ -4458,7 +4472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/saga_pattern/" class="md-nav__link">
+      <a href="../../../architectural-patterns/saga_pattern/" class="md-nav__link">
         
   
   
@@ -4481,7 +4495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../architectural-patterns/strangler/" class="md-nav__link">
+      <a href="../../../architectural-patterns/strangler/" class="md-nav__link">
         
   
   
@@ -4558,7 +4572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../general/different_types_of_scaling/" class="md-nav__link">
+      <a href="../../../general/different_types_of_scaling/" class="md-nav__link">
         
   
   
@@ -4591,16 +4605,6 @@
   
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -4642,6 +4646,70 @@
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -4741,10 +4809,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../swap-space/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configure and Manage Swap Space
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4755,6 +4845,407 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-swap-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Swap Space?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Swap Space?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-is-swap-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      When is Swap Used?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swap-size-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swap Size Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-swap-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Swap Space
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Swap Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-types-of-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Types of Swap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-swap-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Swap Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Swap Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fallocate-quick-file-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      fallocate - Quick File Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dd-alternative-file-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      dd - Alternative File Creation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-swap-partitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Swap Partitions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Swap Partitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-fdisk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using fdisk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swap Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Swap Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mkswap-format-as-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      mkswap - Format as Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapon-enable-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      swapon - Enable Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapoff-disable-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      swapoff - Disable Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-memory-and-swap-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      free - Memory and Swap Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmstat-virtual-memory-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      vmstat - Virtual Memory Statistics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistent-swap-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistent Swap Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persistent Swap Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etcfstab-entries" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/fstab Entries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-swap-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuning Swap Behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuning Swap Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vmswappiness-control-swap-tendency" class="md-nav__link">
+    <span class="md-ellipsis">
+      vm.swappiness - Control Swap Tendency
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap-on-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swap on LVM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Swap on LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-lvm-for-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Use LVM for Swap?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-swap-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring Swap Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring Swap Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-whats-using-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check What&rsquo;s Using Swap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-system-running-out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: System Running Out of Memory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-heavy-swapping-system-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Heavy Swapping (System Slow)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-cannot-enable-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Cannot Enable Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-swap-not-activating-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Swap Not Activating at Boot
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Managing Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4787,32 +5278,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Monitor Storage Performance
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../storage-performance/" class="md-nav__link">
         
   
   
@@ -4823,451 +5292,269 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
   
   
   
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    
       
-        <li class="md-nav__item">
-  <a href="#what-is-storage-performance-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is Storage Performance Monitoring?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What is Storage Performance Monitoring?">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#why-monitor-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why Monitor Storage?
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#key-performance-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Performance Metrics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Performance Metrics">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#understanding-the-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding the Numbers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#iostat-io-statistics" class="md-nav__link">
-    <span class="md-ellipsis">
-      iostat - I/O Statistics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="iostat - I/O Statistics">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#what-is-iostat" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is iostat?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-iostat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iostat
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-iostat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using iostat
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-iostat-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key iostat Columns
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#iotop-io-by-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      iotop - I/O by Process
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="iotop - I/O by Process">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#what-is-iotop" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is iotop?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-iotop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iotop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-iotop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using iotop
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#vmstat-system-statistics" class="md-nav__link">
-    <span class="md-ellipsis">
-      vmstat - System Statistics
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="vmstat - System Statistics">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#what-is-vmstat" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is vmstat?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-vmstat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using vmstat
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#df-and-du-space-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      df and du - Space Usage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="df and du - Space Usage">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#df-disk-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      df - Disk Free
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#du-disk-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      du - Disk Usage
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#lsof-and-fuser-find-open-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      lsof and fuser - Find Open Files
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="lsof and fuser - Find Open Files">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#lsof-list-open-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      lsof - List Open Files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fuser-find-process-using-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      fuser - Find Process Using File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#smartctl-disk-health" class="md-nav__link">
-    <span class="md-ellipsis">
-      smartctl - Disk Health
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="smartctl - Disk Health">
-      <ul class="md-nav__list">
         
-          <li class="md-nav__item">
-  <a href="#what-is-smartctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is smartctl?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-smartctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing smartctl
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-smartctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using smartctl
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#important-smart-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important SMART Attributes
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#simple-performance-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      Simple Performance Test
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Simple Performance Test">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dd-basic-disk-speed-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      dd - Basic Disk Speed Test
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
+    
+    
+    
       
-        <li class="md-nav__item">
-  <a href="#troubleshooting-scenarios" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting Scenarios
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting Scenarios">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenario-1-system-very-slow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scenario 1: System Very Slow
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-2-disk-almost-full" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scenario 2: Disk Almost Full
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-3-cannot-unmount" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scenario 3: Cannot Unmount
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#monitoring-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring Best Practices
-    </span>
-  </a>
-  
-</li>
+        
+          
+          
+        
       
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Reference
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#check-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check Performance
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#find-space-hogs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Find Space Hogs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-health" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check Health
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshoot-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshoot Issues
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#speed-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      Speed Test
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-    </ul>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
   
-</nav>
+  
+  <span class="md-ellipsis">
+    Network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/ipv4-ipv6-hostname/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure IPv4 and IPv6 Networking and Hostname Resolution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/time-synchronization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set and Synchronize System Time Using Time Servers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/monitor-troubleshoot-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitor and Troubleshoot Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/openssh-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure OpenSSH Server and Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/packet-filtering-nat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Packet Filtering, Port Redirection, and NAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/static-routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Static Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/bridge-bonding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Bridge and Bonding Devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/reverse-proxy-load-balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement Reverse Proxies and Load Balancers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -5308,19 +5595,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-storage-performance-monitoring" class="md-nav__link">
+  <a href="#what-is-swap-space" class="md-nav__link">
     <span class="md-ellipsis">
-      What is Storage Performance Monitoring?
+      What is Swap Space?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What is Storage Performance Monitoring?">
+    <nav class="md-nav" aria-label="What is Swap Space?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-monitor-storage" class="md-nav__link">
+  <a href="#when-is-swap-used" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Monitor Storage?
+      When is Swap Used?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swap-size-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swap Size Recommendations
     </span>
   </a>
   
@@ -5332,19 +5628,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-performance-metrics" class="md-nav__link">
+  <a href="#creating-swap-space" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Performance Metrics
+      Creating Swap Space
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Performance Metrics">
+    <nav class="md-nav" aria-label="Creating Swap Space">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#understanding-the-numbers" class="md-nav__link">
+  <a href="#two-types-of-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      Understanding the Numbers
+      Two Types of Swap
     </span>
   </a>
   
@@ -5356,46 +5652,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#iostat-io-statistics" class="md-nav__link">
+  <a href="#creating-swap-files" class="md-nav__link">
     <span class="md-ellipsis">
-      iostat - I/O Statistics
+      Creating Swap Files
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="iostat - I/O Statistics">
+    <nav class="md-nav" aria-label="Creating Swap Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-iostat" class="md-nav__link">
+  <a href="#fallocate-quick-file-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      What is iostat?
+      fallocate - Quick File Creation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#installing-iostat" class="md-nav__link">
+  <a href="#dd-alternative-file-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing iostat
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-iostat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using iostat
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-iostat-columns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key iostat Columns
+      dd - Alternative File Creation
     </span>
   </a>
   
@@ -5407,37 +5685,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#iotop-io-by-process" class="md-nav__link">
+  <a href="#creating-swap-partitions" class="md-nav__link">
     <span class="md-ellipsis">
-      iotop - I/O by Process
+      Creating Swap Partitions
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="iotop - I/O by Process">
+    <nav class="md-nav" aria-label="Creating Swap Partitions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-iotop" class="md-nav__link">
+  <a href="#using-fdisk" class="md-nav__link">
     <span class="md-ellipsis">
-      What is iotop?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-iotop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing iotop
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-iotop" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using iotop
+      Using fdisk
     </span>
   </a>
   
@@ -5449,28 +5709,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vmstat-system-statistics" class="md-nav__link">
+  <a href="#swap-commands" class="md-nav__link">
     <span class="md-ellipsis">
-      vmstat - System Statistics
+      Swap Commands
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="vmstat - System Statistics">
+    <nav class="md-nav" aria-label="Swap Commands">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-vmstat" class="md-nav__link">
+  <a href="#mkswap-format-as-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      What is vmstat?
+      mkswap - Format as Swap
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#using-vmstat" class="md-nav__link">
+  <a href="#swapon-enable-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      Using vmstat
+      swapon - Enable Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swapoff-disable-swap" class="md-nav__link">
+    <span class="md-ellipsis">
+      swapoff - Disable Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-memory-and-swap-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      free - Memory and Swap Status
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmstat-virtual-memory-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      vmstat - Virtual Memory Statistics
     </span>
   </a>
   
@@ -5482,28 +5769,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#df-and-du-space-usage" class="md-nav__link">
+  <a href="#persistent-swap-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      df and du - Space Usage
+      Persistent Swap Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="df and du - Space Usage">
+    <nav class="md-nav" aria-label="Persistent Swap Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#df-disk-free" class="md-nav__link">
+  <a href="#etcfstab-entries" class="md-nav__link">
     <span class="md-ellipsis">
-      df - Disk Free
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#du-disk-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      du - Disk Usage
+      /etc/fstab Entries
     </span>
   </a>
   
@@ -5515,28 +5793,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lsof-and-fuser-find-open-files" class="md-nav__link">
+  <a href="#tuning-swap-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      lsof and fuser - Find Open Files
+      Tuning Swap Behavior
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="lsof and fuser - Find Open Files">
+    <nav class="md-nav" aria-label="Tuning Swap Behavior">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lsof-list-open-files" class="md-nav__link">
+  <a href="#vmswappiness-control-swap-tendency" class="md-nav__link">
     <span class="md-ellipsis">
-      lsof - List Open Files
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fuser-find-process-using-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      fuser - Find Process Using File
+      vm.swappiness - Control Swap Tendency
     </span>
   </a>
   
@@ -5548,46 +5817,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#smartctl-disk-health" class="md-nav__link">
+  <a href="#swap-on-lvm" class="md-nav__link">
     <span class="md-ellipsis">
-      smartctl - Disk Health
+      Swap on LVM
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="smartctl - Disk Health">
+    <nav class="md-nav" aria-label="Swap on LVM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-smartctl" class="md-nav__link">
+  <a href="#why-use-lvm-for-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      What is smartctl?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installing-smartctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing smartctl
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-smartctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using smartctl
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#important-smart-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important SMART Attributes
+      Why Use LVM for Swap?
     </span>
   </a>
   
@@ -5599,19 +5841,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#simple-performance-test" class="md-nav__link">
+  <a href="#monitoring-swap-usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Simple Performance Test
+      Monitoring Swap Usage
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Simple Performance Test">
+    <nav class="md-nav" aria-label="Monitoring Swap Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dd-basic-disk-speed-test" class="md-nav__link">
+  <a href="#check-whats-using-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      dd - Basic Disk Speed Test
+      Check What&rsquo;s Using Swap
     </span>
   </a>
   
@@ -5623,37 +5865,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting-scenarios" class="md-nav__link">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshooting Scenarios
+      Troubleshooting
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting Scenarios">
+    <nav class="md-nav" aria-label="Troubleshooting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scenario-1-system-very-slow" class="md-nav__link">
+  <a href="#problem-system-running-out-of-memory" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario 1: System Very Slow
+      Problem: System Running Out of Memory
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-2-disk-almost-full" class="md-nav__link">
+  <a href="#problem-heavy-swapping-system-slow" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario 2: Disk Almost Full
+      Problem: Heavy Swapping (System Slow)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scenario-3-cannot-unmount" class="md-nav__link">
+  <a href="#problem-cannot-enable-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      Scenario 3: Cannot Unmount
+      Problem: Cannot Enable Swap
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-swap-not-activating-at-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem: Swap Not Activating at Boot
     </span>
   </a>
   
@@ -5665,9 +5916,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-best-practices" class="md-nav__link">
+  <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      Monitoring Best Practices
+      Best Practices
     </span>
   </a>
   
@@ -5684,45 +5935,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#check-performance" class="md-nav__link">
+  <a href="#creating-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      Check Performance
+      Creating Swap
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#find-space-hogs" class="md-nav__link">
+  <a href="#managing-swap" class="md-nav__link">
     <span class="md-ellipsis">
-      Find Space Hogs
+      Managing Swap
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#check-health" class="md-nav__link">
+  <a href="#tuning" class="md-nav__link">
     <span class="md-ellipsis">
-      Check Health
+      Tuning
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#troubleshoot-issues" class="md-nav__link">
+  <a href="#monitoring" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshoot Issues
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#speed-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      Speed Test
+      Monitoring
     </span>
   </a>
   
@@ -5752,203 +5994,283 @@
   
 
 
-<h1 id="monitor-storage-performance">Monitor Storage Performance<a class="headerlink" href="#monitor-storage-performance" title="Permanent link">&para;</a></h1>
-<h2 id="what-is-storage-performance-monitoring">What is Storage Performance Monitoring?<a class="headerlink" href="#what-is-storage-performance-monitoring" title="Permanent link">&para;</a></h2>
-<p>Storage performance monitoring is about watching how your disks and filesystems are performing. Are they fast enough? Are they bottlenecking your system? Are they about to fail?</p>
-<p>Think of it like checking your car&rsquo;s dashboard - you want to know if everything&rsquo;s running smoothly before problems occur.</p>
-<h3 id="why-monitor-storage">Why Monitor Storage?<a class="headerlink" href="#why-monitor-storage" title="Permanent link">&para;</a></h3>
-<p><strong>Prevent problems:</strong></p>
+<h1 id="configure-and-manage-swap-space">Configure and Manage Swap Space<a class="headerlink" href="#configure-and-manage-swap-space" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-swap-space">What is Swap Space?<a class="headerlink" href="#what-is-swap-space" title="Permanent link">&para;</a></h2>
+<p>Swap is space on your hard drive that acts as extra (but slower) RAM. When your physical RAM fills up, Linux moves less-used data to swap to free up RAM for active programs.</p>
+<p>Think of it like this:</p>
 <ul>
-<li>Catch failing disks before they fail completely</li>
-<li>Identify bottlenecks before users complain</li>
-<li>Plan capacity before running out of space</li>
+<li><strong>RAM:</strong> Your desk - fast and convenient for work you&rsquo;re doing now</li>
+<li><strong>Swap:</strong> A filing cabinet - slower to access, but expands your working space</li>
 </ul>
-<p><strong>Optimize performance:</strong></p>
-<ul>
-<li>Find slow I/O operations</li>
-<li>Identify what&rsquo;s causing disk activity</li>
-<li>Tune system for better performance</li>
-</ul>
-<p><strong>Troubleshoot issues:</strong></p>
-<ul>
-<li>System is slow - is it the disk?</li>
-<li>Application timing out - disk bottleneck?</li>
-<li>High load - what&rsquo;s accessing the disk?</li>
-</ul>
+<h3 id="when-is-swap-used">When is Swap Used?<a class="headerlink" href="#when-is-swap-used" title="Permanent link">&para;</a></h3>
+<p><strong>Scenario 1: Running out of RAM</strong></p>
+<p>You&rsquo;re running many programs and RAM fills up. Linux moves inactive pages to swap, freeing RAM for active processes.</p>
+<p><strong>Scenario 2: Hibernation</strong></p>
+<p>When you hibernate, Linux copies all RAM to swap, then powers off. On resume, it reads swap back into RAM.</p>
+<p><strong>Scenario 3: Memory Management</strong></p>
+<p>Even with free RAM, Linux might swap out rarely-used pages to have more free RAM for file caching (speeds up the system).</p>
+<h3 id="swap-size-recommendations">Swap Size Recommendations<a class="headerlink" href="#swap-size-recommendations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Physical RAM</th>
+<th>Swap Size (No Hibernation)</th>
+<th>With Hibernation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 2 GB</td>
+<td>2x RAM</td>
+<td>3x RAM</td>
+</tr>
+<tr>
+<td>2-8 GB</td>
+<td>= RAM</td>
+<td>2x RAM</td>
+</tr>
+<tr>
+<td>8-64 GB</td>
+<td>4-8 GB (or 0.5x RAM)</td>
+<td>1.5x RAM</td>
+</tr>
+<tr>
+<td>&gt; 64 GB</td>
+<td>4-8 GB minimum</td>
+<td>Not practical</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> These are guidelines. Your needs depend on your workload.</p>
 <hr />
-<h2 id="key-performance-metrics">Key Performance Metrics<a class="headerlink" href="#key-performance-metrics" title="Permanent link">&para;</a></h2>
-<h3 id="understanding-the-numbers">Understanding the Numbers<a class="headerlink" href="#understanding-the-numbers" title="Permanent link">&para;</a></h3>
-<p><strong>IOPS (Input/Output Operations Per Second):</strong></p>
+<h2 id="creating-swap-space">Creating Swap Space<a class="headerlink" href="#creating-swap-space" title="Permanent link">&para;</a></h2>
+<h3 id="two-types-of-swap">Two Types of Swap<a class="headerlink" href="#two-types-of-swap" title="Permanent link">&para;</a></h3>
+<p><strong>1. Swap Partition:</strong></p>
 <ul>
-<li>How many read/write operations per second</li>
-<li>Like &ldquo;how many files can I access per second&rdquo;</li>
-<li>Higher = better (especially for many small files)</li>
-<li>Example: Database servers need high IOPS</li>
+<li>Dedicated disk partition for swap</li>
+<li>Slightly faster</li>
+<li>Fixed size (harder to change)</li>
+<li>Traditional approach</li>
 </ul>
-<p><strong>Throughput (MB/s):</strong></p>
+<p><strong>2. Swap File:</strong></p>
 <ul>
-<li>How much data transferred per second</li>
-<li>Like &ldquo;how fast can I copy a large file&rdquo;</li>
-<li>Higher = better (especially for large files)</li>
-<li>Example: Video editing needs high throughput</li>
+<li>Regular file used as swap</li>
+<li>Easier to create/resize</li>
+<li>More flexible</li>
+<li>Modern approach</li>
 </ul>
-<p><strong>Latency (milliseconds):</strong></p>
-<ul>
-<li>How long each operation takes</li>
-<li>Like &ldquo;how long do I wait for disk response&rdquo;</li>
-<li>Lower = better</li>
-<li>Good: &lt;10ms, Acceptable: 10-20ms, Bad: &gt;20ms</li>
-</ul>
-<p><strong>Utilization (%):</strong></p>
-<ul>
-<li>How busy the disk is</li>
-<li>100% means fully busy</li>
-<li>
-<blockquote>
-<p>80% sustained = potential bottleneck</p>
-</blockquote>
-</li>
-<li>Example: 95% util = disk can&rsquo;t keep up</li>
-</ul>
+<p>Both work equally well. Swap files are more convenient.</p>
 <hr />
-<h2 id="iostat-io-statistics">iostat - I/O Statistics<a class="headerlink" href="#iostat-io-statistics" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-iostat">What is iostat?<a class="headerlink" href="#what-is-iostat" title="Permanent link">&para;</a></h3>
-<p>iostat shows how busy your disks are, how much data they&rsquo;re reading/writing, and if there are performance issues.</p>
-<p><strong>Think of it as:</strong> A real-time dashboard for your disks.</p>
-<h3 id="installing-iostat">Installing iostat<a class="headerlink" href="#installing-iostat" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS/Rocky</span>
-dnf<span class="w"> </span>install<span class="w"> </span>sysstat
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>sysstat
+<h2 id="creating-swap-files">Creating Swap Files<a class="headerlink" href="#creating-swap-files" title="Permanent link">&para;</a></h2>
+<h3 id="fallocate-quick-file-creation">fallocate - Quick File Creation<a class="headerlink" href="#fallocate-quick-file-creation" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Instantly creates a file of specific size.</p>
+<p><strong>Why use it:</strong> Fastest way to create swap file.</p>
+<p><strong>Example - Creating 2GB swap file:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Create the file (instant!)</span>
+fallocate<span class="w"> </span>-l<span class="w"> </span>2G<span class="w"> </span>/swapfile
 
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>sysstat
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>sysstat
+<span class="c1"># Step 2: Set correct permissions (CRITICAL for security!)</span>
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+
+<span class="c1"># Step 3: Format as swap</span>
+mkswap<span class="w"> </span>/swapfile
+
+<span class="c1"># Step 4: Enable it</span>
+swapon<span class="w"> </span>/swapfile
+
+<span class="c1"># Step 5: Verify</span>
+swapon<span class="w"> </span>--show
+free<span class="w"> </span>-h
+
+<span class="c1"># Step 6: Make permanent</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/swapfile none swap sw 0 0&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
 </code></pre></div>
-<h3 id="using-iostat">Using iostat<a class="headerlink" href="#using-iostat" title="Permanent link">&para;</a></h3>
+<p><strong>Real-world scenario - VPS with no swap:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Many VPS providers don&#39;t include swap</span>
+<span class="c1"># Check current swap</span>
+free<span class="w"> </span>-h
+<span class="c1"># Shows: Swap: 0B</span>
+
+<span class="c1"># Create 4GB swap file</span>
+sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>4G<span class="w"> </span>/swapfile
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
+sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
+
+<span class="c1"># Verify</span>
+free<span class="w"> </span>-h
+<span class="c1"># Now shows: Swap: 4.0Gi</span>
+
+<span class="c1"># Make permanent</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/swapfile none swap sw 0 0&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<h3 id="dd-alternative-file-creation">dd - Alternative File Creation<a class="headerlink" href="#dd-alternative-file-creation" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Copies data to create file (slower but more compatible).</p>
+<p><strong>Why use it:</strong> Works on all systems, shows progress.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create 2GB swap file with progress</span>
+dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/swapfile<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">2048</span><span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+
+<span class="c1"># Then follow same steps as fallocate</span>
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+mkswap<span class="w"> </span>/swapfile
+swapon<span class="w"> </span>/swapfile
+</code></pre></div>
+<hr />
+<h2 id="creating-swap-partitions">Creating Swap Partitions<a class="headerlink" href="#creating-swap-partitions" title="Permanent link">&para;</a></h2>
+<h3 id="using-fdisk">Using fdisk<a class="headerlink" href="#using-fdisk" title="Permanent link">&para;</a></h3>
+<p><strong>Real-world scenario - New disk for swap:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Identify disk</span>
+lsblk
+<span class="c1"># /dev/sdb is your new disk</span>
+
+<span class="c1"># Step 2: Create partition</span>
+fdisk<span class="w"> </span>/dev/sdb
+
+<span class="c1"># In fdisk:</span>
+<span class="c1"># Press: n (new partition)</span>
+<span class="c1"># Press: p (primary)</span>
+<span class="c1"># Press: 1 (partition number)</span>
+<span class="c1"># Press: Enter (default start)</span>
+<span class="c1"># Press: +8G (8GB size)</span>
+<span class="c1"># Press: t (change type)</span>
+<span class="c1"># Press: 82 (Linux swap)</span>
+<span class="c1"># Press: w (write changes)</span>
+
+<span class="c1"># Step 3: Format as swap</span>
+mkswap<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Step 4: Enable</span>
+swapon<span class="w"> </span>/dev/sdb1
+
+<span class="c1"># Step 5: Make permanent</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/dev/sdb1 none swap sw 0 0&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<hr />
+<h2 id="swap-commands">Swap Commands<a class="headerlink" href="#swap-commands" title="Permanent link">&para;</a></h2>
+<h3 id="mkswap-format-as-swap">mkswap - Format as Swap<a class="headerlink" href="#mkswap-format-as-swap" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Prepares a partition or file to be used as swap space.</p>
+<p><strong>Why use it:</strong> Required before using any space as swap.</p>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic snapshot</span>
-iostat
+<div class="highlight"><pre><span></span><code><span class="c1"># Format partition</span>
+mkswap<span class="w"> </span>/dev/sdb1
 
-<span class="c1"># Extended statistics (most useful!)</span>
-iostat<span class="w"> </span>-x
+<span class="c1"># Format file</span>
+mkswap<span class="w"> </span>/swapfile
 
-<span class="c1"># Human-readable sizes</span>
-iostat<span class="w"> </span>-xh
-
-<span class="c1"># Update every 2 seconds</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">2</span>
-
-<span class="c1"># 10 samples, 2 seconds apart</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Show in megabytes</span>
-iostat<span class="w"> </span>-xm<span class="w"> </span><span class="m">2</span>
-
-<span class="c1"># With timestamps</span>
-iostat<span class="w"> </span>-xt<span class="w"> </span><span class="m">2</span>
+<span class="c1"># With label (helpful for identification)</span>
+mkswap<span class="w"> </span>-L<span class="w"> </span><span class="s2">&quot;swap1&quot;</span><span class="w"> </span>/dev/sdb1
 </code></pre></div>
-<p><strong>Real-world scenario - Check disk performance:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># System feels slow, check disks</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">2</span>
-
-Device<span class="w">   </span>r/s<span class="w">   </span>w/s<span class="w">   </span>rkB/s<span class="w">   </span>wkB/s<span class="w">  </span>await<span class="w">  </span>%util
-sda<span class="w">     </span><span class="m">10</span>.5<span class="w">  </span><span class="m">45</span>.2<span class="w">   </span><span class="m">512</span><span class="w">     </span><span class="m">2048</span><span class="w">   </span><span class="m">8</span>.3<span class="w">    </span><span class="m">45</span>.2
-sdb<span class="w">    </span><span class="m">150</span>.3<span class="w">  </span><span class="m">89</span>.7<span class="w">  </span><span class="m">3072</span><span class="w">     </span><span class="m">4096</span><span class="w">   </span><span class="m">85</span>.5<span class="w">   </span><span class="m">98</span>.7
-sdc<span class="w">      </span><span class="m">2</span>.1<span class="w">   </span><span class="m">1</span>.3<span class="w">    </span><span class="m">64</span><span class="w">       </span><span class="m">32</span><span class="w">   </span><span class="m">2</span>.1<span class="w">     </span><span class="m">5</span>.3
+<p><strong>Output example:</strong></p>
+<div class="highlight"><pre><span></span><code>Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
+no label, UUID=1234abcd-5678-...
 </code></pre></div>
-<p><strong>Reading the output:</strong></p>
-<ul>
-<li><strong>sda:</strong> Normal activity, 45% busy, 8ms wait - Good!</li>
-<li><strong>sdb:</strong> Very busy (98.7%), high wait (85ms) - BOTTLENECK!</li>
-<li><strong>sdc:</strong> Barely used, 5% busy - Fine</li>
-</ul>
-<p><strong>Solution:</strong> sdb is your problem. It&rsquo;s nearly 100% busy and operations are waiting 85ms.</p>
-<h3 id="key-iostat-columns">Key iostat Columns<a class="headerlink" href="#key-iostat-columns" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Device:   Drive name (sda, sdb, nvme0n1)
-r/s:      Reads per second
-w/s:      Writes per second  
-rkB/s:    Kilobytes read per second
-wkB/s:    Kilobytes written per second
-await:    Average wait time in milliseconds
-%util:    How busy the drive is (percentage)
-</code></pre></div>
-<p><strong>What&rsquo;s good vs bad:</strong></p>
-<div class="highlight"><pre><span></span><code>await    Interpretation
-&lt;10ms    Excellent (SSD territory)
-10-20ms  Good (normal HDD)
-20-50ms  Slow (loaded system)
-&gt;50ms    Problem! (bottleneck)
-
-%util    Interpretation
-&lt;50%     Plenty of capacity
-50-80%   Moderate load
-80-95%   Getting busy
-&gt;95%     Saturated (bottleneck!)
-</code></pre></div>
-<hr />
-<h2 id="iotop-io-by-process">iotop - I/O by Process<a class="headerlink" href="#iotop-io-by-process" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-iotop">What is iotop?<a class="headerlink" href="#what-is-iotop" title="Permanent link">&para;</a></h3>
-<p>iotop shows which programs are using disk I/O. Like <code>top</code> but for disk activity.</p>
-<p><strong>Think of it as:</strong> &ldquo;Who&rsquo;s hogging my disk?&rdquo;</p>
-<h3 id="installing-iotop">Installing iotop<a class="headerlink" href="#installing-iotop" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-dnf<span class="w"> </span>install<span class="w"> </span>iotop
-
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>iotop
-</code></pre></div>
-<h3 id="using-iotop">Using iotop<a class="headerlink" href="#using-iotop" title="Permanent link">&para;</a></h3>
+<h3 id="swapon-enable-swap">swapon - Enable Swap<a class="headerlink" href="#swapon-enable-swap" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Activates swap space so Linux can use it.</p>
+<p><strong>Why use it:</strong> Swap isn&rsquo;t usable until you enable it.</p>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic view</span>
-iotop
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable specific swap</span>
+swapon<span class="w"> </span>/swapfile
+swapon<span class="w"> </span>/dev/sdb1
 
-<span class="c1"># Only show processes doing I/O (most useful!)</span>
-iotop<span class="w"> </span>-o
+<span class="c1"># Enable all swap in /etc/fstab</span>
+swapon<span class="w"> </span>-a
 
-<span class="c1"># Accumulated I/O (total since start)</span>
-iotop<span class="w"> </span>-oa
+<span class="c1"># Enable with priority (higher number = used first)</span>
+swapon<span class="w"> </span>-p<span class="w"> </span><span class="m">10</span><span class="w"> </span>/dev/sdb1
+swapon<span class="w"> </span>-p<span class="w"> </span><span class="m">5</span><span class="w"> </span>/swapfile
 
-<span class="c1"># With timestamps</span>
-iotop<span class="w"> </span>-oat
+<span class="c1"># Show what&#39;s active</span>
+swapon<span class="w"> </span>--show
 
-<span class="c1"># Batch mode (for logging)</span>
-iotop<span class="w"> </span>-ob<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Monitor specific process</span>
-iotop<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>
-
-<span class="c1"># Monitor specific user</span>
-iotop<span class="w"> </span>-u<span class="w"> </span>mysql
+<span class="c1"># Verbose mode</span>
+swapon<span class="w"> </span>-v<span class="w"> </span>/swapfile
 </code></pre></div>
-<p><strong>Interactive keys:</strong></p>
-<ul>
-<li><code>o</code> - Toggle showing only active processes</li>
-<li><code>a</code> - Toggle accumulated mode</li>
-<li><code>r</code> - Reverse sort</li>
-<li><code>q</code> - Quit</li>
-</ul>
-<p><strong>Real-world scenario - System slow, find culprit:</strong></p>
-<div class="highlight"><pre><span></span><code>iotop<span class="w"> </span>-o
+<p><strong>Understanding priority:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fast SSD swap - high priority (used first)</span>
+swapon<span class="w"> </span>-p<span class="w"> </span><span class="m">100</span><span class="w"> </span>/dev/nvme0n1p3
 
-Total<span class="w"> </span>DISK<span class="w"> </span>READ:<span class="w"> </span><span class="m">85</span>.3<span class="w"> </span>MB/s<span class="w"> </span><span class="p">|</span><span class="w"> </span>Total<span class="w"> </span>DISK<span class="w"> </span>WRITE:<span class="w"> </span><span class="m">120</span>.5<span class="w"> </span>MB/s
-TID<span class="w">  </span>USER<span class="w">     </span>DISK<span class="w"> </span>READ<span class="w">  </span>DISK<span class="w"> </span>WRITE<span class="w">  </span>COMMAND
-<span class="m">2341</span><span class="w"> </span>mysql<span class="w">    </span><span class="m">65</span>.3<span class="w"> </span>MB/s<span class="w">   </span><span class="m">95</span>.2<span class="w"> </span>MB/s<span class="w">  </span>mysqld
-<span class="m">3422</span><span class="w"> </span>root<span class="w">     </span><span class="m">15</span>.2<span class="w"> </span>MB/s<span class="w">   </span><span class="m">20</span>.1<span class="w"> </span>MB/s<span class="w">  </span>tar
-<span class="m">4551</span><span class="w"> </span>www-data<span class="w">  </span><span class="m">4</span>.8<span class="w"> </span>MB/s<span class="w">    </span><span class="m">5</span>.2<span class="w"> </span>MB/s<span class="w">  </span>apache2
+<span class="c1"># Slow HDD swap - low priority (used last)</span>
+swapon<span class="w"> </span>-p<span class="w"> </span><span class="m">10</span><span class="w"> </span>/dev/sdb1
 </code></pre></div>
-<p><strong>Reading the output:</strong></p>
+<p><strong>Output of swapon &ndash;show:</strong></p>
+<div class="highlight"><pre><span></span><code>NAME      TYPE SIZE USED PRIO
+/swapfile file   2G   0B   -2
+/dev/sdb1 partition 4G 512M 5
+</code></pre></div>
+<h3 id="swapoff-disable-swap">swapoff - Disable Swap<a class="headerlink" href="#swapoff-disable-swap" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Deactivates swap space.</p>
+<p><strong>Why use it:</strong> Before removing swap or making changes.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Disable specific swap</span>
+swapoff<span class="w"> </span>/swapfile
+
+<span class="c1"># Disable all swap</span>
+swapoff<span class="w"> </span>-a
+
+<span class="c1"># Verbose</span>
+swapoff<span class="w"> </span>-v<span class="w"> </span>/swapfile
+</code></pre></div>
+<p><strong>Real-world scenario - Resizing swap file:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Current 2GB swap is too small, need 4GB</span>
+
+<span class="c1"># Step 1: Disable swap</span>
+swapoff<span class="w"> </span>/swapfile
+
+<span class="c1"># Step 2: Delete old file</span>
+rm<span class="w"> </span>/swapfile
+
+<span class="c1"># Step 3: Create new 4GB file</span>
+fallocate<span class="w"> </span>-l<span class="w"> </span>4G<span class="w"> </span>/swapfile
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+
+<span class="c1"># Step 4: Format and enable</span>
+mkswap<span class="w"> </span>/swapfile
+swapon<span class="w"> </span>/swapfile
+
+<span class="c1"># Step 5: Verify</span>
+swapon<span class="w"> </span>--show
+</code></pre></div>
+<h3 id="free-memory-and-swap-status">free - Memory and Swap Status<a class="headerlink" href="#free-memory-and-swap-status" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Shows RAM and swap usage.</p>
+<p><strong>Why use it:</strong> Quick check of memory situation.</p>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Human-readable</span>
+free<span class="w"> </span>-h
+
+<span class="c1"># In megabytes</span>
+free<span class="w"> </span>-m
+
+<span class="c1"># In gigabytes  </span>
+free<span class="w"> </span>-g
+
+<span class="c1"># Continuous updates (every 2 seconds)</span>
+free<span class="w"> </span>-h<span class="w"> </span>-s<span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># With totals</span>
+free<span class="w"> </span>-ht
+
+<span class="c1"># Wide mode (more detailed)</span>
+free<span class="w"> </span>-hw
+</code></pre></div>
+<p><strong>Output example:</strong></p>
+<div class="highlight"><pre><span></span><code>free<span class="w"> </span>-h
+<span class="w">              </span>total<span class="w">        </span>used<span class="w">        </span>free<span class="w">      </span>shared<span class="w">  </span>buff/cache<span class="w">   </span>available
+Mem:<span class="w">           </span>16Gi<span class="w">       </span><span class="m">8</span>.0Gi<span class="w">       </span><span class="m">2</span>.0Gi<span class="w">       </span>100Mi<span class="w">       </span><span class="m">6</span>.0Gi<span class="w">       </span><span class="m">7</span>.5Gi
+Swap:<span class="w">          </span><span class="m">4</span>.0Gi<span class="w">       </span>512Mi<span class="w">       </span><span class="m">3</span>.5Gi
+</code></pre></div>
+<p><strong>What it means:</strong></p>
 <ul>
-<li>MySQL is hammering the disk (65MB/s read, 95MB/s write)</li>
-<li>tar backup is also using disk</li>
-<li>Apache is minimal</li>
+<li><strong>total:</strong> Total RAM/swap installed</li>
+<li><strong>used:</strong> Currently in use by programs</li>
+<li><strong>free:</strong> Completely unused</li>
+<li><strong>shared:</strong> Used by tmpfs/shared memory</li>
+<li><strong>buff/cache:</strong> Used for caching (can be freed if needed)</li>
+<li><strong>available:</strong> How much can be used by programs (free + reclaimable cache)</li>
 </ul>
-<p><strong>Solution:</strong> MySQL query or backup causing high I/O.</p>
-<hr />
-<h2 id="vmstat-system-statistics">vmstat - System Statistics<a class="headerlink" href="#vmstat-system-statistics" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-vmstat">What is vmstat?<a class="headerlink" href="#what-is-vmstat" title="Permanent link">&para;</a></h3>
-<p>vmstat shows overall system performance including memory, swap, and I/O wait. Good for seeing if disk is causing system slowness.</p>
-<p><strong>Think of it as:</strong> Overall health monitor with disk focus.</p>
-<h3 id="using-vmstat">Using vmstat<a class="headerlink" href="#using-vmstat" title="Permanent link">&para;</a></h3>
+<h3 id="vmstat-virtual-memory-statistics">vmstat - Virtual Memory Statistics<a class="headerlink" href="#vmstat-virtual-memory-statistics" title="Permanent link">&para;</a></h3>
+<p><strong>What it does:</strong> Shows system activity including swap in/out.</p>
+<p><strong>Why use it:</strong> Monitor if system is swapping heavily (performance problem).</p>
 <p><strong>Examples:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Single snapshot</span>
 vmstat
@@ -5956,406 +6278,345 @@ vmstat
 <span class="c1"># Update every 2 seconds</span>
 vmstat<span class="w"> </span><span class="m">2</span>
 
-<span class="c1"># 10 updates</span>
+<span class="c1"># 10 updates, 2 seconds apart</span>
 vmstat<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Show active/inactive memory</span>
-vmstat<span class="w"> </span>-a<span class="w"> </span><span class="m">2</span>
-
-<span class="c1"># Disk statistics</span>
-vmstat<span class="w"> </span>-d
 
 <span class="c1"># Memory statistics</span>
 vmstat<span class="w"> </span>-s
-</code></pre></div>
-<p><strong>Real-world scenario - Is disk slowing system?</strong></p>
-<div class="highlight"><pre><span></span><code>vmstat<span class="w"> </span><span class="m">2</span>
 
-procs<span class="w"> </span>-----------memory----------<span class="w"> </span>---swap--<span class="w"> </span>-----io----<span class="w"> </span>--cpu----
-<span class="w"> </span>r<span class="w">  </span>b<span class="w">   </span>swpd<span class="w">   </span>free<span class="w">   </span>buff<span class="w">  </span>cache<span class="w">   </span>si<span class="w">   </span>so<span class="w">    </span>bi<span class="w">    </span>bo<span class="w">   </span>wa
-<span class="w"> </span><span class="m">2</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">10240</span><span class="w">  </span><span class="m">2048</span><span class="w">  </span><span class="m">4096</span><span class="w">  </span><span class="m">8192</span><span class="w">     </span><span class="m">0</span><span class="w">    </span><span class="m">0</span><span class="w">   </span><span class="m">500</span><span class="w">  </span><span class="m">2000</span><span class="w">   </span><span class="m">35</span>
-<span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">10240</span><span class="w">  </span><span class="m">2048</span><span class="w">  </span><span class="m">4096</span><span class="w">  </span><span class="m">8192</span><span class="w">     </span><span class="m">0</span><span class="w">    </span><span class="m">0</span><span class="w">   </span><span class="m">800</span><span class="w">  </span><span class="m">3500</span><span class="w">   </span><span class="m">45</span>
-<span class="w"> </span><span class="m">3</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">10240</span><span class="w">  </span><span class="m">2048</span><span class="w">  </span><span class="m">4096</span><span class="w">  </span><span class="m">8192</span><span class="w">     </span><span class="m">0</span><span class="w">    </span><span class="m">0</span><span class="w">  </span><span class="m">1200</span><span class="w">  </span><span class="m">5000</span><span class="w">   </span><span class="m">52</span>
-</code></pre></div>
-<p><strong>Reading the output:</strong></p>
-<ul>
-<li><strong>r:</strong> Processes waiting for CPU</li>
-<li><strong>b:</strong> Processes blocked waiting for I/O (3-5 = high!)</li>
-<li><strong>si/so:</strong> Swap in/out (0 = good, no swapping)</li>
-<li><strong>bi/bo:</strong> Blocks in/out (high numbers = heavy I/O)</li>
-<li><strong>wa:</strong> I/O wait (35-52% = PROBLEM!)</li>
-</ul>
-<p><strong>Interpretation:</strong></p>
-<p>When <strong>wa</strong> (I/O wait) is consistently above 20%, your system is waiting for disk operations. This is a bottleneck!</p>
-<hr />
-<h2 id="df-and-du-space-usage">df and du - Space Usage<a class="headerlink" href="#df-and-du-space-usage" title="Permanent link">&para;</a></h2>
-<h3 id="df-disk-free">df - Disk Free<a class="headerlink" href="#df-disk-free" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Shows how much space is used/available on filesystems.</p>
-<p><strong>Think of it as:</strong> &ldquo;How full is my disk?&rdquo;</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Human-readable</span>
-df<span class="w"> </span>-h
+<span class="c1"># Active/inactive memory</span>
+vmstat<span class="w"> </span>-a
 
-<span class="c1"># With filesystem types</span>
-df<span class="w"> </span>-hT
-
-<span class="c1"># Inode usage (number of files)</span>
-df<span class="w"> </span>-hi
-
-<span class="c1"># Specific filesystem</span>
-df<span class="w"> </span>-h<span class="w"> </span>/var
+<span class="c1"># Disk statistics</span>
+vmstat<span class="w"> </span>-d
 </code></pre></div>
 <p><strong>Output example:</strong></p>
-<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h
-Filesystem<span class="w">      </span>Size<span class="w">  </span>Used<span class="w"> </span>Avail<span class="w"> </span>Use%<span class="w"> </span>Mounted<span class="w"> </span>on
-/dev/sda1<span class="w">        </span>50G<span class="w">   </span>35G<span class="w">   </span>13G<span class="w">  </span><span class="m">73</span>%<span class="w"> </span>/
-/dev/sdb1<span class="w">       </span>500G<span class="w">  </span>475G<span class="w">   </span>25G<span class="w">  </span><span class="m">95</span>%<span class="w"> </span>/data
-tmpfs<span class="w">           </span><span class="m">8</span>.0G<span class="w">  </span><span class="m">1</span>.0M<span class="w">  </span><span class="m">8</span>.0G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/tmp
+<div class="highlight"><pre><span></span><code>vmstat<span class="w"> </span><span class="m">2</span>
+procs<span class="w"> </span>-----------memory----------<span class="w"> </span>---swap--<span class="w"> </span>-----io----<span class="w"> </span>-system--<span class="w"> </span>------cpu-----
+<span class="w"> </span>r<span class="w">  </span>b<span class="w">   </span>swpd<span class="w">   </span>free<span class="w">   </span>buff<span class="w">  </span>cache<span class="w">   </span>si<span class="w">   </span>so<span class="w">    </span>bi<span class="w">    </span>bo<span class="w">   </span><span class="k">in</span><span class="w">   </span>cs<span class="w"> </span>us<span class="w"> </span>sy<span class="w"> </span>id<span class="w"> </span>wa<span class="w"> </span>st
+<span class="w"> </span><span class="m">1</span><span class="w">  </span><span class="m">0</span><span class="w">  </span><span class="m">10240</span><span class="w"> </span><span class="m">204800</span><span class="w"> </span><span class="m">102400</span><span class="w"> </span><span class="m">512000</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">0</span><span class="w">    </span><span class="m">10</span><span class="w">    </span><span class="m">50</span><span class="w">  </span><span class="m">100</span><span class="w">  </span><span class="m">200</span><span class="w">  </span><span class="m">5</span><span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">90</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">0</span>
+<span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">10240</span><span class="w"> </span><span class="m">204800</span><span class="w"> </span><span class="m">102400</span><span class="w"> </span><span class="m">512000</span><span class="w">    </span><span class="m">5</span><span class="w">   </span><span class="m">10</span><span class="w">    </span><span class="m">20</span><span class="w">   </span><span class="m">100</span><span class="w">  </span><span class="m">150</span><span class="w">  </span><span class="m">250</span><span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">4</span><span class="w"> </span><span class="m">85</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">0</span>
 </code></pre></div>
-<p><strong>Critical thresholds:</strong></p>
+<p><strong>Critical columns:</strong></p>
 <ul>
-<li>&lt;80%: Healthy</li>
-<li>80-90%: Monitor closely</li>
-<li>90-95%: Take action soon</li>
-<li>
-<blockquote>
-<p>95%: Critical! Free space immediately</p>
-</blockquote>
-</li>
+<li><strong>si (swap in):</strong> KB/s reading from swap (from disk to RAM)</li>
+<li><strong>so (swap out):</strong> KB/s writing to swap (from RAM to disk)</li>
+<li><strong>wa:</strong> % CPU waiting for I/O</li>
 </ul>
-<p><strong>Real-world scenario - Disk filling up:</strong></p>
-<div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w"> </span>/
-<span class="c1"># 95% full - need to find what&#39;s using space!</span>
+<p><strong>What to watch for:</strong></p>
+<div class="highlight"><pre><span></span><code>si  so  ← Both zero: No swapping (good!)
+0   0
 
-<span class="c1"># Find large directories</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
-<span class="c1"># Output:</span>
-<span class="c1"># 30G  /var</span>
-<span class="c1"># 10G  /usr</span>
-<span class="c1"># 5G   /home</span>
+si  so  ← Occasional swapping (normal)
+5   10
 
-<span class="c1"># Drill down</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
-<span class="c1"># 25G  /var/log</span>
-<span class="c1"># 3G   /var/cache</span>
-<span class="c1"># 2G   /var/lib</span>
-
-<span class="c1"># Found it! /var/log</span>
-ls<span class="w"> </span>-lh<span class="w"> </span>/var/log
-<span class="c1"># old-logs.tar.gz is 20GB!</span>
+si   so  ← Heavy swapping (performance problem!)
+100  200
 </code></pre></div>
-<h3 id="du-disk-usage">du - Disk Usage<a class="headerlink" href="#du-disk-usage" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Shows size of directories and files.</p>
-<p><strong>Think of it as:</strong> &ldquo;What&rsquo;s taking up space?&rdquo;</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Current directory total</span>
-du<span class="w"> </span>-sh<span class="w"> </span>.
-
-<span class="c1"># Each subdirectory</span>
-du<span class="w"> </span>-sh<span class="w"> </span>*
-
-<span class="c1"># Top level only</span>
-du<span class="w"> </span>-h<span class="w"> </span>--max-depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>/var
-
-<span class="c1"># Sort by size</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh
-
-<span class="c1"># Top 10 largest</span>
-du<span class="w"> </span>-ah<span class="w"> </span>/home<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
-
-<span class="c1"># Exclude patterns</span>
-du<span class="w"> </span>-sh<span class="w"> </span>--exclude<span class="o">=</span><span class="s1">&#39;*.log&#39;</span><span class="w"> </span>/var
-</code></pre></div>
-<p><strong>Real-world scenario - Find space hogs:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Root is 95% full</span>
-df<span class="w"> </span>-h<span class="w"> </span>/
-
-<span class="c1"># Start at root</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh
-<span class="c1"># Output shows /var is huge</span>
-
-<span class="c1"># Go deeper</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh
-<span class="c1"># /var/log is 50GB!</span>
-
-<span class="c1"># Find biggest logs</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/log/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
-<span class="c1"># application.log is 45GB!</span>
-
-<span class="c1"># Clean up</span>
-gzip<span class="w"> </span>/var/log/application.log
-<span class="c1"># or delete old logs</span>
-</code></pre></div>
+<p>If you see high si/so consistently, you need more RAM!</p>
 <hr />
-<h2 id="lsof-and-fuser-find-open-files">lsof and fuser - Find Open Files<a class="headerlink" href="#lsof-and-fuser-find-open-files" title="Permanent link">&para;</a></h2>
-<h3 id="lsof-list-open-files">lsof - List Open Files<a class="headerlink" href="#lsof-list-open-files" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Shows which processes have which files open.</p>
-<p><strong>Think of it as:</strong> &ldquo;Who&rsquo;s using this file/directory?&rdquo;</p>
+<h2 id="persistent-swap-configuration">Persistent Swap Configuration<a class="headerlink" href="#persistent-swap-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="etcfstab-entries">/etc/fstab Entries<a class="headerlink" href="#etcfstab-entries" title="Permanent link">&para;</a></h3>
+<p><strong>Format:</strong></p>
+<div class="highlight"><pre><span></span><code>device/file  none  swap  options  0  0
+</code></pre></div>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># All open files in directory</span>
-lsof<span class="w"> </span>+D<span class="w"> </span>/var/log
+<div class="highlight"><pre><span></span><code><span class="c1"># Swap file</span>
+/swapfile<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span>sw<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 
-<span class="c1"># Files opened by user</span>
-lsof<span class="w"> </span>-u<span class="w"> </span>mysql
+<span class="c1"># Swap partition</span>
+/dev/sdb1<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span>sw<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 
-<span class="c1"># Files opened by process</span>
-lsof<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>
+<span class="c1"># With priority</span>
+/dev/sdb1<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+/swapfile<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 
-<span class="c1"># What&#39;s using a mount point</span>
-lsof<span class="w"> </span>/mnt/data
+<span class="c1"># Using UUID (more reliable)</span>
+<span class="nv">UUID</span><span class="o">=</span>1234abcd-...<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span>sw<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 
-<span class="c1"># Network connections</span>
-lsof<span class="w"> </span>-i
-
-<span class="c1"># What&#39;s using port 80</span>
-lsof<span class="w"> </span>-i<span class="w"> </span>:80
-
-<span class="c1"># Find deleted but open files (wasting space!)</span>
-lsof<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>deleted
+<span class="c1"># Using label</span>
+<span class="nv">LABEL</span><span class="o">=</span>swap1<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span>sw<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
-<p><strong>Real-world scenario - Can&rsquo;t unmount:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Try to unmount</span>
-umount<span class="w"> </span>/data
-<span class="c1"># Error: device is busy</span>
+<p><strong>Multiple swap spaces:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fast SSD swap (priority 100)</span>
+/dev/nvme0n1p3<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 
-<span class="c1"># Find what&#39;s using it</span>
-lsof<span class="w"> </span>+D<span class="w"> </span>/data
-<span class="c1"># Output:</span>
-<span class="c1"># COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span>
-<span class="c1"># bash    1234 john  cwd    DIR    8,1     4096   12 /data/work</span>
-<span class="c1"># mysql   5678 mysql  4r    REG    8,1  5242880   45 /data/db/file.db</span>
+<span class="c1"># Slower SSD swap (priority 50)</span>
+/dev/sda2<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">50</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 
-<span class="c1"># Kill the processes or close their files</span>
+<span class="c1"># Emergency HDD swap (priority 10)</span>
+/swapfile<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
-<h3 id="fuser-find-process-using-file">fuser - Find Process Using File<a class="headerlink" href="#fuser-find-process-using-file" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Simpler than lsof, shows PIDs using a file.</p>
-<p><strong>Think of it as:</strong> Quick &ldquo;who&rsquo;s using this?&rdquo;</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Show processes using file</span>
-fuser<span class="w"> </span>/var/log/syslog
-
-<span class="c1"># Verbose (show user and type)</span>
-fuser<span class="w"> </span>-v<span class="w"> </span>/mnt/data
-
-<span class="c1"># What&#39;s using the filesystem</span>
-fuser<span class="w"> </span>-m<span class="w"> </span>/mnt/data
-
-<span class="c1"># Kill all processes using it (dangerous!)</span>
-fuser<span class="w"> </span>-k<span class="w"> </span>/mnt/data
-
-<span class="c1"># Interactive kill (asks first)</span>
-fuser<span class="w"> </span>-ki<span class="w"> </span>/mnt/data
-</code></pre></div>
-<hr />
-<h2 id="smartctl-disk-health">smartctl - Disk Health<a class="headerlink" href="#smartctl-disk-health" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-smartctl">What is smartctl?<a class="headerlink" href="#what-is-smartctl" title="Permanent link">&para;</a></h3>
-<p>smartctl reads SMART (Self-Monitoring, Analysis and Reporting Technology) data from drives. This predicts disk failures before they happen!</p>
-<p><strong>Think of it as:</strong> Your disk&rsquo;s health checkup.</p>
-<h3 id="installing-smartctl">Installing smartctl<a class="headerlink" href="#installing-smartctl" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># RHEL/CentOS</span>
-dnf<span class="w"> </span>install<span class="w"> </span>smartmontools
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smartd
-
-<span class="c1"># Debian/Ubuntu</span>
-apt<span class="w"> </span>install<span class="w"> </span>smartmontools
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smartd
-</code></pre></div>
-<h3 id="using-smartctl">Using smartctl<a class="headerlink" href="#using-smartctl" title="Permanent link">&para;</a></h3>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Health status (most important!)</span>
-smartctl<span class="w"> </span>-H<span class="w"> </span>/dev/sda
-
-<span class="c1"># All SMART data</span>
-smartctl<span class="w"> </span>-a<span class="w"> </span>/dev/sda
-
-<span class="c1"># Attributes only</span>
-smartctl<span class="w"> </span>-A<span class="w"> </span>/dev/sda
-
-<span class="c1"># Self-test log</span>
-smartctl<span class="w"> </span>-l<span class="w"> </span>selftest<span class="w"> </span>/dev/sda
-
-<span class="c1"># Error log</span>
-smartctl<span class="w"> </span>-l<span class="w"> </span>error<span class="w"> </span>/dev/sda
-
-<span class="c1"># Run short self-test</span>
-smartctl<span class="w"> </span>-t<span class="w"> </span>short<span class="w"> </span>/dev/sda
-
-<span class="c1"># Run long self-test (takes hours)</span>
-smartctl<span class="w"> </span>-t<span class="w"> </span>long<span class="w"> </span>/dev/sda
-
-<span class="c1"># For NVMe drives</span>
-smartctl<span class="w"> </span>-a<span class="w"> </span>/dev/nvme0
-</code></pre></div>
-<p><strong>Real-world scenario - Check disk health:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Monthly health check</span>
-smartctl<span class="w"> </span>-H<span class="w"> </span>/dev/sda
-
-<span class="c1"># Output:</span>
-<span class="c1"># === START OF READ SMART DATA SECTION ===</span>
-<span class="c1"># SMART overall-health self-assessment test result: PASSED</span>
-
-<span class="c1"># Good! Now check details</span>
-smartctl<span class="w"> </span>-A<span class="w"> </span>/dev/sda
-</code></pre></div>
-<h3 id="important-smart-attributes">Important SMART Attributes<a class="headerlink" href="#important-smart-attributes" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ID<span class="w">  </span>ATTRIBUTE_NAME<span class="w">          </span>VALUE
-<span class="m">5</span><span class="w">   </span>Reallocated_Sector_Ct<span class="w">   </span><span class="m">100</span><span class="w">    </span>←<span class="w"> </span>Should<span class="w"> </span>be<span class="w"> </span><span class="m">0</span><span class="w"> </span>or<span class="w"> </span>very<span class="w"> </span>low
-<span class="m">10</span><span class="w">  </span>Spin_Retry_Count<span class="w">         </span><span class="m">100</span><span class="w">    </span>←<span class="w"> </span>Should<span class="w"> </span>be<span class="w"> </span><span class="m">0</span>
-<span class="m">196</span><span class="w"> </span>Reallocated_Event_Count<span class="w">  </span><span class="m">100</span><span class="w">    </span>←<span class="w"> </span>Should<span class="w"> </span>be<span class="w"> </span><span class="m">0</span>
-<span class="m">197</span><span class="w"> </span>Current_Pending_Sector<span class="w">   </span><span class="m">100</span><span class="w">    </span>←<span class="w"> </span>Should<span class="w"> </span>be<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>failing!<span class="o">)</span>
-<span class="m">198</span><span class="w"> </span>Offline_Uncorrectable<span class="w">    </span><span class="m">100</span><span class="w">    </span>←<span class="w"> </span>Should<span class="w"> </span>be<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>failing!<span class="o">)</span>
-</code></pre></div>
-<p><strong>Warning signs (REPLACE DISK!):</strong></p>
+<p><strong>Priority rules:</strong></p>
 <ul>
-<li>Health status: FAILING</li>
-<li>Reallocated sectors increasing</li>
-<li>Current pending sectors &gt; 0</li>
-<li>High error count</li>
-<li>Multiple failed self-tests</li>
-</ul>
-<p><strong>Example - Failing disk:</strong></p>
-<div class="highlight"><pre><span></span><code>smartctl<span class="w"> </span>-A<span class="w"> </span>/dev/sdb
-
-ID<span class="w">  </span>ATTRIBUTE_NAME<span class="w">          </span>VALUE
-<span class="m">5</span><span class="w">   </span>Reallocated_Sector_Ct<span class="w">    </span><span class="m">85</span><span class="w">    </span>←<span class="w"> </span>BAD!<span class="w"> </span>Was<span class="w"> </span><span class="m">100</span>,<span class="w"> </span>now<span class="w"> </span><span class="m">85</span>
-<span class="m">197</span><span class="w"> </span>Current_Pending_Sector<span class="w">    </span><span class="m">1</span><span class="w">    </span>←<span class="w"> </span>VERY<span class="w"> </span>BAD!<span class="w"> </span>Sectors<span class="w"> </span>failing
-<span class="m">198</span><span class="w"> </span>Offline_Uncorrectable<span class="w">     </span><span class="m">2</span><span class="w">    </span>←<span class="w"> </span>VERY<span class="w"> </span>BAD!<span class="w"> </span>Unreadable<span class="w"> </span>data
-
-smartctl<span class="w"> </span>-H<span class="w"> </span>/dev/sdb
-<span class="c1"># Result: FAILING!</span>
-
-<span class="c1"># ACTION REQUIRED:</span>
-<span class="c1"># 1. Backup immediately!</span>
-<span class="c1"># 2. Replace disk</span>
-<span class="c1"># 3. Do NOT wait!</span>
-</code></pre></div>
-<hr />
-<h2 id="simple-performance-test">Simple Performance Test<a class="headerlink" href="#simple-performance-test" title="Permanent link">&para;</a></h2>
-<h3 id="dd-basic-disk-speed-test">dd - Basic Disk Speed Test<a class="headerlink" href="#dd-basic-disk-speed-test" title="Permanent link">&para;</a></h3>
-<p><strong>What it does:</strong> Tests raw disk read/write speed.</p>
-<p><strong>Think of it as:</strong> Simple benchmark.</p>
-<p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Write test (1GB file)</span>
-dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/tmp/testfile<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="nv">oflag</span><span class="o">=</span>direct
-
-<span class="c1"># Output:</span>
-<span class="c1"># 1000+0 records in</span>
-<span class="c1"># 1000+0 records out</span>
-<span class="c1"># 1048576000 bytes (1.0 GB) copied, 5.2 s, 202 MB/s</span>
-
-<span class="c1"># Read test</span>
-dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/tmp/testfile<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/null<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M
-
-<span class="c1"># Cleanup</span>
-rm<span class="w"> </span>/tmp/testfile
-</code></pre></div>
-<p><strong>Interpreting results:</strong></p>
-<ul>
-<li><strong>HDD:</strong> 100-200 MB/s typical</li>
-<li><strong>SATA SSD:</strong> 500-600 MB/s</li>
-<li><strong>NVMe SSD:</strong> 2000-7000 MB/s</li>
+<li>Higher number = used first</li>
+<li>Same priority = used in parallel (striped for performance)</li>
+<li>Default priority = -2</li>
 </ul>
 <hr />
-<h2 id="troubleshooting-scenarios">Troubleshooting Scenarios<a class="headerlink" href="#troubleshooting-scenarios" title="Permanent link">&para;</a></h2>
-<h3 id="scenario-1-system-very-slow">Scenario 1: System Very Slow<a class="headerlink" href="#scenario-1-system-very-slow" title="Permanent link">&para;</a></h3>
-<p><strong>Steps:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Check I/O wait</span>
+<h2 id="tuning-swap-behavior">Tuning Swap Behavior<a class="headerlink" href="#tuning-swap-behavior" title="Permanent link">&para;</a></h2>
+<h3 id="vmswappiness-control-swap-tendency">vm.swappiness - Control Swap Tendency<a class="headerlink" href="#vmswappiness-control-swap-tendency" title="Permanent link">&para;</a></h3>
+<p><strong>What it is:</strong> Kernel parameter controlling how aggressively Linux swaps.</p>
+<p><strong>Why tune it:</strong> Balance between RAM usage and swap usage.</p>
+<p><strong>Value range:</strong> 0-100</p>
+<ul>
+<li><strong>0:</strong> Avoid swapping except emergency</li>
+<li><strong>1:</strong> Minimum swapping (recommended for servers)</li>
+<li><strong>10:</strong> Very little swapping (good for servers)</li>
+<li><strong>60:</strong> Default (balanced)</li>
+<li><strong>100:</strong> Swap aggressively</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check current value</span>
+cat<span class="w"> </span>/proc/sys/vm/swappiness
+sysctl<span class="w"> </span>vm.swappiness
+
+<span class="c1"># Temporary change (until reboot)</span>
+sysctl<span class="w"> </span>-w<span class="w"> </span>vm.swappiness<span class="o">=</span><span class="m">10</span>
+<span class="nb">echo</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;<span class="w"> </span>/proc/sys/vm/swappiness
+
+<span class="c1"># Permanent change</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;vm.swappiness=10&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sysctl.d/99-swappiness.conf
+sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/99-swappiness.conf
+
+<span class="c1"># Or edit /etc/sysctl.conf</span>
+vi<span class="w"> </span>/etc/sysctl.conf
+<span class="c1"># Add: vm.swappiness=10</span>
+sysctl<span class="w"> </span>-p
+</code></pre></div>
+<p><strong>Recommendations:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Desktop/Laptop (more responsive)</span>
+vm.swappiness<span class="o">=</span><span class="m">60</span>
+
+<span class="c1"># Server with plenty of RAM</span>
+vm.swappiness<span class="o">=</span><span class="m">10</span>
+
+<span class="c1"># Server with limited RAM</span>
+vm.swappiness<span class="o">=</span><span class="m">30</span>
+
+<span class="c1"># Database server</span>
+vm.swappiness<span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p><strong>Real-world scenario - Web server optimization:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Server has 32GB RAM, barely uses swap</span>
+<span class="c1"># Lower swappiness to keep more in RAM</span>
+
+<span class="c1"># Check current setting</span>
+cat<span class="w"> </span>/proc/sys/vm/swappiness
+<span class="c1"># 60 (default)</span>
+
+<span class="c1"># Set to minimal swapping</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;vm.swappiness=10&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sysctl.d/99-swappiness.conf
+sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/99-swappiness.conf
+
+<span class="c1"># Monitor results</span>
+vmstat<span class="w"> </span><span class="m">2</span>
+<span class="c1"># Watch si/so values (should be mostly 0)</span>
+</code></pre></div>
+<hr />
+<h2 id="swap-on-lvm">Swap on LVM<a class="headerlink" href="#swap-on-lvm" title="Permanent link">&para;</a></h2>
+<h3 id="why-use-lvm-for-swap">Why Use LVM for Swap?<a class="headerlink" href="#why-use-lvm-for-swap" title="Permanent link">&para;</a></h3>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Easy to resize</li>
+<li>Can be on multiple disks</li>
+<li>Snapshots possible (though not common for swap)</li>
+</ul>
+<p><strong>Example - Create LVM swap:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Create logical volume</span>
+lvcreate<span class="w"> </span>-L<span class="w"> </span>8G<span class="w"> </span>-n<span class="w"> </span>lv_swap<span class="w"> </span>vg01
+
+<span class="c1"># Step 2: Format as swap</span>
+mkswap<span class="w"> </span>/dev/vg01/lv_swap
+
+<span class="c1"># Step 3: Enable</span>
+swapon<span class="w"> </span>/dev/vg01/lv_swap
+
+<span class="c1"># Step 4: Make permanent</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/dev/vg01/lv_swap none swap sw 0 0&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
+</code></pre></div>
+<p><strong>Resizing LVM swap:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Need more swap space</span>
+
+<span class="c1"># Step 1: Disable swap</span>
+swapoff<span class="w"> </span>/dev/vg01/lv_swap
+
+<span class="c1"># Step 2: Extend logical volume</span>
+lvextend<span class="w"> </span>-L<span class="w"> </span>+4G<span class="w"> </span>/dev/vg01/lv_swap
+
+<span class="c1"># Step 3: Reformat (required for swap!)</span>
+mkswap<span class="w"> </span>/dev/vg01/lv_swap
+
+<span class="c1"># Step 4: Re-enable</span>
+swapon<span class="w"> </span>/dev/vg01/lv_swap
+
+<span class="c1"># Step 5: Verify</span>
+swapon<span class="w"> </span>--show
+free<span class="w"> </span>-h
+</code></pre></div>
+<hr />
+<h2 id="monitoring-swap-usage">Monitoring Swap Usage<a class="headerlink" href="#monitoring-swap-usage" title="Permanent link">&para;</a></h2>
+<h3 id="check-whats-using-swap">Check What&rsquo;s Using Swap<a class="headerlink" href="#check-whats-using-swap" title="Permanent link">&para;</a></h3>
+<p><strong>Find swap usage by process:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Quick check</span>
+<span class="k">for</span><span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>/proc/*/status<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>awk<span class="w"> </span><span class="s1">&#39;/VmSwap|Name/{printf $2 &quot; &quot; $3}END{print &quot;&quot;}&#39;</span><span class="w"> </span><span class="nv">$file</span>
+<span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-k<span class="w"> </span><span class="m">2</span><span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+
+<span class="c1"># Output shows:</span>
+<span class="c1"># firefox 512000 (512MB)</span>
+<span class="c1"># chrome 256000 (256MB)</span>
+<span class="c1"># mysql 128000 (128MB)</span>
+</code></pre></div>
+<p><strong>Detailed swap analysis:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># For each process, show swap usage</span>
+<span class="k">for</span><span class="w"> </span>pid<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span>/proc<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;^[0-9]+$&#39;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>/proc/<span class="nv">$pid</span>/smaps<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">swap</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>Swap<span class="w"> </span>/proc/<span class="nv">$pid</span>/smaps<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{sum+=$2} END {print sum}&#39;</span><span class="k">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$swap</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$swap</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nv">name</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/proc/<span class="nv">$pid</span>/comm<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$swap</span><span class="s2"> KB - </span><span class="nv">$name</span><span class="s2"> (PID: </span><span class="nv">$pid</span><span class="s2">)&quot;</span>
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+</code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="problem-system-running-out-of-memory">Problem: System Running Out of Memory<a class="headerlink" href="#problem-system-running-out-of-memory" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> System very slow, heavy swapping.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check situation</span>
+free<span class="w"> </span>-h
 vmstat<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
-<span class="c1"># If wa &gt; 20%, disk is the problem</span>
 
-<span class="c1"># 2. Find busy disk</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
-<span class="c1"># Look for %util &gt; 90%</span>
+<span class="c1"># If swap is full or nearly full:</span>
+<span class="c1"># Option 1: Add more swap (temporary fix)</span>
+fallocate<span class="w"> </span>-l<span class="w"> </span>4G<span class="w"> </span>/emergency-swap
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/emergency-swap
+mkswap<span class="w"> </span>/emergency-swap
+swapon<span class="w"> </span>/emergency-swap
 
-<span class="c1"># 3. Find culprit process</span>
-iotop<span class="w"> </span>-o
-<span class="c1"># See what&#39;s hammering disk</span>
+<span class="c1"># Option 2: Find memory hogs</span>
+ps<span class="w"> </span>aux<span class="w"> </span>--sort<span class="o">=</span>-%mem<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+top<span class="w"> </span>-o<span class="w"> </span>%MEM
 
-<span class="c1"># 4. Fix</span>
-<span class="c1"># Kill process, optimize query, add cache, etc.</span>
+<span class="c1"># Option 3: Kill memory-hungry processes (carefully!)</span>
+pkill<span class="w"> </span>firefox
+pkill<span class="w"> </span>chrome
+
+<span class="c1"># Long-term solution: Add more RAM!</span>
 </code></pre></div>
-<h3 id="scenario-2-disk-almost-full">Scenario 2: Disk Almost Full<a class="headerlink" href="#scenario-2-disk-almost-full" title="Permanent link">&para;</a></h3>
-<p><strong>Steps:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Confirm full</span>
-df<span class="w"> </span>-h
+<h3 id="problem-heavy-swapping-system-slow">Problem: Heavy Swapping (System Slow)<a class="headerlink" href="#problem-heavy-swapping-system-slow" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> High si/so in vmstat, system sluggish.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Monitor swapping</span>
+vmstat<span class="w"> </span><span class="m">2</span>
 
-<span class="c1"># 2. Find large directories</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-10
+<span class="c1"># If heavy swapping (si/so &gt; 100):</span>
+<span class="c1"># Solution 1: Lower swappiness</span>
+sysctl<span class="w"> </span>-w<span class="w"> </span>vm.swappiness<span class="o">=</span><span class="m">10</span>
 
-<span class="c1"># 3. Drill down</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+<span class="c1"># Solution 2: Find what&#39;s swapped out</span>
+<span class="c1"># (See &quot;Check What&#39;s Using Swap&quot; above)</span>
 
-<span class="c1"># 4. Find specific files</span>
-find<span class="w"> </span>/var/log<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-size<span class="w"> </span>+100M
-
-<span class="c1"># 5. Clean up</span>
-<span class="c1"># Delete, archive, or move files</span>
+<span class="c1"># Solution 3: Clear swap and reload to RAM</span>
+<span class="c1"># WARNING: Only if you have enough free RAM!</span>
+swapoff<span class="w"> </span>-a
+swapon<span class="w"> </span>-a
 </code></pre></div>
-<h3 id="scenario-3-cannot-unmount">Scenario 3: Cannot Unmount<a class="headerlink" href="#scenario-3-cannot-unmount" title="Permanent link">&para;</a></h3>
-<p><strong>Steps:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. Find what&#39;s using it</span>
-lsof<span class="w"> </span>+D<span class="w"> </span>/mount/point
-fuser<span class="w"> </span>-vm<span class="w"> </span>/mount/point
+<h3 id="problem-cannot-enable-swap">Problem: Cannot Enable Swap<a class="headerlink" href="#problem-cannot-enable-swap" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> swapon fails with error.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if formatted as swap</span>
+file<span class="w"> </span>-s<span class="w"> </span>/swapfile
+<span class="c1"># Should show: swap file</span>
 
-<span class="c1"># 2. Kill processes</span>
-<span class="nb">kill</span><span class="w"> </span>PID
+<span class="c1"># If not formatted:</span>
+mkswap<span class="w"> </span>/swapfile
 
-<span class="c1"># 3. If still busy, force</span>
-umount<span class="w"> </span>-l<span class="w"> </span>/mount/point
+<span class="c1"># Check permissions (swap files must be 600)</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/swapfile
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+
+<span class="c1"># Check logs</span>
+dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>swap
+journalctl<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>swap
+</code></pre></div>
+<h3 id="problem-swap-not-activating-at-boot">Problem: Swap Not Activating at Boot<a class="headerlink" href="#problem-swap-not-activating-at-boot" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong> After reboot, swap isn&rsquo;t active.</p>
+<p><strong>Solutions:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check fstab entry</span>
+cat<span class="w"> </span>/etc/fstab<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>swap
+
+<span class="c1"># Test manual activation</span>
+swapon<span class="w"> </span>-a
+
+<span class="c1"># Check for errors</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>swap.target
+systemctl<span class="w"> </span>list-units<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>swap
+
+<span class="c1"># Verify file/partition exists</span>
+ls<span class="w"> </span>-l<span class="w"> </span>/swapfile
 </code></pre></div>
 <hr />
-<h2 id="monitoring-best-practices">Monitoring Best Practices<a class="headerlink" href="#monitoring-best-practices" title="Permanent link">&para;</a></h2>
-<p><strong>1. Regular health checks:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Weekly disk health</span>
-smartctl<span class="w"> </span>-H<span class="w"> </span>/dev/sda
-
-<span class="c1"># Daily space check</span>
-df<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span>tmpfs
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<p><strong>1. Secure swap files:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Always set 600 permissions</span>
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
 </code></pre></div>
-<p><strong>2. Set up alerts:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Alert when &gt;90% full</span>
-df<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$5 &gt; 90 {print $0}&#39;</span>
-
-<span class="c1"># Alert on SMART warnings</span>
-smartctl<span class="w"> </span>-H<span class="w"> </span>/dev/sda<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>fail
+<p><strong>2. Use appropriate size:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Server with 16GB RAM</span>
+<span class="c1"># 8GB swap is plenty</span>
 </code></pre></div>
-<p><strong>3. Keep historical data:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Log iostat daily</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="m">1440</span><span class="w"> </span>&gt;<span class="w"> </span>/var/log/iostat-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.log
+<p><strong>3. Tune swappiness:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Servers: 10</span>
+<span class="c1"># Desktops: 60 (default)</span>
 </code></pre></div>
-<p><strong>4. Monitor trends:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Space usage over time</span>
-du<span class="w"> </span>-sh<span class="w"> </span>/var/log<span class="w"> </span>&gt;&gt;<span class="w"> </span>/var/log/space-usage.log
+<p><strong>4. Monitor regularly:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check weekly</span>
+free<span class="w"> </span>-h
+vmstat<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<p><strong>5. Multiple swap for performance:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Equal priority for striping</span>
+/dev/sda2<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+/dev/sdb2<span class="w"> </span>none<span class="w"> </span>swap<span class="w"> </span><span class="nv">pri</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 <hr />
 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
-<h3 id="check-performance">Check Performance<a class="headerlink" href="#check-performance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">2</span><span class="w">              </span><span class="c1"># Disk busy?</span>
-iotop<span class="w"> </span>-o<span class="w">                 </span><span class="c1"># Who&#39;s using disk?</span>
-vmstat<span class="w"> </span><span class="m">2</span><span class="w">                 </span><span class="c1"># I/O wait high?</span>
-df<span class="w"> </span>-h<span class="w">                    </span><span class="c1"># Space available?</span>
+<h3 id="creating-swap">Creating Swap<a class="headerlink" href="#creating-swap" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Swap file (recommended)</span>
+fallocate<span class="w"> </span>-l<span class="w"> </span>4G<span class="w"> </span>/swapfile
+chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+mkswap<span class="w"> </span>/swapfile
+swapon<span class="w"> </span>/swapfile
+<span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;/swapfile none swap sw 0 0&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/fstab
 </code></pre></div>
-<h3 id="find-space-hogs">Find Space Hogs<a class="headerlink" href="#find-space-hogs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w">     </span><span class="c1"># Largest directories</span>
-du<span class="w"> </span>-sh<span class="w"> </span>*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rh<span class="w">      </span><span class="c1"># Current dir</span>
-find<span class="w"> </span>/<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-size<span class="w"> </span>+1G<span class="w"> </span><span class="c1"># Files &gt; 1GB</span>
+<h3 id="managing-swap">Managing Swap<a class="headerlink" href="#managing-swap" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>swapon<span class="w"> </span>--show<span class="w">              </span><span class="c1"># Show active swap</span>
+swapon<span class="w"> </span>-a<span class="w">                  </span><span class="c1"># Enable all</span>
+swapoff<span class="w"> </span>-a<span class="w">                 </span><span class="c1"># Disable all</span>
+free<span class="w"> </span>-h<span class="w">                    </span><span class="c1"># Check usage</span>
+vmstat<span class="w"> </span><span class="m">2</span><span class="w">                   </span><span class="c1"># Monitor activity</span>
 </code></pre></div>
-<h3 id="check-health">Check Health<a class="headerlink" href="#check-health" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>smartctl<span class="w"> </span>-H<span class="w"> </span>/dev/sda<span class="w">     </span><span class="c1"># Overall health</span>
-smartctl<span class="w"> </span>-A<span class="w"> </span>/dev/sda<span class="w">     </span><span class="c1"># Detailed attributes</span>
-dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>error<span class="w">    </span><span class="c1"># System errors</span>
-</code></pre></div>
-<h3 id="troubleshoot-issues">Troubleshoot Issues<a class="headerlink" href="#troubleshoot-issues" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>lsof<span class="w"> </span>+D<span class="w"> </span>/path<span class="w">            </span><span class="c1"># What&#39;s using path</span>
-fuser<span class="w"> </span>-vm<span class="w"> </span>/path<span class="w">          </span><span class="c1"># PIDs using path</span>
-mount<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>/path<span class="w">       </span><span class="c1"># Is it mounted?</span>
-</code></pre></div>
-<h3 id="speed-test">Speed Test<a class="headerlink" href="#speed-test" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Write speed</span>
-dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/tmp/test<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="nv">oflag</span><span class="o">=</span>direct
+<h3 id="tuning">Tuning<a class="headerlink" href="#tuning" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check swappiness</span>
+cat<span class="w"> </span>/proc/sys/vm/swappiness
 
-<span class="c1"># Read speed  </span>
-dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/tmp/test<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/null<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M
+<span class="c1"># Set permanently</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;vm.swappiness=10&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sysctl.d/99-swap.conf
+sysctl<span class="w"> </span>-p
+</code></pre></div>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Current status</span>
+free<span class="w"> </span>-h
+swapon<span class="w"> </span>--show
+
+<span class="c1"># Watch for swapping</span>
+vmstat<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">10</span>
+
+<span class="c1"># Find what&#39;s using swap</span>
+grep<span class="w"> </span>VmSwap<span class="w"> </span>/proc/*/status<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;0 kB&quot;</span>
 </code></pre></div>
 
 
@@ -6392,7 +6653,7 @@ dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/tmp/
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../automounters/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configure Filesystem Automounters">
+          <a href="../remote-filesystems/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Use Remote Filesystems and Network Block Devices">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -6402,11 +6663,27 @@ dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/tmp/
                 Previous
               </span>
               <div class="md-ellipsis">
-                Configure Filesystem Automounters
+                Use Remote Filesystems and Network Block Devices
               </div>
             </div>
           </a>
         
+        
+          
+          <a href="../automounters/" class="md-footer__link md-footer__link--next" aria-label="Next: Configure Filesystem Automounters">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Configure Filesystem Automounters
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     
@@ -6435,10 +6712,10 @@ dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/tmp/
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
