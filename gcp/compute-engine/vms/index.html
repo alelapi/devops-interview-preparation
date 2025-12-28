@@ -27,7 +27,7 @@
     
     
       
-        <title>Compute Engine Virtual Machines (VMs) - My DevOps Interview Preparation</title>
+        <title>Virtual Machines (VMs) - My DevOps Interview Preparation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#compute-engine-virtual-machines-vms" class="md-skip">
+        <a href="#virtual-machines-vms" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Compute Engine Virtual Machines (VMs)
+              Virtual Machines (VMs)
             
           </span>
         </div>
@@ -3491,7 +3491,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Machine Images
+    Machine Images and Disk Images
   
 
     
@@ -3528,7 +3528,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Virtual Machines (VMs)
+    Virtual Machines (VMs)
   
 
     
@@ -3546,7 +3546,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Virtual Machines (VMs)
+    Virtual Machines (VMs)
   
 
     
@@ -3572,10 +3572,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        Core Concepts
       
     </span>
   </a>
@@ -3583,22 +3583,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#machine-types-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Machine Types Selection
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+    <nav class="md-nav" aria-label="Machine Types Selection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#machine-types" class="md-nav__link">
+  <a href="#predefined-vs-custom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Machine Types
+        Predefined vs Custom
       
     </span>
   </a>
@@ -3606,32 +3606,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#operating-systems" class="md-nav__link">
+  <a href="#machine-family-decision-matrix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operating Systems
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vm-lifecycle-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VM Lifecycle States
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#instance-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instance Options
+        Machine Family Decision Matrix
       
     </span>
   </a>
@@ -3644,77 +3622,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-limits" class="md-nav__link">
+  <a href="#vm-lifecycle-and-states" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Limits
+        VM Lifecycle and States
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-different-machine-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Different Machine Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Different Machine Types">
+    <nav class="md-nav" aria-label="VM Lifecycle and States">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#e2-cost-optimized" class="md-nav__link">
+  <a href="#state-transitions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        E2 (Cost-Optimized)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#n2n2d-general-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        N2/N2D (General Purpose)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c2c2d-compute-optimized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C2/C2D (Compute-Optimized)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m1m2m3-memory-optimized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        M1/M2/M3 (Memory-Optimized)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a2a3-gpu-accelerated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A2/A3 (GPU-Accelerated)
+        State Transitions
       
     </span>
   </a>
@@ -3727,15 +3650,338 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vm-configuration-options" class="md-nav__link">
+  <a href="#spot-vms-preemptible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VM Configuration Options
+        Spot VMs (Preemptible)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="VM Configuration Options">
+    <nav class="md-nav" aria-label="Spot VMs (Preemptible)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-vs-availability-trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost vs Availability Trade-off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-disk-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot Disk Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boot Disk Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-type-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk Type Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Size Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shielded-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shielded VMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidential-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidential VMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sole-tenant-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sole-Tenant Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-addressing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Network Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Accounts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service Accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-instance-groups-migs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managed Instance Groups (MIGs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managed Instance Groups (MIGs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoscaling-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoscaling Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-and-startup-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata and Startup Scripts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata and Startup Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Availability Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-zone-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Zone Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-zone-regional-mig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Zone (Regional MIG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Region
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Considerations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3750,43 +3996,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#boot-disk-options" class="md-nav__link">
+  <a href="#cpu-overcommitment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Boot Disk Options
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metadata-and-startup-scripts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Metadata and Startup Scripts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-accounts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service Accounts
+        CPU Overcommitment
       
     </span>
   </a>
@@ -3799,22 +4012,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vm-operations" class="md-nav__link">
+  <a href="#compliance-and-governance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VM Operations
+        Compliance and Governance
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="VM Operations">
+    <nav class="md-nav" aria-label="Compliance and Governance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-vm-instances" class="md-nav__link">
+  <a href="#data-residency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create VM Instances
+        Data Residency
       
     </span>
   </a>
@@ -3822,21 +4035,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#manage-vm-instances" class="md-nav__link">
+  <a href="#labeling-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manage VM Instances
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-vm-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access VM Instances
+        Labeling Strategy
       
     </span>
   </a>
@@ -3849,22 +4051,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#exam-focus-areas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Exam Focus Areas
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Exam Focus Areas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-right-sizing-vms" class="md-nav__link">
+  <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Right-Sizing VMs
+        Design Decisions
       
     </span>
   </a>
@@ -3872,10 +4074,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-use-managed-instance-groups" class="md-nav__link">
+  <a href="#cost-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Use Managed Instance Groups
+        Cost Optimization
       
     </span>
   </a>
@@ -3883,10 +4085,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-use-startup-and-shutdown-scripts" class="md-nav__link">
+  <a href="#security" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Use Startup and Shutdown Scripts
+        Security
       
     </span>
   </a>
@@ -3894,10 +4096,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-implement-health-checks" class="md-nav__link">
+  <a href="#scalability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Implement Health Checks
+        Scalability
       
     </span>
   </a>
@@ -3905,32 +4107,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-use-labels-and-tags" class="md-nav__link">
+  <a href="#operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Use Labels and Tags
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-enable-monitoring-and-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Enable Monitoring and Logging
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-security-hardening" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Security Hardening
+        Operations
       
     </span>
   </a>
@@ -3939,67 +4119,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instance-wont-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instance Won&rsquo;t Start
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-cpu-or-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High CPU or Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-connectivity-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network Connectivity Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related Resources
-      
-    </span>
-  </a>
   
 </li>
       
@@ -4026,7 +4145,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Persistent Disks
+    Persistent Disks
   
 
     
@@ -4054,7 +4173,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Backup and Disaster Recovery
+    Backup and Disaster Recovery Strategy
   
 
     
@@ -4082,7 +4201,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Disk Snapshots
+    Disk Snapshots
   
 
     
@@ -7324,10 +7443,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        Core Concepts
       
     </span>
   </a>
@@ -7335,22 +7454,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#machine-types-selection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Machine Types Selection
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+    <nav class="md-nav" aria-label="Machine Types Selection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#machine-types" class="md-nav__link">
+  <a href="#predefined-vs-custom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Machine Types
+        Predefined vs Custom
       
     </span>
   </a>
@@ -7358,32 +7477,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#operating-systems" class="md-nav__link">
+  <a href="#machine-family-decision-matrix" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Operating Systems
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vm-lifecycle-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VM Lifecycle States
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#instance-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instance Options
+        Machine Family Decision Matrix
       
     </span>
   </a>
@@ -7396,77 +7493,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-limits" class="md-nav__link">
+  <a href="#vm-lifecycle-and-states" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Limits
+        VM Lifecycle and States
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-different-machine-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Different Machine Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Different Machine Types">
+    <nav class="md-nav" aria-label="VM Lifecycle and States">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#e2-cost-optimized" class="md-nav__link">
+  <a href="#state-transitions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        E2 (Cost-Optimized)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#n2n2d-general-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        N2/N2D (General Purpose)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c2c2d-compute-optimized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C2/C2D (Compute-Optimized)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#m1m2m3-memory-optimized" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        M1/M2/M3 (Memory-Optimized)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a2a3-gpu-accelerated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A2/A3 (GPU-Accelerated)
+        State Transitions
       
     </span>
   </a>
@@ -7479,15 +7521,338 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vm-configuration-options" class="md-nav__link">
+  <a href="#spot-vms-preemptible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VM Configuration Options
+        Spot VMs (Preemptible)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="VM Configuration Options">
+    <nav class="md-nav" aria-label="Spot VMs (Preemptible)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cost-vs-availability-trade-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost vs Availability Trade-off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-disk-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot Disk Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boot Disk Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disk-type-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk Type Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Size Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shielded-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shielded VMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidential-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidential VMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sole-tenant-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sole-Tenant Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-addressing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Network Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Accounts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service Accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-instance-groups-migs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Managed Instance Groups (MIGs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Managed Instance Groups (MIGs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autoscaling-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autoscaling Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata-and-startup-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata and Startup Scripts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata and Startup Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startup-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Availability Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-zone-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-Zone Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-zone-regional-mig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Zone (Regional MIG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-region" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Region
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Considerations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7502,43 +7867,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#boot-disk-options" class="md-nav__link">
+  <a href="#cpu-overcommitment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Boot Disk Options
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metadata-and-startup-scripts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Metadata and Startup Scripts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service-accounts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service Accounts
+        CPU Overcommitment
       
     </span>
   </a>
@@ -7551,22 +7883,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vm-operations" class="md-nav__link">
+  <a href="#compliance-and-governance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        VM Operations
+        Compliance and Governance
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="VM Operations">
+    <nav class="md-nav" aria-label="Compliance and Governance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-vm-instances" class="md-nav__link">
+  <a href="#data-residency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create VM Instances
+        Data Residency
       
     </span>
   </a>
@@ -7574,21 +7906,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#manage-vm-instances" class="md-nav__link">
+  <a href="#labeling-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manage VM Instances
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-vm-instances" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access VM Instances
+        Labeling Strategy
       
     </span>
   </a>
@@ -7601,22 +7922,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#exam-focus-areas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Exam Focus Areas
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Exam Focus Areas">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-right-sizing-vms" class="md-nav__link">
+  <a href="#design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Right-Sizing VMs
+        Design Decisions
       
     </span>
   </a>
@@ -7624,10 +7945,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-use-managed-instance-groups" class="md-nav__link">
+  <a href="#cost-optimization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Use Managed Instance Groups
+        Cost Optimization
       
     </span>
   </a>
@@ -7635,10 +7956,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-use-startup-and-shutdown-scripts" class="md-nav__link">
+  <a href="#security" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Use Startup and Shutdown Scripts
+        Security
       
     </span>
   </a>
@@ -7646,10 +7967,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-implement-health-checks" class="md-nav__link">
+  <a href="#scalability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Implement Health Checks
+        Scalability
       
     </span>
   </a>
@@ -7657,32 +7978,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-use-labels-and-tags" class="md-nav__link">
+  <a href="#operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Use Labels and Tags
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-enable-monitoring-and-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Enable Monitoring and Logging
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-security-hardening" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Security Hardening
+        Operations
       
     </span>
   </a>
@@ -7691,67 +7990,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instance-wont-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instance Won&rsquo;t Start
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#high-cpu-or-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High CPU or Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#network-connectivity-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Network Connectivity Issues
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related Resources
-      
-    </span>
-  </a>
   
 </li>
       
@@ -7849,674 +8087,506 @@
   
 
 
-<h1 id="compute-engine-virtual-machines-vms">Compute Engine Virtual Machines (VMs)<a class="headerlink" href="#compute-engine-virtual-machines-vms" title="Permanent link">&para;</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>A Compute Engine Virtual Machine (VM) instance is a virtualized server running on Google&rsquo;s infrastructure. Each VM runs a guest operating system and can be configured with varying amounts of CPU, memory, storage, and networking resources to match your workload requirements.</p>
-<p><strong>Concept</strong>: Virtualized compute resources with customizable configurations, providing full control over the operating system and applications.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="machine-types">Machine Types<a class="headerlink" href="#machine-types" title="Permanent link">&para;</a></h3>
-<p><strong>Predefined Machine Types</strong></p>
+<h1 id="virtual-machines-vms">Virtual Machines (VMs)<a class="headerlink" href="#virtual-machines-vms" title="Permanent link">&para;</a></h1>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<p>A Compute Engine VM instance is a virtualized server with customizable CPU, memory, storage, and networking resources. Understanding VM characteristics and lifecycle is essential for architectural decisions.</p>
+<p><strong>Key Principle</strong>: VMs are ephemeral; design for failure and use persistent storage for stateful data.</p>
+<h2 id="machine-types-selection">Machine Types Selection<a class="headerlink" href="#machine-types-selection" title="Permanent link">&para;</a></h2>
+<h3 id="predefined-vs-custom">Predefined vs Custom<a class="headerlink" href="#predefined-vs-custom" title="Permanent link">&para;</a></h3>
+<p><strong>Predefined Machine Types</strong>:</p>
 <ul>
-<li><strong>E2</strong>: Cost-optimized (2-32 vCPUs, 0.5-128 GB RAM)</li>
-<li><strong>N2</strong>: Balanced performance (2-128 vCPUs, 0.5-864 GB RAM)</li>
-<li><strong>N2D</strong>: AMD-based (2-224 vCPUs, 0.5-896 GB RAM)</li>
-<li><strong>N1</strong>: Previous generation (1-96 vCPUs, 0.9-624 GB RAM)</li>
-<li><strong>C2</strong>: Compute-optimized (4-60 vCPUs, 16-240 GB RAM)</li>
-<li><strong>C2D</strong>: AMD compute-optimized (2-112 vCPUs, 4-448 GB RAM)</li>
-<li><strong>M1</strong>: Memory-optimized (40-160 vCPUs, 961-3844 GB RAM)</li>
-<li><strong>M2</strong>: Ultra-memory (208-416 vCPUs, 5888-11776 GB RAM)</li>
-<li><strong>A2</strong>: GPU-accelerated (12-96 vCPUs with NVIDIA A100)</li>
+<li>Standard configurations (e.g., n2-standard-4: 4 vCPUs, 16 GB RAM)</li>
+<li>Optimized for common workload patterns</li>
+<li>Simpler to manage and plan</li>
+<li>Use for: Most workloads with standard requirements</li>
 </ul>
-<p><strong>Custom Machine Types</strong></p>
+<p><strong>Custom Machine Types</strong>:</p>
 <ul>
-<li>Create VMs with custom CPU and memory</li>
-<li>1 vCPU to 96 vCPUs (N2) or 224 vCPUs (N2D)</li>
-<li>0.9 GB to 8 GB RAM per vCPU</li>
-<li>Extended memory up to 624 GB total</li>
+<li>Specify exact vCPU and memory (0.9-8 GB RAM per vCPU)</li>
+<li>Cost optimization for specific ratios</li>
+<li>Extended memory available (up to 624 GB)</li>
+<li>Use for: Workloads with non-standard resource ratios</li>
 </ul>
-<h3 id="operating-systems">Operating Systems<a class="headerlink" href="#operating-systems" title="Permanent link">&para;</a></h3>
-<p><strong>Linux Distributions:</strong></p>
-<ul>
-<li>Debian (10, 11, 12)</li>
-<li>Ubuntu (18.04, 20.04, 22.04, 24.04)</li>
-<li>CentOS Stream 8, 9</li>
-<li>Rocky Linux 8, 9</li>
-<li>RHEL 7, 8, 9</li>
-<li>SLES 12, 15</li>
-<li>Fedora CoreOS</li>
-<li>Container-Optimized OS</li>
-</ul>
-<p><strong>Windows:</strong></p>
-<ul>
-<li>Windows Server 2016, 2019, 2022</li>
-<li>SQL Server on Windows (various versions)</li>
-<li>Bring Your Own License (BYOL) support</li>
-</ul>
-<h3 id="vm-lifecycle-states">VM Lifecycle States<a class="headerlink" href="#vm-lifecycle-states" title="Permanent link">&para;</a></h3>
-<p><strong>PROVISIONING</strong>: Resources being allocated
-<strong>STAGING</strong>: Resources acquired, preparing to boot
-<strong>RUNNING</strong>: VM is running
-<strong>STOPPING</strong>: Shutting down
-<strong>TERMINATED</strong>: VM is stopped
-<strong>SUSPENDING</strong>: Being suspended (beta)
-<strong>SUSPENDED</strong>: VM suspended to disk (beta)
-<strong>REPAIRING</strong>: Under repair</p>
-<h3 id="instance-options">Instance Options<a class="headerlink" href="#instance-options" title="Permanent link">&para;</a></h3>
-<p><strong>Spot VMs (Preemptible)</strong></p>
-<ul>
-<li>Up to 91% discount</li>
-<li>Can be terminated any time with 30-second warning</li>
-<li>Maximum 24-hour runtime</li>
-<li>No live migration</li>
-<li>Best for fault-tolerant workloads</li>
-</ul>
-<p><strong>Shielded VMs</strong></p>
-<ul>
-<li>Secure Boot: Verify bootloader integrity</li>
-<li>vTPM: Virtual Trusted Platform Module</li>
-<li>Integrity Monitoring: Alert on boot-time changes</li>
-<li>Protection against rootkits and bootkits</li>
-</ul>
-<p><strong>Confidential VMs</strong></p>
-<ul>
-<li>Memory encryption in use</li>
-<li>Hardware-based isolation</li>
-<li>No Google access to data in memory</li>
-<li>Based on AMD SEV technology</li>
-</ul>
-<p><strong>Sole-Tenant Nodes</strong></p>
-<ul>
-<li>Dedicated physical servers</li>
-<li>Workload separation for compliance</li>
-<li>BYOL licensing for per-core software</li>
-<li>Node groups for resource pooling</li>
-</ul>
-<h2 id="important-limits">Important Limits<a class="headerlink" href="#important-limits" title="Permanent link">&para;</a></h2>
+<h3 id="machine-family-decision-matrix">Machine Family Decision Matrix<a class="headerlink" href="#machine-family-decision-matrix" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Limit</th>
-<th>Value</th>
-<th>Notes</th>
+<th>Workload Type</th>
+<th>Recommended Family</th>
+<th>Reasoning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Instances per project</strong></td>
-<td>24 per region (default)</td>
-<td>Can be increased</td>
+<td>Web servers, APIs</td>
+<td>N2, N2D</td>
+<td>Balanced, cost-effective</td>
 </tr>
 <tr>
-<td><strong>vCPUs per project</strong></td>
-<td>24 per region (default)</td>
-<td>Varies by family</td>
+<td>Databases (small-medium)</td>
+<td>N2, N2D</td>
+<td>Good memory/CPU ratio</td>
 </tr>
 <tr>
-<td><strong>Custom machine vCPUs</strong></td>
-<td>1-96 (N2), 1-224 (N2D)</td>
-<td>Based on family</td>
+<td>Large databases</td>
+<td>M-series</td>
+<td>Memory-optimized</td>
 </tr>
 <tr>
-<td><strong>Memory per vCPU</strong></td>
-<td>0.9-8 GB</td>
-<td>Extended up to 624 GB total</td>
+<td>Batch processing</td>
+<td>E2, Spot VMs</td>
+<td>Cost-optimized</td>
 </tr>
 <tr>
-<td><strong>Network interfaces</strong></td>
-<td>8 maximum</td>
-<td>Per VM</td>
+<td>HPC, gaming servers</td>
+<td>C2, C2D, H3</td>
+<td>Highest CPU performance</td>
 </tr>
 <tr>
-<td><strong>Metadata</strong></td>
-<td>512 KB</td>
-<td>Key-value pairs</td>
+<td>ML training</td>
+<td>A2, A3</td>
+<td>GPU-accelerated</td>
 </tr>
 <tr>
-<td><strong>Attached disks</strong></td>
-<td>128</td>
-<td>Including boot disk</td>
-</tr>
-<tr>
-<td><strong>GPUs per VM</strong></td>
-<td>Varies by GPU type</td>
-<td>A2: 1-16 A100 GPUs</td>
+<td>Development/testing</td>
+<td>E2, Spot VMs</td>
+<td>Lowest cost</td>
 </tr>
 </tbody>
 </table>
-<h2 id="when-to-use-different-machine-types">When to Use Different Machine Types<a class="headerlink" href="#when-to-use-different-machine-types" title="Permanent link">&para;</a></h2>
-<h3 id="e2-cost-optimized">E2 (Cost-Optimized)<a class="headerlink" href="#e2-cost-optimized" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<h2 id="vm-lifecycle-and-states">VM Lifecycle and States<a class="headerlink" href="#vm-lifecycle-and-states" title="Permanent link">&para;</a></h2>
+<h3 id="state-transitions">State Transitions<a class="headerlink" href="#state-transitions" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Development and testing environments</li>
-<li>Low-traffic web servers</li>
-<li>Small databases</li>
-<li>Microservices</li>
+<li><strong>PROVISIONING</strong> → <strong>STAGING</strong> → <strong>RUNNING</strong>: Normal startup</li>
+<li><strong>RUNNING</strong> → <strong>STOPPING</strong> → <strong>TERMINATED</strong>: Clean shutdown</li>
+<li><strong>TERMINATED</strong> → <strong>RUNNING</strong>: Start operation</li>
+<li><strong>RUNNING</strong> → <strong>SUSPENDING</strong> → <strong>SUSPENDED</strong> (Beta): Save state to disk</li>
+</ul>
+<p><strong>Architectural Impact</strong>:</p>
+<ul>
+<li>Billing stops in TERMINATED state (disk charges remain)</li>
+<li>No SLA for VM availability without MIG</li>
+<li>Live migration during maintenance (RUNNING → RUNNING transparently)</li>
+<li>Preemptible VMs: 30-second termination warning, 24-hour maximum</li>
+</ul>
+<h2 id="spot-vms-preemptible">Spot VMs (Preemptible)<a class="headerlink" href="#spot-vms-preemptible" title="Permanent link">&para;</a></h2>
+<h3 id="cost-vs-availability-trade-off">Cost vs Availability Trade-off<a class="headerlink" href="#cost-vs-availability-trade-off" title="Permanent link">&para;</a></h3>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Up to 91% discount</li>
+<li>Same performance as regular VMs</li>
+<li>Significant cost savings at scale</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li>Can be terminated at any time</li>
+<li>30-second warning via shutdown script</li>
+<li>No live migration</li>
+<li>No SLA</li>
+<li>24-hour maximum runtime</li>
+</ul>
+<h3 id="architectural-use-cases">Architectural Use Cases<a class="headerlink" href="#architectural-use-cases" title="Permanent link">&para;</a></h3>
+<p><strong>Appropriate for</strong>:</p>
+<ul>
 <li>Batch processing jobs</li>
+<li>CI/CD pipelines</li>
+<li>Data processing (MapReduce-style)</li>
+<li>Rendering farms</li>
+<li>Fault-tolerant distributed systems</li>
+<li>Development/testing environments</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<p><strong>Not appropriate for</strong>:</p>
 <ul>
-<li>High-performance computing</li>
-<li>Memory-intensive applications</li>
-<li>Sustained high CPU usage</li>
-<li>GPU workloads</li>
+<li>Databases (unless replicated)</li>
+<li>Stateful applications without external state</li>
+<li>Long-running single processes</li>
+<li>Applications requiring guaranteed uptime</li>
+<li>Services without checkpointing</li>
 </ul>
-<h3 id="n2n2d-general-purpose">N2/N2D (General Purpose)<a class="headerlink" href="#n2n2d-general-purpose" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Design Pattern</strong>: Combine regular + Spot VMs in MIG for cost optimization with availability</p>
+<h2 id="boot-disk-configuration">Boot Disk Configuration<a class="headerlink" href="#boot-disk-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="disk-type-selection">Disk Type Selection<a class="headerlink" href="#disk-type-selection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Disk Type</th>
+<th>IOPS</th>
+<th>Throughput</th>
+<th>Use Case</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pd-standard</td>
+<td>Low</td>
+<td>Low</td>
+<td>Dev/test, backup target</td>
+<td>Lowest</td>
+</tr>
+<tr>
+<td>pd-balanced</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>General purpose (recommended)</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>pd-ssd</td>
+<td>High</td>
+<td>High</td>
+<td>Databases, I/O intensive</td>
+<td>High</td>
+</tr>
+<tr>
+<td>pd-extreme</td>
+<td>Custom</td>
+<td>Very high</td>
+<td>Mission-critical databases</td>
+<td>Highest</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision Criteria</strong>:</p>
 <ul>
-<li>Web and application servers</li>
-<li>Medium to large databases</li>
-<li>Cache servers</li>
-<li>Enterprise applications</li>
-<li>Most production workloads</li>
+<li>Boot disk I/O rarely bottleneck (use pd-balanced)</li>
+<li>Data disks: Match I/O requirements</li>
+<li>Performance scales with disk size</li>
+<li>Consider Local SSD for highest performance (ephemeral)</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<h3 id="size-considerations">Size Considerations<a class="headerlink" href="#size-considerations" title="Permanent link">&para;</a></h3>
+<p><strong>Minimum Recommendations</strong>:</p>
 <ul>
-<li>Highest single-thread performance (use C2)</li>
-<li>Very large memory requirements (use M-series)</li>
-<li>GPU workloads (use A2)</li>
+<li>Linux: 20 GB (OS + updates + applications)</li>
+<li>Windows: 50 GB (OS + updates)</li>
+<li>Production: Add 30-50% buffer</li>
 </ul>
-<h3 id="c2c2d-compute-optimized">C2/C2D (Compute-Optimized)<a class="headerlink" href="#c2c2d-compute-optimized" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Performance Impact</strong>:</p>
 <ul>
-<li>High-performance computing (HPC)</li>
-<li>Gaming servers</li>
-<li>Ad serving</li>
-<li>High-traffic web serving</li>
-<li>Media transcoding</li>
-<li>CPU-intensive simulations</li>
+<li>Larger disks = higher IOPS/throughput</li>
+<li>100 GB pd-balanced: 600 IOPS</li>
+<li>1000 GB pd-balanced: 6000 IOPS</li>
+<li>Maximum depends on VM machine type</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<h2 id="security-options">Security Options<a class="headerlink" href="#security-options" title="Permanent link">&para;</a></h2>
+<h3 id="shielded-vms">Shielded VMs<a class="headerlink" href="#shielded-vms" title="Permanent link">&para;</a></h3>
+<p><strong>Components</strong>:</p>
 <ul>
-<li>Memory-intensive workloads</li>
-<li>GPU-accelerated workloads</li>
-<li>Cost-sensitive development</li>
+<li><strong>Secure Boot</strong>: Verify bootloader and kernel integrity</li>
+<li><strong>vTPM</strong>: Virtual Trusted Platform Module for key management</li>
+<li><strong>Integrity Monitoring</strong>: Alert on boot sequence changes</li>
 </ul>
-<h3 id="m1m2m3-memory-optimized">M1/M2/M3 (Memory-Optimized)<a class="headerlink" href="#m1m2m3-memory-optimized" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>When to Enable</strong>:</p>
 <ul>
-<li>Large in-memory databases (SAP HANA, Redis)</li>
-<li>In-memory analytics</li>
-<li>Microsoft SQL Server</li>
-<li>Real-time big data processing</li>
-<li>High-performance relational databases</li>
+<li>Production workloads (should be default)</li>
+<li>Compliance requirements (PCI-DSS, HIPAA)</li>
+<li>Protection against rootkits and bootkits</li>
+<li>Minimal performance impact</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<h3 id="confidential-vms">Confidential VMs<a class="headerlink" href="#confidential-vms" title="Permanent link">&para;</a></h3>
+<p><strong>Capabilities</strong>:</p>
 <ul>
-<li>Compute-intensive tasks</li>
-<li>Cost-sensitive workloads</li>
-<li>Small to medium applications</li>
+<li>Memory encryption using AMD SEV</li>
+<li>Isolates VM memory from Google and other VMs</li>
+<li>Hardware-based protection</li>
 </ul>
-<h3 id="a2a3-gpu-accelerated">A2/A3 (GPU-Accelerated)<a class="headerlink" href="#a2a3-gpu-accelerated" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Trade-offs</strong>:</p>
 <ul>
-<li>Machine learning training</li>
-<li>Deep learning inference</li>
-<li>High-performance computing</li>
-<li>Rendering and visualization</li>
-<li>Scientific simulations</li>
+<li>Limited machine types (N2D, C2D)</li>
+<li>Slight performance overhead</li>
+<li>Higher cost</li>
+<li>Use for: Highly sensitive workloads, regulatory requirements</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<h3 id="sole-tenant-nodes">Sole-Tenant Nodes<a class="headerlink" href="#sole-tenant-nodes" title="Permanent link">&para;</a></h3>
+<p><strong>Use Cases</strong>:</p>
 <ul>
-<li>General-purpose computing</li>
-<li>CPU-only workloads</li>
-<li>Cost-sensitive applications</li>
+<li>Licensing requirements (per-socket, per-core)</li>
+<li>Compliance requirements (physical isolation)</li>
+<li>Performance isolation</li>
+<li>Workload separation for security</li>
 </ul>
-<h2 id="vm-configuration-options">VM Configuration Options<a class="headerlink" href="#vm-configuration-options" title="Permanent link">&para;</a></h2>
+<p><strong>Considerations</strong>:</p>
+<ul>
+<li>Pay for entire node (all vCPUs), not per VM</li>
+<li>More expensive than shared tenancy</li>
+<li>Requires capacity planning</li>
+<li>Suitable for large, stable workloads</li>
+</ul>
+<h2 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="ip-addressing">IP Addressing<a class="headerlink" href="#ip-addressing" title="Permanent link">&para;</a></h3>
+<p><strong>Internal IP (Required)</strong>:</p>
+<ul>
+<li>Private RFC 1918 address</li>
+<li>Assigned from subnet range</li>
+<li>Used for VPC communication</li>
+<li>Can be ephemeral or static</li>
+</ul>
+<p><strong>External IP (Optional)</strong>:</p>
+<ul>
+<li>Public internet-routable address</li>
+<li>Ephemeral (changes on stop/start) or static (reserved)</li>
+<li>Billed when reserved but not attached</li>
+<li>Alternative: Cloud NAT for outbound without public IP</li>
+</ul>
+<h3 id="multiple-network-interfaces">Multiple Network Interfaces<a class="headerlink" href="#multiple-network-interfaces" title="Permanent link">&para;</a></h3>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li>Up to 8 NICs per VM</li>
+<li>Each in different VPC network</li>
+<li>Each with own routing table</li>
+<li>Each can have internal and external IPs</li>
+</ul>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Network appliances (firewall, router)</li>
+<li>DMZ architectures</li>
+<li>Separate management network</li>
+<li>Traffic separation for security</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li>Cannot be in same VPC</li>
+<li>No automatic traffic routing between interfaces</li>
+<li>Requires application-level routing</li>
+</ul>
+<h2 id="service-accounts">Service Accounts<a class="headerlink" href="#service-accounts" title="Permanent link">&para;</a></h2>
+<h3 id="architecture-patterns">Architecture Patterns<a class="headerlink" href="#architecture-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Default Compute Engine Service Account</strong>:</p>
+<ul>
+<li>Auto-created per project</li>
+<li>Has Editor role by default (too permissive)</li>
+<li>Used if no SA specified</li>
+<li><strong>Don&rsquo;t use for production</strong></li>
+</ul>
+<p><strong>Custom Service Account (Recommended)</strong>:</p>
+<ul>
+<li>Create per application/workload</li>
+<li>Grant minimal necessary permissions</li>
+<li>Principle of least privilege</li>
+<li>Easier to audit and rotate</li>
+</ul>
+<p><strong>Scopes</strong>:</p>
+<ul>
+<li>Legacy mechanism (being replaced by IAM)</li>
+<li>Limit API access even with SA permissions</li>
+<li>Use <code>cloud-platform</code> scope + IAM roles (modern approach)</li>
+<li>Scopes cannot grant more access than IAM roles</li>
+</ul>
+<h2 id="managed-instance-groups-migs">Managed Instance Groups (MIGs)<a class="headerlink" href="#managed-instance-groups-migs" title="Permanent link">&para;</a></h2>
+<h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h3>
+<p><strong>Availability</strong>:</p>
+<ul>
+<li>Autohealing with health checks</li>
+<li>Automatic replacement of unhealthy instances</li>
+<li>Distribution across zones (regional MIG)</li>
+<li>No single point of failure</li>
+</ul>
+<p><strong>Scalability</strong>:</p>
+<ul>
+<li>Autoscaling based on metrics</li>
+<li>Horizontal scaling (add/remove instances)</li>
+<li>Integration with load balancing</li>
+<li>Handle traffic spikes automatically</li>
+</ul>
+<p><strong>Management</strong>:</p>
+<ul>
+<li>Rolling updates with version control</li>
+<li>Canary deployments</li>
+<li>Consistent configuration via templates</li>
+<li>Automated operations</li>
+</ul>
+<h3 id="autoscaling-configuration">Autoscaling Configuration<a class="headerlink" href="#autoscaling-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Scaling Policies</strong>:</p>
+<ul>
+<li>CPU utilization (most common)</li>
+<li>HTTP load balancing utilization</li>
+<li>Cloud Pub/Sub queue size</li>
+<li>Custom metrics (Cloud Monitoring)</li>
+<li>Multiple policies (scales on any)</li>
+</ul>
+<p><strong>Considerations</strong>:</p>
+<ul>
+<li><strong>Cool-down period</strong>: Prevent thrashing</li>
+<li><strong>Min/max instances</strong>: Set boundaries</li>
+<li><strong>Scale-in controls</strong>: Prevent rapid scale-down</li>
+<li><strong>Target utilization</strong>: 60-70% for headroom</li>
+</ul>
+<p><strong>Architecture Pattern</strong>:</p>
+<ul>
+<li>Use MIG for all production workloads</li>
+<li>Even single-instance (autohealing benefit)</li>
+<li>Regional MIG for high availability</li>
+<li>Combine with load balancer for best results</li>
+</ul>
+<h2 id="metadata-and-startup-scripts">Metadata and Startup Scripts<a class="headerlink" href="#metadata-and-startup-scripts" title="Permanent link">&para;</a></h2>
+<h3 id="metadata-server">Metadata Server<a class="headerlink" href="#metadata-server" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>:</p>
+<ul>
+<li>Provide instance and project metadata</li>
+<li>Service account tokens</li>
+<li>Startup/shutdown scripts</li>
+<li>Custom key-value pairs</li>
+</ul>
+<p><strong>Security Considerations</strong>:</p>
+<ul>
+<li>Accessible from within VM without authentication</li>
+<li>Service account tokens available</li>
+<li>Use Workload Identity for GKE instead</li>
+<li>Restrict metadata access if needed</li>
+</ul>
+<h3 id="startup-scripts">Startup Scripts<a class="headerlink" href="#startup-scripts" title="Permanent link">&para;</a></h3>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Software installation and configuration</li>
+<li>Join domain or cluster</li>
+<li>Register with external services</li>
+<li>Application deployment</li>
+</ul>
+<p><strong>Best Practices</strong>:</p>
+<ul>
+<li>Idempotent execution</li>
+<li>Log to serial console</li>
+<li>Handle failures gracefully</li>
+<li>Keep minimal (use configuration management)</li>
+<li>Consider cloud-init or Ansible</li>
+</ul>
+<h2 id="high-availability-patterns">High Availability Patterns<a class="headerlink" href="#high-availability-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="single-zone-architecture">Single-Zone Architecture<a class="headerlink" href="#single-zone-architecture" title="Permanent link">&para;</a></h3>
+<p><strong>Characteristics</strong>:</p>
+<ul>
+<li>All VMs in one zone</li>
+<li>Simplest design</li>
+<li>Lower cost (no cross-zone traffic)</li>
+<li>No zone failure protection</li>
+</ul>
+<p><strong>Appropriate for</strong>:</p>
+<ul>
+<li>Development/testing</li>
+<li>Non-critical workloads</li>
+<li>Stateful services with external replication</li>
+<li>When zone failure is acceptable</li>
+</ul>
+<h3 id="multi-zone-regional-mig">Multi-Zone (Regional MIG)<a class="headerlink" href="#multi-zone-regional-mig" title="Permanent link">&para;</a></h3>
+<p><strong>Characteristics</strong>:</p>
+<ul>
+<li>VMs distributed across 3+ zones</li>
+<li>Zone failure protection</li>
+<li>Slightly higher cost (cross-zone traffic)</li>
+<li>99.99% availability with load balancer</li>
+</ul>
+<p><strong>Design Considerations</strong>:</p>
+<ul>
+<li>Even distribution vs BALANCED (Google decides)</li>
+<li>Health check requirements</li>
+<li>Data replication strategy</li>
+<li>Shared storage (Filestore, Cloud SQL)</li>
+</ul>
+<h3 id="multi-region">Multi-Region<a class="headerlink" href="#multi-region" title="Permanent link">&para;</a></h3>
+<p><strong>Characteristics</strong>:</p>
+<ul>
+<li>VMs in multiple regions</li>
+<li>Regional failure protection</li>
+<li>Global load balancing</li>
+<li>Higher cost (cross-region egress)</li>
+</ul>
+<p><strong>When Required</strong>:</p>
+<ul>
+<li>Global user base (low latency)</li>
+<li>Disaster recovery (regional failure)</li>
+<li>Compliance (data residency)</li>
+<li>Highest availability requirements</li>
+</ul>
+<h2 id="performance-considerations">Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="cpu-platform">CPU Platform<a class="headerlink" href="#cpu-platform" title="Permanent link">&para;</a></h3>
-<p>Specify minimum CPU platform:</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--min-cpu-platform<span class="o">=</span><span class="s2">&quot;Intel Ice Lake&quot;</span>
-</code></pre></div>
-<p><strong>Available Platforms:</strong></p>
+<p><strong>Options</strong>:</p>
 <ul>
 <li>Intel Cascade Lake</li>
 <li>Intel Ice Lake</li>
 <li>Intel Sapphire Rapids</li>
-<li>AMD Milan</li>
-<li>AMD Genoa</li>
+<li>AMD Milan, Genoa</li>
 </ul>
-<h3 id="boot-disk-options">Boot Disk Options<a class="headerlink" href="#boot-disk-options" title="Permanent link">&para;</a></h3>
-<p><strong>Disk Types:</strong></p>
+<p><strong>Impact</strong>:</p>
 <ul>
-<li><strong>pd-standard</strong>: Standard HDD (cheaper, slower)</li>
-<li><strong>pd-balanced</strong>: Balanced SSD (recommended)</li>
-<li><strong>pd-ssd</strong>: High-performance SSD</li>
-<li><strong>pd-extreme</strong>: Highest performance (custom IOPS)</li>
-<li><strong>hyperdisk-balanced</strong>: Next-gen balanced performance</li>
-<li><strong>hyperdisk-extreme</strong>: Next-gen extreme performance</li>
+<li>Newer platforms: Better performance</li>
+<li>Varies by region/zone</li>
+<li>Can specify minimum platform</li>
+<li>Automatic upgrades over time</li>
 </ul>
-<p><strong>Size Considerations:</strong></p>
+<h3 id="cpu-overcommitment">CPU Overcommitment<a class="headerlink" href="#cpu-overcommitment" title="Permanent link">&para;</a></h3>
+<p><strong>Shared-Core Machine Types</strong>:</p>
 <ul>
-<li>Minimum: 10 GB</li>
-<li>Recommended: 20+ GB for OS and updates</li>
-<li>Performance scales with size (for pd-standard, pd-balanced, pd-ssd)</li>
+<li>E2-micro, E2-small, E2-medium</li>
+<li>Burst capability above baseline</li>
+<li>Suitable for low-utilization workloads</li>
+<li>Cost-effective for development</li>
 </ul>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--boot-disk-size<span class="o">=</span>50GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--boot-disk-type<span class="o">=</span>pd-balanced
-</code></pre></div>
-<h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
-<p><strong>Network Interfaces:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Single network interface</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network<span class="o">=</span>my-vpc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnet<span class="o">=</span>my-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--private-network-ip<span class="o">=</span><span class="m">10</span>.0.1.10
-
-<span class="c1"># No external IP (private only)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network<span class="o">=</span>my-vpc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnet<span class="o">=</span>my-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--no-address
-
-<span class="c1"># Multiple network interfaces</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network-interface<span class="o">=</span><span class="nv">network</span><span class="o">=</span>vpc1,subnet<span class="o">=</span>subnet1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network-interface<span class="o">=</span><span class="nv">network</span><span class="o">=</span>vpc2,subnet<span class="o">=</span>subnet2
-</code></pre></div>
-<h3 id="metadata-and-startup-scripts">Metadata and Startup Scripts<a class="headerlink" href="#metadata-and-startup-scripts" title="Permanent link">&para;</a></h3>
-<p><strong>Metadata:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Single metadata item</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata<span class="o">=</span><span class="nv">environment</span><span class="o">=</span>production,team<span class="o">=</span>platform
-
-<span class="c1"># Metadata from file</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata-from-file<span class="o">=</span>startup-script<span class="o">=</span>startup.sh
-</code></pre></div>
-<p><strong>Startup Script Example:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1"># Update packages</span>
-apt-get<span class="w"> </span>update
-apt-get<span class="w"> </span>upgrade<span class="w"> </span>-y
-
-<span class="c1"># Install web server</span>
-apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
-
-<span class="c1"># Configure application</span>
-cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/nginx/sites-available/default<span class="w"> </span><span class="s">&lt;&lt;&#39;EOF&#39;</span>
-<span class="s">server {</span>
-<span class="s">    listen 80 default_server;</span>
-<span class="s">    location / {</span>
-<span class="s">        return 200 &#39;Hello from GCE!\n&#39;;</span>
-<span class="s">        add_header Content-Type text/plain;</span>
-<span class="s">    }</span>
-<span class="s">}</span>
-<span class="s">EOF</span>
-
-<span class="c1"># Start service</span>
-systemctl<span class="w"> </span>restart<span class="w"> </span>nginx
-systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx
-</code></pre></div>
-<h3 id="service-accounts">Service Accounts<a class="headerlink" href="#service-accounts" title="Permanent link">&para;</a></h3>
-<p><strong>Default Service Account:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use default compute service account</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scopes<span class="o">=</span>cloud-platform
-</code></pre></div>
-<p><strong>Custom Service Account:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create custom service account</span>
-gcloud<span class="w"> </span>iam<span class="w"> </span>service-accounts<span class="w"> </span>create<span class="w"> </span>vm-sa<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--display-name<span class="o">=</span><span class="s2">&quot;VM Service Account&quot;</span>
-
-<span class="c1"># Grant permissions</span>
-gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>PROJECT_ID<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:vm-sa@PROJECT_ID.iam.gserviceaccount.com&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/compute.instanceAdmin.v1&quot;</span>
-
-<span class="c1"># Create VM with custom SA</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-account<span class="o">=</span>vm-sa@PROJECT_ID.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scopes<span class="o">=</span>cloud-platform
-</code></pre></div>
-<h2 id="vm-operations">VM Operations<a class="headerlink" href="#vm-operations" title="Permanent link">&para;</a></h2>
-<h3 id="create-vm-instances">Create VM Instances<a class="headerlink" href="#create-vm-instances" title="Permanent link">&para;</a></h3>
-<p><strong>Basic Creation:</strong></p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>e2-medium
-</code></pre></div>
-<p><strong>Production VM:</strong></p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>prod-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-family<span class="o">=</span>ubuntu-2204-lts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>ubuntu-os-cloud<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--boot-disk-size<span class="o">=</span>50GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--boot-disk-type<span class="o">=</span>pd-balanced<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network<span class="o">=</span>my-vpc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnet<span class="o">=</span>my-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--no-address<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tags<span class="o">=</span>http-server,https-server<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--labels<span class="o">=</span><span class="nv">env</span><span class="o">=</span>production,team<span class="o">=</span>platform<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service-account<span class="o">=</span>vm-sa@PROJECT_ID.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scopes<span class="o">=</span>cloud-platform<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata-from-file<span class="o">=</span>startup-script<span class="o">=</span>startup.sh<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shielded-secure-boot<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shielded-vtpm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shielded-integrity-monitoring
-</code></pre></div>
-<p><strong>Spot VM:</strong></p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>spot-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--preemptible<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--instance-termination-action<span class="o">=</span>DELETE
-</code></pre></div>
-<h3 id="manage-vm-instances">Manage VM Instances<a class="headerlink" href="#manage-vm-instances" title="Permanent link">&para;</a></h3>
-<p><strong>List and Describe:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># List all instances</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>list
-
-<span class="c1"># List in specific zone</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>list<span class="w"> </span>--zones<span class="o">=</span>us-central1-a
-
-<span class="c1"># Describe instance</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>describe<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Get instance details in JSON</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>describe<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span>json
-</code></pre></div>
-<p><strong>Start, Stop, Reset:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Stop VM (saves disk state)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>stop<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Start VM</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>start<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Reset VM (hard reboot)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>reset<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Suspend VM (beta)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span><span class="nb">suspend</span><span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Resume VM (beta)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>resume<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-</code></pre></div>
-<p><strong>Update VM Configuration:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Change machine type (VM must be stopped)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>stop<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>set-machine-type<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-8
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>start<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Add metadata</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>add-metadata<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata<span class="o">=</span>new-key<span class="o">=</span>new-value
-
-<span class="c1"># Update labels</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>update<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--update-labels<span class="o">=</span><span class="nv">environment</span><span class="o">=</span>staging
-
-<span class="c1"># Add network tags</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>add-tags<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tags<span class="o">=</span>web-server,backend
-</code></pre></div>
-<p><strong>Delete VM:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Delete instance</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Delete instance but keep boot disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>delete<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--keep-disks<span class="o">=</span>boot
-</code></pre></div>
-<h3 id="access-vm-instances">Access VM Instances<a class="headerlink" href="#access-vm-instances" title="Permanent link">&para;</a></h3>
-<p><strong>SSH Access:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># SSH with gcloud (recommended)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># SSH with specific user</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>username@my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># SSH with custom SSH key</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--ssh-key-file<span class="o">=</span>~/.ssh/my-key
-
-<span class="c1"># Run command via SSH</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--command<span class="o">=</span><span class="s2">&quot;sudo systemctl status nginx&quot;</span>
-</code></pre></div>
-<p><strong>Serial Console:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Connect to serial console</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>connect-to-serial-port<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># View serial port output</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>get-serial-port-output<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-</code></pre></div>
-<p><strong>RDP (Windows VMs):</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Get Windows password</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>reset-windows-password<span class="w"> </span>my-windows-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--user<span class="o">=</span>admin
-</code></pre></div>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="1-right-sizing-vms">1. Right-Sizing VMs<a class="headerlink" href="#1-right-sizing-vms" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use Cloud Monitoring recommender</span>
-gcloud<span class="w"> </span>recommender<span class="w"> </span>recommendations<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--project<span class="o">=</span>PROJECT_ID<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--location<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--recommender<span class="o">=</span>google.compute.instance.MachineTypeRecommender
-
-<span class="c1"># Start small and scale up</span>
-<span class="c1"># Monitor: CPU, memory, disk I/O, network</span>
-<span class="c1"># Adjust machine type based on actual usage</span>
-</code></pre></div>
-<h3 id="2-use-managed-instance-groups">2. Use Managed Instance Groups<a class="headerlink" href="#2-use-managed-instance-groups" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create instance template</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instance-templates<span class="w"> </span>create<span class="w"> </span>web-template<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-family<span class="o">=</span>ubuntu-2204-lts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>ubuntu-os-cloud<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--boot-disk-size<span class="o">=</span>20GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tags<span class="o">=</span>http-server
-
-<span class="c1"># Create MIG</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instance-groups<span class="w"> </span>managed<span class="w"> </span>create<span class="w"> </span>web-mig<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--base-instance-name<span class="o">=</span>web<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--template<span class="o">=</span>web-template<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Enable autoscaling</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instance-groups<span class="w"> </span>managed<span class="w"> </span>set-autoscaling<span class="w"> </span>web-mig<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-num-replicas<span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--min-num-replicas<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--target-cpu-utilization<span class="o">=</span><span class="m">0</span>.6
-</code></pre></div>
-<h3 id="3-use-startup-and-shutdown-scripts">3. Use Startup and Shutdown Scripts<a class="headerlink" href="#3-use-startup-and-shutdown-scripts" title="Permanent link">&para;</a></h3>
-<p><strong>Startup Script:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nb">set</span><span class="w"> </span>-e
-
-<span class="c1"># Wait for network</span>
-<span class="k">while</span><span class="w"> </span>!<span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>google.com<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Waiting for network...&quot;</span>
-<span class="w">    </span>sleep<span class="w"> </span><span class="m">1</span>
-<span class="k">done</span>
-
-<span class="c1"># Application setup</span>
-apt-get<span class="w"> </span>update
-apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
-systemctl<span class="w"> </span>start<span class="w"> </span>nginx
-</code></pre></div>
-<p><strong>Shutdown Script:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># Save state before shutdown</span>
-pg_dump<span class="w"> </span>mydb<span class="w"> </span>&gt;<span class="w"> </span>/var/backups/db_backup.sql
-gsutil<span class="w"> </span>cp<span class="w"> </span>/var/backups/db_backup.sql<span class="w"> </span>gs://my-bucket/backups/
-</code></pre></div>
-<h3 id="4-implement-health-checks">4. Implement Health Checks<a class="headerlink" href="#4-implement-health-checks" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create health check</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>health-checks<span class="w"> </span>create<span class="w"> </span>http<span class="w"> </span>http-health-check<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="o">=</span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--check-interval<span class="o">=</span>10s<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--timeout<span class="o">=</span>5s<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--healthy-threshold<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--unhealthy-threshold<span class="o">=</span><span class="m">3</span>
-
-<span class="c1"># Create firewall rule for health checks</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>firewall-rules<span class="w"> </span>create<span class="w"> </span>allow-health-check<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network<span class="o">=</span>my-vpc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--action<span class="o">=</span>allow<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--direction<span class="o">=</span>ingress<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-ranges<span class="o">=</span><span class="m">35</span>.191.0.0/16,130.211.0.0/22<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--rules<span class="o">=</span>tcp:80
-</code></pre></div>
-<h3 id="5-use-labels-and-tags">5. Use Labels and Tags<a class="headerlink" href="#5-use-labels-and-tags" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Labels for organization and billing</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--labels<span class="o">=</span><span class="nv">env</span><span class="o">=</span>production,team<span class="o">=</span>platform,cost-center<span class="o">=</span>engineering
-
-<span class="c1"># Tags for firewall rules</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tags<span class="o">=</span>web-server,backend-service
-</code></pre></div>
-<h3 id="6-enable-monitoring-and-logging">6. Enable Monitoring and Logging<a class="headerlink" href="#6-enable-monitoring-and-logging" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Enable Cloud Monitoring</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scopes<span class="o">=</span>cloud-platform
-
-<span class="c1"># Install monitoring agent (on VM)</span>
-curl<span class="w"> </span>-sSO<span class="w"> </span>https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
-sudo<span class="w"> </span>bash<span class="w"> </span>add-google-cloud-ops-agent-repo.sh<span class="w"> </span>--also-install
-
-<span class="c1"># Configure ops agent</span>
-sudo<span class="w"> </span>tee<span class="w"> </span>/etc/google-cloud-ops-agent/config.yaml<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
-<span class="s">logging:</span>
-<span class="s">  receivers:</span>
-<span class="s">    syslog:</span>
-<span class="s">      type: files</span>
-<span class="s">      include_paths:</span>
-
-<span class="s">      - /var/log/syslog</span>
-<span class="s">  service:</span>
-<span class="s">    pipelines:</span>
-<span class="s">      default_pipeline:</span>
-<span class="s">        receivers: [syslog]</span>
-<span class="s">metrics:</span>
-<span class="s">  receivers:</span>
-<span class="s">    hostmetrics:</span>
-<span class="s">      type: hostmetrics</span>
-<span class="s">  service:</span>
-<span class="s">    pipelines:</span>
-<span class="s">      default_pipeline:</span>
-<span class="s">        receivers: [hostmetrics]</span>
-<span class="s">EOF</span>
-
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>google-cloud-ops-agent
-</code></pre></div>
-<h3 id="7-security-hardening">7. Security Hardening<a class="headerlink" href="#7-security-hardening" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use OS Login instead of SSH keys</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>add-metadata<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata<span class="o">=</span>enable-oslogin<span class="o">=</span>TRUE
-
-<span class="c1"># Enable Shielded VM features</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shielded-secure-boot<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shielded-vtpm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--shielded-integrity-monitoring
-
-<span class="c1"># No external IP</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--no-address
-
-<span class="c1"># Minimal IAM scopes</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--scopes<span class="o">=</span>logging-write,monitoring-write
-</code></pre></div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="instance-wont-start">Instance Won&rsquo;t Start<a class="headerlink" href="#instance-wont-start" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check serial console output</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>get-serial-port-output<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Check operations logs</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>operations<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s2">&quot;targetLink:my-vm&quot;</span>
-
-<span class="c1"># Verify quotas</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>project-info<span class="w"> </span>describe<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--project<span class="o">=</span>PROJECT_ID
-</code></pre></div>
-<h3 id="high-cpu-or-memory-usage">High CPU or Memory Usage<a class="headerlink" href="#high-cpu-or-memory-usage" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check metrics in Cloud Monitoring</span>
-gcloud<span class="w"> </span>monitoring<span class="w"> </span>time-series<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s1">&#39;metric.type=&quot;compute.googleapis.com/instance/cpu/utilization&quot;</span>
-<span class="s1">    AND resource.labels.instance_id=&quot;INSTANCE_ID&quot;&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span>json
-
-<span class="c1"># SSH and investigate</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-top
-free<span class="w"> </span>-m
-df<span class="w"> </span>-h
-</code></pre></div>
-<h3 id="network-connectivity-issues">Network Connectivity Issues<a class="headerlink" href="#network-connectivity-issues" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check firewall rules</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>firewall-rules<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s2">&quot;network:my-vpc&quot;</span>
-
-<span class="c1"># Test connectivity from VM</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>ssh<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-ping<span class="w"> </span><span class="m">8</span>.8.8.8
-curl<span class="w"> </span>https://www.google.com
-
-<span class="c1"># Check routes</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>routes<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s2">&quot;network:my-vpc&quot;</span>
-</code></pre></div>
-<h2 id="related-resources">Related Resources<a class="headerlink" href="#related-resources" title="Permanent link">&para;</a></h2>
+<p><strong>Standard and Higher</strong>:</p>
 <ul>
-<li><a href="compute-engine-overview.md">Compute Engine Overview</a></li>
-<li><a href="compute-engine-disks.md">Persistent Disks</a></li>
-<li><a href="compute-engine-images.md">Machine Images</a></li>
-<li><a href="compute-engine-snapshots.md">Snapshots</a></li>
-<li><a href="compute-engine-backups.md">Backups</a></li>
-<li><a href="gcloud-cli.md">gcloud CLI</a></li>
+<li>Dedicated vCPU allocation</li>
+<li>Consistent performance</li>
+<li>Production workloads</li>
+<li>Predictable behavior</li>
+</ul>
+<h2 id="compliance-and-governance">Compliance and Governance<a class="headerlink" href="#compliance-and-governance" title="Permanent link">&para;</a></h2>
+<h3 id="data-residency">Data Residency<a class="headerlink" href="#data-residency" title="Permanent link">&para;</a></h3>
+<p><strong>Control Mechanisms</strong>:</p>
+<ul>
+<li>Choose region for VM placement</li>
+<li>Boot disk in same region</li>
+<li>Snapshots can specify location</li>
+<li>Organization policy constraints</li>
+</ul>
+<h3 id="labeling-strategy">Labeling Strategy<a class="headerlink" href="#labeling-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>:</p>
+<ul>
+<li>Cost allocation and tracking</li>
+<li>Resource organization</li>
+<li>Automation selection</li>
+<li>Compliance tagging</li>
+</ul>
+<p><strong>Recommended Labels</strong>:</p>
+<ul>
+<li>environment (prod, staging, dev)</li>
+<li>team/cost-center</li>
+<li>application/service</li>
+<li>compliance-level</li>
+<li>data-classification</li>
+</ul>
+<h2 id="exam-focus-areas">Exam Focus Areas<a class="headerlink" href="#exam-focus-areas" title="Permanent link">&para;</a></h2>
+<h3 id="design-decisions">Design Decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Machine type selection criteria</li>
+<li>When to use Spot VMs</li>
+<li>HA architecture patterns (single/multi-zone/region)</li>
+<li>Network design (internal vs external IPs)</li>
+</ul>
+<h3 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Right-sizing strategies</li>
+<li>Committed use vs on-demand</li>
+<li>Spot VM use cases and limitations</li>
+<li>Instance scheduling</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Service account best practices</li>
+<li>Shielded VMs vs Confidential VMs</li>
+<li>Network isolation patterns</li>
+<li>IAM role design</li>
+</ul>
+<h3 id="scalability">Scalability<a class="headerlink" href="#scalability" title="Permanent link">&para;</a></h3>
+<ul>
+<li>MIG configuration</li>
+<li>Autoscaling policies</li>
+<li>Load balancing integration</li>
+<li>Regional distribution</li>
+</ul>
+<h3 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update strategies (rolling, canary)</li>
+<li>Health check design</li>
+<li>Monitoring and alerting</li>
+<li>Startup/shutdown scripts</li>
 </ul>
 
 
@@ -8553,7 +8623,7 @@ gcloud<span class="w"> </span>compute<span class="w"> </span>routes<span class="
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../images/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Compute Engine Machine Images">
+          <a href="../images/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Machine Images and Disk Images">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -8563,20 +8633,20 @@ gcloud<span class="w"> </span>compute<span class="w"> </span>routes<span class="
                 Previous
               </span>
               <div class="md-ellipsis">
-                Compute Engine Machine Images
+                Machine Images and Disk Images
               </div>
             </div>
           </a>
         
         
           
-          <a href="../disks/" class="md-footer__link md-footer__link--next" aria-label="Next: Compute Engine Persistent Disks">
+          <a href="../disks/" class="md-footer__link md-footer__link--next" aria-label="Next: Persistent Disks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Compute Engine Persistent Disks
+                Persistent Disks
               </div>
             </div>
             <div class="md-footer__button md-icon">

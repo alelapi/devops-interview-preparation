@@ -27,7 +27,7 @@
     
     
       
-        <title>Compute Engine Machine Images - My DevOps Interview Preparation</title>
+        <title>Machine Images and Disk Images - My DevOps Interview Preparation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#compute-engine-machine-images" class="md-skip">
+        <a href="#machine-images-and-disk-images" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Compute Engine Machine Images
+              Machine Images and Disk Images
             
           </span>
         </div>
@@ -3500,7 +3500,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Machine Images
+    Machine Images and Disk Images
   
 
     
@@ -3518,7 +3518,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Machine Images
+    Machine Images and Disk Images
   
 
     
@@ -3544,10 +3544,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        Core Concepts
       
     </span>
   </a>
@@ -3555,22 +3555,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#machine-images-vs-disk-images-vs-snapshots" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Machine Images vs Disk Images vs Snapshots
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machine Images
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Machine Images">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#complete-configuration-capture" class="md-nav__link">
+  <a href="#architecture-purpose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Complete Configuration Capture
+        Architecture Purpose
       
     </span>
   </a>
@@ -3578,21 +3589,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#disk-images-vs-machine-images" class="md-nav__link">
+  <a href="#design-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Images vs Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use Cases
+        Design Patterns
       
     </span>
   </a>
@@ -3605,133 +3605,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-limits" class="md-nav__link">
+  <a href="#disk-images" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Limits
+        Disk Images
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-machine-images-vs-other-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Machine Images vs Other Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Machine Images vs Other Options">
+    <nav class="md-nav" aria-label="Disk Images">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-machine-images-when" class="md-nav__link">
+  <a href="#architecture-purpose_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ✅ Use Machine Images When:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-use-machine-images-when" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Don&rsquo;t Use Machine Images When:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#machine-image-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Machine Image Operations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Machine Image Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-vms-from-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create VMs from Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-and-describe-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List and Describe Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Delete Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-disk-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Working with Disk Images
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Disk Images">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-disk-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create Disk Images
+        Architecture Purpose
       
     </span>
   </a>
@@ -3760,126 +3649,21 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#sharing-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sharing Images
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#image-lifecycle-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Image Lifecycle Management
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-use-image-families-for-versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Use Image Families for Versioning
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-regular-backup-schedule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Regular Backup Schedule
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-clean-up-old-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Clean Up Old Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-use-descriptive-names-and-labels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Use Descriptive Names and Labels
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-store-in-appropriate-location" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Store in Appropriate Location
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-test-restore-procedures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Test Restore Procedures
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-encrypt-custom-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Encrypt Custom Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-deprecation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Image Deprecation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Image Deprecation">
+    <nav class="md-nav" aria-label="Image Lifecycle Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3893,50 +3677,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#manage-image-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manage Image Lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#automation-and-scheduling" class="md-nav__link">
+  <a href="#cross-project-sharing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automation and Scheduling
+        Cross-Project Sharing
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Automation and Scheduling">
+    <nav class="md-nav" aria-label="Cross-Project Sharing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#automated-backup-script" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automated Backup Script
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#schedule-with-cloud-scheduler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schedule with Cloud Scheduler
+        Use Cases
       
     </span>
   </a>
@@ -3949,22 +3711,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#image-creation-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Image Creation Strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="Image Creation Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#image-creation-fails" class="md-nav__link">
+  <a href="#build-pipeline-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Image Creation Fails
+        Build Pipeline Pattern
       
     </span>
   </a>
@@ -3972,21 +3734,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cannot-create-vm-from-image" class="md-nav__link">
+  <a href="#golden-image-approach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cannot Create VM from Image
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slow-image-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slow Image Operations
+        Golden Image Approach
       
     </span>
   </a>
@@ -3999,13 +3750,230 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-resources" class="md-nav__link">
+  <a href="#cost-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Resources
+        Cost Considerations
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Cost Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimization Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-and-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance and Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance and Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Hardening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning and Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disaster Recovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disaster Recovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-region-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Region Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery-time-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery Time Objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instance Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relationship-with-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship with Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versioning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-focus-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Focus Areas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Focus Areas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-and-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DR and Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4032,7 +4000,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Virtual Machines (VMs)
+    Virtual Machines (VMs)
   
 
     
@@ -4060,7 +4028,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Persistent Disks
+    Persistent Disks
   
 
     
@@ -4088,7 +4056,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Backup and Disaster Recovery
+    Backup and Disaster Recovery Strategy
   
 
     
@@ -4116,7 +4084,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Disk Snapshots
+    Disk Snapshots
   
 
     
@@ -7358,10 +7326,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        Core Concepts
       
     </span>
   </a>
@@ -7369,22 +7337,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#machine-images-vs-disk-images-vs-snapshots" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Machine Images vs Disk Images vs Snapshots
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machine Images
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Machine Images">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#complete-configuration-capture" class="md-nav__link">
+  <a href="#architecture-purpose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Complete Configuration Capture
+        Architecture Purpose
       
     </span>
   </a>
@@ -7392,21 +7371,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#disk-images-vs-machine-images" class="md-nav__link">
+  <a href="#design-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Images vs Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Use Cases
+        Design Patterns
       
     </span>
   </a>
@@ -7419,133 +7387,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-limits" class="md-nav__link">
+  <a href="#disk-images" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Limits
+        Disk Images
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-machine-images-vs-other-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Machine Images vs Other Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Machine Images vs Other Options">
+    <nav class="md-nav" aria-label="Disk Images">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-machine-images-when" class="md-nav__link">
+  <a href="#architecture-purpose_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ✅ Use Machine Images When:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-use-machine-images-when" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Don&rsquo;t Use Machine Images When:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#machine-image-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Machine Image Operations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Machine Image Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-vms-from-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create VMs from Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list-and-describe-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List and Describe Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-machine-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Delete Machine Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-disk-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Working with Disk Images
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Working with Disk Images">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-disk-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create Disk Images
+        Architecture Purpose
       
     </span>
   </a>
@@ -7574,126 +7431,21 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#sharing-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sharing Images
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#image-lifecycle-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Image Lifecycle Management
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-use-image-families-for-versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Use Image Families for Versioning
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-regular-backup-schedule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Regular Backup Schedule
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-clean-up-old-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Clean Up Old Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-use-descriptive-names-and-labels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Use Descriptive Names and Labels
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-store-in-appropriate-location" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Store in Appropriate Location
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-test-restore-procedures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Test Restore Procedures
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-encrypt-custom-images" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Encrypt Custom Images
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#image-deprecation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Image Deprecation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Image Deprecation">
+    <nav class="md-nav" aria-label="Image Lifecycle Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7707,50 +7459,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#manage-image-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manage Image Lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#automation-and-scheduling" class="md-nav__link">
+  <a href="#cross-project-sharing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automation and Scheduling
+        Cross-Project Sharing
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Automation and Scheduling">
+    <nav class="md-nav" aria-label="Cross-Project Sharing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#automated-backup-script" class="md-nav__link">
+  <a href="#use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automated Backup Script
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#schedule-with-cloud-scheduler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Schedule with Cloud Scheduler
+        Use Cases
       
     </span>
   </a>
@@ -7763,22 +7493,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#image-creation-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Image Creation Strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="Image Creation Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#image-creation-fails" class="md-nav__link">
+  <a href="#build-pipeline-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Image Creation Fails
+        Build Pipeline Pattern
       
     </span>
   </a>
@@ -7786,21 +7516,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cannot-create-vm-from-image" class="md-nav__link">
+  <a href="#golden-image-approach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cannot Create VM from Image
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slow-image-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slow Image Operations
+        Golden Image Approach
       
     </span>
   </a>
@@ -7813,13 +7532,230 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-resources" class="md-nav__link">
+  <a href="#cost-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Resources
+        Cost Considerations
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Cost Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimization Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-and-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance and Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance and Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Hardening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scanning-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning and Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disaster Recovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disaster Recovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-region-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Region Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery-time-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery Time Objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instance-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instance Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instance Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relationship-with-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship with Images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versioning-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versioning Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-focus-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Focus Areas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Focus Areas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decision-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr-and-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DR and Backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7917,587 +7853,418 @@
   
 
 
-<h1 id="compute-engine-machine-images">Compute Engine Machine Images<a class="headerlink" href="#compute-engine-machine-images" title="Permanent link">&para;</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>Machine images are Compute Engine resources that store complete VM instance configuration including disks, machine type, metadata, and permissions. They provide a convenient way to create VM instance templates, backup entire VM configurations, and replicate instances across zones and projects.</p>
-<p><strong>Concept</strong>: Complete VM configuration snapshots that can be used to create identical instances or migrate VMs.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="complete-configuration-capture">Complete Configuration Capture<a class="headerlink" href="#complete-configuration-capture" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Instance Configuration</strong>: Machine type, CPU platform, network settings</li>
-<li><strong>Disk Data</strong>: All attached disks (boot and data disks)</li>
-<li><strong>Metadata</strong>: Custom metadata, startup scripts, labels</li>
-<li><strong>Permissions</strong>: Service account and scopes</li>
-<li><strong>Network Interfaces</strong>: Multiple NICs configuration</li>
-<li><strong>Scheduling Options</strong>: Preemptibility, automatic restart settings</li>
-</ul>
-<h3 id="disk-images-vs-machine-images">Disk Images vs Machine Images<a class="headerlink" href="#disk-images-vs-machine-images" title="Permanent link">&para;</a></h3>
-<p><strong>Disk Images:</strong></p>
-<ul>
-<li>Single disk snapshot</li>
-<li>Operating system and data from one disk</li>
-<li>Used for boot disks</li>
-<li>Simpler, faster to create</li>
-<li>Cannot capture VM configuration</li>
-</ul>
-<p><strong>Machine Images:</strong></p>
-<ul>
-<li>Complete VM configuration</li>
-<li>All disks (boot and data)</li>
-<li>Full VM metadata and settings</li>
-<li>Used for complete VM cloning/backup</li>
-<li>Cross-project and cross-region support</li>
-</ul>
-<h3 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h3>
-<p><strong>Backup and Disaster Recovery</strong></p>
-<ul>
-<li>Complete VM backup including all disks</li>
-<li>Point-in-time recovery</li>
-<li>Cross-region DR copies</li>
-<li>Automated backup schedules</li>
-</ul>
-<p><strong>VM Migration</strong></p>
-<ul>
-<li>Move VMs between projects</li>
-<li>Clone VMs across regions/zones</li>
-<li>Replicate development environments</li>
-<li>Create test instances from production</li>
-</ul>
-<p><strong>Instance Templates</strong></p>
-<ul>
-<li>Base configuration for MIGs</li>
-<li>Standardized VM deployments</li>
-<li>Golden images for teams</li>
-<li>Compliance and security baselines</li>
-</ul>
-<h2 id="important-limits">Important Limits<a class="headerlink" href="#important-limits" title="Permanent link">&para;</a></h2>
+<h1 id="machine-images-and-disk-images">Machine Images and Disk Images<a class="headerlink" href="#machine-images-and-disk-images" title="Permanent link">&para;</a></h1>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<p>Images capture VM or disk state for replication, backup, and standardization. Understanding the differences between machine images, disk images, and snapshots is critical for architecture decisions.</p>
+<h2 id="machine-images-vs-disk-images-vs-snapshots">Machine Images vs Disk Images vs Snapshots<a class="headerlink" href="#machine-images-vs-disk-images-vs-snapshots" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Limit</th>
-<th>Value</th>
-<th>Notes</th>
+<th>Feature</th>
+<th>Machine Image</th>
+<th>Disk Image</th>
+<th>Snapshot</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Machine images per project</strong></td>
-<td>1,000</td>
-<td>Soft limit</td>
+<td><strong>Scope</strong></td>
+<td>Entire VM</td>
+<td>Single disk</td>
+<td>Single disk</td>
 </tr>
 <tr>
-<td><strong>Image size</strong></td>
-<td>10 TB</td>
-<td>Combined disk sizes</td>
+<td><strong>Configuration</strong></td>
+<td>Yes (all settings)</td>
+<td>No</td>
+<td>No</td>
 </tr>
 <tr>
-<td><strong>Disks per image</strong></td>
-<td>128</td>
-<td>Maximum attached disks</td>
+<td><strong>Multiple Disks</strong></td>
+<td>Yes (all attached)</td>
+<td>No</td>
+<td>No</td>
 </tr>
 <tr>
-<td><strong>Images shared across projects</strong></td>
-<td>Unlimited</td>
-<td>Using IAM</td>
+<td><strong>Storage Method</strong></td>
+<td>Full copy</td>
+<td>Full copy</td>
+<td>Incremental</td>
 </tr>
 <tr>
-<td><strong>Images per image family</strong></td>
-<td>Unlimited</td>
-<td>Logical grouping</td>
+<td><strong>Cost</strong></td>
+<td>Highest</td>
+<td>Medium</td>
+<td>Lowest (incremental)</td>
 </tr>
 <tr>
-<td><strong>Concurrent image creation</strong></td>
-<td>20 per region</td>
-<td>Can be increased</td>
+<td><strong>Creation Time</strong></td>
+<td>Slowest</td>
+<td>Medium</td>
+<td>Fast (after first)</td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>VM cloning, DR</td>
+<td>OS templates</td>
+<td>Regular backups</td>
+</tr>
+<tr>
+<td><strong>Frequency</strong></td>
+<td>Weekly/monthly</td>
+<td>One-time</td>
+<td>Daily/hourly</td>
 </tr>
 </tbody>
 </table>
-<h2 id="when-to-use-machine-images-vs-other-options">When to Use Machine Images vs Other Options<a class="headerlink" href="#when-to-use-machine-images-vs-other-options" title="Permanent link">&para;</a></h2>
-<h3 id="use-machine-images-when">✅ Use Machine Images When:<a class="headerlink" href="#use-machine-images-when" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>Complete VM Backup Needed</strong></p>
-</li>
-<li>
-<p>Backup entire VM configuration</p>
-</li>
-<li>Multiple disks need to be captured</li>
-<li>Instance settings must be preserved</li>
-<li>
-<p>Quick VM restoration required</p>
-</li>
-<li>
-<p><strong>VM Migration</strong></p>
-</li>
-<li>
-<p>Moving VMs between projects</p>
-</li>
-<li>Replicating VMs across regions</li>
-<li>Creating identical environments</li>
-<li>
-<p>Cloning production to staging</p>
-</li>
-<li>
-<p><strong>Instance Templates</strong></p>
-</li>
-<li>
-<p>Standard VM configurations</p>
-</li>
-<li>Managed Instance Groups</li>
-<li>Auto-scaling deployments</li>
-<li>
-<p>Team development environments</p>
-</li>
-<li>
-<p><strong>Disaster Recovery</strong></p>
-</li>
-<li>
-<p>Cross-region DR copies</p>
-</li>
-<li>Complete system restore capability</li>
-<li>RTO requirements &lt;30 minutes</li>
-<li>Full configuration preservation</li>
-</ol>
-<h3 id="dont-use-machine-images-when">❌ Don&rsquo;t Use Machine Images When:<a class="headerlink" href="#dont-use-machine-images-when" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p><strong>Only Boot Disk Matters</strong></p>
-</li>
-<li>
-<p>Use disk images instead</p>
-</li>
-<li>Faster creation and restore</li>
-<li>Lower cost</li>
-<li>
-<p>No configuration preservation needed</p>
-</li>
-<li>
-<p><strong>Incremental Backups Needed</strong></p>
-</li>
-<li>
-<p>Use snapshots instead</p>
-</li>
-<li>Incremental, space-efficient</li>
-<li>Faster backup cycles</li>
-<li>
-<p>Better for frequent backups</p>
-</li>
-<li>
-<p><strong>Single Disk Backup</strong></p>
-</li>
-<li>
-<p>Use disk snapshots</p>
-</li>
-<li>More efficient</li>
-<li>Faster operations</li>
-<li>
-<p>Better for databases with single disk</p>
-</li>
-<li>
-<p><strong>Container Workloads</strong></p>
-</li>
-<li>
-<p>Use Container Registry</p>
-</li>
-<li>Images for Docker/Kubernetes</li>
-<li>Not VM-based deployments</li>
-</ol>
-<h2 id="machine-image-operations">Machine Image Operations<a class="headerlink" href="#machine-image-operations" title="Permanent link">&para;</a></h2>
-<h3 id="create-machine-images">Create Machine Images<a class="headerlink" href="#create-machine-images" title="Permanent link">&para;</a></h3>
-<p><strong>From Existing VM:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Basic machine image creation</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>my-machine-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># With description and labels</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>prod-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>prod-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--description<span class="o">=</span><span class="s2">&quot;Production VM backup - </span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--labels<span class="o">=</span><span class="nv">environment</span><span class="o">=</span>production,backup<span class="o">=</span>daily
-
-<span class="c1"># Create in different storage location</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--storage-location<span class="o">=</span>us-west1
-
-<span class="c1"># Create from running VM (includes active memory)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>live-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--guest-flush
-</code></pre></div>
-<p><strong>From Instance Template:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create machine image from instance template</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>template-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-template<span class="o">=</span>my-template<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--storage-location<span class="o">=</span>us
-</code></pre></div>
-<h3 id="create-vms-from-machine-images">Create VMs from Machine Images<a class="headerlink" href="#create-vms-from-machine-images" title="Permanent link">&para;</a></h3>
-<p><strong>Basic Creation:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create VM from machine image</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>restored-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-machine-image<span class="o">=</span>my-machine-image
-
-<span class="c1"># Create in different zone</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>vm-clone<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>europe-west1-b<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-machine-image<span class="o">=</span>my-machine-image
-
-<span class="c1"># Override machine type</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>bigger-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-machine-image<span class="o">=</span>my-machine-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-8
-</code></pre></div>
-<p><strong>With Overrides:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create VM with custom configuration</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>custom-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-machine-image<span class="o">=</span>my-machine-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-8<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--custom-cpu<span class="o">=</span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--custom-memory<span class="o">=</span>32GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network<span class="o">=</span>my-vpc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnet<span class="o">=</span>my-subnet<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--no-address
-
-<span class="c1"># Add metadata</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>vm-with-metadata<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-machine-image<span class="o">=</span>my-machine-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--metadata<span class="o">=</span>startup-script<span class="o">=</span><span class="s1">&#39;#!/bin/bash</span>
-<span class="s1">    echo &quot;Additional configuration&quot; &gt;&gt; /var/log/startup.log&#39;</span>
-</code></pre></div>
-<h3 id="list-and-describe-machine-images">List and Describe Machine Images<a class="headerlink" href="#list-and-describe-machine-images" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># List all machine images</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>list
-
-<span class="c1"># List with specific format</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span><span class="s2">&quot;table(</span>
-<span class="s2">    name,</span>
-<span class="s2">    sourceInstance.basename(),</span>
-<span class="s2">    storageLocations[0],</span>
-<span class="s2">    creationTimestamp.date()</span>
-<span class="s2">  )&quot;</span>
-
-<span class="c1"># Describe machine image</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>describe<span class="w"> </span>my-machine-image
-
-<span class="c1"># Get details in JSON</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>describe<span class="w"> </span>my-machine-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span>json
-</code></pre></div>
-<h3 id="delete-machine-images">Delete Machine Images<a class="headerlink" href="#delete-machine-images" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Delete machine image</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>delete<span class="w"> </span>my-machine-image
-
-<span class="c1"># Delete multiple images</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>delete<span class="w"> </span>image1<span class="w"> </span>image2<span class="w"> </span>image3
-
-<span class="c1"># Delete with confirmation skip</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>delete<span class="w"> </span>my-machine-image<span class="w"> </span>--quiet
-</code></pre></div>
-<h2 id="working-with-disk-images">Working with Disk Images<a class="headerlink" href="#working-with-disk-images" title="Permanent link">&para;</a></h2>
-<h3 id="create-disk-images">Create Disk Images<a class="headerlink" href="#create-disk-images" title="Permanent link">&para;</a></h3>
-<p><strong>From Disk:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create image from disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>my-disk-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk<span class="o">=</span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk-zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Create from disk with family</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>ubuntu-2204-custom<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk<span class="o">=</span>custom-boot-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--family<span class="o">=</span>ubuntu-2204-custom<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--description<span class="o">=</span><span class="s2">&quot;Custom Ubuntu 22.04 with company tools&quot;</span>
-</code></pre></div>
-<p><strong>From Snapshot:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create image from snapshot</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-snapshot<span class="o">=</span>my-snapshot
-
-<span class="c1"># Create in image family</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>app-v1-2-3<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-snapshot<span class="o">=</span>app-snapshot<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--family<span class="o">=</span>app-base
-</code></pre></div>
-<p><strong>From Existing Image:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Clone/copy image to different project</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>my-image-copy<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-image<span class="o">=</span>source-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-image-project<span class="o">=</span>source-project
-</code></pre></div>
-<p><strong>From Raw Disk File:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Upload raw disk to Cloud Storage first</span>
-gsutil<span class="w"> </span>cp<span class="w"> </span>disk.raw<span class="w"> </span>gs://my-bucket/
-
-<span class="c1"># Create image from raw disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-uri<span class="o">=</span>gs://my-bucket/disk.raw
-</code></pre></div>
-<h3 id="image-families">Image Families<a class="headerlink" href="#image-families" title="Permanent link">&para;</a></h3>
-<p><strong>Concept</strong>: Logical grouping of images where the latest image is used automatically.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create image in family</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>web-server-v2<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk<span class="o">=</span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--family<span class="o">=</span>web-server
-
-<span class="c1"># Use latest from family</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-family<span class="o">=</span>web-server<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>my-project
-
-<span class="c1"># List images in family</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>--filter<span class="o">=</span><span class="s2">&quot;family:web-server&quot;</span>
-
-<span class="c1"># Deprecate old images</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>deprecate<span class="w"> </span>web-server-v1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--state<span class="o">=</span>DEPRECATED<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replacement<span class="o">=</span>web-server-v2
-</code></pre></div>
-<h3 id="public-images">Public Images<a class="headerlink" href="#public-images" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># List public images</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>--project<span class="o">=</span>debian-cloud
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>--project<span class="o">=</span>ubuntu-os-cloud
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>--project<span class="o">=</span>centos-cloud
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>--project<span class="o">=</span>rhel-cloud
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>--project<span class="o">=</span>windows-cloud
-
-<span class="c1"># Use public image</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-family<span class="o">=</span>debian-12<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>debian-cloud
-</code></pre></div>
-<h3 id="sharing-images">Sharing Images<a class="headerlink" href="#sharing-images" title="Permanent link">&para;</a></h3>
-<p><strong>Share with Specific Project:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Grant image user role to another project</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:SERVICE_ACCOUNT@other-project.iam.gserviceaccount.com&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/compute.imageUser&quot;</span>
-
-<span class="c1"># Use in other project</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>vm-from-shared<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image<span class="o">=</span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>original-project
-</code></pre></div>
-<p><strong>Make Image Public:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Make image publicly accessible</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;allAuthenticatedUsers&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/compute.imageUser&quot;</span>
-
-<span class="c1"># Remove public access</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>remove-iam-policy-binding<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;allAuthenticatedUsers&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/compute.imageUser&quot;</span>
-</code></pre></div>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="1-use-image-families-for-versioning">1. Use Image Families for Versioning<a class="headerlink" href="#1-use-image-families-for-versioning" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create versioned images in family</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>app-base-20240101<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk<span class="o">=</span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--family<span class="o">=</span>app-base<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--labels<span class="o">=</span><span class="nv">version</span><span class="o">=</span><span class="m">20240101</span>
-
-<span class="c1"># Always use family in instance templates</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instance-templates<span class="w"> </span>create<span class="w"> </span>app-template<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-family<span class="o">=</span>app-base<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>my-project
-</code></pre></div>
-<h3 id="2-regular-backup-schedule">2. Regular Backup Schedule<a class="headerlink" href="#2-regular-backup-schedule" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create backup script</span>
-<span class="c1">#!/bin/bash</span>
-<span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>backup-<span class="si">${</span><span class="nv">DATE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>prod-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--description<span class="o">=</span><span class="s2">&quot;Automated backup&quot;</span>
-
-<span class="c1"># Schedule with Cloud Scheduler</span>
-gcloud<span class="w"> </span>scheduler<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>create<span class="w"> </span>http<span class="w"> </span>machine-image-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--schedule<span class="o">=</span><span class="s2">&quot;0 2 * * *&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--uri<span class="o">=</span><span class="s2">&quot;https://cloud-function-url&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--http-method<span class="o">=</span>POST
-</code></pre></div>
-<h3 id="3-clean-up-old-images">3. Clean Up Old Images<a class="headerlink" href="#3-clean-up-old-images" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># List old images</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s2">&quot;creationTimestamp&lt;</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;30 days ago&#39;</span><span class="w"> </span>--iso-8601<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span><span class="s2">&quot;value(name)&quot;</span>
-
-<span class="c1"># Delete images older than 30 days</span>
-<span class="k">for</span><span class="w"> </span>image<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s2">&quot;creationTimestamp&lt;</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;30 days ago&#39;</span><span class="w"> </span>--iso-8601<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span><span class="s2">&quot;value(name)&quot;</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span>gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>delete<span class="w"> </span><span class="nv">$image</span><span class="w"> </span>--quiet
-<span class="k">done</span>
-</code></pre></div>
-<h3 id="4-use-descriptive-names-and-labels">4. Use Descriptive Names and Labels<a class="headerlink" href="#4-use-descriptive-names-and-labels" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Good naming convention</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>prod-web-20240101-0200<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>prod-web-01<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--labels<span class="o">=</span><span class="nv">environment</span><span class="o">=</span>production,service<span class="o">=</span>web,backup-type<span class="o">=</span>scheduled
-</code></pre></div>
-<h3 id="5-store-in-appropriate-location">5. Store in Appropriate Location<a class="headerlink" href="#5-store-in-appropriate-location" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Regional storage for fast restore</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>regional-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--storage-location<span class="o">=</span>us-central1
-
-<span class="c1"># Multi-regional for DR</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>dr-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--storage-location<span class="o">=</span>us
-
-<span class="c1"># Specific region for compliance</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span>eu-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span>europe-west1-b<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--storage-location<span class="o">=</span>eu
-</code></pre></div>
-<h3 id="6-test-restore-procedures">6. Test Restore Procedures<a class="headerlink" href="#6-test-restore-procedures" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Regularly test restoring from machine images</span>
-<span class="c1"># Create test VM in separate network</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>restore-test<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-machine-image<span class="o">=</span>latest-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--network<span class="o">=</span>test-vpc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--subnet<span class="o">=</span>test-subnet
-
-<span class="c1"># Verify functionality</span>
-<span class="c1"># Delete test VM after verification</span>
-</code></pre></div>
-<h3 id="7-encrypt-custom-images">7. Encrypt Custom Images<a class="headerlink" href="#7-encrypt-custom-images" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create image with customer-managed encryption</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>create<span class="w"> </span>encrypted-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk<span class="o">=</span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-disk-zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kms-key<span class="o">=</span>projects/PROJECT_ID/locations/us-central1/keyRings/my-keyring/cryptoKeys/my-key
-</code></pre></div>
-<h2 id="image-deprecation">Image Deprecation<a class="headerlink" href="#image-deprecation" title="Permanent link">&para;</a></h2>
-<h3 id="deprecation-states">Deprecation States<a class="headerlink" href="#deprecation-states" title="Permanent link">&para;</a></h3>
-<p><strong>ACTIVE</strong>: Image is available for use (default)
-<strong>DEPRECATED</strong>: Image is available but not recommended
-<strong>OBSOLETE</strong>: Image is available but strongly discouraged
-<strong>DELETED</strong>: Image is no longer available</p>
-<h3 id="manage-image-lifecycle">Manage Image Lifecycle<a class="headerlink" href="#manage-image-lifecycle" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Deprecate old image</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>deprecate<span class="w"> </span>old-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--state<span class="o">=</span>DEPRECATED<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replacement<span class="o">=</span>new-image
-
-<span class="c1"># Make image obsolete</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>deprecate<span class="w"> </span>very-old-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--state<span class="o">=</span>OBSOLETE
-
-<span class="c1"># Delete deprecated images (manual)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>delete<span class="w"> </span>old-image
-
-<span class="c1"># Un-deprecate image</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>images<span class="w"> </span>deprecate<span class="w"> </span>image-name<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--state<span class="o">=</span>ACTIVE
-</code></pre></div>
-<h2 id="automation-and-scheduling">Automation and Scheduling<a class="headerlink" href="#automation-and-scheduling" title="Permanent link">&para;</a></h2>
-<h3 id="automated-backup-script">Automated Backup Script<a class="headerlink" href="#automated-backup-script" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># backup-vm.sh</span>
-
-<span class="nv">PROJECT_ID</span><span class="o">=</span><span class="s2">&quot;my-project&quot;</span>
-<span class="nv">INSTANCE_NAME</span><span class="o">=</span><span class="s2">&quot;prod-vm&quot;</span>
-<span class="nv">ZONE</span><span class="o">=</span><span class="s2">&quot;us-central1-a&quot;</span>
-<span class="nv">RETENTION_DAYS</span><span class="o">=</span><span class="m">30</span>
-
-<span class="c1"># Create machine image with timestamp</span>
-<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d-%H%M%S<span class="k">)</span>
-<span class="nv">IMAGE_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">-backup-</span><span class="si">${</span><span class="nv">TIMESTAMP</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Creating machine image: </span><span class="si">${</span><span class="nv">IMAGE_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>create<span class="w"> </span><span class="si">${</span><span class="nv">IMAGE_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance<span class="o">=</span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-instance-zone<span class="o">=</span><span class="si">${</span><span class="nv">ZONE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--description<span class="o">=</span><span class="s2">&quot;Automated backup created on </span><span class="si">${</span><span class="nv">TIMESTAMP</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="c1"># Delete images older than retention period</span>
-<span class="nv">CUTOFF_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">RETENTION_DAYS</span><span class="si">}</span><span class="s2"> days ago&quot;</span><span class="w"> </span>--iso-8601<span class="k">)</span>
-<span class="nv">OLD_IMAGES</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s2">&quot;name~&#39;</span><span class="si">${</span><span class="nv">INSTANCE_NAME</span><span class="si">}</span><span class="s2">-backup&#39; AND creationTimestamp&lt;</span><span class="si">${</span><span class="nv">CUTOFF_DATE</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span><span class="s2">&quot;value(name)&quot;</span><span class="k">)</span>
-
-<span class="k">for</span><span class="w"> </span>IMAGE<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="si">${</span><span class="nv">OLD_IMAGES</span><span class="si">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Deleting old image: </span><span class="si">${</span><span class="nv">IMAGE</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="w">  </span>gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>delete<span class="w"> </span><span class="si">${</span><span class="nv">IMAGE</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--project<span class="o">=</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--quiet
-<span class="k">done</span>
-</code></pre></div>
-<h3 id="schedule-with-cloud-scheduler">Schedule with Cloud Scheduler<a class="headerlink" href="#schedule-with-cloud-scheduler" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create Cloud Function to handle backup</span>
-<span class="c1"># Then schedule it</span>
-gcloud<span class="w"> </span>scheduler<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>create<span class="w"> </span>http<span class="w"> </span>daily-vm-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--schedule<span class="o">=</span><span class="s2">&quot;0 2 * * *&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--time-zone<span class="o">=</span><span class="s2">&quot;America/New_York&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--uri<span class="o">=</span><span class="s2">&quot;https://REGION-PROJECT_ID.cloudfunctions.net/backup-vm&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--http-method<span class="o">=</span>POST<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--oidc-service-account-email<span class="o">=</span><span class="s2">&quot;scheduler@PROJECT_ID.iam.gserviceaccount.com&quot;</span>
-</code></pre></div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="image-creation-fails">Image Creation Fails<a class="headerlink" href="#image-creation-fails" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check instance status</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>describe<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Verify disk status</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>list<span class="w"> </span>--filter<span class="o">=</span><span class="s2">&quot;users:my-vm&quot;</span>
-
-<span class="c1"># Check for active operations</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>operations<span class="w"> </span>list<span class="w"> </span>--filter<span class="o">=</span><span class="s2">&quot;targetLink:my-vm&quot;</span>
-
-<span class="c1"># Ensure sufficient quota</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>project-info<span class="w"> </span>describe<span class="w"> </span>--project<span class="o">=</span>PROJECT_ID
-</code></pre></div>
-<h3 id="cannot-create-vm-from-image">Cannot Create VM from Image<a class="headerlink" href="#cannot-create-vm-from-image" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Verify image exists</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>describe<span class="w"> </span>my-image
-
-<span class="c1"># Check IAM permissions</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>get-iam-policy<span class="w"> </span>my-image
-
-<span class="c1"># Verify target zone supports image features</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>zones<span class="w"> </span>describe<span class="w"> </span>us-central1-a
-</code></pre></div>
-<h3 id="slow-image-operations">Slow Image Operations<a class="headerlink" href="#slow-image-operations" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Images with many/large disks take longer</span>
-<span class="c1"># Check total disk size</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span class="w"> </span>describe<span class="w"> </span>my-image<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span><span class="s2">&quot;value(sourceInstance.disks[].diskSizeGb)&quot;</span>
-
-<span class="c1"># Use regional storage for faster access</span>
-<span class="c1"># Consider using snapshots for individual disks instead</span>
-</code></pre></div>
-<h2 id="related-resources">Related Resources<a class="headerlink" href="#related-resources" title="Permanent link">&para;</a></h2>
+<h2 id="machine-images">Machine Images<a class="headerlink" href="#machine-images" title="Permanent link">&para;</a></h2>
+<h3 id="architecture-purpose">Architecture Purpose<a class="headerlink" href="#architecture-purpose" title="Permanent link">&para;</a></h3>
+<p><strong>Complete VM Backup</strong>:</p>
 <ul>
-<li><a href="compute-engine-overview.md">Compute Engine Overview</a></li>
-<li><a href="compute-engine-vms.md">Virtual Machines</a></li>
-<li><a href="compute-engine-disks.md">Persistent Disks</a></li>
-<li><a href="compute-engine-snapshots.md">Snapshots</a></li>
-<li><a href="compute-engine-backups.md">Backups</a></li>
-<li><a href="gcloud-cli.md">gcloud CLI</a></li>
+<li>All disk data preserved</li>
+<li>VM configuration captured (machine type, labels, network settings)</li>
+<li>Metadata and startup scripts included</li>
+<li>Service account configuration retained</li>
+</ul>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>Complete VM backup and restore</li>
+<li>VM migration between projects/regions</li>
+<li>Disaster recovery (weekly/monthly full backups)</li>
+<li>Creating identical VMs across environments</li>
+<li>Compliance snapshots (full system state)</li>
+</ul>
+<p><strong>When Not to Use</strong>:</p>
+<ul>
+<li>Regular incremental backups (use snapshots instead)</li>
+<li>Single disk backup (use snapshots)</li>
+<li>OS templates (use disk images)</li>
+<li>Frequent backups (too expensive)</li>
+</ul>
+<h3 id="design-patterns">Design Patterns<a class="headerlink" href="#design-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>DR Strategy</strong>:</p>
+<ul>
+<li>Weekly machine images for complete recovery</li>
+<li>Daily snapshots for incremental backups</li>
+<li>Store in multi-regional location</li>
+<li>Test restoration quarterly</li>
+</ul>
+<p><strong>VM Migration</strong>:</p>
+<ul>
+<li>Create machine image in source project</li>
+<li>Share with target project via IAM</li>
+<li>Restore in target project/region</li>
+<li>Update network and external integrations</li>
+</ul>
+<p><strong>Environment Replication</strong>:</p>
+<ul>
+<li>Production machine image</li>
+<li>Restore as staging environment</li>
+<li>Modify labels and metadata</li>
+<li>Separate network configuration</li>
+</ul>
+<h2 id="disk-images">Disk Images<a class="headerlink" href="#disk-images" title="Permanent link">&para;</a></h2>
+<h3 id="architecture-purpose_1">Architecture Purpose<a class="headerlink" href="#architecture-purpose_1" title="Permanent link">&para;</a></h3>
+<p><strong>OS and Software Templates</strong>:</p>
+<ul>
+<li>Base operating system</li>
+<li>Pre-installed software</li>
+<li>Security hardening applied</li>
+<li>Configuration management tools</li>
+<li>Company standards enforced</li>
+</ul>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>Creating standard VM configurations</li>
+<li>Instance templates for MIGs</li>
+<li>Golden images for teams</li>
+<li>Consistent deployments</li>
+<li>OS patching strategy (update image, redeploy VMs)</li>
+</ul>
+<p><strong>When Not to Use</strong>:</p>
+<ul>
+<li>Backup purposes (use snapshots)</li>
+<li>Capturing running VM state (use machine images)</li>
+<li>Incremental updates (use configuration management)</li>
+</ul>
+<h3 id="image-families">Image Families<a class="headerlink" href="#image-families" title="Permanent link">&para;</a></h3>
+<p><strong>Concept</strong>: Logical grouping where latest image used automatically</p>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Version control for images</li>
+<li>Automatic use of latest</li>
+<li>Easy rollback to previous</li>
+<li>Staged rollouts</li>
+</ul>
+<p><strong>Pattern</strong>:</p>
+<div class="highlight"><pre><span></span><code>Image Family: &quot;web-server&quot;
+├── web-server-v1 (deprecated)
+├── web-server-v2 (obsolete)
+└── web-server-v3 (active, automatically used)
+</code></pre></div>
+<p><strong>Architecture Decision</strong>: Always use image families in instance templates, never specific image names</p>
+<h3 id="public-images">Public Images<a class="headerlink" href="#public-images" title="Permanent link">&para;</a></h3>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Quick testing/development</li>
+<li>Standard OS deployments</li>
+<li>Community-maintained images</li>
+<li>Starting point for custom images</li>
+</ul>
+<p><strong>Considerations</strong>:</p>
+<ul>
+<li>No customization</li>
+<li>Google or community maintained</li>
+<li>May not meet security standards</li>
+<li>Use as base for custom images</li>
+</ul>
+<p><strong>Pattern</strong>: Public image → Customize → Save as custom image in family</p>
+<h2 id="image-lifecycle-management">Image Lifecycle Management<a class="headerlink" href="#image-lifecycle-management" title="Permanent link">&para;</a></h2>
+<h3 id="deprecation-states">Deprecation States<a class="headerlink" href="#deprecation-states" title="Permanent link">&para;</a></h3>
+<p><strong>States</strong>:</p>
+<ul>
+<li><strong>ACTIVE</strong>: Available for use</li>
+<li><strong>DEPRECATED</strong>: Available but not recommended, shows warning</li>
+<li><strong>OBSOLETE</strong>: Available but strongly discouraged, shows error</li>
+<li><strong>DELETED</strong>: No longer available</li>
+</ul>
+<p><strong>Strategy</strong>:</p>
+<ol>
+<li>Release new image (ACTIVE)</li>
+<li>Deprecate old image (after testing period)</li>
+<li>Mark obsolete (after migration period)</li>
+<li>Delete (after retention period)</li>
+</ol>
+<p><strong>Architecture Pattern</strong>: Gradual deprecation allows staged migrations</p>
+<h2 id="cross-project-sharing">Cross-Project Sharing<a class="headerlink" href="#cross-project-sharing" title="Permanent link">&para;</a></h2>
+<h3 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h3>
+<p><strong>Organization Pattern</strong>:</p>
+<ul>
+<li>Central image repository project</li>
+<li>Shared across all projects</li>
+<li>Consistent base images</li>
+<li>Centralized maintenance</li>
+</ul>
+<p><strong>Security Pattern</strong>:</p>
+<ul>
+<li>Share via IAM (not public)</li>
+<li>Principle of least privilege</li>
+<li>Service account access</li>
+<li>Audit image usage</li>
+</ul>
+<p><strong>Multi-Project Architecture</strong>:</p>
+<ul>
+<li>Host project: Maintains images</li>
+<li>Service projects: Consume images</li>
+<li>Reduces duplication</li>
+<li>Single source of truth</li>
+</ul>
+<h2 id="image-creation-strategies">Image Creation Strategies<a class="headerlink" href="#image-creation-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="build-pipeline-pattern">Build Pipeline Pattern<a class="headerlink" href="#build-pipeline-pattern" title="Permanent link">&para;</a></h3>
+<p><strong>Automated Image Creation</strong>:</p>
+<ol>
+<li>Base public image</li>
+<li>Packer or Cloud Build</li>
+<li>Apply configurations</li>
+<li>Security hardening</li>
+<li>Testing and validation</li>
+<li>Promote to image family</li>
+<li>Deprecate old version</li>
+</ol>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Consistent, repeatable process</li>
+<li>Version controlled configurations</li>
+<li>Automated testing</li>
+<li>Audit trail</li>
+</ul>
+<h3 id="golden-image-approach">Golden Image Approach<a class="headerlink" href="#golden-image-approach" title="Permanent link">&para;</a></h3>
+<p><strong>Single Source of Truth</strong>:</p>
+<ul>
+<li>Create &ldquo;perfect&rdquo; VM</li>
+<li>Install and configure software</li>
+<li>Harden and document</li>
+<li>Create image from disk</li>
+<li>Distribute to teams</li>
+</ul>
+<p><strong>Considerations</strong>:</p>
+<ul>
+<li>Manual process initially</li>
+<li>Requires documentation</li>
+<li>Update process needed</li>
+<li>Drift over time</li>
+</ul>
+<p><strong>Recommendation</strong>: Automate with Cloud Build</p>
+<h2 id="cost-considerations">Cost Considerations<a class="headerlink" href="#cost-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="storage-costs">Storage Costs<a class="headerlink" href="#storage-costs" title="Permanent link">&para;</a></h3>
+<p><strong>Machine Images</strong>:</p>
+<ul>
+<li>Charged for all disk data</li>
+<li>Multiple disks = higher cost</li>
+<li>Full copy each time</li>
+<li>Expensive for frequent backups</li>
+</ul>
+<p><strong>Disk Images</strong>:</p>
+<ul>
+<li>Single disk storage</li>
+<li>Full copy</li>
+<li>Long-term storage</li>
+<li>Moderate cost</li>
+</ul>
+<p><strong>Snapshots</strong>:</p>
+<ul>
+<li>Incremental storage</li>
+<li>First snapshot = full copy</li>
+<li>Subsequent = only changes</li>
+<li>Most cost-effective for frequent backups</li>
+</ul>
+<h3 id="optimization-strategies">Optimization Strategies<a class="headerlink" href="#optimization-strategies" title="Permanent link">&para;</a></h3>
+<p><strong>Hybrid Approach</strong>:</p>
+<ul>
+<li>Machine images: Weekly/monthly</li>
+<li>Snapshots: Daily</li>
+<li>Balance cost vs recovery options</li>
+</ul>
+<p><strong>Retention Policies</strong>:</p>
+<ul>
+<li>Keep recent machine images (30 days)</li>
+<li>Archive older snapshots</li>
+<li>Delete obsolete images</li>
+<li>Regular cleanup</li>
+</ul>
+<h2 id="compliance-and-security">Compliance and Security<a class="headerlink" href="#compliance-and-security" title="Permanent link">&para;</a></h2>
+<h3 id="image-hardening">Image Hardening<a class="headerlink" href="#image-hardening" title="Permanent link">&para;</a></h3>
+<p><strong>Security Baselines</strong>:</p>
+<ul>
+<li>CIS benchmarks applied</li>
+<li>Unnecessary services disabled</li>
+<li>Security patches current</li>
+<li>Logging configured</li>
+<li>Security agents installed</li>
+</ul>
+<p><strong>Compliance Requirements</strong>:</p>
+<ul>
+<li>Approved software list</li>
+<li>Vulnerability scanning</li>
+<li>Configuration standards</li>
+<li>Audit logging</li>
+</ul>
+<h3 id="scanning-and-validation">Scanning and Validation<a class="headerlink" href="#scanning-and-validation" title="Permanent link">&para;</a></h3>
+<p><strong>Container Analysis</strong>:</p>
+<ul>
+<li>Scan images for vulnerabilities</li>
+<li>Block deployment if critical issues</li>
+<li>Continuous monitoring</li>
+<li>Compliance reporting</li>
+</ul>
+<p><strong>Testing</strong>:</p>
+<ul>
+<li>Automated security tests</li>
+<li>Vulnerability assessments</li>
+<li>Penetration testing</li>
+<li>Regular updates</li>
+</ul>
+<h2 id="disaster-recovery">Disaster Recovery<a class="headerlink" href="#disaster-recovery" title="Permanent link">&para;</a></h2>
+<h3 id="multi-region-strategy">Multi-Region Strategy<a class="headerlink" href="#multi-region-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Pattern</strong>:</p>
+<ul>
+<li>Machine images in multi-regional storage</li>
+<li>Snapshots in multiple regions</li>
+<li>Regular DR testing</li>
+<li>Documented procedures</li>
+</ul>
+<p><strong>Considerations</strong>:</p>
+<ul>
+<li>Storage location affects cost</li>
+<li>Restore time varies by location</li>
+<li>Network egress charges</li>
+<li>Compliance requirements</li>
+</ul>
+<h3 id="recovery-time-objectives">Recovery Time Objectives<a class="headerlink" href="#recovery-time-objectives" title="Permanent link">&para;</a></h3>
+<p><strong>Machine Images</strong>:</p>
+<ul>
+<li>RTO: 15-30 minutes</li>
+<li>Complete VM restore</li>
+<li>All configuration preserved</li>
+<li>Fastest recovery option</li>
+</ul>
+<p><strong>Snapshots</strong>:</p>
+<ul>
+<li>RTO: 30-60 minutes</li>
+<li>Disk restoration</li>
+<li>VM recreation required</li>
+<li>Configuration must be reapplied</li>
+</ul>
+<h2 id="instance-templates">Instance Templates<a class="headerlink" href="#instance-templates" title="Permanent link">&para;</a></h2>
+<h3 id="relationship-with-images">Relationship with Images<a class="headerlink" href="#relationship-with-images" title="Permanent link">&para;</a></h3>
+<p><strong>Instance Template Contains</strong>:</p>
+<ul>
+<li>Reference to image (family preferred)</li>
+<li>Machine type specification</li>
+<li>Network configuration</li>
+<li>Metadata and labels</li>
+<li>Startup scripts</li>
+<li>NOT the actual disk data</li>
+</ul>
+<p><strong>Architecture Pattern</strong>:</p>
+<div class="highlight"><pre><span></span><code>Disk Image (OS + Software)
+    ↓
+Image Family (versioning)
+    ↓
+Instance Template (configuration)
+    ↓
+Managed Instance Group (scaling)
+</code></pre></div>
+<h3 id="versioning-strategy">Versioning Strategy<a class="headerlink" href="#versioning-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Pattern</strong>:</p>
+<ul>
+<li>Update image in family</li>
+<li>Instance template references family</li>
+<li>MIG rolling update to new version</li>
+<li>Automated, consistent deployments</li>
+</ul>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Decoupling of image and configuration</li>
+<li>Easy rollbacks</li>
+<li>Gradual rollouts</li>
+<li>Version control</li>
+</ul>
+<h2 id="exam-focus-areas">Exam Focus Areas<a class="headerlink" href="#exam-focus-areas" title="Permanent link">&para;</a></h2>
+<h3 id="decision-criteria">Decision Criteria<a class="headerlink" href="#decision-criteria" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Machine image vs disk image vs snapshot trade-offs</li>
+<li>When to use each type</li>
+<li>Cost comparison and optimization</li>
+<li>Storage location decisions</li>
+</ul>
+<h3 id="architecture-patterns">Architecture Patterns<a class="headerlink" href="#architecture-patterns" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Image pipeline automation</li>
+<li>Golden image management</li>
+<li>Cross-project sharing</li>
+<li>Image family versioning</li>
+</ul>
+<h3 id="dr-and-backup">DR and Backup<a class="headerlink" href="#dr-and-backup" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Hybrid backup strategies (images + snapshots)</li>
+<li>Multi-region DR with images</li>
+<li>RTO/RPO considerations</li>
+<li>Testing and validation</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Image hardening strategies</li>
+<li>Vulnerability scanning</li>
+<li>Compliance baselines</li>
+<li>Access control (IAM)</li>
+</ul>
+<h3 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Image lifecycle management</li>
+<li>Deprecation strategies</li>
+<li>Instance template integration</li>
+<li>Automated updates</li>
 </ul>
 
 
@@ -8551,13 +8318,13 @@ gcloud<span class="w"> </span>compute<span class="w"> </span>machine-images<span
         
         
           
-          <a href="../vms/" class="md-footer__link md-footer__link--next" aria-label="Next: Compute Engine Virtual Machines (VMs)">
+          <a href="../vms/" class="md-footer__link md-footer__link--next" aria-label="Next: Virtual Machines (VMs)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Compute Engine Virtual Machines (VMs)
+                Virtual Machines (VMs)
               </div>
             </div>
             <div class="md-footer__button md-icon">

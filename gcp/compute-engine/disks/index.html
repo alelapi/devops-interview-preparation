@@ -27,7 +27,7 @@
     
     
       
-        <title>Compute Engine Persistent Disks - My DevOps Interview Preparation</title>
+        <title>Persistent Disks - My DevOps Interview Preparation</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#compute-engine-persistent-disks" class="md-skip">
+        <a href="#persistent-disks" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Compute Engine Persistent Disks
+              Persistent Disks
             
           </span>
         </div>
@@ -3491,7 +3491,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Machine Images
+    Machine Images and Disk Images
   
 
     
@@ -3519,7 +3519,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Virtual Machines (VMs)
+    Virtual Machines (VMs)
   
 
     
@@ -3556,7 +3556,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Persistent Disks
+    Persistent Disks
   
 
     
@@ -3574,7 +3574,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Persistent Disks
+    Persistent Disks
   
 
     
@@ -3600,10 +3600,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        Core Concepts
       
     </span>
   </a>
@@ -3611,93 +3611,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#disk-types-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Disk Types Comparison
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#disk-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Disk Types
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-ssds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local SSDs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-limits" class="md-nav__link">
+  <a href="#architectural-decision-criteria" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Limits
+        Architectural Decision Criteria
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Important Limits">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Limits
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-different-disk-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Different Disk Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Different Disk Types">
+    <nav class="md-nav" aria-label="Architectural Decision Criteria">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3712,10 +3645,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pd-balanced-ssd" class="md-nav__link">
+  <a href="#pd-balanced-ssd-recommended-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pd-balanced (SSD)
+        pd-balanced (SSD) - Recommended Default
       
     </span>
   </a>
@@ -3745,18 +3678,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#regional-persistent-disks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regional Persistent Disks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-ssds_1" class="md-nav__link">
+  <a href="#local-ssds" class="md-nav__link">
     <span class="md-ellipsis">
       
         Local SSDs
@@ -3772,22 +3694,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disk-operations" class="md-nav__link">
+  <a href="#performance-scaling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Operations
+        Performance Scaling
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Disk Operations">
+    <nav class="md-nav" aria-label="Performance Scaling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-persistent-disks" class="md-nav__link">
+  <a href="#size-based-performance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create Persistent Disks
+        Size-Based Performance
       
     </span>
   </a>
@@ -3795,54 +3717,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attach-and-detach-disks" class="md-nav__link">
+  <a href="#vm-level-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attach and Detach Disks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resize-disks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resize Disks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#change-disk-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Change Disk Type
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#disk-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Disk Management
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#working-with-local-ssds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Working with Local SSDs
+        VM-Level Limits
       
     </span>
   </a>
@@ -3855,22 +3733,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#regional-persistent-disks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Regional Persistent Disks
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Regional Persistent Disks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-choose-appropriate-disk-type" class="md-nav__link">
+  <a href="#synchronous-replication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Choose Appropriate Disk Type
+        Synchronous Replication
       
     </span>
   </a>
@@ -3878,65 +3756,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-size-disks-for-performance" class="md-nav__link">
+  <a href="#failover-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Size Disks for Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-use-regional-disks-for-ha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use Regional Disks for HA
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-regular-snapshots-for-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Regular Snapshots for Backup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-monitor-disk-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Monitor Disk Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-optimize-disk-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Optimize Disk Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-data-protection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Data Protection
+        Failover Behavior
       
     </span>
   </a>
@@ -3949,27 +3772,105 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disk-encryption" class="md-nav__link">
+  <a href="#disk-architecture-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Encryption
+        Disk Architecture Patterns
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Disk Encryption">
+    <nav class="md-nav" aria-label="Disk Architecture Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#customer-managed-encryption-keys-cmek" class="md-nav__link">
+  <a href="#separate-boot-and-data-disks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Customer-Managed Encryption Keys (CMEK)
+        Separate Boot and Data Disks
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-disk-for-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Disk for Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-quotas-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk Quotas and Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapshot-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Snapshot Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incremental-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremental Backups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-storage-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot Storage Locations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encryption">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#default-encryption" class="md-nav__link">
@@ -3982,28 +3883,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#customer-managed-encryption-keys-cmek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customer-Managed Encryption Keys (CMEK)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Cost Optimization Strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="Cost Optimization Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#disk-wont-attach" class="md-nav__link">
+  <a href="#right-sizing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Won&rsquo;t Attach
+        Right-Sizing
       
     </span>
   </a>
@@ -4011,10 +3923,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#poor-performance" class="md-nav__link">
+  <a href="#snapshot-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Poor Performance
+        Snapshot Management
       
     </span>
   </a>
@@ -4022,10 +3934,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#disk-full" class="md-nav__link">
+  <a href="#storage-tiering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Full
+        Storage Tiering
       
     </span>
   </a>
@@ -4038,13 +3950,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-resources" class="md-nav__link">
+  <a href="#disaster-recovery-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Resources
+        Disaster Recovery Considerations
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Disaster Recovery Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-region-dr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Region DR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-focus-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Focus Areas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Focus Areas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disaster Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4071,7 +4083,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Backup and Disaster Recovery
+    Backup and Disaster Recovery Strategy
   
 
     
@@ -4099,7 +4111,7 @@
   <span class="md-ellipsis">
     
   
-    Compute Engine Disk Snapshots
+    Disk Snapshots
   
 
     
@@ -7341,10 +7353,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Description
+        Core Concepts
       
     </span>
   </a>
@@ -7352,93 +7364,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#disk-types-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Disk Types Comparison
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Key Features">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#disk-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Disk Types
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-ssds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Local SSDs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#important-limits" class="md-nav__link">
+  <a href="#architectural-decision-criteria" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Limits
+        Architectural Decision Criteria
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Important Limits">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-limits" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Limits
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-different-disk-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When to Use Different Disk Types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="When to Use Different Disk Types">
+    <nav class="md-nav" aria-label="Architectural Decision Criteria">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -7453,10 +7398,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pd-balanced-ssd" class="md-nav__link">
+  <a href="#pd-balanced-ssd-recommended-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        pd-balanced (SSD)
+        pd-balanced (SSD) - Recommended Default
       
     </span>
   </a>
@@ -7486,18 +7431,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#regional-persistent-disks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Regional Persistent Disks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local-ssds_1" class="md-nav__link">
+  <a href="#local-ssds" class="md-nav__link">
     <span class="md-ellipsis">
       
         Local SSDs
@@ -7513,22 +7447,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disk-operations" class="md-nav__link">
+  <a href="#performance-scaling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Operations
+        Performance Scaling
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Disk Operations">
+    <nav class="md-nav" aria-label="Performance Scaling">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-persistent-disks" class="md-nav__link">
+  <a href="#size-based-performance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create Persistent Disks
+        Size-Based Performance
       
     </span>
   </a>
@@ -7536,54 +7470,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attach-and-detach-disks" class="md-nav__link">
+  <a href="#vm-level-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attach and Detach Disks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resize-disks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resize Disks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#change-disk-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Change Disk Type
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#disk-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Disk Management
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#working-with-local-ssds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Working with Local SSDs
+        VM-Level Limits
       
     </span>
   </a>
@@ -7596,22 +7486,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
+  <a href="#regional-persistent-disks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Best Practices
+        Regional Persistent Disks
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Best Practices">
+    <nav class="md-nav" aria-label="Regional Persistent Disks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-choose-appropriate-disk-type" class="md-nav__link">
+  <a href="#synchronous-replication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Choose Appropriate Disk Type
+        Synchronous Replication
       
     </span>
   </a>
@@ -7619,65 +7509,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-size-disks-for-performance" class="md-nav__link">
+  <a href="#failover-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Size Disks for Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-use-regional-disks-for-ha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use Regional Disks for HA
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-regular-snapshots-for-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Regular Snapshots for Backup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-monitor-disk-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Monitor Disk Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-optimize-disk-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Optimize Disk Configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-data-protection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Data Protection
+        Failover Behavior
       
     </span>
   </a>
@@ -7690,27 +7525,105 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#disk-encryption" class="md-nav__link">
+  <a href="#disk-architecture-patterns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Encryption
+        Disk Architecture Patterns
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Disk Encryption">
+    <nav class="md-nav" aria-label="Disk Architecture Patterns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#customer-managed-encryption-keys-cmek" class="md-nav__link">
+  <a href="#separate-boot-and-data-disks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Customer-Managed Encryption Keys (CMEK)
+        Separate Boot and Data Disks
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-disk-for-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Disk for Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-quotas-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk Quotas and Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#snapshot-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Snapshot Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incremental-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremental Backups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-storage-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot Storage Locations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encryption">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#default-encryption" class="md-nav__link">
@@ -7723,28 +7636,39 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#customer-managed-encryption-keys-cmek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customer-Managed Encryption Keys (CMEK)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Cost Optimization Strategies
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="Cost Optimization Strategies">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#disk-wont-attach" class="md-nav__link">
+  <a href="#right-sizing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Won&rsquo;t Attach
+        Right-Sizing
       
     </span>
   </a>
@@ -7752,10 +7676,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#poor-performance" class="md-nav__link">
+  <a href="#snapshot-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Poor Performance
+        Snapshot Management
       
     </span>
   </a>
@@ -7763,10 +7687,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#disk-full" class="md-nav__link">
+  <a href="#storage-tiering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Disk Full
+        Storage Tiering
       
     </span>
   </a>
@@ -7779,13 +7703,113 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-resources" class="md-nav__link">
+  <a href="#disaster-recovery-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Resources
+        Disaster Recovery Considerations
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Disaster Recovery Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backup-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-region-dr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Region DR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam-focus-areas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exam Focus Areas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exam Focus Areas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disaster-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disaster Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -7883,655 +7907,415 @@
   
 
 
-<h1 id="compute-engine-persistent-disks">Compute Engine Persistent Disks<a class="headerlink" href="#compute-engine-persistent-disks" title="Permanent link">&para;</a></h1>
-<h2 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h2>
-<p>Persistent Disks are durable block storage devices that function like physical hard drives or SSDs. They are independent of VM instances, can be attached to multiple VMs (in read-only mode), and persist beyond the life of a VM. Persistent disks provide reliable, high-performance storage for Compute Engine workloads.</p>
-<p><strong>Architecture</strong>: Network-attached block storage that is automatically replicated for durability and can be dynamically resized.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
-<h3 id="disk-types">Disk Types<a class="headerlink" href="#disk-types" title="Permanent link">&para;</a></h3>
-<p><strong>Standard Persistent Disks (pd-standard)</strong></p>
-<ul>
-<li>HDD-backed storage</li>
-<li>Sequential I/O performance</li>
-<li>Cost-effective for large data</li>
-<li>0.75 IOPS/GB read, 1.5 IOPS/GB write</li>
-</ul>
-<p><strong>Balanced Persistent Disks (pd-balanced)</strong></p>
-<ul>
-<li>SSD-backed storage</li>
-<li>Balance of performance and cost</li>
-<li>Recommended for most workloads</li>
-<li>6 IOPS/GB read, 6 IOPS/GB write</li>
-<li>28 MB/s throughput per GB</li>
-</ul>
-<p><strong>SSD Persistent Disks (pd-ssd)</strong></p>
-<ul>
-<li>High-performance SSD storage</li>
-<li>Low-latency, high IOPS</li>
-<li>Database and high-performance apps</li>
-<li>30 IOPS/GB read, 30 IOPS/GB write</li>
-<li>48 MB/s throughput per GB</li>
-</ul>
-<p><strong>Extreme Persistent Disks (pd-extreme)</strong></p>
-<ul>
-<li>Highest performance, lowest latency</li>
-<li>Custom IOPS configuration</li>
-<li>Up to 120,000 IOPS per disk</li>
-<li>Premium pricing</li>
-<li>Requires specific machine types (N2, C2, M1/M2)</li>
-</ul>
-<p><strong>Hyperdisk Balanced (hyperdisk-balanced)</strong></p>
-<ul>
-<li>Next-generation balanced performance</li>
-<li>Dynamic IOPS and throughput configuration</li>
-<li>Better price/performance than pd-balanced</li>
-<li>4000-160000 IOPS per disk</li>
-</ul>
-<p><strong>Hyperdisk Extreme (hyperdisk-extreme)</strong></p>
-<ul>
-<li>Next-generation extreme performance</li>
-<li>Up to 350,000 IOPS per disk</li>
-<li>Lowest latency</li>
-<li>Premium pricing</li>
-</ul>
-<h3 id="storage-features">Storage Features<a class="headerlink" href="#storage-features" title="Permanent link">&para;</a></h3>
-<p><strong>Durability and Availability</strong></p>
-<ul>
-<li>Automatic replication within zone (zonal disks)</li>
-<li>Replication across zones (regional disks)</li>
-<li>99.9999% durability (regional)</li>
-<li>99.999% durability (zonal)</li>
-</ul>
-<p><strong>Flexibility</strong></p>
-<ul>
-<li>Attach/detach without VM restart (data disks)</li>
-<li>Resize without downtime</li>
-<li>Change disk type after creation</li>
-<li>Attach to multiple VMs in read-only mode</li>
-</ul>
-<p><strong>Performance</strong></p>
-<ul>
-<li>Performance scales with disk size</li>
-<li>Baseline performance guaranteed</li>
-<li>Burst performance for short periods</li>
-<li>Multi-queue SCSI support</li>
-</ul>
-<p><strong>Regional Persistent Disks</strong></p>
-<ul>
-<li>Synchronous replication across two zones</li>
-<li>Higher availability</li>
-<li>Automatic failover</li>
-<li>Higher cost (2x zonal disk)</li>
-</ul>
-<h3 id="local-ssds">Local SSDs<a class="headerlink" href="#local-ssds" title="Permanent link">&para;</a></h3>
-<p><strong>Characteristics:</strong></p>
-<ul>
-<li>Physically attached to server</li>
-<li>Ultra-high performance (up to 2,400,000 IOPS)</li>
-<li>Very low latency</li>
-<li>Ephemeral (data lost on VM stop/delete)</li>
-<li>375 GB per device, up to 24 devices (9 TB)</li>
-</ul>
-<p><strong>Use Cases:</strong></p>
-<ul>
-<li>Temporary cache</li>
-<li>Scratch space</li>
-<li>High-performance databases with replication</li>
-<li>Data processing pipelines</li>
-</ul>
-<h2 id="important-limits">Important Limits<a class="headerlink" href="#important-limits" title="Permanent link">&para;</a></h2>
+<h1 id="persistent-disks">Persistent Disks<a class="headerlink" href="#persistent-disks" title="Permanent link">&para;</a></h1>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<p>Persistent Disks are durable, network-attached block storage independent of VM lifecycle. Understanding disk types and their performance characteristics is crucial for designing performant and cost-effective solutions.</p>
+<p><strong>Key Principle</strong>: Performance scales with disk size; separate boot and data disks for flexibility.</p>
+<h2 id="disk-types-comparison">Disk Types Comparison<a class="headerlink" href="#disk-types-comparison" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Limit</th>
-<th>Value</th>
-<th>Notes</th>
+<th>Type</th>
+<th>IOPS/GB</th>
+<th>Max IOPS</th>
+<th>Throughput</th>
+<th>Use Case</th>
+<th>Cost</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Disks per VM</strong></td>
-<td>128</td>
-<td>Including boot disk</td>
+<td><strong>pd-standard</strong></td>
+<td>0.75-1.5</td>
+<td>7,500-15,000</td>
+<td>Low</td>
+<td>Archives, backups</td>
+<td>Lowest</td>
 </tr>
 <tr>
-<td><strong>Disk size (zonal)</strong></td>
-<td>64 TB</td>
-<td>pd-standard, pd-balanced, pd-ssd</td>
+<td><strong>pd-balanced</strong></td>
+<td>6</td>
+<td>80,000</td>
+<td>28 MB/s/GB</td>
+<td>General purpose</td>
+<td>Medium</td>
 </tr>
 <tr>
-<td><strong>Disk size (regional)</strong></td>
-<td>64 TB</td>
-<td>Same as zonal</td>
+<td><strong>pd-ssd</strong></td>
+<td>30</td>
+<td>100,000</td>
+<td>48 MB/s/GB</td>
+<td>Databases, high I/O</td>
+<td>High</td>
 </tr>
 <tr>
-<td><strong>Disk size (pd-extreme)</strong></td>
-<td>64 TB</td>
-<td>Minimum 500 GB</td>
+<td><strong>pd-extreme</strong></td>
+<td>Custom</td>
+<td>120,000</td>
+<td>2,400 MB/s</td>
+<td>Mission-critical</td>
+<td>Highest</td>
 </tr>
 <tr>
-<td><strong>Disk size (hyperdisk)</strong></td>
-<td>64 TB</td>
-<td>Configurable IOPS</td>
+<td><strong>hyperdisk-balanced</strong></td>
+<td>Configurable</td>
+<td>160,000</td>
+<td>Dynamic</td>
+<td>Next-gen balanced</td>
+<td>Medium-High</td>
 </tr>
 <tr>
-<td><strong>Local SSD per VM</strong></td>
-<td>24 devices (9 TB)</td>
-<td>Varies by machine type</td>
+<td><strong>hyperdisk-extreme</strong></td>
+<td>Configurable</td>
+<td>350,000</td>
+<td>Dynamic</td>
+<td>Highest performance</td>
+<td>Highest</td>
 </tr>
 <tr>
-<td><strong>Total PD size per VM</strong></td>
-<td>257 TB</td>
-<td>Across all attached disks</td>
-</tr>
-<tr>
-<td><strong>Persistent disks per project</strong></td>
-<td>500 per zone</td>
-<td>Can be increased</td>
-</tr>
-<tr>
-<td><strong>Snapshots per disk</strong></td>
-<td>Unlimited</td>
-<td>Subject to project quota</td>
+<td><strong>Local SSD</strong></td>
+<td>N/A</td>
+<td>2,400,000</td>
+<td>9,360 MB/s</td>
+<td>Ultra-high perf</td>
+<td>Medium (ephemeral)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="performance-limits">Performance Limits<a class="headerlink" href="#performance-limits" title="Permanent link">&para;</a></h3>
-<p><strong>pd-standard (HDD):</strong></p>
-<ul>
-<li>Read IOPS: 0.75 per GB (max 7,500)</li>
-<li>Write IOPS: 1.5 per GB (max 15,000)</li>
-<li>Read throughput: 0.12 MB/s per GB (max 1,200 MB/s)</li>
-<li>Write throughput: 0.12 MB/s per GB (max 400 MB/s)</li>
-</ul>
-<p><strong>pd-balanced (SSD):</strong></p>
-<ul>
-<li>Read/Write IOPS: 6 per GB (max 80,000)</li>
-<li>Throughput: 28 MB/s per GB (max 1,200 MB/s read, 1,000 MB/s write)</li>
-</ul>
-<p><strong>pd-ssd:</strong></p>
-<ul>
-<li>Read/Write IOPS: 30 per GB (max 100,000)</li>
-<li>Throughput: 48 MB/s per GB (max 1,200 MB/s read, 1,000 MB/s write)</li>
-</ul>
-<p><strong>pd-extreme:</strong></p>
-<ul>
-<li>IOPS: Configurable up to 120,000</li>
-<li>Throughput: Up to 2,400 MB/s</li>
-</ul>
-<p><strong>Local SSD:</strong></p>
-<ul>
-<li>Read IOPS: Up to 2,400,000 (combined)</li>
-<li>Write IOPS: Up to 1,200,000 (combined)</li>
-<li>Read throughput: Up to 9,360 MB/s</li>
-<li>Write throughput: Up to 4,680 MB/s</li>
-</ul>
-<h2 id="when-to-use-different-disk-types">When to Use Different Disk Types<a class="headerlink" href="#when-to-use-different-disk-types" title="Permanent link">&para;</a></h2>
+<h2 id="architectural-decision-criteria">Architectural Decision Criteria<a class="headerlink" href="#architectural-decision-criteria" title="Permanent link">&para;</a></h2>
 <h3 id="pd-standard-hdd">pd-standard (HDD)<a class="headerlink" href="#pd-standard-hdd" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Appropriate for</strong>:</p>
 <ul>
-<li>Sequential data access</li>
-<li>Backup and archival storage</li>
-<li>Large data volumes (logs, media)</li>
-<li>Development/testing</li>
+<li>Sequential access patterns (logs, media files)</li>
+<li>Large datasets with infrequent access</li>
+<li>Backup target storage</li>
 <li>Cost-sensitive workloads</li>
+<li>Data archiving</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<p><strong>Not appropriate for</strong>:</p>
 <ul>
 <li>Database storage</li>
-<li>High IOPS requirements</li>
-<li>Low-latency applications</li>
 <li>Random I/O workloads</li>
+<li>Low-latency requirements</li>
+<li>Applications needing &gt;15,000 IOPS</li>
 </ul>
-<h3 id="pd-balanced-ssd">pd-balanced (SSD)<a class="headerlink" href="#pd-balanced-ssd" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<h3 id="pd-balanced-ssd-recommended-default">pd-balanced (SSD) - Recommended Default<a class="headerlink" href="#pd-balanced-ssd-recommended-default" title="Permanent link">&para;</a></h3>
+<p><strong>Appropriate for</strong>:</p>
 <ul>
-<li>General-purpose workloads (recommended default)</li>
-<li>Web servers and applications</li>
-<li>Medium-sized databases</li>
-<li>Enterprise applications</li>
+<li>General-purpose workloads (should be default choice)</li>
+<li>Small to medium databases</li>
+<li>Boot disks</li>
+<li>Most enterprise applications</li>
+<li>Development environments</li>
 <li>Balance of price and performance</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
-<ul>
-<li>Highest performance databases</li>
-<li>Ultra-low latency requirements</li>
-<li>Very large sequential I/O</li>
-<li>Applications needing &gt;80,000 IOPS</li>
-</ul>
+<p><strong>Architecture Pattern</strong>: Start with pd-balanced, upgrade to pd-ssd only if I/O bottleneck identified</p>
 <h3 id="pd-ssd">pd-ssd<a class="headerlink" href="#pd-ssd" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Appropriate for</strong>:</p>
 <ul>
 <li>High-performance databases</li>
-<li>Transaction processing</li>
-<li>Analytics workloads</li>
-<li>I/O intensive applications</li>
-<li>Low-latency requirements</li>
+<li>I/O-intensive applications</li>
+<li>OLTP workloads</li>
+<li>Applications requiring low latency</li>
+<li>Random I/O patterns</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
-<ul>
-<li>Cost-sensitive workloads</li>
-<li>Sequential-only access</li>
-<li>Applications with &lt;6 IOPS/GB needs</li>
-<li>Backup storage</li>
-</ul>
+<p><strong>Cost Consideration</strong>: 2.5x cost of pd-balanced; verify I/O requirements justify cost</p>
 <h3 id="pd-extreme">pd-extreme<a class="headerlink" href="#pd-extreme" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Appropriate for</strong>:</p>
 <ul>
-<li>Highest performance databases (SAP HANA, Oracle)</li>
+<li>Mission-critical databases (SAP HANA, Oracle)</li>
+<li>Very large databases requiring &gt;100,000 IOPS</li>
 <li>Real-time analytics</li>
 <li>High-frequency trading</li>
-<li>Large-scale enterprise apps requiring &gt;100,000 IOPS</li>
+<li>When performance is more important than cost</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<p><strong>Limitations</strong>:</p>
 <ul>
-<li>General workloads</li>
-<li>Cost-sensitive applications</li>
-<li>Small databases</li>
-<li>Non-performance-critical apps</li>
+<li>Requires N2, C2, or M-series VMs</li>
+<li>Minimum size: 500 GB</li>
+<li>Much higher cost than pd-ssd</li>
+<li>Custom IOPS configuration required</li>
 </ul>
-<h3 id="regional-persistent-disks">Regional Persistent Disks<a class="headerlink" href="#regional-persistent-disks" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<h3 id="local-ssds">Local SSDs<a class="headerlink" href="#local-ssds" title="Permanent link">&para;</a></h3>
+<p><strong>Characteristics</strong>:</p>
 <ul>
-<li>High-availability applications</li>
-<li>Databases requiring regional redundancy</li>
-<li>Production workloads needing failover</li>
-<li>Critical data requiring zone-level redundancy</li>
+<li>Physically attached to server</li>
+<li>Ephemeral (data lost on VM stop/delete)</li>
+<li>Ultra-high performance</li>
+<li>375 GB per device, up to 24 devices (9 TB max)</li>
+<li>No persistent disk performance limits apply</li>
 </ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
+<p><strong>Appropriate for</strong>:</p>
 <ul>
-<li>Cost-sensitive workloads (2x cost)</li>
-<li>Single-zone deployments</li>
-<li>Non-critical applications</li>
-<li>Temporary data</li>
+<li>Temporary cache</li>
+<li>Scratch space for computation</li>
+<li>Data that can be rebuilt (replicated databases)</li>
+<li>High-performance computing</li>
+<li>When highest IOPS/throughput needed</li>
 </ul>
-<h3 id="local-ssds_1">Local SSDs<a class="headerlink" href="#local-ssds_1" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use For:</strong></p>
+<p><strong>Not appropriate for</strong>:</p>
 <ul>
-<li>Temporary cache or scratch space</li>
-<li>High-performance databases with external replication</li>
-<li>Data processing pipelines</li>
-<li>Applications needing ultra-low latency</li>
-<li>Temporary data that can be rebuilt</li>
-</ul>
-<p>❌ <strong>Don&rsquo;t Use For:</strong></p>
-<ul>
-<li>Persistent application data</li>
+<li>Primary database storage without replication</li>
+<li>Data that must survive VM stop</li>
 <li>Critical data without backups</li>
-<li>Applications that can&rsquo;t handle data loss</li>
-<li>Data that must survive VM stops</li>
+<li>Single point of failure scenarios</li>
 </ul>
-<h2 id="disk-operations">Disk Operations<a class="headerlink" href="#disk-operations" title="Permanent link">&para;</a></h2>
-<h3 id="create-persistent-disks">Create Persistent Disks<a class="headerlink" href="#create-persistent-disks" title="Permanent link">&para;</a></h3>
-<p><strong>Create Empty Disk:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create balanced PD (default)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>100GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced
-
-<span class="c1"># Create SSD disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-ssd-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>500GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-ssd
-
-<span class="c1"># Create regional disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-regional-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="o">=</span>us-central1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replica-zones<span class="o">=</span>us-central1-a,us-central1-b<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>200GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced
-
-<span class="c1"># Create extreme disk with custom IOPS</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-extreme-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>1000GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-extreme<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--provisioned-iops<span class="o">=</span><span class="m">100000</span>
-</code></pre></div>
-<p><strong>Create from Snapshot:</strong></p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-snapshot<span class="o">=</span>my-snapshot<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced
-</code></pre></div>
-<p><strong>Create from Image:</strong></p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>boot-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>50GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-family<span class="o">=</span>ubuntu-2204-lts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image-project<span class="o">=</span>ubuntu-os-cloud
-</code></pre></div>
-<h3 id="attach-and-detach-disks">Attach and Detach Disks<a class="headerlink" href="#attach-and-detach-disks" title="Permanent link">&para;</a></h3>
-<p><strong>Attach Disk to VM:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Attach in read-write mode</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>attach-disk<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span>my-disk
-
-<span class="c1"># Attach in read-only mode</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>attach-disk<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--mode<span class="o">=</span>ro
-
-<span class="c1"># Attach with custom device name</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>attach-disk<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--device-name<span class="o">=</span>custom-disk-name
-</code></pre></div>
-<p><strong>Format and Mount (Inside VM):</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># List disks</span>
-sudo<span class="w"> </span>lsblk
-
-<span class="c1"># Format disk (WARNING: destroys data)</span>
-sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span><span class="w"> </span>-E<span class="w"> </span><span class="nv">lazy_itable_init</span><span class="o">=</span><span class="m">0</span>,lazy_journal_init<span class="o">=</span><span class="m">0</span>,discard<span class="w"> </span>/dev/sdb
-
-<span class="c1"># Create mount point</span>
-sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/disks/data
-
-<span class="c1"># Mount disk</span>
-sudo<span class="w"> </span>mount<span class="w"> </span>-o<span class="w"> </span>discard,defaults<span class="w"> </span>/dev/sdb<span class="w"> </span>/mnt/disks/data
-
-<span class="c1"># Persist mount in /etc/fstab</span>
-<span class="nb">echo</span><span class="w"> </span><span class="nv">UUID</span><span class="o">=</span><span class="k">$(</span>sudo<span class="w"> </span>blkid<span class="w"> </span>-s<span class="w"> </span>UUID<span class="w"> </span>-o<span class="w"> </span>value<span class="w"> </span>/dev/sdb<span class="k">)</span><span class="w"> </span>/mnt/disks/data<span class="w"> </span>ext4<span class="w"> </span>discard,defaults,nofail<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/fstab
-
-<span class="c1"># Verify</span>
-df<span class="w"> </span>-h<span class="w"> </span>/mnt/disks/data
-</code></pre></div>
-<p><strong>Detach Disk:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Unmount first (inside VM)</span>
-sudo<span class="w"> </span>umount<span class="w"> </span>/mnt/disks/data
-
-<span class="c1"># Detach disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>detach-disk<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span>my-disk
-</code></pre></div>
-<h3 id="resize-disks">Resize Disks<a class="headerlink" href="#resize-disks" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Resize disk (increase only)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>resize<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>200GB
-
-<span class="c1"># Resize disk in place (no detach needed)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>resize<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>300GB
-
-<span class="c1"># Resize filesystem (inside VM after disk resize)</span>
-<span class="c1"># For ext4</span>
-sudo<span class="w"> </span>resize2fs<span class="w"> </span>/dev/sdb
-
-<span class="c1"># For XFS</span>
-sudo<span class="w"> </span>xfs_growfs<span class="w"> </span>/mnt/disks/data
-
-<span class="c1"># Verify</span>
-df<span class="w"> </span>-h
-</code></pre></div>
-<h3 id="change-disk-type">Change Disk Type<a class="headerlink" href="#change-disk-type" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Stop VM first</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>stop<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Create snapshot of current disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>snapshot<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--snapshot-names<span class="o">=</span>my-disk-snapshot
-
-<span class="c1"># Create new disk from snapshot with different type</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-new-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--source-snapshot<span class="o">=</span>my-disk-snapshot<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-ssd
-
-<span class="c1"># Detach old disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>detach-disk<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span>my-disk
-
-<span class="c1"># Attach new disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>attach-disk<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span>my-new-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--device-name<span class="o">=</span>persistent-disk-0
-
-<span class="c1"># Start VM</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>start<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-</code></pre></div>
-<h3 id="disk-management">Disk Management<a class="headerlink" href="#disk-management" title="Permanent link">&para;</a></h3>
-<p><strong>List Disks:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># List all disks</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>list
-
-<span class="c1"># List disks in specific zone</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>list<span class="w"> </span>--zones<span class="o">=</span>us-central1-a
-
-<span class="c1"># List with details</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>list<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;table(</span>
-<span class="s2">  name,</span>
-<span class="s2">  zone,</span>
-<span class="s2">  type,</span>
-<span class="s2">  sizeGb,</span>
-<span class="s2">  status,</span>
-<span class="s2">  users[0]:label=IN_USE_BY</span>
-<span class="s2">)&quot;</span>
-</code></pre></div>
-<p><strong>Describe Disk:</strong></p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>describe<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-</code></pre></div>
-<p><strong>Delete Disk:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Delete disk (must be detached first)</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>delete<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Delete multiple disks</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>delete<span class="w"> </span>disk1<span class="w"> </span>disk2<span class="w"> </span>disk3<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a
-</code></pre></div>
-<h3 id="working-with-local-ssds">Working with Local SSDs<a class="headerlink" href="#working-with-local-ssds" title="Permanent link">&para;</a></h3>
-<p><strong>Create VM with Local SSDs:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create VM with local SSDs</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-8<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--local-ssd<span class="o">=</span><span class="nv">interface</span><span class="o">=</span>NVME<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--local-ssd<span class="o">=</span><span class="nv">interface</span><span class="o">=</span>NVME<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--local-ssd<span class="o">=</span><span class="nv">interface</span><span class="o">=</span>NVME
-
-<span class="c1"># Create with SCSI interface</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>my-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-8<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--local-ssd<span class="o">=</span><span class="nv">interface</span><span class="o">=</span>SCSI<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--local-ssd<span class="o">=</span><span class="nv">interface</span><span class="o">=</span>SCSI
-</code></pre></div>
-<p><strong>Format and Mount Local SSDs (Inside VM):</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install mdadm for RAID</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>mdadm
-
-<span class="c1"># Find local SSDs</span>
-ls<span class="w"> </span>-l<span class="w"> </span>/dev/disk/by-id/google-local-*
-
-<span class="c1"># Create RAID 0 array (for performance)</span>
-sudo<span class="w"> </span>mdadm<span class="w"> </span>--create<span class="w"> </span>/dev/md0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--level<span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--raid-devices<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>/dev/disk/by-id/google-local-ssd-0<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>/dev/disk/by-id/google-local-ssd-1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>/dev/disk/by-id/google-local-ssd-2
-
-<span class="c1"># Format RAID array</span>
-sudo<span class="w"> </span>mkfs.ext4<span class="w"> </span>-F<span class="w"> </span>/dev/md0
-
-<span class="c1"># Mount</span>
-sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/disks/local-ssd
-sudo<span class="w"> </span>mount<span class="w"> </span>/dev/md0<span class="w"> </span>/mnt/disks/local-ssd
-
-<span class="c1"># Set permissions</span>
-sudo<span class="w"> </span>chmod<span class="w"> </span>a+w<span class="w"> </span>/mnt/disks/local-ssd
-</code></pre></div>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<h3 id="1-choose-appropriate-disk-type">1. Choose Appropriate Disk Type<a class="headerlink" href="#1-choose-appropriate-disk-type" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Default recommendation: pd-balanced</span>
-<span class="c1"># Database/high-performance: pd-ssd or pd-extreme</span>
-<span class="c1"># Large sequential data: pd-standard</span>
-<span class="c1"># Ultra-high performance: Local SSD</span>
-
-<span class="c1"># Start with pd-balanced and upgrade if needed</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>100GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced
-</code></pre></div>
-<h3 id="2-size-disks-for-performance">2. Size Disks for Performance<a class="headerlink" href="#2-size-disks-for-performance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Performance scales with size</span>
-<span class="c1"># For pd-balanced: 6 IOPS/GB, need 13,334 GB for max 80,000 IOPS</span>
-<span class="c1"># For pd-ssd: 30 IOPS/GB, need 3,334 GB for max 100,000 IOPS</span>
-
-<span class="c1"># If you need 50,000 IOPS with pd-balanced:</span>
-<span class="c1"># Minimum size: 50,000 / 6 = 8,334 GB</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>high-iops-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>8400GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced
-</code></pre></div>
-<h3 id="3-use-regional-disks-for-ha">3. Use Regional Disks for HA<a class="headerlink" href="#3-use-regional-disks-for-ha" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># For critical databases and applications</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>ha-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="o">=</span>us-central1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--replica-zones<span class="o">=</span>us-central1-a,us-central1-b<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>500GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-ssd
-
-<span class="c1"># Create regional VM with regional disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>create<span class="w"> </span>ha-vm<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--machine-type<span class="o">=</span>n2-standard-4<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--disk<span class="o">=</span><span class="nv">name</span><span class="o">=</span>ha-disk,boot<span class="o">=</span>yes
-</code></pre></div>
-<h3 id="4-regular-snapshots-for-backup">4. Regular Snapshots for Backup<a class="headerlink" href="#4-regular-snapshots-for-backup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create snapshot schedule</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>resource-policies<span class="w"> </span>create<span class="w"> </span>snapshot-schedule<span class="w"> </span>daily-backup<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="o">=</span>us-central1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--max-retention-days<span class="o">=</span><span class="m">7</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--on-source-disk-delete<span class="o">=</span>keep-auto-snapshots<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--daily-schedule<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--start-time<span class="o">=</span><span class="m">02</span>:00
-
-<span class="c1"># Attach schedule to disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>add-resource-policies<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--resource-policies<span class="o">=</span>daily-backup
-</code></pre></div>
-<h3 id="5-monitor-disk-performance">5. Monitor Disk Performance<a class="headerlink" href="#5-monitor-disk-performance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># View disk metrics</span>
-gcloud<span class="w"> </span>monitoring<span class="w"> </span>time-series<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--filter<span class="o">=</span><span class="s1">&#39;metric.type=&quot;compute.googleapis.com/instance/disk/read_bytes_count&quot;</span>
-<span class="s1">    AND resource.labels.instance_id=&quot;INSTANCE_ID&quot;&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--format<span class="o">=</span>json
-
-<span class="c1"># Inside VM: Monitor IOPS and throughput</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">1</span>
-
-<span class="c1"># Monitor disk usage</span>
-df<span class="w"> </span>-h
-du<span class="w"> </span>-sh<span class="w"> </span>/mnt/disks/data/*
-</code></pre></div>
-<h3 id="6-optimize-disk-configuration">6. Optimize Disk Configuration<a class="headerlink" href="#6-optimize-disk-configuration" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Use discard option for SSD trim</span>
-sudo<span class="w"> </span>mount<span class="w"> </span>-o<span class="w"> </span>discard,defaults<span class="w"> </span>/dev/sdb<span class="w"> </span>/mnt/disks/data
-
-<span class="c1"># Enable multi-queue SCSI (in /etc/default/grub)</span>
-<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;scsi_mod.use_blk_mq=1&quot;</span>
-
-<span class="c1"># Optimize for databases</span>
-<span class="c1"># Set readahead to 0 or low value</span>
-sudo<span class="w"> </span>blockdev<span class="w"> </span>--setra<span class="w"> </span><span class="m">0</span><span class="w"> </span>/dev/sdb
-</code></pre></div>
-<h3 id="7-data-protection">7. Data Protection<a class="headerlink" href="#7-data-protection" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create snapshots before major changes</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>snapshot<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--snapshot-names<span class="o">=</span>pre-upgrade-snapshot
-
-<span class="c1"># Use regional disks for critical data</span>
-<span class="c1"># Implement backup strategy</span>
-<span class="c1"># Test restore procedures regularly</span>
-</code></pre></div>
-<h2 id="disk-encryption">Disk Encryption<a class="headerlink" href="#disk-encryption" title="Permanent link">&para;</a></h2>
-<h3 id="customer-managed-encryption-keys-cmek">Customer-Managed Encryption Keys (CMEK)<a class="headerlink" href="#customer-managed-encryption-keys-cmek" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create KMS key</span>
-gcloud<span class="w"> </span>kms<span class="w"> </span>keyrings<span class="w"> </span>create<span class="w"> </span>my-keyring<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--location<span class="o">=</span>us-central1
-
-gcloud<span class="w"> </span>kms<span class="w"> </span>keys<span class="w"> </span>create<span class="w"> </span>my-key<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--location<span class="o">=</span>us-central1<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--keyring<span class="o">=</span>my-keyring<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--purpose<span class="o">=</span>encryption
-
-<span class="c1"># Create disk with CMEK</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>create<span class="w"> </span>encrypted-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>100GB<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--type<span class="o">=</span>pd-balanced<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kms-key<span class="o">=</span>projects/PROJECT_ID/locations/us-central1/keyRings/my-keyring/cryptoKeys/my-key
-</code></pre></div>
-<h3 id="default-encryption">Default Encryption<a class="headerlink" href="#default-encryption" title="Permanent link">&para;</a></h3>
-<p>All persistent disks are encrypted at rest by default using Google-managed keys. No configuration required.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="disk-wont-attach">Disk Won&rsquo;t Attach<a class="headerlink" href="#disk-wont-attach" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check if disk is already attached</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>describe<span class="w"> </span>my-disk<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Check disk status</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>list<span class="w"> </span>--filter<span class="o">=</span><span class="s2">&quot;name=my-disk&quot;</span>
-
-<span class="c1"># Verify disk and VM are in same zone</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>instances<span class="w"> </span>describe<span class="w"> </span>my-vm<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-</code></pre></div>
-<h3 id="poor-performance">Poor Performance<a class="headerlink" href="#poor-performance" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check disk type and size</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>describe<span class="w"> </span>my-disk<span class="w"> </span>--zone<span class="o">=</span>us-central1-a
-
-<span class="c1"># Calculate expected IOPS</span>
-<span class="c1"># pd-balanced: 6 IOPS/GB</span>
-<span class="c1"># Example: 100 GB disk = 600 IOPS baseline</span>
-
-<span class="c1"># Monitor actual IOPS (inside VM)</span>
-iostat<span class="w"> </span>-x<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">10</span>
-
-<span class="c1"># Check if hitting limits</span>
-<span class="c1"># Cloud Monitoring → Compute Engine → Disk</span>
-</code></pre></div>
-<h3 id="disk-full">Disk Full<a class="headerlink" href="#disk-full" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check disk usage</span>
-df<span class="w"> </span>-h
-
-<span class="c1"># Find large files/directories</span>
-sudo<span class="w"> </span>du<span class="w"> </span>-sh<span class="w"> </span>/*<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-h
-sudo<span class="w"> </span>du<span class="w"> </span>-h<span class="w"> </span>/var<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20
-
-<span class="c1"># Clean up if possible or resize disk</span>
-gcloud<span class="w"> </span>compute<span class="w"> </span>disks<span class="w"> </span>resize<span class="w"> </span>my-disk<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--zone<span class="o">=</span>us-central1-a<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--size<span class="o">=</span>200GB
-
-<span class="c1"># Then resize filesystem</span>
-sudo<span class="w"> </span>resize2fs<span class="w"> </span>/dev/sdb
-</code></pre></div>
-<h2 id="related-resources">Related Resources<a class="headerlink" href="#related-resources" title="Permanent link">&para;</a></h2>
+<p><strong>Architecture Pattern</strong>: Use for performance, replicate critical data externally</p>
+<h2 id="performance-scaling">Performance Scaling<a class="headerlink" href="#performance-scaling" title="Permanent link">&para;</a></h2>
+<h3 id="size-based-performance">Size-Based Performance<a class="headerlink" href="#size-based-performance" title="Permanent link">&para;</a></h3>
+<p><strong>pd-balanced Example</strong>:</p>
 <ul>
-<li><a href="compute-engine-overview.md">Compute Engine Overview</a></li>
-<li><a href="compute-engine-vms.md">Virtual Machines</a></li>
-<li><a href="compute-engine-images.md">Machine Images</a></li>
-<li><a href="compute-engine-snapshots.md">Snapshots</a></li>
-<li><a href="compute-engine-backups.md">Backups</a></li>
-<li><a href="gcloud-cli.md">gcloud CLI</a></li>
+<li>100 GB: 600 read IOPS, 600 write IOPS</li>
+<li>500 GB: 3,000 IOPS</li>
+<li>13,334 GB: 80,000 IOPS (maximum)</li>
+</ul>
+<p><strong>Design Implication</strong>: May need larger disk for performance, not just capacity</p>
+<h3 id="vm-level-limits">VM-Level Limits<a class="headerlink" href="#vm-level-limits" title="Permanent link">&para;</a></h3>
+<p><strong>Performance is limited by</strong>:</p>
+<ol>
+<li>Disk type and size</li>
+<li>VM machine type (CPU count)</li>
+<li>Number of vCPUs determines max I/O</li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>n2-standard-2 (2 vCPUs): Max 15,000 read IOPS</li>
+<li>n2-standard-32 (32 vCPUs): Max 100,000 read IOPS</li>
+</ul>
+<p><strong>Architecture Consideration</strong>: Right-size VM for I/O requirements, not just compute</p>
+<h2 id="regional-persistent-disks">Regional Persistent Disks<a class="headerlink" href="#regional-persistent-disks" title="Permanent link">&para;</a></h2>
+<h3 id="synchronous-replication">Synchronous Replication<a class="headerlink" href="#synchronous-replication" title="Permanent link">&para;</a></h3>
+<p><strong>Characteristics</strong>:</p>
+<ul>
+<li>Replicated across two zones in same region</li>
+<li>Synchronous writes (both zones acknowledge)</li>
+<li>Automatic failover on zone failure</li>
+<li>RPO: Near-zero (synchronous)</li>
+<li>RTO: Minutes (automatic failover)</li>
+<li>2x cost of zonal disks</li>
+</ul>
+<p><strong>Appropriate for</strong>:</p>
+<ul>
+<li>High-availability databases</li>
+<li>Mission-critical applications</li>
+<li>Zone failure protection required</li>
+<li>Applications needing automatic failover</li>
+<li>When cost of 2x storage justified by availability</li>
+</ul>
+<p><strong>Not appropriate for</strong>:</p>
+<ul>
+<li>Cost-sensitive workloads</li>
+<li>Single-zone deployments</li>
+<li>Applications with external replication</li>
+<li>Development/testing</li>
+</ul>
+<p><strong>Architecture Pattern</strong>: Use for stateful tier in multi-zone deployment</p>
+<h3 id="failover-behavior">Failover Behavior<a class="headerlink" href="#failover-behavior" title="Permanent link">&para;</a></h3>
+<p><strong>Automatic Failover</strong>:</p>
+<ul>
+<li>Regional disk automatically attaches to VM in surviving zone</li>
+<li>Application must handle brief I/O pause</li>
+<li>No data loss (synchronous replication)</li>
+<li>Requires regional MIG for automatic VM recreation</li>
+</ul>
+<p><strong>Limitations</strong>:</p>
+<ul>
+<li>Both zones must be available for writes</li>
+<li>Slightly higher latency than zonal (cross-zone sync)</li>
+<li>Cannot span regions</li>
+<li>Requires zone failure, not VM failure (use MIG autohealing for VM failures)</li>
+</ul>
+<h2 id="disk-architecture-patterns">Disk Architecture Patterns<a class="headerlink" href="#disk-architecture-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="separate-boot-and-data-disks">Separate Boot and Data Disks<a class="headerlink" href="#separate-boot-and-data-disks" title="Permanent link">&para;</a></h3>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Independent lifecycle management</li>
+<li>Different disk types (balanced boot, SSD data)</li>
+<li>Easier backups (snapshot data disk only)</li>
+<li>Flexibility to resize independently</li>
+<li>Replace boot disk without data loss</li>
+</ul>
+<p><strong>Pattern</strong>:</p>
+<ul>
+<li>Boot disk: 20-50 GB pd-balanced</li>
+<li>Data disk(s): Size and type based on workload</li>
+<li>Attach data disks to multiple VMs (read-only)</li>
+</ul>
+<h3 id="multi-disk-for-performance">Multi-Disk for Performance<a class="headerlink" href="#multi-disk-for-performance" title="Permanent link">&para;</a></h3>
+<p><strong>Stripe Multiple Disks</strong>:</p>
+<ul>
+<li>Combine multiple disks in RAID 0</li>
+<li>Aggregate IOPS and throughput</li>
+<li>Each disk contributes performance</li>
+<li>Better than single large disk for max performance</li>
+</ul>
+<p><strong>Consideration</strong>: Local SSDs better choice for highest performance</p>
+<h3 id="disk-quotas-and-limits">Disk Quotas and Limits<a class="headerlink" href="#disk-quotas-and-limits" title="Permanent link">&para;</a></h3>
+<p><strong>Per VM Limits</strong>:</p>
+<ul>
+<li>128 persistent disks (including boot)</li>
+<li>257 TB total persistent disk size</li>
+<li>24 Local SSD devices (9 TB)</li>
+</ul>
+<p><strong>Architecture Impact</strong>:</p>
+<ul>
+<li>Plan data architecture within limits</li>
+<li>Consider object storage (Cloud Storage) for &gt; 128 data sources</li>
+<li>Use Filestore for NFS requirements</li>
+</ul>
+<h2 id="snapshot-architecture">Snapshot Architecture<a class="headerlink" href="#snapshot-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="incremental-backups">Incremental Backups<a class="headerlink" href="#incremental-backups" title="Permanent link">&para;</a></h3>
+<p><strong>How It Works</strong>:</p>
+<ul>
+<li>First snapshot: Full copy of disk</li>
+<li>Subsequent snapshots: Only changed blocks</li>
+<li>Snapshot chains maintained automatically</li>
+<li>Deleting intermediate snapshots safe (blocks preserved if needed)</li>
+</ul>
+<p><strong>Cost Efficiency</strong>:</p>
+<ul>
+<li>Daily snapshots of 1 TB disk with 5% daily change</li>
+<li>Month 1: ~1,000 GB + 30 × 50 GB = ~2,500 GB storage</li>
+<li>Much cheaper than 30 full copies (30,000 GB)</li>
+</ul>
+<h3 id="snapshot-storage-locations">Snapshot Storage Locations<a class="headerlink" href="#snapshot-storage-locations" title="Permanent link">&para;</a></h3>
+<p><strong>Regional</strong>:</p>
+<ul>
+<li>Stored in single region</li>
+<li>Lower cost</li>
+<li>Faster creation/restore (same region)</li>
+<li>Use for: Non-critical data, cost optimization</li>
+</ul>
+<p><strong>Multi-Regional</strong>:</p>
+<ul>
+<li>Stored across multiple regions</li>
+<li>Higher cost</li>
+<li>Disaster recovery protection</li>
+<li>Slower initial creation</li>
+<li>Use for: Critical data, DR requirements</li>
+</ul>
+<p><strong>Architecture Decision</strong>: Balance cost vs DR requirements</p>
+<h2 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h2>
+<h3 id="default-encryption">Default Encryption<a class="headerlink" href="#default-encryption" title="Permanent link">&para;</a></h3>
+<p><strong>Google-Managed Keys</strong>:</p>
+<ul>
+<li>All persistent disks encrypted at rest</li>
+<li>Automatic, no configuration</li>
+<li>No performance impact</li>
+<li>Transparent to applications</li>
+</ul>
+<h3 id="customer-managed-encryption-keys-cmek">Customer-Managed Encryption Keys (CMEK)<a class="headerlink" href="#customer-managed-encryption-keys-cmek" title="Permanent link">&para;</a></h3>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Control key lifecycle</li>
+<li>Regulatory compliance</li>
+<li>Audit key usage</li>
+<li>Revoke access immediately</li>
+</ul>
+<p><strong>Considerations</strong>:</p>
+<ul>
+<li>Additional Cloud KMS costs</li>
+<li>Key management responsibility</li>
+<li>Availability dependency on Cloud KMS</li>
+<li>Slight performance impact</li>
+</ul>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Regulatory requirements (HIPAA, PCI-DSS)</li>
+<li>Enhanced security posture</li>
+<li>Key rotation policies</li>
+<li>Multi-cloud key management</li>
+</ul>
+<h2 id="cost-optimization-strategies">Cost Optimization Strategies<a class="headerlink" href="#cost-optimization-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="right-sizing">Right-Sizing<a class="headerlink" href="#right-sizing" title="Permanent link">&para;</a></h3>
+<p><strong>Approach</strong>:</p>
+<ul>
+<li>Start with pd-balanced (cost-effective default)</li>
+<li>Monitor I/O metrics</li>
+<li>Upgrade to pd-ssd only if bottleneck identified</li>
+<li>Downgrade to pd-standard for sequential-only workloads</li>
+</ul>
+<h3 id="snapshot-management">Snapshot Management<a class="headerlink" href="#snapshot-management" title="Permanent link">&para;</a></h3>
+<p><strong>Best Practices</strong>:</p>
+<ul>
+<li>Implement retention policies (delete old snapshots)</li>
+<li>Use snapshot schedules (automated lifecycle)</li>
+<li>Regional storage for non-critical data</li>
+<li>Delete disk but keep snapshots (cheaper long-term storage)</li>
+</ul>
+<h3 id="storage-tiering">Storage Tiering<a class="headerlink" href="#storage-tiering" title="Permanent link">&para;</a></h3>
+<p><strong>Pattern</strong>:</p>
+<ul>
+<li><strong>Hot data</strong>: pd-ssd (frequent access)</li>
+<li><strong>Warm data</strong>: pd-balanced (occasional access)</li>
+<li><strong>Cold data</strong>: pd-standard or Cloud Storage (rare access)</li>
+<li><strong>Archive</strong>: Cloud Storage Archive class (long-term retention)</li>
+</ul>
+<h2 id="disaster-recovery-considerations">Disaster Recovery Considerations<a class="headerlink" href="#disaster-recovery-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="backup-strategy">Backup Strategy<a class="headerlink" href="#backup-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Snapshot Frequency</strong>:</p>
+<ul>
+<li>Critical data: Hourly or continuous (regional disks)</li>
+<li>Important data: Daily</li>
+<li>Normal data: Weekly</li>
+<li>Test data: Monthly or manual</li>
+</ul>
+<p><strong>Retention</strong>:</p>
+<ul>
+<li>Compliance requirements dictate minimum</li>
+<li>Balance cost vs recovery point options</li>
+<li>30 days common for production</li>
+<li>7 days for development</li>
+</ul>
+<h3 id="cross-region-dr">Cross-Region DR<a class="headerlink" href="#cross-region-dr" title="Permanent link">&para;</a></h3>
+<p><strong>Approach</strong>:</p>
+<ul>
+<li>Snapshots stored in multi-regional location</li>
+<li>Restore disks in DR region from snapshots</li>
+<li>Test DR procedures regularly</li>
+<li>Document recovery procedures</li>
+</ul>
+<p><strong>RTO Considerations</strong>:</p>
+<ul>
+<li>Snapshot restore: 30-60 minutes</li>
+<li>Regional disk failover: Minutes</li>
+<li>Multi-region failover: 1-2 hours (manual)</li>
+</ul>
+<h2 id="exam-focus-areas">Exam Focus Areas<a class="headerlink" href="#exam-focus-areas" title="Permanent link">&para;</a></h2>
+<h3 id="design-decisions">Design Decisions<a class="headerlink" href="#design-decisions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Disk type selection based on workload</li>
+<li>Performance sizing (IOPS/throughput requirements)</li>
+<li>Regional vs zonal disks for HA</li>
+<li>Cost optimization strategies</li>
+</ul>
+<h3 id="architecture-patterns">Architecture Patterns<a class="headerlink" href="#architecture-patterns" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Separate boot and data disks</li>
+<li>Local SSD use cases and limitations</li>
+<li>Multi-disk configurations</li>
+<li>Snapshot strategies</li>
+</ul>
+<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Size-based performance scaling</li>
+<li>VM-level performance limits</li>
+<li>When to use Local SSDs</li>
+<li>Multi-disk striping considerations</li>
+</ul>
+<h3 id="disaster-recovery">Disaster Recovery<a class="headerlink" href="#disaster-recovery" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Snapshot frequency and retention</li>
+<li>Regional disk RPO/RTO</li>
+<li>Cross-region DR strategies</li>
+<li>Backup architecture patterns</li>
+</ul>
+<h3 id="cost-management">Cost Management<a class="headerlink" href="#cost-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Disk type cost comparison</li>
+<li>Snapshot storage optimization</li>
+<li>Unused disk identification</li>
+<li>Storage tiering strategies</li>
 </ul>
 
 
@@ -8568,7 +8352,7 @@ sudo<span class="w"> </span>resize2fs<span class="w"> </span>/dev/sdb
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../vms/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Compute Engine Virtual Machines (VMs)">
+          <a href="../vms/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Virtual Machines (VMs)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -8578,20 +8362,20 @@ sudo<span class="w"> </span>resize2fs<span class="w"> </span>/dev/sdb
                 Previous
               </span>
               <div class="md-ellipsis">
-                Compute Engine Virtual Machines (VMs)
+                Virtual Machines (VMs)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../backups/" class="md-footer__link md-footer__link--next" aria-label="Next: Compute Engine Backup and Disaster Recovery">
+          <a href="../backups/" class="md-footer__link md-footer__link--next" aria-label="Next: Backup and Disaster Recovery Strategy">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Compute Engine Backup and Disaster Recovery
+                Backup and Disaster Recovery Strategy
               </div>
             </div>
             <div class="md-footer__button md-icon">
