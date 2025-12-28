@@ -509,11 +509,3 @@ Both Standard and Autopilot support regional and zonal deployments:
    - Let Autopilot handle nodes
    - No need to configure cluster autoscaler
 
----
-
-## Related Resources
-
-- [GKE Overview](gke-overview.md)
-- [GKE Deployments](gke-deployments.md)
-- [GKE Scaling](gke-scaling.md)
-- [kubectl](kubectl.md)

@@ -294,11 +294,3 @@ kubectl apply -f deployment.yaml
 - Use Autopilot for variable or unpredictable workloads
 - Clean up unused resources (PVs, LoadBalancers)
 
-## Related Services
-
-- **Artifact Registry**: Store container images
-- **Cloud Build**: CI/CD for containers
-- **Cloud Operations**: Monitoring, logging, and tracing
-- **Config Connector**: Manage GCP resources via Kubernetes
-- **Anthos**: Multi-cloud and hybrid Kubernetes management
-- **Cloud Run**: Serverless container alternative

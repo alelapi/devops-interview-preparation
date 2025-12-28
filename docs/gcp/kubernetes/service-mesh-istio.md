@@ -852,10 +852,3 @@ kubectl exec <pod-name> -c istio-proxy -- curl localhost:15000/stats
 # Analyze metrics
 kubectl top pods
 ```
-
-## Related Resources
-
-- [GKE Overview](gke-overview.md) - GKE fundamentals
-- [GKE Deployments](gke-deployments.md) - Application deployment
-- [GKE Scaling](gke-scaling.md) - Scaling considerations
-- [kubectl](kubectl.md) - Command-line operations

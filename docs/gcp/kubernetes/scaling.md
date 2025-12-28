@@ -792,12 +792,3 @@ kubectl top nodes
 # Check what's preventing scale-down
 kubectl describe node <node-name>
 ```
-
----
-
-## Related Resources
-
-- [GKE Deployments](gke-deployments.md) - Managing workloads
-- [GKE Pods](gke-pods.md) - Pod resource configuration
-- [GKE Cluster Types](gke-cluster-types.md) - Standard vs Autopilot
-- [kubectl](kubectl.md) - Scaling commands
