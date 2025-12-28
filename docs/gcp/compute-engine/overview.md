@@ -2,445 +2,418 @@
 
 ## Description
 
-Google Compute Engine (GCE) is Infrastructure as a Service (IaaS) that provides virtual machines running in Google's data centers. It offers high-performance, scalable VMs with flexible configurations, per-second billing, and deep integration with other Google Cloud services.
+Google Compute Engine (GCE) provides Infrastructure as a Service (IaaS) with virtual machines running in Google's data centers. As an architect, understanding when to choose Compute Engine versus managed services is critical for designing scalable, cost-effective, and maintainable solutions.
 
-**Architecture**: Virtual machines running on Google's infrastructure with customizable CPU, memory, storage, and networking configurations.
+**Key Architectural Consideration**: Compute Engine offers maximum control but requires operational overhead. Evaluate managed alternatives (Cloud Run, GKE, App Engine, Cloud SQL) before defaulting to VMs.
 
-## Key Features
+## Core Concepts
 
-### Virtual Machine Options
+### Virtual Machine Model
 
-- **Predefined Machine Types**: Pre-configured VM shapes optimized for common workloads
-- **Custom Machine Types**: Create VMs with custom CPU and memory configurations
-- **Machine Families**: General-purpose, compute-optimized, memory-optimized, accelerator-optimized
-- **Spot VMs**: Preemptible instances at up to 91% discount
-- **Confidential VMs**: VMs with encrypted memory and CPU
-- **Sole-Tenant Nodes**: Dedicated physical servers for compliance
+- **Ephemeral vs Persistent**: VM instance is ephemeral; only persistent disks survive deletion
+- **Live Migration**: VMs migrate between hosts transparently during maintenance
+- **Preemptible/Spot VMs**: Up to 91% discount but can be terminated any time (24-hour max runtime)
+- **Regional Persistent Disks**: Synchronous replication across two zones for HA
 
-### Operating System Support
+### Machine Families
 
-- **Linux**: Multiple distributions (Debian, Ubuntu, CentOS, RHEL, SUSE, etc.)
-- **Windows Server**: Full Windows Server support with license included or BYOL
-- **Container-Optimized OS**: Optimized for running containers
-- **Custom Images**: Bring your own OS images
-- **Shielded VMs**: Verified boot, vTPM, and integrity monitoring
+**Decision Framework**:
 
-### Performance and Scaling
+- **E2 (Cost-Optimized)**: Development, testing, low-traffic applications
+- **N2/N2D (General Purpose)**: Balanced price/performance, most workloads
+- **C2/C2D/H3 (Compute-Optimized)**: CPU-intensive, HPC, high-performance computing
+- **M1/M2/M3 (Memory-Optimized)**: In-memory databases, SAP HANA, large caches
+- **A2/A3 (GPU-Accelerated)**: ML training, inference, scientific computing
 
-- **Live Migration**: VMs migrate between hosts with no downtime
-- **Per-Second Billing**: Pay only for compute time used
-- **Sustained Use Discounts**: Automatic discounts for running VMs
-- **Committed Use Discounts**: 1-year or 3-year commitments for up to 57% discount
-- **Autoscaling**: Managed Instance Groups with automatic scaling
-- **Load Balancing**: Integrated with Cloud Load Balancing
+**Custom Machine Types**: Create VMs with specific vCPU-to-memory ratios when predefined types don't fit
 
-### Storage Options
+## Architectural Patterns
 
-- **Persistent Disks**: Durable block storage (standard, balanced, SSD, extreme)
-- **Local SSDs**: High-performance local storage (up to 9 TB per VM)
-- **Cloud Storage Buckets**: Object storage integration
-- **Filestore**: Managed NFS file storage
-- **Boot Disks**: System disk with OS and bootloader
+### High Availability
 
-### Networking
+**Single-Zone Deployment**:
 
-- **VPC Integration**: Private networking with VPC
-- **Multiple Network Interfaces**: Up to 8 network interfaces per VM
-- **Internal and External IPs**: Public and private IP addressing
-- **Cloud NAT**: NAT gateway for outbound internet access
-- **Cloud VPN**: Hybrid connectivity to on-premises
-- **Cloud Interconnect**: Dedicated network connections
+- Simplest architecture
+- No SLA for VM availability
+- Acceptable for dev/test, non-critical workloads
+- Use Managed Instance Groups (MIGs) for autohealing
 
-### Management Features
+**Multi-Zone Deployment**:
 
-- **Metadata Server**: Instance metadata and startup scripts
-- **OS Login**: Manage SSH access via IAM
-- **OS Patch Management**: Automated OS patching
-- **Cloud Monitoring**: Native integration with Cloud Operations
-- **Serial Console**: Emergency access to VMs
-- **Instance Templates**: Reusable VM configurations
+- Regional MIG distributes VMs across zones
+- 99.99% availability (with MIG and load balancer)
+- Protects against zone failures
+- Recommended for production
 
-## Important Limits
+**Multi-Region Deployment**:
 
-| Limit | Value | Notes |
-|-------|-------|-------|
-| **VMs per project** | 24 (default) per region | Soft limit, can be increased |
-| **CPUs per project** | 24 (default) per region | Varies by machine type |
-| **Persistent disks per project** | 500 per zone | Can be increased |
-| **Snapshots per project** | 10,000 | Global limit |
-| **Images per project** | 1,000 | Custom images |
-| **Network interfaces per VM** | 8 | Maximum |
-| **Persistent disks per VM** | 128 | Including boot disk |
-| **Local SSDs per VM** | 24 (9 TB total) | Instance-dependent |
-| **VM metadata size** | 512 KB | Key-value pairs |
+- Global load balancer distributes traffic across regions
+- Protects against regional failures
+- Higher cost (cross-region egress)
+- Required for global low-latency services
 
-## Machine Families
+### Disaster Recovery
 
-### General Purpose (E2, N2, N2D, N1)
+**RPO/RTO Targets**:
 
-**Best For**: Balanced workloads
+- **Snapshots**: RPO 24 hours (daily), RTO 30-60 minutes
+- **Machine Images**: RPO 7 days (weekly), RTO 15-30 minutes
+- **Regional Persistent Disks**: RPO near-zero, RTO minutes
+- **Cross-Region Replication**: Manual via snapshots/images
 
-- **E2**: Cost-optimized, shared-core and standard
-- **N2**: Balanced price/performance, Intel or AMD
-- **N2D**: AMD-based, cost-effective
-- **N1**: Previous generation, still widely used
+**DR Strategies**:
 
-### Compute Optimized (C2, C2D, H3)
+- **Backup and Restore**: Snapshots/images, slowest RTO, lowest cost
+- **Pilot Light**: Minimal infrastructure in DR region, scale on failover
+- **Warm Standby**: Running infrastructure at reduced capacity
+- **Hot Standby**: Full capacity active-active, highest cost
 
-**Best For**: Compute-intensive workloads
+## Important Limits (Architecture Impact)
 
-- **C2**: Ultra-high performance per core
-- **C2D**: AMD-based compute-optimized
-- **H3**: Latest Intel, highest performance
+| Limit | Value | Architectural Impact |
+|-------|-------|---------------------|
+| **VMs per project** | 24 (default) per region | Request increases proactively; use multiple projects |
+| **CPUs per project** | 24 (default) per region | Affects scalability; plan quotas |
+| **Persistent disks per VM** | 128 | Consider object storage for > 128 data sources |
+| **Network interfaces per VM** | 8 | Limits multi-VPC connectivity options |
+| **Local SSD per VM** | 24 devices (9 TB) | Ephemeral; design for data loss |
+| **Snapshots per project** | 10,000 | Implement retention policies |
 
-### Memory Optimized (M1, M2, M3)
+## Decision Criteria: Compute Engine vs Alternatives
 
-**Best For**: Memory-intensive workloads
+### Use Compute Engine When:
 
-- **M1**: Up to 4 TB RAM
-- **M2**: Up to 12 TB RAM
-- **M3**: Latest generation, up to 4 TB RAM
+**Full OS Control Required**:
 
-### Accelerator Optimized (A2, A3, G2)
+- Custom kernel modules
+- Specific OS versions/configurations
+- Legacy applications requiring full VM
+- Windows Server workloads
 
-**Best For**: GPU workloads
+**Lift-and-Shift Migrations**:
 
-- **A2**: NVIDIA A100 GPUs for ML/AI
-- **A3**: NVIDIA H100 GPUs for AI
-- **G2**: NVIDIA L4 GPUs for inference and graphics
+- Rehosting existing on-premises VMs
+- Minimal application changes acceptable
+- Time-to-cloud more important than optimization
 
-## When to Use Compute Engine
+**Hybrid Cloud**:
 
-### ✅ Use Compute Engine When:
+- Consistent VM experience on-premises and cloud
+- VPN/Interconnect integration
+- Active Directory integration
 
-1. **Full OS Control Needed**
+**Stateful Applications**:
 
-   - Need root/administrator access
-   - Custom kernel modules or drivers
-   - Specific OS configurations
-   - Legacy applications requiring full VM
+- Self-managed databases (when Cloud SQL doesn't fit)
+- Traditional enterprise applications
+- Licensing constraints (BYOL)
 
-2. **Lift-and-Shift Migrations**
+### Don't Use Compute Engine When:
 
-   - Migrating existing on-premises VMs
-   - Rehosting applications without modification
-   - Maintaining existing architecture
-   - Compliance requires VM isolation
+**Managed Services Available**:
 
-3. **Stateful Applications**
+- Databases → Cloud SQL, Spanner, Firestore
+- Containers → GKE, Cloud Run
+- Batch processing → Dataflow, Dataproc
+- Message queues → Pub/Sub
 
-   - Traditional databases (if not using Cloud SQL)
-   - Applications with persistent local state
-   - File servers and NAS
-   - Legacy enterprise applications
+**Serverless Fits**:
 
-4. **Windows Workloads**
+- HTTP-only services → Cloud Run
+- Event-driven functions → Cloud Functions
+- Stateless applications with variable load
+- Want zero operational overhead
 
-   - Windows Server applications
-   - Active Directory domain controllers
-   - .NET Framework applications
-   - Microsoft SQL Server
+**Simple Requirements**:
 
-5. **High-Performance Computing**
+- Static websites → Cloud Storage + CDN
+- Simple APIs → Cloud Run
+- No persistent state needed
 
-   - Scientific computing
-   - Rendering and simulation
-   - Financial modeling
-   - Big data processing
-
-6. **Hybrid Cloud Architecture**
-
-   - Consistent with on-premises VMs
-   - Gradual cloud migration
-   - Burst capacity to cloud
-   - Disaster recovery site
-
-### ❌ Don't Use Compute Engine When:
-
-1. **Serverless Better Suited**
-
-   - Stateless HTTP services (use Cloud Run)
-   - Event-driven functions (use Cloud Functions)
-   - No need for OS management
-   - Sporadic or unpredictable workloads
-
-2. **Managed Services Available**
-
-   - Relational databases (use Cloud SQL)
-   - NoSQL databases (use Firestore, Bigtable)
-   - Data warehousing (use BigQuery)
-   - Container orchestration (use GKE)
-
-3. **Simple Static Hosting**
-
-   - Static websites (use Cloud Storage + CDN)
-   - Single-page applications (use Firebase Hosting)
-   - No server-side processing needed
-
-4. **Very Small Workloads**
-
-   - Minimal resource requirements
-   - Cost of VM overhead not justified
-   - App Engine or Cloud Run more economical
-
-## Pricing Considerations
+## Cost Optimization Strategies
 
 ### Pricing Models
 
-**On-Demand (Pay-as-you-go)**
+**On-Demand**:
 
 - Per-second billing (1-minute minimum)
-- Sustained use discounts (automatic)
-- No upfront costs
-- Most flexible
+- Sustained use discounts (automatic 20-30%)
+- Most flexible, no commitment
 
-**Spot VMs (Preemptible)**
+**Spot VMs (Preemptible)**:
 
 - Up to 91% discount
-- Can be terminated any time
-- 24-hour maximum runtime
-- No SLA
+- Can terminate any time (30-second warning)
+- Use for: batch jobs, CI/CD, fault-tolerant workloads
+- Not for: databases, stateful apps, critical services
 
-**Committed Use Discounts**
+**Committed Use Discounts (CUD)**:
 
 - 1-year or 3-year commitments
 - Up to 57% discount
 - Resource-based or spend-based
-- Regional commitment
+- Use for: predictable, long-running workloads
 
-**Sole-Tenant Nodes**
+**Sole-Tenant Nodes**:
 
 - Dedicated physical servers
-- Node licensing costs
-- Compliance use cases
-- Pay for entire node
+- Per-node pricing
+- Use for: compliance, licensing, isolation requirements
 
-### Cost Optimization Tips
+### Cost Architecture Decisions
 
-1. **Right-Size VMs**
+**Right-Sizing**:
 
-   - Use recommender API for sizing
-   - Start small, scale up as needed
-   - Monitor utilization metrics
-   - Use custom machine types
+- Use Recommender API for optimization suggestions
+- Start small, scale up based on metrics
+- Custom machine types for exact fit
+- Avoid over-provisioning
 
-2. **Use Spot VMs for Fault-Tolerant Workloads**
+**Scheduling**:
 
-   - Batch processing
-   - CI/CD pipelines
-   - Development/testing
-   - Rendering farms
+- Stop VMs during off-hours (dev/test)
+- Only pay for disk storage when stopped
+- Use Instance Schedules or Cloud Scheduler
+- 60-70% savings for non-24/7 workloads
 
-3. **Leverage Discounts**
+**Storage Optimization**:
 
-   - Sustained use (automatic)
-   - Committed use (for stable workloads)
-   - Spot VMs (up to 91% off)
+- Use standard disks for non-critical data
+- Delete unused snapshots/images
+- Regional vs multi-regional storage
+- Consider object storage for large datasets
 
-4. **Schedule VMs**
+## Networking Considerations
 
-   - Stop VMs during off-hours
-   - Use instance schedules
-   - Automate with Cloud Scheduler
-   - Only pay for disk storage when stopped
+### VPC Integration
 
-5. **Optimize Storage**
+**Network Design**:
 
-   - Use standard disks for non-critical data
-   - Delete unused snapshots
-   - Use regional instead of multi-regional
-   - Clean up orphaned disks
+- VMs exist in VPC subnets
+- Each VM can have up to 8 network interfaces
+- Internal IP (private) required, external IP (public) optional
+- Use Cloud NAT for outbound internet without public IPs
 
-## Common Use Cases
+**Connectivity Options**:
 
-### Web Application Hosting
+- **Internal**: VPC, VPC Peering, Shared VPC
+- **Hybrid**: Cloud VPN, Cloud Interconnect
+- **Internet**: Cloud NAT, External IPs, Load Balancers
 
-```
-Load Balancer
-    │
-    ├─── Managed Instance Group (us-central1)
-    │       └── VMs: n2-standard-4 (autoscaling 2-10)
-    ├─── Managed Instance Group (europe-west1)
-    │       └── VMs: n2-standard-4 (autoscaling 2-10)
-    └─── Cloud CDN (static content)
+### Load Balancing Architecture
 
-Persistent Disks: Balanced PD for OS and application
-Cloud SQL: Managed database backend
-Cloud Storage: User uploads and assets
-```
+**External Application Load Balancer**:
 
-### Development/Testing Environments
+- Global HTTP(S) load balancing
+- SSL termination
+- URL-based routing
+- Cloud CDN integration
 
-```
-Development:
+**Internal Load Balancer**:
 
-  - Spot VMs (e2-medium)
-  - Stopped during off-hours
-  - Snapshots for backup
+- Private load balancing within VPC
+- TCP/UDP support
+- Regional or cross-region
 
-Testing/Staging:
+**Network Load Balancer**:
 
-  - Standard VMs (e2-standard-2)
-  - Automated provisioning
-  - Instance templates
+- Layer 4 (TCP/UDP)
+- Preserves client IP
+- Regional or global
 
-Production:
+## Security Architecture
 
-  - Regional MIGs
-  - Committed use discounts
-  - High availability setup
-```
+### Security Layers
 
-### Data Processing Pipeline
+**VM-Level Security**:
 
-```
-Ingestion: n2-highmem-8 (data collection)
-Processing: c2-standard-60 (compute-intensive)
-Storage: Persistent SSD disks + Cloud Storage
-Orchestration: Cloud Composer (managed Airflow)
-Monitoring: Cloud Monitoring + Logging
-```
+- OS hardening and patching
+- OS Login (IAM-based SSH)
+- Shielded VMs (Secure Boot, vTPM, integrity monitoring)
+- Confidential VMs (memory encryption)
 
-## Getting Started
+**Network Security**:
 
-### Create a VM Instance
+- VPC firewall rules (stateful)
+- Hierarchical firewall policies
+- Private Google Access
+- VPC Service Controls
 
-```bash
-# Basic VM creation
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=e2-medium \
-  --image-family=debian-12 \
-  --image-project=debian-cloud
+**Identity and Access**:
 
-# Production VM with all options
-gcloud compute instances create prod-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --image-family=ubuntu-2204-lts \
-  --image-project=ubuntu-os-cloud \
-  --boot-disk-size=50GB \
-  --boot-disk-type=pd-balanced \
-  --network=my-vpc \
-  --subnet=my-subnet \
-  --no-address \
-  --metadata=startup-script='#!/bin/bash
-    apt-get update
-    apt-get install -y nginx' \
-  --tags=http-server,https-server \
-  --labels=env=production,team=platform
+- Service accounts with least privilege
+- Workload Identity for GKE integration
+- IAM roles for VM management
+- Separate admin duties
 
-# Spot VM for cost savings
-gcloud compute instances create spot-vm \
-  --zone=us-central1-a \
-  --machine-type=e2-medium \
-  --preemptible \
-  --image-family=debian-12 \
-  --image-project=debian-cloud
-```
+**Data Protection**:
 
-### List and Manage VMs
+- Persistent disks encrypted by default
+- Customer-managed encryption keys (CMEK)
+- Snapshots encrypted automatically
+- Regional disks for data residency
 
-```bash
-# List all instances
-gcloud compute instances list
+## Monitoring and Operations
 
-# Describe specific instance
-gcloud compute instances describe my-vm --zone=us-central1-a
+### Observability Strategy
 
-# SSH into instance
-gcloud compute ssh my-vm --zone=us-central1-a
+**Metrics**:
 
-# Stop instance
-gcloud compute instances stop my-vm --zone=us-central1-a
+- CPU, memory, disk, network utilization
+- Custom metrics via monitoring agent
+- Application-level metrics
+- Uptime checks for availability
 
-# Start instance
-gcloud compute instances start my-vm --zone=us-central1-a
+**Logging**:
 
-# Delete instance
-gcloud compute instances delete my-vm --zone=us-central1-a
-```
+- System logs, application logs
+- Serial console output
+- Audit logs for compliance
+- Centralized logging in Cloud Logging
 
-## Best Practices
+**Alerting**:
 
-### 1. Security
+- Proactive notification of issues
+- Threshold-based alerts
+- Log-based metrics
+- Integration with incident management
 
-- **Use OS Login**: IAM-based SSH access instead of SSH keys
-- **Shielded VMs**: Enable for production workloads
-- **Service Accounts**: Use least-privilege service accounts
-- **Firewall Rules**: Restrict access to necessary ports only
-- **No Public IPs**: Use Cloud NAT for outbound access
-- **VPC Service Controls**: Create security perimeters
+### Operational Patterns
 
-### 2. High Availability
+**Managed Instance Groups (MIGs)**:
 
-- **Regional Resources**: Use regional persistent disks and MIGs
-- **Multiple Zones**: Distribute VMs across zones
-- **Health Checks**: Configure for load balancing and autohealing
-- **Managed Instance Groups**: Use for automatic scaling and healing
-- **Snapshots**: Regular backups of critical data
+- Autoscaling based on CPU, LB utilization, custom metrics
+- Autohealing with health checks
+- Rolling updates with surge/unavailable controls
+- Regional MIGs for zone distribution
 
-### 3. Performance
+**Instance Templates**:
 
-- **Right Machine Type**: Match workload characteristics
-- **SSD Disks**: Use for I/O-intensive workloads
-- **Local SSDs**: For highest performance (ephemeral)
-- **Network Tier**: Premium tier for global applications
-- **Placement Policies**: Co-locate related VMs for low latency
+- Standardized VM configurations
+- Version control for infrastructure
+- Foundation for MIGs
+- Consistent deployments
 
-### 4. Cost Management
+**Startup/Shutdown Scripts**:
 
-- **Instance Schedules**: Stop VMs during off-hours
-- **Committed Use**: For long-running production workloads
-- **Spot VMs**: For fault-tolerant batch processing
-- **Right-Sizing**: Use recommender API
-- **Clean Up**: Delete unused disks and snapshots
+- Automated configuration
+- State preservation
+- Graceful shutdown handling
+- Integration with external systems
 
-### 5. Management
+## Compliance and Governance
 
-- **Instance Templates**: Standardize VM configurations
-- **Metadata**: Use for configuration and automation
-- **Labels**: Organize and track resources
-- **Startup Scripts**: Automate configuration
-- **OS Patch Management**: Automate patching
+### Compliance Considerations
 
-### 6. Monitoring
+**Data Residency**:
 
-- **Cloud Monitoring**: Enable monitoring agent
-- **Cloud Logging**: Centralize logs
-- **Alerting**: Set up alerts for critical metrics
-- **Dashboards**: Create custom dashboards
-- **Uptime Checks**: Monitor service availability
+- Regional resources stay in region
+- Snapshots stored in specified locations
+- Machine images location-controlled
+- Logs can be restricted to regions
 
-## Compute Engine vs Other Services
+**Regulatory Requirements**:
 
-### Compute Engine vs Cloud Run
+- HIPAA: Shielded VMs, encryption, audit logs
+- PCI-DSS: Network isolation, encryption, logging
+- SOC 2: Access controls, change management, monitoring
+- GDPR: Data location, encryption, deletion capabilities
 
-- **Compute Engine**: Full OS control, stateful, any protocol
-- **Cloud Run**: Serverless, stateless, HTTP only, easier scaling
+**Organizational Controls**:
 
-### Compute Engine vs GKE
+- Organization policies (constraints)
+- Resource labels for tracking
+- IAM hierarchy (org → folder → project)
+- Separate projects for environments
 
-- **Compute Engine**: Traditional VMs, full control, any workload
-- **GKE**: Container orchestration, microservices, Kubernetes
+## Integration Patterns
 
-### Compute Engine vs App Engine
+### With Other GCP Services
 
-- **Compute Engine**: Infrastructure-level control, any language/runtime
-- **App Engine**: Platform-level, limited languages, automatic scaling
+**Data Services**:
 
-### Compute Engine vs Cloud Functions
+- Cloud SQL (managed MySQL, PostgreSQL, SQL Server)
+- Cloud Storage (object storage, backups, static content)
+- Persistent Disk (block storage)
+- Filestore (NFS file storage)
 
-- **Compute Engine**: Long-running processes, complex applications
-- **Cloud Functions**: Event-driven, short-lived, single-purpose
+**Container Services**:
 
-## Related Services
+- GKE for containerized workloads alongside VMs
+- Hybrid architectures with VMs + containers
+- Migration path: VMs → Containers → Serverless
 
-- **Cloud Load Balancing**: Distribute traffic across VMs
-- **Cloud DNS**: Managed DNS service
-- **Cloud NAT**: NAT gateway for VMs without public IPs
-- **Cloud VPN**: Hybrid connectivity
-- **Cloud Interconnect**: Dedicated connections
-- **Cloud Storage**: Object storage for backups and data
-- **Persistent Disks**: Block storage for VMs
-- **Managed Instance Groups**: Autoscaling and autohealing
+**Analytics and ML**:
+
+- BigQuery for data warehousing
+- Dataflow for stream/batch processing
+- Vertex AI for ML workloads
+- Data transfer from VMs to analytics services
+
+**Management**:
+
+- Cloud Monitoring and Logging
+- Cloud Deployment Manager / Terraform
+- Cloud Build for CI/CD
+- Artifact Registry for custom images
+
+## Best Practices Summary
+
+### Architecture Design
+
+1. **Use managed services first**: Only use VMs when necessary
+2. **Design for failure**: Assume VMs can fail, use MIGs and health checks
+3. **Implement monitoring**: Proactive alerting before users notice issues
+4. **Plan for scale**: Use autoscaling, not manual intervention
+5. **Optimize costs**: Right-size, use Spot VMs, implement schedules
+6. **Secure by default**: Least privilege, private IPs, OS hardening
+7. **Document decisions**: Architecture decision records (ADRs)
+
+### Operational Excellence
+
+1. **Infrastructure as Code**: Terraform, Deployment Manager
+2. **Immutable infrastructure**: Replace, don't modify
+3. **Blue-green deployments**: Zero-downtime updates
+4. **Disaster recovery plan**: Test regularly, document procedures
+5. **Capacity planning**: Quota management, growth projections
+6. **Cost monitoring**: Budgets, alerts, regular reviews
+
+## Exam Focus Areas
+
+### Key Topics for Professional Architect
+
+**Design Decisions**:
+
+- When to use Compute Engine vs managed services
+- Machine type selection criteria
+- High availability architecture patterns
+- Disaster recovery strategies
+- Cost optimization approaches
+
+**Scaling Patterns**:
+
+- Horizontal vs vertical scaling trade-offs
+- Autoscaling configuration considerations
+- Multi-region deployment strategies
+- Load balancing options
+
+**Security**:
+
+- Network isolation strategies
+- IAM role design
+- Encryption options
+- Compliance requirements
+
+**Operations**:
+
+- Monitoring and alerting strategy
+- Update and patch management
+- Backup and restore procedures
+- Incident response planning
+
+**Integration**:
+
+- Hybrid cloud connectivity
+- Service integration patterns
+- Data flow architecture
+- Migration strategies

@@ -1,741 +1,471 @@
-# Compute Engine Virtual Machines (VMs)
+# Virtual Machines (VMs)
 
-## Description
+## Core Concepts
 
-A Compute Engine Virtual Machine (VM) instance is a virtualized server running on Google's infrastructure. Each VM runs a guest operating system and can be configured with varying amounts of CPU, memory, storage, and networking resources to match your workload requirements.
+A Compute Engine VM instance is a virtualized server with customizable CPU, memory, storage, and networking resources. Understanding VM characteristics and lifecycle is essential for architectural decisions.
 
-**Concept**: Virtualized compute resources with customizable configurations, providing full control over the operating system and applications.
+**Key Principle**: VMs are ephemeral; design for failure and use persistent storage for stateful data.
 
-## Key Features
+## Machine Types Selection
 
-### Machine Types
+### Predefined vs Custom
 
-**Predefined Machine Types**
+**Predefined Machine Types**:
 
-- **E2**: Cost-optimized (2-32 vCPUs, 0.5-128 GB RAM)
-- **N2**: Balanced performance (2-128 vCPUs, 0.5-864 GB RAM)
-- **N2D**: AMD-based (2-224 vCPUs, 0.5-896 GB RAM)
-- **N1**: Previous generation (1-96 vCPUs, 0.9-624 GB RAM)
-- **C2**: Compute-optimized (4-60 vCPUs, 16-240 GB RAM)
-- **C2D**: AMD compute-optimized (2-112 vCPUs, 4-448 GB RAM)
-- **M1**: Memory-optimized (40-160 vCPUs, 961-3844 GB RAM)
-- **M2**: Ultra-memory (208-416 vCPUs, 5888-11776 GB RAM)
-- **A2**: GPU-accelerated (12-96 vCPUs with NVIDIA A100)
+- Standard configurations (e.g., n2-standard-4: 4 vCPUs, 16 GB RAM)
+- Optimized for common workload patterns
+- Simpler to manage and plan
+- Use for: Most workloads with standard requirements
 
-**Custom Machine Types**
+**Custom Machine Types**:
 
-- Create VMs with custom CPU and memory
-- 1 vCPU to 96 vCPUs (N2) or 224 vCPUs (N2D)
-- 0.9 GB to 8 GB RAM per vCPU
-- Extended memory up to 624 GB total
+- Specify exact vCPU and memory (0.9-8 GB RAM per vCPU)
+- Cost optimization for specific ratios
+- Extended memory available (up to 624 GB)
+- Use for: Workloads with non-standard resource ratios
 
-### Operating Systems
+### Machine Family Decision Matrix
 
-**Linux Distributions:**
+| Workload Type | Recommended Family | Reasoning |
+|---------------|-------------------|-----------|
+| Web servers, APIs | N2, N2D | Balanced, cost-effective |
+| Databases (small-medium) | N2, N2D | Good memory/CPU ratio |
+| Large databases | M-series | Memory-optimized |
+| Batch processing | E2, Spot VMs | Cost-optimized |
+| HPC, gaming servers | C2, C2D, H3 | Highest CPU performance |
+| ML training | A2, A3 | GPU-accelerated |
+| Development/testing | E2, Spot VMs | Lowest cost |
 
-- Debian (10, 11, 12)
-- Ubuntu (18.04, 20.04, 22.04, 24.04)
-- CentOS Stream 8, 9
-- Rocky Linux 8, 9
-- RHEL 7, 8, 9
-- SLES 12, 15
-- Fedora CoreOS
-- Container-Optimized OS
+## VM Lifecycle and States
 
-**Windows:**
+### State Transitions
 
-- Windows Server 2016, 2019, 2022
-- SQL Server on Windows (various versions)
-- Bring Your Own License (BYOL) support
+- **PROVISIONING** → **STAGING** → **RUNNING**: Normal startup
+- **RUNNING** → **STOPPING** → **TERMINATED**: Clean shutdown
+- **TERMINATED** → **RUNNING**: Start operation
+- **RUNNING** → **SUSPENDING** → **SUSPENDED** (Beta): Save state to disk
 
-### VM Lifecycle States
+**Architectural Impact**:
 
-**PROVISIONING**: Resources being allocated
-**STAGING**: Resources acquired, preparing to boot
-**RUNNING**: VM is running
-**STOPPING**: Shutting down
-**TERMINATED**: VM is stopped
-**SUSPENDING**: Being suspended (beta)
-**SUSPENDED**: VM suspended to disk (beta)
-**REPAIRING**: Under repair
+- Billing stops in TERMINATED state (disk charges remain)
+- No SLA for VM availability without MIG
+- Live migration during maintenance (RUNNING → RUNNING transparently)
+- Preemptible VMs: 30-second termination warning, 24-hour maximum
 
-### Instance Options
+## Spot VMs (Preemptible)
 
-**Spot VMs (Preemptible)**
+### Cost vs Availability Trade-off
+
+**Benefits**:
 
 - Up to 91% discount
-- Can be terminated any time with 30-second warning
-- Maximum 24-hour runtime
+- Same performance as regular VMs
+- Significant cost savings at scale
+
+**Limitations**:
+
+- Can be terminated at any time
+- 30-second warning via shutdown script
 - No live migration
-- Best for fault-tolerant workloads
+- No SLA
+- 24-hour maximum runtime
 
-**Shielded VMs**
+### Architectural Use Cases
 
-- Secure Boot: Verify bootloader integrity
-- vTPM: Virtual Trusted Platform Module
-- Integrity Monitoring: Alert on boot-time changes
-- Protection against rootkits and bootkits
+**Appropriate for**:
 
-**Confidential VMs**
-
-- Memory encryption in use
-- Hardware-based isolation
-- No Google access to data in memory
-- Based on AMD SEV technology
-
-**Sole-Tenant Nodes**
-
-- Dedicated physical servers
-- Workload separation for compliance
-- BYOL licensing for per-core software
-- Node groups for resource pooling
-
-## Important Limits
-
-| Limit | Value | Notes |
-|-------|-------|-------|
-| **Instances per project** | 24 per region (default) | Can be increased |
-| **vCPUs per project** | 24 per region (default) | Varies by family |
-| **Custom machine vCPUs** | 1-96 (N2), 1-224 (N2D) | Based on family |
-| **Memory per vCPU** | 0.9-8 GB | Extended up to 624 GB total |
-| **Network interfaces** | 8 maximum | Per VM |
-| **Metadata** | 512 KB | Key-value pairs |
-| **Attached disks** | 128 | Including boot disk |
-| **GPUs per VM** | Varies by GPU type | A2: 1-16 A100 GPUs |
-
-## When to Use Different Machine Types
-
-### E2 (Cost-Optimized)
-
-✅ **Use For:**
-
-- Development and testing environments
-- Low-traffic web servers
-- Small databases
-- Microservices
 - Batch processing jobs
+- CI/CD pipelines
+- Data processing (MapReduce-style)
+- Rendering farms
+- Fault-tolerant distributed systems
+- Development/testing environments
 
-❌ **Don't Use For:**
+**Not appropriate for**:
 
-- High-performance computing
-- Memory-intensive applications
-- Sustained high CPU usage
-- GPU workloads
+- Databases (unless replicated)
+- Stateful applications without external state
+- Long-running single processes
+- Applications requiring guaranteed uptime
+- Services without checkpointing
 
-### N2/N2D (General Purpose)
+**Design Pattern**: Combine regular + Spot VMs in MIG for cost optimization with availability
 
-✅ **Use For:**
+## Boot Disk Configuration
 
-- Web and application servers
-- Medium to large databases
-- Cache servers
-- Enterprise applications
-- Most production workloads
+### Disk Type Selection
 
-❌ **Don't Use For:**
+| Disk Type | IOPS | Throughput | Use Case | Cost |
+|-----------|------|------------|----------|------|
+| pd-standard | Low | Low | Dev/test, backup target | Lowest |
+| pd-balanced | Medium | Medium | General purpose (recommended) | Medium |
+| pd-ssd | High | High | Databases, I/O intensive | High |
+| pd-extreme | Custom | Very high | Mission-critical databases | Highest |
 
-- Highest single-thread performance (use C2)
-- Very large memory requirements (use M-series)
-- GPU workloads (use A2)
+**Decision Criteria**:
 
-### C2/C2D (Compute-Optimized)
+- Boot disk I/O rarely bottleneck (use pd-balanced)
+- Data disks: Match I/O requirements
+- Performance scales with disk size
+- Consider Local SSD for highest performance (ephemeral)
 
-✅ **Use For:**
+### Size Considerations
 
-- High-performance computing (HPC)
-- Gaming servers
-- Ad serving
-- High-traffic web serving
-- Media transcoding
-- CPU-intensive simulations
+**Minimum Recommendations**:
 
-❌ **Don't Use For:**
+- Linux: 20 GB (OS + updates + applications)
+- Windows: 50 GB (OS + updates)
+- Production: Add 30-50% buffer
 
-- Memory-intensive workloads
-- GPU-accelerated workloads
-- Cost-sensitive development
+**Performance Impact**:
 
-### M1/M2/M3 (Memory-Optimized)
+- Larger disks = higher IOPS/throughput
+- 100 GB pd-balanced: 600 IOPS
+- 1000 GB pd-balanced: 6000 IOPS
+- Maximum depends on VM machine type
 
-✅ **Use For:**
+## Security Options
 
-- Large in-memory databases (SAP HANA, Redis)
-- In-memory analytics
-- Microsoft SQL Server
-- Real-time big data processing
-- High-performance relational databases
+### Shielded VMs
 
-❌ **Don't Use For:**
+**Components**:
 
-- Compute-intensive tasks
-- Cost-sensitive workloads
-- Small to medium applications
+- **Secure Boot**: Verify bootloader and kernel integrity
+- **vTPM**: Virtual Trusted Platform Module for key management
+- **Integrity Monitoring**: Alert on boot sequence changes
 
-### A2/A3 (GPU-Accelerated)
+**When to Enable**:
 
-✅ **Use For:**
+- Production workloads (should be default)
+- Compliance requirements (PCI-DSS, HIPAA)
+- Protection against rootkits and bootkits
+- Minimal performance impact
 
-- Machine learning training
-- Deep learning inference
-- High-performance computing
-- Rendering and visualization
-- Scientific simulations
+### Confidential VMs
 
-❌ **Don't Use For:**
+**Capabilities**:
 
-- General-purpose computing
-- CPU-only workloads
-- Cost-sensitive applications
+- Memory encryption using AMD SEV
+- Isolates VM memory from Google and other VMs
+- Hardware-based protection
 
-## VM Configuration Options
+**Trade-offs**:
+
+- Limited machine types (N2D, C2D)
+- Slight performance overhead
+- Higher cost
+- Use for: Highly sensitive workloads, regulatory requirements
+
+### Sole-Tenant Nodes
+
+**Use Cases**:
+
+- Licensing requirements (per-socket, per-core)
+- Compliance requirements (physical isolation)
+- Performance isolation
+- Workload separation for security
+
+**Considerations**:
+
+- Pay for entire node (all vCPUs), not per VM
+- More expensive than shared tenancy
+- Requires capacity planning
+- Suitable for large, stable workloads
+
+## Network Configuration
+
+### IP Addressing
+
+**Internal IP (Required)**:
+
+- Private RFC 1918 address
+- Assigned from subnet range
+- Used for VPC communication
+- Can be ephemeral or static
+
+**External IP (Optional)**:
+
+- Public internet-routable address
+- Ephemeral (changes on stop/start) or static (reserved)
+- Billed when reserved but not attached
+- Alternative: Cloud NAT for outbound without public IP
+
+### Multiple Network Interfaces
+
+**Capabilities**:
+
+- Up to 8 NICs per VM
+- Each in different VPC network
+- Each with own routing table
+- Each can have internal and external IPs
+
+**Use Cases**:
+
+- Network appliances (firewall, router)
+- DMZ architectures
+- Separate management network
+- Traffic separation for security
+
+**Limitations**:
+
+- Cannot be in same VPC
+- No automatic traffic routing between interfaces
+- Requires application-level routing
+
+## Service Accounts
+
+### Architecture Patterns
+
+**Default Compute Engine Service Account**:
+
+- Auto-created per project
+- Has Editor role by default (too permissive)
+- Used if no SA specified
+- **Don't use for production**
+
+**Custom Service Account (Recommended)**:
+
+- Create per application/workload
+- Grant minimal necessary permissions
+- Principle of least privilege
+- Easier to audit and rotate
+
+**Scopes**:
+
+- Legacy mechanism (being replaced by IAM)
+- Limit API access even with SA permissions
+- Use `cloud-platform` scope + IAM roles (modern approach)
+- Scopes cannot grant more access than IAM roles
+
+## Managed Instance Groups (MIGs)
+
+### Benefits
+
+**Availability**:
+
+- Autohealing with health checks
+- Automatic replacement of unhealthy instances
+- Distribution across zones (regional MIG)
+- No single point of failure
+
+**Scalability**:
+
+- Autoscaling based on metrics
+- Horizontal scaling (add/remove instances)
+- Integration with load balancing
+- Handle traffic spikes automatically
+
+**Management**:
+
+- Rolling updates with version control
+- Canary deployments
+- Consistent configuration via templates
+- Automated operations
+
+### Autoscaling Configuration
+
+**Scaling Policies**:
+
+- CPU utilization (most common)
+- HTTP load balancing utilization
+- Cloud Pub/Sub queue size
+- Custom metrics (Cloud Monitoring)
+- Multiple policies (scales on any)
+
+**Considerations**:
+
+- **Cool-down period**: Prevent thrashing
+- **Min/max instances**: Set boundaries
+- **Scale-in controls**: Prevent rapid scale-down
+- **Target utilization**: 60-70% for headroom
+
+**Architecture Pattern**:
+
+- Use MIG for all production workloads
+- Even single-instance (autohealing benefit)
+- Regional MIG for high availability
+- Combine with load balancer for best results
+
+## Metadata and Startup Scripts
+
+### Metadata Server
+
+**Purpose**:
+
+- Provide instance and project metadata
+- Service account tokens
+- Startup/shutdown scripts
+- Custom key-value pairs
+
+**Security Considerations**:
+
+- Accessible from within VM without authentication
+- Service account tokens available
+- Use Workload Identity for GKE instead
+- Restrict metadata access if needed
+
+### Startup Scripts
+
+**Use Cases**:
+
+- Software installation and configuration
+- Join domain or cluster
+- Register with external services
+- Application deployment
+
+**Best Practices**:
+
+- Idempotent execution
+- Log to serial console
+- Handle failures gracefully
+- Keep minimal (use configuration management)
+- Consider cloud-init or Ansible
+
+## High Availability Patterns
+
+### Single-Zone Architecture
+
+**Characteristics**:
+
+- All VMs in one zone
+- Simplest design
+- Lower cost (no cross-zone traffic)
+- No zone failure protection
+
+**Appropriate for**:
+
+- Development/testing
+- Non-critical workloads
+- Stateful services with external replication
+- When zone failure is acceptable
+
+### Multi-Zone (Regional MIG)
+
+**Characteristics**:
+
+- VMs distributed across 3+ zones
+- Zone failure protection
+- Slightly higher cost (cross-zone traffic)
+- 99.99% availability with load balancer
+
+**Design Considerations**:
+
+- Even distribution vs BALANCED (Google decides)
+- Health check requirements
+- Data replication strategy
+- Shared storage (Filestore, Cloud SQL)
+
+### Multi-Region
+
+**Characteristics**:
+
+- VMs in multiple regions
+- Regional failure protection
+- Global load balancing
+- Higher cost (cross-region egress)
+
+**When Required**:
+
+- Global user base (low latency)
+- Disaster recovery (regional failure)
+- Compliance (data residency)
+- Highest availability requirements
+
+## Performance Considerations
 
 ### CPU Platform
 
-Specify minimum CPU platform:
-
-```bash
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --min-cpu-platform="Intel Ice Lake"
-```
-
-**Available Platforms:**
+**Options**:
 
 - Intel Cascade Lake
 - Intel Ice Lake
 - Intel Sapphire Rapids
-- AMD Milan
-- AMD Genoa
+- AMD Milan, Genoa
 
-### Boot Disk Options
+**Impact**:
 
-**Disk Types:**
+- Newer platforms: Better performance
+- Varies by region/zone
+- Can specify minimum platform
+- Automatic upgrades over time
 
-- **pd-standard**: Standard HDD (cheaper, slower)
-- **pd-balanced**: Balanced SSD (recommended)
-- **pd-ssd**: High-performance SSD
-- **pd-extreme**: Highest performance (custom IOPS)
-- **hyperdisk-balanced**: Next-gen balanced performance
-- **hyperdisk-extreme**: Next-gen extreme performance
+### CPU Overcommitment
 
-**Size Considerations:**
+**Shared-Core Machine Types**:
 
-- Minimum: 10 GB
-- Recommended: 20+ GB for OS and updates
-- Performance scales with size (for pd-standard, pd-balanced, pd-ssd)
+- E2-micro, E2-small, E2-medium
+- Burst capability above baseline
+- Suitable for low-utilization workloads
+- Cost-effective for development
 
-```bash
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --boot-disk-size=50GB \
-  --boot-disk-type=pd-balanced
-```
+**Standard and Higher**:
 
-### Network Configuration
+- Dedicated vCPU allocation
+- Consistent performance
+- Production workloads
+- Predictable behavior
 
-**Network Interfaces:**
+## Compliance and Governance
 
-```bash
-# Single network interface
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --network=my-vpc \
-  --subnet=my-subnet \
-  --private-network-ip=10.0.1.10
+### Data Residency
 
-# No external IP (private only)
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --network=my-vpc \
-  --subnet=my-subnet \
-  --no-address
+**Control Mechanisms**:
 
-# Multiple network interfaces
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --network-interface=network=vpc1,subnet=subnet1 \
-  --network-interface=network=vpc2,subnet=subnet2
-```
+- Choose region for VM placement
+- Boot disk in same region
+- Snapshots can specify location
+- Organization policy constraints
 
-### Metadata and Startup Scripts
+### Labeling Strategy
 
-**Metadata:**
+**Purpose**:
 
-```bash
-# Single metadata item
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --metadata=environment=production,team=platform
+- Cost allocation and tracking
+- Resource organization
+- Automation selection
+- Compliance tagging
 
-# Metadata from file
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --metadata-from-file=startup-script=startup.sh
-```
+**Recommended Labels**:
 
-**Startup Script Example:**
+- environment (prod, staging, dev)
+- team/cost-center
+- application/service
+- compliance-level
+- data-classification
 
-```bash
-#!/bin/bash
+## Exam Focus Areas
 
-# Update packages
-apt-get update
-apt-get upgrade -y
+### Design Decisions
 
-# Install web server
-apt-get install -y nginx
+- Machine type selection criteria
+- When to use Spot VMs
+- HA architecture patterns (single/multi-zone/region)
+- Network design (internal vs external IPs)
 
-# Configure application
-cat > /etc/nginx/sites-available/default <<'EOF'
-server {
-    listen 80 default_server;
-    location / {
-        return 200 'Hello from GCE!\n';
-        add_header Content-Type text/plain;
-    }
-}
-EOF
+### Cost Optimization
 
-# Start service
-systemctl restart nginx
-systemctl enable nginx
-```
+- Right-sizing strategies
+- Committed use vs on-demand
+- Spot VM use cases and limitations
+- Instance scheduling
 
-### Service Accounts
+### Security
 
-**Default Service Account:**
+- Service account best practices
+- Shielded VMs vs Confidential VMs
+- Network isolation patterns
+- IAM role design
 
-```bash
-# Use default compute service account
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --scopes=cloud-platform
-```
+### Scalability
 
-**Custom Service Account:**
+- MIG configuration
+- Autoscaling policies
+- Load balancing integration
+- Regional distribution
 
-```bash
-# Create custom service account
-gcloud iam service-accounts create vm-sa \
-  --display-name="VM Service Account"
+### Operations
 
-# Grant permissions
-gcloud projects add-iam-policy-binding PROJECT_ID \
-  --member="serviceAccount:vm-sa@PROJECT_ID.iam.gserviceaccount.com" \
-  --role="roles/compute.instanceAdmin.v1"
-
-# Create VM with custom SA
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --service-account=vm-sa@PROJECT_ID.iam.gserviceaccount.com \
-  --scopes=cloud-platform
-```
-
-## VM Operations
-
-### Create VM Instances
-
-**Basic Creation:**
-
-```bash
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=e2-medium
-```
-
-**Production VM:**
-
-```bash
-gcloud compute instances create prod-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --image-family=ubuntu-2204-lts \
-  --image-project=ubuntu-os-cloud \
-  --boot-disk-size=50GB \
-  --boot-disk-type=pd-balanced \
-  --network=my-vpc \
-  --subnet=my-subnet \
-  --no-address \
-  --tags=http-server,https-server \
-  --labels=env=production,team=platform \
-  --service-account=vm-sa@PROJECT_ID.iam.gserviceaccount.com \
-  --scopes=cloud-platform \
-  --metadata-from-file=startup-script=startup.sh \
-  --shielded-secure-boot \
-  --shielded-vtpm \
-  --shielded-integrity-monitoring
-```
-
-**Spot VM:**
-
-```bash
-gcloud compute instances create spot-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --preemptible \
-  --instance-termination-action=DELETE
-```
-
-### Manage VM Instances
-
-**List and Describe:**
-
-```bash
-# List all instances
-gcloud compute instances list
-
-# List in specific zone
-gcloud compute instances list --zones=us-central1-a
-
-# Describe instance
-gcloud compute instances describe my-vm --zone=us-central1-a
-
-# Get instance details in JSON
-gcloud compute instances describe my-vm \
-  --zone=us-central1-a \
-  --format=json
-```
-
-**Start, Stop, Reset:**
-
-```bash
-# Stop VM (saves disk state)
-gcloud compute instances stop my-vm --zone=us-central1-a
-
-# Start VM
-gcloud compute instances start my-vm --zone=us-central1-a
-
-# Reset VM (hard reboot)
-gcloud compute instances reset my-vm --zone=us-central1-a
-
-# Suspend VM (beta)
-gcloud compute instances suspend my-vm --zone=us-central1-a
-
-# Resume VM (beta)
-gcloud compute instances resume my-vm --zone=us-central1-a
-```
-
-**Update VM Configuration:**
-
-```bash
-# Change machine type (VM must be stopped)
-gcloud compute instances stop my-vm --zone=us-central1-a
-gcloud compute instances set-machine-type my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-8
-gcloud compute instances start my-vm --zone=us-central1-a
-
-# Add metadata
-gcloud compute instances add-metadata my-vm \
-  --zone=us-central1-a \
-  --metadata=new-key=new-value
-
-# Update labels
-gcloud compute instances update my-vm \
-  --zone=us-central1-a \
-  --update-labels=environment=staging
-
-# Add network tags
-gcloud compute instances add-tags my-vm \
-  --zone=us-central1-a \
-  --tags=web-server,backend
-```
-
-**Delete VM:**
-
-```bash
-# Delete instance
-gcloud compute instances delete my-vm --zone=us-central1-a
-
-# Delete instance but keep boot disk
-gcloud compute instances delete my-vm \
-  --zone=us-central1-a \
-  --keep-disks=boot
-```
-
-### Access VM Instances
-
-**SSH Access:**
-
-```bash
-# SSH with gcloud (recommended)
-gcloud compute ssh my-vm --zone=us-central1-a
-
-# SSH with specific user
-gcloud compute ssh username@my-vm --zone=us-central1-a
-
-# SSH with custom SSH key
-gcloud compute ssh my-vm \
-  --zone=us-central1-a \
-  --ssh-key-file=~/.ssh/my-key
-
-# Run command via SSH
-gcloud compute ssh my-vm \
-  --zone=us-central1-a \
-  --command="sudo systemctl status nginx"
-```
-
-**Serial Console:**
-
-```bash
-# Connect to serial console
-gcloud compute connect-to-serial-port my-vm \
-  --zone=us-central1-a
-
-# View serial port output
-gcloud compute instances get-serial-port-output my-vm \
-  --zone=us-central1-a
-```
-
-**RDP (Windows VMs):**
-
-```bash
-# Get Windows password
-gcloud compute reset-windows-password my-windows-vm \
-  --zone=us-central1-a \
-  --user=admin
-```
-
-## Best Practices
-
-### 1. Right-Sizing VMs
-
-```bash
-# Use Cloud Monitoring recommender
-gcloud recommender recommendations list \
-  --project=PROJECT_ID \
-  --location=us-central1-a \
-  --recommender=google.compute.instance.MachineTypeRecommender
-
-# Start small and scale up
-# Monitor: CPU, memory, disk I/O, network
-# Adjust machine type based on actual usage
-```
-
-### 2. Use Managed Instance Groups
-
-```bash
-# Create instance template
-gcloud compute instance-templates create web-template \
-  --machine-type=n2-standard-4 \
-  --image-family=ubuntu-2204-lts \
-  --image-project=ubuntu-os-cloud \
-  --boot-disk-size=20GB \
-  --tags=http-server
-
-# Create MIG
-gcloud compute instance-groups managed create web-mig \
-  --base-instance-name=web \
-  --template=web-template \
-  --size=3 \
-  --zone=us-central1-a
-
-# Enable autoscaling
-gcloud compute instance-groups managed set-autoscaling web-mig \
-  --zone=us-central1-a \
-  --max-num-replicas=10 \
-  --min-num-replicas=2 \
-  --target-cpu-utilization=0.6
-```
-
-### 3. Use Startup and Shutdown Scripts
-
-**Startup Script:**
-
-```bash
-#!/bin/bash
-set -e
-
-# Wait for network
-while ! ping -c 1 google.com &> /dev/null; do
-    echo "Waiting for network..."
-    sleep 1
-done
-
-# Application setup
-apt-get update
-apt-get install -y nginx
-systemctl start nginx
-```
-
-**Shutdown Script:**
-
-```bash
-#!/bin/bash
-# Save state before shutdown
-pg_dump mydb > /var/backups/db_backup.sql
-gsutil cp /var/backups/db_backup.sql gs://my-bucket/backups/
-```
-
-### 4. Implement Health Checks
-
-```bash
-# Create health check
-gcloud compute health-checks create http http-health-check \
-  --port=80 \
-  --check-interval=10s \
-  --timeout=5s \
-  --healthy-threshold=2 \
-  --unhealthy-threshold=3
-
-# Create firewall rule for health checks
-gcloud compute firewall-rules create allow-health-check \
-  --network=my-vpc \
-  --action=allow \
-  --direction=ingress \
-  --source-ranges=35.191.0.0/16,130.211.0.0/22 \
-  --rules=tcp:80
-```
-
-### 5. Use Labels and Tags
-
-```bash
-# Labels for organization and billing
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --labels=env=production,team=platform,cost-center=engineering
-
-# Tags for firewall rules
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --tags=web-server,backend-service
-```
-
-### 6. Enable Monitoring and Logging
-
-```bash
-# Enable Cloud Monitoring
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --scopes=cloud-platform
-
-# Install monitoring agent (on VM)
-curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
-sudo bash add-google-cloud-ops-agent-repo.sh --also-install
-
-# Configure ops agent
-sudo tee /etc/google-cloud-ops-agent/config.yaml > /dev/null <<EOF
-logging:
-  receivers:
-    syslog:
-      type: files
-      include_paths:
-
-      - /var/log/syslog
-  service:
-    pipelines:
-      default_pipeline:
-        receivers: [syslog]
-metrics:
-  receivers:
-    hostmetrics:
-      type: hostmetrics
-  service:
-    pipelines:
-      default_pipeline:
-        receivers: [hostmetrics]
-EOF
-
-sudo systemctl restart google-cloud-ops-agent
-```
-
-### 7. Security Hardening
-
-```bash
-# Use OS Login instead of SSH keys
-gcloud compute instances add-metadata my-vm \
-  --zone=us-central1-a \
-  --metadata=enable-oslogin=TRUE
-
-# Enable Shielded VM features
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --shielded-secure-boot \
-  --shielded-vtpm \
-  --shielded-integrity-monitoring
-
-# No external IP
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --no-address
-
-# Minimal IAM scopes
-gcloud compute instances create my-vm \
-  --zone=us-central1-a \
-  --machine-type=n2-standard-4 \
-  --scopes=logging-write,monitoring-write
-```
-
-## Troubleshooting
-
-### Instance Won't Start
-
-```bash
-# Check serial console output
-gcloud compute instances get-serial-port-output my-vm \
-  --zone=us-central1-a
-
-# Check operations logs
-gcloud compute operations list \
-  --filter="targetLink:my-vm"
-
-# Verify quotas
-gcloud compute project-info describe \
-  --project=PROJECT_ID
-```
-
-### High CPU or Memory Usage
-
-```bash
-# Check metrics in Cloud Monitoring
-gcloud monitoring time-series list \
-  --filter='metric.type="compute.googleapis.com/instance/cpu/utilization"
-    AND resource.labels.instance_id="INSTANCE_ID"' \
-  --format=json
-
-# SSH and investigate
-gcloud compute ssh my-vm --zone=us-central1-a
-top
-free -m
-df -h
-```
-
-### Network Connectivity Issues
-
-```bash
-# Check firewall rules
-gcloud compute firewall-rules list \
-  --filter="network:my-vpc"
-
-# Test connectivity from VM
-gcloud compute ssh my-vm --zone=us-central1-a
-ping 8.8.8.8
-curl https://www.google.com
-
-# Check routes
-gcloud compute routes list \
-  --filter="network:my-vpc"
-```
-
-## Related Resources
-
-- [Compute Engine Overview](compute-engine-overview.md)
-- [Persistent Disks](compute-engine-disks.md)
-- [Machine Images](compute-engine-images.md)
-- [Snapshots](compute-engine-snapshots.md)
-- [Backups](compute-engine-backups.md)
-- [gcloud CLI](gcloud-cli.md)
+- Update strategies (rolling, canary)
+- Health check design
+- Monitoring and alerting
+- Startup/shutdown scripts
