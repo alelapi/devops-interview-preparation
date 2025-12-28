@@ -9,24 +9,28 @@ Cloud Router is a fully distributed and managed Google Cloud service that uses B
 ## Key Features
 
 ### Dynamic Routing
+
 - **BGP Protocol**: Industry-standard protocol for route exchange
 - **Automatic Route Updates**: Routes automatically updated when topology changes
 - **Multi-Path**: Supports ECMP (Equal-Cost Multi-Path) routing
 - **Route Priorities**: Control route selection with MED and AS-PATH
 
 ### High Availability
+
 - **Fully Managed**: No VMs to manage, patch, or scale
 - **No Single Point of Failure**: Distributed service across Google infrastructure
 - **Redundant BGP Sessions**: Multiple sessions for failover
 - **BFD Support**: Bidirectional Forwarding Detection for fast failure detection
 
 ### Integration
+
 - **Cloud VPN**: Required for dynamic routing with HA VPN
 - **Cloud Interconnect**: Enables BGP for Dedicated and Partner Interconnect
 - **Router Appliances**: Integrates with third-party network virtual appliances
 - **Multiple Interfaces**: Can peer with multiple VPN tunnels or VLAN attachments
 
 ### Route Management
+
 - **Route Advertisement**: Automatically advertises VPC subnet routes
 - **Custom Route Advertisement**: Selectively advertise specific IP ranges
 - **Learned Routes**: Receives routes from on-premises via BGP
@@ -49,12 +53,14 @@ Cloud Router is a fully distributed and managed Google Cloud service that uses B
 ## Route Advertisement Modes
 
 ### Default Mode
+
 - Automatically advertises all subnet routes in the VPC
 - Simple configuration, minimal management
 - Routes added/removed automatically as subnets change
 - Cannot selectively control which subnets to advertise
 
 ### Custom Mode
+
 - Manually specify which IP ranges to advertise
 - Greater control over route advertisement
 - Required for advertising > 250 routes
@@ -62,6 +68,7 @@ Cloud Router is a fully distributed and managed Google Cloud service that uses B
 - Useful for summarizing routes
 
 **Example Use Cases for Custom Mode**:
+
 - Advertising summary routes instead of individual subnets
 - Advertising secondary IP ranges
 - Advertising IP ranges from other VPCs (via VPC peering)
@@ -70,6 +77,7 @@ Cloud Router is a fully distributed and managed Google Cloud service that uses B
 ## BGP Configuration
 
 ### ASN (Autonomous System Number)
+
 - **Cloud Router ASN**: Assigned to the Cloud Router
 - **Peer ASN**: On-premises or partner router ASN
 - **Private ASNs**: 64512-65534 (16-bit), 4200000000-4294967294 (32-bit)
@@ -79,6 +87,7 @@ Cloud Router is a fully distributed and managed Google Cloud service that uses B
 
 ### BGP Peering
 Each BGP session requires:
+
 - **Peer IP**: On-premises router IP (for VPN, automatically assigned)
 - **Peer ASN**: Autonomous System Number of peer router
 - **Interface**: Cloud Router interface (VPN tunnel or VLAN attachment)
@@ -88,12 +97,14 @@ Each BGP session requires:
 ### Route Priorities
 
 **MED (Multi-Exit Discriminator)**:
+
 - Lower MED = higher priority
 - Default: 100
 - Range: 0-4294967295
 - Use case: Prefer specific paths for inbound traffic from on-premises
 
 **AS-PATH Prepending**:
+
 - Configured on peer side (on-premises router)
 - Longer AS path = lower priority
 - Use case: Influence route selection from Cloud Router perspective
@@ -188,6 +199,7 @@ VPC Network
 Cloud Router behavior depends on VPC network's dynamic routing mode:
 
 ### Regional Dynamic Routing (Default)
+
 - Cloud Router **only advertises regional subnet routes**
 - Cloud Router **only programs learned routes in the same region**
 - Use case: Keep traffic regional, reduce inter-region costs
@@ -202,6 +214,7 @@ VPC with Regional Dynamic Routing
 ```
 
 ### Global Dynamic Routing
+
 - Cloud Router **advertises all subnet routes** across all regions
 - Cloud Router **programs learned routes globally** in all regions
 - Use case: Global access to on-premises, multi-region failover
@@ -223,17 +236,20 @@ VPC with Global Dynamic Routing
 Provides fast failure detection (sub-second) for BGP sessions, enabling rapid failover.
 
 ### Configuration
+
 - **Enabled per BGP session**
 - **Min transmit interval**: 1000 ms (default)
 - **Min receive interval**: 1000 ms (default)
 - **Multiplier**: 3 (default) - 3 missed packets = failure
 
 ### Benefits
+
 - Default BGP keepalive (60s) is slow; BFD detects failures in ~3 seconds
 - Faster convergence on path failures
 - Recommended for production deployments
 
 ### When to Enable
+
 - ✅ Production environments requiring high availability
 - ✅ Active-active VPN tunnel configurations
 - ✅ Critical workloads needing fast failover
@@ -274,6 +290,7 @@ Provides fast failure detection (sub-second) for BGP sessions, enabling rapid fa
 ### BGP Session Not Establishing
 
 **Check**:
+
 - Peer ASN configured correctly
 - Interface (tunnel/VLAN) is UP
 - On-premises router BGP configuration
@@ -283,6 +300,7 @@ Provides fast failure detection (sub-second) for BGP sessions, enabling rapid fa
 ### Routes Not Being Advertised
 
 **Check**:
+
 - Cloud Router advertisement mode (default vs custom)
 - VPC dynamic routing mode (regional vs global)
 - Custom route ranges configured correctly
@@ -291,6 +309,7 @@ Provides fast failure detection (sub-second) for BGP sessions, enabling rapid fa
 ### Routes Not Being Learned
 
 **Check**:
+
 - BGP session established
 - On-premises router advertising routes
 - Learned route quota not exceeded
@@ -301,6 +320,7 @@ Provides fast failure detection (sub-second) for BGP sessions, enabling rapid fa
 **Cause**: Different paths for inbound and outbound traffic
 
 **Solutions**:
+
 - Adjust MED values to align inbound path
 - Use AS-PATH prepending on outbound path
 - Review VPC dynamic routing mode

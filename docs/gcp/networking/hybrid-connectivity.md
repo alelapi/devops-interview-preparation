@@ -12,12 +12,14 @@ IPsec VPN tunnels that encrypt traffic between your on-premises network and GCP 
 ### Types
 
 **HA VPN (High Availability VPN)**
+
 - **SLA**: 99.99% availability
 - **Architecture**: Two interfaces, two external IP addresses, redundant tunnels
 - **Routing**: Dynamic (BGP) only
 - **Recommended**: Standard option for production workloads
 
 **Classic VPN**
+
 - **SLA**: 99.9% availability  
 - **Architecture**: Single interface, single external IP
 - **Routing**: Static or dynamic (BGP)
@@ -45,6 +47,7 @@ IPsec VPN tunnels that encrypt traffic between your on-premises network and GCP 
 ### When to Use Cloud VPN
 
 ✅ **Use When:**
+
 - Moderate bandwidth requirements (< 10 Gbps aggregate)
 - Quick setup needed (hours, not weeks)
 - Cost sensitivity (cheaper than Interconnect)
@@ -53,6 +56,7 @@ IPsec VPN tunnels that encrypt traffic between your on-premises network and GCP 
 - Disaster recovery secondary path
 
 ❌ **Don't Use When:**
+
 - Require > 10 Gbps consistent throughput
 - Need lowest possible latency (Interconnect is better)
 - Compliance requires dedicated connection
@@ -68,6 +72,7 @@ Dedicated physical connections between on-premises infrastructure and Google Clo
 ### Types
 
 **Dedicated Interconnect**
+
 - **Connection**: Direct physical connection to Google network
 - **Bandwidth**: 10 Gbps or 100 Gbps per circuit
 - **Location**: Must be in a supported colocation facility
@@ -75,6 +80,7 @@ Dedicated physical connections between on-premises infrastructure and Google Clo
 - **Use Case**: High bandwidth, low latency, dedicated connectivity
 
 **Partner Interconnect**  
+
 - **Connection**: Through supported service provider
 - **Bandwidth**: 50 Mbps to 50 Gbps per VLAN attachment
 - **Location**: Service provider handles physical connectivity
@@ -112,6 +118,7 @@ Dedicated physical connections between on-premises infrastructure and Google Clo
 ### When to Use Cloud Interconnect
 
 ✅ **Use Dedicated Interconnect When:**
+
 - Require > 10 Gbps bandwidth
 - Already have presence in Google colocation facility
 - Need lowest latency to Google Cloud
@@ -120,6 +127,7 @@ Dedicated physical connections between on-premises infrastructure and Google Clo
 - Predictable network performance required
 
 ✅ **Use Partner Interconnect When:**
+
 - Need > 3 Gbps but not near Google colocation
 - Want managed service from network provider
 - Need flexible bandwidth (can start small, scale up)
@@ -127,6 +135,7 @@ Dedicated physical connections between on-premises infrastructure and Google Clo
 - Provider already serves your location
 
 ❌ **Don't Use Interconnect When:**
+
 - Bandwidth requirements < 1 Gbps (VPN more cost-effective)
 - Quick POC or temporary project
 - Budget constraints (VPN is cheaper)
@@ -185,12 +194,14 @@ Backup:    On-Premises ══ HA VPN ══════════════=
 ## Configuration Requirements
 
 ### Cloud Router
+
 - **Required**: For dynamic routing (BGP) with VPN and Interconnect
 - **ASN**: Private ASN (64512-65534, 4200000000-4294967294) or public ASN
 - **BGP Sessions**: One per tunnel/VLAN attachment
 - **Route Advertisement**: Automatically advertises VPC subnet routes
 
 ### BGP Configuration
+
 - **BGP Peer**: Configure on-premises router and Cloud Router
 - **ASN**: Unique ASN for on-premises and Cloud Router
 - **MD5 Authentication**: Optional but recommended
@@ -198,6 +209,7 @@ Backup:    On-Premises ══ HA VPN ══════════════=
 - **BFD**: Enable for faster failure detection (sub-second)
 
 ### Firewall Considerations
+
 - Allow IKE (UDP 500, 4500) for VPN
 - Allow BGP (TCP 179) if using dynamic routing
 - Configure VPC firewall rules for on-premises IP ranges
@@ -241,11 +253,13 @@ Backup:    On-Premises ══ HA VPN ══════════════=
 ## Cost Optimization
 
 **Cloud VPN**
+
 - Charged per tunnel hour + egress bandwidth
 - Multiple tunnels increase cost (but provide redundancy)
 - Egress to on-premises charged at internet egress rates
 
 **Cloud Interconnect**
+
 - Dedicated: Fixed port fee + egress bandwidth (discounted)
 - Partner: Varies by provider + egress bandwidth
 - Generally cheaper egress rates than VPN at scale

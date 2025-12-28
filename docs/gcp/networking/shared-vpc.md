@@ -9,12 +9,14 @@ Shared VPC allows an organization to connect resources from multiple service pro
 ## Key Features
 
 ### Organizational
+
 - **Centralized Network Administration**: Network team manages all network resources in one place
 - **Separation of Concerns**: IAM separation between network admins and resource admins
 - **Project-Level Billing**: Service projects maintain separate billing despite using shared network
 - **Cross-Project Resource Creation**: VMs in service projects use subnets from host project
 
 ### Network Capabilities
+
 - **Shared Subnets**: Service projects can use host project subnets
 - **Private IP Address Management**: Centralized IP address space planning
 - **Firewall Rules**: Centralized or delegated firewall rule management
@@ -22,6 +24,7 @@ Shared VPC allows an organization to connect resources from multiple service pro
 - **Hybrid Connectivity**: Single point for VPN/Interconnect setup benefiting all service projects
 
 ### Security & Access Control
+
 - **Subnet-Level IAM**: Granular permissions at subnet level
 - **Service Project Admins**: Limited to resource creation, not network changes
 - **Organizational Policy**: Can enforce Shared VPC usage across organization
@@ -42,11 +45,13 @@ Shared VPC allows an organization to connect resources from multiple service pro
 ## IAM Roles
 
 ### Host Project Roles
+
 - **`roles/compute.xpnAdmin`**: Shared VPC Admin (org/folder level) - enables/disables host projects
 - **`roles/compute.networkAdmin`**: Network Admin - manages network resources in host project
 - **`roles/compute.securityAdmin`**: Security Admin - manages firewall rules
 
 ### Service Project Roles
+
 - **`roles/compute.networkUser`**: Allows creating resources using shared subnets
 - **`roles/compute.instanceAdmin`**: Create instances but needs networkUser for Shared VPC subnets
 
@@ -200,16 +205,19 @@ Non-Production Host Project
 ## Troubleshooting Common Issues
 
 **Permission Denied Creating Resources**
+
 - Verify service project is attached to host project
 - Check IAM permissions on specific subnet
 - Ensure service account has `compute.networkUser` role
 
 **Cannot See Shared Subnets**
+
 - Confirm subnet is in same region as resource
 - Verify IAM permissions at subnet level
 - Check if using correct subnet reference format
 
 **Firewall Rules Not Working**
+
 - Verify target tags exist on resources in service projects
 - Check if hierarchical firewall policies apply
 - Confirm source/destination ranges include service project IPs

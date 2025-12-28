@@ -7,6 +7,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 ## Role Hierarchy
 
 ### Primitive Roles (Avoid for Production)
+
 - **Owner**: Full access (too permissive)
 - **Editor**: Modify resources (too permissive)
 - **Viewer**: Read-only access (acceptable for read operations)
@@ -22,6 +23,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Full control over networking resources
 
 **Can**:
+
 - Create, modify, delete VPC networks, subnets, routes
 - Configure firewall rules, firewall policies
 - Manage VPN gateways, tunnels, Cloud Routers
@@ -32,12 +34,14 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 - Administer Private Google Access settings
 
 **Cannot**:
+
 - Create instances (requires `compute.instanceAdmin`)
 - Modify organization policies
 - Manage billing
 - Create Shared VPC host projects (requires `compute.xpnAdmin`)
 
 **Use Case**:
+
 - Network administrators managing VPC infrastructure
 - Platform teams responsible for network design and implementation
 - DevOps engineers managing cloud networking
@@ -51,18 +55,21 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Use existing network resources but cannot create or modify them
 
 **Can**:
+
 - Use VPC subnets to create instances
 - Attach instances to existing subnets
 - View network, subnet, route information (read-only)
 - Use shared VPC subnets (critical for service projects)
 
 **Cannot**:
+
 - Create or delete networks, subnets
 - Modify firewall rules
 - Create VPN or load balancers
 - Change network configurations
 
 **Use Case**:
+
 - Application teams creating VMs in service projects
 - Developers deploying workloads to existing infrastructure
 - Service accounts for GKE, Cloud Run needing network access
@@ -79,6 +86,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Read-only access to networking resources
 
 **Can**:
+
 - View VPC networks, subnets, routes
 - View firewall rules and policies
 - View VPN gateways, Cloud Routers, load balancers
@@ -86,10 +94,12 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 - Access networking metrics and logs (if logging viewer role also granted)
 
 **Cannot**:
+
 - Create, modify, or delete any resources
 - Use network resources to create instances
 
 **Use Case**:
+
 - Auditors reviewing network configurations
 - Read-only access for troubleshooting
 - Security teams reviewing firewall rules
@@ -104,6 +114,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Manage security-related networking resources
 
 **Can**:
+
 - Create, modify, delete firewall rules
 - Manage SSL certificates and SSL policies
 - Configure Cloud Armor security policies
@@ -111,11 +122,13 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 - View network resources (read-only)
 
 **Cannot**:
+
 - Create or modify VPC networks, subnets
 - Create VPN or load balancers (only security configs)
 - Modify routes
 
 **Use Case**:
+
 - Security teams managing firewall rules
 - Compliance teams enforcing security policies
 - Separation of duties (security vs networking)
@@ -131,15 +144,18 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Enable and manage Shared VPC configuration
 
 **Can**:
+
 - Enable/disable a project as Shared VPC host
 - Attach/detach service projects to host projects
 - View Shared VPC configuration
 
 **Cannot**:
+
 - Create networks or subnets (requires `networkAdmin`)
 - Grant networkUser role (requires IAM admin permissions)
 
 **Use Case**:
+
 - Organization admins setting up Shared VPC
 - Platform teams managing multi-project architectures
 
@@ -154,6 +170,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Pattern**: Combine multiple roles for service project administrators
 
 **Typical Combination**:
+
 - `roles/compute.instanceAdmin`: Create VMs
 - `roles/compute.networkUser`: Use shared subnets (granted on host project subnets)
 - `roles/iam.serviceAccountUser`: Attach service accounts
@@ -169,6 +186,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Manage load balancing resources
 
 **Can**:
+
 - Create, modify, delete load balancers
 - Configure backend services, health checks
 - Manage SSL certificates for load balancers
@@ -176,10 +194,12 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 - Manage network endpoint groups (NEGs)
 
 **Cannot**:
+
 - Modify VPC networks or subnets
 - Create instances (backend resources)
 
 **Use Case**:
+
 - Application teams managing their own load balancers
 - Separation of duties for load balancer management
 
@@ -190,15 +210,18 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Manage external IP addresses
 
 **Can**:
+
 - Reserve and release external IP addresses
 - Promote ephemeral IPs to static
 - View IP address usage
 
 **Cannot**:
+
 - Attach IPs to instances (requires instance admin)
 - Modify networks or subnets
 
 **Use Case**:
+
 - IP address management teams
 - Resource optimization (releasing unused IPs)
 
@@ -209,15 +232,18 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Manage private service connections
 
 **Can**:
+
 - Create Private Service Connect endpoints
 - Configure private IP allocations for Google services
 - Manage peered VPC connections for managed services (e.g., Cloud SQL)
 - Configure Private Service Connect forwarding rules
 
 **Cannot**:
+
 - Modify VPC networks (requires `networkAdmin`)
 
 **Use Case**:
+
 - Platform teams configuring private access to Google services
 - Database administrators setting up Cloud SQL private IP
 
@@ -228,15 +254,18 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 **Permissions**: Manage Cloud DNS resources
 
 **Can**:
+
 - Create, modify, delete DNS zones
 - Manage DNS records
 - Configure DNS peering
 - Manage DNS policies (split horizon, inbound/outbound forwarding)
 
 **Cannot**:
+
 - Modify VPC networks directly (but can peer DNS zones)
 
 **Use Case**:
+
 - DNS administrators managing internal and external DNS
 - Multi-cloud DNS integration
 
@@ -247,12 +276,14 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 ### When to Create Custom Roles
 
 ✅ **Use Custom Roles When**:
+
 - Predefined roles are too permissive
 - Need specific combination of permissions
 - Compliance requires fine-grained access control
 - Implementing least-privilege security model
 
 ❌ **Avoid Custom Roles When**:
+
 - Predefined roles meet requirements
 - Organization lacks resources to maintain custom roles
 - Complexity outweighs security benefits
@@ -265,6 +296,7 @@ IAM (Identity and Access Management) controls who can perform what actions on wh
 title: "VPN Operator"
 description: "Manage VPN tunnels and Cloud Routers"
 includedPermissions:
+
   - compute.vpnGateways.*
   - compute.vpnTunnels.*
   - compute.routers.*
@@ -284,6 +316,7 @@ includedPermissions:
 title: "Firewall Rule Manager"
 description: "Create and modify firewall rules only"
 includedPermissions:
+
   - compute.firewalls.*
   - compute.networks.get
   - compute.networks.list
@@ -295,6 +328,7 @@ includedPermissions:
 ## IAM Best Practices for Networking
 
 ### 1. Principle of Least Privilege
+
 - Grant minimum permissions needed
 - Use predefined roles when possible
 - Create custom roles for specific needs
@@ -360,6 +394,7 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
 ```
 
 ### 5. Audit and Review
+
 - Regularly review IAM bindings
 - Use Cloud Asset Inventory for IAM audits
 - Enable audit logging for IAM changes
@@ -372,12 +407,15 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
 
 ```
 Network Admins Group:
+
   - roles/compute.networkAdmin (VPC, subnets, routes, VPN)
 
 Security Admins Group:
+
   - roles/compute.securityAdmin (firewall rules, SSL policies)
 
 Shared VPC Admins Group:
+
   - roles/compute.xpnAdmin (Shared VPC management)
   - roles/compute.networkAdmin (network resources)
 ```
@@ -510,6 +548,7 @@ gcloud projects add-iam-policy-binding PROJECT_ID \
 ✅ **Good**: Granting `roles/compute.networkAdmin`
 
 ### 2. Protect Sensitive Resources
+
 - Use organizational policies to enforce controls
 - Require approval for firewall rule changes
 - Implement four-eyes principle for production changes
@@ -523,6 +562,7 @@ gcloud logging sinks create iam-policy-changes \
 ```
 
 ### 4. Rotate Service Account Keys
+
 - Use short-lived credentials when possible
 - Rotate long-lived keys regularly
 - Use Workload Identity for GKE instead of service account keys
@@ -531,6 +571,7 @@ gcloud logging sinks create iam-policy-changes \
 ```yaml
 # Example: Grant networkAdmin only from corporate network
 bindings:
+
   - members:
       - group:network-admins@example.com
     role: roles/compute.networkAdmin

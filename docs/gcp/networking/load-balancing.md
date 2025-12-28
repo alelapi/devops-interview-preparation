@@ -7,14 +7,17 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 ## Load Balancer Types Overview
 
 ### Global vs Regional
+
 - **Global**: Serve users globally from multiple regions, single anycast IP
 - **Regional**: Serve users within a single region, useful for internal services
 
 ### External vs Internal  
+
 - **External**: Accept traffic from the internet
 - **Internal**: Accept traffic only from within VPC or connected networks
 
 ### Layer 4 vs Layer 7
+
 - **Layer 4 (Network/Transport)**: TCP/UDP, connection-based routing
 - **Layer 7 (Application)**: HTTP(S), content-based routing, URL mapping
 
@@ -27,6 +30,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 **Description**: Global Layer 7 load balancer for HTTP(S) traffic with content-based routing.
 
 **Key Features**:
+
 - **Global load balancing**: Single anycast IP serves worldwide
 - **SSL/TLS termination**: Managed certificates with automatic renewal
 - **Content-based routing**: URL maps, host rules, path rules
@@ -46,6 +50,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 | Maximum request size | 32 KB (headers + URL) |
 
 **When to Use**:
+
 - ✅ Global web applications with users worldwide
 - ✅ Need content-based routing (different paths to different backends)
 - ✅ Require SSL termination and certificate management
@@ -53,6 +58,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 - ✅ Need DDoS protection and WAF
 
 **When Not to Use**:
+
 - ❌ Non-HTTP traffic (use Network Load Balancer)
 - ❌ Internal-only traffic (use Internal Application Load Balancer)
 - ❌ UDP traffic (use Network Load Balancer)
@@ -62,6 +68,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 **Description**: Regional Layer 7 load balancer for internal HTTP(S) traffic within VPC.
 
 **Key Features**:
+
 - **Private load balancing**: Internal IP addresses only
 - **Regional**: Serves traffic within a region
 - **Cross-region support**: Can access backends in other regions
@@ -69,6 +76,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 - **Shared VPC support**: Can be in host or service project
 
 **When to Use**:
+
 - ✅ Microservices architectures within VPC
 - ✅ Private APIs and internal applications
 - ✅ Service mesh deployments (with Traffic Director)
@@ -83,10 +91,12 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 **Description**: Regional Layer 4 load balancer for TCP/UDP traffic, high performance and low latency.
 
 **Types**:
+
 - **Premium Tier**: Anycast IP, global access
 - **Standard Tier**: Regional IP, regional access
 
 **Key Features**:
+
 - **Pass-through**: Preserves client IP addresses
 - **High throughput**: Millions of requests per second
 - **UDP support**: Gaming, streaming, DNS
@@ -102,6 +112,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 | Backends per backend service | 250 |
 
 **When to Use**:
+
 - ✅ Non-HTTP(S) protocols (TCP/UDP)
 - ✅ Need to preserve client IP
 - ✅ SSL passthrough required (SSL/TLS handled by backend)
@@ -113,16 +124,19 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 **Description**: Regional Layer 4 load balancer for internal TCP/UDP traffic within VPC.
 
 **Types**:
+
 - **Standard**: Basic internal load balancing
 - **Advanced**: Enhanced features, multi-subnet support
 
 **Key Features**:
+
 - **Private IPs**: Only accessible within VPC
 - **High performance**: Low latency, high throughput
 - **Failover**: Automatic with health checks
 - **Multi-subnet**: Backends can be in different subnets (Advanced)
 
 **When to Use**:
+
 - ✅ Internal databases, message queues
 - ✅ Private TCP/UDP services
 - ✅ High-performance internal applications
@@ -137,12 +151,14 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 **Description**: Global or Regional Layer 4 proxy for TCP traffic with SSL termination.
 
 **Key Features**:
+
 - **TCP proxy**: Terminates TCP connections
 - **SSL offloading**: Terminate SSL at load balancer
 - **Global**: Single anycast IP, route to nearest backend
 - **Long-lived connections**: Optimized for persistent connections
 
 **When to Use**:
+
 - ✅ Non-HTTP TCP traffic that needs SSL termination
 - ✅ Global applications on custom TCP ports
 - ✅ Need SSL offloading for TCP applications
@@ -153,6 +169,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined managed ser
 **Description**: Regional Layer 4 proxy for internal TCP traffic.
 
 **When to Use**:
+
 - ✅ Internal TCP applications needing SSL termination
 - ✅ Private WebSocket services
 - ✅ Cross-region backend support with internal IPs
@@ -233,6 +250,7 @@ Internal Application Load Balancer
 ## Key Concepts
 
 ### Backend Services
+
 - **Health checks**: Determine backend availability
 - **Session affinity**: Stick users to same backend
 - **Connection draining**: Graceful shutdown, complete existing connections
@@ -240,6 +258,7 @@ Internal Application Load Balancer
 - **Load balancing mode**: RATE, UTILIZATION, or CONNECTION based
 
 ### Backend Types
+
 - **Instance groups**: Managed or unmanaged VM groups
 - **Zonal NEGs**: Endpoints in specific zones (GCE VMs, GKE pods)
 - **Internet NEGs**: External endpoints (on-prem, other clouds)
@@ -247,6 +266,7 @@ Internal Application Load Balancer
 - **Hybrid NEGs**: PSC-based endpoints
 
 ### Health Checks
+
 - **Protocol**: HTTP, HTTPS, TCP, SSL, HTTP/2
 - **Interval**: Time between health checks
 - **Timeout**: Time to wait for response  
@@ -254,6 +274,7 @@ Internal Application Load Balancer
 - **Unhealthy threshold**: Consecutive failures to mark unhealthy
 
 ### URL Maps (HTTP(S) Load Balancers)
+
 - **Host rules**: Route based on hostname
 - **Path matchers**: Route based on URL path
 - **Path rules**: Specific path patterns
@@ -314,15 +335,18 @@ Internal Application Load Balancer
 ## Pricing Considerations
 
 **Application Load Balancers**:
+
 - Forwarding rules (per hour)
 - Data processing (per GB)
 - Cloud CDN cache fill and egress (if enabled)
 
 **Network Load Balancers**:
+
 - Forwarding rules (per hour)
 - No data processing charges (passthrough)
 
 **General Tips**:
+
 - Internal load balancers cheaper than external
 - Data processing charges can be significant for HTTP(S) LBs
 - Cloud CDN reduces origin traffic and data processing

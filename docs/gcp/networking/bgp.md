@@ -9,6 +9,7 @@ BGP is the standard exterior gateway protocol used to exchange routing informati
 ## BGP Fundamentals
 
 ### Autonomous System (AS)
+
 - **Definition**: Collection of IP networks under single administrative control
 - **ASN**: Unique number identifying the AS
 - **Types**:
@@ -18,12 +19,14 @@ BGP is the standard exterior gateway protocol used to exchange routing informati
 ### BGP Session Types
 
 **eBGP (External BGP)**:
+
 - Between different autonomous systems
 - Default: On-premises AS to Google Cloud AS
 - TTL: 1 (directly connected peers)
 - Use case: Cloud VPN, Cloud Interconnect
 
 **iBGP (Internal BGP)**:
+
 - Within same autonomous system
 - TTL: Maximum (255)
 - Use case: Less common in GCP, more for traditional networks
@@ -63,10 +66,12 @@ BGP selects the best path using these criteria in order:
 When creating a Cloud Router, you specify an ASN:
 
 **Private ASN Ranges**:
+
 - **16-bit**: 64512 - 65534 (for compatibility)
 - **32-bit**: 4200000000 - 4294967294 (recommended)
 
 **Best Practices**:
+
 - Use 32-bit private ASN (4-byte ASN) for better uniqueness
 - Document ASN assignments across your organization
 - Ensure Cloud Router ASN differs from peer ASN
@@ -78,6 +83,7 @@ Each BGP session requires:
 
 ```yaml
 Cloud Router Configuration:
+
   - Router ASN: 64512 (example)
   - Interface: VPN tunnel or VLAN attachment
   - Peer ASN: 65001 (on-premises ASN)
@@ -88,6 +94,7 @@ Cloud Router Configuration:
 ```
 
 **On-Premises Router Configuration**:
+
 - Must configure complementary BGP session
 - Neighbor IP: Cloud Router's interface IP
 - Neighbor ASN: Cloud Router's ASN
@@ -98,11 +105,13 @@ Cloud Router Configuration:
 ### From Cloud Router to On-Premises
 
 **Default Mode**:
+
 - Advertises all VPC subnet routes automatically
 - Regional routing: Only subnets in the same region
 - Global routing: All subnets in all regions
 
 **Custom Mode**:
+
 - Manually specify IP ranges to advertise
 - Can advertise:
   - VPC subnet ranges
@@ -113,11 +122,13 @@ Cloud Router Configuration:
 **Example**:
 ```
 VPC Subnets:
+
   - 10.1.0.0/24
   - 10.2.0.0/24
   - 10.3.0.0/24
 
 Custom Advertisement:
+
   - 10.0.0.0/8 (summary route instead of individual /24s)
 ```
 
@@ -139,15 +150,18 @@ MED influences **inbound traffic** (from on-premises to GCP):
 **Configuration on Cloud Router**:
 ```
 Cloud Router 1 (Primary Path):
+
   - Advertised Route Priority: 50 (lower = preferred)
 
 Cloud Router 2 (Backup Path):
+
   - Advertised Route Priority: 100 (higher = less preferred)
 ```
 
 **Result**: On-premises router prefers routes via Cloud Router 1.
 
 **Important**:
+
 - Lower MED = higher priority
 - MED is compared only for routes from same neighboring AS
 - Default MED: 100
@@ -159,9 +173,11 @@ AS-PATH prepending influences **outbound traffic** (from GCP to on-premises):
 **Configuration on On-Premises Router**:
 ```
 Primary Path:
+
   - Advertise: 192.168.0.0/16 (AS-PATH: 65001)
 
 Backup Path:
+
   - Advertise: 192.168.0.0/16 (AS-PATH: 65001 65001 65001)
   - Prepend AS 65001 twice to make path "longer"
 ```
@@ -171,12 +187,14 @@ Backup Path:
 ### Active-Active vs Active-Passive
 
 **Active-Active**:
+
 - Equal cost multi-path (ECMP)
 - Same MED values on both paths
 - Traffic load-balanced across both paths
 - Use case: Maximize bandwidth, high availability
 
 **Active-Passive**:
+
 - Primary path with lower MED
 - Backup path with higher MED
 - Traffic uses primary path unless it fails
@@ -186,10 +204,12 @@ Backup Path:
 
 ### Purpose
 Fast failure detection for BGP sessions:
+
 - BGP keepalive: 60 seconds (slow)
 - BFD: 1-3 seconds (fast)
 
 ### How It Works
+
 - Lightweight "hello" packets exchanged between peers
 - Independent of BGP protocol
 - Detects link/path failures quickly
@@ -199,6 +219,7 @@ Fast failure detection for BGP sessions:
 
 ```yaml
 BGP Session:
+
   - BFD: Enabled
   - Min Transmit Interval: 1000 ms (default)
   - Min Receive Interval: 1000 ms (default)
@@ -208,6 +229,7 @@ BGP Session:
 **Calculation**: 3 missed packets × 1000ms = ~3 second failure detection
 
 ### When to Use BFD
+
 - ✅ Production environments
 - ✅ Active-active configurations requiring fast failover
 - ✅ Critical workloads with HA requirements
@@ -222,6 +244,7 @@ BGP Session:
 **Solution**:
 ```
 Cloud Router BGP Sessions:
+
   - Tunnel 1: MED = 50
   - Tunnel 2: MED = 100
 
@@ -235,10 +258,12 @@ On-premises routes traffic via Tunnel 1 (lower MED preferred).
 **Solution**:
 ```
 Cloud Router US (us-central1):
+
   - Advertises US subnets with MED = 50
   - Advertises EU subnets with MED = 100
 
 Cloud Router EU (europe-west1):
+
   - Advertises EU subnets with MED = 50
   - Advertises US subnets with MED = 100
 
@@ -252,6 +277,7 @@ On-premises router learns both, prefers regional routes (lower MED).
 **Solution**:
 ```
 On-Premises Router:
+
   - Primary path: AS-PATH = 65001
   - Backup path: AS-PATH = 65001 65001 65001 (prepended)
 
@@ -265,6 +291,7 @@ Cloud Router prefers primary (shorter AS-PATH).
 **Solution**:
 ```
 Cloud Router:
+
   - Tunnel 1: MED = 100
   - Tunnel 2: MED = 100
   - Tunnel 3: MED = 100
@@ -297,6 +324,7 @@ router bgp 65001
 ```
 
 **Best Practices**:
+
 - Use strong, random keys (16+ characters)
 - Store keys securely (secrets management)
 - Rotate keys periodically
@@ -317,36 +345,42 @@ router bgp 65001
 ## Best Practices
 
 ### 1. ASN Planning
+
 - Document all ASN assignments
 - Use 32-bit ASNs to avoid conflicts
 - Reserve ASN ranges for different purposes (prod, dev, regions)
 - Ensure uniqueness across entire network
 
 ### 2. Route Management
+
 - Start with default advertisement, move to custom if needed
 - Use route summarization to reduce route count
 - Monitor learned routes against quotas
 - Implement route filtering on both sides
 
 ### 3. Redundancy
+
 - Configure multiple BGP sessions per Cloud Router
 - Use diverse physical paths when possible
 - Enable BFD for fast failover
 - Test failover scenarios regularly
 
 ### 4. Traffic Engineering
+
 - Document MED and AS-PATH configurations
 - Use consistent MED values for similar paths
 - Avoid excessive AS-PATH prepending (3x max)
 - Monitor traffic flow and adjust as needed
 
 ### 5. Security
+
 - Enable MD5 authentication on all BGP sessions
 - Use firewall rules to restrict BGP peers
 - Monitor BGP session status for anomalies
 - Regular security audits of BGP configurations
 
 ### 6. Monitoring
+
 - Set up alerts for BGP session down
 - Monitor route count approaching limits
 - Track route flapping (unstable routes)
@@ -359,6 +393,7 @@ router bgp 65001
 **Symptoms**: BGP state stuck in "Idle" or "Active"
 
 **Common Causes**:
+
 1. ASN mismatch (peer ASN incorrect)
 2. MD5 authentication mismatch
 3. Incorrect peer IP address
@@ -382,6 +417,7 @@ gcloud compute routers describe ROUTER_NAME --region=REGION
 **Symptoms**: Expected routes missing from routing table
 
 **Common Causes**:
+
 1. VPC dynamic routing mode (regional vs global)
 2. Custom advertisement not configured
 3. Route quota exceeded
@@ -406,12 +442,14 @@ gcloud compute routers get-status ROUTER_NAME --region=REGION \
 **Symptoms**: Inbound and outbound traffic taking different paths
 
 **Diagnosis**:
+
 - Use VPC Flow Logs to trace traffic paths
 - Check MED values on all BGP sessions
 - Verify AS-PATH prepending configuration
 - Review on-premises routing policy
 
 **Solutions**:
+
 - Adjust MED to align inbound path with outbound
 - Modify AS-PATH prepending on outbound path
 - Ensure symmetric route advertisements

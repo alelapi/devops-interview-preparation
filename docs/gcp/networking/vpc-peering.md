@@ -9,6 +9,7 @@ VPC Network Peering enables private RFC 1918 connectivity across two VPC network
 ## Key Features
 
 ### Connectivity
+
 - **Private IP Communication**: Resources communicate using internal IPs without traversing the public internet
 - **Cross-Project/Organization**: Peering works across different projects and organizations
 - **Bidirectional**: Traffic can flow in both directions once established
@@ -16,12 +17,14 @@ VPC Network Peering enables private RFC 1918 connectivity across two VPC network
 - **Transitive Peering**: NOT supported - if VPC A peers with B, and B peers with C, A cannot reach C
 
 ### Performance & Security
+
 - **Low Latency**: Private Google network backbone
 - **No Bandwidth Bottleneck**: No aggregated bandwidth limit
 - **Firewall Control**: Each VPC maintains its own firewall rules
 - **No Encryption**: Traffic is private but not encrypted (use application-level encryption if needed)
 
 ### Administrative
+
 - **Independent Management**: Each VPC admin controls their own network
 - **Subnet Expansion**: Can expand subnet ranges after peering is established
 - **Import/Export Custom Routes**: Optional custom route exchange
