@@ -7186,16 +7186,20 @@
 <h3 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h3>
 <p>IPsec VPN tunnels that encrypt traffic between your on-premises network and GCP VPC over the public internet.</p>
 <h3 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h3>
-<p><strong>HA VPN (High Availability VPN)</strong>
-- <strong>SLA</strong>: 99.99% availability
-- <strong>Architecture</strong>: Two interfaces, two external IP addresses, redundant tunnels
-- <strong>Routing</strong>: Dynamic (BGP) only
-- <strong>Recommended</strong>: Standard option for production workloads</p>
-<p><strong>Classic VPN</strong>
-- <strong>SLA</strong>: 99.9% availability<br />
-- <strong>Architecture</strong>: Single interface, single external IP
-- <strong>Routing</strong>: Static or dynamic (BGP)
-- <strong>Status</strong>: Legacy, HA VPN preferred</p>
+<p><strong>HA VPN (High Availability VPN)</strong></p>
+<ul>
+<li><strong>SLA</strong>: 99.99% availability</li>
+<li><strong>Architecture</strong>: Two interfaces, two external IP addresses, redundant tunnels</li>
+<li><strong>Routing</strong>: Dynamic (BGP) only</li>
+<li><strong>Recommended</strong>: Standard option for production workloads</li>
+</ul>
+<p><strong>Classic VPN</strong></p>
+<ul>
+<li><strong>SLA</strong>: 99.9% availability  </li>
+<li><strong>Architecture</strong>: Single interface, single external IP</li>
+<li><strong>Routing</strong>: Static or dynamic (BGP)</li>
+<li><strong>Status</strong>: Legacy, HA VPN preferred</li>
+</ul>
 <h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Encryption</strong>: IPsec tunnel with IKEv1 or IKEv2</li>
@@ -7243,35 +7247,43 @@
 </tbody>
 </table>
 <h3 id="when-to-use-cloud-vpn">When to Use Cloud VPN<a class="headerlink" href="#when-to-use-cloud-vpn" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use When:</strong>
-- Moderate bandwidth requirements (&lt; 10 Gbps aggregate)
-- Quick setup needed (hours, not weeks)
-- Cost sensitivity (cheaper than Interconnect)
-- Geographic flexibility (works anywhere with internet)
-- Temporary connectivity needs
-- Disaster recovery secondary path</p>
-<p>❌ <strong>Don&rsquo;t Use When:</strong>
-- Require &gt; 10 Gbps consistent throughput
-- Need lowest possible latency (Interconnect is better)
-- Compliance requires dedicated connection
-- Require 99.99% SLA with deterministic routing (use Dedicated Interconnect)</p>
+<p>✅ <strong>Use When:</strong></p>
+<ul>
+<li>Moderate bandwidth requirements (&lt; 10 Gbps aggregate)</li>
+<li>Quick setup needed (hours, not weeks)</li>
+<li>Cost sensitivity (cheaper than Interconnect)</li>
+<li>Geographic flexibility (works anywhere with internet)</li>
+<li>Temporary connectivity needs</li>
+<li>Disaster recovery secondary path</li>
+</ul>
+<p>❌ <strong>Don&rsquo;t Use When:</strong></p>
+<ul>
+<li>Require &gt; 10 Gbps consistent throughput</li>
+<li>Need lowest possible latency (Interconnect is better)</li>
+<li>Compliance requires dedicated connection</li>
+<li>Require 99.99% SLA with deterministic routing (use Dedicated Interconnect)</li>
+</ul>
 <hr />
 <h2 id="cloud-interconnect">Cloud Interconnect<a class="headerlink" href="#cloud-interconnect" title="Permanent link">&para;</a></h2>
 <h3 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h3>
 <p>Dedicated physical connections between on-premises infrastructure and Google Cloud, providing higher bandwidth and lower latency than VPN.</p>
 <h3 id="types_1">Types<a class="headerlink" href="#types_1" title="Permanent link">&para;</a></h3>
-<p><strong>Dedicated Interconnect</strong>
-- <strong>Connection</strong>: Direct physical connection to Google network
-- <strong>Bandwidth</strong>: 10 Gbps or 100 Gbps per circuit
-- <strong>Location</strong>: Must be in a supported colocation facility
-- <strong>SLA</strong>: 99.99% with proper redundancy configuration
-- <strong>Use Case</strong>: High bandwidth, low latency, dedicated connectivity</p>
-<p><strong>Partner Interconnect</strong><br />
-- <strong>Connection</strong>: Through supported service provider
-- <strong>Bandwidth</strong>: 50 Mbps to 50 Gbps per VLAN attachment
-- <strong>Location</strong>: Service provider handles physical connectivity
-- <strong>SLA</strong>: 99.99% with proper redundancy (depends on provider)
-- <strong>Use Case</strong>: When not near Google edge location, or need managed service</p>
+<p><strong>Dedicated Interconnect</strong></p>
+<ul>
+<li><strong>Connection</strong>: Direct physical connection to Google network</li>
+<li><strong>Bandwidth</strong>: 10 Gbps or 100 Gbps per circuit</li>
+<li><strong>Location</strong>: Must be in a supported colocation facility</li>
+<li><strong>SLA</strong>: 99.99% with proper redundancy configuration</li>
+<li><strong>Use Case</strong>: High bandwidth, low latency, dedicated connectivity</li>
+</ul>
+<p><strong>Partner Interconnect</strong>  </p>
+<ul>
+<li><strong>Connection</strong>: Through supported service provider</li>
+<li><strong>Bandwidth</strong>: 50 Mbps to 50 Gbps per VLAN attachment</li>
+<li><strong>Location</strong>: Service provider handles physical connectivity</li>
+<li><strong>SLA</strong>: 99.99% with proper redundancy (depends on provider)</li>
+<li><strong>Use Case</strong>: When not near Google edge location, or need managed service</li>
+</ul>
 <h3 id="key-features_1">Key Features<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Private Connectivity</strong>: Traffic doesn&rsquo;t traverse public internet</li>
@@ -7342,24 +7354,30 @@
 </tbody>
 </table>
 <h3 id="when-to-use-cloud-interconnect">When to Use Cloud Interconnect<a class="headerlink" href="#when-to-use-cloud-interconnect" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use Dedicated Interconnect When:</strong>
-- Require &gt; 10 Gbps bandwidth
-- Already have presence in Google colocation facility
-- Need lowest latency to Google Cloud
-- Large-scale enterprise workloads
-- Compliance requires dedicated physical connection
-- Predictable network performance required</p>
-<p>✅ <strong>Use Partner Interconnect When:</strong>
-- Need &gt; 3 Gbps but not near Google colocation
-- Want managed service from network provider
-- Need flexible bandwidth (can start small, scale up)
-- Faster deployment than Dedicated Interconnect
-- Provider already serves your location</p>
-<p>❌ <strong>Don&rsquo;t Use Interconnect When:</strong>
-- Bandwidth requirements &lt; 1 Gbps (VPN more cost-effective)
-- Quick POC or temporary project
-- Budget constraints (VPN is cheaper)
-- Geographic distance makes latency gains negligible</p>
+<p>✅ <strong>Use Dedicated Interconnect When:</strong></p>
+<ul>
+<li>Require &gt; 10 Gbps bandwidth</li>
+<li>Already have presence in Google colocation facility</li>
+<li>Need lowest latency to Google Cloud</li>
+<li>Large-scale enterprise workloads</li>
+<li>Compliance requires dedicated physical connection</li>
+<li>Predictable network performance required</li>
+</ul>
+<p>✅ <strong>Use Partner Interconnect When:</strong></p>
+<ul>
+<li>Need &gt; 3 Gbps but not near Google colocation</li>
+<li>Want managed service from network provider</li>
+<li>Need flexible bandwidth (can start small, scale up)</li>
+<li>Faster deployment than Dedicated Interconnect</li>
+<li>Provider already serves your location</li>
+</ul>
+<p>❌ <strong>Don&rsquo;t Use Interconnect When:</strong></p>
+<ul>
+<li>Bandwidth requirements &lt; 1 Gbps (VPN more cost-effective)</li>
+<li>Quick POC or temporary project</li>
+<li>Budget constraints (VPN is cheaper)</li>
+<li>Geographic distance makes latency gains negligible</li>
+</ul>
 <hr />
 <h2 id="architecture-patterns">Architecture Patterns<a class="headerlink" href="#architecture-patterns" title="Permanent link">&para;</a></h2>
 <h3 id="ha-vpn-with-redundancy">HA VPN with Redundancy<a class="headerlink" href="#ha-vpn-with-redundancy" title="Permanent link">&para;</a></h3>
@@ -7516,15 +7534,19 @@ Backup:    On-Premises ══ HA VPN ══════════════=
 </ol>
 <hr />
 <h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
-<p><strong>Cloud VPN</strong>
-- Charged per tunnel hour + egress bandwidth
-- Multiple tunnels increase cost (but provide redundancy)
-- Egress to on-premises charged at internet egress rates</p>
-<p><strong>Cloud Interconnect</strong>
-- Dedicated: Fixed port fee + egress bandwidth (discounted)
-- Partner: Varies by provider + egress bandwidth
-- Generally cheaper egress rates than VPN at scale
-- Break-even typically around 1-3 Gbps sustained traffic</p>
+<p><strong>Cloud VPN</strong></p>
+<ul>
+<li>Charged per tunnel hour + egress bandwidth</li>
+<li>Multiple tunnels increase cost (but provide redundancy)</li>
+<li>Egress to on-premises charged at internet egress rates</li>
+</ul>
+<p><strong>Cloud Interconnect</strong></p>
+<ul>
+<li>Dedicated: Fixed port fee + egress bandwidth (discounted)</li>
+<li>Partner: Varies by provider + egress bandwidth</li>
+<li>Generally cheaper egress rates than VPN at scale</li>
+<li>Break-even typically around 1-3 Gbps sustained traffic</li>
+</ul>
 <hr />
 <h2 id="related-services">Related Services<a class="headerlink" href="#related-services" title="Permanent link">&para;</a></h2>
 <ul>

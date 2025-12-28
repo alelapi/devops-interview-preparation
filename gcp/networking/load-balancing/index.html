@@ -7292,14 +7292,16 @@
 <h2 id="application-load-balancer-layer-7">Application Load Balancer (Layer 7)<a class="headerlink" href="#application-load-balancer-layer-7" title="Permanent link">&para;</a></h2>
 <h3 id="external-application-load-balancer-global">External Application Load Balancer (Global)<a class="headerlink" href="#external-application-load-balancer-global" title="Permanent link">&para;</a></h3>
 <p><strong>Description</strong>: Global Layer 7 load balancer for HTTP(S) traffic with content-based routing.</p>
-<p><strong>Key Features</strong>:
-- <strong>Global load balancing</strong>: Single anycast IP serves worldwide
-- <strong>SSL/TLS termination</strong>: Managed certificates with automatic renewal
-- <strong>Content-based routing</strong>: URL maps, host rules, path rules
-- <strong>Cloud CDN integration</strong>: Caching at Google edge locations
-- <strong>Cloud Armor</strong>: DDoS protection and WAF capabilities
-- <strong>Backend types</strong>: Instance groups, NEGs (zonal, internet, serverless)
-- <strong>HTTP/2 and HTTP/3</strong>: Modern protocol support</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li><strong>Global load balancing</strong>: Single anycast IP serves worldwide</li>
+<li><strong>SSL/TLS termination</strong>: Managed certificates with automatic renewal</li>
+<li><strong>Content-based routing</strong>: URL maps, host rules, path rules</li>
+<li><strong>Cloud CDN integration</strong>: Caching at Google edge locations</li>
+<li><strong>Cloud Armor</strong>: DDoS protection and WAF capabilities</li>
+<li><strong>Backend types</strong>: Instance groups, NEGs (zonal, internet, serverless)</li>
+<li><strong>HTTP/2 and HTTP/3</strong>: Modern protocol support</li>
+</ul>
 <p><strong>Limits</strong>:</p>
 <table>
 <thead>
@@ -7331,42 +7333,54 @@
 </tr>
 </tbody>
 </table>
-<p><strong>When to Use</strong>:
-- ✅ Global web applications with users worldwide
-- ✅ Need content-based routing (different paths to different backends)
-- ✅ Require SSL termination and certificate management
-- ✅ Want Cloud CDN for static content
-- ✅ Need DDoS protection and WAF</p>
-<p><strong>When Not to Use</strong>:
-- ❌ Non-HTTP traffic (use Network Load Balancer)
-- ❌ Internal-only traffic (use Internal Application Load Balancer)
-- ❌ UDP traffic (use Network Load Balancer)</p>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>✅ Global web applications with users worldwide</li>
+<li>✅ Need content-based routing (different paths to different backends)</li>
+<li>✅ Require SSL termination and certificate management</li>
+<li>✅ Want Cloud CDN for static content</li>
+<li>✅ Need DDoS protection and WAF</li>
+</ul>
+<p><strong>When Not to Use</strong>:</p>
+<ul>
+<li>❌ Non-HTTP traffic (use Network Load Balancer)</li>
+<li>❌ Internal-only traffic (use Internal Application Load Balancer)</li>
+<li>❌ UDP traffic (use Network Load Balancer)</li>
+</ul>
 <h3 id="internal-application-load-balancer-regional">Internal Application Load Balancer (Regional)<a class="headerlink" href="#internal-application-load-balancer-regional" title="Permanent link">&para;</a></h3>
 <p><strong>Description</strong>: Regional Layer 7 load balancer for internal HTTP(S) traffic within VPC.</p>
-<p><strong>Key Features</strong>:
-- <strong>Private load balancing</strong>: Internal IP addresses only
-- <strong>Regional</strong>: Serves traffic within a region
-- <strong>Cross-region support</strong>: Can access backends in other regions
-- <strong>Service mesh integration</strong>: Works with Traffic Director
-- <strong>Shared VPC support</strong>: Can be in host or service project</p>
-<p><strong>When to Use</strong>:
-- ✅ Microservices architectures within VPC
-- ✅ Private APIs and internal applications
-- ✅ Service mesh deployments (with Traffic Director)
-- ✅ Multi-tier applications (frontend to backend)</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li><strong>Private load balancing</strong>: Internal IP addresses only</li>
+<li><strong>Regional</strong>: Serves traffic within a region</li>
+<li><strong>Cross-region support</strong>: Can access backends in other regions</li>
+<li><strong>Service mesh integration</strong>: Works with Traffic Director</li>
+<li><strong>Shared VPC support</strong>: Can be in host or service project</li>
+</ul>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>✅ Microservices architectures within VPC</li>
+<li>✅ Private APIs and internal applications</li>
+<li>✅ Service mesh deployments (with Traffic Director)</li>
+<li>✅ Multi-tier applications (frontend to backend)</li>
+</ul>
 <hr />
 <h2 id="network-load-balancer-layer-4">Network Load Balancer (Layer 4)<a class="headerlink" href="#network-load-balancer-layer-4" title="Permanent link">&para;</a></h2>
 <h3 id="external-network-load-balancer-regional">External Network Load Balancer (Regional)<a class="headerlink" href="#external-network-load-balancer-regional" title="Permanent link">&para;</a></h3>
 <p><strong>Description</strong>: Regional Layer 4 load balancer for TCP/UDP traffic, high performance and low latency.</p>
-<p><strong>Types</strong>:
-- <strong>Premium Tier</strong>: Anycast IP, global access
-- <strong>Standard Tier</strong>: Regional IP, regional access</p>
-<p><strong>Key Features</strong>:
-- <strong>Pass-through</strong>: Preserves client IP addresses
-- <strong>High throughput</strong>: Millions of requests per second
-- <strong>UDP support</strong>: Gaming, streaming, DNS
-- <strong>SSL/TLS</strong>: Not terminated (passes through to backends)
-- <strong>Session affinity</strong>: Client IP, client IP and protocol, client IP-port-proto</p>
+<p><strong>Types</strong>:</p>
+<ul>
+<li><strong>Premium Tier</strong>: Anycast IP, global access</li>
+<li><strong>Standard Tier</strong>: Regional IP, regional access</li>
+</ul>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li><strong>Pass-through</strong>: Preserves client IP addresses</li>
+<li><strong>High throughput</strong>: Millions of requests per second</li>
+<li><strong>UDP support</strong>: Gaming, streaming, DNS</li>
+<li><strong>SSL/TLS</strong>: Not terminated (passes through to backends)</li>
+<li><strong>Session affinity</strong>: Client IP, client IP and protocol, client IP-port-proto</li>
+</ul>
 <p><strong>Limits</strong>:</p>
 <table>
 <thead>
@@ -7390,47 +7404,61 @@
 </tr>
 </tbody>
 </table>
-<p><strong>When to Use</strong>:
-- ✅ Non-HTTP(S) protocols (TCP/UDP)
-- ✅ Need to preserve client IP
-- ✅ SSL passthrough required (SSL/TLS handled by backend)
-- ✅ High-performance gaming, streaming applications
-- ✅ Custom protocols on non-standard ports</p>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>✅ Non-HTTP(S) protocols (TCP/UDP)</li>
+<li>✅ Need to preserve client IP</li>
+<li>✅ SSL passthrough required (SSL/TLS handled by backend)</li>
+<li>✅ High-performance gaming, streaming applications</li>
+<li>✅ Custom protocols on non-standard ports</li>
+</ul>
 <h3 id="internal-network-load-balancer-regional">Internal Network Load Balancer (Regional)<a class="headerlink" href="#internal-network-load-balancer-regional" title="Permanent link">&para;</a></h3>
 <p><strong>Description</strong>: Regional Layer 4 load balancer for internal TCP/UDP traffic within VPC.</p>
-<p><strong>Types</strong>:
-- <strong>Standard</strong>: Basic internal load balancing
-- <strong>Advanced</strong>: Enhanced features, multi-subnet support</p>
-<p><strong>Key Features</strong>:
-- <strong>Private IPs</strong>: Only accessible within VPC
-- <strong>High performance</strong>: Low latency, high throughput
-- <strong>Failover</strong>: Automatic with health checks
-- <strong>Multi-subnet</strong>: Backends can be in different subnets (Advanced)</p>
-<p><strong>When to Use</strong>:
-- ✅ Internal databases, message queues
-- ✅ Private TCP/UDP services
-- ✅ High-performance internal applications
-- ✅ Load balancing for self-managed databases</p>
+<p><strong>Types</strong>:</p>
+<ul>
+<li><strong>Standard</strong>: Basic internal load balancing</li>
+<li><strong>Advanced</strong>: Enhanced features, multi-subnet support</li>
+</ul>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li><strong>Private IPs</strong>: Only accessible within VPC</li>
+<li><strong>High performance</strong>: Low latency, high throughput</li>
+<li><strong>Failover</strong>: Automatic with health checks</li>
+<li><strong>Multi-subnet</strong>: Backends can be in different subnets (Advanced)</li>
+</ul>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>✅ Internal databases, message queues</li>
+<li>✅ Private TCP/UDP services</li>
+<li>✅ High-performance internal applications</li>
+<li>✅ Load balancing for self-managed databases</li>
+</ul>
 <hr />
 <h2 id="proxy-network-load-balancer-layer-4">Proxy Network Load Balancer (Layer 4)<a class="headerlink" href="#proxy-network-load-balancer-layer-4" title="Permanent link">&para;</a></h2>
 <h3 id="external-proxy-network-load-balancer-globalregional">External Proxy Network Load Balancer (Global/Regional)<a class="headerlink" href="#external-proxy-network-load-balancer-globalregional" title="Permanent link">&para;</a></h3>
 <p><strong>Description</strong>: Global or Regional Layer 4 proxy for TCP traffic with SSL termination.</p>
-<p><strong>Key Features</strong>:
-- <strong>TCP proxy</strong>: Terminates TCP connections
-- <strong>SSL offloading</strong>: Terminate SSL at load balancer
-- <strong>Global</strong>: Single anycast IP, route to nearest backend
-- <strong>Long-lived connections</strong>: Optimized for persistent connections</p>
-<p><strong>When to Use</strong>:
-- ✅ Non-HTTP TCP traffic that needs SSL termination
-- ✅ Global applications on custom TCP ports
-- ✅ Need SSL offloading for TCP applications
-- ✅ WebSocket connections</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li><strong>TCP proxy</strong>: Terminates TCP connections</li>
+<li><strong>SSL offloading</strong>: Terminate SSL at load balancer</li>
+<li><strong>Global</strong>: Single anycast IP, route to nearest backend</li>
+<li><strong>Long-lived connections</strong>: Optimized for persistent connections</li>
+</ul>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>✅ Non-HTTP TCP traffic that needs SSL termination</li>
+<li>✅ Global applications on custom TCP ports</li>
+<li>✅ Need SSL offloading for TCP applications</li>
+<li>✅ WebSocket connections</li>
+</ul>
 <h3 id="internal-proxy-network-load-balancer-regional">Internal Proxy Network Load Balancer (Regional)<a class="headerlink" href="#internal-proxy-network-load-balancer-regional" title="Permanent link">&para;</a></h3>
 <p><strong>Description</strong>: Regional Layer 4 proxy for internal TCP traffic.</p>
-<p><strong>When to Use</strong>:
-- ✅ Internal TCP applications needing SSL termination
-- ✅ Private WebSocket services
-- ✅ Cross-region backend support with internal IPs</p>
+<p><strong>When to Use</strong>:</p>
+<ul>
+<li>✅ Internal TCP applications needing SSL termination</li>
+<li>✅ Private WebSocket services</li>
+<li>✅ Cross-region backend support with internal IPs</li>
+</ul>
 <hr />
 <h2 id="decision-matrix">Decision Matrix<a class="headerlink" href="#decision-matrix" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>                    Traffic Source
@@ -7648,18 +7676,24 @@ Internal Application Load Balancer
 </ol>
 <hr />
 <h2 id="pricing-considerations">Pricing Considerations<a class="headerlink" href="#pricing-considerations" title="Permanent link">&para;</a></h2>
-<p><strong>Application Load Balancers</strong>:
-- Forwarding rules (per hour)
-- Data processing (per GB)
-- Cloud CDN cache fill and egress (if enabled)</p>
-<p><strong>Network Load Balancers</strong>:
-- Forwarding rules (per hour)
-- No data processing charges (passthrough)</p>
-<p><strong>General Tips</strong>:
-- Internal load balancers cheaper than external
-- Data processing charges can be significant for HTTP(S) LBs
-- Cloud CDN reduces origin traffic and data processing
-- Consider regional vs global based on user distribution</p>
+<p><strong>Application Load Balancers</strong>:</p>
+<ul>
+<li>Forwarding rules (per hour)</li>
+<li>Data processing (per GB)</li>
+<li>Cloud CDN cache fill and egress (if enabled)</li>
+</ul>
+<p><strong>Network Load Balancers</strong>:</p>
+<ul>
+<li>Forwarding rules (per hour)</li>
+<li>No data processing charges (passthrough)</li>
+</ul>
+<p><strong>General Tips</strong>:</p>
+<ul>
+<li>Internal load balancers cheaper than external</li>
+<li>Data processing charges can be significant for HTTP(S) LBs</li>
+<li>Cloud CDN reduces origin traffic and data processing</li>
+<li>Consider regional vs global based on user distribution</li>
+</ul>
 <hr />
 <h2 id="related-services">Related Services<a class="headerlink" href="#related-services" title="Permanent link">&para;</a></h2>
 <ul>

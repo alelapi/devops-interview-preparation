@@ -7310,18 +7310,24 @@ gcloud<span class="w"> </span>compute<span class="w"> </span>networks<span class
 <li>Establish process for onboarding new service projects</li>
 </ol>
 <h2 id="troubleshooting-common-issues">Troubleshooting Common Issues<a class="headerlink" href="#troubleshooting-common-issues" title="Permanent link">&para;</a></h2>
-<p><strong>Permission Denied Creating Resources</strong>
-- Verify service project is attached to host project
-- Check IAM permissions on specific subnet
-- Ensure service account has <code>compute.networkUser</code> role</p>
-<p><strong>Cannot See Shared Subnets</strong>
-- Confirm subnet is in same region as resource
-- Verify IAM permissions at subnet level
-- Check if using correct subnet reference format</p>
-<p><strong>Firewall Rules Not Working</strong>
-- Verify target tags exist on resources in service projects
-- Check if hierarchical firewall policies apply
-- Confirm source/destination ranges include service project IPs</p>
+<p><strong>Permission Denied Creating Resources</strong></p>
+<ul>
+<li>Verify service project is attached to host project</li>
+<li>Check IAM permissions on specific subnet</li>
+<li>Ensure service account has <code>compute.networkUser</code> role</li>
+</ul>
+<p><strong>Cannot See Shared Subnets</strong></p>
+<ul>
+<li>Confirm subnet is in same region as resource</li>
+<li>Verify IAM permissions at subnet level</li>
+<li>Check if using correct subnet reference format</li>
+</ul>
+<p><strong>Firewall Rules Not Working</strong></p>
+<ul>
+<li>Verify target tags exist on resources in service projects</li>
+<li>Check if hierarchical firewall policies apply</li>
+<li>Confirm source/destination ranges include service project IPs</li>
+</ul>
 <h2 id="related-services">Related Services<a class="headerlink" href="#related-services" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>VPC Peering</strong>: Host project can peer with other VPCs</li>

@@ -7593,11 +7593,13 @@
 <li>Can advertise routes outside VPC CIDR ranges</li>
 <li>Useful for summarizing routes</li>
 </ul>
-<p><strong>Example Use Cases for Custom Mode</strong>:
-- Advertising summary routes instead of individual subnets
-- Advertising secondary IP ranges
-- Advertising IP ranges from other VPCs (via VPC peering)
-- Limiting route advertisements to specific subnets</p>
+<p><strong>Example Use Cases for Custom Mode</strong>:</p>
+<ul>
+<li>Advertising summary routes instead of individual subnets</li>
+<li>Advertising secondary IP ranges</li>
+<li>Advertising IP ranges from other VPCs (via VPC peering)</li>
+<li>Limiting route advertisements to specific subnets</li>
+</ul>
 <h2 id="bgp-configuration">BGP Configuration<a class="headerlink" href="#bgp-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="asn-autonomous-system-number">ASN (Autonomous System Number)<a class="headerlink" href="#asn-autonomous-system-number" title="Permanent link">&para;</a></h3>
 <ul>
@@ -7608,22 +7610,28 @@
 </ul>
 <p><strong>Important</strong>: ASN must be unique across your BGP topology. Cloud Router and peer must have different ASNs.</p>
 <h3 id="bgp-peering">BGP Peering<a class="headerlink" href="#bgp-peering" title="Permanent link">&para;</a></h3>
-<p>Each BGP session requires:
-- <strong>Peer IP</strong>: On-premises router IP (for VPN, automatically assigned)
-- <strong>Peer ASN</strong>: Autonomous System Number of peer router
-- <strong>Interface</strong>: Cloud Router interface (VPN tunnel or VLAN attachment)
-- <strong>Advertised Route Priority</strong>: MED value for this session
-- <strong>MD5 Authentication</strong>: Optional but recommended for security</p>
+<p>Each BGP session requires:</p>
+<ul>
+<li><strong>Peer IP</strong>: On-premises router IP (for VPN, automatically assigned)</li>
+<li><strong>Peer ASN</strong>: Autonomous System Number of peer router</li>
+<li><strong>Interface</strong>: Cloud Router interface (VPN tunnel or VLAN attachment)</li>
+<li><strong>Advertised Route Priority</strong>: MED value for this session</li>
+<li><strong>MD5 Authentication</strong>: Optional but recommended for security</li>
+</ul>
 <h3 id="route-priorities">Route Priorities<a class="headerlink" href="#route-priorities" title="Permanent link">&para;</a></h3>
-<p><strong>MED (Multi-Exit Discriminator)</strong>:
-- Lower MED = higher priority
-- Default: 100
-- Range: 0-4294967295
-- Use case: Prefer specific paths for inbound traffic from on-premises</p>
-<p><strong>AS-PATH Prepending</strong>:
-- Configured on peer side (on-premises router)
-- Longer AS path = lower priority
-- Use case: Influence route selection from Cloud Router perspective</p>
+<p><strong>MED (Multi-Exit Discriminator)</strong>:</p>
+<ul>
+<li>Lower MED = higher priority</li>
+<li>Default: 100</li>
+<li>Range: 0-4294967295</li>
+<li>Use case: Prefer specific paths for inbound traffic from on-premises</li>
+</ul>
+<p><strong>AS-PATH Prepending</strong>:</p>
+<ul>
+<li>Configured on peer side (on-premises router)</li>
+<li>Longer AS path = lower priority</li>
+<li>Use case: Influence route selection from Cloud Router perspective</li>
+</ul>
 <h2 id="when-to-use">When to Use<a class="headerlink" href="#when-to-use" title="Permanent link">&para;</a></h2>
 <h3 id="use-cloud-router-when">✅ Use Cloud Router When:<a class="headerlink" href="#use-cloud-router-when" title="Permanent link">&para;</a></h3>
 <ol>
@@ -7815,31 +7823,39 @@ Route Preference: Regional (routes preferred in same region)
 </ol>
 <h2 id="troubleshooting-common-issues">Troubleshooting Common Issues<a class="headerlink" href="#troubleshooting-common-issues" title="Permanent link">&para;</a></h2>
 <h3 id="bgp-session-not-establishing">BGP Session Not Establishing<a class="headerlink" href="#bgp-session-not-establishing" title="Permanent link">&para;</a></h3>
-<p><strong>Check</strong>:
-- Peer ASN configured correctly
-- Interface (tunnel/VLAN) is UP
-- On-premises router BGP configuration
-- MD5 authentication matches (if used)
-- Firewall allows BGP (TCP 179)</p>
+<p><strong>Check</strong>:</p>
+<ul>
+<li>Peer ASN configured correctly</li>
+<li>Interface (tunnel/VLAN) is UP</li>
+<li>On-premises router BGP configuration</li>
+<li>MD5 authentication matches (if used)</li>
+<li>Firewall allows BGP (TCP 179)</li>
+</ul>
 <h3 id="routes-not-being-advertised">Routes Not Being Advertised<a class="headerlink" href="#routes-not-being-advertised" title="Permanent link">&para;</a></h3>
-<p><strong>Check</strong>:
-- Cloud Router advertisement mode (default vs custom)
-- VPC dynamic routing mode (regional vs global)
-- Custom route ranges configured correctly
-- Route quota not exceeded</p>
+<p><strong>Check</strong>:</p>
+<ul>
+<li>Cloud Router advertisement mode (default vs custom)</li>
+<li>VPC dynamic routing mode (regional vs global)</li>
+<li>Custom route ranges configured correctly</li>
+<li>Route quota not exceeded</li>
+</ul>
 <h3 id="routes-not-being-learned">Routes Not Being Learned<a class="headerlink" href="#routes-not-being-learned" title="Permanent link">&para;</a></h3>
-<p><strong>Check</strong>:
-- BGP session established
-- On-premises router advertising routes
-- Learned route quota not exceeded
-- Route priority/AS-PATH not causing rejection</p>
+<p><strong>Check</strong>:</p>
+<ul>
+<li>BGP session established</li>
+<li>On-premises router advertising routes</li>
+<li>Learned route quota not exceeded</li>
+<li>Route priority/AS-PATH not causing rejection</li>
+</ul>
 <h3 id="asymmetric-routing">Asymmetric Routing<a class="headerlink" href="#asymmetric-routing" title="Permanent link">&para;</a></h3>
 <p><strong>Cause</strong>: Different paths for inbound and outbound traffic</p>
-<p><strong>Solutions</strong>:
-- Adjust MED values to align inbound path
-- Use AS-PATH prepending on outbound path
-- Review VPC dynamic routing mode
-- Check for multiple Cloud Routers with different priorities</p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li>Adjust MED values to align inbound path</li>
+<li>Use AS-PATH prepending on outbound path</li>
+<li>Review VPC dynamic routing mode</li>
+<li>Check for multiple Cloud Routers with different priorities</li>
+</ul>
 <h2 id="cost-considerations">Cost Considerations<a class="headerlink" href="#cost-considerations" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>No direct charge</strong> for Cloud Router itself</li>

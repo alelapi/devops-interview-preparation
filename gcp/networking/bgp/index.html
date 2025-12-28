@@ -7649,15 +7649,19 @@
 <li><strong>Private ASN</strong>: For internal use only (64512-65534, 4200000000-4294967294)</li>
 </ul>
 <h3 id="bgp-session-types">BGP Session Types<a class="headerlink" href="#bgp-session-types" title="Permanent link">&para;</a></h3>
-<p><strong>eBGP (External BGP)</strong>:
-- Between different autonomous systems
-- Default: On-premises AS to Google Cloud AS
-- TTL: 1 (directly connected peers)
-- Use case: Cloud VPN, Cloud Interconnect</p>
-<p><strong>iBGP (Internal BGP)</strong>:
-- Within same autonomous system
-- TTL: Maximum (255)
-- Use case: Less common in GCP, more for traditional networks</p>
+<p><strong>eBGP (External BGP)</strong>:</p>
+<ul>
+<li>Between different autonomous systems</li>
+<li>Default: On-premises AS to Google Cloud AS</li>
+<li>TTL: 1 (directly connected peers)</li>
+<li>Use case: Cloud VPN, Cloud Interconnect</li>
+</ul>
+<p><strong>iBGP (Internal BGP)</strong>:</p>
+<ul>
+<li>Within same autonomous system</li>
+<li>TTL: Maximum (255)</li>
+<li>Use case: Less common in GCP, more for traditional networks</li>
+</ul>
 <h3 id="bgp-attributes">BGP Attributes<a class="headerlink" href="#bgp-attributes" title="Permanent link">&para;</a></h3>
 <p>BGP uses various attributes to determine best path selection:</p>
 <ol>
@@ -7686,17 +7690,22 @@
 <h2 id="bgp-in-google-cloud">BGP in Google Cloud<a class="headerlink" href="#bgp-in-google-cloud" title="Permanent link">&para;</a></h2>
 <h3 id="cloud-router-asn-configuration">Cloud Router ASN Configuration<a class="headerlink" href="#cloud-router-asn-configuration" title="Permanent link">&para;</a></h3>
 <p>When creating a Cloud Router, you specify an ASN:</p>
-<p><strong>Private ASN Ranges</strong>:
-- <strong>16-bit</strong>: 64512 - 65534 (for compatibility)
-- <strong>32-bit</strong>: 4200000000 - 4294967294 (recommended)</p>
-<p><strong>Best Practices</strong>:
-- Use 32-bit private ASN (4-byte ASN) for better uniqueness
-- Document ASN assignments across your organization
-- Ensure Cloud Router ASN differs from peer ASN
-- Use consistent ASN scheme (e.g., 4200000000 + project_number)</p>
+<p><strong>Private ASN Ranges</strong>:</p>
+<ul>
+<li><strong>16-bit</strong>: 64512 - 65534 (for compatibility)</li>
+<li><strong>32-bit</strong>: 4200000000 - 4294967294 (recommended)</li>
+</ul>
+<p><strong>Best Practices</strong>:</p>
+<ul>
+<li>Use 32-bit private ASN (4-byte ASN) for better uniqueness</li>
+<li>Document ASN assignments across your organization</li>
+<li>Ensure Cloud Router ASN differs from peer ASN</li>
+<li>Use consistent ASN scheme (e.g., 4200000000 + project_number)</li>
+</ul>
 <h3 id="bgp-session-configuration">BGP Session Configuration<a class="headerlink" href="#bgp-session-configuration" title="Permanent link">&para;</a></h3>
 <p>Each BGP session requires:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">Cloud Router Configuration</span><span class="p">:</span>
+
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Router ASN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">64512 (example)</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VPN tunnel or VLAN attachment</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Peer ASN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">65001 (on-premises ASN)</span>
@@ -7705,31 +7714,39 @@
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">MD5 Authentication</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional shared secret</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">BFD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enabled/Disabled</span>
 </code></pre></div>
-<p><strong>On-Premises Router Configuration</strong>:
-- Must configure complementary BGP session
-- Neighbor IP: Cloud Router&rsquo;s interface IP
-- Neighbor ASN: Cloud Router&rsquo;s ASN
-- Route advertisement: On-premises networks to advertise</p>
+<p><strong>On-Premises Router Configuration</strong>:</p>
+<ul>
+<li>Must configure complementary BGP session</li>
+<li>Neighbor IP: Cloud Router&rsquo;s interface IP</li>
+<li>Neighbor ASN: Cloud Router&rsquo;s ASN</li>
+<li>Route advertisement: On-premises networks to advertise</li>
+</ul>
 <h2 id="route-advertisement">Route Advertisement<a class="headerlink" href="#route-advertisement" title="Permanent link">&para;</a></h2>
 <h3 id="from-cloud-router-to-on-premises">From Cloud Router to On-Premises<a class="headerlink" href="#from-cloud-router-to-on-premises" title="Permanent link">&para;</a></h3>
-<p><strong>Default Mode</strong>:
-- Advertises all VPC subnet routes automatically
-- Regional routing: Only subnets in the same region
-- Global routing: All subnets in all regions</p>
-<p><strong>Custom Mode</strong>:
-- Manually specify IP ranges to advertise
-- Can advertise:
-  - VPC subnet ranges
-  - Secondary subnet ranges
-  - Custom IP ranges
-  - Summary routes (supernets)</p>
+<p><strong>Default Mode</strong>:</p>
+<ul>
+<li>Advertises all VPC subnet routes automatically</li>
+<li>Regional routing: Only subnets in the same region</li>
+<li>Global routing: All subnets in all regions</li>
+</ul>
+<p><strong>Custom Mode</strong>:</p>
+<ul>
+<li>Manually specify IP ranges to advertise</li>
+<li>Can advertise:</li>
+<li>VPC subnet ranges</li>
+<li>Secondary subnet ranges</li>
+<li>Custom IP ranges</li>
+<li>Summary routes (supernets)</li>
+</ul>
 <p><strong>Example</strong>:
 <div class="highlight"><pre><span></span><code>VPC Subnets:
+
   - 10.1.0.0/24
   - 10.2.0.0/24
   - 10.3.0.0/24
 
 Custom Advertisement:
+
   - 10.0.0.0/8 (summary route instead of individual /24s)
 </code></pre></div></p>
 <h3 id="from-on-premises-to-cloud-router">From On-Premises to Cloud Router<a class="headerlink" href="#from-on-premises-to-cloud-router" title="Permanent link">&para;</a></h3>
@@ -7745,43 +7762,55 @@ Custom Advertisement:
 <p>MED influences <strong>inbound traffic</strong> (from on-premises to GCP):</p>
 <p><strong>Configuration on Cloud Router</strong>:
 <div class="highlight"><pre><span></span><code>Cloud Router 1 (Primary Path):
+
   - Advertised Route Priority: 50 (lower = preferred)
 
 Cloud Router 2 (Backup Path):
+
   - Advertised Route Priority: 100 (higher = less preferred)
 </code></pre></div></p>
 <p><strong>Result</strong>: On-premises router prefers routes via Cloud Router 1.</p>
-<p><strong>Important</strong>:
-- Lower MED = higher priority
-- MED is compared only for routes from same neighboring AS
-- Default MED: 100</p>
+<p><strong>Important</strong>:</p>
+<ul>
+<li>Lower MED = higher priority</li>
+<li>MED is compared only for routes from same neighboring AS</li>
+<li>Default MED: 100</li>
+</ul>
 <h3 id="using-as-path-prepending">Using AS-PATH Prepending<a class="headerlink" href="#using-as-path-prepending" title="Permanent link">&para;</a></h3>
 <p>AS-PATH prepending influences <strong>outbound traffic</strong> (from GCP to on-premises):</p>
 <p><strong>Configuration on On-Premises Router</strong>:
 <div class="highlight"><pre><span></span><code>Primary Path:
+
   - Advertise: 192.168.0.0/16 (AS-PATH: 65001)
 
 Backup Path:
+
   - Advertise: 192.168.0.0/16 (AS-PATH: 65001 65001 65001)
   - Prepend AS 65001 twice to make path &quot;longer&quot;
 </code></pre></div></p>
 <p><strong>Result</strong>: Cloud Router prefers routes via primary path (shorter AS-PATH).</p>
 <h3 id="active-active-vs-active-passive">Active-Active vs Active-Passive<a class="headerlink" href="#active-active-vs-active-passive" title="Permanent link">&para;</a></h3>
-<p><strong>Active-Active</strong>:
-- Equal cost multi-path (ECMP)
-- Same MED values on both paths
-- Traffic load-balanced across both paths
-- Use case: Maximize bandwidth, high availability</p>
-<p><strong>Active-Passive</strong>:
-- Primary path with lower MED
-- Backup path with higher MED
-- Traffic uses primary path unless it fails
-- Use case: Controlled failover, predictable routing</p>
+<p><strong>Active-Active</strong>:</p>
+<ul>
+<li>Equal cost multi-path (ECMP)</li>
+<li>Same MED values on both paths</li>
+<li>Traffic load-balanced across both paths</li>
+<li>Use case: Maximize bandwidth, high availability</li>
+</ul>
+<p><strong>Active-Passive</strong>:</p>
+<ul>
+<li>Primary path with lower MED</li>
+<li>Backup path with higher MED</li>
+<li>Traffic uses primary path unless it fails</li>
+<li>Use case: Controlled failover, predictable routing</li>
+</ul>
 <h2 id="bfd-bidirectional-forwarding-detection">BFD (Bidirectional Forwarding Detection)<a class="headerlink" href="#bfd-bidirectional-forwarding-detection" title="Permanent link">&para;</a></h2>
 <h3 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h3>
-<p>Fast failure detection for BGP sessions:
-- BGP keepalive: 60 seconds (slow)
-- BFD: 1-3 seconds (fast)</p>
+<p>Fast failure detection for BGP sessions:</p>
+<ul>
+<li>BGP keepalive: 60 seconds (slow)</li>
+<li>BFD: 1-3 seconds (fast)</li>
+</ul>
 <h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Lightweight &ldquo;hello&rdquo; packets exchanged between peers</li>
@@ -7791,6 +7820,7 @@ Backup Path:
 </ul>
 <h3 id="configuration-in-gcp">Configuration in GCP<a class="headerlink" href="#configuration-in-gcp" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">BGP Session</span><span class="p">:</span>
+
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">BFD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Enabled</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Min Transmit Interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000 ms (default)</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Min Receive Interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000 ms (default)</span>
@@ -7809,6 +7839,7 @@ Backup Path:
 <p><strong>Requirement</strong>: Route traffic via Tunnel 1, use Tunnel 2 as backup.</p>
 <p><strong>Solution</strong>:
 <div class="highlight"><pre><span></span><code>Cloud Router BGP Sessions:
+
   - Tunnel 1: MED = 50
   - Tunnel 2: MED = 100
 
@@ -7818,10 +7849,12 @@ On-premises routes traffic via Tunnel 1 (lower MED preferred).
 <p><strong>Requirement</strong>: US traffic uses US region, Europe traffic uses Europe region.</p>
 <p><strong>Solution</strong>:
 <div class="highlight"><pre><span></span><code>Cloud Router US (us-central1):
+
   - Advertises US subnets with MED = 50
   - Advertises EU subnets with MED = 100
 
 Cloud Router EU (europe-west1):
+
   - Advertises EU subnets with MED = 50
   - Advertises US subnets with MED = 100
 
@@ -7831,6 +7864,7 @@ On-premises router learns both, prefers regional routes (lower MED).
 <p><strong>Requirement</strong>: Force GCP to use specific on-premises path.</p>
 <p><strong>Solution</strong>:
 <div class="highlight"><pre><span></span><code>On-Premises Router:
+
   - Primary path: AS-PATH = 65001
   - Backup path: AS-PATH = 65001 65001 65001 (prepended)
 
@@ -7840,6 +7874,7 @@ Cloud Router prefers primary (shorter AS-PATH).
 <p><strong>Requirement</strong>: Distribute traffic evenly across multiple VPN tunnels.</p>
 <p><strong>Solution</strong>:
 <div class="highlight"><pre><span></span><code>Cloud Router:
+
   - Tunnel 1: MED = 100
   - Tunnel 2: MED = 100
   - Tunnel 3: MED = 100
@@ -7863,11 +7898,13 @@ Equal cost paths enable ECMP load balancing.
   neighbor 169.254.1.1 remote-as 64512
   neighbor 169.254.1.1 password SHARED_SECRET
 </code></pre></div></p>
-<p><strong>Best Practices</strong>:
-- Use strong, random keys (16+ characters)
-- Store keys securely (secrets management)
-- Rotate keys periodically
-- Consistent configuration on both sides</p>
+<p><strong>Best Practices</strong>:</p>
+<ul>
+<li>Use strong, random keys (16+ characters)</li>
+<li>Store keys securely (secrets management)</li>
+<li>Rotate keys periodically</li>
+<li>Consistent configuration on both sides</li>
+</ul>
 <h2 id="limits-and-quotas">Limits and Quotas<a class="headerlink" href="#limits-and-quotas" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -7961,12 +7998,14 @@ Equal cost paths enable ECMP load balancing.
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="bgp-session-not-establishing">BGP Session Not Establishing<a class="headerlink" href="#bgp-session-not-establishing" title="Permanent link">&para;</a></h3>
 <p><strong>Symptoms</strong>: BGP state stuck in &ldquo;Idle&rdquo; or &ldquo;Active&rdquo;</p>
-<p><strong>Common Causes</strong>:
-1. ASN mismatch (peer ASN incorrect)
-2. MD5 authentication mismatch
-3. Incorrect peer IP address
-4. Firewall blocking TCP 179
-5. Interface down (VPN tunnel down)</p>
+<p><strong>Common Causes</strong>:</p>
+<ol>
+<li>ASN mismatch (peer ASN incorrect)</li>
+<li>MD5 authentication mismatch</li>
+<li>Incorrect peer IP address</li>
+<li>Firewall blocking TCP 179</li>
+<li>Interface down (VPN tunnel down)</li>
+</ol>
 <p><strong>Debug Steps</strong>:
 <div class="highlight"><pre><span></span><code><span class="c1"># Check BGP session status</span>
 gcloud<span class="w"> </span>compute<span class="w"> </span>routers<span class="w"> </span>get-status<span class="w"> </span>ROUTER_NAME<span class="w"> </span>--region<span class="o">=</span>REGION
@@ -7979,12 +8018,14 @@ gcloud<span class="w"> </span>compute<span class="w"> </span>routers<span class=
 </code></pre></div></p>
 <h3 id="routes-not-being-advertisedlearned">Routes Not Being Advertised/Learned<a class="headerlink" href="#routes-not-being-advertisedlearned" title="Permanent link">&para;</a></h3>
 <p><strong>Symptoms</strong>: Expected routes missing from routing table</p>
-<p><strong>Common Causes</strong>:
-1. VPC dynamic routing mode (regional vs global)
-2. Custom advertisement not configured
-3. Route quota exceeded
-4. AS-PATH loop detection
-5. Route filtering on peer side</p>
+<p><strong>Common Causes</strong>:</p>
+<ol>
+<li>VPC dynamic routing mode (regional vs global)</li>
+<li>Custom advertisement not configured</li>
+<li>Route quota exceeded</li>
+<li>AS-PATH loop detection</li>
+<li>Route filtering on peer side</li>
+</ol>
 <p><strong>Debug Steps</strong>:
 <div class="highlight"><pre><span></span><code><span class="c1"># Check advertised routes</span>
 gcloud<span class="w"> </span>compute<span class="w"> </span>routers<span class="w"> </span>get-status<span class="w"> </span>ROUTER_NAME<span class="w"> </span>--region<span class="o">=</span>REGION
@@ -7998,15 +8039,19 @@ gcloud<span class="w"> </span>compute<span class="w"> </span>routers<span class=
 </code></pre></div></p>
 <h3 id="asymmetric-routing">Asymmetric Routing<a class="headerlink" href="#asymmetric-routing" title="Permanent link">&para;</a></h3>
 <p><strong>Symptoms</strong>: Inbound and outbound traffic taking different paths</p>
-<p><strong>Diagnosis</strong>:
-- Use VPC Flow Logs to trace traffic paths
-- Check MED values on all BGP sessions
-- Verify AS-PATH prepending configuration
-- Review on-premises routing policy</p>
-<p><strong>Solutions</strong>:
-- Adjust MED to align inbound path with outbound
-- Modify AS-PATH prepending on outbound path
-- Ensure symmetric route advertisements</p>
+<p><strong>Diagnosis</strong>:</p>
+<ul>
+<li>Use VPC Flow Logs to trace traffic paths</li>
+<li>Check MED values on all BGP sessions</li>
+<li>Verify AS-PATH prepending configuration</li>
+<li>Review on-premises routing policy</li>
+</ul>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li>Adjust MED to align inbound path with outbound</li>
+<li>Modify AS-PATH prepending on outbound path</li>
+<li>Ensure symmetric route advertisements</li>
+</ul>
 <h2 id="related-concepts">Related Concepts<a class="headerlink" href="#related-concepts" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Cloud Router</strong>: GCP service that implements BGP</li>

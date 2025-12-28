@@ -7628,177 +7628,238 @@
 <h2 id="core-networking-roles">Core Networking Roles<a class="headerlink" href="#core-networking-roles" title="Permanent link">&para;</a></h2>
 <h3 id="compute-network-admin-rolescomputenetworkadmin">Compute Network Admin (<code>roles/compute.networkAdmin</code>)<a class="headerlink" href="#compute-network-admin-rolescomputenetworkadmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Full control over networking resources</p>
-<p><strong>Can</strong>:
-- Create, modify, delete VPC networks, subnets, routes
-- Configure firewall rules, firewall policies
-- Manage VPN gateways, tunnels, Cloud Routers
-- Configure load balancers and SSL certificates
-- Create and delete Private Service Connect endpoints
-- Manage network peering connections
-- Configure Cloud NAT
-- Administer Private Google Access settings</p>
-<p><strong>Cannot</strong>:
-- Create instances (requires <code>compute.instanceAdmin</code>)
-- Modify organization policies
-- Manage billing
-- Create Shared VPC host projects (requires <code>compute.xpnAdmin</code>)</p>
-<p><strong>Use Case</strong>:
-- Network administrators managing VPC infrastructure
-- Platform teams responsible for network design and implementation
-- DevOps engineers managing cloud networking</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Create, modify, delete VPC networks, subnets, routes</li>
+<li>Configure firewall rules, firewall policies</li>
+<li>Manage VPN gateways, tunnels, Cloud Routers</li>
+<li>Configure load balancers and SSL certificates</li>
+<li>Create and delete Private Service Connect endpoints</li>
+<li>Manage network peering connections</li>
+<li>Configure Cloud NAT</li>
+<li>Administer Private Google Access settings</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Create instances (requires <code>compute.instanceAdmin</code>)</li>
+<li>Modify organization policies</li>
+<li>Manage billing</li>
+<li>Create Shared VPC host projects (requires <code>compute.xpnAdmin</code>)</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Network administrators managing VPC infrastructure</li>
+<li>Platform teams responsible for network design and implementation</li>
+<li>DevOps engineers managing cloud networking</li>
+</ul>
 <p><strong>Scope</strong>: Project-level (can also grant at folder/org level)</p>
 <hr />
 <h3 id="compute-network-user-rolescomputenetworkuser">Compute Network User (<code>roles/compute.networkUser</code>)<a class="headerlink" href="#compute-network-user-rolescomputenetworkuser" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Use existing network resources but cannot create or modify them</p>
-<p><strong>Can</strong>:
-- Use VPC subnets to create instances
-- Attach instances to existing subnets
-- View network, subnet, route information (read-only)
-- Use shared VPC subnets (critical for service projects)</p>
-<p><strong>Cannot</strong>:
-- Create or delete networks, subnets
-- Modify firewall rules
-- Create VPN or load balancers
-- Change network configurations</p>
-<p><strong>Use Case</strong>:
-- Application teams creating VMs in service projects
-- Developers deploying workloads to existing infrastructure
-- Service accounts for GKE, Cloud Run needing network access
-- Users in Shared VPC service projects</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Use VPC subnets to create instances</li>
+<li>Attach instances to existing subnets</li>
+<li>View network, subnet, route information (read-only)</li>
+<li>Use shared VPC subnets (critical for service projects)</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Create or delete networks, subnets</li>
+<li>Modify firewall rules</li>
+<li>Create VPN or load balancers</li>
+<li>Change network configurations</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Application teams creating VMs in service projects</li>
+<li>Developers deploying workloads to existing infrastructure</li>
+<li>Service accounts for GKE, Cloud Run needing network access</li>
+<li>Users in Shared VPC service projects</li>
+</ul>
 <p><strong>Scope</strong>: Project-level or subnet-level (for granular access)</p>
 <p><strong>Important</strong>: In Shared VPC, grant this role <strong>at subnet level</strong> in host project to service project service accounts.</p>
 <hr />
 <h3 id="compute-network-viewer-rolescomputenetworkviewer">Compute Network Viewer (<code>roles/compute.networkViewer</code>)<a class="headerlink" href="#compute-network-viewer-rolescomputenetworkviewer" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Read-only access to networking resources</p>
-<p><strong>Can</strong>:
-- View VPC networks, subnets, routes
-- View firewall rules and policies
-- View VPN gateways, Cloud Routers, load balancers
-- View network topology and configuration
-- Access networking metrics and logs (if logging viewer role also granted)</p>
-<p><strong>Cannot</strong>:
-- Create, modify, or delete any resources
-- Use network resources to create instances</p>
-<p><strong>Use Case</strong>:
-- Auditors reviewing network configurations
-- Read-only access for troubleshooting
-- Security teams reviewing firewall rules
-- Junior team members learning infrastructure</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>View VPC networks, subnets, routes</li>
+<li>View firewall rules and policies</li>
+<li>View VPN gateways, Cloud Routers, load balancers</li>
+<li>View network topology and configuration</li>
+<li>Access networking metrics and logs (if logging viewer role also granted)</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Create, modify, or delete any resources</li>
+<li>Use network resources to create instances</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Auditors reviewing network configurations</li>
+<li>Read-only access for troubleshooting</li>
+<li>Security teams reviewing firewall rules</li>
+<li>Junior team members learning infrastructure</li>
+</ul>
 <p><strong>Scope</strong>: Project, folder, or organization level</p>
 <hr />
 <h3 id="compute-security-admin-rolescomputesecurityadmin">Compute Security Admin (<code>roles/compute.securityAdmin</code>)<a class="headerlink" href="#compute-security-admin-rolescomputesecurityadmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Manage security-related networking resources</p>
-<p><strong>Can</strong>:
-- Create, modify, delete firewall rules
-- Manage SSL certificates and SSL policies
-- Configure Cloud Armor security policies
-- Manage organization firewall policies (if org-level)
-- View network resources (read-only)</p>
-<p><strong>Cannot</strong>:
-- Create or modify VPC networks, subnets
-- Create VPN or load balancers (only security configs)
-- Modify routes</p>
-<p><strong>Use Case</strong>:
-- Security teams managing firewall rules
-- Compliance teams enforcing security policies
-- Separation of duties (security vs networking)</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Create, modify, delete firewall rules</li>
+<li>Manage SSL certificates and SSL policies</li>
+<li>Configure Cloud Armor security policies</li>
+<li>Manage organization firewall policies (if org-level)</li>
+<li>View network resources (read-only)</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Create or modify VPC networks, subnets</li>
+<li>Create VPN or load balancers (only security configs)</li>
+<li>Modify routes</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Security teams managing firewall rules</li>
+<li>Compliance teams enforcing security policies</li>
+<li>Separation of duties (security vs networking)</li>
+</ul>
 <p><strong>Scope</strong>: Project, folder, or organization level</p>
 <hr />
 <h2 id="shared-vpc-specific-roles">Shared VPC Specific Roles<a class="headerlink" href="#shared-vpc-specific-roles" title="Permanent link">&para;</a></h2>
 <h3 id="compute-shared-vpc-admin-rolescomputexpnadmin">Compute Shared VPC Admin (<code>roles/compute.xpnAdmin</code>)<a class="headerlink" href="#compute-shared-vpc-admin-rolescomputexpnadmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Enable and manage Shared VPC configuration</p>
-<p><strong>Can</strong>:
-- Enable/disable a project as Shared VPC host
-- Attach/detach service projects to host projects
-- View Shared VPC configuration</p>
-<p><strong>Cannot</strong>:
-- Create networks or subnets (requires <code>networkAdmin</code>)
-- Grant networkUser role (requires IAM admin permissions)</p>
-<p><strong>Use Case</strong>:
-- Organization admins setting up Shared VPC
-- Platform teams managing multi-project architectures</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Enable/disable a project as Shared VPC host</li>
+<li>Attach/detach service projects to host projects</li>
+<li>View Shared VPC configuration</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Create networks or subnets (requires <code>networkAdmin</code>)</li>
+<li>Grant networkUser role (requires IAM admin permissions)</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Organization admins setting up Shared VPC</li>
+<li>Platform teams managing multi-project architectures</li>
+</ul>
 <p><strong>Scope</strong>: <strong>Organization or folder level only</strong> (cannot grant at project level)</p>
 <p><strong>Important</strong>: Typically paired with <code>compute.networkAdmin</code> for full Shared VPC management.</p>
 <hr />
 <h3 id="service-project-admin-no-specific-role">Service Project Admin (No specific role)<a class="headerlink" href="#service-project-admin-no-specific-role" title="Permanent link">&para;</a></h3>
 <p><strong>Pattern</strong>: Combine multiple roles for service project administrators</p>
-<p><strong>Typical Combination</strong>:
-- <code>roles/compute.instanceAdmin</code>: Create VMs
-- <code>roles/compute.networkUser</code>: Use shared subnets (granted on host project subnets)
-- <code>roles/iam.serviceAccountUser</code>: Attach service accounts</p>
+<p><strong>Typical Combination</strong>:</p>
+<ul>
+<li><code>roles/compute.instanceAdmin</code>: Create VMs</li>
+<li><code>roles/compute.networkUser</code>: Use shared subnets (granted on host project subnets)</li>
+<li><code>roles/iam.serviceAccountUser</code>: Attach service accounts</li>
+</ul>
 <p><strong>Use Case</strong>: Users who manage resources in service projects of Shared VPC</p>
 <hr />
 <h2 id="specialized-networking-roles">Specialized Networking Roles<a class="headerlink" href="#specialized-networking-roles" title="Permanent link">&para;</a></h2>
 <h3 id="compute-load-balancer-admin-rolescomputeloadbalanceradmin">Compute Load Balancer Admin (<code>roles/compute.loadBalancerAdmin</code>)<a class="headerlink" href="#compute-load-balancer-admin-rolescomputeloadbalanceradmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Manage load balancing resources</p>
-<p><strong>Can</strong>:
-- Create, modify, delete load balancers
-- Configure backend services, health checks
-- Manage SSL certificates for load balancers
-- Configure URL maps, target proxies
-- Manage network endpoint groups (NEGs)</p>
-<p><strong>Cannot</strong>:
-- Modify VPC networks or subnets
-- Create instances (backend resources)</p>
-<p><strong>Use Case</strong>:
-- Application teams managing their own load balancers
-- Separation of duties for load balancer management</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Create, modify, delete load balancers</li>
+<li>Configure backend services, health checks</li>
+<li>Manage SSL certificates for load balancers</li>
+<li>Configure URL maps, target proxies</li>
+<li>Manage network endpoint groups (NEGs)</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Modify VPC networks or subnets</li>
+<li>Create instances (backend resources)</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Application teams managing their own load balancers</li>
+<li>Separation of duties for load balancer management</li>
+</ul>
 <hr />
 <h3 id="compute-public-ip-admin-rolescomputepublicipadmin">Compute Public IP Admin (<code>roles/compute.publicIpAdmin</code>)<a class="headerlink" href="#compute-public-ip-admin-rolescomputepublicipadmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Manage external IP addresses</p>
-<p><strong>Can</strong>:
-- Reserve and release external IP addresses
-- Promote ephemeral IPs to static
-- View IP address usage</p>
-<p><strong>Cannot</strong>:
-- Attach IPs to instances (requires instance admin)
-- Modify networks or subnets</p>
-<p><strong>Use Case</strong>:
-- IP address management teams
-- Resource optimization (releasing unused IPs)</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Reserve and release external IP addresses</li>
+<li>Promote ephemeral IPs to static</li>
+<li>View IP address usage</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Attach IPs to instances (requires instance admin)</li>
+<li>Modify networks or subnets</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>IP address management teams</li>
+<li>Resource optimization (releasing unused IPs)</li>
+</ul>
 <hr />
 <h3 id="service-networking-admin-rolesservicenetworkingnetworksadmin">Service Networking Admin (<code>roles/servicenetworking.networksAdmin</code>)<a class="headerlink" href="#service-networking-admin-rolesservicenetworkingnetworksadmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Manage private service connections</p>
-<p><strong>Can</strong>:
-- Create Private Service Connect endpoints
-- Configure private IP allocations for Google services
-- Manage peered VPC connections for managed services (e.g., Cloud SQL)
-- Configure Private Service Connect forwarding rules</p>
-<p><strong>Cannot</strong>:
-- Modify VPC networks (requires <code>networkAdmin</code>)</p>
-<p><strong>Use Case</strong>:
-- Platform teams configuring private access to Google services
-- Database administrators setting up Cloud SQL private IP</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Create Private Service Connect endpoints</li>
+<li>Configure private IP allocations for Google services</li>
+<li>Manage peered VPC connections for managed services (e.g., Cloud SQL)</li>
+<li>Configure Private Service Connect forwarding rules</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Modify VPC networks (requires <code>networkAdmin</code>)</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>Platform teams configuring private access to Google services</li>
+<li>Database administrators setting up Cloud SQL private IP</li>
+</ul>
 <hr />
 <h3 id="dns-administrator-rolesdnsadmin">DNS Administrator (<code>roles/dns.admin</code>)<a class="headerlink" href="#dns-administrator-rolesdnsadmin" title="Permanent link">&para;</a></h3>
 <p><strong>Permissions</strong>: Manage Cloud DNS resources</p>
-<p><strong>Can</strong>:
-- Create, modify, delete DNS zones
-- Manage DNS records
-- Configure DNS peering
-- Manage DNS policies (split horizon, inbound/outbound forwarding)</p>
-<p><strong>Cannot</strong>:
-- Modify VPC networks directly (but can peer DNS zones)</p>
-<p><strong>Use Case</strong>:
-- DNS administrators managing internal and external DNS
-- Multi-cloud DNS integration</p>
+<p><strong>Can</strong>:</p>
+<ul>
+<li>Create, modify, delete DNS zones</li>
+<li>Manage DNS records</li>
+<li>Configure DNS peering</li>
+<li>Manage DNS policies (split horizon, inbound/outbound forwarding)</li>
+</ul>
+<p><strong>Cannot</strong>:</p>
+<ul>
+<li>Modify VPC networks directly (but can peer DNS zones)</li>
+</ul>
+<p><strong>Use Case</strong>:</p>
+<ul>
+<li>DNS administrators managing internal and external DNS</li>
+<li>Multi-cloud DNS integration</li>
+</ul>
 <hr />
 <h2 id="custom-roles">Custom Roles<a class="headerlink" href="#custom-roles" title="Permanent link">&para;</a></h2>
 <h3 id="when-to-create-custom-roles">When to Create Custom Roles<a class="headerlink" href="#when-to-create-custom-roles" title="Permanent link">&para;</a></h3>
-<p>✅ <strong>Use Custom Roles When</strong>:
-- Predefined roles are too permissive
-- Need specific combination of permissions
-- Compliance requires fine-grained access control
-- Implementing least-privilege security model</p>
-<p>❌ <strong>Avoid Custom Roles When</strong>:
-- Predefined roles meet requirements
-- Organization lacks resources to maintain custom roles
-- Complexity outweighs security benefits</p>
+<p>✅ <strong>Use Custom Roles When</strong>:</p>
+<ul>
+<li>Predefined roles are too permissive</li>
+<li>Need specific combination of permissions</li>
+<li>Compliance requires fine-grained access control</li>
+<li>Implementing least-privilege security model</li>
+</ul>
+<p>❌ <strong>Avoid Custom Roles When</strong>:</p>
+<ul>
+<li>Predefined roles meet requirements</li>
+<li>Organization lacks resources to maintain custom roles</li>
+<li>Complexity outweighs security benefits</li>
+</ul>
 <h3 id="example-custom-role-vpn-operator">Example Custom Role: VPN Operator<a class="headerlink" href="#example-custom-role-vpn-operator" title="Permanent link">&para;</a></h3>
 <p><strong>Use Case</strong>: Allow VPN tunnel management without full network admin access</p>
 <div class="highlight"><pre><span></span><code><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;VPN</span><span class="nv"> </span><span class="s">Operator&quot;</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Manage</span><span class="nv"> </span><span class="s">VPN</span><span class="nv"> </span><span class="s">tunnels</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Cloud</span><span class="nv"> </span><span class="s">Routers&quot;</span>
 <span class="nt">includedPermissions</span><span class="p">:</span>
+
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute.vpnGateways.*</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute.vpnTunnels.*</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute.routers.*</span>
@@ -7814,6 +7875,7 @@
 <div class="highlight"><pre><span></span><code><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Firewall</span><span class="nv"> </span><span class="s">Rule</span><span class="nv"> </span><span class="s">Manager&quot;</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">modify</span><span class="nv"> </span><span class="s">firewall</span><span class="nv"> </span><span class="s">rules</span><span class="nv"> </span><span class="s">only&quot;</span>
 <span class="nt">includedPermissions</span><span class="p">:</span>
+
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute.firewalls.*</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute.networks.get</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute.networks.list</span>
@@ -7883,12 +7945,15 @@ gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-bin
 <h3 id="6-separation-of-duties">6. Separation of Duties<a class="headerlink" href="#6-separation-of-duties" title="Permanent link">&para;</a></h3>
 <p><strong>Example</strong>: Separate networking and security management</p>
 <div class="highlight"><pre><span></span><code>Network Admins Group:
+
   - roles/compute.networkAdmin (VPC, subnets, routes, VPN)
 
 Security Admins Group:
+
   - roles/compute.securityAdmin (firewall rules, SSL policies)
 
 Shared VPC Admins Group:
+
   - roles/compute.xpnAdmin (Shared VPC management)
   - roles/compute.networkAdmin (network resources)
 </code></pre></div>
@@ -8007,6 +8072,7 @@ gcloud<span class="w"> </span>logging<span class="w"> </span>sinks<span class="w
 <h3 id="5-conditional-iam-context-aware-access">5. Conditional IAM (Context-Aware Access)<a class="headerlink" href="#5-conditional-iam-context-aware-access" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Example: Grant networkAdmin only from corporate network</span>
 <span class="nt">bindings</span><span class="p">:</span>
+
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">members</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">group:network-admins@example.com</span>
 <span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roles/compute.networkAdmin</span>
