@@ -1,2 +1,2 @@
 # devops-interview-preparation
-To be filled later
+Miscellaneous notes for DevOps, SRE, and Cloud Engineering interviews and certifications
